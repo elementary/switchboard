@@ -21,6 +21,7 @@ using ElementaryWidgets;
 namespace SwitchBoard {
     public const string version = "0.1 pre-alpha";
     public const string errdomain = "switchboard";
+    public const string plug_defenition_dir = "./plugs/";
     
     
     [DBus (name = "org.elementary.SettingsApp")]
@@ -94,7 +95,7 @@ namespace SwitchBoard {
             foreach (string keyfile in keyfiles) {
                 KeyFile kf = new KeyFile();
                 Gee.HashMap<string, string> pane = new Gee.HashMap<string, string> ();
-                try { kf.load_from_file(keyfile, KeyFileFlags.NONE); } 
+                try { kf.load_from_file(SwitchBoard.plug_defenition_dir + keyfile, KeyFileFlags.NONE); } 
                 catch {}
                 try { pane["exec"] = kf.get_string (keyfile, "exec"); }
                 catch {}
@@ -107,7 +108,7 @@ namespace SwitchBoard {
         }
         
         private Gee.ArrayList<string> find_panes () {
-            var directory = File.new_for_path (".");
+            var directory = File.new_for_path (SwitchBoard.plug_defenition_dir);
             var enumerator = directory.enumerate_children (FILE_ATTRIBUTE_STANDARD_NAME, 0);
             Gee.ArrayList<string> keyfiles = new Gee.ArrayList<string> ();
             
