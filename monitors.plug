@@ -1,0 +1,4 @@
+[monitors.plug]
+exec=fail
+icon=applications-versioncontrol
+title=School

@@ -1,0 +1,4 @@
+[chat.plug]
+icon=applications-chat
+title=Chat
+exec=foobar
