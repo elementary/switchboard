@@ -21,7 +21,9 @@ using ElementaryWidgets;
 namespace SwitchBoard {
     public const string version = "0.1 pre-alpha";
     public const string errdomain = "switchboard";
-    public const string plug_defenition_dir = "./plugs/";
+    public const string plug_def_dir = "./plugs/";
+    public const string plug_exec_dir = "./plugs_exec/";
+    public const string app_title = "SwitchBoard";
     
     
     [DBus (name = "org.elementary.SettingsApp")]
@@ -44,17 +46,19 @@ namespace SwitchBoard {
             this.socket = new Gtk.Socket ();
             this.height_request = 500;
             this.position = Gtk.WindowPosition.CENTER;
-            this.title = "SwitchBoard";
+            this.title = SwitchBoard.app_title;
             destroy.connect(()=> Gtk.main_quit());
             
             // Init
             this.vbox = new VBox (false, 0);
             this.toolbar = new Toolbar ();
-            this.store = new ListStore (2, typeof (string), typeof (Gdk.Pixbuf));
+            // Create a ListStore with space to hold Name, icon and executable name
+            this.store = new ListStore (3, typeof (string), typeof (Gdk.Pixbuf), typeof(string));
             this.pane_view = new IconView.with_model (this.store);
             this.pane_view.set_columns(5);
             this.pane_view.set_text_column (0);
             this.pane_view.set_pixbuf_column (1);
+            this.pane_view.selection_changed.connect(this.change_pane);
             
             setup_toolbar ();
             this.vbox.pack_start (this.toolbar, false, false);
@@ -65,6 +69,24 @@ namespace SwitchBoard {
             this.socket.hide ();
             load_panes ();
             this.show_all ();
+        }
+        
+        public void change_pane() {
+            var selected = this.pane_view.get_selected_items ();
+            if(selected.length() == 1) {
+                var item = selected.nth_data(0);
+                GLib.Value executable;
+                TreeIter iter;
+                this.store.get_iter(out iter, item);
+                this.store.get_value (iter, 2, out executable);
+                GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, "selected #%s | executable %s", item.to_string(), executable.get_string());
+                // Add launching and view switching here
+                
+                //Clear selection again
+                this.pane_view.unselect_path(item);
+            } else {
+                GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, "Selection has been cleared!");
+            }
         }
         
         public int grab_wid () {
@@ -78,8 +100,8 @@ namespace SwitchBoard {
             this.update_title(identity_string);
         }
         
-        private void update_title(string category) {
-            this.title += category;
+        private void update_title(string pane_title) {
+            this.title += SwitchBoard.app_title + " - " + pane_title;
         }
         
         private void pack_pane (Gee.HashMap<string, string> plug) {
@@ -88,14 +110,15 @@ namespace SwitchBoard {
             this.store.append (out root);
             this.store.set (root, 0, plug["title"], -1);
             this.store.set (root, 1, icon_pixbuf, -1);
+            this.store.set (root, 2, plug["exec"], -1);
         }
         
-        public void load_panes () {
+        private void load_panes () {
             Gee.ArrayList<string> keyfiles = find_panes ();
             foreach (string keyfile in keyfiles) {
                 KeyFile kf = new KeyFile();
                 Gee.HashMap<string, string> pane = new Gee.HashMap<string, string> ();
-                try { kf.load_from_file(SwitchBoard.plug_defenition_dir + keyfile, KeyFileFlags.NONE); } 
+                try { kf.load_from_file(SwitchBoard.plug_def_dir + keyfile, KeyFileFlags.NONE); } 
                 catch {}
                 try { pane["exec"] = kf.get_string (keyfile, "exec"); }
                 catch {}
@@ -108,7 +131,7 @@ namespace SwitchBoard {
         }
         
         private Gee.ArrayList<string> find_panes () {
-            var directory = File.new_for_path (SwitchBoard.plug_defenition_dir);
+            var directory = File.new_for_path (SwitchBoard.plug_def_dir);
             var enumerator = directory.enumerate_children (FILE_ATTRIBUTE_STANDARD_NAME, 0);
             Gee.ArrayList<string> keyfiles = new Gee.ArrayList<string> ();
             
