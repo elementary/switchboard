@@ -19,50 +19,77 @@ using Gtk;
 
 [DBus (name = "org.elementary.SettingsApp")]
 public interface SettingsAppController : GLib.Object {
-    // throwing IOError is mandatory for all client interface methods
-    public abstract int grab_wid () throws IOError;
-    public abstract void identify (string out_string) throws IOError;
+    public signal void go_back();
+    public signal void go_forward();
+    
+    public abstract int get_socket_wid () throws IOError;
+    public abstract void update_window_title (string new_title) throws IOError;
 }
 
 public class SettingsPane : Gtk.Plug {
-   
-    // Fields
+    /* Signals */
+    public signal bool go_back();
+    public signal bool go:forward();
+    
+    /** Fields **/
     public VBox vbox;
     public HPaned main_pane;
     public string settings_name;
     public SettingsAppController settings_controller;
-
+    
+    private string _window_title;
+    private string _pane_name;
+    
+    /** Properties **/
+    public string title {
+        get { return _window_title; }
+        set {
+            _window_title = value;
+            this.set_window_title(value);
+        }
+    }
+    
     public SettingsPane (string pane_name) {
         int wid = 0;
         try {
             this.settings_controller = Bus.get_proxy_sync (BusType.SESSION, "org.elementary.SettingsApp",
                                                              "/org/elementary/settingsapp");
-            wid = settings_controller.grab_wid ();
+            wid = settings_controller.get_socket_wid ();
+            settings_controller.go_back.connect(this.go_back_handler);
+            settings_controller.go_forward.connect(this.go_forward_handler);
         } catch (IOError e) {
-            stderr.printf ("%s\n", e.message);
+            GLib.log("SettingsPane", GLib.LogLevelFlags.LEVEL_ERROR, "%s", e.message);
         }
         GLib.log("SettingsPane", GLib.LogLevelFlags.LEVEL_DEBUG, "SwitchBoards WID is %i!", wid);
         base.construct((Gdk.NativeWindow) wid);
         
-//      Init
-        this.vbox = new VBox (false, 3);
-        this.main_pane = new HPaned ();
+        /* Init */
+        _pane_name = pane_name;
+        title = pane_name;
         
-        this.vbox.pack_start(this.main_pane, true, true);
-        this.add (this.vbox);
-        this.show_all ();
-        // Exit App if the Plug gets destroyed
+        /* Exit App if the Plug gets destroyed */
         this.destroy.connect (Gtk.main_quit);
     }
     
-     public void set_name (string inc_name) {
-        this.settings_name = inc_name;
-        try {
-            settings_controller.identify (inc_name);
-        } catch (IOError e) {
-            GLib.log(inc_name, LogLevelFlags.LEVEL_CRITICAL, "Failed to set parents Title!");
+    private void go_back_handler() {
+        GLib.log("SettingsPane", GLib.LogLevelFlags.LEVEL_DEBUG, "Recieved Back signal");
+        if(!this.go_back()) {
+            Gtk.main_quit();
+            GLib.log("SettingsPane", GLib.LogLevelFlags.LEVEL_DEBUG, "Quitting");
         }
     }
-
+    
+    private void go_forward_handler() {
+        GLib.log("SettingsPane", GLib.LogLevelFlags.LEVEL_DEBUG, "Recieved Forward signal");
+        this.go_forward();
+    }
+    
+    private void set_window_title (string new_title) {
+        try {
+            settings_controller.update_window_title(new_title);
+        } catch (IOError e) {
+            GLib.log(_pane_name, LogLevelFlags.LEVEL_CRITICAL, 
+                    "Failed to set parents Title to %s!", new_title);
+        }
+    }
 }
-

@@ -22,36 +22,49 @@ namespace SwitchBoard {
     public const string version = "0.1 pre-alpha";
     public const string errdomain = "switchboard";
     public const string plug_def_dir = "./plugs/";
-    public const string plug_exec_dir = "./plugs_exec/";
+    public const string plug_exec_dir = "./plug/";
     public const string app_title = "SwitchBoard";
     
     
     [DBus (name = "org.elementary.SettingsApp")]
     public class SettingsApp : Window {
        
-        // Fields
-        ToolButton back_button;
-        ToolButton forward_button;
+        /* Toolbar widgets */
+        private Toolbar toolbar;
+        private ToolButton back_button;
+        private ToolButton forward_button;
+        private ElementaryEntry find_entry;
         public AppMenu app_menu;
+        
+        /* Content Area widgets */
+        private VBox vbox;
         public Gtk.Socket socket;
-        ElementaryEntry find_entry;
-        VBox vbox;
-        IconView pane_view;
-        ListStore store;
-        Toolbar toolbar;
-        Gtk.IconTheme theme = Gtk.IconTheme.get_default();   
-         
+        private IconView pane_view;
+        
+        /* Plugging Data */
+        private TreeIter selected_plug;
+        private bool socket_shown;
+        
+        
+        /* Icon View Data */
+        private ListStore store;
+        private Gtk.IconTheme theme = Gtk.IconTheme.get_default();
+        
+        
         public SettingsApp () {
             // The window poperties
-            this.socket = new Gtk.Socket ();
             this.height_request = 500;
             this.position = Gtk.WindowPosition.CENTER;
             this.title = SwitchBoard.app_title;
-            destroy.connect(()=> Gtk.main_quit());
+            this.destroy.connect(()=> Gtk.main_quit());
             
-            // Init
-            this.vbox = new VBox (false, 0);
-            this.toolbar = new Toolbar ();
+            /* Setup Plug Socket */
+            this.socket = new Gtk.Socket ();
+            this.socket.plug_added.connect(this.switch_to_socket);
+            this.socket.plug_removed.connect(this.switch_to_icons);
+            this.socket.hide();
+            
+            /* Setup icon view */
             // Create a ListStore with space to hold Name, icon and executable name
             this.store = new ListStore (3, typeof (string), typeof (Gdk.Pixbuf), typeof(string));
             this.pane_view = new IconView.with_model (this.store);
@@ -60,59 +73,93 @@ namespace SwitchBoard {
             this.pane_view.set_pixbuf_column (1);
             this.pane_view.selection_changed.connect(this.change_pane);
             
+            /* Setup toolbar */
             setup_toolbar ();
+            
+            /* Wire up interface */
+            this.vbox = new VBox (false, 0);
             this.vbox.pack_start (this.toolbar, false, false);
             this.vbox.pack_start (this.socket, false, false);
             this.vbox.pack_end (this.pane_view, true, true);
             
             this.add (this.vbox);
-            this.socket.hide ();
-            load_panes ();
+            
+            this.load_panes ();
             this.show_all ();
         }
+        
+        /****************/
+        /* DBus methods */
+        /****************/
+        public signal void go_back();
+        public signal void go_forward();
+        
+        public int get_socket_wid() {
+            GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, "Dispatching WID");
+            return ((int) this.socket.get_id ());
+        }
+        
+        public void update_window_title(string new_title) {
+            this.title = SwitchBoard.app_title + " - " + new_title;
+        }
+        
+        private void send_back_signal() {
+            if(socket_shown)
+            {
+                //emmit DBus signal
+                this.go_back();
+            } else {
+                //execute some local code
+            }
+        }
+        
+        private void send_forward_signal() {
+            if(socket_shown)
+            {
+                //emmit DBus signal
+                this.go_forward();
+            } else {
+                //execute some local code
+            }
+        }
+        
+        /*****************/
+        /* pane handlers */
+        /*****************/
         
         public void change_pane() {
             var selected = this.pane_view.get_selected_items ();
             if(selected.length() == 1) {
-                var item = selected.nth_data(0);
                 GLib.Value executable;
-                TreeIter iter;
-                this.store.get_iter(out iter, item);
-                this.store.get_value (iter, 2, out executable);
+                var item = selected.nth_data(0);
+                this.store.get_iter(out selected_plug, item);
+                this.store.get_value (selected_plug, 2, out executable);
                 GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, "selected #%s | executable %s", item.to_string(), executable.get_string());
-                // Add launching and view switching here
-                
-                //Clear selection again
+                /* Launch Plugs executable */
+                GLib.Process.spawn_command_line_async (plug_exec_dir + "appearance-settings");
+                /* Clear selection again */
                 this.pane_view.unselect_path(item);
             } else {
                 GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, "Selection has been cleared!");
             }
         }
         
-        public int grab_wid () {
-            GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, "Dispatching WID");
-            return ((int) this.socket.get_id ());
+        // Switch to the socket view
+        public void switch_to_socket() {
+            this.pane_view.hide();
+            this.socket.show();
+            this.socket_shown = true;
         }
         
-        public void identify (string identity_string) {
-            GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, 
-                    "Identifying %s", identity_string);
-            this.update_title(identity_string);
+        // Switch back to the icons
+        public bool switch_to_icons() {
+            this.socket.hide ();
+            this.pane_view.show();
+            this.socket_shown = false;
+            return true;
         }
         
-        private void update_title(string pane_title) {
-            this.title += SwitchBoard.app_title + " - " + pane_title;
-        }
-        
-        private void pack_pane (Gee.HashMap<string, string> plug) {
-            var icon_pixbuf = this.theme.load_icon (plug["icon"], 48, Gtk.IconLookupFlags.GENERIC_FALLBACK);
-            Gtk.TreeIter root;
-            this.store.append (out root);
-            this.store.set (root, 0, plug["title"], -1);
-            this.store.set (root, 1, icon_pixbuf, -1);
-            this.store.set (root, 2, plug["exec"], -1);
-        }
-        
+        // Load all panes in
         private void load_panes () {
             Gee.ArrayList<string> keyfiles = find_panes ();
             foreach (string keyfile in keyfiles) {
@@ -130,6 +177,7 @@ namespace SwitchBoard {
             }
         }
         
+        // Find all .pane files
         private Gee.ArrayList<string> find_panes () {
             var directory = File.new_for_path (SwitchBoard.plug_def_dir);
             var enumerator = directory.enumerate_children (FILE_ATTRIBUTE_STANDARD_NAME, 0);
@@ -146,7 +194,22 @@ namespace SwitchBoard {
             return keyfiles;
         }
         
+        // Insert pane into the IconViews ListStore
+        private void pack_pane (Gee.HashMap<string, string> plug) {
+            var icon_pixbuf = this.theme.load_icon (plug["icon"], 48, Gtk.IconLookupFlags.GENERIC_FALLBACK);
+            Gtk.TreeIter root;
+            this.store.append (out root);
+            this.store.set (root, 0, plug["title"], -1);
+            this.store.set (root, 1, icon_pixbuf, -1);
+            this.store.set (root, 2, plug["exec"], -1);
+        }
+        
+        /*************************/
+        /* Toolbar Methods below */
+        /*************************/
+        
         private void setup_toolbar () {
+            this.toolbar = new Toolbar ();
             var menu = new Menu ();
             this.app_menu = new AppMenu.from_stock(Gtk.Stock.PROPERTIES, IconSize.MENU, "Menu", menu);
             
@@ -173,7 +236,9 @@ namespace SwitchBoard {
             toolitem.add (find_entry);
             
             this.back_button = new ToolButton.from_stock(Stock.GO_BACK);
+            this.back_button.clicked.connect(this.send_back_signal);
             this.forward_button = new ToolButton.from_stock(Stock.GO_FORWARD);
+            this.forward_button.clicked.connect(this.send_forward_signal);
             
             this.toolbar.add (back_button);
             this.toolbar.add (forward_button);
@@ -217,6 +282,7 @@ namespace SwitchBoard {
                         "Unable to open link");
             }
         }
+        
         // Create the About Dialog
         private void about_dialog () {
             string[] authors = { "Avi Romanoff <aviromanoff@gmail.com>"};
@@ -231,7 +297,7 @@ namespace SwitchBoard {
         }
     }
     
-    void on_bus_aquired (DBusConnection conn) {
+    private void on_bus_aquired (DBusConnection conn) {
         SettingsApp settings_app = new SettingsApp ();
         settings_app.app_menu.grab_focus ();
         try {
