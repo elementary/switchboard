@@ -29,7 +29,7 @@ public interface SettingsAppController : GLib.Object {
 public class SettingsPane : Gtk.Plug {
     /* Signals */
     public signal bool go_back();
-    public signal bool go:forward();
+    public signal bool go_forward();
     
     /** Fields **/
     public VBox vbox;
