@@ -27,6 +27,7 @@ namespace SwitchBoard {
     
     
     [DBus (name = "org.elementary.SettingsApp")]
+
     public class SettingsApp : Window {
        
         /* Toolbar widgets */
@@ -68,10 +69,13 @@ namespace SwitchBoard {
             // Create a ListStore with space to hold Name, icon and executable name
             this.store = new ListStore (3, typeof (string), typeof (Gdk.Pixbuf), typeof(string));
             this.pane_view = new IconView.with_model (this.store);
-            this.pane_view.set_columns(5);
+            this.pane_view.set_columns(6);
             this.pane_view.set_text_column (0);
             this.pane_view.set_pixbuf_column (1);
             this.pane_view.selection_changed.connect(this.change_pane);
+            var color = Gdk.Color ();
+            Gdk.Color.parse ("#d9d9d9", out color);
+            this.pane_view.modify_base (Gtk.StateType.NORMAL, color);
             
             /* Setup toolbar */
             setup_toolbar ();
@@ -251,7 +255,7 @@ namespace SwitchBoard {
             try {
                 GLib.Process.spawn_async ("/usr/bin/", 
                     {"x-www-browser", 
-                    "https://answers.launchpad.net/elementaryos"}, 
+                    "https://answers.launchpad.net/switchboard"}, 
                     null, GLib.SpawnFlags.STDERR_TO_DEV_NULL, null, null);
             } catch {
                 GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_CRITICAL, 
@@ -263,7 +267,7 @@ namespace SwitchBoard {
             try {
                 GLib.Process.spawn_async ("/usr/bin/", 
                     {"x-www-browser", 
-                    "https://translations.launchpad.net/elementaryos"}, 
+                    "https://translations.launchpad.net/switchboard"}, 
                     null, GLib.SpawnFlags.STDERR_TO_DEV_NULL, null, null);
             } catch {
                 GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_CRITICAL, 
@@ -275,7 +279,7 @@ namespace SwitchBoard {
             try {
                 GLib.Process.spawn_async ("/usr/bin/", 
                     {"x-www-browser", 
-                    "https://bugs.launchpad.net/elementaryos"}, 
+                    "https://bugs.launchpad.net/switchboard"}, 
                     null, GLib.SpawnFlags.STDERR_TO_DEV_NULL, null, null);
             } catch {
                 GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_CRITICAL, 
@@ -289,10 +293,9 @@ namespace SwitchBoard {
             Gtk.show_about_dialog (this,
                 "program-name", GLib.Environment.get_application_name (),
                 "version", SwitchBoard.version,
-                "copyright", "Copyright (C) 2011 Avi Romanoff", //_("Copyright (C) ThisYear Your Name"), //TODO: set up i18n
+                "copyright", "Copyright (C) 2011 Avi Romanoff",
                 "authors", authors,
                 "logo-icon-name", "news-feed",
-                //"translator-credits", _("translator-credits"), //TODO: DOES NOT COMPUTE
                 null);
         }
     }
@@ -301,12 +304,11 @@ namespace SwitchBoard {
         SettingsApp settings_app = new SettingsApp ();
         settings_app.app_menu.grab_focus ();
         try {
-            conn.register_object ("/org/elementary/settingsapp", settings_app);
+            conn.register_object ("/org/elementary/switchboard", settings_app);
         } catch (IOError e) {
-            GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_CRITICAL, 
-                    "Could not register service");
         }
     }
+    
     
     public static int main (string[] args) {
         // Startup GTK and pass args by reference
@@ -320,7 +322,7 @@ namespace SwitchBoard {
         GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_INFO, 
                 "Report any issues/bugs you might find to lp:switchboard");
         
-        Bus.own_name (BusType.SESSION, "org.elementary.SettingsApp", 
+        Bus.own_name (BusType.SESSION, "org.elementary.switchboard", 
                 BusNameOwnerFlags.NONE,
                 on_bus_aquired,
                 () => {},
