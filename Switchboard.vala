@@ -26,7 +26,7 @@ namespace SwitchBoard {
     public const string app_title = "SwitchBoard";
     
     
-    [DBus (name = "org.elementary.SettingsApp")]
+    [DBus (name = "org.elementary.switchboard")]
 
     public class SettingsApp : Window {
        

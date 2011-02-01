@@ -17,7 +17,7 @@ END LICENSE
 
 using Gtk;
 
-[DBus (name = "org.elementary.SettingsApp")]
+[DBus (name = "org.elementary.switchboard")]
 public interface SettingsAppController : GLib.Object {
     public signal void go_back();
     public signal void go_forward();
@@ -52,8 +52,8 @@ public class SettingsPane : Gtk.Plug {
     public SettingsPane (string pane_name) {
         int wid = 0;
         try {
-            this.settings_controller = Bus.get_proxy_sync (BusType.SESSION, "org.elementary.SettingsApp",
-                                                             "/org/elementary/settingsapp");
+            this.settings_controller = Bus.get_proxy_sync (BusType.SESSION, "org.elementary.switchboard",
+                                                             "/org/elementary/switchboard");
             wid = settings_controller.get_socket_wid ();
             settings_controller.go_back.connect(this.go_back_handler);
             settings_controller.go_forward.connect(this.go_forward_handler);
