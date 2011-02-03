@@ -25,7 +25,6 @@ namespace SwitchBoard {
     public const string plug_exec_dir = "./plug/";
     public const string app_title = "SwitchBoard";
     
-    
     [DBus (name = "org.elementary.switchboard")]
 
     public class SettingsApp : Window {
@@ -40,7 +39,7 @@ namespace SwitchBoard {
         /* Content Area widgets */
         private VBox vbox;
         public Gtk.Socket socket;
-        private IconView pane_view;
+        private IconView plug_view;
         
         /* Plugging Data */
         private TreeIter selected_plug;
@@ -53,7 +52,7 @@ namespace SwitchBoard {
         
         
         public SettingsApp () {
-            // The window poperties
+            /* Setup window */
             this.height_request = 500;
             this.position = Gtk.WindowPosition.CENTER;
             this.title = SwitchBoard.app_title;
@@ -68,14 +67,14 @@ namespace SwitchBoard {
             /* Setup icon view */
             // Create a ListStore with space to hold Name, icon and executable name
             this.store = new ListStore (3, typeof (string), typeof (Gdk.Pixbuf), typeof(string));
-            this.pane_view = new IconView.with_model (this.store);
-            this.pane_view.set_columns(6);
-            this.pane_view.set_text_column (0);
-            this.pane_view.set_pixbuf_column (1);
-            this.pane_view.selection_changed.connect(this.change_pane);
+            this.plug_view = new IconView.with_model (this.store);
+            this.plug_view.set_columns(6);
+            this.plug_view.set_text_column (0);
+            this.plug_view.set_pixbuf_column (1);
+//            this.plug_view.selection_changed.connect(this.change_plug);
             var color = Gdk.Color ();
             Gdk.Color.parse ("#d9d9d9", out color);
-            this.pane_view.modify_base (Gtk.StateType.NORMAL, color);
+            this.plug_view.modify_base (Gtk.StateType.NORMAL, color);
             
             /* Setup toolbar */
             setup_toolbar ();
@@ -84,16 +83,16 @@ namespace SwitchBoard {
             this.vbox = new VBox (false, 0);
             this.vbox.pack_start (this.toolbar, false, false);
             this.vbox.pack_start (this.socket, false, false);
-            this.vbox.pack_end (this.pane_view, true, true);
+            this.vbox.pack_end (this.plug_view, true, true);
             
             this.add (this.vbox);
             
-            this.load_panes ();
+            this.load_plugs ();
             this.show_all ();
         }
         
         /****************/
-        /* DBus methods */
+        /* D-Bus methods */
         /****************/
         public signal void go_back();
         public signal void go_forward();
@@ -128,11 +127,11 @@ namespace SwitchBoard {
         }
         
         /*****************/
-        /* pane handlers */
+        /* plug handlers */
         /*****************/
         
-        public void change_pane() {
-            var selected = this.pane_view.get_selected_items ();
+        public void change_plug() {
+            var selected = this.plug_view.get_selected_items ();
             if(selected.length() == 1) {
                 GLib.Value executable;
                 var item = selected.nth_data(0);
@@ -142,7 +141,7 @@ namespace SwitchBoard {
                 /* Launch Plugs executable */
                 GLib.Process.spawn_command_line_async (plug_exec_dir + "appearance-settings");
                 /* Clear selection again */
-                this.pane_view.unselect_path(item);
+                this.plug_view.unselect_path(item);
             } else {
                 GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, "Selection has been cleared!");
             }
@@ -150,7 +149,7 @@ namespace SwitchBoard {
         
         // Switch to the socket view
         public void switch_to_socket() {
-            this.pane_view.hide();
+            this.plug_view.hide();
             this.socket.show();
             this.socket_shown = true;
         }
@@ -158,31 +157,30 @@ namespace SwitchBoard {
         // Switch back to the icons
         public bool switch_to_icons() {
             this.socket.hide ();
-            this.pane_view.show();
+            this.plug_view.show();
             this.socket_shown = false;
             return true;
         }
         
-        // Load all panes in
-        private void load_panes () {
-            Gee.ArrayList<string> keyfiles = find_panes ();
+        private void load_plugs () {
+            Gee.ArrayList<string> keyfiles = find_plugs ();
             foreach (string keyfile in keyfiles) {
                 KeyFile kf = new KeyFile();
-                Gee.HashMap<string, string> pane = new Gee.HashMap<string, string> ();
+                Gee.HashMap<string, string> plug = new Gee.HashMap<string, string> ();
                 try { kf.load_from_file(SwitchBoard.plug_def_dir + keyfile, KeyFileFlags.NONE); } 
                 catch {}
-                try { pane["exec"] = kf.get_string (keyfile, "exec"); }
+                try { plug["exec"] = kf.get_string (keyfile, "exec"); }
                 catch {}
-                try { pane["icon"] = kf.get_string (keyfile, "icon"); }
+                try { plug["icon"] = kf.get_string (keyfile, "icon"); }
                 catch {}
-                try { pane["title"] = kf.get_string (keyfile, "title"); }
+                try { plug["title"] = kf.get_string (keyfile, "title"); }
                 catch {}
-                pack_pane (pane);
+                add_plug (plug);
             }
         }
         
-        // Find all .pane files
-        private Gee.ArrayList<string> find_panes () {
+        // Find all .plug files
+        private Gee.ArrayList<string> find_plugs () {
             var directory = File.new_for_path (SwitchBoard.plug_def_dir);
             var enumerator = directory.enumerate_children (FILE_ATTRIBUTE_STANDARD_NAME, 0);
             Gee.ArrayList<string> keyfiles = new Gee.ArrayList<string> ();
@@ -198,8 +196,8 @@ namespace SwitchBoard {
             return keyfiles;
         }
         
-        // Insert pane into the IconViews ListStore
-        private void pack_pane (Gee.HashMap<string, string> plug) {
+        // Insert plug into the IconViews ListStore
+        private void add_plug (Gee.HashMap<string, string> plug) {
             var icon_pixbuf = this.theme.load_icon (plug["icon"], 48, Gtk.IconLookupFlags.GENERIC_FALLBACK);
             Gtk.TreeIter root;
             this.store.append (out root);
@@ -207,10 +205,6 @@ namespace SwitchBoard {
             this.store.set (root, 1, icon_pixbuf, -1);
             this.store.set (root, 2, plug["exec"], -1);
         }
-        
-        /*************************/
-        /* Toolbar Methods below */
-        /*************************/
         
         private void setup_toolbar () {
             this.toolbar = new Toolbar ();
@@ -295,7 +289,7 @@ namespace SwitchBoard {
                 "version", SwitchBoard.version,
                 "copyright", "Copyright (C) 2011 Avi Romanoff",
                 "authors", authors,
-                "logo-icon-name", "news-feed",
+                "logo-icon-name", "preferences-desktop",
                 null);
         }
     }
