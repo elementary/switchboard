@@ -1,4 +1,4 @@
 [appearance.plug]
-exec=appearancepane
-icon=applications-roleplaying
-title=Sharing
+exec=appearance-settings
+icon=desktop-effects
+title=Appearance

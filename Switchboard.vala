@@ -31,8 +31,7 @@ namespace SwitchBoard {
        
         /* Toolbar widgets */
         private Toolbar toolbar;
-        private ToolButton back_button;
-        private ToolButton forward_button;
+        private ToolButton navigation_button;
         private ElementaryEntry find_entry;
         public AppMenu app_menu;
         
@@ -71,7 +70,7 @@ namespace SwitchBoard {
             this.plug_view.set_columns(6);
             this.plug_view.set_text_column (0);
             this.plug_view.set_pixbuf_column (1);
-//            this.plug_view.selection_changed.connect(this.change_plug);
+            this.plug_view.selection_changed.connect(this.load_plug);
             var color = Gdk.Color ();
             Gdk.Color.parse ("#d9d9d9", out color);
             this.plug_view.modify_base (Gtk.StateType.NORMAL, color);
@@ -87,66 +86,70 @@ namespace SwitchBoard {
             
             this.add (this.vbox);
             
-            this.load_plugs ();
+            this.enumerate_plugs ();
             this.show_all ();
         }
         
         /****************/
         /* D-Bus methods */
         /****************/
-        public signal void go_back();
-        public signal void go_forward();
         
         public int get_socket_wid() {
             GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, "Dispatching WID");
             return ((int) this.socket.get_id ());
         }
         
-        public void update_window_title(string new_title) {
-            this.title = SwitchBoard.app_title + " - " + new_title;
-        }
-        
-        private void send_back_signal() {
-            if(socket_shown)
-            {
-                //emmit DBus signal
-                this.go_back();
-            } else {
-                //execute some local code
-            }
-        }
-        
-        private void send_forward_signal() {
-            if(socket_shown)
-            {
-                //emmit DBus signal
-                this.go_forward();
-            } else {
-                //execute some local code
-            }
-        }
-        
         /*****************/
         /* plug handlers */
         /*****************/
         
-        public void change_plug() {
+        public void load_plug() {
             var selected = this.plug_view.get_selected_items ();
             if(selected.length() == 1) {
+                GLib.Value title;
                 GLib.Value executable;
                 var item = selected.nth_data(0);
                 this.store.get_iter(out selected_plug, item);
+                this.store.get_value (selected_plug, 0, out title);
                 this.store.get_value (selected_plug, 2, out executable);
-                GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, "selected #%s | executable %s", item.to_string(), executable.get_string());
-                /* Launch Plugs executable */
-                GLib.Process.spawn_command_line_async (plug_exec_dir + "appearance-settings");
+                GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, "Selected plug: name %s | executable %s", title.get_string(), executable.get_string());
+                /* Launch plug's executable */
+                try {
+                    GLib.Process.spawn_command_line_async (plug_exec_dir + executable.get_string());
+                    this.load_plug_title (title.get_string());
+                    // ensure the button is sensitive; it might be the first plug loaded
+                    this.navigation_button.set_sensitive(true);
+                    this.navigation_button.stock_id = Gtk.Stock.HOME;
+                }
+                catch {
+                    GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, "Failed to launch plug: name %s | executable %s", title.get_string(), executable.get_string());
+                }
                 /* Clear selection again */
                 this.plug_view.unselect_path(item);
-            } else {
-                GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, "Selection has been cleared!");
             }
         }
+
+        // Change Switchboard title to "Switchboard - PlugName"
+        private void load_plug_title (string plug_title) {
+            this.title += " - " + plug_title;
+        }
+
+        // Change Switchboard title back to "Switchboard"
+        private void reset_title () {
+            this.title = "Switchboard";
+        }
         
+        private void handle_navigation_button_clicked () {
+            if (this.navigation_button.stock_id == Gtk.Stock.HOME) {
+                switch_to_icons();
+                this.navigation_button.stock_id = Gtk.Stock.GO_BACK;
+            }
+            else {
+                switch_to_socket();
+                this.navigation_button.stock_id = Gtk.Stock.HOME;
+            }
+        }
+
         // Switch to the socket view
         public void switch_to_socket() {
             this.plug_view.hide();
@@ -158,11 +161,12 @@ namespace SwitchBoard {
         public bool switch_to_icons() {
             this.socket.hide ();
             this.plug_view.show();
+            this.reset_title ();
             this.socket_shown = false;
             return true;
         }
         
-        private void load_plugs () {
+        private void enumerate_plugs () {
             Gee.ArrayList<string> keyfiles = find_plugs ();
             foreach (string keyfile in keyfiles) {
                 KeyFile kf = new KeyFile();
@@ -196,7 +200,7 @@ namespace SwitchBoard {
             return keyfiles;
         }
         
-        // Insert plug into the IconViews ListStore
+        // Add plug to the IconView's ListStore
         private void add_plug (Gee.HashMap<string, string> plug) {
             var icon_pixbuf = this.theme.load_icon (plug["icon"], 48, Gtk.IconLookupFlags.GENERIC_FALLBACK);
             Gtk.TreeIter root;
@@ -233,16 +237,16 @@ namespace SwitchBoard {
             var toolitem = new Gtk.ToolItem ();
             toolitem.add (find_entry);
             
-            this.back_button = new ToolButton.from_stock(Stock.GO_BACK);
-            this.back_button.clicked.connect(this.send_back_signal);
-            this.forward_button = new ToolButton.from_stock(Stock.GO_FORWARD);
-            this.forward_button.clicked.connect(this.send_forward_signal);
+            this.navigation_button = new ToolButton.from_stock(Stock.GO_BACK);
+            this.navigation_button.clicked.connect(this.handle_navigation_button_clicked);
             
-            this.toolbar.add (back_button);
-            this.toolbar.add (forward_button);
+            this.navigation_button.set_sensitive (false);
+            
+            this.toolbar.add (navigation_button);
             this.toolbar.add (spacing);
             this.toolbar.add (toolitem);
             this.toolbar.add (this.app_menu);
+            
         }
         
         private void launch_help () {
@@ -302,7 +306,6 @@ namespace SwitchBoard {
         } catch (IOError e) {
         }
     }
-    
     
     public static int main (string[] args) {
         // Startup GTK and pass args by reference
