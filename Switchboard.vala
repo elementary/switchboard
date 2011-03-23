@@ -43,6 +43,7 @@ namespace SwitchBoard {
         /* Plugging Data */
         private TreeIter selected_plug;
         private bool socket_shown;
+        private string current_plug_name;
         
         
         /* Icon View Data */
@@ -53,6 +54,7 @@ namespace SwitchBoard {
         public SettingsApp () {
             /* Setup window */
             this.height_request = 500;
+            this.width_request = 800;
             this.position = Gtk.WindowPosition.CENTER;
             this.title = SwitchBoard.app_title;
             this.destroy.connect(()=> Gtk.main_quit());
@@ -67,7 +69,8 @@ namespace SwitchBoard {
             // Create a ListStore with space to hold Name, icon and executable name
             this.store = new ListStore (3, typeof (string), typeof (Gdk.Pixbuf), typeof(string));
             this.plug_view = new IconView.with_model (this.store);
-            this.plug_view.set_columns(6);
+//            this.plug_view.set_columns(6);
+            this.plug_view.set_size_request(400,400);
             this.plug_view.set_text_column (0);
             this.plug_view.set_pixbuf_column (1);
             this.plug_view.selection_changed.connect(this.load_plug);
@@ -90,18 +93,10 @@ namespace SwitchBoard {
             this.show_all ();
         }
         
-        /****************/
-        /* D-Bus methods */
-        /****************/
-        
         public int get_socket_wid() {
             GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, "Dispatching WID");
             return ((int) this.socket.get_id ());
         }
-        
-        /*****************/
-        /* plug handlers */
-        /*****************/
         
         public void load_plug() {
             var selected = this.plug_view.get_selected_items ();
@@ -112,17 +107,29 @@ namespace SwitchBoard {
                 this.store.get_iter(out selected_plug, item);
                 this.store.get_value (selected_plug, 0, out title);
                 this.store.get_value (selected_plug, 2, out executable);
-                GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, "Selected plug: name %s | executable %s", title.get_string(), executable.get_string());
+                GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, 
+                "Selected plug: name %s | executable %s", title.get_string(),
+                 executable.get_string());
                 /* Launch plug's executable */
-                try {
-                    GLib.Process.spawn_command_line_async (plug_exec_dir + executable.get_string());
-                    this.load_plug_title (title.get_string());
-                    // ensure the button is sensitive; it might be the first plug loaded
+                if (executable.get_string() != this.current_plug_name) {
+                    try {
+                        GLib.Process.spawn_command_line_async (plug_exec_dir + executable.get_string());
+                        this.load_plug_title (title.get_string());
+                        this.current_plug_name = executable.get_string();
+                        // ensure the button is sensitive; it might be the first plug loaded
+                        this.navigation_button.set_sensitive(true);
+                        this.navigation_button.stock_id = Gtk.Stock.HOME;
+                    }
+                    catch {
+                        GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, 
+                        "Failed to launch plug: name %s | executable %s", 
+                        title.get_string(), executable.get_string());
+                    }
+                }
+                else {
+                    this.switch_to_socket();
                     this.navigation_button.set_sensitive(true);
                     this.navigation_button.stock_id = Gtk.Stock.HOME;
-                }
-                catch {
-                    GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, "Failed to launch plug: name %s | executable %s", title.get_string(), executable.get_string());
                 }
                 /* Clear selection again */
                 this.plug_view.unselect_path(item);
@@ -142,6 +149,7 @@ namespace SwitchBoard {
         private void handle_navigation_button_clicked () {
             if (this.navigation_button.stock_id == Gtk.Stock.HOME) {
                 switch_to_icons();
+//                this.socket.plug_window.destroy();
                 this.navigation_button.stock_id = Gtk.Stock.GO_BACK;
             }
             else {
@@ -238,7 +246,7 @@ namespace SwitchBoard {
             toolitem.add (find_entry);
             
             this.navigation_button = new ToolButton.from_stock(Stock.GO_BACK);
-            this.navigation_button.clicked.connect(this.handle_navigation_button_clicked);
+            this.navigation_button.clicked.connect (this.handle_navigation_button_clicked);
             
             this.navigation_button.set_sensitive (false);
             

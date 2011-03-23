@@ -1,0 +1,4 @@
+[useraccounts.plug]
+exec=useraccounts
+icon=users
+title=User Accounts
