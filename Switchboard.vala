@@ -25,8 +25,13 @@ namespace SwitchBoard {
     public const string plug_exec_dir = "./plug/";
     public const string app_title = "SwitchBoard";
     
+    [DBus (name = "org.elementary.switchplug")]
+    public interface PlugController : GLib.Object {
+    
+        public abstract void destroy_socket () throws IOError;
+    }
+    
     [DBus (name = "org.elementary.switchboard")]
-
     public class SettingsApp : Window {
        
         /* Toolbar widgets */
@@ -45,12 +50,10 @@ namespace SwitchBoard {
         private bool socket_shown;
         private string current_plug_name;
         
-        
         /* Icon View Data */
         private ListStore store;
         private Gtk.IconTheme theme = Gtk.IconTheme.get_default();
-        
-        
+
         public SettingsApp () {
             /* Setup window */
             this.height_request = 500;
@@ -98,7 +101,7 @@ namespace SwitchBoard {
             return ((int) this.socket.get_id ());
         }
         
-        public void load_plug() {
+        private void load_plug() {
             var selected = this.plug_view.get_selected_items ();
             if(selected.length() == 1) {
                 GLib.Value title;
@@ -113,14 +116,20 @@ namespace SwitchBoard {
                 /* Launch plug's executable */
                 if (executable.get_string() != this.current_plug_name) {
                     try {
+                        PlugController plug_controller;
                         GLib.Process.spawn_command_line_async (plug_exec_dir + executable.get_string());
+                        try {
+                            plug_controller = Bus.get_proxy_sync (BusType.SESSION, "org.elementary.switchplug",
+                                                                             "/org/elementary/switchplug");
+                        } catch (IOError e) {
+                            log (SwitchBoard.errdomain, GLib.LogLevelFlags.LEVEL_ERROR, "%s", e.message);
+                        }
                         this.load_plug_title (title.get_string());
                         this.current_plug_name = executable.get_string();
                         // ensure the button is sensitive; it might be the first plug loaded
                         this.navigation_button.set_sensitive(true);
                         this.navigation_button.stock_id = Gtk.Stock.HOME;
-                    }
-                    catch {
+                    } catch {
                         GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, 
                         "Failed to launch plug: name %s | executable %s", 
                         title.get_string(), executable.get_string());
@@ -159,14 +168,14 @@ namespace SwitchBoard {
         }
 
         // Switch to the socket view
-        public void switch_to_socket() {
+        private void switch_to_socket() {
             this.plug_view.hide();
             this.socket.show();
             this.socket_shown = true;
         }
         
         // Switch back to the icons
-        public bool switch_to_icons() {
+        private bool switch_to_icons() {
             this.socket.hide ();
             this.plug_view.show();
             this.reset_title ();
@@ -194,27 +203,37 @@ namespace SwitchBoard {
         // Find all .plug files
         private Gee.ArrayList<string> find_plugs () {
             var directory = File.new_for_path (SwitchBoard.plug_def_dir);
-            var enumerator = directory.enumerate_children (FILE_ATTRIBUTE_STANDARD_NAME, 0);
-            Gee.ArrayList<string> keyfiles = new Gee.ArrayList<string> ();
-            
-            FileInfo file_info;
-            while ((file_info = enumerator.next_file ()) != null) {
-                string? file_name = (string) file_info.get_name ();
-                if (file_name.length < 5) { continue; }
-                if (file_name[-5:file_name.length] == ".plug" ) {
-                    keyfiles.add(file_name);
-                }
+		    var enumerator = directory.enumerate_children (FILE_ATTRIBUTE_STANDARD_NAME, 0);
+		    Gee.ArrayList<string> keyfiles = new Gee.ArrayList<string> ();
+		    
+            try {
+		        FileInfo file_info;
+			    while ((file_info = enumerator.next_file ()) != null) {
+			        string? file_name = (string) file_info.get_name ();
+			        if (file_name.length < 5) { continue; }
+			        if (file_name[-5:file_name.length] == ".plug" ) {
+				    keyfiles.add(file_name);
+			        }
+			    }
+		    } catch {
+                GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, 
+                "Unable to interate over enumerated plug directory contents");
             }
-            return keyfiles;
+		    return keyfiles;
         }
         
         // Add plug to the IconView's ListStore
         private void add_plug (Gee.HashMap<string, string> plug) {
-            var icon_pixbuf = this.theme.load_icon (plug["icon"], 48, Gtk.IconLookupFlags.GENERIC_FALLBACK);
             Gtk.TreeIter root;
             this.store.append (out root);
+            try {
+                var icon_pixbuf = this.theme.load_icon (plug["icon"], 48, Gtk.IconLookupFlags.GENERIC_FALLBACK);
+                this.store.set (root, 1, icon_pixbuf, -1);
+            } catch {
+                GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, 
+                "Unable to load plug %s's icon: %s", plug["title"], plug["icon"]);
+            }
             this.store.set (root, 0, plug["title"], -1);
-            this.store.set (root, 1, icon_pixbuf, -1);
             this.store.set (root, 2, plug["exec"], -1);
         }
         

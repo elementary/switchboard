@@ -1,4 +1,4 @@
 [monitors.plug]
-exec=fail
-icon=applications-versioncontrol
-title=School
+exec=Monitors
+icon=display
+title=Displays

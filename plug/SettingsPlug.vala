@@ -32,18 +32,18 @@ public class SettingsPlug : Gtk.Plug {
     public SettingsAppController settings_controller;
     
     private string _plug_name;
-    
-    
+
     public SettingsPlug (string plug_name) {
         int wid = 0;
+        // Connect to switchboard's dbus
         try {
             this.settings_controller = Bus.get_proxy_sync (BusType.SESSION, "org.elementary.switchboard",
                                                              "/org/elementary/switchboard");
             wid = settings_controller.get_socket_wid ();
         } catch (IOError e) {
-            GLib.log ("SettingsPlug", GLib.LogLevelFlags.LEVEL_ERROR, "%s", e.message);
+            log ("SettingsPlug", GLib.LogLevelFlags.LEVEL_ERROR, "%s", e.message);
         }
-        GLib.log ("SettingsPlug", GLib.LogLevelFlags.LEVEL_DEBUG, "SwitchBoards WID is %i!", wid);
+        log ("SettingsPlug", GLib.LogLevelFlags.LEVEL_DEBUG, "SwitchBoards WID is %i!", wid);
         base.construct ((Gdk.NativeWindow) wid);
         
         /* Init */
@@ -53,5 +53,13 @@ public class SettingsPlug : Gtk.Plug {
         this.destroy.connect (Gtk.main_quit);
     }
     
-
+    public void ClosePlug () {
+    /* Clean up code for saving plug state, etc goes here.
+    * method called when the plug is closed */
+        Gtk.main_quit();
+    }
+    
 }
+
+
+
