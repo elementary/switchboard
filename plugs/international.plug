@@ -1,4 +1,5 @@
 [international.plug]
-exec=roflcopters
+exec=Languages
 icon=preferences-desktop-locale
 title=Languages
+category=System

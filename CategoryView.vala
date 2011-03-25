@@ -19,15 +19,17 @@ using Gtk;
 
 namespace SwitchBoard {
 
-    public class Categories : Gtk.VBox {
+    public class CategoryView : Gtk.VBox {
 
         private string[] category_titles = {};
+        private Gee.HashMap<string, ListStore> category_store = new Gee.HashMap<string, ListStore>();
+        private Gtk.IconTheme theme = Gtk.IconTheme.get_default();
 
-        public Categories (string[] titles) {
+        public CategoryView (string[] titles) {
             this.category_titles = titles;
             foreach (string title in this.category_titles) {
-                var label = new Gtk.Label("<big><b>"+title+"</b></big>");
                 var store = new ListStore (3, typeof (string), typeof (Gdk.Pixbuf), typeof(string));
+                var label = new Gtk.Label("<big><b>"+title+"</b></big>");
                 var category_plugs = new Gtk.IconView.with_model (store);
                 category_plugs.set_text_column (0);
                 category_plugs.set_pixbuf_column (1);
@@ -44,10 +46,24 @@ namespace SwitchBoard {
                 }
                 vbox.pack_start(label, false, true);
                 vbox.pack_end(category_plugs, true, true);
+                this.category_store[title] = store;
                 this.pack_start(vbox);
             }
         }
         
+        public void add_plug (Gee.HashMap<string, string> plug) {
+            Gtk.TreeIter root;
+            this.category_store[plug["category"]].append (out root);
+            try {
+                var icon_pixbuf = this.theme.load_icon (plug["icon"], 48, Gtk.IconLookupFlags.GENERIC_FALLBACK);
+                this.category_store[plug["category"]].set (root, 1, icon_pixbuf, -1);
+            } catch {
+                GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, 
+                "Unable to load plug %s's icon: %s", plug["title"], plug["icon"]);
+            }
+            this.category_store[plug["category"]].set (root, 0, plug["title"], -1);
+            this.category_store[plug["category"]].set (root, 2, plug["exec"], -1);
+            stdout.printf("Category: %s\n", plug["category"]);
+        }
     }
-
 }
