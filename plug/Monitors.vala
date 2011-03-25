@@ -29,6 +29,12 @@ public class AppearancePlug : SettingsPlug {
         this.show_all();
     }
     
+    public void exit_plug () {
+    /* Clean up code for saving plug state, etc goes here.
+    * method called when the plug is closed */
+        stdout.printf("I AM NOT TROLLING\nI AM BOXXY YOU SEE\n");
+        Gtk.main_quit();
+    }
 }
 
 private void on_bus_aquired (DBusConnection conn) {

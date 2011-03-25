@@ -1,4 +1,4 @@
 [appearance.plug]
-exec=appearance-settings
+exec=AppearanceSettings
 icon=desktop-effects
 title=Appearance

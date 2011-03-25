@@ -53,12 +53,6 @@ public class SettingsPlug : Gtk.Plug {
         this.destroy.connect (Gtk.main_quit);
     }
     
-    public void ClosePlug () {
-    /* Clean up code for saving plug state, etc goes here.
-    * method called when the plug is closed */
-        Gtk.main_quit();
-    }
-    
 }
 
 

@@ -28,31 +28,34 @@ namespace SwitchBoard {
     [DBus (name = "org.elementary.switchplug")]
     public interface PlugController : GLib.Object {
     
-        public abstract void destroy_socket () throws IOError;
+        public abstract void exit_plug () throws IOError;
     }
     
     [DBus (name = "org.elementary.switchboard")]
     public class SettingsApp : Window {
        
         /* Toolbar widgets */
+        public AppMenu app_menu;
         private Toolbar toolbar;
         private ToolButton navigation_button;
         private ElementaryEntry find_entry;
-        public AppMenu app_menu;
         
         /* Content Area widgets */
-        private VBox vbox;
         public Gtk.Socket socket;
+        private VBox vbox;
         private IconView plug_view;
         
         /* Plugging Data */
         private TreeIter selected_plug;
         private bool socket_shown;
-        private string current_plug_name;
+        private string current_plug_name = "";
         
         /* Icon View Data */
         private ListStore store;
         private Gtk.IconTheme theme = Gtk.IconTheme.get_default();
+        
+        /* D-Bus Controller for Plugs */
+        private PlugController plug_controller;
 
         public SettingsApp () {
             /* Setup window */
@@ -116,10 +119,15 @@ namespace SwitchBoard {
                 /* Launch plug's executable */
                 if (executable.get_string() != this.current_plug_name) {
                     try {
-                        PlugController plug_controller;
+                        stdout.printf("name:%s\n", current_plug_name);
+                        if (current_plug_name != "") {
+                            GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, 
+                            "Exiting plug from SwitchBoard controller..");
+                            this.plug_controller.exit_plug();
+                        }
                         GLib.Process.spawn_command_line_async (plug_exec_dir + executable.get_string());
                         try {
-                            plug_controller = Bus.get_proxy_sync (BusType.SESSION, "org.elementary.switchplug",
+                            this.plug_controller = Bus.get_proxy_sync (BusType.SESSION, "org.elementary.switchplug",
                                                                              "/org/elementary/switchplug");
                         } catch (IOError e) {
                             log (SwitchBoard.errdomain, GLib.LogLevelFlags.LEVEL_ERROR, "%s", e.message);

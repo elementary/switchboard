@@ -17,17 +17,32 @@ END LICENSE
 
 using ElementaryWidgets;
 
+[DBus (name = "org.elementary.switchplug")]
 public class AppearancePlug : SettingsPlug {
     
     private Gtk.Label test_text;
     
     public AppearancePlug () {
-        base("Appeareance");
-        test_text = new Gtk.Label.with_mnemonic ("This is a very awesome Appereance view");
+        base("Appearance");
+        test_text = new Gtk.Label.with_mnemonic ("NANANANANANANA appearance BITCH");
         this.add(test_text);
         this.show_all();
     }
     
+    public void exit_plug () {
+    /* Clean up code for saving plug state, etc goes here.
+    * method called when the plug is closed */
+        stdout.printf("I AM NOT TROLLING\nI AM BOXXY YOU SEE\n");
+        Gtk.main_quit();
+    }
+}
+
+private void on_bus_aquired (DBusConnection conn) {
+    AppearancePlug appearance_plug = new AppearancePlug ();
+    try {
+        conn.register_object ("/org/elementary/switchplug", appearance_plug);
+    } catch (IOError e) {
+    }
 }
 
 public static int main (string[] args) {
@@ -38,8 +53,12 @@ public static int main (string[] args) {
     Gtk.init (ref args);
     
     // Just create an instance of your plug, everything else is taken care of
-    new AppearancePlug ();
-    
+    Bus.own_name (BusType.SESSION, "org.elementary.switchplug", /* name to register */
+              BusNameOwnerFlags.NONE, /* flags */
+              on_bus_aquired, /* callback function on registration succeded */
+              () => {}, /* callback on name register succeded */
+              () => stderr.printf ("Could not aquire name\n"));
+                                                 /* callback on name lost */
     // Run the main loop
     Gtk.main ();
     return 0;
