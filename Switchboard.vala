@@ -44,6 +44,7 @@ namespace SwitchBoard {
         public Gtk.Socket socket;
         private VBox vbox;
         private IconView plug_view;
+        private Categories categories = new Categories({ "Personal", "Hardware", "Network and Wireless", "System" });
         
         /* Plugging Data */
         private TreeIter selected_plug;
@@ -81,7 +82,7 @@ namespace SwitchBoard {
             this.plug_view.set_pixbuf_column (1);
             this.plug_view.selection_changed.connect(this.load_plug);
             var color = Gdk.Color ();
-            Gdk.Color.parse ("#d9d9d9", out color);
+            Gdk.Color.parse ("#dedede", out color);
             this.plug_view.modify_base (Gtk.StateType.NORMAL, color);
             
             /* Setup toolbar */
@@ -91,7 +92,7 @@ namespace SwitchBoard {
             this.vbox = new VBox (false, 0);
             this.vbox.pack_start (this.toolbar, false, false);
             this.vbox.pack_start (this.socket, false, false);
-            this.vbox.pack_end (this.plug_view, true, true);
+            this.vbox.pack_end (this.categories, true, true);
             
             this.add (this.vbox);
             
