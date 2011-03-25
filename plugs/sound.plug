@@ -1,0 +1,5 @@
+[sound.plug]
+exec=Sound
+icon=preferences-sound
+title=Sound
+category=hardware

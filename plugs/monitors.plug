@@ -1,4 +1,5 @@
 [monitors.plug]
 exec=Monitors
-icon=display
-title=Displays
+icon=preferences-desktop-display
+title=Display
+category=hardware

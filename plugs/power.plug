@@ -1,0 +1,5 @@
+[power.plug]
+exec=Power
+icon=preferences-system-power
+title=Power
+category=hardware

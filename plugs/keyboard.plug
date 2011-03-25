@@ -1,0 +1,5 @@
+[keyboard.plug]
+exec=Keyboard
+icon=preferences-desktop-keyboard-shortcuts
+title=Keyboard
+category=hardware

@@ -1,4 +1,5 @@
 [appearance.plug]
 exec=AppearanceSettings
-icon=desktop-effects
+icon=preferences-theme
 title=Appearance
+category=personal

@@ -1,0 +1,5 @@
+[accessibility.plug]
+exec=Accessibility
+icon=preferences-desktop-accessibility
+title=Accessibility
+category=system
