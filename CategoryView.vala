@@ -24,6 +24,8 @@ namespace SwitchBoard {
         private string[] category_titles = {};
         private Gee.HashMap<string, ListStore> category_store = new Gee.HashMap<string, ListStore>();
         private Gtk.IconTheme theme = Gtk.IconTheme.get_default();
+    
+        public signal void plug_selected(IconView view, ListStore message);    
 
         public CategoryView (string[] titles) {
             this.category_titles = titles;
@@ -33,11 +35,12 @@ namespace SwitchBoard {
                 var category_plugs = new Gtk.IconView.with_model (store);
                 category_plugs.set_text_column (0);
                 category_plugs.set_pixbuf_column (1);
+                category_plugs.selection_changed.connect(() => this.plug_selected(category_plugs, store));
                 var color = Gdk.Color ();
                 Gdk.Color.parse ("#dedede", out color);
                 category_plugs.modify_base (Gtk.StateType.NORMAL, color);
                 label.xalign = (float) 0.02;
-                label.ypad = 5;
+//                label.ypad = 5;
                 var vbox = new Gtk.VBox(false, 0); // not homogeneous, 0 spacing
                 label.use_markup = true;
                 if (title != this.category_titles[0]) {
@@ -63,7 +66,6 @@ namespace SwitchBoard {
             }
             this.category_store[plug["category"]].set (root, 0, plug["title"], -1);
             this.category_store[plug["category"]].set (root, 2, plug["exec"], -1);
-            stdout.printf("Category: %s\n", plug["category"]);
         }
     }
 }
