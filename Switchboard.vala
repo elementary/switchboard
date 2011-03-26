@@ -48,7 +48,7 @@ namespace SwitchBoard {
         /* Plugging Data */
         private TreeIter selected_plug;
         private bool socket_shown;
-        private string current_plug_name = "";
+        private Gee.HashMap<string, string> current_plug = new Gee.HashMap<string, string>();
         
         /* D-Bus Controller for Plugs */
         private PlugController plug_controller;
@@ -66,6 +66,10 @@ namespace SwitchBoard {
             this.socket.plug_added.connect(this.switch_to_socket);
             this.socket.plug_removed.connect(this.switch_to_icons);
             this.socket.hide();
+            
+            /* Defaults for current plug */
+            this.current_plug["title"] = "";
+            this.current_plug["executable"] = "";
             
             /* Setup toolbar */
             setup_toolbar ();
@@ -94,17 +98,16 @@ namespace SwitchBoard {
                 GLib.Value title;
                 GLib.Value executable;
                 var item = selected.nth_data(0);
-                store.get_iter(out selected_plug, item);
-                store.get_value (selected_plug, 0, out title);
-                store.get_value (selected_plug, 2, out executable);
+                store.get_iter(out this.selected_plug, item);
+                store.get_value (this.selected_plug, 0, out title);
+                store.get_value (this.selected_plug, 2, out executable);
                 GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, 
-                "Selected plug: name %s | executable %s", title.get_string(),
+                "Selected plug: title %s | executable %s", title.get_string(),
                  executable.get_string());
                 /* Launch plug's executable */
-                if (executable.get_string() != this.current_plug_name) {
+                if (executable.get_string() != this.current_plug["title"]) {
                     try {
-                        stdout.printf("name:%s\n", current_plug_name);
-                        if (current_plug_name != "") {
+                        if (this.current_plug["title"] != "") {
                             GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, 
                             "Exiting plug from SwitchBoard controller..");
                             this.plug_controller.exit_plug();
@@ -116,14 +119,14 @@ namespace SwitchBoard {
                         } catch (IOError e) {
                             log (SwitchBoard.errdomain, GLib.LogLevelFlags.LEVEL_ERROR, "%s", e.message);
                         }
-                        this.load_plug_title (title.get_string());
-                        this.current_plug_name = executable.get_string();
+                        this.current_plug["title"] = title.get_string();
+                        this.current_plug["executable"] = executable.get_string();
                         // ensure the button is sensitive; it might be the first plug loaded
                         this.navigation_button.set_sensitive(true);
                         this.navigation_button.stock_id = Gtk.Stock.HOME;
                     } catch {
                         GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, 
-                        "Failed to launch plug: name %s | executable %s", 
+                        "Failed to launch plug: title %s | executable %s", 
                         title.get_string(), executable.get_string());
                     }
                 }
@@ -164,6 +167,7 @@ namespace SwitchBoard {
         private void switch_to_socket() {
             this.category_view.hide();
             this.socket.show();
+            this.load_plug_title (this.current_plug["title"]);
             this.socket_shown = true;
         }
         
