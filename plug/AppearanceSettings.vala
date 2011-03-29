@@ -24,16 +24,9 @@ public class AppearancePlug : SettingsPlug {
     
     public AppearancePlug () {
         base("Appearance");
-        test_text = new Gtk.Label.with_mnemonic ("NANANANANANANA appearance BITCH");
+        test_text = new Gtk.Label.with_mnemonic ("Appearance junk goes here!");
         this.add(test_text);
         this.show_all();
-    }
-    
-    public void exit_plug () {
-    /* Clean up code for saving plug state, etc goes here.
-    * method called when the plug is closed */
-        stdout.printf("I AM NOT TROLLING\nI AM BOXXY YOU SEE\n");
-        Gtk.main_quit();
     }
 }
 

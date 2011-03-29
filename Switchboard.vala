@@ -138,7 +138,6 @@ namespace SwitchBoard {
                 /* Clear selection again */
                 plug_view.unselect_path(item);
             }
-//            stdout.printf(message+"\n");
         }
 
         // Change Switchboard title to "Switchboard - PlugName"
@@ -154,7 +153,6 @@ namespace SwitchBoard {
         private void handle_navigation_button_clicked () {
             if (this.navigation_button.stock_id == Gtk.Stock.HOME) {
                 switch_to_icons();
-//                this.socket.plug_window.destroy();
                 this.navigation_button.stock_id = Gtk.Stock.GO_BACK;
             }
             else {
@@ -165,6 +163,7 @@ namespace SwitchBoard {
 
         // Switch to the socket view
         private void switch_to_socket() {
+            this.vbox.set_child_packing(this.socket, true, true, 0, PackType.END);
             this.category_view.hide();
             this.socket.show();
             this.load_plug_title (this.current_plug["title"]);
@@ -173,6 +172,7 @@ namespace SwitchBoard {
         
         // Switch back to the icons
         private bool switch_to_icons() {
+            this.vbox.set_child_packing(this.socket, false, false, 0, PackType.END);
             this.socket.hide ();
             this.category_view.show();
             this.reset_title ();

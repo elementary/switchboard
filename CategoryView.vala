@@ -40,7 +40,6 @@ namespace SwitchBoard {
                 Gdk.Color.parse ("#dedede", out color);
                 category_plugs.modify_base (Gtk.StateType.NORMAL, color);
                 label.xalign = (float) 0.02;
-//                label.ypad = 5;
                 var vbox = new Gtk.VBox(false, 0); // not homogeneous, 0 spacing
                 label.use_markup = true;
                 if (title != this.category_titles[0]) {
