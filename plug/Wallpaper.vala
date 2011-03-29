@@ -58,7 +58,10 @@ public class WallpaperSettings : SettingsPlug {
         view.selection_changed.connect(() => selection_changed_cb(view));
         view.set_pixbuf_column (0);
         sw.add_with_viewport(view);
+        sw.border_width = 0;
         vbox.pack_end(sw, true, true, 0);
+	var switch_button = new Gtk.Button.with_label("Foobatmitzvah");
+	vbox.pack_end(switch_button, false, false, 0); // No expand, no fill, no spacing
         this.add(vbox);
         this.show_all();
     }
@@ -87,16 +90,19 @@ public class WallpaperSettings : SettingsPlug {
 		        string? filename = (string) info.get_name ();
                 TreeIter root;
                 this.store.append(out root);
-                var image = new Gdk.Pixbuf.from_file_at_size(WALLPAPER_DIR+"/"+filename, 100, 100);
-                stdout.printf(filename+"\n");
+                stdout.printf("Now trying to import: %s\n", filename);
+                try {
+                    var image = new Gdk.Pixbuf.from_file_at_size(WALLPAPER_DIR+"/"+filename, 100, 100);
+                    this.store.set(root, 0, image, -1);
+                    this.store.set(root, 1, filename, -1);
+                } catch {
+                    stdout.printf("...Awww snap, couldn't load %s!\n", filename);
+                }
                 this.progress.pulse();
                 while(events_pending ()) {
                     main_iteration();
                 }
-                this.store.set(root, 0, image, -1);
-                this.store.set(root, 1, filename, -1);
             }
-            this.infobar.hide();
         }
         this.infobar.hide();
     }
