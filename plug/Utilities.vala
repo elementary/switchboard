@@ -1,29 +1,25 @@
-/*
-# Sassy Backup
-#
-# Copyright (c) 2010 by Sassy Developers
-#    
-# License:
-# This file is part of sassy.
-#
-# Sassy is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# Sassy is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Sassy.  If not, see <http://www.gnu.org/licenses/>.
-*/
+/***
+BEGIN LICENSE
+Copyright (C) 2010 Sassy Developers
+This program is free software: you can redistribute it and/or modify it 
+under the terms of the GNU Lesser General Public License version 3, as published 
+by the Free Software Foundation.
+ 
+This program is distributed in the hope that it will be useful, but 
+WITHOUT ANY WARRANTY; without even the implied warranties of 
+MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR 
+PURPOSE.  See the GNU General Public License for more details.
+ 
+You should have received a copy of the GNU General Public License along 
+with this program.  If not, see <http://www.gnu.org/licenses/>.
+END LICENSE
+***/
+
 using GLib;
 using Gtk;
 using Cairo;
 
-namespace Slingshot.Frontend {
+namespace Wallpaper {
 
     class Utilities : GLib.Object {
 		
@@ -63,12 +59,11 @@ namespace Slingshot.Frontend {
                 truncated += "...";
             
             }
-            
-            context.text_extents (truncated, out truncated_extents);
-            
+
+            context.text_extents (truncated, out truncated_extents); 
         }
         
-        public static Slingshot.Frontend.Color average_color (Gdk.Pixbuf source) {
+        public static Wallpaper.Color average_color (Gdk.Pixbuf source) {
 			    double rTotal = 0;
 			    double gTotal = 0;
 			    double bTotal = 0;
@@ -95,13 +90,10 @@ namespace Slingshot.Frontend {
 				    dataPtr += source.n_channels;
 			    }
 			
-			    return Slingshot.Frontend.Color (rTotal / uint8.MAX / pixels,
+			    return Wallpaper.Color (rTotal / uint8.MAX / pixels,
 							     gTotal / uint8.MAX / pixels,
 							     bTotal / uint8.MAX / pixels,
 							     1).set_val (0.8).multiply_sat (1.15);
-		    }
-		
-		}
-	
+	    }
+	}	
 }
-		
