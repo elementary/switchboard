@@ -22,7 +22,7 @@ using ElementaryWidgets;
 public class WallpaperGConf {
  
     string background_key = "/desktop/gnome/background/picture_filename";
-    GConf.Client gc = GConf.Client.get_default ();
+    GConf.Client gc = GConf.Client.get_default();
     
     public void update_wallpaper(string file_location) throws GLib.Error {
         stdout.printf(file_location+"\n");
@@ -34,7 +34,7 @@ public class WallpaperGConf {
 public class WallpaperSettings : SettingsPlug {
 
     WallpaperGConf conf_client = new WallpaperGConf();
-    ListStore store = new ListStore (2, typeof (Gdk.Pixbuf), typeof (string));
+    ListStore store = new ListStore(2, typeof (Gdk.Pixbuf), typeof (string));
     string WALLPAPER_DIR = "/usr/share/backgrounds";
     ProgressBar progress = new ProgressBar();
     InfoBar infobar = new InfoBar();

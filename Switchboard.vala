@@ -39,6 +39,9 @@ namespace SwitchBoard {
         private Toolbar toolbar;
         private ToolButton navigation_button;
         private ElementaryEntry find_entry;
+        private ProgressBar progress_bar;
+        ToolItem lspace = new ToolItem ();
+        ToolItem rspace = new ToolItem ();
         
         /* Content Area widgets */
         public Gtk.Socket socket;
@@ -73,6 +76,8 @@ namespace SwitchBoard {
             
             /* Setup toolbar */
             setup_toolbar ();
+            this.size_allocate.connect(center_progress_bar);
+//            this.progress_bar.hide();
             
             /* Wire up interface */
             this.category_view.plug_selected.connect((view, store) => load_plug(view, store));
@@ -224,10 +229,15 @@ namespace SwitchBoard {
         }
         
         private void setup_toolbar () {
+        
+            // Global toolbar widgets
             this.toolbar = new Toolbar ();
             var menu = new Menu ();
             this.app_menu = new AppMenu.from_stock(Gtk.Stock.PROPERTIES, IconSize.MENU, "Menu", menu);
             
+            
+            // Appmenu stuff
+            // TODO move this into AppMenu proper
             MenuItem go_help = new MenuItem.with_label ("Get Help Online...");
             MenuItem go_translate = new MenuItem.with_label ("Translate This Application...");
             MenuItem go_report = new MenuItem.with_label ("Report a Problem...");
@@ -238,28 +248,64 @@ namespace SwitchBoard {
             menu.append (about);
             menu.insert(new SeparatorMenuItem(), 3);
             
+            // Connect AppMenu signals
             about.activate.connect (about_dialog);
             go_help.activate.connect (launch_help);
             go_translate.activate.connect (launch_translate);
             go_report.activate.connect (launch_report);
             
-            var spacing = new ToolItem ();
-            spacing.set_expand (true); 
+            // Spacing
+            this.lspace.set_expand (true); 
+            this.rspace.set_expand (true); 
             
+            
+            // Progressbar
+            var tvbox = new VBox(true, 0);
+            this.progress_bar = new ProgressBar ();
+            var progress_toolitem = new ToolItem ();
+            tvbox.pack_start(this.progress_bar, false, false, 0);
+            progress_toolitem.add (tvbox);
+            
+            // Searchbar
             this.find_entry = new ElementarySearchEntry ("Type to search ...");
-            var toolitem = new Gtk.ToolItem ();
-            toolitem.add (find_entry);
+            var find_toolitem = new ToolItem ();
+            find_toolitem.add (this.find_entry);
             
+            // Nav button
             this.navigation_button = new ToolButton.from_stock(Stock.GO_BACK);
             this.navigation_button.clicked.connect (this.handle_navigation_button_clicked);
-            
             this.navigation_button.set_sensitive (false);
             
-            this.toolbar.add (navigation_button);
-            this.toolbar.add (spacing);
-            this.toolbar.add (toolitem);
-            this.toolbar.add (this.app_menu);
-            
+            // Add everything to the toolbar
+            this.toolbar.insert (navigation_button, 0);
+            this.toolbar.insert (this.lspace, 1);
+            this.toolbar.insert (progress_toolitem, 2);
+            this.toolbar.insert (this.rspace, 3);
+            this.toolbar.insert (find_toolitem, 4);
+            this.toolbar.insert (this.app_menu, 5);
+        }
+        
+        public void center_progress_bar () {
+            // Okay, okay, this is a piece of shit.
+            // If you find a better solution, don't
+            // hesitate to hit me up. But it's late,
+            // and I can't be bothered to bust out
+            // the geometry on this one.
+            Allocation alloc;
+            this.toolbar.get_allocation(out alloc);
+            int toolbar_size = alloc.width;
+            this.navigation_button.get_allocation(out alloc);
+            int nav_size = alloc.width;
+            this.progress_bar.get_allocation(out alloc);
+            int prog_size = alloc.width;
+            this.find_entry.get_allocation(out alloc);
+            int search_size = alloc.width;
+            this.app_menu.get_allocation(out alloc);
+            int appmenu_size = alloc.width;
+            // -1 because of the pad between the edge
+            // of the toolbar and the window border.
+            this.lspace.set_size_request(((toolbar_size/2-nav_size)-prog_size/2)-1, 38);
+            this.rspace.set_size_request(((toolbar_size/2-(search_size+appmenu_size))-prog_size/2)-1, 38);
         }
         
         private void launch_help () {
