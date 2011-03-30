@@ -101,7 +101,7 @@ namespace Wallpaper {
                     try {
                         var image = new Gdk.Pixbuf.from_file_at_size(WALLPAPER_DIR+"/"+filename, 100, 100);
                         var color = Wallpaper.Utilities.average_color(image);
-                        Wallpaper.Utilities.match_color(color);
+                        Wallpaper.Utilities.match_color_lab(color);
 //                        stdout.printf("Red: %f\n", color.R);
 //                        stdout.printf("Green: %f\n", color.G);
 //                        stdout.printf("Blue: %f\n", color.B);

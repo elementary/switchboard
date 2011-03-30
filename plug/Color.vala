@@ -56,7 +56,7 @@ namespace Wallpaper
 			return this;
 		}
 		
-		void rgb_to_hsv (double r, double g, double b, out double h, out double s, out double v)
+		public void rgb_to_hsv (double r, double g, double b, out double h, out double s, out double v)
 			requires (r >= 0 && r <= 1)
 			requires (g >= 0 && g <= 1)
 			requires (b >= 0 && b <= 1)
