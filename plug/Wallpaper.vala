@@ -100,10 +100,15 @@ namespace Wallpaper {
                     stdout.printf("Now trying to import: %s\n", filename);
                     try {
                         var image = new Gdk.Pixbuf.from_file_at_size(WALLPAPER_DIR+"/"+filename, 100, 100);
+                        var color = Wallpaper.Utilities.average_color(image);
+                        Wallpaper.Utilities.match_color(color);
+//                        stdout.printf("Red: %f\n", color.R);
+//                        stdout.printf("Green: %f\n", color.G);
+//                        stdout.printf("Blue: %f\n", color.B);
                         this.store.set(root, 0, image, -1);
                         this.store.set(root, 1, filename, -1);
                     } catch {
-                        stdout.printf("...Awww snap, couldn't load %s!\n", filename);
+//                        stdout.printf("...Awww snap, couldn't load %s!\n", filename);
                     }
                     this.switchboard_controller.progress_bar_pulse();
                     while(events_pending ()) {

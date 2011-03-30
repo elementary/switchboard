@@ -6,6 +6,6 @@ if [ -z $1 ]
     exit
   else
     echo "Building $1"
-    valac $1.vala ElementarySearchBar.vala SettingsPlug.vala log.vala AppMenu.vala ToolButtonWithMenu.vala --pkg gee-1.0 --pkg glib-2.0 --pkg gtk+-2.0 --pkg gconf-2.0 --pkg gdk-2.0 -o $1
+    valac $1.vala Color.vala Utilities.vala ElementarySearchBar.vala SettingsPlug.vala log.vala AppMenu.vala ToolButtonWithMenu.vala --pkg gee-1.0 --pkg glib-2.0 --pkg gtk+-2.0 --pkg gconf-2.0 --pkg gdk-2.0 -o $1
     echo "Finished building $1"
 fi

@@ -1,6 +1,7 @@
 /***
 BEGIN LICENSE
-Copyright (C) 2010 Sassy Developers
+Copyright (C) 2010 Maxwell Barvian
+Copyright (C) 2011 Avi Romanoff
 This program is free software: you can redistribute it and/or modify it 
 under the terms of the GNU Lesser General Public License version 3, as published 
 by the Free Software Foundation.
@@ -22,47 +23,7 @@ using Cairo;
 namespace Wallpaper {
 
     class Utilities : GLib.Object {
-		
-	    public static Gtk.Alignment wrap_alignment(Gtk.Widget widget, int top, int right, int bottom, int left) {
-		    var alignment = new Gtk.Alignment(0.0f, 0.0f, 1.0f, 1.0f);
-		    alignment.top_padding = top;
-		    alignment.right_padding = right;
-		    alignment.bottom_padding = bottom;
-		    alignment.left_padding = left;
-		
-		    alignment.add(widget);
-		    return alignment;
-	    }
-		
-	    public static void draw_rounded_rectangle(Cairo.Context context, double radius, double offset, Gtk.Allocation size) {
-		    context.move_to (size.x + radius, size.y + offset);
-		    context.arc (size.x + size.width - radius - offset, size.y + radius + offset, radius, Math.PI * 1.5, Math.PI * 2);
-		    context.arc (size.x + size.width - radius - offset, size.y + size.height - radius - offset, radius, 0, Math.PI * 0.5);
-		    context.arc (size.x + radius + offset, size.y + size.height - radius - offset, radius, Math.PI * 0.5, Math.PI);
-		    context.arc (size.x + radius + offset, size.y + radius + offset, radius, Math.PI, Math.PI * 1.5);
-		
-        }
-        
-        public static void truncate_text (Cairo.Context context, Gtk.Allocation size, uint padding, string input, out string truncated, out Cairo.TextExtents truncated_extents) {
-            Cairo.TextExtents extents;
-            truncated = input;
-            context.text_extents (input, out extents);
-            
-            if (extents.width > (size.width - padding)) {
-            
-                while (extents.width > (size.width - padding)) {
-                    truncated = truncated.slice (0, (int)truncated.length - 1);
-                    context.text_extents (truncated, out extents);
-                }   
-                
-                truncated = truncated.slice (0, (int)truncated.length - 3); // make room for ...
-                truncated += "...";
-            
-            }
-
-            context.text_extents (truncated, out truncated_extents); 
-        }
-        
+	
         public static Wallpaper.Color average_color (Gdk.Pixbuf source) {
 			    double rTotal = 0;
 			    double gTotal = 0;
@@ -94,6 +55,40 @@ namespace Wallpaper {
 							     gTotal / uint8.MAX / pixels,
 							     bTotal / uint8.MAX / pixels,
 							     1).set_val (0.8).multiply_sat (1.15);
+	    }
+	    
+	    public static Wallpaper.Color match_color (Wallpaper.Color input_color) {
+	    
+		    Gee.HashMap<string, Wallpaper.Color?> colors = new Gee.HashMap<string, Wallpaper.Color?>();
+		    colors["red"] = Wallpaper.Color(0.9961, 0.1451, 0.7059, 1.0);
+            colors["yellow"] = Wallpaper.Color(1.0000, 1.0000, 0.0392, 1.0);
+            colors["blue"] = Wallpaper.Color(0.6667, 0.3255, 1.0000, 1.0);
+            colors["green"] = Wallpaper.Color(0.1176, 0.6314, 0.1569, 1.0);
+            colors["orange"] = Wallpaper.Color(0.9961, 0.6000, 0.0001, 1.0);
+            colors["purple"] = Wallpaper.Color(0.5294, 0.0392, 0.6902, 1.0);
+	        
+            double r_prom = input_color.R;
+            double g_prom = input_color.G;
+            double b_prom = input_color.B;
+            
+            double closest_match = 1.0;
+            string match_name = "";
+    
+	        foreach (string name in colors.keys) {
+	            
+                double r_cur = colors[name].R;
+                double g_cur = colors[name].G;
+                double b_cur = colors[name].B;
+                
+                double current_match = Math.sqrt(((r_cur-r_prom)*(r_cur-r_prom) + (g_cur-g_prom)*(g_cur-g_prom) + (b_cur-b_prom)*(b_cur-b_prom)));
+                stdout.printf("Trying %s: %f\n", name, current_match);
+                if (current_match < closest_match) {
+                    closest_match = current_match;
+                    match_name = name;
+                }
+	        }
+            stdout.printf("The euclidian distance to the current color is closest to %f (%s).\n", closest_match, match_name);
+            return colors[match_name];
 	    }
 	}	
 }
