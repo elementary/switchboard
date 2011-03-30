@@ -66,6 +66,7 @@ namespace Wallpaper {
             var view = new IconView.with_model(this.store);
             view.selection_changed.connect(() => selection_changed_cb(view));
             view.set_pixbuf_column (0);
+            view.set_text_column (1);
             sw.add_with_viewport(view);
             sw.border_width = 0;
             vbox.pack_end(sw, true, true, 0);
@@ -101,12 +102,12 @@ namespace Wallpaper {
                     try {
                         var image = new Gdk.Pixbuf.from_file_at_size(WALLPAPER_DIR+"/"+filename, 100, 100);
                         var color = Wallpaper.Utilities.average_color(image);
-                        Wallpaper.Utilities.match_color_lab(color);
+                        string color_name = Wallpaper.Utilities.match_color_rgb(color);
 //                        stdout.printf("Red: %f\n", color.R);
 //                        stdout.printf("Green: %f\n", color.G);
 //                        stdout.printf("Blue: %f\n", color.B);
                         this.store.set(root, 0, image, -1);
-                        this.store.set(root, 1, filename, -1);
+                        this.store.set(root, 1, color_name, -1);
                     } catch {
 //                        stdout.printf("...Awww snap, couldn't load %s!\n", filename);
                     }

@@ -57,16 +57,32 @@ namespace Wallpaper {
 							     1).set_val (0.8).multiply_sat (1.15);
 	    }
 	    
-	    public static Wallpaper.Color match_color_rgb (Wallpaper.Color input_color) {
+	    public static string match_color_rgb (Wallpaper.Color input_color) {
 	    
 		    Gee.HashMap<string, Wallpaper.Color?> colors = new Gee.HashMap<string, Wallpaper.Color?>();
-		    colors["red"] = Wallpaper.Color(0.9961, 0.1451, 0.7059, 1.0);
-            colors["yellow"] = Wallpaper.Color(1.0000, 1.0000, 0.0392, 1.0);
-            colors["blue"] = Wallpaper.Color(0.6667, 0.3255, 1.0000, 1.0);
-            colors["green"] = Wallpaper.Color(0.1176, 0.6314, 0.1569, 1.0);
-            colors["orange"] = Wallpaper.Color(0.9961, 0.6000, 0.0001, 1.0);
-            colors["purple"] = Wallpaper.Color(0.5294, 0.0392, 0.6902, 1.0);
+		    
+		    // Primary
+		    colors["red"] = Wallpaper.Color(1.0000, 0.0000, 0.0000, 1.0);
+            colors["green"] = Wallpaper.Color(0.0000, 1.0000, 0.0000, 1.0);
+            colors["blue"] = Wallpaper.Color(0.0000, 0.0000, 1.0000, 1.0);
+
+            // Secondary
+            colors["yellow"] = Wallpaper.Color(1.0000, 1.0000, 0.0000, 1.0);
+            colors["cyan"] = Wallpaper.Color(0.0000, 1.0000, 1.0000, 1.0);
+            colors["magenta"] = Wallpaper.Color(1.0000, 0.0000, 1.0000, 1.0);
+            
+            // Tertiary
+            colors["orange"] = Wallpaper.Color(1.0000, 0.4980, 0.0000, 1.0);
+            colors["chartreuse green"] = Wallpaper.Color(0.4980, 1.0000, 0.0000, 1.0);
+            colors["spring green"] = Wallpaper.Color(0.0000, 1.0000, 0.4980, 1.0);
+            colors["azure"] = Wallpaper.Color(0.0000, 0.4980, 1.0000, 1.0);
+            colors["violet"] = Wallpaper.Color(0.4980, 0.0000, 1.0000, 1.0);
+            colors["rose"] = Wallpaper.Color(1.0000, 0.0000, 0.4980, 1.0);
 	        
+	        // Grays
+//            colors["gray"] = Wallpaper.Color(0.8039, 0.8039, 0.8039, 1.0);
+//            colors["white"] = Wallpaper.Color(1.0000, 1.0000, 1.0000, 1.0);
+
             double r_prom = input_color.R;
             double g_prom = input_color.G;
             double b_prom = input_color.B;
@@ -88,7 +104,7 @@ namespace Wallpaper {
                 }
 	        }
             stdout.printf("The euclidian distance to the current color is closest to %f (%s).\n", closest_match, match_name);
-            return colors[match_name];
+            return match_name;
 	    }
 	    
 	    public static Wallpaper.Color match_color_lab (Wallpaper.Color input_color) {
