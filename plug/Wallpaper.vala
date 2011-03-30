@@ -19,6 +19,15 @@ using Gtk;
 using GConf;
 using ElementaryWidgets;
  
+[DBus (name = "org.elementary.switchboard")]
+public interface SwitchboardController : GLib.Object {
+
+    public abstract void progress_bar_pulse () throws IOError;
+    public abstract void progress_bar_show () throws IOError;
+    public abstract void progress_bar_hide () throws IOError;
+    public abstract void progress_bar_set_fraction () throws IOError;
+}
+
 public class WallpaperGConf {
  
     string background_key = "/desktop/gnome/background/picture_filename";
@@ -33,25 +42,23 @@ public class WallpaperGConf {
 [DBus (name = "org.elementary.switchplug")]
 public class WallpaperSettings : SettingsPlug {
 
+    private SwitchboardController switchboard_controller;
     WallpaperGConf conf_client = new WallpaperGConf();
     ListStore store = new ListStore(2, typeof (Gdk.Pixbuf), typeof (string));
     string WALLPAPER_DIR = "/usr/share/backgrounds";
-    ProgressBar progress = new ProgressBar();
-    InfoBar infobar = new InfoBar();
     TreeIter selected_plug;
 
     public WallpaperSettings() {
         base("Wallpaper");
+        this.switchboard_controller = Bus.get_proxy_sync (BusType.SESSION, "org.elementary.switchboard",
+                                                                             "/org/elementary/switchboard");
         setup_ui();
+        this.switchboard_controller.progress_bar_show();
         gather_wallpapers_async();
     }    
     
     private void setup_ui() {
         var vbox = new VBox(false, 0);
-        this.progress.pulse_step = 0.1;
-        this.infobar.add_action_widget(this.progress, 123);
-        this.infobar.set_message_type(MessageType.OTHER);
-        vbox.pack_start(this.infobar, false, false, 0);
         var sw = new ScrolledWindow(null, null);
         sw.set_policy (PolicyType.NEVER, PolicyType.AUTOMATIC);
         var view = new IconView.with_model(this.store);
@@ -60,8 +67,6 @@ public class WallpaperSettings : SettingsPlug {
         sw.add_with_viewport(view);
         sw.border_width = 0;
         vbox.pack_end(sw, true, true, 0);
-	var switch_button = new Gtk.Button.with_label("Foobatmitzvah");
-	vbox.pack_end(switch_button, false, false, 0); // No expand, no fill, no spacing
         this.add(vbox);
         this.show_all();
     }
@@ -98,13 +103,13 @@ public class WallpaperSettings : SettingsPlug {
                 } catch {
                     stdout.printf("...Awww snap, couldn't load %s!\n", filename);
                 }
-                this.progress.pulse();
+                this.switchboard_controller.progress_bar_pulse();
                 while(events_pending ()) {
                     main_iteration();
                 }
             }
         }
-        this.infobar.hide();
+        this.switchboard_controller.progress_bar_hide();
     }
 }
 

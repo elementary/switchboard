@@ -36,10 +36,10 @@ namespace SwitchBoard {
        
         /* Toolbar widgets */
         public AppMenu app_menu;
+        public ProgressBar progress_bar;
         private Toolbar toolbar;
         private ToolButton navigation_button;
         private ElementaryEntry find_entry;
-        private ProgressBar progress_bar;
         ToolItem lspace = new ToolItem ();
         ToolItem rspace = new ToolItem ();
         
@@ -77,7 +77,6 @@ namespace SwitchBoard {
             /* Setup toolbar */
             setup_toolbar ();
             this.size_allocate.connect(center_progress_bar);
-//            this.progress_bar.hide();
             
             /* Wire up interface */
             this.category_view.plug_selected.connect((view, store) => load_plug(view, store));
@@ -228,6 +227,30 @@ namespace SwitchBoard {
 		    return keyfiles;
         }
         
+        public void progress_bar_pulse () {
+            // For use by plugs via D-Bus
+            this.progress_bar.pulse();
+        
+        }
+        
+        public void progress_bar_hide () {
+            // For use by plugs via D-Bus
+            this.progress_bar.hide();
+        
+        }
+        
+        public void progress_bar_show () {
+            // For use by plugs via D-Bus
+            this.progress_bar.show();
+        
+        }
+        
+        public void progress_bar_set_fraction (double fraction) {
+            // For use by plugs via D-Bus
+            this.progress_bar.fraction = fraction;
+        
+        }
+        
         private void setup_toolbar () {
         
             // Global toolbar widgets
@@ -291,21 +314,23 @@ namespace SwitchBoard {
             // hesitate to hit me up. But it's late,
             // and I can't be bothered to bust out
             // the geometry on this one.
-            Allocation alloc;
-            this.toolbar.get_allocation(out alloc);
-            int toolbar_size = alloc.width;
-            this.navigation_button.get_allocation(out alloc);
-            int nav_size = alloc.width;
-            this.progress_bar.get_allocation(out alloc);
-            int prog_size = alloc.width;
-            this.find_entry.get_allocation(out alloc);
-            int search_size = alloc.width;
-            this.app_menu.get_allocation(out alloc);
-            int appmenu_size = alloc.width;
-            // -1 because of the pad between the edge
-            // of the toolbar and the window border.
-            this.lspace.set_size_request(((toolbar_size/2-nav_size)-prog_size/2)-1, 38);
-            this.rspace.set_size_request(((toolbar_size/2-(search_size+appmenu_size))-prog_size/2)-1, 38);
+            if (this.progress_bar.visible) {
+                Allocation alloc;
+                this.toolbar.get_allocation(out alloc);
+                int toolbar_size = alloc.width;
+                this.navigation_button.get_allocation(out alloc);
+                int nav_size = alloc.width;
+                this.progress_bar.get_allocation(out alloc);
+                int prog_size = alloc.width;
+                this.find_entry.get_allocation(out alloc);
+                int search_size = alloc.width;
+                this.app_menu.get_allocation(out alloc);
+                int appmenu_size = alloc.width;
+                // -1 because of the pad between the edge
+                // of the toolbar and the window border.
+                this.lspace.set_size_request(((toolbar_size/2-nav_size)-prog_size/2)-1, 38);
+                this.rspace.set_size_request(((toolbar_size/2-(search_size+appmenu_size))-prog_size/2)-1, 38);
+            }        
         }
         
         private void launch_help () {
@@ -359,6 +384,7 @@ namespace SwitchBoard {
     
     private void on_bus_aquired (DBusConnection conn) {
         SettingsApp settings_app = new SettingsApp ();
+        settings_app.progress_bar.hide();
         try {
             conn.register_object ("/org/elementary/switchboard", settings_app);
         } catch (IOError e) {
