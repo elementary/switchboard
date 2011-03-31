@@ -61,14 +61,18 @@ namespace Wallpaper {
         
         private void setup_ui() {
             var vbox = new VBox(false, 0);
+            var vp = new Viewport(null, null);
+            vp.set_shadow_type(ShadowType.NONE);
             var sw = new ScrolledWindow(null, null);
             sw.set_policy (PolicyType.NEVER, PolicyType.AUTOMATIC);
             var view = new IconView.with_model(this.store);
             view.selection_changed.connect(() => selection_changed_cb(view));
             view.set_pixbuf_column (0);
             view.set_text_column (1);
-            sw.add_with_viewport(view);
+            vp.add(view);
+            sw.add(vp);
             sw.border_width = 0;
+            sw.set_shadow_type(ShadowType.NONE);
             vbox.pack_end(sw, true, true, 0);
             this.add(vbox);
             this.show_all();
@@ -89,6 +93,7 @@ namespace Wallpaper {
             var directory = File.new_for_path (WALLPAPER_DIR);
             var e = yield directory.enumerate_children_async (FILE_ATTRIBUTE_STANDARD_NAME,
                                                         0, Priority.DEFAULT);
+            
             while (true) {
                 var files = yield e.next_files_async (10, Priority.DEFAULT);
                 if (files == null) {
@@ -96,16 +101,19 @@ namespace Wallpaper {
                 }
                 foreach (var info in files) {
 		            string? filename = (string) info.get_name ();
+		            if (info.get_file_type() == FileType.DIRECTORY) {
+                        stdout.printf("FOLLLLLDDERR!!\n");
+                        }
+                    else {
+                    stdout.printf("FILLLE!!\n");
+                    }
                     TreeIter root;
                     this.store.append(out root);
                     stdout.printf("Now trying to import: %s\n", filename);
                     try {
                         var image = new Gdk.Pixbuf.from_file_at_size(WALLPAPER_DIR+"/"+filename, 100, 100);
                         var color = Wallpaper.Utilities.average_color(image);
-                        string color_name = Wallpaper.Utilities.match_color_rgb(color);
-//                        stdout.printf("Red: %f\n", color.R);
-//                        stdout.printf("Green: %f\n", color.G);
-//                        stdout.printf("Blue: %f\n", color.B);
+                        string color_name = Wallpaper.Utilities.match_color_hsv(color);
                         this.store.set(root, 0, image, -1);
                         this.store.set(root, 1, color_name, -1);
                     } catch {

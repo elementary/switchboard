@@ -25,9 +25,9 @@ namespace Wallpaper {
     class Utilities : GLib.Object {
 	
         public static Wallpaper.Color average_color (Gdk.Pixbuf source) {
-			    double rTotal = 0;
-			    double gTotal = 0;
-			    double bTotal = 0;
+            double rTotal = 0;
+            double gTotal = 0;
+            double bTotal = 0;
 			
 			    uchar* dataPtr = source.get_pixels ();
 			    double pixels = source.height * source.rowstride / source.n_channels;
@@ -57,12 +57,55 @@ namespace Wallpaper {
 							     1).set_val (0.8).multiply_sat (1.15);
 	    }
 	    
-	    public static string match_color_rgb (Wallpaper.Color input_color) {
-	    
-		    Gee.HashMap<string, Wallpaper.Color?> colors = new Gee.HashMap<string, Wallpaper.Color?>();
-		    
-		    // Primary
-		    colors["red"] = Wallpaper.Color(1.0000, 0.0000, 0.0000, 1.0);
+	    public static void rgb_to_hsv (double r, double g, double b, out double h, out double s, out double v)
+        {
+	        double min = Math.fmin (r, Math.fmin (g, b));
+	        double max = Math.fmax (r, Math.fmax (g, b));
+	
+	        v = max;
+	        if (v == 0) {
+		        h = 0;
+		        s = 0;
+		        return;
+	        }
+	
+	        // normalize value to 1
+	        r /= v;
+	        g /= v;
+	        b /= v;
+	
+	        min = Math.fmin (r, Math.fmin (g, b));
+	        max = Math.fmax (r, Math.fmax (g, b));
+	
+	        double delta = max - min;
+	        s = delta;
+	        if (s == 0) {
+		        h = 0;
+		        return;
+	        }
+	
+	        // normalize saturation to 1
+	        r = (r - min) / delta;
+	        g = (g - min) / delta;
+	        b = (b - min) / delta;
+	
+	        if (max == r) {
+		        h = 0 + 60 * (g - b);
+		        if (h < 0)
+			        h += 360;
+	        } else if (max == g) {
+		        h = 120 + 60 * (b - r);
+	        } else {
+		        h = 240 + 60 * (r - g);
+	        }
+        }
+
+        public static string match_color_rgb (Wallpaper.Color input_color) {
+
+            Gee.HashMap<string, Wallpaper.Color?> colors = new Gee.HashMap<string, Wallpaper.Color?>();
+            
+            // Primary
+            colors["red"] = Wallpaper.Color(1.0000, 0.0000, 0.0000, 1.0);
             colors["green"] = Wallpaper.Color(0.0000, 1.0000, 0.0000, 1.0);
             colors["blue"] = Wallpaper.Color(0.0000, 0.0000, 1.0000, 1.0);
 
@@ -78,20 +121,21 @@ namespace Wallpaper {
             colors["azure"] = Wallpaper.Color(0.0000, 0.4980, 1.0000, 1.0);
             colors["violet"] = Wallpaper.Color(0.4980, 0.0000, 1.0000, 1.0);
             colors["rose"] = Wallpaper.Color(1.0000, 0.0000, 0.4980, 1.0);
-	        
-	        // Grays
-//            colors["gray"] = Wallpaper.Color(0.8039, 0.8039, 0.8039, 1.0);
-//            colors["white"] = Wallpaper.Color(1.0000, 1.0000, 1.0000, 1.0);
 
             double r_prom = input_color.R;
             double g_prom = input_color.G;
             double b_prom = input_color.B;
             
+            double h, s, v;
+            rgb_to_hsv (r_prom, g_prom, b_prom, out h, out s, out v);
+            stdout.printf("\nH: %f\nS: %f\nV:%f\n\n", h, s, v);
+            stdout.printf("R: %f\nG: %f\nB:%f\n\n", r_prom, g_prom, b_prom);
+            
             double closest_match = 1.0;
             string match_name = "";
     
-	        foreach (string name in colors.keys) {
-	            
+            foreach (string name in colors.keys) {
+                
                 double r_cur = colors[name].R;
                 double g_cur = colors[name].G;
                 double b_cur = colors[name].B;
@@ -102,80 +146,67 @@ namespace Wallpaper {
                     closest_match = current_match;
                     match_name = name;
                 }
-	        }
+            }
             stdout.printf("The euclidian distance to the current color is closest to %f (%s).\n", closest_match, match_name);
             return match_name;
-	    }
-	    
-	    public static Wallpaper.Color match_color_lab (Wallpaper.Color input_color) {
-	        
+        }
+
+        public static string match_color_hsv (Wallpaper.Color input_color) {
+
+            Gee.HashMap<string, Wallpaper.Color?> colors = new Gee.HashMap<string, Wallpaper.Color?>();
+            
+            // Primary
+            colors["red"] = Wallpaper.Color(1.0000, 0.0000, 0.0000, 1.0);
+            colors["green"] = Wallpaper.Color(0.0000, 1.0000, 0.0000, 1.0);
+            colors["blue"] = Wallpaper.Color(0.0000, 0.0000, 1.0000, 1.0);
+
+//            // Secondary
+            colors["yellow"] = Wallpaper.Color(1.0000, 1.0000, 0.0000, 1.0);
+            colors["cyan"] = Wallpaper.Color(0.0000, 1.0000, 1.0000, 1.0);
+            colors["magenta"] = Wallpaper.Color(1.0000, 0.0000, 1.0000, 1.0);
+//            
+//            // Tertiary
+            colors["orange"] = Wallpaper.Color(1.0000, 0.4980, 0.0000, 1.0);
+            colors["chartreuse green"] = Wallpaper.Color(0.4980, 1.0000, 0.0000, 1.0);
+            colors["spring green"] = Wallpaper.Color(0.0000, 1.0000, 0.4980, 1.0);
+            colors["azure"] = Wallpaper.Color(0.0000, 0.4980, 1.0000, 1.0);
+            colors["violet"] = Wallpaper.Color(0.4980, 0.0000, 1.0000, 1.0);
+            colors["rose"] = Wallpaper.Color(1.0000, 0.0000, 0.4980, 1.0);
+
+			double h_prom, s_prom, v_prom;
             double r_prom = input_color.R;
             double g_prom = input_color.G;
             double b_prom = input_color.B;
+            rgb_to_hsv (r_prom, g_prom, b_prom, out h_prom, out s_prom, out v_prom);
             
-            stdout.printf("R:%f\nG:%f\nB:%f\n\n", r_prom,g_prom, b_prom);
             
-            if (r_prom > 0.04045) {
-                r_prom = Math.pow(((g_prom + 0.055) / 1.055), 2.4);
-            } else {
-                r_prom /= 12.92;
-            }
-            if (g_prom > 0.04045) {
-                g_prom = Math.pow(((g_prom + 0.055) / 1.055), 2.4);
-            } else {
-                g_prom /= 12.92;
-            }
-            if (b_prom > 0.04045) {
-                b_prom = Math.pow(((g_prom + 0.055) / 1.055), 2.4);
-            } else {
-                b_prom /= 12.92;
+            if (v_prom < 0.1) {
+                return "black";
             }
             
-            r_prom *= 100;
-            g_prom *= 100;
-            b_prom *= 100;
-            
-            
-            double x_prom = r_prom * 0.4124 + g_prom * 0.3576 + b_prom * 0.1805;
-            double y_prom = r_prom * 0.2126 + g_prom * 0.7152 + b_prom * 0.0722;
-            double z_prom = r_prom * 0.0193 + g_prom * 0.1192 + b_prom * 0.9505;
-            
-            stdout.printf("X:%f\nY:%f\nZ:%f\n\n", x_prom, y_prom, z_prom);
-            
-            double temp_x = x_prom / 95.047;
-            double temp_y = y_prom / 100.000;
-            double temp_z = z_prom / 108.883;
-            
-            stdout.printf("X:%f\nY:%f\nZ:%f\n\n", temp_x, temp_y, temp_z);
-            
-//            stdout.printf("X:%f\n", temp_x);
-            if (temp_x > 0.008856) {
-                temp_x = Math.pow(temp_x, Math.sqrt(3));
-//                stdout.printf("X:%f\n", temp_x);
-            } else {
-                temp_x = (7.787 * temp_x) + (16/116);
-            }
-            if (temp_y > 0.008856) {
-                temp_y = Math.pow(temp_y, Math.sqrt(3));
-            } else {
-                temp_y = (7.787 * temp_y) + (16/116);
-            }
-            if (temp_z > 0.008856) {
-                temp_z = Math.pow(temp_z, Math.sqrt(3));
-            } else {
-                temp_z = (7.787 * temp_z) + (16/116);
+            if (s_prom < 0.1) {
+                if (v_prom < 0.9) {
+                    return "grey";
+                }
             }
             
-            stdout.printf("X:%f\nY:%f\nZ:%f\n\n", temp_x, temp_y, temp_z);
-            
-            double L = ((116 * temp_y) - 16);
-            double A = (500 * (temp_x - temp_y));
-            double B = (200 * (temp_y - temp_z));
-            
-            stdout.printf("L:%f\nA:%f\nB:%f\n\n", L, A, B);
-                        
-        return input_color;
-	        
-	    }	
+            double closest_match = 360.0;
+            string match_name = "";
+    
+           foreach (string name in colors.keys) {
+             
+    			double h_cur, s_cur, v_cur;
+                rgb_to_hsv (colors[name].R, colors[name].G, colors[name].B, out h_cur, out s_cur, out v_cur);
+                
+                double current_match = Math.sqrt(((h_cur-h_prom)*(h_cur-h_prom)));
+                stdout.printf("Trying %s: %f\n", name, current_match);
+                if (current_match < closest_match) {
+                    closest_match = current_match;
+                    match_name = name;
+                }
+           }
+            stdout.printf("The euclidian distance to the current color is closest to %f (%s).\n", closest_match, match_name);
+            return match_name;
+       }
     }
 }
