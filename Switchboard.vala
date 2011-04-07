@@ -84,7 +84,6 @@ namespace SwitchBoard {
         }
         
         public int get_socket_wid() {
-//            GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, "Dispatching WID");
             return ((int) this.socket.get_id ());
         }
         

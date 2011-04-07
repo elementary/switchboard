@@ -16,33 +16,23 @@ END LICENSE
 ***/
  
 using Gtk;
-using GConf;
 using ElementaryWidgets;
  
 namespace Wallpaper {
 
-    public class WallpaperGConf {
-     
-        string background_key = "/desktop/gnome/background/picture_filename";
-        GConf.Client gc = GConf.Client.get_default();
-        
-        public void update_wallpaper(string file_location) throws GLib.Error {
-            stdout.printf(file_location+"\n");
-            gc.set_string(background_key, file_location);
-        }
-    }
+    public class WallpaperPlug : SwitchPlug {
 
-    public class WallpaperSettings : SwitchPlug {
-
-        WallpaperGConf conf_client = new WallpaperGConf();
+        KeyFile kf = new KeyFile();
         ListStore store = new ListStore(2, typeof (Gdk.Pixbuf), typeof (string));
         string WALLPAPER_DIR = "/usr/share/backgrounds";
+        string WALLPAPER_KF = Environment.get_home_dir()+"/.config/wallpaper/settings";
         TreeIter selected_plug;
 
-        public WallpaperSettings() {
+        public WallpaperPlug() {
             base("Wallpaper");
             setup_ui();
-            this.switchboard_controller.progress_bar_set_visible(true);
+            stdout.printf(WALLPAPER_KF+"\n");
+            this.kf.load_from_file(WALLPAPER_KF, 0);
             gather_wallpapers_async();
         }    
         
@@ -72,11 +62,19 @@ namespace Wallpaper {
                 var item = selected.nth_data(0);
                 this.store.get_iter(out this.selected_plug, item);
                 this.store.get_value (this.selected_plug, 1, out filename);
-                this.conf_client.update_wallpaper(WALLPAPER_DIR+"/"+filename.get_string());
+                stdout.printf(this.kf.get_string("WallpaperWallpaperPreferences", "WallpaperPath")+"\n");
+                this.kf.set_string ("WallpaperWallpaperPreferences", "WallpaperPath", WALLPAPER_DIR+"/"+filename.get_string());
+                File f = File.new_for_path(WALLPAPER_KF);
+                if(f.query_exists(null))
+                    f.delete(null);
+                var fo_stream = f.create(FileCreateFlags.REPLACE_DESTINATION, null);
+                var dos = new DataOutputStream(fo_stream);
+                dos.put_string(kf.to_data());
             }
         }
         
         private async void gather_wallpapers_async () {
+            this.switchboard_controller.progress_bar_set_visible(true);
             this.switchboard_controller.progress_bar_set_text("Importing wallpapers from "+WALLPAPER_DIR);
             var directory = File.new_for_path (WALLPAPER_DIR);
             var e = yield directory.enumerate_children_async (FILE_ATTRIBUTE_STANDARD_NAME,
@@ -91,7 +89,6 @@ namespace Wallpaper {
 		            string? filename = (string) info.get_name ();
                     TreeIter root;
                     this.store.append(out root);
-//                    stdout.printf("Now trying to import: %s\n", filename);
                     try {
                         var image = new Gdk.Pixbuf.from_file_at_size(WALLPAPER_DIR+"/"+filename, 100, 100);
                         var color = Wallpaper.Utilities.average_color(image);
@@ -99,7 +96,6 @@ namespace Wallpaper {
                         this.store.set(root, 0, image, -1);
                         this.store.set(root, 1, filename, -1);
                     } catch {
-//                        stdout.printf("...Awww snap, couldn't load %s!\n", filename);
                     }
                     this.switchboard_controller.progress_bar_pulse();
                     while(events_pending ()) {
@@ -113,7 +109,7 @@ namespace Wallpaper {
 
     public static void main (string[] args) {
         Gtk.init (ref args);
-        var plug = new WallpaperSettings ();
+        WallpaperPlug plug = new WallpaperPlug ();
         Gtk.main ();
     }
 }
