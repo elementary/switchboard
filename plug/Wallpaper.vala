@@ -21,15 +21,6 @@ using ElementaryWidgets;
  
 namespace Wallpaper {
 
-    [DBus (name = "org.elementary.switchboard")]
-    public interface SwitchboardController : GLib.Object {
-
-        public abstract void progress_bar_pulse () throws IOError;
-        public abstract void progress_bar_show () throws IOError;
-        public abstract void progress_bar_hide () throws IOError;
-        public abstract void progress_bar_set_fraction () throws IOError;
-    }
-
     public class WallpaperGConf {
      
         string background_key = "/desktop/gnome/background/picture_filename";
@@ -41,10 +32,8 @@ namespace Wallpaper {
         }
     }
 
-    [DBus (name = "org.elementary.switchplug")]
-    public class WallpaperSettings : SettingsPlug {
+    public class WallpaperSettings : SwitchPlug {
 
-        private SwitchboardController switchboard_controller;
         WallpaperGConf conf_client = new WallpaperGConf();
         ListStore store = new ListStore(2, typeof (Gdk.Pixbuf), typeof (string));
         string WALLPAPER_DIR = "/usr/share/backgrounds";
@@ -52,10 +41,8 @@ namespace Wallpaper {
 
         public WallpaperSettings() {
             base("Wallpaper");
-            this.switchboard_controller = Bus.get_proxy_sync (BusType.SESSION, "org.elementary.switchboard",
-                                                                                 "/org/elementary/switchboard");
             setup_ui();
-            this.switchboard_controller.progress_bar_show();
+            this.switchboard_controller.progress_bar_set_visible(true);
             gather_wallpapers_async();
         }    
         
@@ -90,6 +77,7 @@ namespace Wallpaper {
         }
         
         private async void gather_wallpapers_async () {
+            this.switchboard_controller.progress_bar_set_text("Importing wallpapers from "+WALLPAPER_DIR);
             var directory = File.new_for_path (WALLPAPER_DIR);
             var e = yield directory.enumerate_children_async (FILE_ATTRIBUTE_STANDARD_NAME,
                                                         0, Priority.DEFAULT);
@@ -101,15 +89,9 @@ namespace Wallpaper {
                 }
                 foreach (var info in files) {
 		            string? filename = (string) info.get_name ();
-		            if (info.get_file_type() == FileType.DIRECTORY) {
-                        stdout.printf("FOLLLLLDDERR!!\n");
-                        }
-                    else {
-                    stdout.printf("FILLLE!!\n");
-                    }
                     TreeIter root;
                     this.store.append(out root);
-                    stdout.printf("Now trying to import: %s\n", filename);
+//                    stdout.printf("Now trying to import: %s\n", filename);
                     try {
                         var image = new Gdk.Pixbuf.from_file_at_size(WALLPAPER_DIR+"/"+filename, 100, 100);
                         var color = Wallpaper.Utilities.average_color(image);
@@ -125,30 +107,13 @@ namespace Wallpaper {
                     }
                 }
             }
-            this.switchboard_controller.progress_bar_hide();
+            this.switchboard_controller.progress_bar_set_visible(false);
         }
     }
 
-    private void on_bus_aquired (DBusConnection conn) {
-        var plug = new WallpaperSettings ();
-        try {
-            conn.register_object ("/org/elementary/switchplug", plug);
-        } catch (IOError e) {
-        }
-    }
-
-    public static int main (string[] args) {
-        GLib.Log.set_default_handler(Log.log_handler);
+    public static void main (string[] args) {
         Gtk.init (ref args);
-        
-        Bus.own_name (BusType.SESSION, "org.elementary.switchplug", /* name to register */
-                  BusNameOwnerFlags.NONE, /* flags */
-                  on_bus_aquired, /* callback function on registration succeded */
-                  () => {}, /* callback on name register succeded */
-                  () => stderr.printf ("Could not aquire name\n"));
-                                                     /* callback on name lost */
-        // Run the main loop
+        var plug = new WallpaperSettings ();
         Gtk.main ();
-        return 0;
     }
 }

@@ -25,26 +25,22 @@ namespace SwitchBoard {
     public const string plug_exec_dir = "./plug/";
     public const string app_title = "SwitchBoard";
     
-    [DBus (name = "org.elementary.switchplug")]
-    public interface PlugController : GLib.Object {
-    
-        public abstract void exit_plug () throws IOError;
-    }
-    
     [DBus (name = "org.elementary.switchboard")]
     public class SettingsApp : Window {
        
         /* Toolbar widgets */
-        public AppMenu app_menu;
-        public ProgressBar progress_bar;
+        private AppMenu app_menu;
+        private ProgressBar progress_bar;
+        private Label progress_label;
+        private ElementaryEntry find_entry;
         private Toolbar toolbar;
         private ToolButton navigation_button;
-        private ElementaryEntry find_entry;
-        ToolItem lspace = new ToolItem ();
-        ToolItem rspace = new ToolItem ();
+        public ToolItem progress_toolitem;
+        private ToolItem lspace = new ToolItem ();
+        private ToolItem rspace = new ToolItem ();
         
         /* Content Area widgets */
-        public Gtk.Socket socket;
+        private Gtk.Socket socket;
         private VBox vbox;
         private CategoryView category_view = new CategoryView({ "Personal", "Hardware", "Network and Wireless", "System" });
         
@@ -52,9 +48,6 @@ namespace SwitchBoard {
         private TreeIter selected_plug;
         private bool socket_shown;
         private Gee.HashMap<string, string> current_plug = new Gee.HashMap<string, string>();
-        
-        /* D-Bus Controller for Plugs */
-        private PlugController plug_controller;
 
         public SettingsApp () {
             /* Setup window */
@@ -83,8 +76,7 @@ namespace SwitchBoard {
             this.vbox = new VBox (false, 0);
             this.vbox.pack_start (this.toolbar, false, false);
             this.vbox.pack_start (this.socket, false, false);
-            this.vbox.pack_end (this.category_view, true, true);
-            
+            this.vbox.pack_end (this.category_view, true, true);  
             this.add (this.vbox);
             
             this.enumerate_plugs ();
@@ -92,7 +84,7 @@ namespace SwitchBoard {
         }
         
         public int get_socket_wid() {
-            GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, "Dispatching WID");
+//            GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, "Dispatching WID");
             return ((int) this.socket.get_id ());
         }
         
@@ -114,15 +106,9 @@ namespace SwitchBoard {
                         if (this.current_plug["title"] != "") {
                             GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, 
                             "Exiting plug from SwitchBoard controller..");
-                            this.plug_controller.exit_plug();
+                            plug_closed();
                         }
                         GLib.Process.spawn_command_line_async (plug_exec_dir + executable.get_string());
-                        try {
-                            this.plug_controller = Bus.get_proxy_sync (BusType.SESSION, "org.elementary.switchplug",
-                                                                             "/org/elementary/switchplug");
-                        } catch (IOError e) {
-                            log (SwitchBoard.errdomain, GLib.LogLevelFlags.LEVEL_ERROR, "%s", e.message);
-                        }
                         this.current_plug["title"] = title.get_string();
                         this.current_plug["executable"] = executable.get_string();
                         // ensure the button is sensitive; it might be the first plug loaded
@@ -146,7 +132,7 @@ namespace SwitchBoard {
 
         // Change Switchboard title to "Switchboard - PlugName"
         private void load_plug_title (string plug_title) {
-            this.title += " - " + plug_title;
+            this.title = "Switchboard - " + plug_title;
         }
 
         // Change Switchboard title back to "Switchboard"
@@ -226,39 +212,48 @@ namespace SwitchBoard {
             }
 		    return keyfiles;
         }
-        
-        public void progress_bar_pulse () {
-            // For use by plugs via D-Bus
-            this.progress_bar.pulse();
-        
+
+        // D-Bus ONLY methods
+       
+        public signal void plug_closed ();
+
+
+        public void progress_bar_set_visible (bool visibility) {
+            this.progress_toolitem.set_visible(visibility);
+        }    
+
+        public void progress_bar_set_text (string text) {
+            this.progress_label.set_text(text);
         }
-        
-        public void progress_bar_hide () {
-            // For use by plugs via D-Bus
-            this.progress_bar.hide();
-        
-        }
-        
-        public void progress_bar_show () {
-            // For use by plugs via D-Bus
-            this.progress_bar.show();
-        
-        }
-        
+
         public void progress_bar_set_fraction (double fraction) {
-            // For use by plugs via D-Bus
             this.progress_bar.fraction = fraction;
-        
+        }
+ 
+        public void progress_bar_pulse () {
+            this.progress_bar.pulse();
         }
         
+
+        public signal void search_box_activated ();
+
+        public void search_box_set_sensitive (bool sensitivity) {
+            this.find_entry.set_sensitive (sensitivity);
+        }
+
+        public void search_box_set_text (string text) {
+            this.find_entry.set_text (text);
+        }
+
+        // end D-Bus ONLY methods
+
         private void setup_toolbar () {
         
             // Global toolbar widgets
             this.toolbar = new Toolbar ();
             var menu = new Menu ();
             this.app_menu = new AppMenu.from_stock(Gtk.Stock.PROPERTIES, IconSize.MENU, "Menu", menu);
-            
-            
+
             // Appmenu stuff
             // TODO move this into AppMenu proper
             MenuItem go_help = new MenuItem.with_label ("Get Help Online...");
@@ -281,16 +276,20 @@ namespace SwitchBoard {
             this.lspace.set_expand (true); 
             this.rspace.set_expand (true); 
             
-            
             // Progressbar
-            var tvbox = new VBox(true, 0);
+            var progress_vbox = new VBox (true, 0);
+            this.progress_label = new Label("");
+            this.progress_label.set_use_markup(true);
             this.progress_bar = new ProgressBar ();
-            var progress_toolitem = new ToolItem ();
-            tvbox.pack_start(this.progress_bar, false, false, 0);
-            progress_toolitem.add (tvbox);
+            this.progress_toolitem = new ToolItem ();
+            progress_vbox.pack_start (this.progress_label, true, false, 0);
+            progress_vbox.pack_end (this.progress_bar, false, false, 0);
+            this.progress_toolitem.add (progress_vbox);
+            this.progress_toolitem.set_expand (true);
             
             // Searchbar
             this.find_entry = new ElementarySearchEntry ("Type to search ...");
+            this.find_entry.activate.connect(() => search_box_activated());
             var find_toolitem = new ToolItem ();
             find_toolitem.add (this.find_entry);
             
@@ -302,7 +301,7 @@ namespace SwitchBoard {
             // Add everything to the toolbar
             this.toolbar.insert (navigation_button, 0);
             this.toolbar.insert (this.lspace, 1);
-            this.toolbar.insert (progress_toolitem, 2);
+            this.toolbar.insert (this.progress_toolitem, 2);
             this.toolbar.insert (this.rspace, 3);
             this.toolbar.insert (find_toolitem, 4);
             this.toolbar.insert (this.app_menu, 5);
@@ -320,7 +319,7 @@ namespace SwitchBoard {
                 int toolbar_size = alloc.width;
                 this.navigation_button.get_allocation(out alloc);
                 int nav_size = alloc.width;
-                this.progress_bar.get_allocation(out alloc);
+                this.progress_toolitem.get_allocation(out alloc);
                 int prog_size = alloc.width;
                 this.find_entry.get_allocation(out alloc);
                 int search_size = alloc.width;
@@ -333,6 +332,7 @@ namespace SwitchBoard {
             }        
         }
         
+        // TODO all of this should be in AppMenu proper.
         private void launch_help () {
             try {
                 GLib.Process.spawn_async ("/usr/bin/", 
@@ -384,7 +384,7 @@ namespace SwitchBoard {
     
     private void on_bus_aquired (DBusConnection conn) {
         SettingsApp settings_app = new SettingsApp ();
-        settings_app.progress_bar.hide();
+        settings_app.progress_toolitem.hide();
         try {
             conn.register_object ("/org/elementary/switchboard", settings_app);
         } catch (IOError e) {
@@ -392,7 +392,6 @@ namespace SwitchBoard {
     }
     
     public static int main (string[] args) {
-        // Startup GTK and pass args by reference
         GLib.Log.set_default_handler(Log.log_handler);
         Gtk.init (ref args);
         

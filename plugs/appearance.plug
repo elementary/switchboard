@@ -1,5 +1,5 @@
 [appearance.plug]
-exec=AppearanceSettings
+exec=Appearance
 icon=preferences-theme
 title=Appearance
 category=Personal

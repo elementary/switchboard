@@ -17,39 +17,19 @@ END LICENSE
 
 using ElementaryWidgets;
 
-[DBus (name = "org.elementary.switchplug")]
-public class DisplayPlug : SettingsPlug {
-    
-    public DisplayPlug () {
+public class CustomPlug : SwitchPlug {
+
+    public CustomPlug () {
         base("Monitor");
-        var l = new Gtk.Label("foo");
+        var l = new Gtk.Label("They see me trolin'");
+        switchboard_controller.search_box_activated.connect(() => stdout.printf("Benvolio!\n"));
         this.add(l);
+        this.show_all();
     }
 }
 
-private new void on_bus_aquired (DBusConnection conn) {
-    DisplayPlug display_plug = new DisplayPlug ();
-    try {
-        conn.register_object ("/org/elementary/switchplug", display_plug);
-    } catch (IOError e) {
-    }
-}
-
-public static int main (string[] args) {
-    // Initiate our fancy Log formatting
-    GLib.Log.set_default_handler(Log.log_handler);
-    
-    // Startup GTK and pass args by reference
+public static void main (string[] args) {
     Gtk.init (ref args);
-    
-    // Just create an instance of your plug, everything else is taken care of
-    Bus.own_name (BusType.SESSION, "org.elementary.switchplug", /* name to register */
-              BusNameOwnerFlags.NONE, /* flags */
-              on_bus_aquired, /* callback function on registration succeded */
-              () => {}, /* callback on name register succeded */
-              () => stderr.printf ("Could not aquire name\n"));
-                                                 /* callback on name lost */
-    // Run the main loop
+    CustomPlug plug = new CustomPlug ();
     Gtk.main ();
-    return 0;
 }
