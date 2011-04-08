@@ -326,8 +326,8 @@ namespace SwitchBoard {
                 int appmenu_size = alloc.width;
                 // -1 because of the pad between the edge
                 // of the toolbar and the window border.
-                this.lspace.set_size_request(((toolbar_size/2-nav_size)-prog_size/2)-1, 38);
-                this.rspace.set_size_request(((toolbar_size/2-(search_size+appmenu_size))-prog_size/2)-1, 38);
+//                this.lspace.set_size_request(((toolbar_size/2-nav_size)-prog_size/2)-1, 38);
+//                this.rspace.set_size_request(((toolbar_size/2-(search_size+appmenu_size))-prog_size/2)-1, 38);
             }        
         }
         

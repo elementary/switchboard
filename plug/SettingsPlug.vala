@@ -34,7 +34,7 @@ public interface SwitchboardController : GLib.Object {
 
 }
 
-public class SwitchPlug : Gtk.Plug {
+public abstract class SwitchPlug : Gtk.Plug {
     
     public string plug_name;
     public SwitchboardController switchboard_controller;

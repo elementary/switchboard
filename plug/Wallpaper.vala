@@ -20,19 +20,29 @@ using ElementaryWidgets;
  
 namespace Wallpaper {
 
+[DBus (name = "org.elementary.wallpaper")]
+public interface WallpaperController : GLib.Object {
+
+    public abstract void set_wallpaper_location (string location) throws IOError;
+
+}
+
     public class WallpaperPlug : SwitchPlug {
 
         KeyFile kf = new KeyFile();
         ListStore store = new ListStore(2, typeof (Gdk.Pixbuf), typeof (string));
-        string WALLPAPER_DIR = "/usr/share/backgrounds";
-        string WALLPAPER_KF = Environment.get_home_dir()+"/.config/wallpaper/settings";
+        string WALLPAPER_DIR = "/media/Hyperspace/Wallpapers/Supreme Wallpapers";
+//        string WALLPAPER_KF = Environment.get_home_dir()+"/.config/wallpaper/settings";
+        WallpaperController wallpaper_controller;
         TreeIter selected_plug;
 
         public WallpaperPlug() {
-            base("Wallpaper");
+            base("Wallpapers");
             setup_ui();
-            stdout.printf(WALLPAPER_KF+"\n");
-            this.kf.load_from_file(WALLPAPER_KF, 0);
+//            stdout.printf(WALLPAPER_KF+"\n");
+            this.wallpaper_controller = Bus.get_proxy_sync (BusType.SESSION, "org.elementary.wallpaper",
+                                                                 "/org/elementary/wallpaper");
+//            this.kf.load_from_file(WALLPAPER_KF, 0);
             gather_wallpapers_async();
         }    
         
@@ -61,15 +71,16 @@ namespace Wallpaper {
                 GLib.Value filename;
                 var item = selected.nth_data(0);
                 this.store.get_iter(out this.selected_plug, item);
-                this.store.get_value (this.selected_plug, 1, out filename);
-                stdout.printf(this.kf.get_string("WallpaperWallpaperPreferences", "WallpaperPath")+"\n");
-                this.kf.set_string ("WallpaperWallpaperPreferences", "WallpaperPath", WALLPAPER_DIR+"/"+filename.get_string());
-                File f = File.new_for_path(WALLPAPER_KF);
-                if(f.query_exists(null))
-                    f.delete(null);
-                var fo_stream = f.create(FileCreateFlags.REPLACE_DESTINATION, null);
-                var dos = new DataOutputStream(fo_stream);
-                dos.put_string(kf.to_data());
+                this.store.get_value(this.selected_plug, 1, out filename);
+                this.wallpaper_controller.set_wallpaper_location(WALLPAPER_DIR+"/"+filename.get_string());
+//                stdout.printf(this.kf.get_string("WallpaperWallpaperPreferences", "WallpaperPath")+"\n");
+//                this.kf.set_string ("WallpaperWallpaperPreferences", "WallpaperPath", WALLPAPER_DIR+"/"+filename.get_string());
+//                File f = File.new_for_path(WALLPAPER_KF);
+//                if(f.query_exists(null))
+//                    f.delete(null);
+//                var fo_stream = f.create(FileCreateFlags.REPLACE_DESTINATION, null);
+//                var dos = new DataOutputStream(fo_stream);
+//                dos.put_string(kf.to_data());
             }
         }
         

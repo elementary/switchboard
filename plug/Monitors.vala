@@ -18,11 +18,10 @@ END LICENSE
 using ElementaryWidgets;
 
 public class CustomPlug : SwitchPlug {
-
+    
     public CustomPlug () {
-        base("Monitor");
+        base("Trolls");
         var l = new Gtk.Label("They see me trolin'");
-        switchboard_controller.search_box_activated.connect(() => stdout.printf("Benvolio!\n"));
         this.add(l);
         this.show_all();
     }
