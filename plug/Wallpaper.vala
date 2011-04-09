@@ -23,7 +23,7 @@ namespace Wallpaper {
 [DBus (name = "org.elementary.wallpaper")]
 public interface WallpaperController : GLib.Object {
 
-    public abstract void set_wallpaper_location (string location) throws IOError;
+    public abstract void update_wallpaper (string location, int32 show_mode) throws IOError;
 
 }
 
@@ -72,7 +72,7 @@ public interface WallpaperController : GLib.Object {
                 var item = selected.nth_data(0);
                 this.store.get_iter(out this.selected_plug, item);
                 this.store.get_value(this.selected_plug, 1, out filename);
-                this.wallpaper_controller.set_wallpaper_location(WALLPAPER_DIR+"/"+filename.get_string());
+                this.wallpaper_controller.update_wallpaper(WALLPAPER_DIR+"/"+filename.get_string(), 1);
 //                stdout.printf(this.kf.get_string("WallpaperWallpaperPreferences", "WallpaperPath")+"\n");
 //                this.kf.set_string ("WallpaperWallpaperPreferences", "WallpaperPath", WALLPAPER_DIR+"/"+filename.get_string());
 //                File f = File.new_for_path(WALLPAPER_KF);
