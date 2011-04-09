@@ -31,7 +31,7 @@ public interface WallpaperController : GLib.Object {
 
         KeyFile kf = new KeyFile();
         ListStore store = new ListStore(2, typeof (Gdk.Pixbuf), typeof (string));
-        string WALLPAPER_DIR = "/usr/share/backgrounds";
+        string WALLPAPER_DIR = "/media/Hyperspace/Wallpapers/Supreme Wallpapers";
 //        string WALLPAPER_KF = Environment.get_home_dir()+"/.config/wallpaper/settings";
         WallpaperController wallpaper_controller;
         TreeIter selected_plug;

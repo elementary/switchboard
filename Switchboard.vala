@@ -55,7 +55,7 @@ namespace SwitchBoard {
             this.width_request = 800;
             this.position = Gtk.WindowPosition.CENTER;
             this.title = SwitchBoard.app_title;
-            this.destroy.connect(()=> Gtk.main_quit());
+            this.destroy.connect(()=> shutdown());
             
             /* Setup Plug Socket */
             this.socket = new Gtk.Socket ();
@@ -86,6 +86,16 @@ namespace SwitchBoard {
             return ((int) this.socket.get_id ());
         }
         
+        private void shutdown() {
+    
+            plug_closed();
+            while(events_pending ()) {
+                main_iteration();
+            }
+            Gtk.main_quit();
+    
+        }
+
         private void load_plug(IconView plug_view, ListStore store) {
             var selected = plug_view.get_selected_items ();
             if(selected.length() == 1) {
@@ -250,26 +260,13 @@ namespace SwitchBoard {
             // Global toolbar widgets
             this.toolbar = new Toolbar ();
             var menu = new Menu ();
-            this.app_menu = new AppMenu.from_stock(Gtk.Stock.PROPERTIES, IconSize.MENU, "Menu", menu);
-
-            // Appmenu stuff
-            // TODO move this into AppMenu proper
-            MenuItem go_help = new MenuItem.with_label ("Get Help Online...");
-            MenuItem go_translate = new MenuItem.with_label ("Translate This Application...");
-            MenuItem go_report = new MenuItem.with_label ("Report a Problem...");
-            MenuItem about = new MenuItem.with_label ("About");
-            menu.append (go_help);
-            menu.append (go_translate);
-            menu.append (go_report);
-            menu.append (about);
-            menu.insert(new SeparatorMenuItem(), 3);
-            
-            // Connect AppMenu signals
-            about.activate.connect (about_dialog);
-            go_help.activate.connect (launch_help);
-            go_translate.activate.connect (launch_translate);
-            go_report.activate.connect (launch_report);
-            
+            this.app_menu = new AppMenu (this, menu, "Switchboard", 
+                                        "switchboard", 
+                                        "http://launchpad.net/switchboard",
+                                        "0.5 alpha", 
+                                        "Copyright (C) 2011 Avi Romanoff",
+                                        {"Avi Romanoff <aviromanoff@gmail.com>"},
+                                        "preferences-desktop");
             // Spacing
             this.lspace.set_expand (true); 
             this.rspace.set_expand (true); 
@@ -304,57 +301,8 @@ namespace SwitchBoard {
             this.toolbar.insert (find_toolitem, 4);
             this.toolbar.insert (this.app_menu, 5);
         }
-        
-        // TODO all of this should be in AppMenu proper.
-        private void launch_help () {
-            try {
-                GLib.Process.spawn_async ("/usr/bin/", 
-                    {"x-www-browser", 
-                    "https://answers.launchpad.net/switchboard"}, 
-                    null, GLib.SpawnFlags.STDERR_TO_DEV_NULL, null, null);
-            } catch {
-                GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_CRITICAL, 
-                        "Unable to open link");
-            }
-        }
-        
-        private void launch_translate () {
-            try {
-                GLib.Process.spawn_async ("/usr/bin/", 
-                    {"x-www-browser", 
-                    "https://translations.launchpad.net/switchboard"}, 
-                    null, GLib.SpawnFlags.STDERR_TO_DEV_NULL, null, null);
-            } catch {
-                GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_CRITICAL, 
-                        "Unable to open link");
-            }
-        }
-        
-        private void launch_report () {
-            try {
-                GLib.Process.spawn_async ("/usr/bin/", 
-                    {"x-www-browser", 
-                    "https://bugs.launchpad.net/switchboard"}, 
-                    null, GLib.SpawnFlags.STDERR_TO_DEV_NULL, null, null);
-            } catch {
-                GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_CRITICAL, 
-                        "Unable to open link");
-            }
-        }
-        
-        // Create the About Dialog
-        private void about_dialog () {
-            string[] authors = { "Avi Romanoff <aviromanoff@gmail.com>"};
-            Gtk.show_about_dialog (this,
-                "program-name", GLib.Environment.get_application_name (),
-                "version", SwitchBoard.version,
-                "copyright", "Copyright (C) 2011 Avi Romanoff",
-                "authors", authors,
-                "logo-icon-name", "preferences-desktop",
-                null);
-        }
     }
-    
+
     private void on_bus_aquired (DBusConnection conn) {
         SettingsApp settings_app = new SettingsApp ();
         settings_app.progress_toolitem.hide();
