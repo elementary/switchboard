@@ -41,12 +41,14 @@ namespace SwitchBoard {
                 category_plugs.modify_base (Gtk.StateType.NORMAL, color);
                 label.xalign = (float) 0.02;
                 var vbox = new Gtk.VBox(false, 0); // not homogeneous, 0 spacing
+                var headbox = new Gtk.HBox(false, 5);
                 label.use_markup = true;
                 if (title != this.category_titles[0]) {
                     var hsep = new Gtk.HSeparator();
-                    vbox.pack_start(hsep, false, false); // expand, fill, padding
+                    headbox.pack_end(hsep, true, true); // expand, fill, padding
                 }
-                vbox.pack_start(label, false, true);
+                headbox.pack_start(label, false, false, 10);
+                vbox.pack_start(headbox, false, true, 5);
                 vbox.pack_end(category_plugs, true, true);
                 this.category_store[title] = store;
                 this.pack_start(vbox);
