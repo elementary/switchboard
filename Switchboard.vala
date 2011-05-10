@@ -180,27 +180,20 @@ namespace SwitchBoard {
         private void enumerate_plugs () {
             Gee.ArrayList<string> keyfiles = find_plugs (SwitchBoard.plug_base_dir);
             foreach (string keyfile in keyfiles) {
+                stdout.printf("%s\n", keyfile);
                 KeyFile kf = new KeyFile();
+                string[] splits = Regex.split_simple("/", keyfile);
+                string head = splits[splits.length-1];
                 Gee.HashMap<string, string> plug = new Gee.HashMap<string, string> ();
                 try { kf.load_from_file(keyfile, KeyFileFlags.NONE);
-                      stdout.printf(keyfile+"\n");
-                var file = File.new_for_path (keyfile);
-                var dis = new DataInputStream (file.read ());
-                string line;
-                // Read lines until end of file (null) is reached
-                while ((line = dis.read_line (null)) != null) {
-                    stdout.printf ("%s\n", line);
-                }
                 } catch {}
-                plug["exec"] = kf.get_string ("accessibility.plug", "exec");
-                        stdout.printf("%s\n" ,kf.get_string(keyfile, "exec"));
-                        Gtk.main_quit();
-                
-                try { plug["icon"] = kf.get_string (keyfile, "icon");
+                try { plug["exec"] = kf.get_string (head, "exec");
                 } catch {}
-                try { plug["title"] = kf.get_string (keyfile, "title");
+                try { plug["icon"] = kf.get_string (head, "icon");
                 } catch {}
-                try { plug["category"] = kf.get_string (keyfile, "category");
+                try { plug["title"] = kf.get_string (head, "title");
+                } catch {}
+                try { plug["category"] = kf.get_string (head, "category");
                 } catch { 
                     plug["category"] = "other";
                 }
@@ -213,7 +206,11 @@ namespace SwitchBoard {
         }
         
         // Find all .plug files
-        private Gee.ArrayList<string> find_plugs (string path) {
+        private Gee.ArrayList<string> find_plugs (string in_path) {
+            string path = in_path;
+            if (path[-1] != '/') {
+                path += "/";
+            }
 	        Gee.ArrayList<string> keyfiles = new Gee.ArrayList<string> ();
             var directory = File.new_for_path (path);
             try {
@@ -223,12 +220,12 @@ namespace SwitchBoard {
 		            string? file_name = (string) file_info.get_name ();
                     if (file_info.get_file_type() == GLib.FileType.REGULAR
                         && is_plug_file(file_name)) {
-			            keyfiles.add(file_name);
+			            keyfiles.add(path+file_name);
 		            } else if(file_info.get_file_type() == GLib.FileType.DIRECTORY) {
 			            string file_path = path + file_info.get_name();
 				        var sub_plugs = find_plugs(file_path);
                         foreach (var subplug in sub_plugs) {
-                            keyfiles.add(file_path+"/"+subplug);
+                            keyfiles.add(subplug);
                         }
                     }
 		        }
