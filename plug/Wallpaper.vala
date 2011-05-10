@@ -33,7 +33,7 @@ public class FileOperator : GLib.Object {
 		try {
 			var enumerator = music_folder.enumerate_children(FILE_ATTRIBUTE_STANDARD_NAME + "," + FILE_ATTRIBUTE_STANDARD_TYPE, 0);
 			while ((file_info = enumerator.next_file ()) != null) {
-				var file_path = music_folder.get_path() + "/" + file_info.get_name();
+//				var file_path = music_folder.get_path() + "/" + file_info.get_name();
 				
 				if(file_info.get_file_type() == GLib.FileType.REGULAR && is_valid_file_type(file_info.get_name())) {
 					index++;
@@ -129,8 +129,8 @@ public interface WallpaperController : GLib.Object {
                     this.store.append(out root);
                     try {
                         var image = new Gdk.Pixbuf.from_file_at_size(WALLPAPER_DIR+"/"+filename, 100, 100);
-                        var color = Wallpaper.Utilities.average_color(image);
-                        string color_name = Wallpaper.Utilities.match_color_hsv(color);
+//                        var color = Wallpaper.Utilities.average_color(image);
+//                        string color_name = Wallpaper.Utilities.match_color_hsv(color);
                         this.store.set(root, 0, image, -1);
                         this.store.set(root, 1, filename, -1);
                     } catch {

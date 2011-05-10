@@ -19,11 +19,10 @@ using Gtk;
 using ElementaryWidgets;
 
 namespace SwitchBoard {
-    public const string version = "0.1 alpha";
+    public const string version = "0.5 alpha";
     public const string errdomain = "switchboard";
-    public const string plug_def_dir = "./plugs/";
-    public const string plug_exec_dir = "./plug/";
-    public const string app_title = "SwitchBoard";
+    public const string plug_base_dir = "/usr/share/plugs/";
+    public const string app_title = "Switchboard";
     
     [DBus (name = "org.elementary.switchboard")]
     public class SettingsApp : Window {
@@ -116,7 +115,7 @@ namespace SwitchBoard {
                             "Exiting plug from SwitchBoard controller..");
                             plug_closed();
                         }
-                        GLib.Process.spawn_command_line_async (plug_exec_dir + executable.get_string());
+                        GLib.Process.spawn_command_line_async (plug_base_dir + executable.get_string());
                         this.current_plug["title"] = title.get_string();
                         this.current_plug["executable"] = executable.get_string();
                         // ensure the button is sensitive; it might be the first plug loaded
@@ -183,7 +182,7 @@ namespace SwitchBoard {
             foreach (string keyfile in keyfiles) {
                 KeyFile kf = new KeyFile();
                 Gee.HashMap<string, string> plug = new Gee.HashMap<string, string> ();
-                try { kf.load_from_file(SwitchBoard.plug_def_dir + keyfile, KeyFileFlags.NONE);
+                try { kf.load_from_file(SwitchBoard.plug_base_dir + keyfile, KeyFileFlags.NONE);
                 } catch {}
                 try { plug["exec"] = kf.get_string (keyfile, "exec");
                 } catch {}
@@ -199,21 +198,24 @@ namespace SwitchBoard {
             }
         }
         
+        bool is_plug_file (string filename) {
+            return (filename.down().has_suffix(".plug"));
+        }
+        
         // Find all .plug files
         private Gee.ArrayList<string> find_plugs () {
-            var directory = File.new_for_path (SwitchBoard.plug_def_dir);
-		    var enumerator = directory.enumerate_children (FILE_ATTRIBUTE_STANDARD_NAME, 0);
-		    Gee.ArrayList<string> keyfiles = new Gee.ArrayList<string> ();
-		    
+	        Gee.ArrayList<string> keyfiles = new Gee.ArrayList<string> ();
+            var directory = File.new_for_path (SwitchBoard.plug_base_dir);
             try {
-		        FileInfo file_info;
-			    while ((file_info = enumerator.next_file ()) != null) {
-			        string? file_name = (string) file_info.get_name ();
-			        if (file_name.length < 5) { continue; }
-			        if (file_name[-5:file_name.length] == ".plug" ) {
-				    keyfiles.add(file_name);
-			        }
-			    }
+		        var enumerator = directory.enumerate_children (FILE_ATTRIBUTE_STANDARD_NAME + "," + FILE_ATTRIBUTE_STANDARD_TYPE, 0);
+	            FileInfo file_info;
+		        while ((file_info = enumerator.next_file ()) != null) {
+		            string? file_name = (string) file_info.get_name ();
+                    if (file_info.get_file_type() == GLib.FileType.REGULAR
+                        && is_plug_file(file_name)) {
+			            keyfiles.add(file_name);
+		            }
+		        }
 		    } catch {
                 GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, 
                 "Unable to interate over enumerated plug directory contents");
