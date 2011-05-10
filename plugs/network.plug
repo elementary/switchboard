@@ -1,5 +1,0 @@
-[network.plug]
-exec=Network
-icon=preferences-system-network
-title=Network
-category=Network and Wireless

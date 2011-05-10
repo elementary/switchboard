@@ -1,5 +1,0 @@
-[monitors.plug]
-exec=Monitors
-icon=preferences-desktop-display
-title=Display
-category=Hardware
