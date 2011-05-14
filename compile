@@ -1,20 +1,11 @@
 #!/bin/bash
 # Basic build script
-
-# Define plugs here
-
-#plugs=( "Wallpaper" "Monitors" "Appearance" )
-
-
-echo "Compiling switchboard itself"
-valac *.vala --pkg gee-1.0 --pkg glib-2.0 --pkg gio-2.0 --pkg gtk+-2.0 --pkg gdk-2.0 -o switchboard | grep "succeeded"
-echo "Finished compiling switchboard itself"
-
-echo "Now compiling plugs"
-for i in "${plugs[@]}"
-do
-   cd plug
-   ./compile $i
-   cd -
-done
-echo "Finished compiling plugs"
+if [ -z $1 ]
+  then
+    echo -e "The first argument needs to be the name of the vala file \n(exactly as it is named) that you want to compile."
+    exit
+  else
+    echo "Building $1"
+    valac $1.vala switchplug.vala log.vala --pkg gee-1.0 --pkg glib-2.0 --pkg gtk+-2.0 --pkg gconf-2.0 --pkg gdk-2.0 -o $1
+    echo "Finished building $1"
+fi
