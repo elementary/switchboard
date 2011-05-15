@@ -178,19 +178,22 @@ namespace SwitchBoard {
         }
         
         private void enumerate_plugs () {
-            Gee.ArrayList<string> keyfiles = find_plugs ();
+            Gee.ArrayList<string> keyfiles = find_plugs (SwitchBoard.plug_base_dir);
             foreach (string keyfile in keyfiles) {
+                stdout.printf("%s\n", keyfile);
                 KeyFile kf = new KeyFile();
+                string[] splits = Regex.split_simple("/", keyfile);
+                string head = splits[splits.length-1];
                 Gee.HashMap<string, string> plug = new Gee.HashMap<string, string> ();
-                try { kf.load_from_file(SwitchBoard.plug_base_dir + keyfile, KeyFileFlags.NONE);
+                try { kf.load_from_file(keyfile, KeyFileFlags.NONE);
                 } catch {}
-                try { plug["exec"] = kf.get_string (keyfile, "exec");
+                try { plug["exec"] = kf.get_string (head, "exec");
                 } catch {}
-                try { plug["icon"] = kf.get_string (keyfile, "icon");
+                try { plug["icon"] = kf.get_string (head, "icon");
                 } catch {}
-                try { plug["title"] = kf.get_string (keyfile, "title");
+                try { plug["title"] = kf.get_string (head, "title");
                 } catch {}
-                try { plug["category"] = kf.get_string (keyfile, "category");
+                try { plug["category"] = kf.get_string (head, "category");
                 } catch { 
                     plug["category"] = "other";
                 }
@@ -203,9 +206,13 @@ namespace SwitchBoard {
         }
         
         // Find all .plug files
-        private Gee.ArrayList<string> find_plugs () {
+        private Gee.ArrayList<string> find_plugs (string in_path) {
+            string path = in_path;
+            if (path[-1] != '/') {
+                path += "/";
+            }
 	        Gee.ArrayList<string> keyfiles = new Gee.ArrayList<string> ();
-            var directory = File.new_for_path (SwitchBoard.plug_base_dir);
+            var directory = File.new_for_path (path);
             try {
 		        var enumerator = directory.enumerate_children (FILE_ATTRIBUTE_STANDARD_NAME + "," + FILE_ATTRIBUTE_STANDARD_TYPE, 0);
 	            FileInfo file_info;
@@ -213,8 +220,14 @@ namespace SwitchBoard {
 		            string? file_name = (string) file_info.get_name ();
                     if (file_info.get_file_type() == GLib.FileType.REGULAR
                         && is_plug_file(file_name)) {
-			            keyfiles.add(file_name);
-		            }
+			            keyfiles.add(path+file_name);
+		            } else if(file_info.get_file_type() == GLib.FileType.DIRECTORY) {
+			            string file_path = path + file_info.get_name();
+				        var sub_plugs = find_plugs(file_path);
+                        foreach (var subplug in sub_plugs) {
+                            keyfiles.add(subplug);
+                        }
+                    }
 		        }
 		    } catch {
                 GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG, 
