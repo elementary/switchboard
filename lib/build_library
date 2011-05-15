@@ -1,5 +1,0 @@
-# These two commands will generate the .so, .vapi, and .h file needed for libswitchboard. (They are libswitchboard)
-
-# valac --pkg gtk+-2.0 -C -H switchplug.h --library libswitchboard switchplug.vala
-
-# gcc --shared -fPIC -o libswitchboard.so $(pkg-config --cflags --libs glib-2.0 gtk+-2.0) switchplug.c
