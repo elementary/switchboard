@@ -67,7 +67,7 @@ namespace SwitchBoard {
                 var icon_pixbuf = this.theme.load_icon (plug["icon"], 48, Gtk.IconLookupFlags.GENERIC_FALLBACK);
                 this.category_store[plug["category"].down()].set (root, 1, icon_pixbuf, -1);
             } catch {
-                GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG,
+                GLib.log(SwitchBoard.ERRDOMAIN, LogLevelFlags.LEVEL_DEBUG,
                 "Unable to load plug %s's icon: %s", plug["title"], plug["icon"]);
             }
             this.category_store[plug["category"].down()].set (root, 0, plug["title"], -1);

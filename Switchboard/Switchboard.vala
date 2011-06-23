@@ -19,10 +19,10 @@ using Gtk;
 using ElementaryWidgets;
 
 namespace SwitchBoard {
-    public const string version = "0.5 alpha";
-    public const string errdomain = "switchboard";
-    public const string plug_base_dir = "/usr/share/plugs/";
-    public const string app_title = "Switchboard";
+    public const string VERSION = "0.8 alpha";
+    public const string ERRDOMAIN = "switchboard";
+    public const string PLUG_DIR = "/usr/share/plugs/";
+    public const string APP_TITLE = "Switchboard";
 
     [DBus (name = "org.elementary.switchboard")]
     public class SettingsApp : Window {
@@ -53,7 +53,7 @@ namespace SwitchBoard {
             this.height_request = 500;
             this.width_request = 800;
             this.position = Gtk.WindowPosition.CENTER;
-            this.title = SwitchBoard.app_title;
+            this.title = SwitchBoard.APP_TITLE;
             this.destroy.connect(()=> shutdown());
 
             /* Setup Plug Socket */
@@ -104,25 +104,25 @@ namespace SwitchBoard {
                 store.get_iter(out this.selected_plug, item);
                 store.get_value (this.selected_plug, 0, out title);
                 store.get_value (this.selected_plug, 2, out executable);
-                GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG,
+                GLib.log(SwitchBoard.ERRDOMAIN, LogLevelFlags.LEVEL_DEBUG,
                 "Selected plug: title %s | executable %s", title.get_string(),
                  executable.get_string());
                 /* Launch plug's executable */
                 if (executable.get_string() != this.current_plug["title"]) {
                     try {
                         if (this.current_plug["title"] != "") {
-                            GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG,
+                            GLib.log(SwitchBoard.ERRDOMAIN, LogLevelFlags.LEVEL_DEBUG,
                             "Exiting plug from SwitchBoard controller..");
                             plug_closed();
                         }
-                        GLib.Process.spawn_command_line_async (plug_base_dir + executable.get_string());
+                        GLib.Process.spawn_command_line_async (PLUG_DIR + executable.get_string());
                         this.current_plug["title"] = title.get_string();
                         this.current_plug["executable"] = executable.get_string();
                         // ensure the button is sensitive; it might be the first plug loaded
                         this.navigation_button.set_sensitive(true);
                         this.navigation_button.stock_id = Gtk.Stock.HOME;
                     } catch {
-                        GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG,
+                        GLib.log(SwitchBoard.ERRDOMAIN, LogLevelFlags.LEVEL_DEBUG,
                         "Failed to launch plug: title %s | executable %s",
                         title.get_string(), executable.get_string());
                     }
@@ -178,7 +178,7 @@ namespace SwitchBoard {
         }
 
         private void enumerate_plugs () {
-            Gee.ArrayList<string> keyfiles = find_plugs (SwitchBoard.plug_base_dir);
+            Gee.ArrayList<string> keyfiles = find_plugs (SwitchBoard.PLUG_DIR);
             foreach (string keyfile in keyfiles) {
                 stdout.printf("%s\n", keyfile);
                 KeyFile kf = new KeyFile();
@@ -230,7 +230,7 @@ namespace SwitchBoard {
                     }
                 }
             } catch {
-                GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_DEBUG,
+                GLib.log(SwitchBoard.ERRDOMAIN, LogLevelFlags.LEVEL_DEBUG,
                 "Unable to interate over enumerated plug directory contents");
             }
             return keyfiles;
@@ -275,7 +275,7 @@ namespace SwitchBoard {
             this.app_menu = new AppMenu (this, menu, "Switchboard",
                                         "switchboard",
                                         "http://launchpad.net/switchboard",
-                                        "0.5 alpha",
+                                        VERSION,
                                         "Copyright (C) 2011 Avi Romanoff",
                                         {"Avi Romanoff <aviromanoff@gmail.com>"},
                                         "preferences-desktop");
@@ -329,11 +329,11 @@ namespace SwitchBoard {
         GLib.Log.set_default_handler(Log.log_handler);
         Gtk.init (ref args);
 
-        GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_INFO,
+        GLib.log(SwitchBoard.ERRDOMAIN, LogLevelFlags.LEVEL_INFO,
                 "Welcome to Switchboard");
-        GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_INFO,
-                "Version: %s", SwitchBoard.version);
-        GLib.log(SwitchBoard.errdomain, LogLevelFlags.LEVEL_INFO,
+        GLib.log(SwitchBoard.ERRDOMAIN, LogLevelFlags.LEVEL_INFO,
+                "Version: %s", SwitchBoard.VERSION);
+        GLib.log(SwitchBoard.ERRDOMAIN, LogLevelFlags.LEVEL_INFO,
                 "Report any issues/bugs you might find to lp:switchboard");
 
         Bus.own_name (BusType.SESSION, "org.elementary.switchboard",

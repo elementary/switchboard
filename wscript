@@ -44,11 +44,11 @@ def configure(conf):
 
 def build(bld):
     # Build main program
-    src = [ 'Switchboard.vala',
-            'ElementaryEntry.vala',
-            'log.vala',
-            'AppMenu.vala',
-            'CategoryView.vala'
+    src = [ 'Switchboard/Switchboard.vala',
+            'Switchboard/ElementaryEntry.vala',
+            'Switchboard/log.vala',
+            'Switchboard/AppMenu.vala',
+            'Switchboard/CategoryView.vala'
           ]
 
     bld.program(target = 'switchboard',
