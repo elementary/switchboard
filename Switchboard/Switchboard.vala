@@ -52,7 +52,7 @@ namespace SwitchBoard {
             /* Setup window */
             this.height_request = 500;
             this.width_request = 800;
-            this.position = Gtk.WindowPosition.CENTER;
+            this.window_position = Gtk.WindowPosition.CENTER;
             this.title = SwitchBoard.APP_TITLE;
             this.destroy.connect(()=> shutdown());
 

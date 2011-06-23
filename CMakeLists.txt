@@ -73,13 +73,13 @@ endif (${GETTEXT_FOUND} STREQUAL "TRUE")
 # Switchboard
 #
 
-set (SWITCHBOARD_DEPS "gobject-2.0;glib-2.0;gtk+-2.0;gee-1.0;")
+set (SWITCHBOARD_DEPS "gobject-2.0;glib-2.0;gtk+-3.0;gee-1.0;")
 
 find_package(PkgConfig)
 pkg_check_modules(GLIB REQUIRED "glib-2.0 >= 2.26.0")
 pkg_check_modules(GOBJECT REQUIRED "gobject-2.0 >= 2.26.0")
-#pkg_check_modules(GTK+ REQUIRED "gtk+-3.0 >= 3.0.8")
-pkg_check_modules(GTK+ REQUIRED "gtk+-2.0 >= 2.22.0")
+pkg_check_modules(GTK+ REQUIRED "gtk+-3.0 >= 3.0.8")
+#pkg_check_modules(GTK+ REQUIRED "gtk+-2.0 >= 2.22.0")
 pkg_check_modules(GEE REQUIRED "gee-1.0 >= 0.5.3")
 pkg_check_modules(DEPS REQUIRED ${SWITCHBOARD_DEPS})
 
@@ -100,8 +100,8 @@ vala_precompile(VALA_C
     Switchboard/ElementaryEntry.vala
     Switchboard/AppMenu.vala
 PACKAGES
-#    gtk+-3.0
-    gtk+-2.0
+    gtk+-3.0
+#    gtk+-2.0
     gee-1.0
 CUSTOM_VAPIS
     vapi/config.vapi
