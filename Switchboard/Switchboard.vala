@@ -326,7 +326,7 @@ namespace SwitchBoard {
     }
 
     public static int main (string[] args) {
-        GLib.Log.set_default_handler(Log.log_handler);
+//        GLib.Log.set_default_handler(Log.log_handler);
         Gtk.init (ref args);
 
         GLib.log(SwitchBoard.ERRDOMAIN, LogLevelFlags.LEVEL_INFO,

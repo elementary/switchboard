@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Version=0.8
+Name=Switchboard
+_GenericName=Switchboard
+_Comment=Desktop preferences
+Exec=switchboard
+Icon=preferences-desktop
+Terminal=false
+Categories=GTK;Administration;

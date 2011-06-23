@@ -122,14 +122,14 @@ namespace ElementaryWidgets {
     public class AppMenu : ToolButtonWithMenu
     {
         
-        string APP_NAME;
-        string LAUNCHPAD_NAME;
-        string WEBSITE;
-        string VERSION;
-        string ICON_NAME;
-        string COPYRIGHT;
-        string[] AUTHORS;
-        Window WINDOW;
+        string app_name;
+        string launchpad_name;
+        string website;
+        string version;
+        string icon_name;
+        string copyright;
+        string[] authors;
+        Window window;
 
         public AppMenu (Window window, Menu menu, 
                         string app_name, 
@@ -151,14 +151,14 @@ namespace ElementaryWidgets {
             menu.append(new SeparatorMenuItem());
             menu.append (about_item);
             base(image, "Menu", menu);
-            APP_NAME = app_name;
-            LAUNCHPAD_NAME = launchpad_name;
-            WINDOW = window;
-            WEBSITE = website;
-            VERSION = version;
-            AUTHORS = authors;
-            COPYRIGHT = copyright;
-            ICON_NAME = icon_name;
+            this.app_name = app_name;
+            this.launchpad_name = launchpad_name;
+            this.window = window;
+            this.website = website;
+            this.version = version;
+            this.authors = authors;
+            this.copyright = copyright;
+            this.icon_name = icon_name;
             help_item.activate.connect(() => launch_launchpad("answers"));
             translate_item.activate.connect(() => launch_launchpad("translations"));
             report_item.activate.connect(() => launch_launchpad("bugs"));
@@ -169,19 +169,19 @@ namespace ElementaryWidgets {
             try {
                 GLib.Process.spawn_async ("/usr/bin/", 
                     {"x-www-browser", 
-                    "https://"+service+".launchpad.net/"+LAUNCHPAD_NAME}, 
+                    "https://"+service+".launchpad.net/"+this.launchpad_name}, 
                     null, GLib.SpawnFlags.STDERR_TO_DEV_NULL, null, null);
             } catch { }
         }
 
         private void about_dialog () {
-            Gtk.show_about_dialog (WINDOW,
-                "program-name", APP_NAME,
-                "version", VERSION,
-                "website", WEBSITE,
-                "copyright", COPYRIGHT,
-                "authors", AUTHORS,
-                "logo-icon-name", ICON_NAME,
+            Gtk.show_about_dialog (this.window,
+                "program-name", this.app_name,
+                "version", this.version,
+                "website", this.website,
+                "copyright", this.copyright,
+                "authors", this.authors,
+                "logo-icon-name", this.icon_name,
                 null);
         }
     }

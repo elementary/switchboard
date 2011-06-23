@@ -28,10 +28,10 @@ namespace SwitchBoard {
         public signal void plug_selected(IconView view, ListStore message);
 
         public CategoryView () {
-            category_titles["personal"] = _("Personal");
-            category_titles["hardware"] = _("Hardware");
-            category_titles["network"] = _("Network and Wireless");
-            category_titles["system"] = _("System");
+            category_titles["personal"] = "Personal";
+            category_titles["hardware"] = "Hardware";
+            category_titles["network"] = "Network and Wireless";
+            category_titles["system"] = "System";
             foreach (var entry in this.category_titles.entries) {
                 var store = new ListStore (3, typeof (string), typeof (Gdk.Pixbuf), typeof(string));
                 var label = new Gtk.Label("<big><b>"+entry.value+"</b></big>");
