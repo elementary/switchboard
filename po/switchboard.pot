@@ -17,16 +17,3 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../data/maya.desktop.in.h:1
-msgid "Fast calendar that syncs with popular online services"
-msgstr ""
-
-#: ../data/maya.desktop.in.h:2
-msgid "Maya Calendar"
-msgstr ""
-
-#: ../Maya/Widgets/Sidebar.vala:37
-msgid ""
-"Your upcoming events will be displayed here when you select a date with "
-"events."
-msgstr ""
