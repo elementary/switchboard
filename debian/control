@@ -3,7 +3,8 @@ Section: admin
 Priority: optional
 Maintainer: Sergey "Shnatsel" Davidoff <shnatsel@gmail.com>
 Build-Depends: debhelper (>= 7.0.50~), cmake (>= 2.8), valac (>= 0.13),
-libgtk-3-dev (>= 3.0.8), libglib2.0-dev (>= 2.26.0), libgee-dev (>= 0.5.3)
+               libgtk-3-dev (>= 3.0.8), libglib2.0-dev (>= 2.26.0),
+               libgee-dev (>= 0.5.3)
 Standards-Version: 3.8.4
 Homepage: https://launchpad.net/switchboard
 Vcs-Bzr: lp:switchboard
