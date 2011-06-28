@@ -88,10 +88,10 @@ ensure_vala_version("0.12.0" MINIMUM)
 
 include(ValaPrecompile)
 vala_precompile(VALA_C
-    Switchboard/Switchboard.vala
-    Switchboard/CategoryView.vala
-    Switchboard/ElementaryEntry.vala
-    Switchboard/AppMenu.vala
+    Switchboard/switchboard.vala
+    Switchboard/categoryview.vala
+    Switchboard/elementary-entry.vala
+    Switchboard/appmenu.vala
 PACKAGES
     gtk+-3.0
     gee-1.0
