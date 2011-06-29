@@ -39,9 +39,9 @@ namespace SwitchBoard {
                 category_plugs.set_text_column (0);
                 category_plugs.set_pixbuf_column (1);
                 category_plugs.selection_changed.connect(() => this.plug_selected(category_plugs, store));
-                var color = Gdk.Color ();
-                Gdk.Color.parse ("#dedede", out color);
-                category_plugs.modify_base (Gtk.StateType.NORMAL, color);
+                var color = Gdk.RGBA ();
+                color.parse("#dedede");
+                category_plugs.override_background_color (Gtk.StateFlags.NORMAL, color);
                 label.xalign = (float) 0.02;
                 var vbox = new Gtk.VBox(false, 0); // not homogeneous, 0 spacing
                 var headbox = new Gtk.HBox(false, 5);
