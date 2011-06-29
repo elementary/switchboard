@@ -62,6 +62,9 @@ namespace SwitchBoard {
 
         public void add_plug (Gee.HashMap<string, string> plug) {
             Gtk.TreeIter root;
+            if (!category_titles.has_key(plug["category"].down())) {
+                stdout.printf("Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added.\n", plug["title"], plug["category"].down());
+            }
             this.category_store[plug["category"].down()].append (out root);
             try {
                 var icon_pixbuf = this.theme.load_icon (plug["icon"], 48, Gtk.IconLookupFlags.GENERIC_FALLBACK);

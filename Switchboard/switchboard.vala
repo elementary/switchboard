@@ -109,23 +109,23 @@ namespace SwitchBoard {
                  executable.get_string());
                 /* Launch plug's executable */
                 if (executable.get_string() != this.current_plug["title"]) {
-                    try {
+//                    try {
                         if (this.current_plug["title"] != "") {
                             GLib.log(SwitchBoard.ERRDOMAIN, LogLevelFlags.LEVEL_DEBUG,
                             "Exiting plug from SwitchBoard controller..");
                             plug_closed();
                         }
-                        GLib.Process.spawn_command_line_async (PLUG_DIR + executable.get_string());
+                        GLib.Process.spawn_command_line_async (executable.get_string());
                         this.current_plug["title"] = title.get_string();
                         this.current_plug["executable"] = executable.get_string();
                         // ensure the button is sensitive; it might be the first plug loaded
                         this.navigation_button.set_sensitive(true);
                         this.navigation_button.stock_id = Gtk.Stock.HOME;
-                    } catch {
-                        GLib.log(SwitchBoard.ERRDOMAIN, LogLevelFlags.LEVEL_DEBUG,
-                        "Failed to launch plug: title %s | executable %s",
-                        title.get_string(), executable.get_string());
-                    }
+//                    } catch {
+//                        GLib.log(SwitchBoard.ERRDOMAIN, LogLevelFlags.LEVEL_DEBUG,
+//                        "Failed to launch plug: title %s | executable %s",
+//                        title.get_string(), executable.get_string());
+//                    }
                 }
                 else {
                     this.switch_to_socket();
@@ -178,16 +178,17 @@ namespace SwitchBoard {
         }
 
         private void enumerate_plugs () {
-            Gee.ArrayList<string> keyfiles = find_plugs (SwitchBoard.PLUG_DIR);
-            foreach (string keyfile in keyfiles) {
-                stdout.printf("%s\n", keyfile);
+            // <keyfile's absolute path, keyfile's directory>
+            Gee.HashMap<string, string> keyfiles = find_plugs (SwitchBoard.PLUG_DIR);
+            foreach (string keyfile in keyfiles.keys) {
                 KeyFile kf = new KeyFile();
                 string[] splits = Regex.split_simple("/", keyfile);
                 string head = splits[splits.length-1];
                 Gee.HashMap<string, string> plug = new Gee.HashMap<string, string> ();
                 try { kf.load_from_file(keyfile, KeyFileFlags.NONE);
                 } catch {}
-                try { plug["exec"] = kf.get_string (head, "exec");
+                try { plug["exec"] = keyfiles[keyfile]+kf.get_string (head, "exec");
+                        stdout.printf("123%s\n", plug["exec"]);
                 } catch {}
                 try { plug["icon"] = kf.get_string (head, "icon");
                 } catch {}
@@ -206,12 +207,13 @@ namespace SwitchBoard {
         }
 
         // Find all .plug files
-        private Gee.ArrayList<string> find_plugs (string in_path) {
+        private Gee.HashMap<string, string> find_plugs (string in_path) {
+            // Heads up, this needs to be investigated
             string path = in_path;
             if (path[-1] != '/') {
                 path += "/";
             }
-            Gee.ArrayList<string> keyfiles = new Gee.ArrayList<string> ();
+            Gee.HashMap<string, string> keyfiles = new Gee.HashMap<string, string> ();
             var directory = File.new_for_path (path);
             try {
                 var enumerator = directory.enumerate_children (FILE_ATTRIBUTE_STANDARD_NAME + "," + FILE_ATTRIBUTE_STANDARD_TYPE, 0);
@@ -220,12 +222,16 @@ namespace SwitchBoard {
                     string? file_name = (string) file_info.get_name ();
                     if (file_info.get_file_type() == GLib.FileType.REGULAR
                         && is_plug_file(file_name)) {
-                        keyfiles.add(path+file_name);
+//                        stdout.printf("File name: %s\n", path+file_name);
+                        keyfiles[path+file_name] = path;
                     } else if(file_info.get_file_type() == GLib.FileType.DIRECTORY) {
                         string file_path = path + file_info.get_name();
+//                        stdout.printf("File path: %s\n", file_path);
                         var sub_plugs = find_plugs(file_path);
-                        foreach (var subplug in sub_plugs) {
-                            keyfiles.add(subplug);
+                        foreach (string subplug in sub_plugs.keys) {
+                            stdout.printf("%s\n", sub_plugs[subplug]);
+                            stdout.printf("%s\n", subplug);
+                            keyfiles[subplug] = sub_plugs[subplug];
                         }
                     }
                 }
