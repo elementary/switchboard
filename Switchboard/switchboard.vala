@@ -105,14 +105,14 @@ namespace SwitchBoard {
                 store.get_value (this.selected_plug, 0, out title);
                 store.get_value (this.selected_plug, 2, out executable);
                 GLib.log(SwitchBoard.ERRDOMAIN, LogLevelFlags.LEVEL_DEBUG,
-                "Selected plug: title %s | executable %s", title.get_string(),
+                _("Selected plug: title %s | executable %s"), title.get_string(),
                  executable.get_string());
                 /* Launch plug's executable */
                 if (executable.get_string() != this.current_plug["title"]) {
-//                    try {
+                    try {
                         if (this.current_plug["title"] != "") {
                             GLib.log(SwitchBoard.ERRDOMAIN, LogLevelFlags.LEVEL_DEBUG,
-                            "Exiting plug from SwitchBoard controller..");
+                            _("Exiting plug from SwitchBoard controller.."));
                             plug_closed();
                         }
                         GLib.Process.spawn_command_line_async (executable.get_string());
@@ -121,11 +121,11 @@ namespace SwitchBoard {
                         // ensure the button is sensitive; it might be the first plug loaded
                         this.navigation_button.set_sensitive(true);
                         this.navigation_button.stock_id = Gtk.Stock.HOME;
-//                    } catch {
-//                        GLib.log(SwitchBoard.ERRDOMAIN, LogLevelFlags.LEVEL_DEBUG,
-//                        "Failed to launch plug: title %s | executable %s",
-//                        title.get_string(), executable.get_string());
-//                    }
+                    } catch {
+                        GLib.log(SwitchBoard.ERRDOMAIN, LogLevelFlags.LEVEL_DEBUG,
+                        _("Failed to launch plug: title %s | executable %s"),
+                        title.get_string(), executable.get_string());
+                    }
                 }
                 else {
                     this.switch_to_socket();
@@ -237,7 +237,7 @@ namespace SwitchBoard {
                 }
             } catch {
                 GLib.log(SwitchBoard.ERRDOMAIN, LogLevelFlags.LEVEL_DEBUG,
-                "Unable to interate over enumerated plug directory contents");
+                _("Unable to interate over enumerated plug directory contents"));
             }
             return keyfiles;
         }
@@ -340,7 +340,7 @@ namespace SwitchBoard {
         GLib.log(SwitchBoard.ERRDOMAIN, LogLevelFlags.LEVEL_INFO,
                 "Version: %s", SwitchBoard.VERSION);
         GLib.log(SwitchBoard.ERRDOMAIN, LogLevelFlags.LEVEL_INFO,
-                "Report any issues/bugs you might find to lp:switchboard");
+                _("Report any issues/bugs you might find to lp:switchboard"));
 
         Bus.own_name (BusType.SESSION, "org.elementary.switchboard",
                 BusNameOwnerFlags.NONE,

@@ -28,10 +28,10 @@ namespace SwitchBoard {
         public signal void plug_selected(IconView view, ListStore message);
 
         public CategoryView () {
-            category_titles["personal"] = "Personal";
-            category_titles["hardware"] = "Hardware";
-            category_titles["network"] = "Network and Wireless";
-            category_titles["system"] = "System";
+            category_titles["personal"] = _("Personal");
+            category_titles["hardware"] = _("Hardware");
+            category_titles["network"] = _("Network and Wireless");
+            category_titles["system"] = _("System");
             foreach (var entry in this.category_titles.entries) {
                 var store = new ListStore (3, typeof (string), typeof (Gdk.Pixbuf), typeof(string));
                 var label = new Gtk.Label("<big><b>"+entry.value+"</b></big>");
@@ -63,7 +63,8 @@ namespace SwitchBoard {
         public void add_plug (Gee.HashMap<string, string> plug) {
             Gtk.TreeIter root;
             if (!category_titles.has_key(plug["category"].down())) {
-                stdout.printf("Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added.\n", plug["title"], plug["category"].down());
+                GLib.log(SwitchBoard.ERRDOMAIN, LogLevelFlags.LEVEL_WARNING,
+                _("Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added."), plug["title"], plug["category"].down());
             }
             this.category_store[plug["category"].down()].append (out root);
             try {
@@ -71,7 +72,7 @@ namespace SwitchBoard {
                 this.category_store[plug["category"].down()].set (root, 1, icon_pixbuf, -1);
             } catch {
                 GLib.log(SwitchBoard.ERRDOMAIN, LogLevelFlags.LEVEL_DEBUG,
-                "Unable to load plug %s's icon: %s", plug["title"], plug["icon"]);
+                _("Unable to load plug %s's icon: %s"), plug["title"], plug["icon"]);
             }
             this.category_store[plug["category"].down()].set (root, 0, plug["title"], -1);
             this.category_store[plug["category"].down()].set (root, 2, plug["exec"], -1);

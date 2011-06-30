@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-07 07:54-0500\n"
+"POT-Creation-Date: 2011-06-29 23:14-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,3 +17,51 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: Switchboard/categoryview.vala:31
+msgid "Personal"
+msgstr ""
+
+#: Switchboard/categoryview.vala:32
+msgid "Hardware"
+msgstr ""
+
+#: Switchboard/categoryview.vala:33
+msgid "Network and Wireless"
+msgstr ""
+
+#: Switchboard/categoryview.vala:34
+msgid "System"
+msgstr ""
+
+#: Switchboard/categoryview.vala:67
+#, c-format
+msgid ""
+"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added."
+msgstr ""
+
+#: Switchboard/categoryview.vala:75
+#, c-format
+msgid "Unable to load plug %s's icon: %s"
+msgstr ""
+
+#: Switchboard/switchboard.vala:108
+#, c-format
+msgid "Selected plug: title %s | executable %s"
+msgstr ""
+
+#: Switchboard/switchboard.vala:115
+msgid "Exiting plug from SwitchBoard controller.."
+msgstr ""
+
+#: Switchboard/switchboard.vala:126
+#, c-format
+msgid "Failed to launch plug: title %s | executable %s"
+msgstr ""
+
+#: Switchboard/switchboard.vala:240
+msgid "Unable to interate over enumerated plug directory contents"
+msgstr ""
+
+#: Switchboard/switchboard.vala:343
+msgid "Report any issues/bugs you might find to lp:switchboard"
+msgstr ""
