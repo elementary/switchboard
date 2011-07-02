@@ -237,7 +237,7 @@ namespace SwitchBoard {
                 }
             } catch {
                 GLib.log(SwitchBoard.ERRDOMAIN, LogLevelFlags.LEVEL_DEBUG,
-                _("Unable to interate over enumerated plug directory contents"));
+                _("Unable to iterate over enumerated plug directory contents"));
             }
             return keyfiles;
         }
