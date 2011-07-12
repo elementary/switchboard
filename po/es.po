@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-02 14:22-0400\n"
-"PO-Revision-Date: 2011-07-05 13:34+0000\n"
-"Last-Translator: jmikelf <Unknown>\n"
+"PO-Revision-Date: 2011-07-11 16:53+0000\n"
+"Last-Translator: Sebastián Porta <sebastianporta@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-07-06 05:18+0000\n"
+"X-Launchpad-Export-Date: 2011-07-12 05:23+0000\n"
 "X-Generator: Launchpad (build 13168)\n"
 
 #: Switchboard/categoryview.vala:31
@@ -27,7 +27,7 @@ msgstr "Hardware"
 
 #: Switchboard/categoryview.vala:33
 msgid "Network and Wireless"
-msgstr ""
+msgstr "Red e Inalámbricos"
 
 #: Switchboard/categoryview.vala:34
 msgid "System"
@@ -38,30 +38,34 @@ msgstr "Sistema"
 msgid ""
 "Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added."
 msgstr ""
+"La palabra clave \"%s\" contiene una categoría inválida: \"%s\", y no será "
+"agregada."
 
 #: Switchboard/categoryview.vala:75
 #, c-format
 msgid "Unable to load plug %s's icon: %s"
-msgstr ""
+msgstr "Imposible cargar el ícono del conector %s: %s"
 
 #: Switchboard/switchboard.vala:108
 #, c-format
 msgid "Selected plug: title %s | executable %s"
-msgstr ""
+msgstr "Conector seleccionado: título %s | ejecutable %s"
 
 #: Switchboard/switchboard.vala:115
 msgid "Exiting plug from SwitchBoard controller.."
-msgstr ""
+msgstr "Saliendo del conector desde el controlador de SwitchBoard.."
 
 #: Switchboard/switchboard.vala:126
 #, c-format
 msgid "Failed to launch plug: title %s | executable %s"
-msgstr ""
+msgstr "Fallo al iniciar el conector: título %s | ejecutable %s"
 
 #: Switchboard/switchboard.vala:240
 msgid "Unable to iterate over enumerated plug directory contents"
 msgstr ""
+"Imposible repetir sobre los contenidos enumerados en la carpeta del conector"
 
 #: Switchboard/switchboard.vala:343
 msgid "Report any issues/bugs you might find to lp:switchboard"
 msgstr ""
+"Reporta cualquier problema/bug que puedas encontrar en lp:switchboard"

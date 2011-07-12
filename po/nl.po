@@ -1,4 +1,4 @@
-# German translation for switchboard
+# Dutch translation for switchboard
 # Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
 # This file is distributed under the same license as the switchboard package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-02 14:22-0400\n"
-"PO-Revision-Date: 2011-07-11 18:21+0000\n"
-"Last-Translator: Andreas <Unknown>\n"
-"Language-Team: German <de@li.org>\n"
+"PO-Revision-Date: 2011-07-11 20:22+0000\n"
+"Last-Translator: dinkyt <Unknown>\n"
+"Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,53 +19,51 @@ msgstr ""
 
 #: Switchboard/categoryview.vala:31
 msgid "Personal"
-msgstr "Persönliches"
+msgstr "Persoonlijk"
 
 #: Switchboard/categoryview.vala:32
 msgid "Hardware"
-msgstr "Geräte"
+msgstr "Hardware"
 
 #: Switchboard/categoryview.vala:33
 msgid "Network and Wireless"
-msgstr "Kabel-, und Drahtlosnetzwerk"
+msgstr "Netwerk en draadloos"
 
 #: Switchboard/categoryview.vala:34
 msgid "System"
-msgstr "Systemeinstellungen"
+msgstr "Systeem"
 
 #: Switchboard/categoryview.vala:67
 #, c-format
 msgid ""
 "Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added."
 msgstr ""
-"Schlüsseldatei \"%s\" enthält eine ungültige Kategorie: \"%s\", wird nicht "
-"hinzugefügt."
+"Sleutelbestand \"%s\" bevat een ongeldige categorie: \"%s\", en zal niet "
+"worden toegevoegd."
 
 #: Switchboard/categoryview.vala:75
 #, c-format
 msgid "Unable to load plug %s's icon: %s"
-msgstr "Kann Plug %s's  Symbol nicht Anzeigen: %s"
+msgstr "Niet mogelijk om plugin %s zijn pictogram te laden: %s"
 
 #: Switchboard/switchboard.vala:108
 #, c-format
 msgid "Selected plug: title %s | executable %s"
-msgstr "Ausgewähltes Plug: Name %s | auszuführende Datei %s"
+msgstr "Geselecteerde plugin: titel %s | uitvoerbaar bestand %s"
 
 #: Switchboard/switchboard.vala:115
 msgid "Exiting plug from SwitchBoard controller.."
-msgstr "Verlasse Plug von der SwitchBoard Steuerung aus..."
+msgstr "Verlaten van plug uit SwitchBoard beheerder.."
 
 #: Switchboard/switchboard.vala:126
 #, c-format
 msgid "Failed to launch plug: title %s | executable %s"
-msgstr "Starten des Plug's fehlgeschlagen: Name %s | Auszuführende Datei %s"
+msgstr "Starten van plug mislukt: titel %s | uitvoerbaar bestand %s"
 
 #: Switchboard/switchboard.vala:240
 msgid "Unable to iterate over enumerated plug directory contents"
-msgstr "Aufgezählte Plug Verzeichnisinhalte können nicht durchlaufen werden"
+msgstr ""
 
 #: Switchboard/switchboard.vala:343
 msgid "Report any issues/bugs you might find to lp:switchboard"
 msgstr ""
-"Melden Sie alle  Fragen und Fehler zum Programm die Sie finden unter "
-"lp:switchboard"
