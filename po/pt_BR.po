@@ -6,50 +6,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-02 14:22-0400\n"
 "PO-Revision-Date: 2011-07-07 18:22+0000\n"
 "Last-Translator: Leonardo Lemos <Unknown>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2011-07-08 06:06+0000\n"
 "X-Generator: Launchpad (build 13168)\n"
-
-#: Switchboard/categoryview.vala:31
-msgid "Personal"
-msgstr "Pessoal"
-
-#: Switchboard/categoryview.vala:32
-msgid "Hardware"
-msgstr "Hardware"
-
-#: Switchboard/categoryview.vala:33
-msgid "Network and Wireless"
-msgstr "Rede e Wireless"
-
-#: Switchboard/categoryview.vala:34
-msgid "System"
-msgstr "Sistema"
-
-#: Switchboard/categoryview.vala:67
-#, c-format
-msgid ""
-"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added."
-msgstr ""
-"O arquivo de chave \"%s\" contém uma categoria inválida: \"%s\", e não será "
-"adicionado."
-
-#: Switchboard/categoryview.vala:75
-#, c-format
-msgid "Unable to load plug %s's icon: %s"
-msgstr "Impossível carregar o plug %s de ícone: %s"
-
-#: Switchboard/switchboard.vala:108
-#, c-format
-msgid "Selected plug: title %s | executable %s"
-msgstr "Plug selecionado: título %s | executável %s"
 
 #: Switchboard/switchboard.vala:115
 msgid "Exiting plug from SwitchBoard controller.."
@@ -60,12 +27,46 @@ msgstr "Saindo do plug controlador do SwitchBoard .."
 msgid "Failed to launch plug: title %s | executable %s"
 msgstr "Falha ao executar o plug: título %s | executável %s"
 
-#: Switchboard/switchboard.vala:240
-msgid "Unable to iterate over enumerated plug directory contents"
-msgstr "Incapaz de iterar sobre o conteúdo do diretório de plug enumerado"
+#: Switchboard/categoryview.vala:32
+msgid "Hardware"
+msgstr "Hardware"
+
+#: Switchboard/categoryview.vala:67
+#, c-format
+msgid ""
+"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added."
+msgstr ""
+"O arquivo de chave \"%s\" contém uma categoria inválida: \"%s\", e não será "
+"adicionado."
+
+#: Switchboard/categoryview.vala:33
+msgid "Network and Wireless"
+msgstr "Rede e Wireless"
+
+#: Switchboard/categoryview.vala:31
+msgid "Personal"
+msgstr "Pessoal"
 
 #: Switchboard/switchboard.vala:343
 msgid "Report any issues/bugs you might find to lp:switchboard"
 msgstr ""
 "Relatar quaisquer problemas / bugs que você pode encontrar para lp: "
 "switchboard"
+
+#: Switchboard/switchboard.vala:108
+#, c-format
+msgid "Selected plug: title %s | executable %s"
+msgstr "Plug selecionado: título %s | executável %s"
+
+#: Switchboard/categoryview.vala:34
+msgid "System"
+msgstr "Sistema"
+
+#: Switchboard/switchboard.vala:240
+msgid "Unable to iterate over enumerated plug directory contents"
+msgstr "Incapaz de iterar sobre o conteúdo do diretório de plug enumerado"
+
+#: Switchboard/categoryview.vala:75
+#, c-format
+msgid "Unable to load plug %s's icon: %s"
+msgstr "Impossível carregar o plug %s de ícone: %s"

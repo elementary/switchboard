@@ -6,49 +6,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-02 14:22-0400\n"
 "PO-Revision-Date: 2011-07-05 21:12+0000\n"
 "Last-Translator: Kārlis Lukstiņš <Unknown>\n"
 "Language-Team: Latvian <lv@li.org>\n"
+"Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2011-07-06 05:18+0000\n"
 "X-Generator: Launchpad (build 13168)\n"
-
-#: Switchboard/categoryview.vala:31
-msgid "Personal"
-msgstr "Personisks"
-
-#: Switchboard/categoryview.vala:32
-msgid "Hardware"
-msgstr "Aparatūra"
-
-#: Switchboard/categoryview.vala:33
-msgid "Network and Wireless"
-msgstr "Tīkls un Bezvadu tīkli"
-
-#: Switchboard/categoryview.vala:34
-msgid "System"
-msgstr "Sistēma"
-
-#: Switchboard/categoryview.vala:67
-#, c-format
-msgid ""
-"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added."
-msgstr ""
-"Atslēgfails \"%s\" satur nederīgu kategoriju: \"%s\", un netiks pievienots."
-
-#: Switchboard/categoryview.vala:75
-#, c-format
-msgid "Unable to load plug %s's icon: %s"
-msgstr "Nevar ielādēt spraudņa %s ikonu: %s"
-
-#: Switchboard/switchboard.vala:108
-#, c-format
-msgid "Selected plug: title %s | executable %s"
-msgstr "Izvēlētais spraudnis: nosaukums %s | izpildītājs %s"
 
 #: Switchboard/switchboard.vala:115
 msgid "Exiting plug from SwitchBoard controller.."
@@ -59,13 +27,46 @@ msgstr "Aizver spraudni no SwitchBorad kontroliera..."
 msgid "Failed to launch plug: title %s | executable %s"
 msgstr "Nevarēja palaist spraudni: nosaukums %s | izpildītājs %s"
 
-#: Switchboard/switchboard.vala:240
-msgid "Unable to iterate over enumerated plug directory contents"
-msgstr "Nevar apsekot uzskaitīto spraudņu direktoriju saturu"
+#: Switchboard/categoryview.vala:32
+msgid "Hardware"
+msgstr "Aparatūra"
+
+#: Switchboard/categoryview.vala:67
+#, c-format
+msgid ""
+"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added."
+msgstr ""
+"Atslēgfails \"%s\" satur nederīgu kategoriju: \"%s\", un netiks pievienots."
+
+#: Switchboard/categoryview.vala:33
+msgid "Network and Wireless"
+msgstr "Tīkls un Bezvadu tīkli"
+
+#: Switchboard/categoryview.vala:31
+msgid "Personal"
+msgstr "Personisks"
 
 #: Switchboard/switchboard.vala:343
 msgid "Report any issues/bugs you might find to lp:switchboard"
 msgstr "Ziņojiet par visām kļūdām lp:switchboard"
+
+#: Switchboard/switchboard.vala:108
+#, c-format
+msgid "Selected plug: title %s | executable %s"
+msgstr "Izvēlētais spraudnis: nosaukums %s | izpildītājs %s"
+
+#: Switchboard/categoryview.vala:34
+msgid "System"
+msgstr "Sistēma"
+
+#: Switchboard/switchboard.vala:240
+msgid "Unable to iterate over enumerated plug directory contents"
+msgstr "Nevar apsekot uzskaitīto spraudņu direktoriju saturu"
+
+#: Switchboard/categoryview.vala:75
+#, c-format
+msgid "Unable to load plug %s's icon: %s"
+msgstr "Nevar ielādēt spraudņa %s ikonu: %s"
 
 #~ msgid "Unable to interate over enumerated plug directory contents"
 #~ msgstr "Nevar parādīt izvēlēta spraudņa mapes saturu."

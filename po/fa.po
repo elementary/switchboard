@@ -6,50 +6,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-02 14:22-0400\n"
 "PO-Revision-Date: 2011-07-29 09:57+0000\n"
 "Last-Translator: DaashAli <ali.sarchami@gmail.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2011-07-30 05:31+0000\n"
 "X-Generator: Launchpad (build 13405)\n"
-
-#: Switchboard/categoryview.vala:31
-msgid "Personal"
-msgstr "شخصي"
-
-#: Switchboard/categoryview.vala:32
-msgid "Hardware"
-msgstr "سخت افزار"
-
-#: Switchboard/categoryview.vala:33
-msgid "Network and Wireless"
-msgstr "شبکه و شبکه بی‌سیم"
-
-#: Switchboard/categoryview.vala:34
-msgid "System"
-msgstr "سيستم"
-
-#: Switchboard/categoryview.vala:67
-#, c-format
-msgid ""
-"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added."
-msgstr ""
-"فایل اصلی \"%s\" دارای دسته‌بندی‌ای ناصحیح می‌باشد: \"%s\"، در نتیجه افزوده "
-"نمی‌گردد."
-
-#: Switchboard/categoryview.vala:75
-#, c-format
-msgid "Unable to load plug %s's icon: %s"
-msgstr "عدم امکان در بارگیری شکلک افزونه %s: %s"
-
-#: Switchboard/switchboard.vala:108
-#, c-format
-msgid "Selected plug: title %s | executable %s"
-msgstr "افزونه انتخابی: عنوان %s | اجرای %s"
 
 #: Switchboard/switchboard.vala:115
 msgid "Exiting plug from SwitchBoard controller.."
@@ -60,10 +27,44 @@ msgstr "خروج افزونه از کنترلگر SwitchBoard"
 msgid "Failed to launch plug: title %s | executable %s"
 msgstr "عدم امکان در بارگیری افزونه: عنوان %s | اجرای %s"
 
-#: Switchboard/switchboard.vala:240
-msgid "Unable to iterate over enumerated plug directory contents"
-msgstr "عدم امکان مرور بر محتوای دایرکتوری افزونه"
+#: Switchboard/categoryview.vala:32
+msgid "Hardware"
+msgstr "سخت افزار"
+
+#: Switchboard/categoryview.vala:67
+#, c-format
+msgid ""
+"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added."
+msgstr ""
+"فایل اصلی \"%s\" دارای دسته‌بندی‌ای ناصحیح می‌باشد: \"%s\"، در نتیجه افزوده "
+"نمی‌گردد."
+
+#: Switchboard/categoryview.vala:33
+msgid "Network and Wireless"
+msgstr "شبکه و شبکه بی‌سیم"
+
+#: Switchboard/categoryview.vala:31
+msgid "Personal"
+msgstr "شخصي"
 
 #: Switchboard/switchboard.vala:343
 msgid "Report any issues/bugs you might find to lp:switchboard"
 msgstr "هرگونه مشکل یا خطایی را به lp:switchboard گزارش دهید"
+
+#: Switchboard/switchboard.vala:108
+#, c-format
+msgid "Selected plug: title %s | executable %s"
+msgstr "افزونه انتخابی: عنوان %s | اجرای %s"
+
+#: Switchboard/categoryview.vala:34
+msgid "System"
+msgstr "سيستم"
+
+#: Switchboard/switchboard.vala:240
+msgid "Unable to iterate over enumerated plug directory contents"
+msgstr "عدم امکان مرور بر محتوای دایرکتوری افزونه"
+
+#: Switchboard/categoryview.vala:75
+#, c-format
+msgid "Unable to load plug %s's icon: %s"
+msgstr "عدم امکان در بارگیری شکلک افزونه %s: %s"

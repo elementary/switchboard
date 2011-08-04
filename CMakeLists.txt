@@ -88,8 +88,8 @@ ensure_vala_version("0.12.0" MINIMUM)
 
 include(ValaPrecompile)
 vala_precompile(VALA_C
-    Switchboard/switchboard.vala
-    Switchboard/categoryview.vala
+    Switchboard/switchboard-app.vala
+    Switchboard/switchboard-categoryview.vala
     Switchboard/elementary-entry.vala
     Switchboard/appmenu.vala
 PACKAGES
