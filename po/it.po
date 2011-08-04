@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-02 14:22-0400\n"
-"PO-Revision-Date: 2011-07-16 00:34+0000\n"
-"Last-Translator: Gusions <gusions.docky@gmail.com>\n"
+"PO-Revision-Date: 2011-08-03 22:35+0000\n"
+"Last-Translator: Daniel Pisano <Unknown>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-07-17 04:48+0000\n"
-"X-Generator: Launchpad (build 13405)\n"
+"X-Launchpad-Export-Date: 2011-08-04 05:15+0000\n"
+"X-Generator: Launchpad (build 13573)\n"
 
 #: Switchboard/categoryview.vala:31
 msgid "Personal"
@@ -51,12 +51,12 @@ msgstr ""
 
 #: Switchboard/switchboard.vala:115
 msgid "Exiting plug from SwitchBoard controller.."
-msgstr ""
+msgstr "Rimozione plug da SwitchBoard in corso .."
 
 #: Switchboard/switchboard.vala:126
 #, c-format
 msgid "Failed to launch plug: title %s | executable %s"
-msgstr ""
+msgstr "Impossibile lanciare il plug: titolo %s | eseguibile %s"
 
 #: Switchboard/switchboard.vala:240
 msgid "Unable to iterate over enumerated plug directory contents"
@@ -64,4 +64,6 @@ msgstr ""
 
 #: Switchboard/switchboard.vala:343
 msgid "Report any issues/bugs you might find to lp:switchboard"
-msgstr "Per segnalare problemi o bug dovresti cerca lp:switchboard"
+msgstr ""
+"Per la segnalazione di eventuali problemi o bug potresti cercare "
+"lp:switchboard"
