@@ -16,22 +16,25 @@ END LICENSE
 ***/
 
 using Gtk;
-using ElementaryWidgets;
 
 namespace Switchboard {
     public const string VERSION = "0.9";
     public const string ERRDOMAIN = "switchboard";
-    public const string PLUG_DIR = "/usr/share/plugs/";
     public const string APP_TITLE = "Switchboard";
 
     [DBus (name = "org.elementary.switchboard")]
     public class SwitchboardApp : Window {
 
+        /* Defaults */
+        private string plug_root_dir;
+
         /* Toolbar widgets */
-        private AppMenu app_menu;
+        // Not using Granite because it'd need to use
+        // Granite.Application, which I really can't.
+        private ElementaryWidgets.AppMenu app_menu;
         private ProgressBar progress_bar;
         private Label progress_label;
-        private ElementaryEntry find_entry;
+        private Granite.Widgets.SearchBar search_bar;
         private Toolbar toolbar;
         private ToolButton navigation_button;
         public ToolItem progress_toolitem;
@@ -48,14 +51,18 @@ namespace Switchboard {
         private bool socket_shown;
         private Gee.HashMap<string, string> current_plug = new Gee.HashMap<string, string>();
 
-        public SwitchboardApp () {
-            /* Setup window */
+        public SwitchboardApp (string plug_root_dir) {
+            
+            /* Set up defaults */
+            this.plug_root_dir = "/usr/share/plugs/";
+
+            /* Set up window */
             this.height_request = 500;
             this.width_request = 800;
             this.window_position = Gtk.WindowPosition.CENTER;
             this.destroy.connect(()=> shutdown());
 
-            /* Setup Plug Socket */
+            /* Set up Plug Socket */
             this.socket = new Gtk.Socket ();
             this.socket.plug_added.connect(this.switch_to_socket);
             this.socket.plug_removed.connect(this.switch_to_icons);
@@ -65,10 +72,10 @@ namespace Switchboard {
             this.current_plug["title"] = "";
             this.current_plug["executable"] = "";
 
-            /* Setup toolbar */
+            /* Set up toolbar */
             setup_toolbar ();
 
-            /* Wire up interface */
+            /* Set up UI */
             this.category_view.plug_selected.connect((view, store) => load_plug(view, store));
             this.vbox = new VBox (false, 0);
             this.vbox.pack_start (this.toolbar, false, false);
@@ -178,7 +185,7 @@ namespace Switchboard {
 
         private void enumerate_plugs () {
             // <keyfile's absolute path, keyfile's directory>
-            Gee.HashMap<string, string> keyfiles = find_plugs (Switchboard.PLUG_DIR);
+            Gee.HashMap<string, string> keyfiles = find_plugs (plug_root_dir);
             foreach (string keyfile in keyfiles.keys) {
                 KeyFile kf = new KeyFile();
                 string[] splits = Regex.split_simple("/", keyfile);
@@ -187,7 +194,6 @@ namespace Switchboard {
                 try { kf.load_from_file(keyfile, KeyFileFlags.NONE);
                 } catch {}
                 try { plug["exec"] = keyfiles[keyfile]+kf.get_string (head, "exec");
-                        stdout.printf("123%s\n", plug["exec"]);
                 } catch {}
                 try { plug["icon"] = kf.get_string (head, "icon");
                 } catch {}
@@ -264,11 +270,11 @@ namespace Switchboard {
         public signal void search_box_activated ();
 
         public void search_box_set_sensitive (bool sensitivity) {
-            this.find_entry.set_sensitive (sensitivity);
+            this.search_bar.set_sensitive (sensitivity);
         }
 
         public void search_box_set_text (string text) {
-            this.find_entry.set_text (text);
+            this.search_bar.set_text (text);
         }
 
         // end D-Bus ONLY methods
@@ -277,7 +283,7 @@ namespace Switchboard {
             // Global toolbar widgets
             this.toolbar = new Toolbar ();
             var menu = new Menu ();
-            this.app_menu = new AppMenu (this, menu, "Switchboard",
+            this.app_menu = new ElementaryWidgets.AppMenu (this, menu, "Switchboard",
                                         "switchboard",
                                         "http://launchpad.net/switchboard",
                                         VERSION,
@@ -300,10 +306,10 @@ namespace Switchboard {
             this.progress_toolitem.set_expand (true);
 
             // Searchbar
-            this.find_entry = new ElementarySearchEntry ("Type to search ...");
-            this.find_entry.activate.connect(() => search_box_activated());
+            this.search_bar = new Granite.Widgets.SearchBar ("Type to search ...");
+            this.search_bar.activate.connect(() => search_box_activated());
             var find_toolitem = new ToolItem ();
-            find_toolitem.add (this.find_entry);
+            find_toolitem.add (this.search_bar);
 
             // Nav button
             this.navigation_button = new ToolButton.from_stock(Stock.GO_BACK);
@@ -322,7 +328,8 @@ namespace Switchboard {
     }
 
     private void on_bus_aquired (DBusConnection conn) {
-        SwitchboardApp switchboard_app = new SwitchboardApp ();
+        // In the future, the plug_root_dir should be overridable by CLI flags.
+        SwitchboardApp switchboard_app = new SwitchboardApp ("/usr/share/plugs/");
         switchboard_app.progress_toolitem.hide();
         try {
             conn.register_object ("/org/elementary/switchboard", switchboard_app);

@@ -11,7 +11,7 @@ set (DATADIR "${CMAKE_INSTALL_PREFIX}/share")
 set (PKGDATADIR "${DATADIR}/switchboard")
 set (GETTEXT_PACKAGE "switchboard")
 set (RELEASE_NAME "Preferences with piazzaz.")
-set (VERSION "0.8")
+set (VERSION "0.9")
 set (VERSION_INFO "Release")
 
 #
@@ -74,7 +74,7 @@ endif (${GETTEXT_FOUND} STREQUAL "TRUE")
 #
 
 find_package(PkgConfig)
-pkg_check_modules(DEPS REQUIRED gtk+-3.0 gee-1.0)
+pkg_check_modules(DEPS REQUIRED granite gee-1.0)
 
 add_definitions(${DEPS_CFLAGS})
 
@@ -93,7 +93,7 @@ vala_precompile(VALA_C
     Switchboard/elementary-entry.vala
     Switchboard/appmenu.vala
 PACKAGES
-    gtk+-3.0
+    granite
     gee-1.0
 CUSTOM_VAPIS
     vapi/config.vapi
