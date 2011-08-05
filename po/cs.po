@@ -1,4 +1,4 @@
-# Italian translation for switchboard
+# Czech translation for switchboard
 # Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
 # This file is distributed under the same license as the switchboard package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
@@ -6,21 +6,20 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-02 14:22-0400\n"
-"PO-Revision-Date: 2011-08-04 12:32+0000\n"
-"Last-Translator: sirtao <Unknown>\n"
-"Language-Team: Italian <it@li.org>\n"
+"PO-Revision-Date: 2011-08-04 16:38+0000\n"
+"Last-Translator: Sindri Avaruus <Unknown>\n"
+"Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2011-08-05 05:11+0000\n"
 "X-Generator: Launchpad (build 13604)\n"
-"Language: it\n"
 
 #: Switchboard/categoryview.vala:31
 msgid "Personal"
-msgstr "Informazioni personali"
+msgstr "Osobní"
 
 #: Switchboard/categoryview.vala:32
 msgid "Hardware"
@@ -28,38 +27,37 @@ msgstr "Hardware"
 
 #: Switchboard/categoryview.vala:33
 msgid "Network and Wireless"
-msgstr "Rete e Wireless"
+msgstr "Síť a Bezdrátove připojení"
 
 #: Switchboard/categoryview.vala:34
 msgid "System"
-msgstr "Sistema"
+msgstr "Systém"
 
 #: Switchboard/categoryview.vala:67
 #, c-format
 msgid ""
 "Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added."
 msgstr ""
-"Il file-chiave \"%s\" contiene una categoria non valida: \"%s\", e non sarà "
-"aggiunto."
+"Klíčový soubor \"%s\" obsahuje neplatnou kategorii: \"%s\", a nebude přidán."
 
 #: Switchboard/categoryview.vala:75
 #, c-format
 msgid "Unable to load plug %s's icon: %s"
-msgstr "Impossibile caricale l'icona del plug %s: %s"
+msgstr ""
 
 #: Switchboard/switchboard.vala:108
 #, c-format
 msgid "Selected plug: title %s | executable %s"
-msgstr "Plug selezionato: titolo %s | eseguibile %s"
+msgstr ""
 
 #: Switchboard/switchboard.vala:115
 msgid "Exiting plug from SwitchBoard controller.."
-msgstr "Rimozione plug da SwitchBoard in corso .."
+msgstr ""
 
 #: Switchboard/switchboard.vala:126
 #, c-format
 msgid "Failed to launch plug: title %s | executable %s"
-msgstr "Impossibile lanciare il plug: titolo %s | eseguibile %s"
+msgstr ""
 
 #: Switchboard/switchboard.vala:240
 msgid "Unable to iterate over enumerated plug directory contents"
@@ -67,6 +65,4 @@ msgstr ""
 
 #: Switchboard/switchboard.vala:343
 msgid "Report any issues/bugs you might find to lp:switchboard"
-msgstr ""
-"Per la segnalazione di eventuali problemi o bug potresti cercare "
-"lp:switchboard"
+msgstr "Případné problémy nahlašte na lp:switchboard"
