@@ -55,6 +55,7 @@ namespace Switchboard {
             
             /* Set up defaults */
             this.plug_root_dir = "/usr/share/plugs/";
+            this.title = APP_TITLE;
 
             /* Set up window */
             this.height_request = 500;
@@ -95,6 +96,7 @@ namespace Switchboard {
 
         private void shutdown() {
             plug_closed();
+            // What's this for? Smells like a bad idea.
             while(events_pending ()) {
                 main_iteration();
             }
@@ -113,7 +115,7 @@ namespace Switchboard {
                 GLib.log(Switchboard.ERRDOMAIN, LogLevelFlags.LEVEL_DEBUG,
                 _("Selected plug: title %s | executable %s"), title.get_string(),
                  executable.get_string());
-                /* Launch plug's executable */
+                // Launch plug's executable
                 if (executable.get_string() != this.current_plug["title"]) {
                     try {
                         if (this.current_plug["title"] != "") {
@@ -227,7 +229,7 @@ namespace Switchboard {
                     string? file_name = (string) file_info.get_name ();
                     if (file_info.get_file_type() == GLib.FileType.REGULAR
                         && is_plug_file(file_name)) {
-//                        stdout.printf("File name: %s\n", path+file_name);
+//                        mstdout.printf("File name: %s\n", path+file_name);
                         keyfiles[path+file_name] = path;
                     } else if(file_info.get_file_type() == GLib.FileType.DIRECTORY) {
                         string file_path = path + file_info.get_name();
@@ -287,7 +289,7 @@ namespace Switchboard {
                                         "switchboard",
                                         "http://launchpad.net/switchboard",
                                         VERSION,
-                                        "Copyright (C) 2011 Avi Romanoff",
+                                        _("Copyright (C) 2011 Avi Romanoff"),
                                         {"Avi Romanoff <aviromanoff@gmail.com>"},
                                         "preferences-desktop");
             // Spacing
@@ -306,7 +308,7 @@ namespace Switchboard {
             this.progress_toolitem.set_expand (true);
 
             // Searchbar
-            this.search_bar = new Granite.Widgets.SearchBar ("Type to search ...");
+            this.search_bar = new Granite.Widgets.SearchBar (_("Type to search ..."));
             this.search_bar.activate.connect(() => search_box_activated());
             var find_toolitem = new ToolItem ();
             find_toolitem.add (this.search_bar);
@@ -342,9 +344,9 @@ namespace Switchboard {
         Gtk.init (ref args);
 
         GLib.log(Switchboard.ERRDOMAIN, LogLevelFlags.LEVEL_INFO,
-                "Welcome to Switchboard");
+                _("Welcome to Switchboard"));
         GLib.log(Switchboard.ERRDOMAIN, LogLevelFlags.LEVEL_INFO,
-                "Version: %s", Switchboard.VERSION);
+                _("Version: %s"), Switchboard.VERSION);
         GLib.log(Switchboard.ERRDOMAIN, LogLevelFlags.LEVEL_INFO,
                 _("Report any issues/bugs you might find to lp:switchboard"));
 
