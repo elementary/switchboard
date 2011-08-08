@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Sergey "Shnatsel" Davidoff <shnatsel@gmail.com>
 Build-Depends: debhelper (>= 7.0.50~), cmake (>= 2.8), valac (>= 0.13),
                libgtk-3-dev (>= 3.0.8), libglib2.0-dev (>= 2.26.0),
-               libgee-dev (>= 0.5.3)
+               libgee-dev (>= 0.5.3), granite (>= 0.0.1)
 Standards-Version: 3.8.4
 Homepage: https://launchpad.net/switchboard
 Vcs-Bzr: lp:switchboard
@@ -14,4 +14,4 @@ Package: switchboard
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Modular desktop settings hub
- Cassidy was not around while I've been packaging it.
+ Desktop application that manages Switchboard Plugs.
