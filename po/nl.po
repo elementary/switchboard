@@ -8,28 +8,31 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-02 14:22-0400\n"
-"PO-Revision-Date: 2011-07-11 20:22+0000\n"
-"Last-Translator: dinkyt <Unknown>\n"
+"PO-Revision-Date: 2011-08-08 12:56+0000\n"
+"Last-Translator: Ramon Meffert <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
-"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-07-12 05:23+0000\n"
-"X-Generator: Launchpad (build 13168)\n"
+"X-Launchpad-Export-Date: 2011-08-09 05:17+0000\n"
+"X-Generator: Launchpad (build 13628)\n"
+"Language: nl\n"
 
-#: Switchboard/switchboard.vala:115
-msgid "Exiting plug from SwitchBoard controller.."
-msgstr "Verlaten van plug uit SwitchBoard beheerder.."
-
-#: Switchboard/switchboard.vala:126
-#, c-format
-msgid "Failed to launch plug: title %s | executable %s"
-msgstr "Starten van plug mislukt: titel %s | uitvoerbaar bestand %s"
+#: Switchboard/categoryview.vala:31
+msgid "Personal"
+msgstr "Persoonlijk"
 
 #: Switchboard/categoryview.vala:32
 msgid "Hardware"
 msgstr "Hardware"
+
+#: Switchboard/categoryview.vala:33
+msgid "Network and Wireless"
+msgstr "Netwerk en draadloos"
+
+#: Switchboard/categoryview.vala:34
+msgid "System"
+msgstr "Systeem"
 
 #: Switchboard/categoryview.vala:67
 #, c-format
@@ -39,32 +42,29 @@ msgstr ""
 "Sleutelbestand \"%s\" bevat een ongeldige categorie: \"%s\", en zal niet "
 "worden toegevoegd."
 
-#: Switchboard/categoryview.vala:33
-msgid "Network and Wireless"
-msgstr "Netwerk en draadloos"
-
-#: Switchboard/categoryview.vala:31
-msgid "Personal"
-msgstr "Persoonlijk"
-
-#: Switchboard/switchboard.vala:343
-msgid "Report any issues/bugs you might find to lp:switchboard"
-msgstr ""
+#: Switchboard/categoryview.vala:75
+#, c-format
+msgid "Unable to load plug %s's icon: %s"
+msgstr "Niet mogelijk om het pictogram van %s te laden: %s"
 
 #: Switchboard/switchboard.vala:108
 #, c-format
 msgid "Selected plug: title %s | executable %s"
 msgstr "Geselecteerde plugin: titel %s | uitvoerbaar bestand %s"
 
-#: Switchboard/categoryview.vala:34
-msgid "System"
-msgstr "Systeem"
+#: Switchboard/switchboard.vala:115
+msgid "Exiting plug from SwitchBoard controller.."
+msgstr "Verlaten van plug uit SwitchBoardbeheerder.."
+
+#: Switchboard/switchboard.vala:126
+#, c-format
+msgid "Failed to launch plug: title %s | executable %s"
+msgstr "Starten van plug mislukt: titel %s | uitvoerbaar bestand %s"
 
 #: Switchboard/switchboard.vala:240
 msgid "Unable to iterate over enumerated plug directory contents"
 msgstr ""
 
-#: Switchboard/categoryview.vala:75
-#, c-format
-msgid "Unable to load plug %s's icon: %s"
-msgstr "Niet mogelijk om plugin %s zijn pictogram te laden: %s"
+#: Switchboard/switchboard.vala:343
+msgid "Report any issues/bugs you might find to lp:switchboard"
+msgstr "Meld problemen of fouten die je vindt aan lp:switchboard"
