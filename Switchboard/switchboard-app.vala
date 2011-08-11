@@ -147,12 +147,12 @@ namespace Switchboard {
 
         // Change Switchboard title to "Switchboard - PlugName"
         private void load_plug_title (string plug_title) {
-            this.title = "Switchboard - " + plug_title;
+            this.title = APP_TITLE+ " - " + plug_title;
         }
 
         // Change Switchboard title back to "Switchboard"
         private void reset_title () {
-            this.title = "Switchboard";
+            this.title = APP_TITLE;
         }
 
         private void handle_navigation_button_clicked () {
@@ -236,8 +236,8 @@ namespace Switchboard {
 //                        stdout.printf("File path: %s\n", file_path);
                         var sub_plugs = find_plugs(file_path);
                         foreach (string subplug in sub_plugs.keys) {
-                            stdout.printf("%s\n", sub_plugs[subplug]);
-                            stdout.printf("%s\n", subplug);
+//                            stdout.printf("%s\n", sub_plugs[subplug]);
+//                            stdout.printf("%s\n", subplug);
                             keyfiles[subplug] = sub_plugs[subplug];
                         }
                     }
@@ -271,6 +271,8 @@ namespace Switchboard {
 
         public signal void search_box_activated ();
 
+        public signal void search_box_text_changed ();
+
         public void search_box_set_sensitive (bool sensitivity) {
             this.search_bar.set_sensitive (sensitivity);
         }
@@ -279,13 +281,17 @@ namespace Switchboard {
             this.search_bar.set_text (text);
         }
 
+        public string search_box_get_text () {
+            return this.search_bar.get_text ();
+        }
+
         // end D-Bus ONLY methods
 
         private void setup_toolbar () {
             // Global toolbar widgets
             this.toolbar = new Toolbar ();
             var menu = new Menu ();
-            this.app_menu = new ElementaryWidgets.AppMenu (this, menu, "Switchboard",
+            this.app_menu = new ElementaryWidgets.AppMenu (this, menu, APP_TITLE,
                                         "switchboard",
                                         "http://launchpad.net/switchboard",
                                         VERSION,
@@ -310,6 +316,7 @@ namespace Switchboard {
             // Searchbar
             this.search_bar = new Granite.Widgets.SearchBar (_("Type to search ..."));
             this.search_bar.activate.connect(() => search_box_activated());
+            this.search_bar.changed.connect(() => search_box_text_changed());
             var find_toolitem = new ToolItem ();
             find_toolitem.add (this.search_bar);
 
@@ -344,7 +351,7 @@ namespace Switchboard {
         Gtk.init (ref args);
 
         GLib.log(Switchboard.ERRDOMAIN, LogLevelFlags.LEVEL_INFO,
-                _("Welcome to Switchboard"));
+                _("Welcome to %s"), APP_TITLE);
         GLib.log(Switchboard.ERRDOMAIN, LogLevelFlags.LEVEL_INFO,
                 _("Version: %s"), Switchboard.VERSION);
         GLib.log(Switchboard.ERRDOMAIN, LogLevelFlags.LEVEL_INFO,
