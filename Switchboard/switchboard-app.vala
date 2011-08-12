@@ -116,19 +116,23 @@ namespace Switchboard {
                 _("Selected plug: title %s | executable %s"), title.get_string(),
                  executable.get_string());
                 // Launch plug's executable
+                stdout.printf("Current plug title %s\n", this.current_plug["title"]);
                 if (executable.get_string() != this.current_plug["title"]) {
                     try {
-                        if (this.current_plug["title"] != "") {
+                        // The plug is already selected
+                        if (this.current_plug["title"] != title.get_string()) {
                             GLib.log(Switchboard.ERRDOMAIN, LogLevelFlags.LEVEL_DEBUG,
                             _("Exiting plug from Switchboard controller.."));
                             plug_closed();
+                            GLib.Process.spawn_command_line_async (executable.get_string());
+                            this.current_plug["title"] = title.get_string();
+                            this.current_plug["executable"] = executable.get_string();
+                            // ensure the button is sensitive; it might be the first plug loaded
+                            this.navigation_button.set_sensitive(true);
+                            this.navigation_button.stock_id = Gtk.Stock.HOME;
+                        } else {
+                            switch_to_socket();
                         }
-                        GLib.Process.spawn_command_line_async (executable.get_string());
-                        this.current_plug["title"] = title.get_string();
-                        this.current_plug["executable"] = executable.get_string();
-                        // ensure the button is sensitive; it might be the first plug loaded
-                        this.navigation_button.set_sensitive(true);
-                        this.navigation_button.stock_id = Gtk.Stock.HOME;
                     } catch {
                         GLib.log(Switchboard.ERRDOMAIN, LogLevelFlags.LEVEL_DEBUG,
                         _("Failed to launch plug: title %s | executable %s"),
