@@ -1,4 +1,5 @@
 namespace Switchboard {
+
     public const string APP_TITLE = "Switchboard";
     public const string COPYRIGHT = "Copyright (C) 2011 Avi Romanoff";
     public const string WEBSITE = "http://launchpad.net/switchboard";
@@ -20,4 +21,5 @@ PURPOSE.  See the GNU General Public License for more details.
 You should have received a copy of the GNU General Public License along
 with this program.  If not, see <http://www.gnu.org/licenses/>.
 """;
+
 }

@@ -298,7 +298,7 @@ namespace Switchboard {
                                         VERSION,
                                         COPYRIGHT,
                                         AUTHORS,
-					LICENSE,
+                                        LICENSE,
                                         APP_ICON);
             // Spacing
             this.lspace.set_expand (true);

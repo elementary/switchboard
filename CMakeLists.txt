@@ -90,8 +90,8 @@ include(ValaPrecompile)
 vala_precompile(VALA_C
     Switchboard/switchboard-app.vala
     Switchboard/switchboard-categoryview.vala
+    Switchboard/switchboard-resources.vala
     Switchboard/appmenu.vala
-    Switchboard/resources.vala
 PACKAGES
     granite
     gee-1.0
