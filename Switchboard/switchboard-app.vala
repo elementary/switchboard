@@ -22,12 +22,10 @@ namespace Switchboard {
     [DBus (name = "org.elementary.switchboard")]
     public class SwitchboardApp : Window {
 
-        /* Defaults */
+        // Default
         private string plug_root_dir;
 
-        /* Toolbar widgets */
-        // Not using Granite because it'd need to use
-        // Granite.Application, which I really can't.
+        // Chrome widgets
         private ElementaryWidgets.AppMenu app_menu;
         private ProgressBar progress_bar;
         private Label progress_label;
@@ -35,45 +33,44 @@ namespace Switchboard {
         private Toolbar toolbar;
         private ToolButton navigation_button;
         public ToolItem progress_toolitem;
+        // These two wrap the progress bar
         private ToolItem lspace = new ToolItem ();
         private ToolItem rspace = new ToolItem ();
 
-        /* Content Area widgets */
+        // Content area widgets
         private Gtk.Socket socket;
         private VBox vbox;
         private CategoryView category_view = new CategoryView();
 
-        /* Plugging Data */
+        // Plug data
         private TreeIter selected_plug;
         private bool socket_shown;
         private Gee.HashMap<string, string> current_plug = new Gee.HashMap<string, string>();
 
         public SwitchboardApp (string plug_root_dir) {
             
-            /* Set up defaults */
+            // Set up defaults
             this.plug_root_dir = "/usr/share/plugs/";
             this.title = APP_TITLE;
 
-            /* Set up window */
+            // Set up window
             this.height_request = 500;
             this.width_request = 800;
             this.window_position = Gtk.WindowPosition.CENTER;
             this.destroy.connect(()=> shutdown());
+            setup_toolbar ();
 
-            /* Set up Plug Socket */
+            // Set up socket
             this.socket = new Gtk.Socket ();
             this.socket.plug_added.connect(this.switch_to_socket);
             this.socket.plug_removed.connect(this.switch_to_icons);
             this.socket.hide();
 
-            /* Defaults for current plug */
+            // ??? Why?
             this.current_plug["title"] = "";
             this.current_plug["executable"] = "";
 
-            /* Set up toolbar */
-            setup_toolbar ();
-
-            /* Set up UI */
+            // Set up UI
             this.category_view.plug_selected.connect((view, store) => load_plug(view, store));
             this.vbox = new VBox (false, 0);
             this.vbox.pack_start (this.toolbar, false, false);
@@ -156,6 +153,7 @@ namespace Switchboard {
             this.title = APP_TITLE;
         }
 
+        // Handles clicking the navigation button
         private void handle_navigation_button_clicked () {
             if (this.navigation_button.stock_id == Gtk.Stock.HOME) {
                 switch_to_icons();
@@ -167,7 +165,7 @@ namespace Switchboard {
             }
         }
 
-        // Switch to the socket view
+        // Switches to the socket view
         private void switch_to_socket() {
             this.vbox.set_child_packing(this.socket, true, true, 0, PackType.END);
             this.category_view.hide();
@@ -176,7 +174,7 @@ namespace Switchboard {
             this.socket_shown = true;
         }
 
-        // Switch back to the icons
+        // Switches back to the icons
         private bool switch_to_icons() {
             this.vbox.set_child_packing(this.socket, false, false, 0, PackType.END);
             this.socket.hide ();
@@ -186,6 +184,7 @@ namespace Switchboard {
             return true;
         }
 
+        // Loads in all of the plugs
         private void enumerate_plugs () {
             // <keyfile's absolute path, keyfile's directory>
             Gee.HashMap<string, string> keyfiles = find_plugs (plug_root_dir);
@@ -210,6 +209,7 @@ namespace Switchboard {
             }
         }
 
+        // Checks if the file is a .plug file
         bool is_plug_file (string filename) {
             return (filename.down().has_suffix(".plug"));
         }
@@ -230,15 +230,11 @@ namespace Switchboard {
                     string? file_name = (string) file_info.get_name ();
                     if (file_info.get_file_type() == GLib.FileType.REGULAR
                         && is_plug_file(file_name)) {
-//                        mstdout.printf("File name: %s\n", path+file_name);
                         keyfiles[path+file_name] = path;
                     } else if(file_info.get_file_type() == GLib.FileType.DIRECTORY) {
                         string file_path = path + file_info.get_name();
-//                        stdout.printf("File path: %s\n", file_path);
                         var sub_plugs = find_plugs(file_path);
                         foreach (string subplug in sub_plugs.keys) {
-//                            stdout.printf("%s\n", sub_plugs[subplug]);
-//                            stdout.printf("%s\n", subplug);
                             keyfiles[subplug] = sub_plugs[subplug];
                         }
                     }
@@ -288,11 +284,13 @@ namespace Switchboard {
 
         // end D-Bus ONLY methods
 
+        // Sets up the toolbar for the Switchboard app
         private void setup_toolbar () {
             // Global toolbar widgets
             this.toolbar = new Toolbar ();
             var menu = new Menu ();
-            this.app_menu = new ElementaryWidgets.AppMenu (this, menu, APP_TITLE,
+            this.app_menu = new ElementaryWidgets.AppMenu (this, menu,
+                                        APP_TITLE,
                                         ERRDOMAIN,
                                         WEBSITE,
                                         VERSION,
@@ -338,6 +336,7 @@ namespace Switchboard {
         }
     }
 
+    // Handles a successful connection to D-Bus and launches the app
     private void on_bus_aquired (DBusConnection conn) {
         // In the future, the plug_root_dir should be overridable by CLI flags.
         SwitchboardApp switchboard_app = new SwitchboardApp ("/usr/share/plugs/");
@@ -349,6 +348,9 @@ namespace Switchboard {
     }
 
     public static int main (string[] args) {
+        var logger = new Granite.Services.Logger ();
+        logger.initialize(APP_TITLE);
+//        logger.notify("Test");
 //        GLib.Log.set_default_handler(Log.log_handler);
         Gtk.init (ref args);
 
