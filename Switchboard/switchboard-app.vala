@@ -15,111 +15,110 @@ with this program.  If not, see <http://www.gnu.org/licenses/>.
 END LICENSE
 ***/
 
-using Gtk;
-
 namespace Switchboard {
 
     [DBus (name = "org.elementary.switchboard")]
-    public class SwitchboardApp : Window {
+    public class SwitchboardApp : Gtk.Window {
 
         // Default
-        private string plug_root_dir;
+        string plug_root_dir;
 
         // Chrome widgets
-        private ElementaryWidgets.AppMenu app_menu;
-        private ProgressBar progress_bar;
-        private Label progress_label;
-        private Granite.Widgets.SearchBar search_bar;
-        private Toolbar toolbar;
-        private ToolButton navigation_button;
-        public ToolItem progress_toolitem;
+        ElementaryWidgets.AppMenu app_menu;
+        Gtk.ProgressBar progress_bar;
+        Gtk.Label progress_label;
+        Granite.Widgets.SearchBar search_bar;
+        Gtk.Toolbar toolbar;
+        Gtk.ToolButton navigation_button;
+        // Public so we can hide it after show_all()
+        public Gtk.ToolItem progress_toolitem;
         // These two wrap the progress bar
-        private ToolItem lspace = new ToolItem ();
-        private ToolItem rspace = new ToolItem ();
+        Gtk.ToolItem lspace = new Gtk.ToolItem ();
+        Gtk.ToolItem rspace = new Gtk.ToolItem ();
 
         // Content area widgets
-        private Gtk.Socket socket;
-        private VBox vbox;
-        private CategoryView category_view = new CategoryView();
+        Gtk.Socket socket;
+        Gtk.VBox vbox;
+        Switchboard.CategoryView category_view = new Switchboard.CategoryView();
 
         // Plug data
-        private TreeIter selected_plug;
-        private bool socket_shown;
-        private Gee.HashMap<string, string> current_plug = new Gee.HashMap<string, string>();
+        Gtk.TreeIter selected_plug;
+        bool socket_shown;
+        Gee.HashMap<string, string> current_plug = new Gee.HashMap<string, string>();
 
         public SwitchboardApp (string plug_root_dir) {
             
             // Set up defaults
-            this.plug_root_dir = "/usr/share/plugs/";
-            this.title = APP_TITLE;
+            plug_root_dir = "/usr/share/plugs/";
+            title = APP_TITLE;
 
             // Set up window
-            this.height_request = 500;
-            this.width_request = 800;
-            this.window_position = Gtk.WindowPosition.CENTER;
-            this.destroy.connect(()=> shutdown());
+            height_request = 500;
+            width_request = 800;
+            window_position = Gtk.WindowPosition.CENTER;
+            destroy.connect(()=> shutdown());
             setup_toolbar ();
 
             // Set up socket
-            this.socket = new Gtk.Socket ();
-            this.socket.plug_added.connect(this.switch_to_socket);
-            this.socket.plug_removed.connect(this.switch_to_icons);
-            this.socket.hide();
+            socket = new Gtk.Socket ();
+            socket.plug_added.connect(switch_to_socket);
+            socket.plug_removed.connect(switch_to_icons);
+            socket.hide();
 
             // ??? Why?
-            this.current_plug["title"] = "";
-            this.current_plug["executable"] = "";
+            current_plug["title"] = "";
+            current_plug["executable"] = "";
 
             // Set up UI
-            this.category_view.plug_selected.connect((view, store) => load_plug(view, store));
-            this.vbox = new VBox (false, 0);
-            this.vbox.pack_start (this.toolbar, false, false);
-            this.vbox.pack_start (this.socket, false, false);
-            this.vbox.pack_end (this.category_view, true, true);
-            this.add (this.vbox);
-            this.vbox.show();
-            this.category_view.show();
+            category_view.plug_selected.connect((view, store) => load_plug(view, store));
+            vbox = new Gtk.VBox (false, 0);
+            vbox.pack_start (toolbar, false, false);
+            vbox.pack_start (socket, false, false);
+            vbox.pack_end (category_view, true, true);
+            add (vbox);
+            vbox.show();
+            category_view.show();
 
-            this.enumerate_plugs ();
-            this.show();
+            enumerate_plugs ();
+            show();
         }
 
-        public int get_socket_wid() {
-            return ((int) this.socket.get_id ());
+        int get_socket_wid() {
+            return ((int) socket.get_id ());
         }
 
-        private void shutdown() {
+        void shutdown() {
             plug_closed();
             // What's this for? Smells like a bad idea.
-            while(events_pending ()) {
-                main_iteration();
+            while(Gtk.events_pending ()) {
+                Gtk.main_iteration();
             }
             Gtk.main_quit();
         }
 
-        private void load_plug(IconView plug_view, ListStore store) {
+        void load_plug(Gtk.IconView plug_view, Gtk.ListStore store) {
             var selected = plug_view.get_selected_items ();
             if(selected.length() == 1) {
                 GLib.Value title;
                 GLib.Value executable;
                 var item = selected.nth_data(0);
-                store.get_iter(out this.selected_plug, item);
-                store.get_value (this.selected_plug, 0, out title);
-                store.get_value (this.selected_plug, 2, out executable);
+                store.get_iter(out selected_plug, item);
+                store.get_value (selected_plug, 0, out title);
+                store.get_value (selected_plug, 2, out executable);
                 debug(_("Selected plug: title %s | executable %s"), title.get_string(), executable.get_string());
                 // Launch plug's executable
-                if (executable.get_string() != this.current_plug["title"]) {
+                if (executable.get_string() != current_plug["title"]) {
                     try {
                         // The plug is already selected
-                        if (this.current_plug["title"] != title.get_string()) {
+                        if (current_plug["title"] != title.get_string()) {
                             debug(_("Exiting plug \"%s\" from Switchboard controller.."), current_plug["title"]);
                             plug_closed();
                             GLib.Process.spawn_command_line_async (executable.get_string());
-                            this.current_plug["title"] = title.get_string();
-                            this.current_plug["executable"] = executable.get_string();
+                            current_plug["title"] = title.get_string();
+                            current_plug["executable"] = executable.get_string();
                             // ensure the button is sensitive; it might be the first plug loaded
-                            this.navigation_button.set_sensitive(true);
-                            this.navigation_button.stock_id = Gtk.Stock.HOME;
+                            navigation_button.set_sensitive(true);
+                            navigation_button.stock_id = Gtk.Stock.HOME;
                         } else {
                             switch_to_socket();
                         }
@@ -128,9 +127,9 @@ namespace Switchboard {
                     }
                 }
                 else {
-                    this.switch_to_socket();
-                    this.navigation_button.set_sensitive(true);
-                    this.navigation_button.stock_id = Gtk.Stock.HOME;
+                    switch_to_socket();
+                    navigation_button.set_sensitive(true);
+                    navigation_button.stock_id = Gtk.Stock.HOME;
                 }
                 /* Clear selection again */
                 plug_view.unselect_path(item);
@@ -138,48 +137,48 @@ namespace Switchboard {
         }
 
         // Change Switchboard title to "Switchboard - PlugName"
-        private void load_plug_title (string plug_title) {
-            this.title = APP_TITLE+ " - " + plug_title;
+        void load_plug_title (string plug_title) {
+            title = APP_TITLE+ " - " + plug_title;
         }
 
         // Change Switchboard title back to "Switchboard"
-        private void reset_title () {
-            this.title = APP_TITLE;
+        void reset_title () {
+            title = APP_TITLE;
         }
 
         // Handles clicking the navigation button
-        private void handle_navigation_button_clicked () {
-            if (this.navigation_button.stock_id == Gtk.Stock.HOME) {
+        void handle_navigation_button_clicked () {
+            if (navigation_button.stock_id == Gtk.Stock.HOME) {
                 switch_to_icons();
-                this.navigation_button.stock_id = Gtk.Stock.GO_BACK;
+                navigation_button.stock_id = Gtk.Stock.GO_BACK;
             }
             else {
                 switch_to_socket();
-                this.navigation_button.stock_id = Gtk.Stock.HOME;
+                navigation_button.stock_id = Gtk.Stock.HOME;
             }
         }
 
         // Switches to the socket view
-        private void switch_to_socket() {
-            this.vbox.set_child_packing(this.socket, true, true, 0, PackType.END);
-            this.category_view.hide();
-            this.socket.show();
-            this.load_plug_title (this.current_plug["title"]);
-            this.socket_shown = true;
+        void switch_to_socket() {
+            vbox.set_child_packing(socket, true, true, 0, Gtk.PackType.END);
+            category_view.hide();
+            socket.show();
+            load_plug_title (current_plug["title"]);
+            socket_shown = true;
         }
 
         // Switches back to the icons
-        private bool switch_to_icons() {
-            this.vbox.set_child_packing(this.socket, false, false, 0, PackType.END);
-            this.socket.hide ();
-            this.category_view.show();
-            this.reset_title ();
-            this.socket_shown = false;
+        bool switch_to_icons() {
+            vbox.set_child_packing(socket, false, false, 0, Gtk.PackType.END);
+            socket.hide ();
+            category_view.show();
+            reset_title ();
+            socket_shown = false;
             return true;
         }
 
         // Loads in all of the plugs
-        private void enumerate_plugs () {
+        void enumerate_plugs () {
             // <keyfile's absolute path, keyfile's directory>
             Gee.HashMap<string, string> keyfiles = find_plugs (plug_root_dir);
             foreach (string keyfile in keyfiles.keys) {
@@ -199,7 +198,7 @@ namespace Switchboard {
                 } catch {
                     plug["category"] = "other";
                 }
-                this.category_view.add_plug (plug);
+                category_view.add_plug (plug);
             }
         }
 
@@ -209,7 +208,7 @@ namespace Switchboard {
         }
 
         // Find all .plug files
-        private Gee.HashMap<string, string> find_plugs (string in_path) {
+        Gee.HashMap<string, string> find_plugs (string in_path) {
             // Heads up, this needs to be investigated
             string path = in_path;
             if (path[-1] != '/') {
@@ -244,19 +243,19 @@ namespace Switchboard {
         public signal void plug_closed ();
 
         public void progress_bar_set_visible (bool visibility) {
-            this.progress_toolitem.set_visible(visibility);
+            progress_toolitem.set_visible(visibility);
         }
 
         public void progress_bar_set_text (string text) {
-            this.progress_label.set_text(text);
+            progress_label.set_text(text);
         }
 
         public void progress_bar_set_fraction (double fraction) {
-            this.progress_bar.fraction = fraction;
+            progress_bar.fraction = fraction;
         }
 
         public void progress_bar_pulse () {
-            this.progress_bar.pulse();
+            progress_bar.pulse();
         }
 
         public signal void search_box_activated ();
@@ -264,25 +263,25 @@ namespace Switchboard {
         public signal void search_box_text_changed ();
 
         public void search_box_set_sensitive (bool sensitivity) {
-            this.search_bar.set_sensitive (sensitivity);
+            search_bar.set_sensitive (sensitivity);
         }
 
         public void search_box_set_text (string text) {
-            this.search_bar.set_text (text);
+            search_bar.set_text (text);
         }
 
         public string search_box_get_text () {
-            return this.search_bar.get_text ();
+            return search_bar.get_text ();
         }
 
         // end D-Bus ONLY methods
 
         // Sets up the toolbar for the Switchboard app
-        private void setup_toolbar () {
+        void setup_toolbar () {
             // Global toolbar widgets
-            this.toolbar = new Toolbar ();
-            var menu = new Menu ();
-            this.app_menu = new ElementaryWidgets.AppMenu (this, menu,
+            toolbar = new Gtk.Toolbar ();
+            var menu = new Gtk.Menu ();
+            app_menu = new ElementaryWidgets.AppMenu (this, menu,
                                         APP_TITLE,
                                         ERRDOMAIN,
                                         WEBSITE,
@@ -292,45 +291,45 @@ namespace Switchboard {
                                         LICENSE,
                                         APP_ICON);
             // Spacing
-            this.lspace.set_expand (true);
-            this.rspace.set_expand (true);
+            lspace.set_expand (true);
+            rspace.set_expand (true);
 
             // Progressbar
-            var progress_vbox = new VBox (true, 0);
-            this.progress_label = new Label("");
-            this.progress_label.set_use_markup(true);
-            this.progress_bar = new ProgressBar ();
-            this.progress_toolitem = new ToolItem ();
-            progress_vbox.pack_start (this.progress_label, true, false, 0);
-            progress_vbox.pack_end (this.progress_bar, false, false, 0);
-            this.progress_toolitem.add (progress_vbox);
-            this.progress_toolitem.set_expand (true);
+            var progress_vbox = new Gtk.VBox (true, 0);
+            progress_label = new Gtk.Label("");
+            progress_label.set_use_markup(true);
+            progress_bar = new Gtk.ProgressBar ();
+            progress_toolitem = new Gtk.ToolItem ();
+            progress_vbox.pack_start (progress_label, true, false, 0);
+            progress_vbox.pack_end (progress_bar, false, false, 0);
+            progress_toolitem.add (progress_vbox);
+            progress_toolitem.set_expand (true);
 
             // Searchbar
-            this.search_bar = new Granite.Widgets.SearchBar (_("Type to search ..."));
-            this.search_bar.activate.connect(() => search_box_activated());
-            this.search_bar.changed.connect(() => search_box_text_changed());
-            var find_toolitem = new ToolItem ();
-            find_toolitem.add (this.search_bar);
+            search_bar = new Granite.Widgets.SearchBar (_("Type to search ..."));
+            search_bar.activate.connect(() => search_box_activated());
+            search_bar.changed.connect(() => search_box_text_changed());
+            var find_toolitem = new Gtk.ToolItem ();
+            find_toolitem.add (search_bar);
 
             // Nav button
-            this.navigation_button = new ToolButton.from_stock(Stock.GO_BACK);
-            this.navigation_button.clicked.connect (this.handle_navigation_button_clicked);
-            this.navigation_button.set_sensitive (false);
+            navigation_button = new Gtk.ToolButton.from_stock(Gtk.Stock.GO_BACK);
+            navigation_button.clicked.connect (handle_navigation_button_clicked);
+            navigation_button.set_sensitive (false);
 
             // Add everything to the toolbar
-            this.toolbar.insert (navigation_button, 0);
-            this.toolbar.insert (this.lspace, 1);
-            this.toolbar.insert (this.progress_toolitem, 2);
-            this.toolbar.insert (this.rspace, 3);
-            this.toolbar.insert (find_toolitem, 4);
-            this.toolbar.insert (this.app_menu, 5);
-            this.toolbar.show_all();
+            toolbar.insert (navigation_button, 0);
+            toolbar.insert (lspace, 1);
+            toolbar.insert (progress_toolitem, 2);
+            toolbar.insert (rspace, 3);
+            toolbar.insert (find_toolitem, 4);
+            toolbar.insert (app_menu, 5);
+            toolbar.show_all();
         }
     }
 
     // Handles a successful connection to D-Bus and launches the app
-    private void on_bus_aquired (DBusConnection conn) {
+    void on_bus_aquired (DBusConnection conn) {
         // In the future, the plug_root_dir should be overridable by CLI flags.
         SwitchboardApp switchboard_app = new SwitchboardApp ("/usr/share/plugs/");
         switchboard_app.progress_toolitem.hide();

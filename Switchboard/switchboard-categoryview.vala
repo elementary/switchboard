@@ -18,10 +18,10 @@ END LICENSE
 namespace Switchboard {
 
     public class CategoryView : Gtk.VBox {
-        private Gee.HashMap<string, Gtk.VBox> category_labels = new Gee.HashMap<string, Gtk.VBox>();
-        private Gee.HashMap<string, Gtk.ListStore> category_store = new Gee.HashMap<string, Gtk.ListStore>();
-        private Gtk.IconTheme theme = Gtk.IconTheme.get_default();
-        private static Gee.HashMap<string, string> category_titles = new Gee.HashMap<string, string>();
+        Gee.HashMap<string, Gtk.VBox> category_labels = new Gee.HashMap<string, Gtk.VBox>();
+        Gee.HashMap<string, Gtk.ListStore> category_store = new Gee.HashMap<string, Gtk.ListStore>();
+        Gtk.IconTheme theme = Gtk.IconTheme.get_default();
+        static Gee.HashMap<string, string> category_titles = new Gee.HashMap<string, string>();
 
         public signal void plug_selected(Gtk.IconView view, Gtk.ListStore message);
 
@@ -31,7 +31,7 @@ namespace Switchboard {
             category_titles["hardware"] = _("Hardware");
             category_titles["network"] = _("Network and Wireless");
             category_titles["system"] = _("System");
-            foreach (var entry in this.category_titles.entries) {
+            foreach (var entry in category_titles.entries) {
                 var store = new Gtk.ListStore (3, typeof (string), typeof (Gdk.Pixbuf), typeof(string));
                 var label = new Gtk.Label("<big><b>"+entry.value+"</b></big>");
                 var category_plugs = new Gtk.IconView.with_model (store);
@@ -53,7 +53,7 @@ namespace Switchboard {
                 vbox.pack_end(category_plugs, true, true);
                 category_labels[entry.key] = vbox;
                 category_store[entry.key] = store;
-                this.pack_start(vbox);
+                pack_start(vbox);
                 vbox.show_all();
                 vbox.hide();
             }
@@ -67,7 +67,7 @@ namespace Switchboard {
             }
             category_store[plug["category"].down()].append (out root);
             try {
-                var icon_pixbuf = this.theme.load_icon (plug["icon"], 48, Gtk.IconLookupFlags.GENERIC_FALLBACK);
+                var icon_pixbuf = theme.load_icon (plug["icon"], 48, Gtk.IconLookupFlags.GENERIC_FALLBACK);
                 category_store[plug["category"].down()].set (root, 1, icon_pixbuf, -1);
             } catch {
                 warning(_("Unable to load plug %'s icon: %s"), plug["title"], plug["icon"]);
