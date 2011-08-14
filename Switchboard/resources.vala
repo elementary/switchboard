@@ -5,7 +5,7 @@ namespace Switchboard {
     public const string VERSION = "0.9";
     public const string[] AUTHORS = "Avi Romanoff <aviromanoff@gmail.com>";
     public const string ERRDOMAIN = "switchboard";
-    public const string ICON = "preferences-desktop";
+    public const string APP_ICON = "preferences-desktop";
     public const string LICENSE = "
     Switchboard is free software: you can redistribute it and/or modify it
     under the terms of the GNU Lesser General Public License version 3, as

@@ -299,7 +299,7 @@ namespace Switchboard {
                                         COPYRIGHT,
                                         AUTHORS,
 					LICENSE,
-                                        ICON);
+                                        APP_ICON);
             // Spacing
             this.lspace.set_expand (true);
             this.rspace.set_expand (true);
