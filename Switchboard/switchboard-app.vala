@@ -106,17 +106,13 @@ namespace Switchboard {
                 store.get_iter(out this.selected_plug, item);
                 store.get_value (this.selected_plug, 0, out title);
                 store.get_value (this.selected_plug, 2, out executable);
-                GLib.log(Switchboard.ERRDOMAIN, LogLevelFlags.LEVEL_DEBUG,
-                _("Selected plug: title %s | executable %s"), title.get_string(),
-                 executable.get_string());
+                debug(_("Selected plug: title %s | executable %s"), title.get_string(), executable.get_string());
                 // Launch plug's executable
-                stdout.printf("Current plug title %s\n", this.current_plug["title"]);
                 if (executable.get_string() != this.current_plug["title"]) {
                     try {
                         // The plug is already selected
                         if (this.current_plug["title"] != title.get_string()) {
-                            GLib.log(Switchboard.ERRDOMAIN, LogLevelFlags.LEVEL_DEBUG,
-                            _("Exiting plug from Switchboard controller.."));
+                            debug(_("Exiting plug \"%s\" from Switchboard controller.."), current_plug["title"]);
                             plug_closed();
                             GLib.Process.spawn_command_line_async (executable.get_string());
                             this.current_plug["title"] = title.get_string();
@@ -128,9 +124,7 @@ namespace Switchboard {
                             switch_to_socket();
                         }
                     } catch {
-                        GLib.log(Switchboard.ERRDOMAIN, LogLevelFlags.LEVEL_DEBUG,
-                        _("Failed to launch plug: title %s | executable %s"),
-                        title.get_string(), executable.get_string());
+                        warning(_("Failed to launch plug: title %s | executable %s"), title.get_string(), executable.get_string());
                     }
                 }
                 else {
@@ -240,8 +234,7 @@ namespace Switchboard {
                     }
                 }
             } catch {
-                GLib.log(Switchboard.ERRDOMAIN, LogLevelFlags.LEVEL_DEBUG,
-                _("Unable to iterate over enumerated plug directory contents"));
+                warning(_(@"Unable to iterate over enumerated plug directory \"$plug_root_dir\"'s contents"));
             }
             return keyfiles;
         }
