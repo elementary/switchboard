@@ -49,7 +49,7 @@ namespace Switchboard {
         public SwitchboardApp (string plug_root_dir) {
             
             // Set up defaults
-            plug_root_dir = "/usr/share/plugs/";
+            this.plug_root_dir = "/usr/share/plugs/";
             title = APP_TITLE;
 
             // Set up window
@@ -83,11 +83,8 @@ namespace Switchboard {
             show();
         }
 
-        int get_socket_wid() {
-            return ((int) socket.get_id ());
-        }
-
         void shutdown() {
+
             plug_closed();
             // What's this for? Smells like a bad idea.
             while(Gtk.events_pending ()) {
@@ -96,7 +93,9 @@ namespace Switchboard {
             Gtk.main_quit();
         }
 
-        void load_plug(Gtk.IconView plug_view, Gtk.ListStore store) {
+        void load_plug(Gtk.IconView plug_view, Gtk.ListStore store) 
+        {
+
             var selected = plug_view.get_selected_items ();
             if(selected.length() == 1) {
                 GLib.Value title;
@@ -240,6 +239,11 @@ namespace Switchboard {
 
         // D-Bus ONLY methods
 
+        public int get_socket_wid() {
+
+            return ((int) socket.get_id ());
+        }
+
         public signal void plug_closed ();
 
         public void progress_bar_set_visible (bool visibility) {
@@ -339,7 +343,7 @@ namespace Switchboard {
         }
     }
 
-    public static int main (string[] args) {
+    static int main (string[] args) {
 
         var logger = new Granite.Services.Logger ();
         logger.initialize(APP_TITLE);
