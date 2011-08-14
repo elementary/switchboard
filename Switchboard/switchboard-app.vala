@@ -348,24 +348,20 @@ namespace Switchboard {
     }
 
     public static int main (string[] args) {
+
         var logger = new Granite.Services.Logger ();
         logger.initialize(APP_TITLE);
-//        logger.notify("Test");
-//        GLib.Log.set_default_handler(Log.log_handler);
+        logger.DisplayLevel = Granite.Services.LogLevel.INFO;
+        message(_(@"Welcome to $APP_TITLE"));
+        message(_(@"Version: $VERSION"));
+        message(_("Report any issues/bugs you mind find to lp:switchboard"));
+
         Gtk.init (ref args);
-
-        GLib.log(Switchboard.ERRDOMAIN, LogLevelFlags.LEVEL_INFO,
-                _("Welcome to %s"), APP_TITLE);
-        GLib.log(Switchboard.ERRDOMAIN, LogLevelFlags.LEVEL_INFO,
-                _("Version: %s"), Switchboard.VERSION);
-        GLib.log(Switchboard.ERRDOMAIN, LogLevelFlags.LEVEL_INFO,
-                _("Report any issues/bugs you might find to lp:switchboard"));
-
         Bus.own_name (BusType.SESSION, "org.elementary.switchboard",
                 BusNameOwnerFlags.NONE,
                 on_bus_aquired,
                 () => {},
-                () => stderr.printf ("Could not aquire name\n"));
+                () => {logger.notification(_("Switchboard already running. Exiting..")); Process.exit(1);});
 
         Gtk.main ();
         return 0;
