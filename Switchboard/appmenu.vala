@@ -129,6 +129,7 @@ namespace ElementaryWidgets {
         string icon_name;
         string copyright;
         string[] authors;
+	string license;
         Window window;
 
         public AppMenu (Window window, Menu menu, 
@@ -138,6 +139,7 @@ namespace ElementaryWidgets {
                         string version,
                         string copyright,
                         string[] authors,
+			string license,
                         string icon_name)
         {
             Image image = new Image.from_stock(Stock.PROPERTIES, IconSize.MENU);
@@ -158,6 +160,7 @@ namespace ElementaryWidgets {
             this.version = version;
             this.authors = authors;
             this.copyright = copyright;
+	    this.license = license;
             this.icon_name = icon_name;
             help_item.activate.connect(() => launch_launchpad("answers"));
             translate_item.activate.connect(() => launch_launchpad("translations"));
@@ -181,6 +184,7 @@ namespace ElementaryWidgets {
                 "website", this.website,
                 "copyright", this.copyright,
                 "authors", this.authors,
+		"license", this.license,
                 "logo-icon-name", this.icon_name,
                 null);
         }
