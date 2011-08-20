@@ -1,4 +1,4 @@
-# Bulgarian translation for switchboard
+# Russian translation for switchboard
 # Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
 # This file is distributed under the same license as the switchboard package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-02 14:22-0400\n"
-"PO-Revision-Date: 2011-08-19 16:29+0000\n"
-"Last-Translator: Svetoslav Stefanov <svetlisashkov@yahoo.com>\n"
-"Language-Team: Bulgarian <bg@li.org>\n"
+"PO-Revision-Date: 2011-08-19 23:55+0000\n"
+"Last-Translator: AsstZD <eskaer_spamsink@ngs.ru>\n"
+"Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,49 +19,51 @@ msgstr ""
 
 #: Switchboard/categoryview.vala:31
 msgid "Personal"
-msgstr "Лични"
+msgstr "Пользовательские"
 
 #: Switchboard/categoryview.vala:32
 msgid "Hardware"
-msgstr "Хардуер"
+msgstr "Оборудование"
 
 #: Switchboard/categoryview.vala:33
 msgid "Network and Wireless"
-msgstr "Интернет и мрежа"
+msgstr "Проводные и беспроводные сети"
 
 #: Switchboard/categoryview.vala:34
 msgid "System"
-msgstr "Система"
+msgstr "Системные"
 
 #: Switchboard/categoryview.vala:67
 #, c-format
 msgid ""
 "Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added."
 msgstr ""
+"Ключевой файл \"%s\" имеет недопустимую категорию: \"%s\"; он не будет "
+"добавлен."
 
 #: Switchboard/categoryview.vala:75
 #, c-format
 msgid "Unable to load plug %s's icon: %s"
-msgstr ""
+msgstr "Не удалось загрузить значок модуля %s: %s"
 
 #: Switchboard/switchboard.vala:108
 #, c-format
 msgid "Selected plug: title %s | executable %s"
-msgstr ""
+msgstr "Выбранный модуль: название %s | файл %s"
 
 #: Switchboard/switchboard.vala:115
 msgid "Exiting plug from SwitchBoard controller.."
-msgstr ""
+msgstr "Удаление модуля из контроллера SwitchBoard..."
 
 #: Switchboard/switchboard.vala:126
 #, c-format
 msgid "Failed to launch plug: title %s | executable %s"
-msgstr ""
+msgstr "Не удалось запустить модуль: название %s | файл %s"
 
 #: Switchboard/switchboard.vala:240
 msgid "Unable to iterate over enumerated plug directory contents"
-msgstr ""
+msgstr "Не удалось обойти перечисленное содержимое каталога модулей"
 
 #: Switchboard/switchboard.vala:343
 msgid "Report any issues/bugs you might find to lp:switchboard"
-msgstr ""
+msgstr "Сообщайте об ошибках на lp:switchboard"
