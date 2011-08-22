@@ -109,7 +109,9 @@ namespace Switchboard {
                         if (current_plug["title"] != title.get_string()) {
                             debug(_("Exiting plug \"%s\" from Switchboard controller.."), current_plug["title"]);
                             plug_closed();
-                            GLib.Process.spawn_command_line_async (executable.get_string());
+                            var cmd_exploded = executable.get_string().split(" ");
+                            string working_directory = File.new_for_path(cmd_exploded[0]).get_parent().get_path();
+                            GLib.Process.spawn_async(working_directory, cmd_exploded, null, SpawnFlags.SEARCH_PATH, null, null);
                             current_plug["title"] = title.get_string();
                             current_plug["executable"] = executable.get_string();
                             // ensure the button is sensitive; it might be the first plug loaded
