@@ -20,9 +20,6 @@ namespace Switchboard {
     [DBus (name = "org.elementary.switchboard")]
     public class SwitchboardApp : Gtk.Window {
 
-        // Default
-        string plug_root_dir;
-
         // Chrome widgets
         ElementaryWidgets.AppMenu app_menu;
         Gtk.ProgressBar progress_bar;
@@ -49,7 +46,6 @@ namespace Switchboard {
         public SwitchboardApp (string plug_root_dir) {
             
             // Set up defaults
-            this.plug_root_dir = "/usr/share/plugs/";
             title = APP_TITLE;
 
             // Set up window
@@ -79,7 +75,8 @@ namespace Switchboard {
             vbox.show();
             category_view.show();
 
-            enumerate_plugs ();
+            //enumerate_plugs ("/usr/share/plugs/");
+            enumerate_plugs ("/usr/lib/plugs/");
             show();
         }
 
@@ -112,7 +109,9 @@ namespace Switchboard {
                         if (current_plug["title"] != title.get_string()) {
                             debug(_("Exiting plug \"%s\" from Switchboard controller.."), current_plug["title"]);
                             plug_closed();
-                            GLib.Process.spawn_command_line_async (executable.get_string());
+                            var cmd_exploded = executable.get_string().split(" ");
+                            string working_directory = File.new_for_path(cmd_exploded[0]).get_parent().get_path();
+                            GLib.Process.spawn_async(working_directory, cmd_exploded, null, SpawnFlags.SEARCH_PATH, null, null);
                             current_plug["title"] = title.get_string();
                             current_plug["executable"] = executable.get_string();
                             // ensure the button is sensitive; it might be the first plug loaded
@@ -177,7 +176,7 @@ namespace Switchboard {
         }
 
         // Loads in all of the plugs
-        void enumerate_plugs () {
+        void enumerate_plugs (string plug_root_dir) {
             // <keyfile's absolute path, keyfile's directory>
             Gee.HashMap<string, string> keyfiles = find_plugs (plug_root_dir);
             foreach (string keyfile in keyfiles.keys) {
@@ -232,7 +231,7 @@ namespace Switchboard {
                     }
                 }
             } catch {
-                warning(_(@"Unable to iterate over enumerated plug directory \"$plug_root_dir\"'s contents"));
+                warning(_(@"Unable to iterate over enumerated plug directory \"$in_path\"'s contents"));
             }
             return keyfiles;
         }
