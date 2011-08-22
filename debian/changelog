@@ -1,8 +1,8 @@
-switchboard (0.9) unstable; urgency=low
+switchboard (0.9) natty; urgency=low
 
   * Now using libgranite, minor refactoring.
 
- -- Avi Romanoff <aviromanoff@gmail.com>  Mon, 8 Aug 2011 8:20:22 -0200
+ -- Avi Romanoff <aviromanoff@gmail.com>  Mon, 22 Aug 2011 13:12:01 -0400
 
 switchboard (0.8) unstable; urgency=low
 
