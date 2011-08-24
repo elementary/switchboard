@@ -44,7 +44,7 @@ namespace Switchboard {
         Gee.HashMap<string, string> current_plug = new Gee.HashMap<string, string>();
 
         public SwitchboardApp (string plug_root_dir) {
-            
+
             // Set up defaults
             title = APP_TITLE;
 
@@ -75,7 +75,7 @@ namespace Switchboard {
             vbox.show();
             category_view.show();
 
-            //enumerate_plugs ("/usr/share/plugs/");
+            enumerate_plugs ("/usr/share/plugs/");
             enumerate_plugs ("/usr/lib/plugs/");
             show();
         }
@@ -84,14 +84,13 @@ namespace Switchboard {
 
             plug_closed();
             // What's this for? Smells like a bad idea.
-            while(Gtk.events_pending ()) {
-                Gtk.main_iteration();
-            }
+//            while(Gtk.events_pending ()) {
+//                Gtk.main_iteration();
+//            }
             Gtk.main_quit();
         }
 
-        void load_plug(Gtk.IconView plug_view, Gtk.ListStore store) 
-        {
+        void load_plug(Gtk.IconView plug_view, Gtk.ListStore store) {
 
             var selected = plug_view.get_selected_items ();
             if(selected.length() == 1) {
@@ -136,7 +135,8 @@ namespace Switchboard {
 
         // Change Switchboard title to "Switchboard - PlugName"
         void load_plug_title (string plug_title) {
-            title = APP_TITLE+ " - " + plug_title;
+
+            title = @"$APP_TITLE - $plug_title";
         }
 
         // Change Switchboard title back to "Switchboard"
@@ -146,6 +146,7 @@ namespace Switchboard {
 
         // Handles clicking the navigation button
         void handle_navigation_button_clicked () {
+
             if (navigation_button.stock_id == Gtk.Stock.HOME) {
                 switch_to_icons();
                 navigation_button.stock_id = Gtk.Stock.GO_BACK;
@@ -158,6 +159,7 @@ namespace Switchboard {
 
         // Switches to the socket view
         void switch_to_socket() {
+
             vbox.set_child_packing(socket, true, true, 0, Gtk.PackType.END);
             category_view.hide();
             socket.show();
@@ -167,6 +169,7 @@ namespace Switchboard {
 
         // Switches back to the icons
         bool switch_to_icons() {
+
             vbox.set_child_packing(socket, false, false, 0, Gtk.PackType.END);
             socket.hide ();
             category_view.show();
@@ -177,6 +180,7 @@ namespace Switchboard {
 
         // Loads in all of the plugs
         void enumerate_plugs (string plug_root_dir) {
+
             // <keyfile's absolute path, keyfile's directory>
             Gee.HashMap<string, string> keyfiles = find_plugs (plug_root_dir);
             foreach (string keyfile in keyfiles.keys) {
@@ -202,16 +206,13 @@ namespace Switchboard {
 
         // Checks if the file is a .plug file
         bool is_plug_file (string filename) {
+
             return (filename.down().has_suffix(".plug"));
         }
 
         // Find all .plug files
-        Gee.HashMap<string, string> find_plugs (string in_path) {
-            // Heads up, this needs to be investigated
-            string path = in_path;
-            if (path[-1] != '/') {
-                path += "/";
-            }
+        Gee.HashMap<string, string> find_plugs (string path) {
+
             Gee.HashMap<string, string> keyfiles = new Gee.HashMap<string, string> ();
             var directory = File.new_for_path (path);
             try {
@@ -231,7 +232,7 @@ namespace Switchboard {
                     }
                 }
             } catch {
-                warning(_(@"Unable to iterate over enumerated plug directory \"$in_path\"'s contents"));
+                warning(_(@"Unable to iterate over enumerated plug directory \"$path\"'s contents"));
             }
             return keyfiles;
         }
@@ -246,18 +247,22 @@ namespace Switchboard {
         public signal void plug_closed ();
 
         public void progress_bar_set_visible (bool visibility) {
+
             progress_toolitem.set_visible(visibility);
         }
 
         public void progress_bar_set_text (string text) {
+
             progress_label.set_text(text);
         }
 
         public void progress_bar_set_fraction (double fraction) {
+
             progress_bar.fraction = fraction;
         }
 
         public void progress_bar_pulse () {
+
             progress_bar.pulse();
         }
 
@@ -270,10 +275,13 @@ namespace Switchboard {
         }
 
         public void search_box_set_text (string text) {
+
+            plug_closed();
             search_bar.set_text (text);
         }
 
         public string search_box_get_text () {
+
             return search_bar.get_text ();
         }
 
@@ -281,6 +289,7 @@ namespace Switchboard {
 
         // Sets up the toolbar for the Switchboard app
         void setup_toolbar () {
+
             // Global toolbar widgets
             toolbar = new Gtk.Toolbar ();
             var menu = new Gtk.Menu ();
@@ -294,55 +303,56 @@ namespace Switchboard {
                                         LICENSE,
                                         APP_ICON);
             // Spacing
-            lspace.set_expand (true);
-            rspace.set_expand (true);
+            lspace.set_expand(true);
+            rspace.set_expand(true);
 
             // Progressbar
             var progress_vbox = new Gtk.VBox (true, 0);
-            progress_label = new Gtk.Label("");
+            progress_label = new Gtk.Label ("");
             progress_label.set_use_markup(true);
             progress_bar = new Gtk.ProgressBar ();
             progress_toolitem = new Gtk.ToolItem ();
-            progress_vbox.pack_start (progress_label, true, false, 0);
-            progress_vbox.pack_end (progress_bar, false, false, 0);
-            progress_toolitem.add (progress_vbox);
-            progress_toolitem.set_expand (true);
+            progress_vbox.pack_start(progress_label, true, false, 0);
+            progress_vbox.pack_end(progress_bar, false, false, 0);
+            progress_toolitem.add(progress_vbox);
+            progress_toolitem.set_expand(true);
 
             // Searchbar
             search_bar = new Granite.Widgets.SearchBar (_("Type to search ..."));
             search_bar.activate.connect(() => search_box_activated());
             search_bar.changed.connect(() => search_box_text_changed());
             var find_toolitem = new Gtk.ToolItem ();
-            find_toolitem.add (search_bar);
+            find_toolitem.add(search_bar);
 
             // Nav button
             navigation_button = new Gtk.ToolButton.from_stock(Gtk.Stock.GO_BACK);
             navigation_button.clicked.connect (handle_navigation_button_clicked);
-            navigation_button.set_sensitive (false);
+            navigation_button.set_sensitive(false);
 
             // Add everything to the toolbar
-            toolbar.insert (navigation_button, 0);
-            toolbar.insert (lspace, 1);
-            toolbar.insert (progress_toolitem, 2);
-            toolbar.insert (rspace, 3);
-            toolbar.insert (find_toolitem, 4);
-            toolbar.insert (app_menu, 5);
+            toolbar.insert(navigation_button, 0);
+            toolbar.insert(lspace, 1);
+            toolbar.insert(progress_toolitem, 2);
+            toolbar.insert(rspace, 3);
+            toolbar.insert(find_toolitem, 4);
+            toolbar.insert(app_menu, 5);
             toolbar.show_all();
         }
     }
 
     // Handles a successful connection to D-Bus and launches the app
     void on_bus_aquired (DBusConnection conn) {
+
         // In the future, the plug_root_dir should be overridable by CLI flags.
         SwitchboardApp switchboard_app = new SwitchboardApp ("/usr/share/plugs/");
         switchboard_app.progress_toolitem.hide();
         try {
-            conn.register_object ("/org/elementary/switchboard", switchboard_app);
+            conn.register_object("/org/elementary/switchboard", switchboard_app);
         } catch (IOError e) {
         }
     }
 
-    static int main (string[] args) {
+    int main (string[] args) {
 
         var logger = new Granite.Services.Logger ();
         logger.initialize(APP_TITLE);
@@ -362,4 +372,3 @@ namespace Switchboard {
         return 0;
     }
 }
-

@@ -11,7 +11,7 @@ namespace ElementaryWidgets {
                 if(value == PositionType.TOP || value == PositionType.BOTTOM){
                     value = PositionType.LEFT;
                 }
-                
+
                 _menu_orientation = value;
             }
             get{
@@ -22,7 +22,7 @@ namespace ElementaryWidgets {
         public ToolButtonWithMenu (Image image, string label, Menu _menu, PositionType menu_orientation = PositionType.LEFT)
         {
             this.menu_orientation = menu_orientation;
-        
+
             icon_widget = image;
             label_widget = new Label (label);
             ((Label) label_widget).use_underline = true;
@@ -121,7 +121,7 @@ namespace ElementaryWidgets {
 
     public class AppMenu : ToolButtonWithMenu
     {
-        
+
         string app_name;
         string launchpad_name;
         string website;
@@ -129,17 +129,17 @@ namespace ElementaryWidgets {
         string icon_name;
         string copyright;
         string[] authors;
-	string license;
+        string license;
         Window window;
 
-        public AppMenu (Window window, Menu menu, 
-                        string app_name, 
+        public AppMenu (Window window, Menu menu,
+                        string app_name,
                         string launchpad_name,
                         string website,
                         string version,
                         string copyright,
                         string[] authors,
-			string license,
+                        string license,
                         string icon_name)
         {
             Image image = new Image.from_stock(Stock.PROPERTIES, IconSize.MENU);

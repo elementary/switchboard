@@ -18,10 +18,11 @@ END LICENSE
 namespace Switchboard {
 
     public class CategoryView : Gtk.VBox {
-        Gee.HashMap<string, Gtk.VBox> category_labels = new Gee.HashMap<string, Gtk.VBox>();
-        Gee.HashMap<string, Gtk.ListStore> category_store = new Gee.HashMap<string, Gtk.ListStore>();
-        Gtk.IconTheme theme = Gtk.IconTheme.get_default();
-        static Gee.HashMap<string, string> category_titles = new Gee.HashMap<string, string>();
+
+        Gee.HashMap<string, Gtk.VBox> category_labels = new Gee.HashMap<string, Gtk.VBox> ();
+        Gee.HashMap<string, Gtk.ListStore> category_store = new Gee.HashMap<string, Gtk.ListStore> ();
+        Gee.HashMap<string, string> category_titles = new Gee.HashMap<string, string> ();
+        Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
 
         public signal void plug_selected(Gtk.IconView view, Gtk.ListStore message);
 
@@ -33,7 +34,7 @@ namespace Switchboard {
             category_titles["system"] = _("System");
             foreach (var entry in category_titles.entries) {
                 var store = new Gtk.ListStore (3, typeof (string), typeof (Gdk.Pixbuf), typeof(string));
-                var label = new Gtk.Label("<big><b>"+entry.value+"</b></big>");
+                var label = new Gtk.Label ("<big><b>"+entry.value+"</b></big>");
                 var category_plugs = new Gtk.IconView.with_model (store);
                 category_plugs.set_text_column (0);
                 category_plugs.set_pixbuf_column (1);
@@ -42,11 +43,11 @@ namespace Switchboard {
                 color.parse("#dedede");
                 category_plugs.override_background_color (Gtk.StateFlags.NORMAL, color);
                 label.xalign = (float) 0.02;
-                var vbox = new Gtk.VBox(false, 0); // not homogeneous, 0 spacing
-                var headbox = new Gtk.HBox(false, 5);
+                var vbox = new Gtk.VBox (false, 0); // not homogeneous, 0 spacing
+                var headbox = new Gtk.HBox (false, 5);
                 label.use_markup = true;
                 // Always add a Seperator
-                var hsep = new Gtk.HSeparator();
+                var hsep = new Gtk.HSeparator ();
                 headbox.pack_end(hsep, true, true); // expand, fill, padding´
                 headbox.pack_start(label, false, false, 10);
                 vbox.pack_start(headbox, false, true, 5);
@@ -62,19 +63,20 @@ namespace Switchboard {
         public void add_plug (Gee.HashMap<string, string> plug) {
 
             Gtk.TreeIter root;
-            if (!category_titles.has_key(plug["category"].down())) {
-                warning(_("Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"), plug["title"], plug["category"].down());
+            string plug_down = plug["category"].down();
+            if (!category_titles.has_key(plug_down)) {
+                warning(_("Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"), plug["title"], plug["category"]);
             }
-            category_store[plug["category"].down()].append (out root);
+            category_store[plug_down].append(out root);
             try {
                 var icon_pixbuf = theme.load_icon (plug["icon"], 48, Gtk.IconLookupFlags.GENERIC_FALLBACK);
-                category_store[plug["category"].down()].set (root, 1, icon_pixbuf, -1);
+                category_store[plug_down].set(root, 1, icon_pixbuf);
             } catch {
                 warning(_("Unable to load plug %'s icon: %s"), plug["title"], plug["icon"]);
             }
-            category_store[plug["category"].down()].set (root, 0, plug["title"], -1);
-            category_store[plug["category"].down()].set (root, 2, plug["exec"], -1);
-            category_labels[plug["category"].down()].show();
+            category_store[plug_down].set(root, 0, plug["title"]);
+            category_store[plug_down].set(root, 2, plug["exec"]);
+            category_labels[plug_down].show();
         }
     }
 }
