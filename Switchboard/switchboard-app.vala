@@ -292,6 +292,8 @@ namespace Switchboard {
 
             // Global toolbar widgets
             toolbar = new Gtk.Toolbar ();
+            toolbar.get_style_context ().add_class ("primary-toolbar");
+
             var menu = new Gtk.Menu ();
             app_menu = new ElementaryWidgets.AppMenu (this, menu,
                                         APP_TITLE,
