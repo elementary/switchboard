@@ -93,19 +93,22 @@ namespace Switchboard {
         void load_plug(Gtk.IconView plug_view, Gtk.ListStore store) {
 
             var selected = plug_view.get_selected_items ();
-            if(selected.length() == 1) {
+            if(selected.length() == 1)
+            {
                 GLib.Value title;
                 GLib.Value executable;
                 var item = selected.nth_data(0);
                 store.get_iter(out selected_plug, item);
                 store.get_value (selected_plug, 0, out title);
                 store.get_value (selected_plug, 2, out executable);
-                debug(_("Selected plug: title %s | executable %s"), title.get_string(), executable.get_string());
+                debug("Selected plug: title %s | executable %s", title.get_string(), executable.get_string());
+                debug("Current plug: %s", current_plug["title"]);
                 // Launch plug's executable
                 if (executable.get_string() != current_plug["title"]) {
                     try {
                         // The plug is already selected
-                        if (current_plug["title"] != title.get_string()) {
+                        if (current_plug["title"] != title.get_string())
+                        {
                             debug(_("Exiting plug \"%s\" from Switchboard controller.."), current_plug["title"]);
                             plug_closed();
                             var cmd_exploded = executable.get_string().split(" ");
@@ -116,7 +119,10 @@ namespace Switchboard {
                             // ensure the button is sensitive; it might be the first plug loaded
                             navigation_button.set_sensitive(true);
                             navigation_button.stock_id = Gtk.Stock.HOME;
-                        } else {
+                            switch_to_socket();
+                        }
+                        else
+                        {
                             switch_to_socket();
                         }
                     } catch {
@@ -130,6 +136,10 @@ namespace Switchboard {
                 }
                 /* Clear selection again */
                 plug_view.unselect_path(item);
+            }
+            else
+            {
+                warning("Try to open multiple plug at once?! (%d)", (int)selected.length());
             }
         }
 
@@ -370,7 +380,7 @@ namespace Switchboard {
         }
     }
 
-    int main (string[] args) {
+    static int main (string[] args) {
 
         var logger = new Granite.Services.Logger ();
         logger.initialize(APP_TITLE);
