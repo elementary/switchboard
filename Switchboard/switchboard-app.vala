@@ -182,20 +182,22 @@ namespace Switchboard {
         void enumerate_plugs (string plug_root_dir) {
 
             // <keyfile's absolute path, keyfile's directory>
-            Gee.HashMap<string, string> keyfiles = find_plugs (plug_root_dir);
-            foreach (string keyfile in keyfiles.keys) {
+            List<string> keyfiles = find_plugs (plug_root_dir);
+            foreach (string keyfile in keyfiles) {
                 KeyFile kf = new KeyFile();
-                string[] splits = Regex.split_simple("/", keyfile);
-                string head = splits[splits.length-1];
+
+                string head = File.new_for_path(keyfile).get_basename();
+                string parent = File.new_for_path(keyfile).get_parent().get_path();
+
                 Gee.HashMap<string, string> plug = new Gee.HashMap<string, string> ();
                 try { kf.load_from_file(keyfile, KeyFileFlags.NONE);
-                } catch {}
-                try { plug["exec"] = keyfiles[keyfile]+kf.get_string (head, "exec");
-                } catch {}
+                } catch (Error e) { warning("Couldn't load this keyfile, %s (path: %s)", e.message, keyfile); }
+                try { plug["exec"] = Path.build_filename(parent, kf.get_string (head, "exec"));
+                } catch (Error e) { warning("Couldn't read exec field in file %s, %s", keyfile, e.message); }
                 try { plug["icon"] = kf.get_string (head, "icon");
-                } catch {}
+                } catch (Error e) { warning("Couldn't read icon field in file %s, %s", keyfile, e.message); }
                 try { plug["title"] = kf.get_string (head, "title");
-                } catch {}
+                } catch (Error e) { warning("Couldn't read title field in file %s, %s", keyfile, e.message); }
                 try { plug["category"] = kf.get_string (head, "category");
                 } catch {
                     plug["category"] = "other";
@@ -211,27 +213,41 @@ namespace Switchboard {
         }
 
         // Find all .plug files
-        Gee.HashMap<string, string> find_plugs (string path) {
-
-            Gee.HashMap<string, string> keyfiles = new Gee.HashMap<string, string> ();
+        List<string> find_plugs (string path, List<string>? keyfiles_list = null)
+        {
+            List<string>? keyfiles;
+            if(keyfiles_list == null)
+            {
+                keyfiles = new List<string> ();
+            }
+            else
+            {
+                keyfiles = new List<string> ();
+                foreach(var keyfile in keyfiles_list) 
+                {
+                keyfiles.append(keyfile);
+                }
+            }
             var directory = File.new_for_path (path);
-            try {
+            try
+            {
                 var enumerator = directory.enumerate_children (FILE_ATTRIBUTE_STANDARD_NAME + "," + FILE_ATTRIBUTE_STANDARD_TYPE, 0);
                 FileInfo file_info;
-                while ((file_info = enumerator.next_file ()) != null) {
-                    string? file_name = (string) file_info.get_name ();
-                    if (file_info.get_file_type() == GLib.FileType.REGULAR
-                        && is_plug_file(file_name)) {
-                        keyfiles[path+file_name] = path;
-                    } else if(file_info.get_file_type() == GLib.FileType.DIRECTORY) {
-                        string file_path = path + file_info.get_name();
-                        var sub_plugs = find_plugs(file_path);
-                        foreach (string subplug in sub_plugs.keys) {
-                            keyfiles[subplug] = sub_plugs[subplug];
-                        }
+                while ((file_info = enumerator.next_file ()) != null)
+                {
+                    string file_path = Path.build_filename(path, file_info.get_name());
+                    if (file_info.get_file_type() == GLib.FileType.REGULAR && is_plug_file(file_info.get_name()))
+                    {
+                        keyfiles.append(file_path);
+                    }
+                    else if(file_info.get_file_type() == GLib.FileType.DIRECTORY)
+                    {
+                        keyfiles = find_plugs(file_path, keyfiles);
                     }
                 }
-            } catch {
+            }
+            catch
+            {
                 warning(_(@"Unable to iterate over enumerated plug directory \"$path\"'s contents"));
             }
             return keyfiles;
