@@ -93,19 +93,22 @@ namespace Switchboard {
         void load_plug(Gtk.IconView plug_view, Gtk.ListStore store) {
 
             var selected = plug_view.get_selected_items ();
-            if(selected.length() == 1) {
+            if(selected.length() == 1)
+            {
                 GLib.Value title;
                 GLib.Value executable;
                 var item = selected.nth_data(0);
                 store.get_iter(out selected_plug, item);
                 store.get_value (selected_plug, 0, out title);
                 store.get_value (selected_plug, 2, out executable);
-                debug(_("Selected plug: title %s | executable %s"), title.get_string(), executable.get_string());
+                debug("Selected plug: title %s | executable %s", title.get_string(), executable.get_string());
+                debug("Current plug: %s", current_plug["title"]);
                 // Launch plug's executable
                 if (executable.get_string() != current_plug["title"]) {
                     try {
                         // The plug is already selected
-                        if (current_plug["title"] != title.get_string()) {
+                        if (current_plug["title"] != title.get_string())
+                        {
                             debug(_("Exiting plug \"%s\" from Switchboard controller.."), current_plug["title"]);
                             plug_closed();
                             var cmd_exploded = executable.get_string().split(" ");
@@ -116,7 +119,10 @@ namespace Switchboard {
                             // ensure the button is sensitive; it might be the first plug loaded
                             navigation_button.set_sensitive(true);
                             navigation_button.stock_id = Gtk.Stock.HOME;
-                        } else {
+                            switch_to_socket();
+                        }
+                        else
+                        {
                             switch_to_socket();
                         }
                     } catch {
@@ -130,6 +136,10 @@ namespace Switchboard {
                 }
                 /* Clear selection again */
                 plug_view.unselect_path(item);
+            }
+            else
+            {
+                warning("Try to open multiple plug at once?! (%d)", (int)selected.length());
             }
         }
 
@@ -182,20 +192,22 @@ namespace Switchboard {
         void enumerate_plugs (string plug_root_dir) {
 
             // <keyfile's absolute path, keyfile's directory>
-            Gee.HashMap<string, string> keyfiles = find_plugs (plug_root_dir);
-            foreach (string keyfile in keyfiles.keys) {
+            List<string> keyfiles = find_plugs (plug_root_dir);
+            foreach (string keyfile in keyfiles) {
                 KeyFile kf = new KeyFile();
-                string[] splits = Regex.split_simple("/", keyfile);
-                string head = splits[splits.length-1];
+
+                string head = File.new_for_path(keyfile).get_basename();
+                string parent = File.new_for_path(keyfile).get_parent().get_path();
+
                 Gee.HashMap<string, string> plug = new Gee.HashMap<string, string> ();
                 try { kf.load_from_file(keyfile, KeyFileFlags.NONE);
-                } catch {}
-                try { plug["exec"] = keyfiles[keyfile]+kf.get_string (head, "exec");
-                } catch {}
+                } catch (Error e) { warning("Couldn't load this keyfile, %s (path: %s)", e.message, keyfile); }
+                try { plug["exec"] = Path.build_filename(parent, kf.get_string (head, "exec"));
+                } catch (Error e) { warning("Couldn't read exec field in file %s, %s", keyfile, e.message); }
                 try { plug["icon"] = kf.get_string (head, "icon");
-                } catch {}
+                } catch (Error e) { warning("Couldn't read icon field in file %s, %s", keyfile, e.message); }
                 try { plug["title"] = kf.get_string (head, "title");
-                } catch {}
+                } catch (Error e) { warning("Couldn't read title field in file %s, %s", keyfile, e.message); }
                 try { plug["category"] = kf.get_string (head, "category");
                 } catch {
                     plug["category"] = "other";
@@ -211,27 +223,41 @@ namespace Switchboard {
         }
 
         // Find all .plug files
-        Gee.HashMap<string, string> find_plugs (string path) {
-
-            Gee.HashMap<string, string> keyfiles = new Gee.HashMap<string, string> ();
+        List<string> find_plugs (string path, List<string>? keyfiles_list = null)
+        {
+            List<string>? keyfiles;
+            if(keyfiles_list == null)
+            {
+                keyfiles = new List<string> ();
+            }
+            else
+            {
+                keyfiles = new List<string> ();
+                foreach(var keyfile in keyfiles_list) 
+                {
+                keyfiles.append(keyfile);
+                }
+            }
             var directory = File.new_for_path (path);
-            try {
+            try
+            {
                 var enumerator = directory.enumerate_children (FILE_ATTRIBUTE_STANDARD_NAME + "," + FILE_ATTRIBUTE_STANDARD_TYPE, 0);
                 FileInfo file_info;
-                while ((file_info = enumerator.next_file ()) != null) {
-                    string? file_name = (string) file_info.get_name ();
-                    if (file_info.get_file_type() == GLib.FileType.REGULAR
-                        && is_plug_file(file_name)) {
-                        keyfiles[path+file_name] = path;
-                    } else if(file_info.get_file_type() == GLib.FileType.DIRECTORY) {
-                        string file_path = path + file_info.get_name();
-                        var sub_plugs = find_plugs(file_path);
-                        foreach (string subplug in sub_plugs.keys) {
-                            keyfiles[subplug] = sub_plugs[subplug];
-                        }
+                while ((file_info = enumerator.next_file ()) != null)
+                {
+                    string file_path = Path.build_filename(path, file_info.get_name());
+                    if (file_info.get_file_type() == GLib.FileType.REGULAR && is_plug_file(file_info.get_name()))
+                    {
+                        keyfiles.append(file_path);
+                    }
+                    else if(file_info.get_file_type() == GLib.FileType.DIRECTORY)
+                    {
+                        keyfiles = find_plugs(file_path, keyfiles);
                     }
                 }
-            } catch {
+            }
+            catch
+            {
                 warning(_(@"Unable to iterate over enumerated plug directory \"$path\"'s contents"));
             }
             return keyfiles;
@@ -354,7 +380,7 @@ namespace Switchboard {
         }
     }
 
-    int main (string[] args) {
+    static int main (string[] args) {
 
         var logger = new Granite.Services.Logger ();
         logger.initialize(APP_TITLE);

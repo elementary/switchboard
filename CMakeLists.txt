@@ -74,7 +74,7 @@ endif (${GETTEXT_FOUND} STREQUAL "TRUE")
 #
 
 find_package(PkgConfig)
-pkg_check_modules(DEPS REQUIRED granite gee-1.0)
+pkg_check_modules(DEPS REQUIRED granite gio-2.0 gee-1.0)
 
 add_definitions(${DEPS_CFLAGS})
 
@@ -95,6 +95,7 @@ vala_precompile(VALA_C
 PACKAGES
     granite
     gee-1.0
+    gio-2.0
 CUSTOM_VAPIS
     vapi/config.vapi
     )
