@@ -1,4 +1,4 @@
-# Polish translation for switchboard
+# Bosnian translation for switchboard
 # Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
 # This file is distributed under the same license as the switchboard package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
@@ -6,64 +6,64 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-02 14:22-0400\n"
-"PO-Revision-Date: 2011-08-25 16:52+0000\n"
-"Last-Translator: Piotr Sokół <Unknown>\n"
-"Language-Team: Polish <pl@li.org>\n"
+"PO-Revision-Date: 2011-08-25 22:08+0000\n"
+"Last-Translator: Stefan Ivanović <Unknown>\n"
+"Language-Team: Bosnian <bs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2011-08-26 05:12+0000\n"
 "X-Generator: Launchpad (build 13779)\n"
-"Language: pl\n"
 
 #: Switchboard/categoryview.vala:31
 msgid "Personal"
-msgstr "Osobiste"
+msgstr "Lično"
 
 #: Switchboard/categoryview.vala:32
 msgid "Hardware"
-msgstr "Sprzęt"
+msgstr "Hardver"
 
 #: Switchboard/categoryview.vala:33
 msgid "Network and Wireless"
-msgstr "Sieć"
+msgstr "Žična i bežična mreža"
 
 #: Switchboard/categoryview.vala:34
 msgid "System"
-msgstr "System"
+msgstr "Sistem"
 
 #: Switchboard/categoryview.vala:67
 #, c-format
 msgid ""
 "Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added."
 msgstr ""
-"Plik klucza „%s” zawiera nieprawidłową kategorię: „%s” i nie zostanie dodany."
+"Ključna datoteka \"%s\" sadrži pogrešnu kategoriju: \"%s\", i neće biti "
+"dodata."
 
 #: Switchboard/categoryview.vala:75
 #, c-format
 msgid "Unable to load plug %s's icon: %s"
-msgstr "Nie można wczytać ikony wtyczki %s: %s"
+msgstr ""
 
 #: Switchboard/switchboard.vala:108
 #, c-format
 msgid "Selected plug: title %s | executable %s"
-msgstr "Zaznaczona wtyczka: nazwa %s | polecenie %s"
+msgstr ""
 
 #: Switchboard/switchboard.vala:115
 msgid "Exiting plug from SwitchBoard controller.."
-msgstr "Kończenie działania wtyczki SwitchBoard..."
+msgstr ""
 
 #: Switchboard/switchboard.vala:126
 #, c-format
 msgid "Failed to launch plug: title %s | executable %s"
-msgstr "Nie udało się uruchomić wtyczki: nazwa %s | polecenie %s"
+msgstr ""
 
 #: Switchboard/switchboard.vala:240
 msgid "Unable to iterate over enumerated plug directory contents"
-msgstr "Nie można iterować po zliczonej zawartości katalogu wtyczki"
+msgstr ""
 
 #: Switchboard/switchboard.vala:343
 msgid "Report any issues/bugs you might find to lp:switchboard"
-msgstr "Proszę zgłaszać błędy na stronie projektu lp:switchboard"
+msgstr ""
