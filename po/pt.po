@@ -1,0 +1,67 @@
+# Portuguese translation for switchboard
+# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# This file is distributed under the same license as the switchboard package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: switchboard\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2011-07-02 14:22-0400\n"
+"PO-Revision-Date: 2011-09-17 18:28+0000\n"
+"Last-Translator: Marco Ferreira <m@rco.cc>\n"
+"Language-Team: Portuguese <pt@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2011-09-18 05:13+0000\n"
+"X-Generator: Launchpad (build 13955)\n"
+
+#: Switchboard/categoryview.vala:31
+msgid "Personal"
+msgstr "Pessoal"
+
+#: Switchboard/categoryview.vala:32
+msgid "Hardware"
+msgstr ""
+
+#: Switchboard/categoryview.vala:33
+msgid "Network and Wireless"
+msgstr ""
+
+#: Switchboard/categoryview.vala:34
+msgid "System"
+msgstr "Sistema"
+
+#: Switchboard/categoryview.vala:67
+#, c-format
+msgid ""
+"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added."
+msgstr ""
+
+#: Switchboard/categoryview.vala:75
+#, c-format
+msgid "Unable to load plug %s's icon: %s"
+msgstr ""
+
+#: Switchboard/switchboard.vala:108
+#, c-format
+msgid "Selected plug: title %s | executable %s"
+msgstr "Extra selecionado: título %s | executável %s"
+
+#: Switchboard/switchboard.vala:115
+msgid "Exiting plug from SwitchBoard controller.."
+msgstr ""
+
+#: Switchboard/switchboard.vala:126
+#, c-format
+msgid "Failed to launch plug: title %s | executable %s"
+msgstr "Falha ao iniciar o extra: título %s | executável %s"
+
+#: Switchboard/switchboard.vala:240
+msgid "Unable to iterate over enumerated plug directory contents"
+msgstr "Não foi possível iterar sobre o conteúdo do diretório dos extras"
+
+#: Switchboard/switchboard.vala:343
+msgid "Report any issues/bugs you might find to lp:switchboard"
+msgstr ""
