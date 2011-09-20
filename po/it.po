@@ -8,15 +8,49 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-02 14:22-0400\n"
-"PO-Revision-Date: 2011-08-04 12:32+0000\n"
-"Last-Translator: sirtao <Unknown>\n"
+"PO-Revision-Date: 2011-09-19 07:16+0000\n"
+"Last-Translator: NN <Unknown>\n"
 "Language-Team: Italian <it@li.org>\n"
-"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-08-05 05:11+0000\n"
-"X-Generator: Launchpad (build 13604)\n"
+"X-Launchpad-Export-Date: 2011-09-20 05:19+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
+"Language: it\n"
+
+#: Switchboard/categoryview.vala:31
+msgid "Personal"
+msgstr "Informazioni personali"
+
+#: Switchboard/categoryview.vala:32
+msgid "Hardware"
+msgstr "Hardware"
+
+#: Switchboard/categoryview.vala:33
+msgid "Network and Wireless"
+msgstr "Rete e Wireless"
+
+#: Switchboard/categoryview.vala:34
+msgid "System"
+msgstr "Sistema"
+
+#: Switchboard/categoryview.vala:67
+#, c-format
+msgid ""
+"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added."
+msgstr ""
+"Il file-chiave \"%s\" contiene una categoria non valida: \"%s\", e non sarà "
+"aggiunto."
+
+#: Switchboard/categoryview.vala:75
+#, c-format
+msgid "Unable to load plug %s's icon: %s"
+msgstr "Impossibile caricale l'icona del plug %s: %s"
+
+#: Switchboard/switchboard.vala:108
+#, c-format
+msgid "Selected plug: title %s | executable %s"
+msgstr "Plug selezionato: titolo %s | eseguibile %s"
 
 #: Switchboard/switchboard.vala:115
 msgid "Exiting plug from SwitchBoard controller.."
@@ -27,46 +61,12 @@ msgstr "Rimozione plug da SwitchBoard in corso .."
 msgid "Failed to launch plug: title %s | executable %s"
 msgstr "Impossibile lanciare il plug: titolo %s | eseguibile %s"
 
-#: Switchboard/categoryview.vala:32
-msgid "Hardware"
-msgstr "Hardware"
-
-#: Switchboard/categoryview.vala:67
-#, c-format
-msgid ""
-"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added."
-msgstr ""
-"Il file-chiave \"%s\" contiene una categoria non valida: \"%s\", e non sarà "
-"aggiunto."
-
-#: Switchboard/categoryview.vala:33
-msgid "Network and Wireless"
-msgstr "Rete e Wireless"
-
-#: Switchboard/categoryview.vala:31
-msgid "Personal"
-msgstr "Informazioni personali"
+#: Switchboard/switchboard.vala:240
+msgid "Unable to iterate over enumerated plug directory contents"
+msgstr "Impossibile reiterare i contenuti enumerati della directory di plug"
 
 #: Switchboard/switchboard.vala:343
 msgid "Report any issues/bugs you might find to lp:switchboard"
 msgstr ""
-"Per la segnalazione di eventuali problemi o bug potresti cercare lp:"
-"switchboard"
-
-#: Switchboard/switchboard.vala:108
-#, c-format
-msgid "Selected plug: title %s | executable %s"
-msgstr "Plug selezionato: titolo %s | eseguibile %s"
-
-#: Switchboard/categoryview.vala:34
-msgid "System"
-msgstr "Sistema"
-
-#: Switchboard/switchboard.vala:240
-msgid "Unable to iterate over enumerated plug directory contents"
-msgstr ""
-
-#: Switchboard/categoryview.vala:75
-#, c-format
-msgid "Unable to load plug %s's icon: %s"
-msgstr "Impossibile caricale l'icona del plug %s: %s"
+"Per la segnalazione di eventuali problemi o bug potresti cercare "
+"lp:switchboard"
