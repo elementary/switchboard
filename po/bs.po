@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-02 14:22-0400\n"
-"PO-Revision-Date: 2011-09-02 21:44+0000\n"
-"Last-Translator: Bojan Malinović <Unknown>\n"
+"PO-Revision-Date: 2011-10-26 10:31+0000\n"
+"Last-Translator: Daniel4x <daniel4molnar@gmail.com>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-03 06:13+0000\n"
-"X-Generator: Launchpad (build 13830)\n"
+"X-Launchpad-Export-Date: 2011-10-27 05:32+0000\n"
+"X-Generator: Launchpad (build 14197)\n"
 
 #: Switchboard/categoryview.vala:31
 msgid "Personal"
@@ -44,25 +44,26 @@ msgstr ""
 #: Switchboard/categoryview.vala:75
 #, c-format
 msgid "Unable to load plug %s's icon: %s"
-msgstr ""
+msgstr "Nije moguće učitati plugin %s' ikona: %s"
 
 #: Switchboard/switchboard.vala:108
 #, c-format
 msgid "Selected plug: title %s | executable %s"
-msgstr ""
+msgstr "Odabrani plugin: naslov %s | izvršni %s"
 
 #: Switchboard/switchboard.vala:115
 msgid "Exiting plug from SwitchBoard controller.."
-msgstr ""
+msgstr "Izlazni plugin iz SwitchBoard kontrolera.."
 
 #: Switchboard/switchboard.vala:126
 #, c-format
 msgid "Failed to launch plug: title %s | executable %s"
-msgstr ""
+msgstr "Neuspješno pokretanje plug-ina: naslov %s | izvršni %s"
 
 #: Switchboard/switchboard.vala:240
 msgid "Unable to iterate over enumerated plug directory contents"
 msgstr ""
+"Nije moguće ponoviti više od nabrojenih plug-ina u direktorijskom sadržaju"
 
 #: Switchboard/switchboard.vala:343
 msgid "Report any issues/bugs you might find to lp:switchboard"
