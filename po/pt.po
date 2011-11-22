@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-07-02 14:22-0400\n"
-"PO-Revision-Date: 2011-11-03 10:12+0000\n"
-"Last-Translator: dcruz <Unknown>\n"
+"PO-Revision-Date: 2011-11-22 00:49+0000\n"
+"Last-Translator: João Pereira <Unknown>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-11-04 05:40+0000\n"
-"X-Generator: Launchpad (build 14231)\n"
+"X-Launchpad-Export-Date: 2011-11-22 05:22+0000\n"
+"X-Generator: Launchpad (build 14299)\n"
 
 #: Switchboard/categoryview.vala:31
 msgid "Personal"
@@ -53,7 +53,7 @@ msgstr "Extra selecionado: título %s | executável %s"
 
 #: Switchboard/switchboard.vala:115
 msgid "Exiting plug from SwitchBoard controller.."
-msgstr ""
+msgstr "A encerrar o extra no controlador SwitchBoard"
 
 #: Switchboard/switchboard.vala:126
 #, c-format
