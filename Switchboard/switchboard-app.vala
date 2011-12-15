@@ -206,7 +206,7 @@ namespace Switchboard {
                 } catch (Error e) { warning("Couldn't read exec field in file %s, %s", keyfile, e.message); }
                 try { plug["icon"] = kf.get_string (head, "icon");
                 } catch (Error e) { warning("Couldn't read icon field in file %s, %s", keyfile, e.message); }
-                try { plug["title"] = kf.get_string (head, "title");
+                try { plug["title"] = kf.get_locale_string (head, "title");
                 } catch (Error e) { warning("Couldn't read title field in file %s, %s", keyfile, e.message); }
                 try { plug["category"] = kf.get_string (head, "category");
                 } catch {
