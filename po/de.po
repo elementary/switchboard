@@ -11,46 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2011-10-10 11:23+0000\n"
 "Last-Translator: Michael Nachname <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2011-10-11 05:50+0000\n"
 "X-Generator: Launchpad (build 14123)\n"
-"Language: de\n"
-
-#: Switchboard/categoryview.vala:31
-msgid "Personal"
-msgstr "Persönliches"
-
-#: Switchboard/categoryview.vala:32
-msgid "Hardware"
-msgstr "Geräte"
-
-#: Switchboard/categoryview.vala:33
-msgid "Network and Wireless"
-msgstr "Netzwerke"
-
-#: Switchboard/categoryview.vala:34
-msgid "System"
-msgstr "Systemeinstellungen"
-
-#: Switchboard/categoryview.vala:67
-#, c-format
-msgid ""
-"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added."
-msgstr ""
-"Die Schlüsseldatei \"%s\" enthält eine ungültige Kategorie: \"%s\" und wird "
-"daher nicht hinzugefügt."
-
-#: Switchboard/categoryview.vala:75
-#, c-format
-msgid "Unable to load plug %s's icon: %s"
-msgstr "Das Symbol von %s kann nicht angezeigt werden: %s"
-
-#: Switchboard/switchboard.vala:108
-#, c-format
-msgid "Selected plug: title %s | executable %s"
-msgstr "Ausgewähltes Plug: Name %s | auszuführende Datei %s"
 
 #: Switchboard/switchboard.vala:115
 msgid "Exiting plug from SwitchBoard controller.."
@@ -61,12 +27,46 @@ msgstr "Verlasse Plug von der SwitchBoard Steuerung aus..."
 msgid "Failed to launch plug: title %s | executable %s"
 msgstr "Starten des Plug's fehlgeschlagen: Name %s | Auszuführende Datei %s"
 
-#: Switchboard/switchboard.vala:240
-msgid "Unable to iterate over enumerated plug directory contents"
-msgstr "Aufgezählte Plug Verzeichnisinhalte können nicht durchlaufen werden"
+#: Switchboard/categoryview.vala:32
+msgid "Hardware"
+msgstr "Geräte"
+
+#: Switchboard/categoryview.vala:67
+#, c-format
+msgid ""
+"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added."
+msgstr ""
+"Die Schlüsseldatei \"%s\" enthält eine ungültige Kategorie: \"%s\" und wird "
+"daher nicht hinzugefügt."
+
+#: Switchboard/categoryview.vala:33
+msgid "Network and Wireless"
+msgstr "Netzwerke"
+
+#: Switchboard/categoryview.vala:31
+msgid "Personal"
+msgstr "Persönliches"
 
 #: Switchboard/switchboard.vala:343
 msgid "Report any issues/bugs you might find to lp:switchboard"
 msgstr ""
-"Melden Sie alle  Fragen und Fehler zum Programm die Sie finden unter "
-"lp:switchboard"
+"Melden Sie alle  Fragen und Fehler zum Programm die Sie finden unter lp:"
+"switchboard"
+
+#: Switchboard/switchboard.vala:108
+#, c-format
+msgid "Selected plug: title %s | executable %s"
+msgstr "Ausgewähltes Plug: Name %s | auszuführende Datei %s"
+
+#: Switchboard/categoryview.vala:34
+msgid "System"
+msgstr "Systemeinstellungen"
+
+#: Switchboard/switchboard.vala:240
+msgid "Unable to iterate over enumerated plug directory contents"
+msgstr "Aufgezählte Plug Verzeichnisinhalte können nicht durchlaufen werden"
+
+#: Switchboard/categoryview.vala:75
+#, c-format
+msgid "Unable to load plug %s's icon: %s"
+msgstr "Das Symbol von %s kann nicht angezeigt werden: %s"

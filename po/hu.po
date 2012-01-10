@@ -11,46 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2011-09-09 19:55+0000\n"
 "Last-Translator: Erno Horvath <szerencsefia@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2011-09-10 05:17+0000\n"
 "X-Generator: Launchpad (build 13900)\n"
-"Language: hu\n"
-
-#: Switchboard/categoryview.vala:31
-msgid "Personal"
-msgstr "Személyes"
-
-#: Switchboard/categoryview.vala:32
-msgid "Hardware"
-msgstr "Hardver"
-
-#: Switchboard/categoryview.vala:33
-msgid "Network and Wireless"
-msgstr "Hálózati kapcsolatok"
-
-#: Switchboard/categoryview.vala:34
-msgid "System"
-msgstr "Rendszer"
-
-#: Switchboard/categoryview.vala:67
-#, c-format
-msgid ""
-"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added."
-msgstr ""
-"\"%s\" kulcsfájl érvénytelen kategóriát tartalmaz: \"%s\", ezért nem lesz "
-"hozzáadva."
-
-#: Switchboard/categoryview.vala:75
-#, c-format
-msgid "Unable to load plug %s's icon: %s"
-msgstr "%s bővítmény ikonja nem tölthető be: %s"
-
-#: Switchboard/switchboard.vala:108
-#, c-format
-msgid "Selected plug: title %s | executable %s"
-msgstr "Kiválasztott bővítmény: cím: %s | végrehajtható %s"
 
 #: Switchboard/switchboard.vala:115
 msgid "Exiting plug from SwitchBoard controller.."
@@ -61,10 +27,44 @@ msgstr "Bővítmény kiléptetése a SwitchBoard vezérlőből"
 msgid "Failed to launch plug: title %s | executable %s"
 msgstr "%s bővítmény elindítása nem sikerült | végrehajtható %s"
 
-#: Switchboard/switchboard.vala:240
-msgid "Unable to iterate over enumerated plug directory contents"
+#: Switchboard/categoryview.vala:32
+msgid "Hardware"
+msgstr "Hardver"
+
+#: Switchboard/categoryview.vala:67
+#, c-format
+msgid ""
+"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added."
 msgstr ""
+"\"%s\" kulcsfájl érvénytelen kategóriát tartalmaz: \"%s\", ezért nem lesz "
+"hozzáadva."
+
+#: Switchboard/categoryview.vala:33
+msgid "Network and Wireless"
+msgstr "Hálózati kapcsolatok"
+
+#: Switchboard/categoryview.vala:31
+msgid "Personal"
+msgstr "Személyes"
 
 #: Switchboard/switchboard.vala:343
 msgid "Report any issues/bugs you might find to lp:switchboard"
 msgstr "Hibajelentés esetleges hibáknál ide: lp:switchboard"
+
+#: Switchboard/switchboard.vala:108
+#, c-format
+msgid "Selected plug: title %s | executable %s"
+msgstr "Kiválasztott bővítmény: cím: %s | végrehajtható %s"
+
+#: Switchboard/categoryview.vala:34
+msgid "System"
+msgstr "Rendszer"
+
+#: Switchboard/switchboard.vala:240
+msgid "Unable to iterate over enumerated plug directory contents"
+msgstr ""
+
+#: Switchboard/categoryview.vala:75
+#, c-format
+msgid "Unable to load plug %s's icon: %s"
+msgstr "%s bővítmény ikonja nem tölthető be: %s"

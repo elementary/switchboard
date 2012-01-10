@@ -77,6 +77,8 @@ namespace Switchboard {
 
             enumerate_plugs ("/usr/share/plugs/");
             enumerate_plugs ("/usr/lib/plugs/");
+            enumerate_plugs ("/usr/local/share/plugs/");
+            enumerate_plugs ("/usr/local/lib/plugs/");
             show();
         }
 

@@ -11,46 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2011-09-21 18:35+0000\n"
 "Last-Translator: Niko Mitov <Unknown>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2011-09-22 05:01+0000\n"
 "X-Generator: Launchpad (build 13996)\n"
-"Language: bg\n"
-
-#: Switchboard/categoryview.vala:31
-msgid "Personal"
-msgstr "Личен"
-
-#: Switchboard/categoryview.vala:32
-msgid "Hardware"
-msgstr "Хардуеър"
-
-#: Switchboard/categoryview.vala:33
-msgid "Network and Wireless"
-msgstr "Интернет и мрежа"
-
-#: Switchboard/categoryview.vala:34
-msgid "System"
-msgstr "Система"
-
-#: Switchboard/categoryview.vala:67
-#, c-format
-msgid ""
-"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added."
-msgstr ""
-"Ключовият файл \"%s\" съдържа невалидна категория: \"%s\", и няма да бъде "
-"добавен."
-
-#: Switchboard/categoryview.vala:75
-#, c-format
-msgid "Unable to load plug %s's icon: %s"
-msgstr "Невъзможно е зареждането на добавката %s's икона: %s"
-
-#: Switchboard/switchboard.vala:108
-#, c-format
-msgid "Selected plug: title %s | executable %s"
-msgstr ""
 
 #: Switchboard/switchboard.vala:115
 msgid "Exiting plug from SwitchBoard controller.."
@@ -61,10 +27,44 @@ msgstr ""
 msgid "Failed to launch plug: title %s | executable %s"
 msgstr ""
 
-#: Switchboard/switchboard.vala:240
-msgid "Unable to iterate over enumerated plug directory contents"
+#: Switchboard/categoryview.vala:32
+msgid "Hardware"
+msgstr "Хардуеър"
+
+#: Switchboard/categoryview.vala:67
+#, c-format
+msgid ""
+"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added."
 msgstr ""
+"Ключовият файл \"%s\" съдържа невалидна категория: \"%s\", и няма да бъде "
+"добавен."
+
+#: Switchboard/categoryview.vala:33
+msgid "Network and Wireless"
+msgstr "Интернет и мрежа"
+
+#: Switchboard/categoryview.vala:31
+msgid "Personal"
+msgstr "Личен"
 
 #: Switchboard/switchboard.vala:343
 msgid "Report any issues/bugs you might find to lp:switchboard"
 msgstr ""
+
+#: Switchboard/switchboard.vala:108
+#, c-format
+msgid "Selected plug: title %s | executable %s"
+msgstr ""
+
+#: Switchboard/categoryview.vala:34
+msgid "System"
+msgstr "Система"
+
+#: Switchboard/switchboard.vala:240
+msgid "Unable to iterate over enumerated plug directory contents"
+msgstr ""
+
+#: Switchboard/categoryview.vala:75
+#, c-format
+msgid "Unable to load plug %s's icon: %s"
+msgstr "Невъзможно е зареждането на добавката %s's икона: %s"
