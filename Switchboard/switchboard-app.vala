@@ -111,7 +111,6 @@ namespace Switchboard {
         }
 
         void load_plug(Gtk.IconView plug_view, Gtk.ListStore store) {
-
             var selected = plug_view.get_selected_items ();
             if(selected.length() == 1)
             {
@@ -124,27 +123,20 @@ namespace Switchboard {
                 debug("Selected plug: title %s | executable %s", title.get_string(), executable.get_string());
                 debug("Current plug: %s", current_plug["title"]);
                 // Launch plug's executable
-                if (executable.get_string() != current_plug["title"]) {
+                if (current_plug["title"] != title.get_string()) {
                     try {
                         // The plug is already selected
-                        if (current_plug["title"] != title.get_string())
-                        {
-                            debug(_("Exiting plug \"%s\" from Switchboard controller.."), current_plug["title"]);
-                            plug_closed();
-                            var cmd_exploded = executable.get_string().split(" ");
-                            string working_directory = File.new_for_path(cmd_exploded[0]).get_parent().get_path();
-                            GLib.Process.spawn_async(working_directory, cmd_exploded, null, SpawnFlags.SEARCH_PATH, null, null);
-                            current_plug["title"] = title.get_string();
-                            current_plug["executable"] = executable.get_string();
-                            // ensure the button is sensitive; it might be the first plug loaded
-                            navigation_button.set_sensitive(true);
-                            navigation_button.stock_id = Gtk.Stock.HOME;
-                            switch_to_socket();
-                        }
-                        else
-                        {
-                            switch_to_socket();
-                        }
+                        debug(_("Exiting plug \"%s\" from Switchboard controller.."), current_plug["title"]);
+                        plug_closed();
+                        var cmd_exploded = executable.get_string().split(" ");
+                        string working_directory = File.new_for_path(cmd_exploded[0]).get_parent().get_path();
+                        GLib.Process.spawn_async(working_directory, cmd_exploded, null, SpawnFlags.SEARCH_PATH, null, null);
+                        current_plug["title"] = title.get_string();
+                        current_plug["executable"] = executable.get_string();
+                        // ensure the button is sensitive; it might be the first plug loaded
+                        navigation_button.set_sensitive(true);
+                        navigation_button.stock_id = Gtk.Stock.HOME;
+                        switch_to_socket();
                     } catch {
                         warning(_("Failed to launch plug: title %s | executable %s"), title.get_string(), executable.get_string());
                     }
