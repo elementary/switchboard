@@ -18,10 +18,24 @@ END LICENSE
 namespace Switchboard {
 
     [DBus (name = "org.elementary.switchboard")]
-    public class SwitchboardApp : Gtk.Window {
+    public class SwitchboardApp : Granite.Application {
+        
+        construct {
+            application_id = "org.elementary.Switchboard";
+            program_name = APP_TITLE;
+            app_years = "2011 - 2012";
+
+            build_version = VERSION;
+            app_icon = APP_ICON;
+            main_url = WEBSITE;
+            about_authors = AUTHORS;
+
+            about_comments = COPYRIGHT;
+            about_license_type = Gtk.License.GPL_3_0;
+        }
 
         // Chrome widgets
-        ElementaryWidgets.AppMenu app_menu;
+        Granite.Widgets.AppMenu app_menu;
         Gtk.ProgressBar progress_bar;
         Gtk.Label progress_label;
         Granite.Widgets.SearchBar search_bar;
@@ -32,6 +46,8 @@ namespace Switchboard {
         // These two wrap the progress bar
         Gtk.ToolItem lspace = new Gtk.ToolItem ();
         Gtk.ToolItem rspace = new Gtk.ToolItem ();
+        
+        Gtk.Window main_window;
 
         // Content area widgets
         Gtk.Socket socket;
@@ -43,16 +59,18 @@ namespace Switchboard {
         bool socket_shown;
         Gee.HashMap<string, string> current_plug = new Gee.HashMap<string, string>();
 
-        public SwitchboardApp (string plug_root_dir) {
+        public SwitchboardApp () {
+            
+            main_window = new Gtk.Window();
 
             // Set up defaults
-            title = APP_TITLE;
+            main_window.title = APP_TITLE;
 
             // Set up window
-            height_request = 500;
-            width_request = 800;
-            window_position = Gtk.WindowPosition.CENTER;
-            destroy.connect(()=> shutdown());
+            main_window.height_request = 500;
+            main_window.width_request = 800;
+            main_window.window_position = Gtk.WindowPosition.CENTER;
+            main_window.destroy.connect(()=> shutdown());
             setup_toolbar ();
 
             // Set up socket
@@ -71,7 +89,7 @@ namespace Switchboard {
             vbox.pack_start (toolbar, false, false);
             vbox.pack_start (socket, false, false);
             vbox.pack_end (category_view, true, true);
-            add (vbox);
+            main_window.add (vbox);
             vbox.show();
             category_view.show();
 
@@ -79,7 +97,7 @@ namespace Switchboard {
             enumerate_plugs ("/usr/lib/plugs/");
             enumerate_plugs ("/usr/local/share/plugs/");
             enumerate_plugs ("/usr/local/lib/plugs/");
-            show();
+            main_window.show();
         }
 
         void shutdown() {
@@ -148,12 +166,12 @@ namespace Switchboard {
         // Change Switchboard title to "Switchboard - PlugName"
         void load_plug_title (string plug_title) {
 
-            title = @"$APP_TITLE - $plug_title";
+            main_window.title = @"$APP_TITLE - $plug_title";
         }
 
         // Change Switchboard title back to "Switchboard"
         void reset_title () {
-            title = APP_TITLE;
+            main_window.title = APP_TITLE;
         }
 
         // Handles clicking the navigation button
@@ -323,15 +341,7 @@ namespace Switchboard {
             toolbar.get_style_context ().add_class ("primary-toolbar");
 
             var menu = new Gtk.Menu ();
-            app_menu = new ElementaryWidgets.AppMenu (this, menu,
-                                        APP_TITLE,
-                                        ERRDOMAIN,
-                                        WEBSITE,
-                                        VERSION,
-                                        COPYRIGHT,
-                                        AUTHORS,
-                                        LICENSE,
-                                        APP_ICON);
+            app_menu = create_appmenu(menu);
             // Spacing
             lspace.set_expand(true);
             rspace.set_expand(true);
@@ -374,7 +384,7 @@ namespace Switchboard {
     void on_bus_aquired (DBusConnection conn) {
 
         // In the future, the plug_root_dir should be overridable by CLI flags.
-        SwitchboardApp switchboard_app = new SwitchboardApp ("/usr/share/plugs/");
+        SwitchboardApp switchboard_app = new SwitchboardApp ();
         switchboard_app.progress_toolitem.hide();
         try {
             conn.register_object("/org/elementary/switchboard", switchboard_app);
