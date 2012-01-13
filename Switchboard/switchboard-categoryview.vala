@@ -21,26 +21,21 @@ namespace Switchboard {
 
         Gee.HashMap<string, Gtk.VBox> category_labels = new Gee.HashMap<string, Gtk.VBox> ();
         Gee.HashMap<string, Gtk.ListStore> category_store = new Gee.HashMap<string, Gtk.ListStore> ();
-        Gee.HashMap<string, string> category_titles = new Gee.HashMap<string, string> ();
         Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
 
         public signal void plug_selected(Gtk.IconView view, Gtk.ListStore message);
+        string [] category_ids = { "personal", "hardware", "network", "system" };
+        string [] category_names = { N_("Personal"), N_("Hardware"), N_("Network and Wireless"), N_("System") };
 
         public CategoryView () {
-
-            category_titles["personal"] = _("Personal");
-            category_titles["hardware"] = _("Hardware");
-            category_titles["network"] = _("Network and Wireless");
-            category_titles["system"] = _("System");
-            foreach (var entry in category_titles.entries) {
+            for (int i = 0; i < category_ids.length; i++) {
                 var store = new Gtk.ListStore (3, typeof (string), typeof (Gdk.Pixbuf), typeof(string));
-                var label = new Gtk.Label ("<big><b>"+entry.value+"</b></big>");
+                var label = new Gtk.Label ("<big><b>" + _(category_names[i]) + "</b></big>");
                 var category_plugs = new Gtk.IconView.with_model (store);
                 category_plugs.set_text_column (0);
                 category_plugs.set_pixbuf_column (1);
                 category_plugs.selection_changed.connect(() => plug_selected(category_plugs, store));
-                var color = Gdk.RGBA ();
-                color.parse("#dedede");
+                var color = get_style_context().get_background_color(Gtk.StateFlags.NORMAL);
                 category_plugs.override_background_color (Gtk.StateFlags.NORMAL, color);
                 label.xalign = (float) 0.02;
                 var vbox = new Gtk.VBox (false, 0); // not homogeneous, 0 spacing
@@ -52,8 +47,8 @@ namespace Switchboard {
                 headbox.pack_start(label, false, false, 10);
                 vbox.pack_start(headbox, false, true, 5);
                 vbox.pack_end(category_plugs, true, true);
-                category_labels[entry.key] = vbox;
-                category_store[entry.key] = store;
+                category_labels[category_ids[i]] = vbox;
+                category_store[category_ids[i]] = store;
                 pack_start(vbox);
                 vbox.show_all();
                 vbox.hide();
@@ -64,7 +59,7 @@ namespace Switchboard {
 
             Gtk.TreeIter root;
             string plug_down = plug["category"].down();
-            if (!category_titles.has_key(plug_down)) {
+            if (!(plug_down in category_ids)) {
                 warning(_("Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"), plug["title"], plug["category"]);
             }
             category_store[plug_down].append(out root);
