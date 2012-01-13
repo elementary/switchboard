@@ -2,7 +2,7 @@ project (switchboard)
 cmake_minimum_required (VERSION 2.8)
 
 
-list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/vala)
+list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/)
 
 #
 # Base bits
@@ -52,23 +52,7 @@ add_definitions(-include config.h)
 
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/switchboard.desktop DESTINATION /usr/share/applications)
 
-#
-# i18n
-#
-find_package (Gettext REQUIRED)
-
-add_custom_command (OUTPUT ${CMAKE_SOURCE_DIR}/po/switchboard.pot
-        COMMAND xgettext -c --files-from ${CMAKE_SOURCE_DIR}/po/POTFILES.in --keyword=_ -o ${CMAKE_SOURCE_DIR}/po/switchboard.pot --no-wrap --no-location
-        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-        )
-
-if (${GETTEXT_FOUND} STREQUAL "TRUE")
-        set (HAVE_GETTEXT true)
-        file (GLOB _translations ${CMAKE_SOURCE_DIR}/po/*.po)
-        GETTEXT_CREATE_TRANSLATIONS (${CMAKE_SOURCE_DIR}/po/${PROJECT_NAME}.pot
-                ALL ${_translations})
-endif (${GETTEXT_FOUND} STREQUAL "TRUE")
-
+add_subdirectory(po)
 #
 # Switchboard
 #
@@ -78,7 +62,6 @@ pkg_check_modules(DEPS REQUIRED granite gio-2.0 gee-1.0)
 
 add_definitions(${DEPS_CFLAGS})
 
-link_libraries(${DEPS_LIBRARIES})
 
 link_directories(${DEPS_LIBRARY_DIRS})
 
@@ -102,6 +85,7 @@ CUSTOM_VAPIS
 
 add_definitions(${CFLAGS} -Wall -Winit-self -Wwrite-strings -Wunreachable-code -Wstrict-prototypes )
 add_executable(switchboard ${VALA_C})
+target_link_libraries(switchboard ${DEPS_LIBRARIES})
 
 install(TARGETS switchboard RUNTIME DESTINATION bin)
 
