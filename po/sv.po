@@ -7,64 +7,74 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-02 14:22-0400\n"
+"POT-Creation-Date: 2012-01-13 18:01+0100\n"
 "PO-Revision-Date: 2011-07-23 07:34+0000\n"
 "Last-Translator: Simon Hammarström <hammarstrom.simon@gmail.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
-"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-07-24 05:12+0000\n"
-"X-Generator: Launchpad (build 13405)\n"
+"X-Launchpad-Export-Date: 2012-01-14 05:46+0000\n"
+"X-Generator: Launchpad (build 14664)\n"
+"Language: sv\n"
 
-#: Switchboard/switchboard.vala:115
-msgid "Exiting plug from SwitchBoard controller.."
+#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:114
+#, c-format
+msgid "Exiting plug \"%s\" from Switchboard controller.."
 msgstr ""
 
-#: Switchboard/switchboard.vala:126
+#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:131
 #, c-format
 msgid "Failed to launch plug: title %s | executable %s"
 msgstr ""
 
-#: Switchboard/categoryview.vala:32
-msgid "Hardware"
-msgstr "Hårdvara"
-
-#: Switchboard/categoryview.vala:67
-#, c-format
-msgid ""
-"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added."
+#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:263
+msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
 msgstr ""
-"Nyckelfilen \"%s\" innehåller en ogiltig kategori: \"%s\" kommer inte läggas "
-"till."
 
-#: Switchboard/categoryview.vala:33
-msgid "Network and Wireless"
-msgstr "Nätverk och Trådlöst"
+#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:351
+msgid "Type to search ..."
+msgstr ""
 
-#: Switchboard/categoryview.vala:31
+#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:390
+msgid "Welcome to $APP_TITLE"
+msgstr ""
+
+#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:391
+msgid "Version: $VERSION"
+msgstr ""
+
+#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:392
+msgid "Report any issues/bugs you mind find to lp:switchboard"
+msgstr ""
+
+#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:399
+msgid "Switchboard already running. Exiting.."
+msgstr ""
+
+#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:31
 msgid "Personal"
 msgstr "Personlig"
 
-#: Switchboard/switchboard.vala:343
-msgid "Report any issues/bugs you might find to lp:switchboard"
-msgstr "Rapportera problem/buggar du stöter på till lp:switchboard"
+#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:32
+msgid "Hardware"
+msgstr "Hårdvara"
 
-#: Switchboard/switchboard.vala:108
-#, c-format
-msgid "Selected plug: title %s | executable %s"
-msgstr ""
+#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:33
+msgid "Network and Wireless"
+msgstr "Nätverk och Trådlöst"
 
-#: Switchboard/categoryview.vala:34
+#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:34
 msgid "System"
 msgstr "System"
 
-#: Switchboard/switchboard.vala:240
-msgid "Unable to iterate over enumerated plug directory contents"
+#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:68
+#, c-format
+msgid ""
+"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
 msgstr ""
 
-#: Switchboard/categoryview.vala:75
+#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:75
 #, c-format
-msgid "Unable to load plug %s's icon: %s"
-msgstr "Kunde inte ladda pluginets %s's ikon: %s"
+msgid "Unable to load plug %'s icon: %s"
+msgstr ""
