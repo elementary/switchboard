@@ -38,7 +38,7 @@ namespace Switchboard {
         Granite.Widgets.AppMenu app_menu;
         Gtk.ProgressBar progress_bar;
         Gtk.Label progress_label;
-        Granite.Widgets.SearchBar search_bar;
+        Gtk.Entry search_box;
         Gtk.Toolbar toolbar;
         Gtk.ToolButton navigation_button;
         // Public so we can hide it after show_all()
@@ -310,18 +310,18 @@ namespace Switchboard {
         public signal void search_box_text_changed ();
 
         public void search_box_set_sensitive (bool sensitivity) {
-            search_bar.set_sensitive (sensitivity);
+            search_box.set_sensitive (sensitivity);
         }
 
         public void search_box_set_text (string text) {
 
             plug_closed();
-            search_bar.set_text (text);
+            search_box.set_text (text);
         }
 
         public string search_box_get_text () {
 
-            return search_bar.get_text ();
+            return search_box.get_text ();
         }
 
         // end D-Bus ONLY methods
@@ -351,12 +351,14 @@ namespace Switchboard {
             progress_toolitem.set_expand(true);
 
             // Searchbar
-            search_bar = new Granite.Widgets.SearchBar (_("Type to search ..."));
-            search_bar.sensitive = false;
-            search_bar.activate.connect(() => search_box_activated());
-            search_bar.changed.connect(() => search_box_text_changed());
+            search_box = new Gtk.Entry ();
+            search_box.placeholder_text = _("Search Plugs");
+            search_box.primary_icon_stock = "gtk-find";
+            search_box.sensitive = false;
+            search_box.activate.connect(() => search_box_activated());
+            search_box.changed.connect(() => search_box_text_changed());
             var find_toolitem = new Gtk.ToolItem ();
-            find_toolitem.add(search_bar);
+            find_toolitem.add(search_box);
 
             // Nav button
             navigation_button = new Gtk.ToolButton.from_stock(Gtk.Stock.GO_BACK);
