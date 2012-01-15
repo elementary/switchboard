@@ -112,6 +112,7 @@ namespace Switchboard {
 
         void load_plug(Gtk.IconView plug_view, Gtk.ListStore store) {
             var selected = plug_view.get_selected_items ();
+            // Why is this check neccessary?
             if(selected.length() == 1)
             {
                 GLib.Value title;
@@ -351,6 +352,7 @@ namespace Switchboard {
 
             // Searchbar
             search_bar = new Granite.Widgets.SearchBar (_("Type to search ..."));
+            search_bar.sensitive = false;
             search_bar.activate.connect(() => search_box_activated());
             search_bar.changed.connect(() => search_box_text_changed());
             var find_toolitem = new Gtk.ToolItem ();
