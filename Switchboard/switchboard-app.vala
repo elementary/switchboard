@@ -53,6 +53,8 @@ namespace Switchboard {
         Gtk.Socket socket;
         Gtk.VBox vbox;
         Switchboard.CategoryView category_view = new Switchboard.CategoryView();
+        Gtk.ScrolledWindow scrolled;
+        Gtk.Viewport viewport;
 
         // Plug data
         Gtk.TreeIter selected_plug;
@@ -88,16 +90,24 @@ namespace Switchboard {
             vbox = new Gtk.VBox (false, 0);
             vbox.pack_start (toolbar, false, false);
             vbox.pack_start (socket, false, false);
-            vbox.pack_end (category_view, true, true);
+
+            scrolled = new Gtk.ScrolledWindow (null, null);
+            viewport = new Gtk.Viewport (null, null);
+            viewport.add (category_view);
+            scrolled.add (viewport);
+            vbox.pack_end (scrolled, true, true);
+
             main_window.add (vbox);
-            vbox.show();
-            category_view.show();
+            vbox.show ();
+            category_view.show ();
+            scrolled.show ();
+            viewport.show ();
 
             enumerate_plugs ("/usr/share/plugs/");
             enumerate_plugs ("/usr/lib/plugs/");
             enumerate_plugs ("/usr/local/share/plugs/");
             enumerate_plugs ("/usr/local/lib/plugs/");
-            main_window.show();
+            main_window.show ();
         }
 
         void shutdown() {
@@ -184,7 +194,7 @@ namespace Switchboard {
         void switch_to_socket() {
 
             vbox.set_child_packing(socket, true, true, 0, Gtk.PackType.END);
-            category_view.hide();
+            scrolled.hide();
             socket.show();
             load_plug_title (current_plug["title"]);
             socket_shown = true;
@@ -195,7 +205,7 @@ namespace Switchboard {
 
             vbox.set_child_packing(socket, false, false, 0, Gtk.PackType.END);
             socket.hide ();
-            category_view.show();
+            scrolled.show();
             reset_title ();
             socket_shown = false;
             return true;
