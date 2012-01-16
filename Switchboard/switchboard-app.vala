@@ -59,6 +59,8 @@ namespace Switchboard {
         bool socket_shown;
         Gee.HashMap<string, string> current_plug = new Gee.HashMap<string, string>();
 
+        string[] plug_places = {"/usr/share/plugs/", "/usr/lib/plugs/", "/usr/local/share/plugs/", "/usr/local/lib/plugs/"};
+
         public SwitchboardApp () {
             
             main_window = new Gtk.Window();
@@ -93,10 +95,9 @@ namespace Switchboard {
             vbox.show();
             category_view.show();
 
-            enumerate_plugs ("/usr/share/plugs/");
-            enumerate_plugs ("/usr/lib/plugs/");
-            enumerate_plugs ("/usr/local/share/plugs/");
-            enumerate_plugs ("/usr/local/lib/plugs/");
+            foreach (string place in plug_places)
+                enumerate_plugs (place);
+
             main_window.show();
         }
 
@@ -276,6 +277,14 @@ namespace Switchboard {
             return keyfiles;
         }
 
+        // Counts how many plugs exist at the moment
+        int count_plugs () {
+            uint count = 0;
+            foreach (string place in plug_places)
+                count += find_plugs (place).length ();
+            return (int) count;
+        }
+
         // D-Bus ONLY methods
 
         public int get_socket_wid() {
@@ -354,9 +363,12 @@ namespace Switchboard {
             search_box = new Gtk.Entry ();
             search_box.placeholder_text = _("Search Plugs");
             search_box.primary_icon_stock = "gtk-find";
-            search_box.sensitive = false;
             search_box.activate.connect(() => search_box_activated());
-            search_box.changed.connect(() => search_box_text_changed());
+            search_box.changed.connect(() => {
+                category_view.filter_plugs(search_box.get_text ());
+                search_box_text_changed();
+            });
+            search_box.sensitive = (count_plugs () > 0);
             var find_toolitem = new Gtk.ToolItem ();
             find_toolitem.add(search_box);
 

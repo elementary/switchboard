@@ -73,6 +73,11 @@ namespace Switchboard {
             category_store[plug_down].set(root, 2, plug["exec"]);
             category_labels[plug_down].show();
         }
+
+        public void filter_plugs (string filter) {
+            
+            print (filter + "\n");
+        }
     }
 }
 
