@@ -62,6 +62,7 @@ namespace Switchboard {
         Gee.HashMap<string, string> current_plug = new Gee.HashMap<string, string>();
 
         string[] plug_places = {"/usr/share/plugs/", "/usr/lib/plugs/", "/usr/local/share/plugs/", "/usr/local/lib/plugs/"};
+        string search_box_buffer = "";
 
         public SwitchboardApp () {
             
@@ -79,7 +80,6 @@ namespace Switchboard {
 
             // Set up socket
             socket = new Gtk.Socket ();
-            socket.plug_added.connect(switch_to_socket);
             socket.plug_removed.connect(switch_to_icons);
             socket.hide();
 
@@ -148,13 +148,13 @@ namespace Switchboard {
                         // ensure the button is sensitive; it might be the first plug loaded
                         navigation_button.set_sensitive(true);
                         navigation_button.stock_id = Gtk.Stock.HOME;
-                        switch_to_socket();
+                        switch_to_socket ();
                     } catch {
                         warning(_("Failed to launch plug: title %s | executable %s"), title.get_string(), executable.get_string());
                     }
                 }
                 else {
-                    switch_to_socket();
+                    switch_to_socket ();
                     navigation_button.set_sensitive(true);
                     navigation_button.stock_id = Gtk.Stock.HOME;
                 }
@@ -194,11 +194,14 @@ namespace Switchboard {
         // Switches to the socket view
         void switch_to_socket() {
 
+            print("called\n");
+
             vbox.set_child_packing(socket, true, true, 0, Gtk.PackType.END);
             scrolled.hide();
             socket.show();
             load_plug_title (current_plug["title"]);
             socket_shown = true;
+            switch_search_box(false);
         }
 
         // Switches back to the icons
@@ -209,7 +212,21 @@ namespace Switchboard {
             scrolled.show();
             reset_title ();
             socket_shown = false;
+            switch_search_box((count_plugs () > 0));
             return true;
+        }
+
+        // Gracefully switches search_box's sensitivity
+        void switch_search_box(bool sensitive) {
+
+            if (sensitive) {
+                search_box.set_text(search_box_buffer);
+            } else {
+                search_box_buffer = search_box.get_text();
+                search_box.set_text("");      
+            }
+
+            search_box.sensitive = sensitive;
         }
 
         // Loads in all of the plugs
