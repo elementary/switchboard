@@ -24,7 +24,7 @@ namespace Switchboard {
         Gee.HashMap<string, Gtk.IconView> category_views = new Gee.HashMap<string, Gtk.IconView> ();
         Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
 
-        public signal void plug_selected(Gtk.IconView view, Gtk.ListStore message);
+        public signal void plug_selected (string title, string executable);
         string [] category_ids = { "personal", "hardware", "network", "system" };
         string [] category_names = { N_("Personal"), N_("Hardware"), N_("Network and Wireless"), N_("System") };
 
@@ -38,7 +38,7 @@ namespace Switchboard {
                 var category_plugs = new Gtk.IconView.with_model (filtered);
                 category_plugs.set_text_column (0);
                 category_plugs.set_pixbuf_column (1);
-                category_plugs.selection_changed.connect(() => plug_selected(category_plugs, store));
+                category_plugs.selection_changed.connect(() => on_selection_changed(category_plugs, filtered));
                 var color = get_style_context().get_background_color(Gtk.StateFlags.NORMAL);
                 category_plugs.override_background_color (Gtk.StateFlags.NORMAL, color);
                 label.xalign = (float) 0.02;
@@ -107,6 +107,24 @@ namespace Switchboard {
                 else
                     container.show ();
             }
+        }
+
+        private void on_selection_changed (Gtk.IconView view, Gtk.TreeModelFilter store) {
+            
+            GLib.Value title;
+            GLib.Value executable;
+            Gtk.TreeIter selected_plug;
+            
+            var selected = view.get_selected_items ();
+            var item = selected.nth_data(0);
+
+            store.get_iter (out selected_plug, item);
+            store.get_value (selected_plug, 0, out title);
+            store.get_value (selected_plug, 2, out executable);
+
+            plug_selected (title.get_string(), executable.get_string());
+
+            view.unselect_path (item);
         }
     }
 }
