@@ -32,9 +32,10 @@ namespace Switchboard {
             for (int i = 0; i < category_ids.length; i++) {
                 var store = new Gtk.ListStore (4, typeof (string), typeof (Gdk.Pixbuf), typeof(string), typeof(bool));
                 var label = new Gtk.Label ("<big><b>" + _(category_names[i]) + "</b></big>");
-                var category_plugs = new Gtk.IconView.with_model (store);
-                var cellrenderer = category_plugs.get_cells ().nth_data (0);
-                category_plugs.set_attributes (cellrenderer, "visible", 3, null);
+                var filtered = new Gtk.TreeModelFilter(store, null);
+                filtered.set_visible_column(3);
+                filtered.refilter();
+                var category_plugs = new Gtk.IconView.with_model (filtered);
                 category_plugs.set_text_column (0);
                 category_plugs.set_pixbuf_column (1);
                 category_plugs.selection_changed.connect(() => plug_selected(category_plugs, store));
@@ -83,70 +84,30 @@ namespace Switchboard {
             
             foreach (string category in category_ids) {
 
-                var icon_view = category_views[category];
                 var store = category_store[category];
+                var container = category_labels[category];
+
+                int shown = 0;
 
                 store.foreach((model, path, iter) => {
                     string title;
 
                     store.get (iter, 0, out title);
 
-                    if (filter.down () in title.down ())
+                    if (filter.down () in title.down ()) {
                         store.set_value (iter, 3, true);
-                    else
-                        store.set_value (iter, 3, false);
+                        shown ++;
+                    } else store.set_value (iter, 3, false);
 
                     return false;
                 });
                 
+                if (shown == 0)
+                    container.hide ();
+                else
+                    container.show ();
             }
         }
-
-        // public void filter_plugs (string filter) {
-
-        //     foreach (string category in category_ids) {
-        //         if (filter.length > 0) {    
-
-        //             print ("Searching " + category + "\n");
-        //             int shown = 0;
-
-        //             Gtk.TreeIter iter;
-        //             category_store[category].get_iter_first(out iter);
-
-        //             string title;
-        //             string exec;
-        //             Gdk.Pixbuf buf;                    
-
-        //             var store = new Gtk.ListStore (3, typeof (string), typeof (Gdk.Pixbuf), typeof(string));
-        //             while (category_store[category].iter_next(ref iter)) {
-        //                 category_store[category].get(iter, 0, out title);
-        //                 category_store[category].get(iter, 1, out buf);
-        //                 category_store[category].get(iter, 2, out exec);
-
-        //                 print ("Filter: "+filter.down()+" Title: "+title.down()+"\n");
-
-        //                 if (filter.down() in title.down()) {
-        //                     Gtk.TreeIter root;
-        //                     store.append(out root);
-        //                     store.set(root, 0, title);
-        //                     store.set(root, 1, buf);
-        //                     store.set(root, 2, exec);
-
-        //                     shown++;
-        //                 }
-        //             }
-
-        //             if (shown == 0) {
-        //                 category_labels[category].hide();
-        //             } else {
-        //                 category_labels[category].show();
-        //                 category_views[category].set_model (store);
-        //             }
-        //         } else {
-        //             category_views[category].set_model (category_store[category]);
-        //         }
-        //     }
-        // }
     }
 }
 

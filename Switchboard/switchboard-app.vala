@@ -129,7 +129,7 @@ namespace Switchboard {
                 GLib.Value title;
                 GLib.Value executable;
                 var item = selected.nth_data(0);
-                store.get_iter(out selected_plug, item);
+                store.get_iter (out selected_plug, item);
                 store.get_value (selected_plug, 0, out title);
                 store.get_value (selected_plug, 2, out executable);
                 debug("Selected plug: title %s | executable %s", title.get_string(), executable.get_string());
