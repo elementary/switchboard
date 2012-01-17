@@ -194,8 +194,6 @@ namespace Switchboard {
         // Switches to the socket view
         void switch_to_socket() {
 
-            print("called\n");
-
             vbox.set_child_packing(socket, true, true, 0, Gtk.PackType.END);
             scrolled.hide();
             socket.show();
@@ -306,6 +304,7 @@ namespace Switchboard {
 
         // Counts how many plugs exist at the moment
         int count_plugs () {
+
             uint count = 0;
             foreach (string place in plug_places)
                 count += find_plugs (place).length ();
