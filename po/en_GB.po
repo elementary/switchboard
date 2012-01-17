@@ -8,20 +8,20 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-13 18:01+0100\n"
-"PO-Revision-Date: 2011-08-08 16:04+0000\n"
+"PO-Revision-Date: 2012-01-16 20:29+0000\n"
 "Last-Translator: Alfredo Hernández <Unknown>\n"
 "Language-Team: English (United Kingdom) <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-01-14 05:46+0000\n"
-"X-Generator: Launchpad (build 14664)\n"
+"X-Launchpad-Export-Date: 2012-01-17 05:14+0000\n"
+"X-Generator: Launchpad (build 14676)\n"
 "Language: \n"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:114
 #, c-format
 msgid "Exiting plug \"%s\" from Switchboard controller.."
-msgstr ""
+msgstr "Exiting plug \"%s\" from Switchboard controller..."
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:131
 #, c-format
@@ -31,26 +31,27 @@ msgstr "Failed to launch plug: title %s | executable %s"
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:263
 msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
 msgstr ""
+"Unable to iterate over enumerated plug directory \"$path\"'s contents"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:351
 msgid "Type to search ..."
-msgstr ""
+msgstr "Type to search..."
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:390
 msgid "Welcome to $APP_TITLE"
-msgstr ""
+msgstr "Welcome to $APP_TITLE"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:391
 msgid "Version: $VERSION"
-msgstr ""
+msgstr "Version: $VERSION"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:392
 msgid "Report any issues/bugs you mind find to lp:switchboard"
-msgstr ""
+msgstr "Report any issues/bugs you find to lp:switchboard"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:399
 msgid "Switchboard already running. Exiting.."
-msgstr ""
+msgstr "Switchboard is already running. Exiting..."
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:31
 msgid "Personal"
@@ -73,8 +74,9 @@ msgstr "System"
 msgid ""
 "Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
 msgstr ""
+"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:75
 #, c-format
 msgid "Unable to load plug %'s icon: %s"
-msgstr ""
+msgstr "Unable to load plug %'s icon: %s"
