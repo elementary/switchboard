@@ -21,20 +21,24 @@ namespace Switchboard {
 
         Gee.HashMap<string, Gtk.VBox> category_labels = new Gee.HashMap<string, Gtk.VBox> ();
         Gee.HashMap<string, Gtk.ListStore> category_store = new Gee.HashMap<string, Gtk.ListStore> ();
+        Gee.HashMap<string, Gtk.IconView> category_views = new Gee.HashMap<string, Gtk.IconView> ();
         Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
 
-        public signal void plug_selected(Gtk.IconView view, Gtk.ListStore message);
+        public signal void plug_selected (string title, string executable);
         string [] category_ids = { "personal", "hardware", "network", "system" };
         string [] category_names = { N_("Personal"), N_("Hardware"), N_("Network and Wireless"), N_("System") };
 
         public CategoryView () {
             for (int i = 0; i < category_ids.length; i++) {
-                var store = new Gtk.ListStore (3, typeof (string), typeof (Gdk.Pixbuf), typeof(string));
+                var store = new Gtk.ListStore (4, typeof (string), typeof (Gdk.Pixbuf), typeof(string), typeof(bool));
                 var label = new Gtk.Label ("<big><b>" + _(category_names[i]) + "</b></big>");
-                var category_plugs = new Gtk.IconView.with_model (store);
+                var filtered = new Gtk.TreeModelFilter(store, null);
+                filtered.set_visible_column(3);
+                filtered.refilter();
+                var category_plugs = new Gtk.IconView.with_model (filtered);
                 category_plugs.set_text_column (0);
                 category_plugs.set_pixbuf_column (1);
-                category_plugs.selection_changed.connect(() => plug_selected(category_plugs, store));
+                category_plugs.selection_changed.connect(() => on_selection_changed(category_plugs, filtered));
                 var color = get_style_context().get_background_color(Gtk.StateFlags.NORMAL);
                 category_plugs.override_background_color (Gtk.StateFlags.NORMAL, color);
                 label.xalign = (float) 0.02;
@@ -49,6 +53,7 @@ namespace Switchboard {
                 vbox.pack_end(category_plugs, true, true);
                 category_labels[category_ids[i]] = vbox;
                 category_store[category_ids[i]] = store;
+                category_views[category_ids[i]] = category_plugs;
                 pack_start(vbox);
                 vbox.show_all();
                 vbox.hide();
@@ -71,7 +76,55 @@ namespace Switchboard {
             }
             category_store[plug_down].set(root, 0, plug["title"]);
             category_store[plug_down].set(root, 2, plug["exec"]);
+            category_store[plug_down].set(root, 3, true);
             category_labels[plug_down].show();
+        }
+
+        public void filter_plugs (string filter) {
+            
+            foreach (string category in category_ids) {
+
+                var store = category_store[category];
+                var container = category_labels[category];
+
+                int shown = 0;
+
+                store.foreach((model, path, iter) => {
+                    string title;
+
+                    store.get (iter, 0, out title);
+
+                    if (filter.down () in title.down ()) {
+                        store.set_value (iter, 3, true);
+                        shown ++;
+                    } else store.set_value (iter, 3, false);
+
+                    return false;
+                });
+                
+                if (shown == 0)
+                    container.hide ();
+                else
+                    container.show ();
+            }
+        }
+
+        private void on_selection_changed (Gtk.IconView view, Gtk.TreeModelFilter store) {
+            
+            GLib.Value title;
+            GLib.Value executable;
+            Gtk.TreeIter selected_plug;
+            
+            var selected = view.get_selected_items ();
+            var item = selected.nth_data(0);
+
+            store.get_iter (out selected_plug, item);
+            store.get_value (selected_plug, 0, out title);
+            store.get_value (selected_plug, 2, out executable);
+
+            plug_selected (title.get_string(), executable.get_string());
+
+            view.unselect_path (item);
         }
     }
 }

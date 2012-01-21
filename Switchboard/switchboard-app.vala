@@ -57,9 +57,11 @@ namespace Switchboard {
         Gtk.Viewport viewport;
 
         // Plug data
-        Gtk.TreeIter selected_plug;
         bool socket_shown;
         Gee.HashMap<string, string> current_plug = new Gee.HashMap<string, string>();
+
+        string[] plug_places = {"/usr/share/plugs/", "/usr/lib/plugs/", "/usr/local/share/plugs/", "/usr/local/lib/plugs/"};
+        string search_box_buffer = "";
 
         public SwitchboardApp () {
             
@@ -77,7 +79,6 @@ namespace Switchboard {
 
             // Set up socket
             socket = new Gtk.Socket ();
-            socket.plug_added.connect(switch_to_socket);
             socket.plug_removed.connect(switch_to_icons);
             socket.hide();
 
@@ -86,7 +87,7 @@ namespace Switchboard {
             current_plug["executable"] = "";
 
             // Set up UI
-            category_view.plug_selected.connect((view, store) => load_plug(view, store));
+            category_view.plug_selected.connect((title, executable) => load_plug (title, executable));
             vbox = new Gtk.VBox (false, 0);
             vbox.pack_start (toolbar, false, false);
             vbox.pack_start (socket, false, false);
@@ -103,10 +104,9 @@ namespace Switchboard {
             scrolled.show ();
             viewport.show ();
 
-            enumerate_plugs ("/usr/share/plugs/");
-            enumerate_plugs ("/usr/lib/plugs/");
-            enumerate_plugs ("/usr/local/share/plugs/");
-            enumerate_plugs ("/usr/local/lib/plugs/");
+            foreach (string place in plug_places)
+                enumerate_plugs (place);
+
             main_window.show ();
         }
 
@@ -120,49 +120,32 @@ namespace Switchboard {
             Gtk.main_quit();
         }
 
-        void load_plug(Gtk.IconView plug_view, Gtk.ListStore store) {
-            var selected = plug_view.get_selected_items ();
-            // Why is this check neccessary?
-            if(selected.length() == 1)
-            {
-                GLib.Value title;
-                GLib.Value executable;
-                var item = selected.nth_data(0);
-                store.get_iter(out selected_plug, item);
-                store.get_value (selected_plug, 0, out title);
-                store.get_value (selected_plug, 2, out executable);
-                debug("Selected plug: title %s | executable %s", title.get_string(), executable.get_string());
-                debug("Current plug: %s", current_plug["title"]);
-                // Launch plug's executable
-                if (current_plug["title"] != title.get_string()) {
-                    try {
-                        // The plug is already selected
-                        debug(_("Exiting plug \"%s\" from Switchboard controller.."), current_plug["title"]);
-                        plug_closed();
-                        var cmd_exploded = executable.get_string().split(" ");
-                        string working_directory = File.new_for_path(cmd_exploded[0]).get_parent().get_path();
-                        GLib.Process.spawn_async(working_directory, cmd_exploded, null, SpawnFlags.SEARCH_PATH, null, null);
-                        current_plug["title"] = title.get_string();
-                        current_plug["executable"] = executable.get_string();
-                        // ensure the button is sensitive; it might be the first plug loaded
-                        navigation_button.set_sensitive(true);
-                        navigation_button.stock_id = Gtk.Stock.HOME;
-                        switch_to_socket();
-                    } catch {
-                        warning(_("Failed to launch plug: title %s | executable %s"), title.get_string(), executable.get_string());
-                    }
-                }
-                else {
-                    switch_to_socket();
+        void load_plug (string title, string executable) {
+            debug("Selected plug: title %s | executable %s", title, executable);
+            debug("Current plug: %s", current_plug["title"]);
+            // Launch plug's executable
+            if (current_plug["title"] != title) {
+                try {
+                    // The plug is already selected
+                    debug(_("Exiting plug \"%s\" from Switchboard controller.."), current_plug["title"]);
+                    plug_closed();
+                    var cmd_exploded = executable.split(" ");
+                    string working_directory = File.new_for_path(cmd_exploded[0]).get_parent().get_path();
+                    GLib.Process.spawn_async(working_directory, cmd_exploded, null, SpawnFlags.SEARCH_PATH, null, null);
+                    current_plug["title"] = title;
+                    current_plug["executable"] = executable;
+                    // ensure the button is sensitive; it might be the first plug loaded
                     navigation_button.set_sensitive(true);
                     navigation_button.stock_id = Gtk.Stock.HOME;
+                    switch_to_socket ();
+                } catch {
+                    warning(_("Failed to launch plug: title %s | executable %s"), title, executable);
                 }
-                /* Clear selection again */
-                plug_view.unselect_path(item);
             }
-            else
-            {
-                warning("Try to open multiple plug at once?! (%d)", (int)selected.length());
+            else {
+                switch_to_socket ();
+                navigation_button.set_sensitive(true);
+                navigation_button.stock_id = Gtk.Stock.HOME;
             }
         }
 
@@ -198,6 +181,7 @@ namespace Switchboard {
             socket.show();
             load_plug_title (current_plug["title"]);
             socket_shown = true;
+            switch_search_box(false);
         }
 
         // Switches back to the icons
@@ -208,7 +192,21 @@ namespace Switchboard {
             scrolled.show();
             reset_title ();
             socket_shown = false;
+            switch_search_box((count_plugs () > 0));
             return true;
+        }
+
+        // Gracefully switches search_box's sensitivity
+        void switch_search_box(bool sensitive) {
+
+            if (sensitive) {
+                search_box.set_text(search_box_buffer);
+            } else {
+                search_box_buffer = search_box.get_text();
+                search_box.set_text("");      
+            }
+
+            search_box.sensitive = sensitive;
         }
 
         // Loads in all of the plugs
@@ -284,6 +282,15 @@ namespace Switchboard {
                 warning(_(@"Unable to iterate over enumerated plug directory \"$path\"'s contents"));
             }
             return keyfiles;
+        }
+
+        // Counts how many plugs exist at the moment
+        int count_plugs () {
+
+            uint count = 0;
+            foreach (string place in plug_places)
+                count += find_plugs (place).length ();
+            return (int) count;
         }
 
         // D-Bus ONLY methods
@@ -364,9 +371,12 @@ namespace Switchboard {
             search_box = new Gtk.Entry ();
             search_box.placeholder_text = _("Search Plugs");
             search_box.primary_icon_stock = "gtk-find";
-            search_box.sensitive = false;
             search_box.activate.connect(() => search_box_activated());
-            search_box.changed.connect(() => search_box_text_changed());
+            search_box.changed.connect(() => {
+                category_view.filter_plugs(search_box.get_text ());
+                search_box_text_changed();
+            });
+            search_box.sensitive = (count_plugs () > 0);
             var find_toolitem = new Gtk.ToolItem ();
             find_toolitem.add(search_box);
 
