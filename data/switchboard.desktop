@@ -2,8 +2,8 @@
 Type=Application
 Version=0.8
 Name=Switchboard
-_GenericName=Switchboard
-_Comment=Desktop preferences
+_GenericName=Settings Center
+_Comment=Change system and user settings
 Exec=switchboard
 Icon=preferences-desktop
 Terminal=false
