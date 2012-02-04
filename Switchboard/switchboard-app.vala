@@ -1,6 +1,6 @@
 /***
 BEGIN LICENSE
-Copyright (C) 2011 Avi Romanoff <aviromanoff@gmail.com>
+Copyright (C) 2011-2012 Avi Romanoff <aviromanoff@gmail.com>
 This program is free software: you can redistribute it and/or modify it
 under the terms of the GNU Lesser General Public License version 3, as published
 by the Free Software Foundation.
@@ -23,7 +23,7 @@ namespace Switchboard {
         construct {
             application_id = "org.elementary.Switchboard";
             program_name = APP_TITLE;
-            app_years = "2011 - 2012";
+            app_years = "2011-2012";
 
             build_version = VERSION;
             app_icon = APP_ICON;
