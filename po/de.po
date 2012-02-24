@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-13 18:01+0100\n"
-"PO-Revision-Date: 2012-01-27 19:18+0000\n"
-"Last-Translator: Thomas Pitlik <Unknown>\n"
+"PO-Revision-Date: 2012-02-23 15:10+0000\n"
+"Last-Translator: Henrik Graßhoff <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-01-28 05:16+0000\n"
-"X-Generator: Launchpad (build 14727)\n"
+"X-Launchpad-Export-Date: 2012-02-24 05:08+0000\n"
+"X-Generator: Launchpad (build 14860)\n"
 "Language: de\n"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:114
@@ -26,7 +26,7 @@ msgstr ""
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:131
 #, c-format
 msgid "Failed to launch plug: title %s | executable %s"
-msgstr "Starten des Plug's fehlgeschlagen: Name %s | Auszuführende Datei %s"
+msgstr "Starten des Plugs fehlgeschlagen: Name %s | Auszuführende Datei %s"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:263
 msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
@@ -34,7 +34,7 @@ msgstr ""
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:351
 msgid "Type to search ..."
-msgstr "Suche nach ..."
+msgstr "Suche nach …"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:390
 msgid "Welcome to $APP_TITLE"
@@ -46,7 +46,7 @@ msgstr "Version: $VERSION"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:392
 msgid "Report any issues/bugs you mind find to lp:switchboard"
-msgstr "Bitte melde alle Fehler/Bugs, die du findest, auf lp:switchboard"
+msgstr "Bitte melden Sie alle Fehler, die Sie finden, auf lp:switchboard"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:399
 msgid "Switchboard already running. Exiting.."
@@ -58,23 +58,25 @@ msgstr "Persönliches"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:32
 msgid "Hardware"
-msgstr "Geräte"
+msgstr "Hardware"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:33
 msgid "Network and Wireless"
-msgstr "Netzwerke"
+msgstr "Netzwerk und Funk"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:34
 msgid "System"
-msgstr "Systemeinstellungen"
+msgstr "System"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:68
 #, c-format
 msgid ""
 "Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
 msgstr ""
+"Die Schlüsseldatei »%s« enthält eine ungültige Kategorie: »%s«, und wird "
+"nicht hinzugefügt"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:75
 #, c-format
 msgid "Unable to load plug %'s icon: %s"
-msgstr ""
+msgstr "Das Symbol des Plugs %'s konnte nicht geladen werden: %s"
