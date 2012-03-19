@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-13 18:01+0100\n"
-"PO-Revision-Date: 2012-02-21 14:28+0000\n"
-"Last-Translator: Emre Can <ihatememberships@gmail.com>\n"
+"PO-Revision-Date: 2012-03-18 14:43+0000\n"
+"Last-Translator: Çağatay Çöl <cagataycol@post.com>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-22 06:24+0000\n"
-"X-Generator: Launchpad (build 14838)\n"
+"X-Launchpad-Export-Date: 2012-03-19 04:57+0000\n"
+"X-Generator: Launchpad (build 14969)\n"
 "Language: tr\n"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:114
@@ -73,6 +73,7 @@ msgstr "Sistem"
 msgid ""
 "Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
 msgstr ""
+"\"%s\" dosyası geçersiz bir kategori içeriyor: \"%s\", ve eklenmeyecek"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:75
 #, c-format
