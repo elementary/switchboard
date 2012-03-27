@@ -412,14 +412,14 @@ namespace Switchboard {
     }
     
     static const OptionEntry[] entries = {
-            { "open-plug", 'o', 0, OptionArg.STRING, ref plug_to_open, "Open a plug", "PLUG_PATH" },
+            { "open-plug", 'o', 0, OptionArg.STRING, ref plug_to_open, "Open a plug", "PLUG_NAME" },
             { null }
     };
 
     // Handles a successful connection to D-Bus and launches the app
     void on_bus_aquired (DBusConnection conn, string[] args) {
     
-        var context = new OptionContext("Plug");
+        var context = new OptionContext("");
         context.add_main_entries(entries, "switchboard ");
         context.add_group(Gtk.get_option_group(true));
         try {
