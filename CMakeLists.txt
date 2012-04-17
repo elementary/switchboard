@@ -66,7 +66,7 @@ add_definitions(${DEPS_CFLAGS})
 link_directories(${DEPS_LIBRARY_DIRS})
 find_package(Vala REQUIRED)
 include(ValaVersion)
-ensure_vala_version("0.12.0" MINIMUM)
+ensure_vala_version("0.15.1" MINIMUM)
 include(ValaPrecompile)
 vala_precompile(VALA_C
     Switchboard/switchboard-app.vala
