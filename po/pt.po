@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-13 18:01+0100\n"
-"PO-Revision-Date: 2012-04-01 11:10+0000\n"
-"Last-Translator: Ivo Nunes <Unknown>\n"
+"PO-Revision-Date: 2012-04-19 13:57+0000\n"
+"Last-Translator: Laurentino <laurentinolopes@gmail.com>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-02 04:48+0000\n"
-"X-Generator: Launchpad (build 15032)\n"
+"X-Launchpad-Export-Date: 2012-04-20 05:03+0000\n"
+"X-Generator: Launchpad (build 15120)\n"
 "Language: pt\n"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:114
@@ -31,6 +31,8 @@ msgstr "Falha ao iniciar o extra: título %s | executável %s"
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:263
 msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
 msgstr ""
+"Incapaz de interagir sobre  o conteúdo do directório de extras indicado em "
+"\"$path\"s"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:351
 msgid "Type to search ..."
@@ -73,8 +75,9 @@ msgstr "Sistema"
 msgid ""
 "Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
 msgstr ""
+"Keyfile \"%s\" contém uma categoria inválida: \"%s\", e não será adicionado"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:75
 #, c-format
 msgid "Unable to load plug %'s icon: %s"
-msgstr ""
+msgstr "Incapaz de carregar o extra %'s icon: %s"

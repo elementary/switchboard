@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-13 18:01+0100\n"
-"PO-Revision-Date: 2012-04-16 09:05+0000\n"
-"Last-Translator: Thomas Berends <Unknown>\n"
+"PO-Revision-Date: 2012-04-19 09:47+0000\n"
+"Last-Translator: Richard Prins <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-17 05:28+0000\n"
-"X-Generator: Launchpad (build 15099)\n"
+"X-Launchpad-Export-Date: 2012-04-20 05:03+0000\n"
+"X-Generator: Launchpad (build 15120)\n"
 "Language: nl\n"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:114
@@ -47,6 +47,7 @@ msgstr "Versie: $VERSION"
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:392
 msgid "Report any issues/bugs you mind find to lp:switchboard"
 msgstr ""
+"Geef alle problemen/bugs die u vind door s.v.p. door aan lp:switchboard"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:399
 msgid "Switchboard already running. Exiting.."
