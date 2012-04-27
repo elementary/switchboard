@@ -8,49 +8,49 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-13 18:01+0100\n"
-"PO-Revision-Date: 2012-01-11 09:46+0000\n"
+"PO-Revision-Date: 2012-04-26 21:11+0000\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-01-14 05:46+0000\n"
-"X-Generator: Launchpad (build 14664)\n"
+"X-Launchpad-Export-Date: 2012-04-27 04:53+0000\n"
+"X-Generator: Launchpad (build 15149)\n"
 "Language: he\n"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:114
 #, c-format
 msgid "Exiting plug \"%s\" from Switchboard controller.."
-msgstr ""
+msgstr "מתבצעת יציאה מהתוסף „%s“ של פקד ה־Switchboard."
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:131
 #, c-format
 msgid "Failed to launch plug: title %s | executable %s"
-msgstr "לא יכול להפעיל את התוסף: שם %s | קובץ הרצה %s"
+msgstr "לא ניתן להפעיל את התוסף: שם %s | קובץ הרצה %s"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:263
 msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
-msgstr ""
+msgstr "לא ניתן לחזור על תוכן תיקיית התוסף \"$path\" שתוכנה נספר"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:351
 msgid "Type to search ..."
-msgstr ""
+msgstr "יש להקליד כדי לחפש ..."
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:390
 msgid "Welcome to $APP_TITLE"
-msgstr ""
+msgstr "ברוך בואך ל־$APP_TITLE"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:391
 msgid "Version: $VERSION"
-msgstr ""
+msgstr "גרסה: $VERSION"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:392
 msgid "Report any issues/bugs you mind find to lp:switchboard"
-msgstr ""
+msgstr "דיווח על בעיות/תקלות שמצאת אל lp:switchboard"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:399
 msgid "Switchboard already running. Exiting.."
-msgstr ""
+msgstr "ה־Switchboard כבר פעיל. מתבצעת יציאה..."
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:31
 msgid "Personal"
@@ -72,9 +72,9 @@ msgstr "מערכת"
 #, c-format
 msgid ""
 "Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
-msgstr ""
+msgstr "קובץ המפתח „%s“ מכיל קטגוריה שגויה: „%s“ ולכן היא לא תתווסף"
 
 #: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:75
 #, c-format
 msgid "Unable to load plug %'s icon: %s"
-msgstr ""
+msgstr "לא ניתן לטעון את סמל התוסף %'s:‏ %s"
