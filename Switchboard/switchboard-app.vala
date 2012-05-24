@@ -54,21 +54,25 @@ namespace Switchboard {
         // Content area widgets
         Gtk.Socket socket;
         Gtk.VBox vbox;
-        Switchboard.CategoryView category_view = new Switchboard.CategoryView();
-        Gtk.ScrolledWindow scrolled;
-        Gtk.Viewport viewport;
+        Switchboard.CategoryView category_view;
+
+        public GtkClutter.Embed clutter;
+        public GtkClutter.Actor overview;
 
         // Plug data
         bool socket_shown;
         Gee.HashMap<string, string> current_plug = new Gee.HashMap<string, string>();
         Gee.HashMap<string, string>[] plugs;
 
-        string[] plug_places = {"/usr/share/plugs/", "/usr/lib/plugs/", "/usr/local/share/plugs/", "/usr/local/lib/plugs/"};
-        string search_box_buffer = "";    
+        string[] plug_places = {"/usr/share/plugs/", "/usr/lib/plugs/", "/usr/local/share/plugs/", 
+            "/usr/local/lib/plugs/"};
+        string search_box_buffer = "";
 
         public SwitchboardApp () {
             
             main_window = new Gtk.Window();
+
+            this.clutter = new GtkClutter.Embed ();
 
             // Set up defaults
             main_window.title = APP_TITLE;
@@ -83,34 +87,45 @@ namespace Switchboard {
             // Set up socket
             socket = new Gtk.Socket ();
             socket.plug_removed.connect(switch_to_icons);
-            socket.hide();
 
             // ??? Why?
             current_plug["title"] = "";
             current_plug["executable"] = "";
 
             // Set up UI
-            category_view.plug_selected.connect((title, executable) => load_plug (title, executable));
             vbox = new Gtk.VBox (false, 0);
             vbox.pack_start (toolbar, false, false);
-            vbox.pack_start (socket, false, false);
-
-            scrolled = new Gtk.ScrolledWindow (null, null);
-            viewport = new Gtk.Viewport (null, null);
-            viewport.add (category_view);
-            scrolled.add (viewport);
-            vbox.pack_end (scrolled, true, true);
 
             main_window.add (vbox);
-            vbox.show ();
-            category_view.show ();
-            scrolled.show ();
-            viewport.show ();
+            vbox.pack_start (this.clutter);
 
+            main_window.set_application (this);
+            main_window.resizable = false;
+            main_window.show_all ();
+            
+            vbox.pack_start (socket);
+            socket.hide ();
+            
+            category_view = new Switchboard.CategoryView();
+            category_view.plug_selected.connect((title, executable) => load_plug (title, executable));
+            category_view.margin_top  = 12;
+            
+            this.overview = new GtkClutter.Actor.with_contents (category_view);
+            this.overview.get_widget ().show ();
+            
+            this.clutter.get_stage ().add_child (this.overview);
+            (this.clutter.get_stage () as Clutter.Stage).use_alpha = true;
+            var bg_col = main_window.get_style_context ().get_background_color (Gtk.StateFlags.NORMAL);
+            (this.clutter.get_stage () as Clutter.Stage).color = 
+                {(uint8)(bg_col.red*255), (uint8)(bg_col.green*255), (uint8)(bg_col.blue*255), 255};
+            
+            this.overview.add_constraint (new Clutter.BindConstraint (this.clutter.get_stage (), 
+                Clutter.BindCoordinate.WIDTH, 0));
+            this.overview.add_constraint (new Clutter.BindConstraint (this.clutter.get_stage (), 
+                Clutter.BindCoordinate.HEIGHT, 0));
+            
             foreach (string place in plug_places)
                 enumerate_plugs (place);
-
-            main_window.show ();
             
             bool found = false;
             if (plug_to_open != null) {
@@ -125,39 +140,36 @@ namespace Switchboard {
         }
 
         void shutdown() {
-
             plug_closed();
             // What's this for? Smells like a bad idea.
 //            while(Gtk.events_pending ()) {
 //                Gtk.main_iteration();
 //            }
-            Gtk.main_quit();
         }
 
         public void load_plug (string title, string executable) {
             debug("Selected plug: title %s | executable %s", title, executable);
             debug("Current plug: %s", current_plug["title"]);
             // Launch plug's executable
+            
+            switch_to_socket ();
             if (current_plug["title"] != title) {
                 try {
                     // The plug is already selected
                     debug(_("Exiting plug \"%s\" from Switchboard controller.."), current_plug["title"]);
-                    plug_closed();
-                    var cmd_exploded = executable.split(" ");
-                    string working_directory = File.new_for_path(cmd_exploded[0]).get_parent().get_path();
-                    GLib.Process.spawn_async(working_directory, cmd_exploded, null, SpawnFlags.SEARCH_PATH, null, null);
+                    
+                    string[] cmd_exploded = (executable!=null)?executable.split (" "):null;
+                    GLib.Process.spawn_async (File.new_for_path (cmd_exploded[0]).get_parent ().
+                        get_path (), cmd_exploded, null, SpawnFlags.SEARCH_PATH, null, null);
+                    
                     current_plug["title"] = title;
                     current_plug["executable"] = executable;
                     // ensure the button is sensitive; it might be the first plug loaded
                     navigation_button.set_sensitive(true);
                     navigation_button.stock_id = Gtk.Stock.HOME;
-                    switch_to_socket ();
-                } catch {
-                    warning(_("Failed to launch plug: title %s | executable %s"), title, executable);
-                }
+                } catch {  warning(_("Failed to launch plug: title %s | executable %s"), title, executable); }
             }
             else {
-                switch_to_socket ();
                 navigation_button.set_sensitive(true);
                 navigation_button.stock_id = Gtk.Stock.HOME;
             }
@@ -165,7 +177,6 @@ namespace Switchboard {
 
         // Change Switchboard title to "Switchboard - PlugName"
         void load_plug_title (string plug_title) {
-
             main_window.title = @"$APP_TITLE - $plug_title";
         }
 
@@ -176,7 +187,6 @@ namespace Switchboard {
 
         // Handles clicking the navigation button
         void handle_navigation_button_clicked () {
-
             if (navigation_button.stock_id == Gtk.Stock.HOME) {
                 switch_to_icons();
                 navigation_button.stock_id = Gtk.Stock.GO_BACK;
@@ -189,24 +199,29 @@ namespace Switchboard {
 
         // Switches to the socket view
         void switch_to_socket() {
-
-            vbox.set_child_packing(socket, true, true, 0, Gtk.PackType.END);
-            scrolled.hide();
-            socket.show();
             load_plug_title (current_plug["title"]);
             socket_shown = true;
             switch_search_box(false);
+            
+            socket.realize ();
+            this.overview.animate (Clutter.AnimationMode.EASE_IN_QUAD, 400, y:-clutter.get_stage ().height)
+                .completed.connect ( () => {
+                clutter.hide ();
+                socket.show_all ();
+            });
         }
 
         // Switches back to the icons
         bool switch_to_icons() {
-
-            vbox.set_child_packing(socket, false, false, 0, Gtk.PackType.END);
             socket.hide ();
-            scrolled.show();
+            clutter.show_all ();
+            this.overview.animate (Clutter.AnimationMode.EASE_IN_QUAD, 400, y:0.0f);
+            
             reset_title ();
             socket_shown = false;
             switch_search_box((count_plugs () > 0));
+            
+            plug_closed ();
             return true;
         }
 
@@ -254,48 +269,40 @@ namespace Switchboard {
 
         // Checks if the file is a .plug file
         bool is_plug_file (string filename) {
-
             return (filename.down().has_suffix(".plug"));
         }
 
         // Find all .plug files
-        List<string> find_plugs (string path, List<string>? keyfiles_list = null)
-        {
+        List<string> find_plugs (string path, List<string>? keyfiles_list = null) {
             List<string>? keyfiles;
-            if(keyfiles_list == null)
-            {
+            if(keyfiles_list == null) {
                 keyfiles = new List<string> ();
-            }
-            else
-            {
+            } else {
                 keyfiles = new List<string> ();
-                foreach(var keyfile in keyfiles_list) 
-                {
-                keyfiles.append(keyfile);
+                foreach(var keyfile in keyfiles_list) {
+                    keyfiles.append(keyfile);
                 }
             }
+            
             var directory = File.new_for_path (path);
-            try
-            {
-                var enumerator = directory.enumerate_children (FILE_ATTRIBUTE_STANDARD_NAME + "," + FILE_ATTRIBUTE_STANDARD_TYPE, 0);
+            if (!directory.query_exists ()) {
+                return null;
+            }
+            try {
+                var enumerator = directory.enumerate_children (
+                    FileAttribute.STANDARD_NAME + "," + FileAttribute.STANDARD_TYPE, 0);
                 FileInfo file_info;
-                while ((file_info = enumerator.next_file ()) != null)
-                {
+                while ((file_info = enumerator.next_file ()) != null) {
                     string file_path = Path.build_filename(path, file_info.get_name());
-                    if (file_info.get_file_type() == GLib.FileType.REGULAR && is_plug_file(file_info.get_name()))
-                    {
+                    if (file_info.get_file_type() == GLib.FileType.REGULAR && 
+                        is_plug_file(file_info.get_name())) {
                         keyfiles.append(file_path);
-                    }
-                    else if(file_info.get_file_type() == GLib.FileType.DIRECTORY)
-                    {
+                    } else if(file_info.get_file_type() == GLib.FileType.DIRECTORY) {
                         keyfiles = find_plugs(file_path, keyfiles);
                     }
                 }
-            }
-            catch
-            {
-                warning(_(@"Unable to iterate over enumerated plug directory \"$path\"'s contents"));
-            }
+            } catch { warning(_(@"Unable to iterate over enumerated plug directory \"$path\"'s contents")); }
+            
             return keyfiles;
         }
 
@@ -409,6 +416,8 @@ namespace Switchboard {
             toolbar.insert(app_menu, 5);
             toolbar.show_all();
         }
+        
+        public override void activate () {}
     }
     
     static const OptionEntry[] entries = {
@@ -416,30 +425,7 @@ namespace Switchboard {
             { null }
     };
 
-    // Handles a successful connection to D-Bus and launches the app
-    void on_bus_aquired (DBusConnection conn, string[] args) {
-    
-        var context = new OptionContext("");
-        context.add_main_entries(entries, "switchboard ");
-        context.add_group(Gtk.get_option_group(true));
-        try {
-            context.parse(ref args);
-        } catch(Error e) {
-            print(e.message + "\n");
-        }
-
-        // In the future, the plug_root_dir should be overridable by CLI flags.
-        SwitchboardApp switchboard_app = new SwitchboardApp ();
-        switchboard_app.progress_toolitem.hide();
-        try {
-            conn.register_object("/org/elementary/switchboard", switchboard_app);
-        } catch (IOError e) {
-        }
-        
-        switchboard_app.run (args);
-    }
-
-    static int main (string[] args) {
+    public static int main (string[] args) {
 
         var logger = new Granite.Services.Logger ();
         logger.initialize(APP_TITLE);
@@ -447,15 +433,30 @@ namespace Switchboard {
         message(_(@"Welcome to $APP_TITLE"));
         message(_(@"Version: $VERSION"));
         message(_("Report any issues/bugs you mind find to lp:switchboard"));
-
-        Gtk.init (ref args);
+        
+        GtkClutter.init (ref args);
+        
+        var context = new OptionContext("");
+        context.add_main_entries(entries, "switchboard ");
+        context.add_group(Gtk.get_option_group(true));
+        try {
+            context.parse(ref args);
+        } catch(Error e) { warning (e.message); }
+        
+        // In the future, the plug_root_dir should be overridable by CLI flags.
+        var switchboard_app = new SwitchboardApp ();
+        switchboard_app.progress_toolitem.hide();
+        
         Bus.own_name (BusType.SESSION, "org.elementary.switchboard",
                 BusNameOwnerFlags.NONE,
-                (conn) => {on_bus_aquired (conn, args);},
+                (conn) => { 
+                    try {
+                        conn.register_object("/org/elementary/switchboard", switchboard_app);
+                    } catch (IOError e) { warning (e.message); }
+                },
                 () => {},
                 () => {logger.notification(_("Switchboard already running. Exiting..")); Process.exit(1);});
-
-        Gtk.main ();
-        return 0;
+        
+        return switchboard_app.run (args);
     }
 }

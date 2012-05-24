@@ -61,7 +61,7 @@ add_subdirectory(po)
 #
 
 find_package(PkgConfig)
-pkg_check_modules(DEPS REQUIRED granite gio-2.0 gee-1.0)
+pkg_check_modules(DEPS REQUIRED granite gio-2.0 gee-1.0 clutter-gtk-1.0)
 add_definitions(${DEPS_CFLAGS})
 link_directories(${DEPS_LIBRARY_DIRS})
 find_package(Vala REQUIRED)
@@ -74,6 +74,7 @@ vala_precompile(VALA_C
     Switchboard/switchboard-resources.vala
 PACKAGES
     granite
+    clutter-gtk-1.0
     gee-1.0
     gio-2.0
 CUSTOM_VAPIS
