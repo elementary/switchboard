@@ -137,8 +137,18 @@ namespace Switchboard {
                 if (!found)
                     critical ("Couldn't find %s between the loaded plugs.", plug_to_open);
             }
+            
+            Timeout.add (50, () => {
+                foreach (var store in category_view.category_store.values) {
+                    store.foreach((model, path, iter) => { //FIXME workaround for misplaced icons
+                        store.set_value (iter, 3, true);
+                        return false;
+                    });
+                }
+                return false;
+            });
         }
-
+        
         void shutdown() {
             plug_closed();
             // What's this for? Smells like a bad idea.
@@ -148,8 +158,8 @@ namespace Switchboard {
         }
 
         public void load_plug (string title, string executable) {
-            debug("Selected plug: title %s | executable %s", title, executable);
-            debug("Current plug: %s", current_plug["title"]);
+            debug ("Selected plug: title %s | executable %s", title, executable);
+            debug ("Current plug: %s", current_plug["title"]);
             // Launch plug's executable
             
             switch_to_socket ();
@@ -157,6 +167,7 @@ namespace Switchboard {
                 try {
                     // The plug is already selected
                     debug(_("Exiting plug \"%s\" from Switchboard controller.."), current_plug["title"]);
+                    plug_closed ();
                     
                     string[] cmd_exploded = (executable!=null)?executable.split (" "):null;
                     GLib.Process.spawn_async (File.new_for_path (cmd_exploded[0]).get_parent ().
@@ -203,19 +214,20 @@ namespace Switchboard {
             socket_shown = true;
             switch_search_box(false);
             
-            socket.realize ();
-            this.overview.animate (Clutter.AnimationMode.EASE_IN_QUAD, 400, y:-clutter.get_stage ().height)
-                .completed.connect ( () => {
+            this.overview.animate (Clutter.AnimationMode.EASE_IN_QUAD, 400, x:-clutter.get_stage ().width, 
+                opacity:0).completed.connect ( () => {
                 clutter.hide ();
                 socket.show_all ();
             });
         }
-
+        
         // Switches back to the icons
         bool switch_to_icons() {
             socket.hide ();
             clutter.show_all ();
-            this.overview.animate (Clutter.AnimationMode.EASE_IN_QUAD, 400, y:0.0f);
+            this.overview.animate (Clutter.AnimationMode.EASE_OUT_QUAD, 400, x:0.0f, opacity:255);
+            
+            current_plug["title"] = "";
             
             reset_title ();
             socket_shown = false;

@@ -20,8 +20,8 @@ namespace Switchboard {
     public class CategoryView : Gtk.VBox {
 
         Gee.HashMap<string, Gtk.VBox> category_labels = new Gee.HashMap<string, Gtk.VBox> ();
-        Gee.HashMap<string, Gtk.ListStore> category_store = new Gee.HashMap<string, Gtk.ListStore> ();
-        Gee.HashMap<string, Gtk.IconView> category_views = new Gee.HashMap<string, Gtk.IconView> ();
+        public Gee.HashMap<string, Gtk.ListStore> category_store = new Gee.HashMap<string, Gtk.ListStore> ();
+        public Gee.HashMap<string, Gtk.IconView> category_views = new Gee.HashMap<string, Gtk.IconView> ();
         Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
 
         public signal void plug_selected (string title, string executable);
@@ -94,10 +94,8 @@ namespace Switchboard {
             }
             category_store[plug_down].append(out root);
             
-            category_store[plug_down].set(root, 1, icon_pixbuf);
-            category_store[plug_down].set(root, 0, plug["title"]);
-            category_store[plug_down].set(root, 2, plug["exec"]);
-            category_store[plug_down].set(root, 3, true);
+            category_store[plug_down].set(root, 0, plug["title"], 1, icon_pixbuf, 2, plug["exec"], 
+                3, false);
             category_labels[plug_down].show_all();
         }
 
