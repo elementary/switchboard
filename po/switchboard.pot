@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-13 18:01+0100\n"
+"POT-Creation-Date: 2012-06-04 22:26-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,63 +17,22 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:114
-#, c-format
-msgid "Exiting plug \"%s\" from Switchboard controller.."
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-app.vala:387
+msgid "Search Plugs"
 msgstr ""
 
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:131
-#, c-format
-msgid "Failed to launch plug: title %s | executable %s"
-msgstr ""
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:263
-msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
-msgstr ""
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:351
-msgid "Type to search ..."
-msgstr ""
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:390
-msgid "Welcome to $APP_TITLE"
-msgstr ""
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:391
-msgid "Version: $VERSION"
-msgstr ""
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:392
-msgid "Report any issues/bugs you mind find to lp:switchboard"
-msgstr ""
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:399
-msgid "Switchboard already running. Exiting.."
-msgstr ""
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:31
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Personal"
 msgstr ""
 
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:32
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Hardware"
 msgstr ""
 
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:33
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Network and Wireless"
 msgstr ""
 
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:34
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "System"
-msgstr ""
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:68
-#, c-format
-msgid ""
-"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
-msgstr ""
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:75
-#, c-format
-msgid "Unable to load plug %'s icon: %s"
 msgstr ""

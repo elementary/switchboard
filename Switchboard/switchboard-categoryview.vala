@@ -65,14 +65,14 @@ namespace Switchboard {
             Gtk.TreeIter root;
             string plug_down = plug["category"].down();
             if (!(plug_down in category_ids)) {
-                warning(_("Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"), plug["title"], plug["category"]);
+                warning("Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added", plug["title"], plug["category"]);
             }
             category_store[plug_down].append(out root);
             try {
                 var icon_pixbuf = theme.load_icon (plug["icon"], 48, Gtk.IconLookupFlags.GENERIC_FALLBACK);
                 category_store[plug_down].set(root, 1, icon_pixbuf);
             } catch {
-                warning(_("Unable to load plug %'s icon: %s"), plug["title"], plug["icon"]);
+                warning("Unable to load plug %'s icon: %s", plug["title"], plug["icon"]);
             }
             category_store[plug_down].set(root, 0, plug["title"]);
             category_store[plug_down].set(root, 2, plug["exec"]);
