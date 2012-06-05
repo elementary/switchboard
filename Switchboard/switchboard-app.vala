@@ -141,7 +141,7 @@ namespace Switchboard {
             if (current_plug["title"] != title) {
                 try {
                     // The plug is already selected
-                    debug(_("Exiting plug \"%s\" from Switchboard controller.."), current_plug["title"]);
+                    debug("Exiting plug \"%s\" from Switchboard controller..", current_plug["title"]);
                     plug_closed();
                     var cmd_exploded = executable.split(" ");
                     string working_directory = File.new_for_path(cmd_exploded[0]).get_parent().get_path();
@@ -153,7 +153,7 @@ namespace Switchboard {
                     navigation_button.stock_id = Gtk.Stock.HOME;
                     switch_to_socket ();
                 } catch {
-                    warning(_("Failed to launch plug: title %s | executable %s"), title, executable);
+                    warning("Failed to launch plug: title %s | executable %s", title, executable);
                 }
             }
             else {
@@ -294,7 +294,7 @@ namespace Switchboard {
             }
             catch
             {
-                warning(_(@"Unable to iterate over enumerated plug directory \"$path\"'s contents"));
+                warning(@"Unable to iterate over enumerated plug directory \"$path\"'s contents");
             }
             return keyfiles;
         }
@@ -444,16 +444,16 @@ namespace Switchboard {
         var logger = new Granite.Services.Logger ();
         logger.initialize(APP_TITLE);
         logger.DisplayLevel = Granite.Services.LogLevel.INFO;
-        message(_(@"Welcome to $APP_TITLE"));
-        message(_(@"Version: $VERSION"));
-        message(_("Report any issues/bugs you mind find to lp:switchboard"));
+        message(@"Welcome to $APP_TITLE");
+        message(@"Version: $VERSION");
+        message("Report any issues/bugs you mind find to lp:switchboard");
 
         Gtk.init (ref args);
         Bus.own_name (BusType.SESSION, "org.elementary.switchboard",
                 BusNameOwnerFlags.NONE,
                 (conn) => {on_bus_aquired (conn, args);},
                 () => {},
-                () => {logger.notification(_("Switchboard already running. Exiting..")); Process.exit(1);});
+                () => {logger.notification("Switchboard already running. Exiting.."); Process.exit(1);});
 
         Gtk.main ();
         return 0;
