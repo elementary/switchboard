@@ -7,76 +7,32 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-01-13 18:01+0100\n"
+"POT-Creation-Date: 2012-06-04 22:26-0700\n"
 "PO-Revision-Date: 2012-06-01 16:09+0000\n"
 "Last-Translator: abuyop <Unknown>\n"
 "Language-Team: Malay <ms@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-06-02 05:57+0000\n"
-"X-Generator: Launchpad (build 15342)\n"
+"X-Launchpad-Export-Date: 2012-06-06 05:10+0000\n"
+"X-Generator: Launchpad (build 15353)\n"
 
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:114
-#, c-format
-msgid "Exiting plug \"%s\" from Switchboard controller.."
-msgstr "Keluarkan pemalam \"%s\" dari pengawal Switchboard"
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:131
-#, c-format
-msgid "Failed to launch plug: title %s | executable %s"
-msgstr "Gagal lancarkan pemalam: tajuk %s | boleh laku %s"
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:263
-msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-app.vala:387
+msgid "Search Plugs"
 msgstr ""
-"Tidak boleh iterasi terhadap kandungan direktori \"$path\"'s pemalam "
-"terenumerasi"
 
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:351
-msgid "Type to search ..."
-msgstr "Taip untuk gelintar ..."
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:390
-msgid "Welcome to $APP_TITLE"
-msgstr "Selamat datang ke $APP_TITLE"
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:391
-msgid "Version: $VERSION"
-msgstr "Versi: $VERSION"
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:392
-msgid "Report any issues/bugs you mind find to lp:switchboard"
-msgstr "Laporkan sebarang isu/pepijat yang anda jumpa ke lp:switchboard"
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:399
-msgid "Switchboard already running. Exiting.."
-msgstr "Switchboard sudah berjalan. Keluar.."
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:31
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Personal"
 msgstr "Peribadi"
 
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:32
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Hardware"
 msgstr "Perkakasan"
 
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:33
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Network and Wireless"
 msgstr "Rangkaian dan Tanpa Wayar"
 
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:34
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "System"
 msgstr "Sistem"
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:68
-#, c-format
-msgid ""
-"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
-msgstr ""
-"Fail kunci \"%s\" mengandungi kategori tidak sah: \"%s\", tidak akan ditambah"
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:75
-#, c-format
-msgid "Unable to load plug %'s icon: %s"
-msgstr "Tidak boleh muatkan ikon pemalam %'s: %s"

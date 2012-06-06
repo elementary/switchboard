@@ -7,75 +7,33 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-13 18:01+0100\n"
+"POT-Creation-Date: 2012-06-04 22:26-0700\n"
 "PO-Revision-Date: 2012-04-05 20:17+0000\n"
 "Last-Translator: Jiří Šebele <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-06 04:46+0000\n"
-"X-Generator: Launchpad (build 15060)\n"
+"X-Launchpad-Export-Date: 2012-06-06 05:10+0000\n"
+"X-Generator: Launchpad (build 15353)\n"
 "Language: cs\n"
 
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:114
-#, c-format
-msgid "Exiting plug \"%s\" from Switchboard controller.."
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-app.vala:387
+msgid "Search Plugs"
 msgstr ""
 
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:131
-#, c-format
-msgid "Failed to launch plug: title %s | executable %s"
-msgstr ""
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:263
-msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
-msgstr ""
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:351
-msgid "Type to search ..."
-msgstr "Pište pro vyhledávání"
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:390
-msgid "Welcome to $APP_TITLE"
-msgstr "Vítejte v $APP_TITLE"
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:391
-msgid "Version: $VERSION"
-msgstr "Verze: $VERSION"
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:392
-msgid "Report any issues/bugs you mind find to lp:switchboard"
-msgstr "Jakékoliv problémy/chyby co najdete nahlašte na lp:switchboard"
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:399
-msgid "Switchboard already running. Exiting.."
-msgstr "Switchboard už běží. Končím..."
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:31
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Personal"
 msgstr "Osobní"
 
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:32
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Hardware"
 msgstr "Hardware"
 
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:33
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Network and Wireless"
 msgstr "Síť a Bezdrátové připojení"
 
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:34
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "System"
 msgstr "Systém"
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:68
-#, c-format
-msgid ""
-"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
-msgstr ""
-"Klíčový soubor \"%s\" obsahuje neplatou kategorii: \"%s\" a nebude přidán"
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:75
-#, c-format
-msgid "Unable to load plug %'s icon: %s"
-msgstr "U plugu %s nelze načíst ikonu %s"

@@ -7,74 +7,33 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-13 18:01+0100\n"
+"POT-Creation-Date: 2012-06-04 22:26-0700\n"
 "PO-Revision-Date: 2012-03-13 08:15+0000\n"
 "Last-Translator: Bojan Malinović <Unknown>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-14 04:54+0000\n"
-"X-Generator: Launchpad (build 14933)\n"
+"X-Launchpad-Export-Date: 2012-06-06 05:10+0000\n"
+"X-Generator: Launchpad (build 15353)\n"
 "Language: bs\n"
 
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:114
-#, c-format
-msgid "Exiting plug \"%s\" from Switchboard controller.."
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-app.vala:387
+msgid "Search Plugs"
 msgstr ""
 
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:131
-#, c-format
-msgid "Failed to launch plug: title %s | executable %s"
-msgstr "Neuspješno pokretanje plug-ina: naslov %s | izvršni %s"
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:263
-msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
-msgstr ""
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:351
-msgid "Type to search ..."
-msgstr "Kucaj za pretraživanje"
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:390
-msgid "Welcome to $APP_TITLE"
-msgstr "Dobrodošli u $APP_TITLE"
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:391
-msgid "Version: $VERSION"
-msgstr "Verzija: $VERSION"
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:392
-msgid "Report any issues/bugs you mind find to lp:switchboard"
-msgstr "Report any issues/bugs you mind find to lp:switchboard"
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:399
-msgid "Switchboard already running. Exiting.."
-msgstr ""
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:31
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Personal"
 msgstr "Lično"
 
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:32
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Hardware"
 msgstr "Hardver"
 
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:33
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Network and Wireless"
 msgstr "Žična i bežična mreža"
 
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:34
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "System"
 msgstr "Sistem"
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:68
-#, c-format
-msgid ""
-"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
-msgstr ""
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:75
-#, c-format
-msgid "Unable to load plug %'s icon: %s"
-msgstr ""

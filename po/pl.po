@@ -7,77 +7,33 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-13 18:01+0100\n"
+"POT-Creation-Date: 2012-06-04 22:26-0700\n"
 "PO-Revision-Date: 2012-02-05 08:39+0000\n"
 "Last-Translator: Piotr Sokół <Unknown>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-06 05:03+0000\n"
-"X-Generator: Launchpad (build 14747)\n"
+"X-Launchpad-Export-Date: 2012-06-06 05:11+0000\n"
+"X-Generator: Launchpad (build 15353)\n"
 "Language: pl\n"
 
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:114
-#, c-format
-msgid "Exiting plug \"%s\" from Switchboard controller.."
-msgstr "Kończenie dzialania wtyczki „%s”..."
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:131
-#, c-format
-msgid "Failed to launch plug: title %s | executable %s"
-msgstr "Nie udało się uruchomić wtyczki: nazwa %s | polecenie %s"
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:263
-msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
-msgstr "Nie można iterować po zliczonej zawartości katalogu wtyczek „$path”"
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:351
-msgid "Type to search ..."
-msgstr "Wyszukiwanie..."
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:390
-msgid "Welcome to $APP_TITLE"
-msgstr "Witamy w programie $APP_TITLE"
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:391
-msgid "Version: $VERSION"
-msgstr "Wersja: $VERSION"
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:392
-msgid "Report any issues/bugs you mind find to lp:switchboard"
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-app.vala:387
+msgid "Search Plugs"
 msgstr ""
-"Proszę zgłaszać wszelkie problemy i znalezione błędy, pod adresem "
-"lp:switchboard"
 
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-app.vala:399
-msgid "Switchboard already running. Exiting.."
-msgstr "Program Switchboard jest już uruchomiony. Kończenie..."
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:31
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Personal"
 msgstr "Osobiste"
 
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:32
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Hardware"
 msgstr "Sprzęt"
 
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:33
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Network and Wireless"
 msgstr "Sieć"
 
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:34
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "System"
 msgstr "System"
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:68
-#, c-format
-msgid ""
-"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
-msgstr ""
-"Plik klucza „%s” zawiera nieprawidłową kategorię: „%s” i nie zostanie dodany"
-
-#: /home/xapantu/Dev/switchboard/trunk/po/../Switchboard//switchboard-categoryview.vala:75
-#, c-format
-msgid "Unable to load plug %'s icon: %s"
-msgstr "Nie można wczytać ikony wtyczki %'s: %s"
