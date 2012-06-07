@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-04 22:26-0700\n"
+"POT-Creation-Date: 2012-06-06 23:20-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,22 +17,30 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-app.vala:387
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-1004294/po/../Switchboard//desktop-launcher.vala:5
+msgid "Change system and user settings"
+msgstr ""
+
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-1004294/po/../Switchboard//desktop-launcher.vala:6
+msgid "Settings Center"
+msgstr ""
+
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-1004294/po/../Switchboard//switchboard-app.vala:387
 msgid "Search Plugs"
 msgstr ""
 
-#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-categoryview.vala:29
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-1004294/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Personal"
 msgstr ""
 
-#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-categoryview.vala:29
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-1004294/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Hardware"
 msgstr ""
 
-#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-categoryview.vala:29
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-1004294/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Network and Wireless"
 msgstr ""
 
-#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-989076/po/../Switchboard//switchboard-categoryview.vala:29
+#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-1004294/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "System"
 msgstr ""
