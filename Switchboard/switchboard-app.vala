@@ -158,7 +158,7 @@ namespace Switchboard {
 
         public void load_plug (string title, string executable, bool suppress_animation = false) {
             debug ("Selected plug: title %s | executable %s", title, executable);
-            
+
             // Launch plug's executable
             switch_to_socket (suppress_animation);
             if (current_plug["title"] != title) {
@@ -210,7 +210,7 @@ namespace Switchboard {
         void switch_to_socket (bool suppress_animation = false) {
             load_plug_title (current_plug["title"]);
             socket_shown = true;
-            switch_search_box(false);
+            search_box.sensitive = false;
 
             if (!suppress_animation) {
                 this.overview.animate (Clutter.AnimationMode.EASE_IN_QUAD, 400, x:-clutter.get_stage ().width, 
@@ -225,7 +225,7 @@ namespace Switchboard {
         }
         
         // Switches back to the icons
-        bool switch_to_icons() {
+        bool switch_to_icons () {
             socket.hide ();
             clutter.show_all ();
             this.overview.animate (Clutter.AnimationMode.EASE_OUT_QUAD, 400, x:0.0f, opacity:255);
@@ -234,23 +234,12 @@ namespace Switchboard {
             
             reset_title ();
             socket_shown = false;
-            switch_search_box((count_plugs () > 0));
+            search_box.set_text("");
+
+            search_box.sensitive = count_plugs() > 0;
             
             plug_closed ();
             return true;
-        }
-
-        // Gracefully switches search_box's sensitivity
-        void switch_search_box(bool sensitive) {
-
-            if (sensitive) {
-                search_box.set_text(search_box_buffer);
-            } else {
-                search_box_buffer = search_box.get_text();
-                search_box.set_text("");      
-            }
-
-            search_box.sensitive = sensitive;
         }
 
         // Loads in all of the plugs
@@ -330,9 +319,11 @@ namespace Switchboard {
             return (int) count;
         }
 
-        // D-Bus ONLY methods
+        /*
+            D-Bus ONLY methods
+        */
 
-        public int get_socket_wid() {
+        public int get_socket_wid () {
 
             return ((int) socket.get_id ());
         }
@@ -378,7 +369,9 @@ namespace Switchboard {
             return search_box.get_text ();
         }
 
-        // end D-Bus ONLY methods
+        /*
+           End D-Bus ONLY methods
+        */
 
         // Sets up the toolbar for the Switchboard app
         void setup_toolbar () {
