@@ -108,7 +108,7 @@ namespace Switchboard {
             
             category_view = new Switchboard.CategoryView();
             category_view.plug_selected.connect((title, executable) => load_plug (title, executable));
-            category_view.margin_top  = 12;
+            category_view.margin_top = 12;
             
             this.overview = new GtkClutter.Actor.with_contents (category_view);
             this.overview.get_widget ().show ();
@@ -117,7 +117,7 @@ namespace Switchboard {
             (this.clutter.get_stage () as Clutter.Stage).use_alpha = true;
             var bg_col = main_window.get_style_context ().get_background_color (Gtk.StateFlags.NORMAL);
             (this.clutter.get_stage () as Clutter.Stage).color = 
-                {(uint8)(bg_col.red*255), (uint8)(bg_col.green*255), (uint8)(bg_col.blue*255), 255};
+                {(uint8) (bg_col.red*255), (uint8) (bg_col.green*255), (uint8) (bg_col.blue * 255), 255};
             
             this.overview.add_constraint (new Clutter.BindConstraint (this.clutter.get_stage (), 
                 Clutter.BindCoordinate.WIDTH, 0));
@@ -161,6 +161,7 @@ namespace Switchboard {
 
             // Launch plug's executable
             switch_to_socket (suppress_animation);
+            main_window.title = @"$APP_TITLE - $title";
             if (current_plug["title"] != title) {
                 try {
                     // The plug is already selected
@@ -184,11 +185,6 @@ namespace Switchboard {
             }
         }
 
-        // Change Switchboard title to "Switchboard - PlugName"
-        void load_plug_title (string plug_title) {
-            main_window.title = @"$APP_TITLE - $plug_title";
-        }
-
         // Change Switchboard title back to "Switchboard"
         void reset_title () {
             main_window.title = APP_TITLE;
@@ -208,7 +204,7 @@ namespace Switchboard {
 
         // Switches to the socket view
         void switch_to_socket (bool suppress_animation = false) {
-            load_plug_title (current_plug["title"]);
+
             socket_shown = true;
             search_box.sensitive = false;
 
