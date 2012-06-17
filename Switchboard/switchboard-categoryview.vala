@@ -89,8 +89,8 @@ namespace Switchboard {
             try {
                 icon_pixbuf = theme.load_icon (plug["icon"], 32, Gtk.IconLookupFlags.GENERIC_FALLBACK);
             } catch {
-                warning(_("Unable to load plug %'s icon: %s"), plug["title"], plug["icon"]);
-                return; //FIXME if we get no icon, we probably dont want that one..
+                warning(_("Unable to load plug %s's icon: %s"), plug["title"], plug["icon"]);
+                return; // FIXME: if we get no icon, we probably dont want that one..
             }
             category_store[plug_down].append(out root);
             
