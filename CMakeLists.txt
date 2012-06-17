@@ -61,7 +61,7 @@ add_subdirectory(po)
 #
 
 find_package(PkgConfig)
-pkg_check_modules(DEPS REQUIRED granite gio-2.0 gee-1.0 clutter-gtk-1.0)
+pkg_check_modules(DEPS REQUIRED granite gio-2.0 gee-1.0 clutter-gtk-1.0 unity)
 add_definitions(${DEPS_CFLAGS})
 link_directories(${DEPS_LIBRARY_DIRS})
 find_package(Vala REQUIRED)
@@ -77,6 +77,7 @@ PACKAGES
     clutter-gtk-1.0
     gee-1.0
     gio-2.0
+    unity
 CUSTOM_VAPIS
     vapi/config.vapi
     )

@@ -149,24 +149,19 @@ namespace Switchboard {
             });
         }
         
-        void shutdown() {
+        void shutdown () {
             plug_closed();
-            // What's this for? Smells like a bad idea.
-//            while(Gtk.events_pending ()) {
-//                Gtk.main_iteration();
-//            }
         }
 
         public void load_plug (string title, string executable) {
             debug ("Selected plug: title %s | executable %s", title, executable);
-            debug ("Current plug: %s", current_plug["title"]);
-            // Launch plug's executable
             
+            // Launch plug's executable
             switch_to_socket ();
             if (current_plug["title"] != title) {
                 try {
                     // The plug is already selected
-                    debug(_("Exiting plug \"%s\" from Switchboard controller.."), current_plug["title"]);
+                    debug(_("Closing plug \"%s\" in Switchboard controller..."), current_plug["title"]);
                     plug_closed ();
                     
                     string[] cmd_exploded = (executable!=null)?executable.split (" "):null;
