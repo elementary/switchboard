@@ -64,8 +64,10 @@ namespace Switchboard {
         Gee.HashMap<string, string> current_plug = new Gee.HashMap<string, string>();
         Gee.HashMap<string, string>[] plugs;
 
-        string[] plug_places = {"/usr/share/plugs/", "/usr/lib/plugs/", "/usr/local/share/plugs/", 
-            "/usr/local/lib/plugs/"};
+        string[] plug_places = {"/usr/share/plugs/",
+                                "/usr/lib/plugs/",
+                                "/usr/local/share/plugs/", 
+                                "/usr/local/lib/plugs/"};
         string search_box_buffer = "";
 
         public SwitchboardApp () {
@@ -81,12 +83,24 @@ namespace Switchboard {
             main_window.height_request = 500;
             main_window.width_request = 800;
             main_window.window_position = Gtk.WindowPosition.CENTER;
-            main_window.destroy.connect(()=> shutdown());
-            setup_toolbar ();
+            main_window.destroy.connect(shut_down);
+            setup_toolbar();
 
             // Set up socket
             socket = new Gtk.Socket ();
             socket.plug_removed.connect(switch_to_icons);
+
+            // Set up accelerators (hotkeys)
+            var accel_group = new Gtk.AccelGroup ();
+            uint accel_key;
+            Gdk.ModifierType accel_mod;
+            var accel_flags = Gtk.AccelFlags.LOCKED;
+            Gtk.accelerator_parse("<Control>q", out accel_key, out accel_mod);
+            accel_group.connect(accel_key, accel_mod, accel_flags, () => {
+                main_window.destroy();
+                return true;
+            });
+            main_window.add_accel_group (accel_group);
 
             // ??? Why?
             current_plug["title"] = "";
@@ -152,8 +166,9 @@ namespace Switchboard {
             });
         }
         
-        void shutdown () {
+        void shut_down () {
             plug_closed();
+            Gtk.main_quit();
         }
 
         public void load_plug (string title, string executable, bool suppress_animation = false) {
