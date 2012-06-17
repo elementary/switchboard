@@ -129,18 +129,21 @@ namespace Switchboard {
             
             bool found = false;
             if (plug_to_open != null) {
-                foreach (var plug in plugs)
+                foreach (var plug in plugs) {
                     if (plug["title"] == plug_to_open) {
-                        load_plug (plug["title"], plug["exec"]);
+                        load_plug (plug["title"], plug["exec"], true);
                         found = true;
                     }
-                if (!found)
-                    critical ("Couldn't find %s between the loaded plugs.", plug_to_open);
+                }
+                if (!found) {
+                    critical ("Couldn't find %s among the loaded plugs.", plug_to_open);
+                }
             }
             
             Timeout.add (50, () => {
                 foreach (var store in category_view.category_store.values) {
-                    store.foreach((model, path, iter) => { //FIXME workaround for misplaced icons
+                    // FIXME: workaround for misplaced icons
+                    store.foreach((model, path, iter) => {
                         store.set_value (iter, 3, true);
                         return false;
                     });
@@ -153,11 +156,11 @@ namespace Switchboard {
             plug_closed();
         }
 
-        public void load_plug (string title, string executable) {
+        public void load_plug (string title, string executable, bool suppress_animation = false) {
             debug ("Selected plug: title %s | executable %s", title, executable);
             
             // Launch plug's executable
-            switch_to_socket ();
+            switch_to_socket (suppress_animation);
             if (current_plug["title"] != title) {
                 try {
                     // The plug is already selected
@@ -204,16 +207,21 @@ namespace Switchboard {
         }
 
         // Switches to the socket view
-        void switch_to_socket() {
+        void switch_to_socket (bool suppress_animation = false) {
             load_plug_title (current_plug["title"]);
             socket_shown = true;
             switch_search_box(false);
-            
-            this.overview.animate (Clutter.AnimationMode.EASE_IN_QUAD, 400, x:-clutter.get_stage ().width, 
-                opacity:0).completed.connect ( () => {
+
+            if (!suppress_animation) {
+                this.overview.animate (Clutter.AnimationMode.EASE_IN_QUAD, 400, x:-clutter.get_stage ().width, 
+                    opacity:0).completed.connect ( () => {
+                    clutter.hide ();
+                    socket.show_all ();
+                });
+            } else {
                 clutter.hide ();
                 socket.show_all ();
-            });
+            }
         }
         
         // Switches back to the icons
