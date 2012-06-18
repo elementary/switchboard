@@ -113,7 +113,7 @@ public class Granite.Widgets.EmbeddedAlert : Gtk.EventBox {
             primary_text_label.halign = secondary_text_label.halign = Gtk.Align.START;
             primary_text_label.justify = Gtk.Justification.LEFT;
             secondary_text_label.justify = Gtk.Justification.FILL;
-            image.set_pixel_size(65);
+            image.set_pixel_size(64);
 
             // TODO: More intelligent icon support, I guess. Or support all the
             // MessageType flags.
