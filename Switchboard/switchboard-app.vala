@@ -144,7 +144,7 @@ namespace Switchboard {
             bool found = false;
             if (plug_to_open != null) {
                 foreach (var plug in plugs) {
-                    if (plug["title"] == plug_to_open) {
+                    if (plug["id"] == plug_to_open) {
                         load_plug (plug["title"], plug["exec"], true);
                         found = true;
                     }
@@ -267,6 +267,8 @@ namespace Switchboard {
                 Gee.HashMap<string, string> plug = new Gee.HashMap<string, string> ();
                 try { kf.load_from_file(keyfile, KeyFileFlags.NONE);
                 } catch (Error e) { warning("Couldn't load this keyfile, %s (path: %s)", e.message, keyfile); }
+                try { plug["id"] = kf.get_start_group();
+                } catch (Error e) { warning("Couldn't read group header in file %s, %s", e.message, keyfile); }
                 try { plug["exec"] = Path.build_filename(parent, kf.get_string (head, "exec"));
                 } catch (Error e) { warning("Couldn't read exec field in file %s, %s", keyfile, e.message); }
                 try { plug["icon"] = kf.get_string (head, "icon");
