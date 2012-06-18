@@ -40,12 +40,14 @@ namespace Switchboard {
                 filtered.refilter();
                 
                 var category_plugs = new Gtk.IconView.with_model (filtered);
+                // category_plugs.
                 category_plugs.set_text_column (0);
                 category_plugs.set_pixbuf_column (1);
                 category_plugs.selection_changed.connect(() => on_selection_changed(category_plugs, filtered));
                 
-                (category_plugs.get_cells ().nth_data (0) as Gtk.CellRendererText).ellipsize = 
-                    Pango.EllipsizeMode.END;
+                (category_plugs.get_cells ().nth_data (0) as Gtk.CellRendererText).wrap_mode = Pango.WrapMode.WORD;
+                // (category_plugs.get_cells ().nth_data (0) as Gtk.CellRendererText).ellipsize = 
+                    // Pango.EllipsizeMode.END;
                 
                 var bg_css = new Gtk.CssProvider ();
                 try {
