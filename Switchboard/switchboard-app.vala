@@ -242,12 +242,15 @@ namespace Switchboard {
             this.overview.animate (Clutter.AnimationMode.EASE_OUT_QUAD, 400, x:0.0f, opacity:255);
             
             current_plug["title"] = "";
-            
-            reset_title ();
             socket_shown = false;
-            search_box.set_text("");
 
+            // Reset state
+            reset_title ();
+            search_box.set_text("");
             search_box.sensitive = count_plugs() > 0;
+            progress_label.set_text("");
+            progress_bar.fraction = 0.0;
+            progress_toolitem.visible = false;
             
             plug_closed ();
             return true;
