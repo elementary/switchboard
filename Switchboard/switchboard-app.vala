@@ -54,6 +54,7 @@ namespace Switchboard {
         // Content area widgets
         Gtk.Socket socket;
         Gtk.VBox vbox;
+        Granite.Widgets.EmbeddedAlert alert_view;
         Switchboard.CategoryView category_view;
 
         public GtkClutter.Embed clutter;
@@ -81,7 +82,7 @@ namespace Switchboard {
 
             // Set up window
             main_window.height_request = 500;
-            main_window.width_request = 800;
+            main_window.width_request = 810;
             main_window.window_position = Gtk.WindowPosition.CENTER;
             main_window.destroy.connect(shut_down);
             setup_toolbar();
@@ -110,13 +111,18 @@ namespace Switchboard {
             vbox = new Gtk.VBox (false, 0);
             vbox.pack_start (toolbar, false, false);
 
+            alert_view = new Granite.Widgets.EmbeddedAlert ();
+            vbox.pack_end (alert_view);
+
             main_window.add (vbox);
             vbox.pack_start (this.clutter);
 
             main_window.set_application (this);
             main_window.resizable = false;
             main_window.show_all ();
-            
+    
+            alert_view.hide();
+
             vbox.pack_start (socket);
             socket.hide ();
             
@@ -138,8 +144,18 @@ namespace Switchboard {
             this.overview.add_constraint (new Clutter.BindConstraint (this.clutter.get_stage (), 
                 Clutter.BindCoordinate.HEIGHT, 0));
             
+            var any_plugs = false;
             foreach (string place in plug_places)
-                enumerate_plugs (place);
+                if (enumerate_plugs (place)) {
+                    any_plugs = true;
+                }
+            if (!any_plugs) {
+                search_box.sensitive = false;
+                alert_view.set_alert("No plugs found", "Install some and re-launch Switchboard");
+                alert_view.show();
+                socket.hide();
+                this.clutter.hide();
+            }
             
             bool found = false;
             if (plug_to_open != null) {
@@ -257,33 +273,40 @@ namespace Switchboard {
         }
 
         // Loads in all of the plugs
-        void enumerate_plugs (string plug_root_dir) {
+        // Returns true if any were found,
+        // false if none were.
+        bool enumerate_plugs (string plug_root_dir) {
 
             // <keyfile's absolute path, keyfile's directory>
             List<string> keyfiles = find_plugs (plug_root_dir);
-            foreach (string keyfile in keyfiles) {
-                KeyFile kf = new KeyFile();
+            if (keyfiles.length() == 0) {
+                return false;
+            } else {
+                foreach (string keyfile in keyfiles) {
+                    KeyFile kf = new KeyFile();
 
-                string head = File.new_for_path(keyfile).get_basename();
-                string parent = File.new_for_path(keyfile).get_parent().get_path();
+                    string head = File.new_for_path(keyfile).get_basename();
+                    string parent = File.new_for_path(keyfile).get_parent().get_path();
 
-                Gee.HashMap<string, string> plug = new Gee.HashMap<string, string> ();
-                try { kf.load_from_file(keyfile, KeyFileFlags.NONE);
-                } catch (Error e) { warning("Couldn't load this keyfile, %s (path: %s)", e.message, keyfile); }
-                try { plug["id"] = kf.get_start_group();
-                } catch (Error e) { warning("Couldn't read group header in file %s, %s", e.message, keyfile); }
-                try { plug["exec"] = Path.build_filename(parent, kf.get_string (head, "exec"));
-                } catch (Error e) { warning("Couldn't read exec field in file %s, %s", keyfile, e.message); }
-                try { plug["icon"] = kf.get_string (head, "icon");
-                } catch (Error e) { warning("Couldn't read icon field in file %s, %s", keyfile, e.message); }
-                try { plug["title"] = kf.get_locale_string (head, "title");
-                } catch (Error e) { warning("Couldn't read title field in file %s, %s", keyfile, e.message); }
-                try { plug["category"] = kf.get_string (head, "category");
-                } catch {
-                    plug["category"] = "other";
+                    Gee.HashMap<string, string> plug = new Gee.HashMap<string, string> ();
+                    try { kf.load_from_file(keyfile, KeyFileFlags.NONE);
+                    } catch (Error e) { warning("Couldn't load this keyfile, %s (path: %s)", e.message, keyfile); }
+                    try { plug["id"] = kf.get_start_group();
+                    } catch (Error e) { warning("Couldn't read group header in file %s, %s", e.message, keyfile); }
+                    try { plug["exec"] = Path.build_filename(parent, kf.get_string (head, "exec"));
+                    } catch (Error e) { warning("Couldn't read exec field in file %s, %s", keyfile, e.message); }
+                    try { plug["icon"] = kf.get_string (head, "icon");
+                    } catch (Error e) { warning("Couldn't read icon field in file %s, %s", keyfile, e.message); }
+                    try { plug["title"] = kf.get_locale_string (head, "title");
+                    } catch (Error e) { warning("Couldn't read title field in file %s, %s", keyfile, e.message); }
+                    try { plug["category"] = kf.get_string (head, "category");
+                    } catch {
+                        plug["category"] = "other";
+                    }
+                    category_view.add_plug (plug);
+                    plugs += plug;
                 }
-                category_view.add_plug (plug);
-                plugs += plug;
+                return true;
             }
         }
 
