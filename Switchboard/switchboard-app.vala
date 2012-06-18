@@ -145,16 +145,14 @@ namespace Switchboard {
                 Clutter.BindCoordinate.HEIGHT, 0));
             
             var any_plugs = false;
+
             foreach (string place in plug_places)
-                if (enumerate_plugs (place)) {
+                if (enumerate_plugs (place))
                     any_plugs = true;
-                }
+
             if (!any_plugs) {
+                show_alert("No plugs found", "Install some and re-launch Switchboard", Gtk.MessageType.WARNING);
                 search_box.sensitive = false;
-                alert_view.set_alert("No plugs found", "Install some and re-launch Switchboard");
-                alert_view.show();
-                socket.hide();
-                this.clutter.hide();
             }
             
             bool found = false;
@@ -185,6 +183,17 @@ namespace Switchboard {
         void shut_down () {
             plug_closed();
             Gtk.main_quit();
+        }
+
+        public void hide_alert () {
+            alert_view.hide();
+            this.clutter.show();
+        }
+
+        public void show_alert (string primary_text, string secondary_text, Gtk.MessageType type) {
+            alert_view.set_alert(primary_text, secondary_text, null, true, type);
+            alert_view.show();
+            this.clutter.hide();
         }
 
         public void load_plug (string title, string executable, bool suppress_animation = false) {
@@ -291,8 +300,7 @@ namespace Switchboard {
                     Gee.HashMap<string, string> plug = new Gee.HashMap<string, string> ();
                     try { kf.load_from_file(keyfile, KeyFileFlags.NONE);
                     } catch (Error e) { warning("Couldn't load this keyfile, %s (path: %s)", e.message, keyfile); }
-                    try { plug["id"] = kf.get_start_group();
-                    } catch (Error e) { warning("Couldn't read group header in file %s, %s", e.message, keyfile); }
+                    plug["id"] = kf.get_start_group();
                     try { plug["exec"] = Path.build_filename(parent, kf.get_string (head, "exec"));
                     } catch (Error e) { warning("Couldn't read exec field in file %s, %s", keyfile, e.message); }
                     try { plug["icon"] = kf.get_string (head, "icon");
@@ -441,7 +449,7 @@ namespace Switchboard {
             search_box.primary_icon_stock = "gtk-find";
             search_box.activate.connect(() => search_box_activated());
             search_box.changed.connect(() => {
-                category_view.filter_plugs(search_box.get_text ());
+                category_view.filter_plugs(search_box.get_text (), this);
                 search_box_text_changed();
             });
             search_box.sensitive = (count_plugs () > 0);

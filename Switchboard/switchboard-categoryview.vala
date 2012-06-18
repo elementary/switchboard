@@ -99,8 +99,9 @@ namespace Switchboard {
             category_labels[plug_down].show_all();
         }
 
-        public void filter_plugs (string filter) {
+        public void filter_plugs (string filter, SwitchboardApp switchboard) {
             
+            var any_found = false;
             foreach (string category in category_ids) {
 
                 var store = category_store[category];
@@ -116,15 +117,24 @@ namespace Switchboard {
                     if (filter.down () in title.down ()) {
                         store.set_value (iter, 3, true);
                         shown ++;
-                    } else store.set_value (iter, 3, false);
+                    } else {
+                        store.set_value (iter, 3, false);
+                    }
 
                     return false;
                 });
                 
-                if (shown == 0)
+                if (shown == 0) {
                     container.hide ();
-                else
+                } else {
+                    any_found = true;
                     container.show ();
+                }
+            }
+            if (!any_found) {
+                switchboard.show_alert("No plugs found", "Try changing your search terms", Gtk.MessageType.INFO);
+            } else {
+                switchboard.hide_alert();
             }
         }
 
