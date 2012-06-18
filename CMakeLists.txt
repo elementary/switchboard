@@ -72,6 +72,7 @@ vala_precompile(VALA_C
     Switchboard/switchboard-app.vala
     Switchboard/switchboard-categoryview.vala
     Switchboard/switchboard-resources.vala
+    Switchboard/switchboard-desktoplauncher.vala
 PACKAGES
     granite
     clutter-gtk-1.0
