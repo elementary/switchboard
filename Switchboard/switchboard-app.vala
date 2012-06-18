@@ -40,7 +40,7 @@ namespace Switchboard {
         Granite.Widgets.AppMenu app_menu;
         Gtk.ProgressBar progress_bar;
         Gtk.Label progress_label;
-        Gtk.Entry search_box;
+        Granite.Widgets.SearchBar search_box;
         Gtk.Toolbar toolbar;
         Gtk.ToolButton navigation_button;
         // Public so we can hide it after show_all()
@@ -411,8 +411,7 @@ namespace Switchboard {
             progress_toolitem.set_expand(true);
 
             // Searchbar
-            search_box = new Gtk.Entry ();
-            search_box.placeholder_text = _("Search Plugs");
+            search_box = new Granite.Widgets.SearchBar (_("Search Plugs"));
             search_box.primary_icon_stock = "gtk-find";
             search_box.activate.connect(() => search_box_activated());
             search_box.changed.connect(() => {
