@@ -8,27 +8,27 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-06 23:20-0700\n"
-"PO-Revision-Date: 2012-02-22 20:49+0000\n"
-"Last-Translator: xskydevilx <Unknown>\n"
+"PO-Revision-Date: 2012-06-24 18:26+0000\n"
+"Last-Translator: iWeb <Unknown>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-06-19 05:04+0000\n"
-"X-Generator: Launchpad (build 15435)\n"
+"X-Launchpad-Export-Date: 2012-06-25 05:26+0000\n"
+"X-Generator: Launchpad (build 15482)\n"
 "Language: hr\n"
 
 #: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-1004294/po/../Switchboard//desktop-launcher.vala:5
 msgid "Change system and user settings"
-msgstr ""
+msgstr "Promijeni korisničke i sustavne postavke"
 
 #: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-1004294/po/../Switchboard//desktop-launcher.vala:6
 msgid "Settings Center"
-msgstr ""
+msgstr "Centar postavki"
 
 #: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-1004294/po/../Switchboard//switchboard-app.vala:387
 msgid "Search Plugs"
-msgstr ""
+msgstr "Pretraži plugove"
 
 #: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-1004294/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Personal"
@@ -40,7 +40,7 @@ msgstr "Hardver"
 
 #: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-1004294/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Network and Wireless"
-msgstr "Mreže i bežične mreže"
+msgstr "Mreže i bežično umrežavanje"
 
 #: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-1004294/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "System"
