@@ -153,7 +153,7 @@ namespace Switchboard {
                     any_plugs = true;
 
             if (!any_plugs) {
-                show_alert("No plugs found", "Install some and re-launch Switchboard", Gtk.MessageType.WARNING);
+                show_alert(_("No plugs found"), _("Install some and re-launch Switchboard"), Gtk.MessageType.WARNING);
                 search_box.sensitive = false;
             }
             
@@ -486,7 +486,7 @@ namespace Switchboard {
     }
     
     static const OptionEntry[] entries = {
-            { "open-plug", 'o', 0, OptionArg.STRING, ref plug_to_open, "Open a plug", "PLUG_NAME" },
+            { "open-plug", 'o', 0, OptionArg.STRING, ref plug_to_open, N_("Open a plug"), "PLUG_NAME" },
             { null }
     };
 
