@@ -71,6 +71,8 @@ namespace Switchboard {
                                 "/usr/local/lib/plugs/"};
         string search_box_buffer = "";
 
+        private const string[] SUPPORTED_GETTEXT_DOMAINS_KEYS = {"X-Ubuntu-Gettext-Domain", "X-GNOME-Gettext-Domain"};
+
         public SwitchboardApp () {
             
             main_window = new Gtk.Window();
@@ -151,7 +153,7 @@ namespace Switchboard {
                     any_plugs = true;
 
             if (!any_plugs) {
-                show_alert("No plugs found", "Install some and re-launch Switchboard", Gtk.MessageType.WARNING);
+                show_alert(_("No plugs found"), _("Install some and re-launch Switchboard"), Gtk.MessageType.WARNING);
                 search_box.sensitive = false;
             }
             
@@ -305,7 +307,16 @@ namespace Switchboard {
                     } catch (Error e) { warning("Couldn't read exec field in file %s, %s", keyfile, e.message); }
                     try { plug["icon"] = kf.get_string (head, "icon");
                     } catch (Error e) { warning("Couldn't read icon field in file %s, %s", keyfile, e.message); }
-                    try { plug["title"] = kf.get_locale_string (head, "title");
+                    try {
+                        plug["title"] = kf.get_locale_string (head, "title");
+                        string? textdomain = null;
+                        foreach (var domain_key in SUPPORTED_GETTEXT_DOMAINS_KEYS)
+                            if (kf.has_key (head, domain_key)) {
+                            textdomain = kf.get_string (head, domain_key);
+                            break;
+                        }
+                        if (textdomain != null)
+                            plug["title"] = GLib.dgettext (textdomain, plug["title"]).dup ();
                     } catch (Error e) { warning("Couldn't read title field in file %s, %s", keyfile, e.message); }
                     try { plug["category"] = kf.get_string (head, "category");
                     } catch {
@@ -475,7 +486,7 @@ namespace Switchboard {
     }
     
     static const OptionEntry[] entries = {
-            { "open-plug", 'o', 0, OptionArg.STRING, ref plug_to_open, "Open a plug", "PLUG_NAME" },
+            { "open-plug", 'o', 0, OptionArg.STRING, ref plug_to_open, N_("Open a plug"), "PLUG_NAME" },
             { null }
     };
 
