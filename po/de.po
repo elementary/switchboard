@@ -7,41 +7,104 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-06 23:20-0700\n"
-"PO-Revision-Date: 2012-06-21 20:07+0000\n"
+"POT-Creation-Date: 2012-06-26 13:50+0200\n"
+"PO-Revision-Date: 2012-07-06 18:22+0000\n"
 "Last-Translator: Thomas Pitlik <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-06-22 04:57+0000\n"
-"X-Generator: Launchpad (build 15461)\n"
+"X-Launchpad-Export-Date: 2012-07-07 05:37+0000\n"
+"X-Generator: Launchpad (build 15558)\n"
 "Language: de\n"
 
-#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-1004294/po/../Switchboard//desktop-launcher.vala:5
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:6
 msgid "Change system and user settings"
 msgstr "System- und Benutzereinstellungen ändern"
 
-#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-1004294/po/../Switchboard//desktop-launcher.vala:6
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:7
 msgid "Settings Center"
 msgstr "Einstellungszentrum"
 
-#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-1004294/po/../Switchboard//switchboard-app.vala:387
-msgid "Search Plugs"
-msgstr "Plugs suchen"
-
-#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-1004294/po/../Switchboard//switchboard-categoryview.vala:29
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Personal"
 msgstr "Persönlich"
 
-#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-1004294/po/../Switchboard//switchboard-categoryview.vala:29
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Hardware"
 msgstr "Hardware"
 
-#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-1004294/po/../Switchboard//switchboard-categoryview.vala:29
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Network and Wireless"
 msgstr "Netzwerk und Funk"
 
-#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-1004294/po/../Switchboard//switchboard-categoryview.vala:29
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "System"
 msgstr "System"
+
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:85
+#, c-format
+msgid ""
+"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
+msgstr ""
+"Datei \"%s\" enthält eine ungültige Kategorie: \"%s\" und wird nicht "
+"hinzugefügt"
+
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:94
+#, c-format
+msgid "Unable to load plug %s's icon: %s"
+msgstr "Fehler beim Laden von Plug %s's Symbol: %s"
+
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:156
+msgid "No plugs found"
+msgstr "Keine Plugs gefunden"
+
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:156
+msgid "Install some and re-launch Switchboard"
+msgstr ""
+"Installieren Sie einige Plugs und starten Sie Switchboard anschließend neu"
+
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:210
+#, c-format
+msgid "Closing plug \"%s\" in Switchboard controller..."
+msgstr "Plug \"%s\" wird im Switchboard-Controller beendet ..."
+
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:222
+#, c-format
+msgid "Failed to launch plug: title %s | executable %s"
+msgstr "Plug konnte nicht geladen werden: Bezeichnung %s | Datei %s"
+
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:319
+msgid "title"
+msgstr "Bezeichnung"
+
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:366
+msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
+msgstr ""
+"Fehler beim Versuch die Inhalte des enumerierten Plug-Pfades \"$path\" zu "
+"iterieren."
+
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:459
+msgid "Search Plugs"
+msgstr "Plugs suchen"
+
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:489
+msgid "Open a plug"
+msgstr "Ein Plug öffnen"
+
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:498
+msgid "Welcome to $APP_TITLE"
+msgstr "Willkommen zu $APP_TITLE"
+
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:499
+msgid "Version: $VERSION"
+msgstr "Version: $VERSION"
+
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:500
+msgid "Report any issues/bugs you mind find to lp:switchboard"
+msgstr ""
+"Bitte melden Sie alle eventuell auftretenden Fehler/Bugs auf lp:switchboard"
+
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:523
+msgid "Switchboard already running. Exiting.."
+msgstr "Switchboard läuft bereits. Beende ..."

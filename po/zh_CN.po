@@ -7,41 +7,98 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-06 23:20-0700\n"
+"POT-Creation-Date: 2012-06-26 13:50+0200\n"
 "PO-Revision-Date: 2012-06-22 13:05+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-06-23 05:20+0000\n"
-"X-Generator: Launchpad (build 15461)\n"
+"X-Launchpad-Export-Date: 2012-07-07 05:37+0000\n"
+"X-Generator: Launchpad (build 15558)\n"
 "Language: \n"
 
-#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-1004294/po/../Switchboard//desktop-launcher.vala:5
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:6
 msgid "Change system and user settings"
 msgstr "更改系统和用户设置"
 
-#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-1004294/po/../Switchboard//desktop-launcher.vala:6
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:7
 msgid "Settings Center"
 msgstr "设置中心"
 
-#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-1004294/po/../Switchboard//switchboard-app.vala:387
-msgid "Search Plugs"
-msgstr "搜索插件"
-
-#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-1004294/po/../Switchboard//switchboard-categoryview.vala:29
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Personal"
 msgstr "个人"
 
-#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-1004294/po/../Switchboard//switchboard-categoryview.vala:29
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Hardware"
 msgstr "硬件"
 
-#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-1004294/po/../Switchboard//switchboard-categoryview.vala:29
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Network and Wireless"
 msgstr "网络和无线连接"
 
-#: /home/ttosttos/Projects/elementary/Bugs/switchboard-fix-1004294/po/../Switchboard//switchboard-categoryview.vala:29
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "System"
 msgstr "系统"
+
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:85
+#, c-format
+msgid ""
+"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
+msgstr ""
+
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:94
+#, c-format
+msgid "Unable to load plug %s's icon: %s"
+msgstr ""
+
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:156
+msgid "No plugs found"
+msgstr ""
+
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:156
+msgid "Install some and re-launch Switchboard"
+msgstr ""
+
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:210
+#, c-format
+msgid "Closing plug \"%s\" in Switchboard controller..."
+msgstr ""
+
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:222
+#, c-format
+msgid "Failed to launch plug: title %s | executable %s"
+msgstr ""
+
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:319
+msgid "title"
+msgstr ""
+
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:366
+msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
+msgstr ""
+
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:459
+msgid "Search Plugs"
+msgstr "搜索插件"
+
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:489
+msgid "Open a plug"
+msgstr ""
+
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:498
+msgid "Welcome to $APP_TITLE"
+msgstr ""
+
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:499
+msgid "Version: $VERSION"
+msgstr ""
+
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:500
+msgid "Report any issues/bugs you mind find to lp:switchboard"
+msgstr ""
+
+#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:523
+msgid "Switchboard already running. Exiting.."
+msgstr ""
