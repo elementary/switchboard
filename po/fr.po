@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-26 13:50+0200\n"
-"PO-Revision-Date: 2012-06-19 22:00+0000\n"
+"PO-Revision-Date: 2012-07-10 22:14+0000\n"
 "Last-Translator: Benoît LAMY <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-07 05:37+0000\n"
-"X-Generator: Launchpad (build 15558)\n"
+"X-Launchpad-Export-Date: 2012-07-11 05:28+0000\n"
+"X-Generator: Launchpad (build 15593)\n"
 "Language: fr\n"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:6
@@ -32,7 +32,7 @@ msgstr "Personnel"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Hardware"
-msgstr "Matériels"
+msgstr "Matériel"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Network and Wireless"
@@ -55,11 +55,11 @@ msgstr ""
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:156
 msgid "No plugs found"
-msgstr ""
+msgstr "Aucun module trouvé"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:156
 msgid "Install some and re-launch Switchboard"
-msgstr ""
+msgstr "En installer un et relancer Switchboard"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:210
 #, c-format
@@ -73,7 +73,7 @@ msgstr ""
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:319
 msgid "title"
-msgstr ""
+msgstr "titre"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:366
 msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
@@ -85,20 +85,20 @@ msgstr "Rechercher des modules"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:489
 msgid "Open a plug"
-msgstr ""
+msgstr "Ouvrir un module"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:498
 msgid "Welcome to $APP_TITLE"
-msgstr ""
+msgstr "Bienvenue dans $APP_TITLE"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:499
 msgid "Version: $VERSION"
-msgstr ""
+msgstr "Version : $VERSION"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:500
 msgid "Report any issues/bugs you mind find to lp:switchboard"
-msgstr ""
+msgstr "Soumettre tout problème/plantage rencontré sur lp:switchboard"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:523
 msgid "Switchboard already running. Exiting.."
-msgstr ""
+msgstr "Switchboard est déjà ouvert. Fermeture..."

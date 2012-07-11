@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-26 13:50+0200\n"
-"PO-Revision-Date: 2012-07-06 21:58+0000\n"
-"Last-Translator: ttosttos <Unknown>\n"
+"PO-Revision-Date: 2012-07-10 15:36+0000\n"
+"Last-Translator: R. Santana <robermad1986@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-07 05:37+0000\n"
-"X-Generator: Launchpad (build 15558)\n"
+"X-Launchpad-Export-Date: 2012-07-11 05:28+0000\n"
+"X-Generator: Launchpad (build 15593)\n"
 "Language: es\n"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:6
@@ -55,7 +55,7 @@ msgstr ""
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:156
 msgid "No plugs found"
-msgstr ""
+msgstr "No se encontraron complementos"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:156
 msgid "Install some and re-launch Switchboard"
