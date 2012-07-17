@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-26 13:50+0200\n"
-"PO-Revision-Date: 2012-07-09 04:56+0000\n"
-"Last-Translator: leo  <shing80333@gmail.com>\n"
+"PO-Revision-Date: 2012-07-16 08:58+0000\n"
+"Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-10 05:48+0000\n"
-"X-Generator: Launchpad (build 15558)\n"
+"X-Launchpad-Export-Date: 2012-07-17 05:09+0000\n"
+"X-Generator: Launchpad (build 15627)\n"
 "Language: \n"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:6
@@ -46,30 +46,30 @@ msgstr "系統"
 #, c-format
 msgid ""
 "Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
-msgstr ""
+msgstr "鍵檔「%s」包含無效的分類：「%s」，因而不被加入"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:94
 #, c-format
 msgid "Unable to load plug %s's icon: %s"
-msgstr ""
+msgstr "無法載入插件 %s 的圖示：%s"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:156
 msgid "No plugs found"
-msgstr ""
+msgstr "找不到插件"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:156
 msgid "Install some and re-launch Switchboard"
-msgstr ""
+msgstr "安裝一些，並重新啟動 Switchboard"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:210
 #, c-format
 msgid "Closing plug \"%s\" in Switchboard controller..."
-msgstr ""
+msgstr "正關閉 Switchboard 控制器中的插頭「%s」..."
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:222
 #, c-format
 msgid "Failed to launch plug: title %s | executable %s"
-msgstr ""
+msgstr "無法啟動插頭：標題 %s | 可執行檔 %s"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:319
 msgid "title"
@@ -77,7 +77,7 @@ msgstr "標題"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:366
 msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
-msgstr ""
+msgstr "無法迭代枚舉插頭目錄「$path」的內容"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:459
 msgid "Search Plugs"
@@ -85,20 +85,20 @@ msgstr "搜索插頭"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:489
 msgid "Open a plug"
-msgstr ""
+msgstr "開啟插頭"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:498
 msgid "Welcome to $APP_TITLE"
-msgstr ""
+msgstr "歡迎來到 $APP_TITLE"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:499
 msgid "Version: $VERSION"
-msgstr ""
+msgstr "版本：$VERSION"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:500
 msgid "Report any issues/bugs you mind find to lp:switchboard"
-msgstr ""
+msgstr "回報任何您發現的議題/臭蟲至 lp:switchboard"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:523
 msgid "Switchboard already running. Exiting.."
-msgstr ""
+msgstr "Switchboard 已在執行中。正離開..."
