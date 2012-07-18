@@ -8,19 +8,19 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-26 13:50+0200\n"
-"PO-Revision-Date: 2012-07-11 15:54+0000\n"
-"Last-Translator: Szymon Mróz <predek00@gmail.com>\n"
+"PO-Revision-Date: 2012-07-17 14:54+0000\n"
+"Last-Translator: Marcin Wierzbicki <marcin.wierzb@gmail.com>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-12 05:02+0000\n"
-"X-Generator: Launchpad (build 15593)\n"
+"X-Launchpad-Export-Date: 2012-07-18 05:47+0000\n"
+"X-Generator: Launchpad (build 15637)\n"
 "Language: pl\n"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:6
 msgid "Change system and user settings"
-msgstr "Zmiana ustawień systemu i użytkownika"
+msgstr "Zmień ustawienia użytkownika i systemu"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:7
 msgid "Settings Center"
@@ -57,7 +57,7 @@ msgstr "Wczytanie ikony dla wtyczki %s nie powiodło się: %s"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:156
 msgid "No plugs found"
-msgstr "Nie znalezionoo wtyczek"
+msgstr "Nie znaleziono wtyczek"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:156
 msgid "Install some and re-launch Switchboard"

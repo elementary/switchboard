@@ -8,19 +8,19 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-26 13:50+0200\n"
-"PO-Revision-Date: 2012-06-24 21:35+0000\n"
-"Last-Translator: Ilya Vorozhbit <Unknown>\n"
+"PO-Revision-Date: 2012-07-17 14:08+0000\n"
+"Last-Translator: Nikita Putko <Unknown>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-07 05:37+0000\n"
-"X-Generator: Launchpad (build 15558)\n"
+"X-Launchpad-Export-Date: 2012-07-18 05:47+0000\n"
+"X-Generator: Launchpad (build 15637)\n"
 "Language: ru\n"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:6
 msgid "Change system and user settings"
-msgstr "Сменить пользовательские и системные настройки"
+msgstr "Изменить параметры пользователя и системы"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:7
 msgid "Settings Center"
@@ -28,7 +28,7 @@ msgstr "Центр настройки"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Personal"
-msgstr "Пользовательские"
+msgstr "Личные"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Hardware"
@@ -46,20 +46,20 @@ msgstr "Системные"
 #, c-format
 msgid ""
 "Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
-msgstr ""
+msgstr "Файл «%s» содержит неверную категорию: «%s» и не будет добавлен"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:94
 #, c-format
 msgid "Unable to load plug %s's icon: %s"
-msgstr ""
+msgstr "Не удалось загрузить значок «%s»: %s"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:156
 msgid "No plugs found"
-msgstr ""
+msgstr "Модули не найдены"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:156
 msgid "Install some and re-launch Switchboard"
-msgstr ""
+msgstr "Установить и перезапустить Switchboard"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:210
 #, c-format
@@ -69,11 +69,11 @@ msgstr ""
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:222
 #, c-format
 msgid "Failed to launch plug: title %s | executable %s"
-msgstr ""
+msgstr "Не удалось запустить модуль: название «%s» |  исполняемый файл «%s»"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:319
 msgid "title"
-msgstr ""
+msgstr "название"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:366
 msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
@@ -81,24 +81,24 @@ msgstr ""
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:459
 msgid "Search Plugs"
-msgstr "Поиск плагинов"
+msgstr "Поиск модулей"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:489
 msgid "Open a plug"
-msgstr ""
+msgstr "Открыть модуль"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:498
 msgid "Welcome to $APP_TITLE"
-msgstr ""
+msgstr "Добро пожаловать в $APP_TITLE"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:499
 msgid "Version: $VERSION"
-msgstr ""
+msgstr "Версия: $VERSION"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:500
 msgid "Report any issues/bugs you mind find to lp:switchboard"
-msgstr ""
+msgstr "Сообщайте обо всех найденных проблемах и ошибках на lp:switchboard"
 
 #: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:523
 msgid "Switchboard already running. Exiting.."
-msgstr ""
+msgstr "Switchboard уже запущен. Завершение работы..."
