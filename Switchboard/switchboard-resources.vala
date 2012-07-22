@@ -1,6 +1,6 @@
 namespace Switchboard {
 
-    public const string APP_TITLE = "Switchboard";
+    public const string APP_TITLE = _("System Settings");
     public const string COPYRIGHT = "Copyright (C) 2011-2012 Avi Romanoff";
     public const string WEBSITE = "http://launchpad.net/switchboard";
     public const string VERSION = "0.9";
