@@ -134,7 +134,7 @@ namespace Switchboard {
                 }
             }
             if (!any_found) {
-                switchboard.show_alert("No plugs found", "Try changing your search terms", Gtk.MessageType.INFO);
+                switchboard.show_alert(_("No settings found"), _("Try changing your search terms"), Gtk.MessageType.INFO);
             } else {
                 switchboard.hide_alert();
             }

@@ -153,7 +153,7 @@ namespace Switchboard {
                     any_plugs = true;
 
             if (!any_plugs) {
-                show_alert(_("No plugs found"), _("Install some and re-launch Switchboard"), Gtk.MessageType.WARNING);
+                show_alert(_("No settings found"), _("Install some and re-launch Switchboard"), Gtk.MessageType.WARNING);
                 search_box.sensitive = false;
             }
             
@@ -166,7 +166,7 @@ namespace Switchboard {
                     }
                 }
                 if (!found) {
-                    critical ("Couldn't find %s among the loaded plugs.", plug_to_open);
+                    critical ("Couldn't find %s among the loaded settings.", plug_to_open);
                 }
             }
             
@@ -456,7 +456,7 @@ namespace Switchboard {
             progress_toolitem.set_expand(true);
 
             // Searchbar
-            search_box = new Granite.Widgets.SearchBar (_("Search Plugs"));
+            search_box = new Granite.Widgets.SearchBar (_("Search Settings"));
             search_box.primary_icon_stock = "gtk-find";
             search_box.activate.connect(() => search_box_activated());
             search_box.changed.connect(() => {
