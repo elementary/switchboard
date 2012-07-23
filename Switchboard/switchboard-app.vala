@@ -30,6 +30,9 @@ namespace Switchboard {
             build_version = VERSION;
             app_icon = APP_ICON;
             main_url = WEBSITE;
+            bug_url = BUG_URL;
+            help_url = HELP_URL;
+            translate_url = TRANSLATE_URL;
             about_authors = AUTHORS;
 
             about_comments = COPYRIGHT;

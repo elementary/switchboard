@@ -8,5 +8,8 @@ namespace Switchboard {
 					null};
     public const string ERRDOMAIN = "switchboard";
     public const string APP_ICON = "preferences-desktop";
+    public const string BUG_URL = "https://bugs.launchpad.net/switchboard";
+    public const string HELP_URL = "https://answers.launchpad.net/switchboard";
+    public const string TRANSLATE_URL = "https://translations.launchpad.net/switchboard"
 
 }
