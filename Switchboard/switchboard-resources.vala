@@ -2,7 +2,7 @@ namespace Switchboard {
 
     public const string APP_TITLE = "Switchboard";
     public const string COPYRIGHT = "Copyright (C) 2011-2012 Avi Romanoff";
-    public const string WEBSITE = "http://launchpad.net/switchboard";
+    public const string WEBSITE = "https://launchpad.net/switchboard";
     public const string VERSION = "0.9";
     public const string[] AUTHORS = {"Avi Romanoff <aviromanoff@gmail.com>",
 					null};
