@@ -7,98 +7,103 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-26 13:50+0200\n"
+"POT-Creation-Date: 2012-07-22 17:23-0500\n"
 "PO-Revision-Date: 2012-07-09 11:11+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-10 05:48+0000\n"
-"X-Generator: Launchpad (build 15558)\n"
+"X-Launchpad-Export-Date: 2012-07-23 05:25+0000\n"
+"X-Generator: Launchpad (build 15654)\n"
 "Language: \n"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:6
-msgid "Change system and user settings"
-msgstr "更改系统和用户设置"
-
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:7
-msgid "Settings Center"
-msgstr "设置中心"
-
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Personal"
 msgstr "个人"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Hardware"
 msgstr "硬件"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Network and Wireless"
 msgstr "网络和无线连接"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "System"
 msgstr "系统"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:85
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:85
 #, c-format
 msgid ""
 "Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
 msgstr "注册文件“%s”包括一个无效分类：“%s”，它不会被添加"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:94
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:94
 #, c-format
 msgid "Unable to load plug %s's icon: %s"
 msgstr "无法上传插件 %s 的图标：%s"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:156
-msgid "No plugs found"
-msgstr "未发现插件"
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:156
+msgid "No settings found"
+msgstr ""
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:156
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
+msgid "Try changing your search terms"
+msgstr ""
+
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:6
+msgid "Change system and user settings"
+msgstr "更改系统和用户设置"
+
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:7
+msgid "Settings Center"
+msgstr "设置中心"
+
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:156
 msgid "Install some and re-launch Switchboard"
 msgstr "安装并重启 Switchboard"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:210
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:210
 #, c-format
 msgid "Closing plug \"%s\" in Switchboard controller..."
 msgstr "在 Switchboard 控制器中关闭插件“%s”中...."
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:222
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:222
 #, c-format
 msgid "Failed to launch plug: title %s | executable %s"
 msgstr "无法启动插件：标题 %s | 可执行的 %s"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:319
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:319
 msgid "title"
 msgstr "标题"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:366
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:366
 msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
 msgstr "无法遍历枚举插件目录“$path”的内容"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:459
-msgid "Search Plugs"
-msgstr "搜索插件"
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:459
+msgid "Search Settings"
+msgstr ""
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:489
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:489
 msgid "Open a plug"
 msgstr "打开一个插件"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:498
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:498
 msgid "Welcome to $APP_TITLE"
 msgstr "欢迎使用 $APP_TITLE"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:499
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:499
 msgid "Version: $VERSION"
 msgstr "版本：$VERSION"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:500
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:500
 msgid "Report any issues/bugs you mind find to lp:switchboard"
 msgstr "将问题/漏洞报告至 lp:switchboard"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:523
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:523
 msgid "Switchboard already running. Exiting.."
 msgstr "Switchboard 已在运行。正在退出..."

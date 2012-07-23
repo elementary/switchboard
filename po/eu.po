@@ -7,41 +7,33 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-06-26 13:50+0200\n"
+"POT-Creation-Date: 2012-07-22 17:23-0500\n"
 "PO-Revision-Date: 2012-07-15 11:12+0000\n"
 "Last-Translator: Asier Iturralde Sarasola <Unknown>\n"
 "Language-Team: Basque <eu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-16 05:27+0000\n"
-"X-Generator: Launchpad (build 15614)\n"
+"X-Launchpad-Export-Date: 2012-07-23 05:24+0000\n"
+"X-Generator: Launchpad (build 15654)\n"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:6
-msgid "Change system and user settings"
-msgstr "Aldatu erabiltzailearen eta sistemaren ezarpenak"
-
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:7
-msgid "Settings Center"
-msgstr "Ezarpen biltegia"
-
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Personal"
 msgstr "Pertsonala"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Hardware"
 msgstr "Hardwarea"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Network and Wireless"
 msgstr "Sarea eta haririk gabeko sarea"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "System"
 msgstr "Sistema"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:85
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:85
 #, c-format
 msgid ""
 "Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
@@ -49,58 +41,71 @@ msgstr ""
 "\"%s\" gako-fitxategiak baliogabeko kategoria bat dauka: \"%s\" eta ez da "
 "gehituko"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-categoryview.vala:94
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:94
 #, c-format
 msgid "Unable to load plug %s's icon: %s"
 msgstr "Ezin da %s konektorearen ikonoa kargatu: %s"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:156
-msgid "No plugs found"
-msgstr "Ez da konektorerik aurkitu"
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:156
+msgid "No settings found"
+msgstr ""
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:156
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
+msgid "Try changing your search terms"
+msgstr ""
+
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:6
+msgid "Change system and user settings"
+msgstr "Aldatu erabiltzailearen eta sistemaren ezarpenak"
+
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:7
+msgid "Settings Center"
+msgstr "Ezarpen biltegia"
+
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:156
 msgid "Install some and re-launch Switchboard"
 msgstr "Instalatu zenbait eta berrabiarazi Switchboard"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:210
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:210
 #, c-format
 msgid "Closing plug \"%s\" in Switchboard controller..."
 msgstr "\"%s\" konektorea ixten Switchboard kontrolatzailean..."
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:222
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:222
 #, c-format
 msgid "Failed to launch plug: title %s | executable %s"
 msgstr "Huts egin du konektorea abiatzean: %s izenburua | %s exekutagarria"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:319
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:319
 msgid "title"
 msgstr "izenburua"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:366
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:366
 msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
 msgstr ""
 "Ezin dira iteratu enumeratutako \"$path\" konektore-direktorioaren edukiak"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:459
-msgid "Search Plugs"
-msgstr "Bilatu konektoreak"
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:459
+msgid "Search Settings"
+msgstr ""
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:489
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:489
 msgid "Open a plug"
 msgstr "Ireki konektore bat"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:498
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:498
 msgid "Welcome to $APP_TITLE"
 msgstr "Ongi etorri $APP_TITLE-(e)ra"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:499
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:499
 msgid "Version: $VERSION"
 msgstr "Bertsioa: $VERSION"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:500
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:500
 msgid "Report any issues/bugs you mind find to lp:switchboard"
 msgstr "Jakinarazi arazoak/erroreak lp:switchboard-en"
 
-#: /home/noelco/switchboard/po/../Switchboard//switchboard-app.vala:523
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:523
 msgid "Switchboard already running. Exiting.."
 msgstr "Switchboard dagoeneko martxan dago. Irteten..."
