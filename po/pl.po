@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-22 17:23-0500\n"
-"PO-Revision-Date: 2012-07-17 14:54+0000\n"
-"Last-Translator: Marcin Wierzbicki <marcin.wierzb@gmail.com>\n"
+"PO-Revision-Date: 2012-07-25 23:21+0000\n"
+"Last-Translator: Piotr Sokół <Unknown>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-23 05:24+0000\n"
-"X-Generator: Launchpad (build 15654)\n"
+"X-Launchpad-Export-Date: 2012-07-26 04:57+0000\n"
+"X-Generator: Launchpad (build 15679)\n"
 "Language: pl\n"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
@@ -50,11 +50,11 @@ msgstr "Wczytanie ikony dla wtyczki %s nie powiodło się: %s"
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:156
 msgid "No settings found"
-msgstr ""
+msgstr "Nie odnaleziono ustawień"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
 msgid "Try changing your search terms"
-msgstr ""
+msgstr "Proszę spróbować zmienić wyszukiwane wyrażenie"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:6
 msgid "Change system and user settings"
@@ -88,7 +88,7 @@ msgstr ""
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:459
 msgid "Search Settings"
-msgstr ""
+msgstr "Ustawienia wyszukiwania"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:489
 msgid "Open a plug"
