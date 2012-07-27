@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-22 17:23-0500\n"
+"POT-Creation-Date: 2012-07-26 21:26-0500\n"
 "PO-Revision-Date: 2012-06-12 20:36+0000\n"
 "Last-Translator: Michael Moroni <michael.moroni@mailoo.org>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-23 05:24+0000\n"
-"X-Generator: Launchpad (build 15654)\n"
+"X-Launchpad-Export-Date: 2012-07-27 05:30+0000\n"
+"X-Generator: Launchpad (build 15694)\n"
 "Language: eo\n"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
@@ -46,7 +46,7 @@ msgid "Unable to load plug %s's icon: %s"
 msgstr ""
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:156
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
 msgid "No settings found"
 msgstr ""
 
@@ -62,48 +62,52 @@ msgstr ""
 msgid "Settings Center"
 msgstr ""
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:156
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
 msgid "Install some and re-launch Switchboard"
 msgstr ""
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:210
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:213
 #, c-format
 msgid "Closing plug \"%s\" in Switchboard controller..."
 msgstr ""
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:222
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:225
 #, c-format
 msgid "Failed to launch plug: title %s | executable %s"
 msgstr ""
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:319
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:322
 msgid "title"
 msgstr ""
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:366
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:369
 msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
 msgstr ""
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:459
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:462
 msgid "Search Settings"
 msgstr ""
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:489
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:492
 msgid "Open a plug"
 msgstr ""
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:498
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:501
 msgid "Welcome to $APP_TITLE"
 msgstr ""
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:499
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:502
 msgid "Version: $VERSION"
 msgstr ""
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:500
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:503
 msgid "Report any issues/bugs you mind find to lp:switchboard"
 msgstr ""
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:523
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:526
 msgid "Switchboard already running. Exiting.."
+msgstr ""
+
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-resources.vala:3
+msgid "System Settings"
 msgstr ""

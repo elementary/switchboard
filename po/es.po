@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-22 17:23-0500\n"
-"PO-Revision-Date: 2012-07-26 00:23+0000\n"
-"Last-Translator: Christopher <Unknown>\n"
+"POT-Creation-Date: 2012-07-26 21:26-0500\n"
+"PO-Revision-Date: 2012-07-26 16:24+0000\n"
+"Last-Translator: Twakso Goldstein <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-26 04:57+0000\n"
-"X-Generator: Launchpad (build 15679)\n"
+"X-Launchpad-Export-Date: 2012-07-27 05:30+0000\n"
+"X-Generator: Launchpad (build 15694)\n"
 "Language: es\n"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
@@ -39,6 +39,8 @@ msgstr "Sistema"
 msgid ""
 "Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
 msgstr ""
+"El archivo de claves \"%s\" contiene una categoría no válida: \"%s\", y no "
+"será añadida"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:94
 #, c-format
@@ -46,7 +48,7 @@ msgid "Unable to load plug %s's icon: %s"
 msgstr "No se pudo cargar el icono \"%s\" del complemento \"%s\""
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:156
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
 msgid "No settings found"
 msgstr ""
 
@@ -62,48 +64,52 @@ msgstr "Cambiar la configuración del sistema y del usuario"
 msgid "Settings Center"
 msgstr "Centro de configuración"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:156
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
 msgid "Install some and re-launch Switchboard"
-msgstr ""
+msgstr "Instalar y reiniciar Switchboard"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:210
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:213
 #, c-format
 msgid "Closing plug \"%s\" in Switchboard controller..."
-msgstr ""
+msgstr "Desactivando complemento \"%s\" en el panel Switchboard"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:222
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:225
 #, c-format
 msgid "Failed to launch plug: title %s | executable %s"
-msgstr ""
+msgstr "No se pudo cargar el complemento: title %s | executable %s"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:319
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:322
 msgid "title"
 msgstr "título"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:366
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:369
 msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
 msgstr ""
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:459
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:462
 msgid "Search Settings"
 msgstr "Configuración de búsqueda"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:489
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:492
 msgid "Open a plug"
 msgstr "Abrir un complemento"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:498
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:501
 msgid "Welcome to $APP_TITLE"
 msgstr "Bienvenido a $APP_TITLE"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:499
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:502
 msgid "Version: $VERSION"
 msgstr "Versión: $VERSION"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:500
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:503
 msgid "Report any issues/bugs you mind find to lp:switchboard"
 msgstr "Informa de cualquier problema/error que encuentres a lp:switchboard"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:523
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:526
 msgid "Switchboard already running. Exiting.."
+msgstr "Switchboard todavía se está ejecutando. Cerrando..."
+
+#: /home/codygarver/switchboard/po/../Switchboard//switchboard-resources.vala:3
+msgid "System Settings"
 msgstr ""
