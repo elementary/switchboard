@@ -24,7 +24,7 @@ namespace Switchboard {
         
         construct {
             application_id = "org.elementary.Switchboard";
-            program_name = APP_TITLE;
+            program_name = "Switchboard";
             app_years = "2011-2012";
 
             build_version = VERSION;
