@@ -84,6 +84,7 @@ namespace Switchboard {
 
             // Set up defaults
             main_window.title = APP_TITLE;
+            main_window.icon_name = APP_ICON;
 
             // Set up window
             main_window.height_request = 500;
