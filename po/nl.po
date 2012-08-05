@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-08-01 23:47-0500\n"
-"PO-Revision-Date: 2012-06-21 21:12+0000\n"
-"Last-Translator: OrangeTux <orangetux24@gmail.com>\n"
+"PO-Revision-Date: 2012-08-04 19:39+0000\n"
+"Last-Translator: Ramon Meffert <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-08-03 06:08+0000\n"
-"X-Generator: Launchpad (build 15734)\n"
+"X-Launchpad-Export-Date: 2012-08-05 04:59+0000\n"
+"X-Generator: Launchpad (build 15742)\n"
 "Language: nl\n"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
@@ -39,6 +39,8 @@ msgstr "Systeem"
 msgid ""
 "Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
 msgstr ""
+"Het versleutelingsbestand \"%s\" bevat een ongeldige categorie: \"%s\", en "
+"wordt niet toegevoegd."
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:94
 #, c-format
@@ -48,15 +50,15 @@ msgstr ""
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
 msgid "No settings found"
-msgstr ""
+msgstr "Geen instellingen gevonden"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
 msgid "Try changing your search terms"
-msgstr ""
+msgstr "Probeer je zoektermen aan te passen"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:6
 msgid "Change system and user settings"
-msgstr "Verander systeem en gebruikerinstellingen"
+msgstr "Pas systeem- gebruikersinstellingen aan."
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:7
 msgid "Settings Center"
