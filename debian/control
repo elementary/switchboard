@@ -19,6 +19,7 @@ Vcs-Browser: https://code.launchpad.net/~switchboard-devs/switchboard/switchboar
 Package: switchboard
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
+Pre-Depends: dpkg (>= 1.15.6)
 Description: Modular desktop settings hub
  Desktop application that manages Switchboard Plugs.
 
@@ -27,6 +28,7 @@ Architecture: any
 Section: debug
 Priority: extra
 Depends: switchboard (= ${binary:Version}), ${misc:Depends}
+Pre-Depends: dpkg (>= 1.15.6)
 Enhances: switchboard
 Description: Modular desktop settings hub (debugging symbols)
  Desktop application that manages Switchboard Plugs.
