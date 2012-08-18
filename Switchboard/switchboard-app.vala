@@ -81,8 +81,7 @@ namespace Switchboard {
             main_window.icon_name = APP_ICON;
 
             // Set up window
-            main_window.height_request = 510;
-            main_window.width_request = 845;
+            main_window.set_size_request (845, 510);
             main_window.window_position = Gtk.WindowPosition.CENTER;
             main_window.destroy.connect (shut_down);
             setup_toolbar ();
@@ -110,7 +109,6 @@ namespace Switchboard {
             category_view = new Switchboard.CategoryView();
             category_view.plug_selected.connect((title, executable) => load_plug (title, executable));
             category_view.margin_top = 12;
-            category_view.width_request = main_window.width_request;
 
             // Set up UI
             vbox = new Gtk.VBox (false, 0);
@@ -242,7 +240,7 @@ namespace Switchboard {
         // Switches back to the icons
         bool switch_to_icons () {
             socket.hide ();
-            category_view.show_all ();
+            category_view.show ();
             
             current_plug["title"] = "";
             socket_shown = false;
