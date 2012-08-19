@@ -471,7 +471,7 @@ namespace Switchboard {
         message(_(@"Version: $VERSION"));
         message(_("Report any issues/bugs you mind find to lp:switchboard"));
         
-        GtkClutter.init (ref args);
+        Gtk.init (ref args);
         
         var context = new OptionContext("");
         context.add_main_entries(entries, "switchboard ");
