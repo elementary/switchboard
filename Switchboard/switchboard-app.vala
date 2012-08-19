@@ -40,7 +40,6 @@ namespace Switchboard {
         }
 
         // Chrome widgets
-        Granite.Widgets.AppMenu app_menu;
         Gtk.ProgressBar progress_bar;
         Gtk.Label progress_label;
         Granite.Widgets.SearchBar search_box;
@@ -60,9 +59,6 @@ namespace Switchboard {
         Granite.Widgets.EmbeddedAlert alert_view;
         Switchboard.CategoryView category_view;
 
-        public GtkClutter.Embed clutter;
-        public GtkClutter.Actor overview;
-
         // Plug data
         bool socket_shown;
         Gee.HashMap<string, string> current_plug = new Gee.HashMap<string, string>();
@@ -80,18 +76,15 @@ namespace Switchboard {
             
             main_window = new Gtk.Window();
 
-            this.clutter = new GtkClutter.Embed ();
-
             // Set up defaults
             main_window.title = APP_TITLE;
             main_window.icon_name = APP_ICON;
 
             // Set up window
-            main_window.height_request = 500;
-            main_window.width_request = 810;
+            main_window.set_size_request (845, 510);
             main_window.window_position = Gtk.WindowPosition.CENTER;
-            main_window.destroy.connect(shut_down);
-            setup_toolbar();
+            main_window.destroy.connect (shut_down);
+            setup_toolbar ();
 
             // Set up socket
             socket = new Gtk.Socket ();
@@ -113,6 +106,10 @@ namespace Switchboard {
             current_plug["title"] = "";
             current_plug["executable"] = "";
 
+            category_view = new Switchboard.CategoryView();
+            category_view.plug_selected.connect((title, executable) => load_plug (title, executable));
+            category_view.margin_top = 12;
+
             // Set up UI
             vbox = new Gtk.VBox (false, 0);
             vbox.pack_start (toolbar, false, false);
@@ -121,35 +118,22 @@ namespace Switchboard {
             vbox.pack_end (alert_view);
 
             main_window.add (vbox);
-            vbox.pack_start (this.clutter);
+            vbox.pack_start (category_view);
 
             main_window.set_application (this);
             main_window.resizable = false;
             main_window.show_all ();
-    
+
+            foreach (var label in category_view.category_labels.values)
+                label.hide ();
+            foreach (var view in category_view.category_views.values)
+                view.hide ();
+
             alert_view.hide();
 
             vbox.pack_start (socket);
             socket.hide ();
-            
-            category_view = new Switchboard.CategoryView();
-            category_view.plug_selected.connect((title, executable) => load_plug (title, executable));
-            category_view.margin_top = 12;
-            
-            this.overview = new GtkClutter.Actor.with_contents (category_view);
-            this.overview.get_widget ().show ();
-            
-            this.clutter.get_stage ().add_child (this.overview);
-            (this.clutter.get_stage () as Clutter.Stage).use_alpha = true;
-            var bg_col = main_window.get_style_context ().get_background_color (Gtk.StateFlags.NORMAL);
-            (this.clutter.get_stage () as Clutter.Stage).color = 
-                {(uint8) (bg_col.red*255), (uint8) (bg_col.green*255), (uint8) (bg_col.blue * 255), 255};
-            
-            this.overview.add_constraint (new Clutter.BindConstraint (this.clutter.get_stage (), 
-                Clutter.BindCoordinate.WIDTH, 0));
-            this.overview.add_constraint (new Clutter.BindConstraint (this.clutter.get_stage (), 
-                Clutter.BindCoordinate.HEIGHT, 0));
-            
+
             var any_plugs = false;
 
             foreach (string place in plug_places)
@@ -165,7 +149,7 @@ namespace Switchboard {
             if (plug_to_open != null) {
                 foreach (var plug in plugs) {
                     if (plug["id"] == plug_to_open) {
-                        load_plug (plug["title"], plug["exec"], true);
+                        load_plug (plug["title"], plug["exec"]);
                         found = true;
                     }
                 }
@@ -174,39 +158,34 @@ namespace Switchboard {
                 }
             }
             
-            Timeout.add (50, () => {
-                foreach (var store in category_view.category_store.values) {
-                    // FIXME: workaround for misplaced icons
-                    store.foreach((model, path, iter) => {
-                        store.set_value (iter, 3, true);
-                        return false;
-                    });
-                }
-                return false;
-            });
+            foreach (var store in category_view.category_store.values) {
+                store.foreach ((model, path, iter) => {
+                    store.set_value (iter, 3, true);
+                    return false;
+                });
+            }
         }
         
         void shut_down () {
-            plug_closed();
-            Gtk.main_quit();
+            plug_closed ();
         }
 
         public void hide_alert () {
-            alert_view.hide();
-            this.clutter.show();
+            alert_view.hide ();
+            category_view.show ();
         }
 
         public void show_alert (string primary_text, string secondary_text, Gtk.MessageType type) {
-            alert_view.set_alert(primary_text, secondary_text, null, true, type);
-            alert_view.show();
-            this.clutter.hide();
+            alert_view.set_alert (primary_text, secondary_text, null, true, type);
+            alert_view.show ();
+            category_view.hide ();
         }
 
-        public void load_plug (string title, string executable, bool suppress_animation = false) {
+        public void load_plug (string title, string executable) {
             debug ("Selected plug: title %s | executable %s", title, executable);
 
             // Launch plug's executable
-            switch_to_socket (suppress_animation);
+            switch_to_socket ();
             main_window.title = @"$APP_TITLE - $title";
             if (current_plug["title"] != title) {
                 try {
@@ -249,28 +228,19 @@ namespace Switchboard {
         }
 
         // Switches to the socket view
-        void switch_to_socket (bool suppress_animation = false) {
+        void switch_to_socket () {
 
             socket_shown = true;
             search_box.sensitive = false;
 
-            if (!suppress_animation) {
-                this.overview.animate (Clutter.AnimationMode.EASE_IN_QUAD, 400, x:-clutter.get_stage ().width, 
-                    opacity:0).completed.connect ( () => {
-                    clutter.hide ();
-                    socket.show_all ();
-                });
-            } else {
-                clutter.hide ();
-                socket.show_all ();
-            }
+            category_view.hide ();
+            socket.show_all ();
         }
         
         // Switches back to the icons
         bool switch_to_icons () {
             socket.hide ();
-            clutter.show_all ();
-            this.overview.animate (Clutter.AnimationMode.EASE_OUT_QUAD, 400, x:0.0f, opacity:255);
+            category_view.show ();
             
             current_plug["title"] = "";
             socket_shown = false;
@@ -314,10 +284,11 @@ namespace Switchboard {
                     try {
                         plug["title"] = kf.get_locale_string (head, "title");
                         string? textdomain = null;
-                        foreach (var domain_key in SUPPORTED_GETTEXT_DOMAINS_KEYS)
+                        foreach (var domain_key in SUPPORTED_GETTEXT_DOMAINS_KEYS) {
                             if (kf.has_key (head, domain_key)) {
-                            textdomain = kf.get_string (head, domain_key);
-                            break;
+                                textdomain = kf.get_string (head, domain_key);
+                                break;
+                            }
                         }
                         if (textdomain != null)
                             plug["title"] = GLib.dgettext (textdomain, plug["title"]).dup ();
@@ -442,8 +413,6 @@ namespace Switchboard {
             toolbar = new Gtk.Toolbar ();
             toolbar.get_style_context ().add_class ("primary-toolbar");
 
-            var menu = new Gtk.Menu ();
-            app_menu = create_appmenu(menu);
             // Spacing
             lspace.set_expand(true);
             rspace.set_expand(true);
@@ -477,18 +446,17 @@ namespace Switchboard {
             navigation_button.set_sensitive(false);
 
             // Add everything to the toolbar
-            toolbar.insert(navigation_button, 0);
-            toolbar.insert(lspace, 1);
-            toolbar.insert(progress_toolitem, 2);
-            toolbar.insert(rspace, 3);
-            toolbar.insert(find_toolitem, 4);
-            toolbar.insert(app_menu, 5);
-            toolbar.show_all();
+            toolbar.insert (navigation_button, -1);
+            toolbar.insert (lspace, -1);
+            toolbar.insert (progress_toolitem, -1);
+            toolbar.insert (rspace, -1);
+            toolbar.insert (find_toolitem, -1);
+            toolbar.insert (create_appmenu (new Gtk.Menu ()), -1);
         }
         
         public override void activate () {}
     }
-    
+
     static const OptionEntry[] entries = {
             { "open-plug", 'o', 0, OptionArg.STRING, ref plug_to_open, N_("Open a plug"), "PLUG_NAME" },
             { null }

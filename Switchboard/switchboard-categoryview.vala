@@ -19,7 +19,7 @@ namespace Switchboard {
 
     public class CategoryView : Gtk.VBox {
 
-        Gee.HashMap<string, Gtk.VBox> category_labels = new Gee.HashMap<string, Gtk.VBox> ();
+        public Gee.HashMap<string, Gtk.VBox> category_labels = new Gee.HashMap<string, Gtk.VBox> ();
         public Gee.HashMap<string, Gtk.ListStore> category_store = new Gee.HashMap<string, Gtk.ListStore> ();
         public Gee.HashMap<string, Gtk.IconView> category_views = new Gee.HashMap<string, Gtk.IconView> ();
         Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
@@ -41,13 +41,12 @@ namespace Switchboard {
                 
                 var category_plugs = new Gtk.IconView.with_model (filtered);
                 // category_plugs.
+                category_plugs.column_spacing = -20;
                 category_plugs.set_text_column (0);
                 category_plugs.set_pixbuf_column (1);
                 category_plugs.selection_changed.connect(() => on_selection_changed(category_plugs, filtered));
                 
                 (category_plugs.get_cells ().nth_data (0) as Gtk.CellRendererText).wrap_mode = Pango.WrapMode.WORD;
-                // (category_plugs.get_cells ().nth_data (0) as Gtk.CellRendererText).ellipsize = 
-                    // Pango.EllipsizeMode.END;
                 
                 var bg_css = new Gtk.CssProvider ();
                 try {
@@ -89,7 +88,7 @@ namespace Switchboard {
             
             Gdk.Pixbuf icon_pixbuf = null;
             try {
-                icon_pixbuf = theme.load_icon (plug["icon"], 32, Gtk.IconLookupFlags.GENERIC_FALLBACK);
+                icon_pixbuf = theme.load_icon (plug["icon"], 48, Gtk.IconLookupFlags.GENERIC_FALLBACK);
             } catch {
                 warning(_("Unable to load plug %s's icon: %s"), plug["title"], plug["icon"]);
                 return; // FIXME: if we get no icon, we probably dont want that one..
@@ -97,8 +96,9 @@ namespace Switchboard {
             category_store[plug_down].append(out root);
             
             category_store[plug_down].set(root, 0, plug["title"], 1, icon_pixbuf, 2, plug["exec"], 
-                3, false);
-            category_labels[plug_down].show_all();
+                3, true);
+            category_labels[plug_down].show_all ();
+            category_views[plug_down].show_all ();
         }
 
         public void filter_plugs (string filter, SwitchboardApp switchboard) {
