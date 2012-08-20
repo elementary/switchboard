@@ -185,9 +185,8 @@ namespace Switchboard {
             debug ("Selected plug: title %s | executable %s", title, executable);
 
             // Launch plug's executable
-            switch_to_socket ();
             main_window.title = @"$APP_TITLE - $title";
-            if (current_plug["title"] != title) {
+            if (current_plug["title"] != title || !socket.visible) {
                 try {
                     // The plug is already selected
                     debug(_("Closing plug \"%s\" in Switchboard controller..."), current_plug["title"]);
@@ -208,6 +207,8 @@ namespace Switchboard {
                 navigation_button.set_sensitive(true);
                 navigation_button.stock_id = Gtk.Stock.HOME;
             }
+            
+            switch_to_socket ();
         }
 
         // Change Switchboard title back to "Switchboard"
@@ -222,7 +223,7 @@ namespace Switchboard {
                 navigation_button.stock_id = Gtk.Stock.GO_BACK;
             }
             else {
-                switch_to_socket();
+                load_plug (current_plug["title"], current_plug["executable"]);
                 navigation_button.stock_id = Gtk.Stock.HOME;
             }
         }
@@ -242,7 +243,6 @@ namespace Switchboard {
             socket.hide ();
             category_view.show ();
             
-            current_plug["title"] = "";
             socket_shown = false;
 
             // Reset state
@@ -254,6 +254,7 @@ namespace Switchboard {
             progress_toolitem.visible = false;
             
             plug_closed ();
+            
             return true;
         }
 
