@@ -151,7 +151,6 @@ namespace Switchboard {
                 if (loading.visible) {
                     loading.hide ();
                     socket.show_all ();
-                    print ("SWITCHED\n");
                 }
             });
 
@@ -253,7 +252,6 @@ namespace Switchboard {
             socket_shown = true;
             search_box.sensitive = false;
 
-            print ("DO SWITCH\n");
             category_view.hide ();
             loading.show_all ();
         }
