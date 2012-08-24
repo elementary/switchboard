@@ -51,6 +51,8 @@ namespace Switchboard {
         Gtk.ToolItem lspace = new Gtk.ToolItem ();
         Gtk.ToolItem rspace = new Gtk.ToolItem ();
         
+        Gtk.Spinner loading;
+        
         Gtk.Window main_window;
 
         // Content area widgets
@@ -131,10 +133,27 @@ namespace Switchboard {
 
             alert_view.hide();
 
+            loading = new Gtk.Spinner ();
+            loading.halign = Gtk.Align.CENTER;
+            loading.valign = Gtk.Align.CENTER;
+            loading.width_request = 72;
+            loading.height_request = 72;
+            loading.start ();
+
             vbox.pack_start (socket);
             socket.hide ();
+            vbox.pack_start (loading);
+            loading.hide ();
 
             var any_plugs = false;
+
+            socket.plug_added.connect (() => {
+                if (loading.visible) {
+                    loading.hide ();
+                    socket.show_all ();
+                    print ("SWITCHED\n");
+                }
+            });
 
             foreach (string place in plug_places)
                 if (enumerate_plugs (place))
@@ -234,8 +253,9 @@ namespace Switchboard {
             socket_shown = true;
             search_box.sensitive = false;
 
+            print ("DO SWITCH\n");
             category_view.hide ();
-            socket.show_all ();
+            loading.show_all ();
         }
         
         // Switches back to the icons
