@@ -41,7 +41,8 @@ namespace Switchboard {
                 
                 var category_plugs = new Gtk.IconView.with_model (filtered);
                 // category_plugs.
-                category_plugs.column_spacing = -20;
+                category_plugs.column_spacing = -5;
+                category_plugs.item_width = 72;
                 category_plugs.set_text_column (0);
                 category_plugs.set_pixbuf_column (1);
                 category_plugs.selection_changed.connect(() => on_selection_changed(category_plugs, filtered));
@@ -88,7 +89,7 @@ namespace Switchboard {
             
             Gdk.Pixbuf icon_pixbuf = null;
             try {
-                icon_pixbuf = theme.load_icon (plug["icon"], 48, Gtk.IconLookupFlags.GENERIC_FALLBACK);
+                icon_pixbuf = theme.load_icon (plug["icon"], 32, Gtk.IconLookupFlags.GENERIC_FALLBACK);
             } catch {
                 warning(_("Unable to load plug %s's icon: %s"), plug["title"], plug["icon"]);
                 return; // FIXME: if we get no icon, we probably dont want that one..
