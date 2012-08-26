@@ -26,6 +26,8 @@ namespace Switchboard {
             application_id = "org.elementary.Switchboard";
             program_name = "Switchboard";
             app_years = "2011-2012";
+            exec_name = "switchboard";
+            app_launcher = exec_name+".desktop";
 
             build_version = VERSION;
             app_icon = APP_ICON;
@@ -296,7 +298,15 @@ namespace Switchboard {
                     try { kf.load_from_file(keyfile, KeyFileFlags.NONE);
                     } catch (Error e) { warning("Couldn't load this keyfile, %s (path: %s)", e.message, keyfile); }
                     plug["id"] = kf.get_start_group();
-                    try { plug["exec"] = Path.build_filename(parent, kf.get_string (head, "exec"));
+                    try {
+                    	var exec = kf.get_string (head, "exec");
+                    	//if a path starts with a double slash, we take it as an absolute path
+                    	if (exec.substring (0, 2) == "//")
+                    		exec = exec.substring (1);
+                		else
+                			exec = Path.build_filename(parent, exec);
+                    	
+                    	plug["exec"] = exec;
                     } catch (Error e) { warning("Couldn't read exec field in file %s, %s", keyfile, e.message); }
                     try { plug["icon"] = kf.get_string (head, "icon");
                     } catch (Error e) { warning("Couldn't read icon field in file %s, %s", keyfile, e.message); }
