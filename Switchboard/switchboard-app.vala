@@ -261,6 +261,7 @@ namespace Switchboard {
         // Switches back to the icons
         bool switch_to_icons () {
             socket.hide ();
+            loading.hide ();
             category_view.show ();
             
             socket_shown = false;
