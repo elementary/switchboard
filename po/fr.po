@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-08-01 23:47-0500\n"
-"PO-Revision-Date: 2012-08-08 15:54+0000\n"
-"Last-Translator: André Fernandes <mkody@mail.com>\n"
+"PO-Revision-Date: 2012-08-29 21:25+0000\n"
+"Last-Translator: Corentin Noël <tintou@mailoo.org>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-08-28 08:39+0000\n"
+"X-Launchpad-Export-Date: 2012-08-30 05:22+0000\n"
 "X-Generator: Launchpad (build 15864)\n"
 "Language: fr\n"
 
@@ -39,11 +39,13 @@ msgstr "Système"
 msgid ""
 "Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
 msgstr ""
+"La clé \"%s\" contiens une catégorie invalide : \"%s\", et ne sera donc pas "
+"ajouté"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:94
 #, c-format
 msgid "Unable to load plug %s's icon: %s"
-msgstr ""
+msgstr "Échec du chargement de l'icône %s du plug %s"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
@@ -69,12 +71,12 @@ msgstr "En installer un et relancer Switchboard"
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:213
 #, c-format
 msgid "Closing plug \"%s\" in Switchboard controller..."
-msgstr ""
+msgstr "Fermeture du plug \"%s\" dans Switchboard..."
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:225
 #, c-format
 msgid "Failed to launch plug: title %s | executable %s"
-msgstr ""
+msgstr "Échec du lancement du plug : titre %s |  executable %s"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:322
 msgid "title"
@@ -82,7 +84,7 @@ msgstr "titre"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:369
 msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
-msgstr ""
+msgstr "Impossible d'énumérer les plugs dans le répertoire \"$path\""
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:462
 msgid "Search Settings"
