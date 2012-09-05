@@ -111,7 +111,7 @@ namespace Switchboard {
             current_plug["executable"] = "";
 
             category_view = new Switchboard.CategoryView();
-            category_view.plug_selected.connect((title, executable) => load_plug (title, executable));
+            category_view.plug_selected.connect((title, executable, @extern) => load_plug (title, executable, @extern));
             category_view.margin_top = 12;
 
             // Set up UI
@@ -169,7 +169,7 @@ namespace Switchboard {
             if (plug_to_open != null) {
                 foreach (var plug in plugs) {
                     if (plug["id"] == plug_to_open) {
-                        load_plug (plug["title"], plug["exec"]);
+                        load_plug (plug["title"], plug["exec"], plug["extern"] == "1");
                         found = true;
                     }
                 }
@@ -201,7 +201,7 @@ namespace Switchboard {
             category_view.hide ();
         }
 
-        public void load_plug (string title, string executable) {
+        public void load_plug (string title, string executable, bool @extern) {
             debug ("Selected plug: title %s | executable %s", title, executable);
 
             // Launch plug's executable
@@ -219,8 +219,10 @@ namespace Switchboard {
                     current_plug["title"] = title;
                     current_plug["executable"] = executable;
                     // ensure the button is sensitive; it might be the first plug loaded
-                    navigation_button.set_sensitive(true);
-                    navigation_button.stock_id = Gtk.Stock.HOME;
+                    if (!@extern) {
+		                navigation_button.set_sensitive(true);
+		                navigation_button.stock_id = Gtk.Stock.HOME;
+	                }
                 } catch {  warning(_("Failed to launch plug: title %s | executable %s"), title, executable); }
             }
             else {
@@ -228,7 +230,8 @@ namespace Switchboard {
                 navigation_button.stock_id = Gtk.Stock.HOME;
             }
             
-            switch_to_socket ();
+            if (!@extern)
+            	switch_to_socket ();
         }
 
         // Change Switchboard title back to "Switchboard"
@@ -243,7 +246,7 @@ namespace Switchboard {
                 navigation_button.stock_id = Gtk.Stock.GO_BACK;
             }
             else {
-                load_plug (current_plug["title"], current_plug["executable"]);
+                load_plug (current_plug["title"], current_plug["executable"], current_plug["extern"] == "1");
                 navigation_button.stock_id = Gtk.Stock.HOME;
             }
         }
@@ -302,10 +305,13 @@ namespace Switchboard {
                     try {
                     	var exec = kf.get_string (head, "exec");
                     	//if a path starts with a double slash, we take it as an absolute path
-                    	if (exec.substring (0, 2) == "//")
+                    	if (exec.substring (0, 2) == "//") {
                     		exec = exec.substring (1);
-                		else
+                    		plug["extern"] = "1";
+                		} else {
                 			exec = Path.build_filename(parent, exec);
+                			plug["extern"] = "0";
+                    	}
                     	
                     	plug["exec"] = exec;
                     } catch (Error e) { warning("Couldn't read exec field in file %s, %s", keyfile, e.message); }

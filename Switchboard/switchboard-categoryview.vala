@@ -24,14 +24,14 @@ namespace Switchboard {
         public Gee.HashMap<string, Gtk.IconView> category_views = new Gee.HashMap<string, Gtk.IconView> ();
         Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
 
-        public signal void plug_selected (string title, string executable);
+        public signal void plug_selected (string title, string executable, bool @extern);
         string [] category_ids = { "personal", "hardware", "network", "system" };
         string [] category_names = { N_("Personal"), N_("Hardware"), N_("Network and Wireless"), N_("System") };
 
         public CategoryView () {
             for (int i = 0; i < category_ids.length; i++) {
-                var store = new Gtk.ListStore (4, typeof (string), typeof (Gdk.Pixbuf), 
-                    typeof(string), typeof(bool));
+                var store = new Gtk.ListStore (5, typeof (string), typeof (Gdk.Pixbuf), 
+                    typeof(string), typeof(bool), typeof(string));
                 
                 var label = new Gtk.Label ("<big><b>" + _(category_names[i]) + "</b></big>");
                 label.margin_left = 12;
@@ -97,7 +97,7 @@ namespace Switchboard {
             category_store[plug_down].append(out root);
             
             category_store[plug_down].set(root, 0, plug["title"], 1, icon_pixbuf, 2, plug["exec"], 
-                3, true);
+                3, true, 4, plug["extern"]);
             category_labels[plug_down].show_all ();
             category_views[plug_down].show_all ();
         }
@@ -145,6 +145,7 @@ namespace Switchboard {
             
             GLib.Value title;
             GLib.Value executable;
+            GLib.Value @extern;
             Gtk.TreeIter selected_plug;
             
             var selected = view.get_selected_items ();
@@ -156,8 +157,9 @@ namespace Switchboard {
             store.get_iter (out selected_plug, item);
             store.get_value (selected_plug, 0, out title);
             store.get_value (selected_plug, 2, out executable);
+            store.get_value (selected_plug, 4, out @extern);
 
-            plug_selected (title.get_string(), executable.get_string());
+            plug_selected (title.get_string(), executable.get_string(), @extern.get_string () == "1");
 
             view.unselect_path (item);
         }
