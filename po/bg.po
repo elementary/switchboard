@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-08-01 23:47-0500\n"
-"PO-Revision-Date: 2012-08-11 11:33+0000\n"
-"Last-Translator: Viktor Reseleshki <Unknown>\n"
+"PO-Revision-Date: 2012-09-06 11:58+0000\n"
+"Last-Translator: Veselin Trakiyski <Unknown>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-08-28 08:39+0000\n"
-"X-Generator: Launchpad (build 15864)\n"
+"X-Launchpad-Export-Date: 2012-09-07 05:09+0000\n"
+"X-Generator: Launchpad (build 15914)\n"
 "Language: bg\n"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
@@ -56,11 +56,11 @@ msgstr "Опитайте да смените критерийте за търс�
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:6
 msgid "Change system and user settings"
-msgstr ""
+msgstr "Промяна на системни и потребителски настройки"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:7
 msgid "Settings Center"
-msgstr ""
+msgstr "Център за настройки"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
 msgid "Install some and re-launch Switchboard"
@@ -94,15 +94,15 @@ msgstr ""
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:501
 msgid "Welcome to $APP_TITLE"
-msgstr ""
+msgstr "Добре дошли в $APP_TITLE"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:502
 msgid "Version: $VERSION"
-msgstr ""
+msgstr "Версия: $VERSION"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:503
 msgid "Report any issues/bugs you mind find to lp:switchboard"
-msgstr ""
+msgstr "Докладвайте проблеми/бъгове, които намерите в lp:switchboard"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:526
 msgid "Switchboard already running. Exiting.."
@@ -110,4 +110,4 @@ msgstr ""
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-resources.vala:3
 msgid "System Settings"
-msgstr ""
+msgstr "Системни настройки"
