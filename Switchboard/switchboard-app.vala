@@ -205,7 +205,6 @@ namespace Switchboard {
             debug ("Selected plug: title %s | executable %s", title, executable);
 
             // Launch plug's executable
-            main_window.title = @"$APP_TITLE - $title";
             if (current_plug["title"] != title || !socket.visible) {
                 try {
                     // The plug is already selected
@@ -216,22 +215,23 @@ namespace Switchboard {
                     GLib.Process.spawn_async (File.new_for_path (cmd_exploded[0]).get_parent ().
                         get_path (), cmd_exploded, null, SpawnFlags.SEARCH_PATH, null, null);
                     
-                    current_plug["title"] = title;
-                    current_plug["executable"] = executable;
                     // ensure the button is sensitive; it might be the first plug loaded
                     if (!@extern) {
 		                navigation_button.set_sensitive(true);
 		                navigation_button.stock_id = Gtk.Stock.HOME;
+		                current_plug["title"] = title;
+                    	current_plug["executable"] = executable;
 	                }
                 } catch {  warning(_("Failed to launch plug: title %s | executable %s"), title, executable); }
-            }
-            else {
+            } else {
                 navigation_button.set_sensitive(true);
                 navigation_button.stock_id = Gtk.Stock.HOME;
             }
             
-            if (!@extern)
+            if (!@extern) {
             	switch_to_socket ();
+            	main_window.title = @"$APP_TITLE - $title";
+        	}
         }
 
         // Change Switchboard title back to "Switchboard"
