@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-08-01 23:47-0500\n"
-"PO-Revision-Date: 2012-08-02 15:28+0000\n"
-"Last-Translator: Adrian Widerski <Unknown>\n"
+"PO-Revision-Date: 2012-09-16 11:40+0000\n"
+"Last-Translator: Piotr Sokół <Unknown>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-08-28 08:39+0000\n"
-"X-Generator: Launchpad (build 15864)\n"
+"X-Launchpad-Export-Date: 2012-09-17 04:53+0000\n"
+"X-Generator: Launchpad (build 15944)\n"
 "Language: pl\n"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
@@ -39,13 +39,12 @@ msgstr "System"
 msgid ""
 "Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
 msgstr ""
-"Plik źródłowy %s zawiera niepoprawną kategorię \"%s\" i nie może zostać "
-"dodany."
+"Plik klucza „%s” zawiera nieprawidłową kategorię „%s” i nie zostanie dodany"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:94
 #, c-format
 msgid "Unable to load plug %s's icon: %s"
-msgstr "Wczytanie ikony dla wtyczki %s nie powiodło się: %s"
+msgstr "Nie udało się wczytać ikony wtyczki %s: %s"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
@@ -58,7 +57,7 @@ msgstr "Proszę spróbować zmienić wyszukiwane wyrażenie"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:6
 msgid "Change system and user settings"
-msgstr "Zmień ustawienia użytkownika i systemu"
+msgstr "Konfiguruje ustawienia użytkownika i systemu"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:7
 msgid "Settings Center"
@@ -71,7 +70,8 @@ msgstr "Zainstaluj coś i ponownie uruchom Switchboard"
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:213
 #, c-format
 msgid "Closing plug \"%s\" in Switchboard controller..."
-msgstr "Zamykanie wtyczki \"%s\" w kontrolerze Switchboarda..."
+msgstr ""
+"Kończenie działania wtyczki „%s” w kontrolerze programu Switchboard..."
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:225
 #, c-format
@@ -88,7 +88,7 @@ msgstr ""
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:462
 msgid "Search Settings"
-msgstr "Szukaj ustawień"
+msgstr "Wyszukiwanie ustawień"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:492
 msgid "Open a plug"
@@ -96,7 +96,7 @@ msgstr "Otwórz wtyczkę"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:501
 msgid "Welcome to $APP_TITLE"
-msgstr "Witaj w $APP_TITLE"
+msgstr "Witamy w $APP_TITLE"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:502
 msgid "Version: $VERSION"
@@ -104,11 +104,11 @@ msgstr "Wersja: $VERSION"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:503
 msgid "Report any issues/bugs you mind find to lp:switchboard"
-msgstr "Zgłoś napotkane błędy/nieprawidłowości pod lp:switchboard"
+msgstr "Proszę zgłaszać błędy pod adresem lp:switchboard"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:526
 msgid "Switchboard already running. Exiting.."
-msgstr "Switchboard jest już uruchomiony. Wyłączanie..."
+msgstr "Program Switchboard jest już uruchomiony. Kończenie..."
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-resources.vala:3
 msgid "System Settings"
