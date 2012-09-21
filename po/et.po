@@ -8,18 +8,18 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-08-01 23:47-0500\n"
-"PO-Revision-Date: 2012-07-28 06:24+0000\n"
+"PO-Revision-Date: 2012-09-20 19:11+0000\n"
 "Last-Translator: Kristjan Vool <Unknown>\n"
 "Language-Team: Estonian <et@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-08-28 08:39+0000\n"
-"X-Generator: Launchpad (build 15864)\n"
+"X-Launchpad-Export-Date: 2012-09-21 04:53+0000\n"
+"X-Generator: Launchpad (build 15985)\n"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Personal"
-msgstr "Isiklik"
+msgstr "Personaalne"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Hardware"
@@ -27,7 +27,7 @@ msgstr "Riistvara"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Network and Wireless"
-msgstr "Võrk ja juhtmeta võrk"
+msgstr "Võrk"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "System"
@@ -43,51 +43,51 @@ msgstr ""
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:94
 #, c-format
 msgid "Unable to load plug %s's icon: %s"
-msgstr "Plugina %s ikooni %s laae ebaõnnestusdimin"
+msgstr "Plugina %s ikooni %s laadimine ebaõnnestus"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
 msgid "No settings found"
-msgstr "Sätted puuduvad"
+msgstr "Seadeid ei leitud"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
 msgid "Try changing your search terms"
-msgstr "Proovi muuta oma otsingu sõnu"
+msgstr "Proovi muuta otsingusõnu"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:6
 msgid "Change system and user settings"
-msgstr "Süsteemi ja kasutaja sättete muutmine"
+msgstr "Süsteemi ja kasutaja seadete muutmine"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:7
 msgid "Settings Center"
-msgstr "Juhtpaneel"
+msgstr "Seadete keskus"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
 msgid "Install some and re-launch Switchboard"
-msgstr "Paigalda mõned ja taaskäivita Switchboard"
+msgstr "Paigalda mõningad ja taaskäivita Switchboard"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:213
 #, c-format
 msgid "Closing plug \"%s\" in Switchboard controller..."
-msgstr "Plugina \"%s\" sulgemine Switchboard'i kontrollerist"
+msgstr "Switchboard'i kontrolleri plugina \"%s\" sulgemine"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:225
 #, c-format
 msgid "Failed to launch plug: title %s | executable %s"
-msgstr "Plugina: pealkiri %s | käivitatav %s käivitamine ebaõnnestus"
+msgstr "Plugina: title %s | käsu %s käivitamine ebaõnnestus"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:322
 msgid "title"
-msgstr "pealkiri"
+msgstr "title"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:369
 msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
 msgstr ""
-"Itereerimine üle loetletud plugina kataloogi \"$path\" sisu ebaõnnestus"
+"Itereerimine üleloetletud plugina kataloogi \"$path\" sisu ebaõnnestus"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:462
 msgid "Search Settings"
-msgstr "Otsingute sätted"
+msgstr "Otsi seadetest"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:492
 msgid "Open a plug"
@@ -95,7 +95,7 @@ msgstr "Plugina avamine"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:501
 msgid "Welcome to $APP_TITLE"
-msgstr "Teretulemast $APP_TITLE"
+msgstr "Teretulemast - $APP_TITLE"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:502
 msgid "Version: $VERSION"
@@ -104,7 +104,8 @@ msgstr "Versioon: $VERSION"
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:503
 msgid "Report any issues/bugs you mind find to lp:switchboard"
 msgstr ""
-"Teata kõikidest probleemidest/vigadest lp:switchboard'i, mis sa leiad"
+"Palun teata kõikidest Switchboard'i leitavatest probleemidest ja vigadest "
+"lp:switchboard'i"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:526
 msgid "Switchboard already running. Exiting.."
@@ -112,4 +113,4 @@ msgstr "Switchboard töötab juba. Sulgemisel..."
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-resources.vala:3
 msgid "System Settings"
-msgstr "Süsteemi sätted"
+msgstr "Süsteemi seaded"
