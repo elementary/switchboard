@@ -32,7 +32,7 @@ namespace Switchboard {
             for (int i = 0; i < category_ids.length; i++) {
                 var store = new Gtk.ListStore (5, typeof (Gdk.Pixbuf), typeof (string), 
                     typeof(string), typeof(bool), typeof(string));
-                store.set_sort_column_id (0, Gtk.SortType.ASCENDING);
+                store.set_sort_column_id (1, Gtk.SortType.ASCENDING);
                 
                 var category_label = new Gtk.Label ("<big><b>" + _(category_names[i]) + "</b></big>");
                 category_label.margin_left = 12;
