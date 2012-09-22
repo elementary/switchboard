@@ -17,9 +17,9 @@ END LICENSE
 
 namespace Switchboard {
 
-    public class CategoryView : Gtk.VBox {
+    public class CategoryView : Gtk.Grid {
 
-        public Gee.HashMap<string, Gtk.VBox> category_labels = new Gee.HashMap<string, Gtk.VBox> ();
+        public Gee.HashMap<string, Gtk.Grid> category_labels = new Gee.HashMap<string, Gtk.Grid> ();
         public Gee.HashMap<string, Gtk.ListStore> category_store = new Gee.HashMap<string, Gtk.ListStore> ();
         public Gee.HashMap<string, Gtk.IconView> category_views = new Gee.HashMap<string, Gtk.IconView> ();
         Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
@@ -32,19 +32,21 @@ namespace Switchboard {
             for (int i = 0; i < category_ids.length; i++) {
                 var store = new Gtk.ListStore (5, typeof (string), typeof (Gdk.Pixbuf), 
                     typeof(string), typeof(bool), typeof(string));
+                store.set_sort_column_id (0, Gtk.SortType.ASCENDING);
                 
-                var label = new Gtk.Label ("<big><b>" + _(category_names[i]) + "</b></big>");
-                label.margin_left = 12;
+                var category_label = new Gtk.Label ("<big><b>" + _(category_names[i]) + "</b></big>");
+                category_label.margin_left = 12;
                 var filtered = new Gtk.TreeModelFilter(store, null);
                 filtered.set_visible_column(3);
                 filtered.refilter();
                 
                 var category_plugs = new Gtk.IconView.with_model (filtered);
                 // category_plugs.
-                category_plugs.column_spacing = -5;
                 category_plugs.item_width = 72;
                 category_plugs.set_text_column (0);
                 category_plugs.set_pixbuf_column (1);
+                category_plugs.set_item_width (-1);
+                category_plugs.set_hexpand (true);
                 category_plugs.selection_changed.connect(() => on_selection_changed(category_plugs, filtered));
                 
                 (category_plugs.get_cells ().nth_data (0) as Gtk.CellRendererText).wrap_mode = Pango.WrapMode.WORD;
@@ -54,52 +56,52 @@ namespace Switchboard {
                     bg_css.load_from_data ("*{background-color:@background_color;}", -1);
                 } catch (Error e) { warning (e.message); }
                 category_plugs.get_style_context ().add_provider (bg_css, 20000);
-                label.xalign = (float) 0.02;
+                category_label.xalign = (float) 0.02;
                 
-                var vbox = new Gtk.VBox (false, 0); // not homogeneous, 0 spacing
-                var headbox = new Gtk.HBox (false, 0);
-                label.use_markup = true;
+                var grid = new Gtk.Grid ();
+                category_label.use_markup = true;
                 
                 // Always add a Seperator
-                var hsep = new Gtk.HSeparator ();
-                headbox.pack_end(hsep, true, true); // expand, fill, padding´
-                headbox.pack_start(label, false, false, 0);
+                var h_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
+                h_separator.set_hexpand (true);
+                grid.attach (category_label, 0, 0, 1, 1);
+                grid.attach (h_separator, 1, 0, 1, 1); // expand, fill, padding´
                 
-                vbox.pack_start(headbox, false, true, 0);
-                vbox.pack_end(category_plugs, true, true);
+                grid.attach(category_plugs, 0, 1, 2, 1);
                 
-                category_labels[category_ids[i]] = vbox;
+                category_labels[category_ids[i]] = grid;
                 category_store[category_ids[i]] = store;
                 category_views[category_ids[i]] = category_plugs;
                 
-                pack_start(vbox);
+                attach (grid, 0, i, 1, 1);
             }
         }
 
         public void add_plug (Gee.HashMap<string, string> plug) {
 
-            Gtk.TreeIter root;
-            string plug_down = plug["category"].down();
-            
-            if (!(plug_down in category_ids)) {
-                warning (_("Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"), 
-                    plug["title"], plug["category"]);
-                return;
-            }
-            
-            Gdk.Pixbuf icon_pixbuf = null;
-            try {
-                icon_pixbuf = theme.load_icon (plug["icon"], 32, Gtk.IconLookupFlags.GENERIC_FALLBACK);
-            } catch {
-                warning(_("Unable to load plug %s's icon: %s"), plug["title"], plug["icon"]);
-                return; // FIXME: if we get no icon, we probably dont want that one..
-            }
-            category_store[plug_down].append(out root);
-            
-            category_store[plug_down].set(root, 0, plug["title"], 1, icon_pixbuf, 2, plug["exec"], 
-                3, true, 4, plug["extern"]);
-            category_labels[plug_down].show_all ();
-            category_views[plug_down].show_all ();
+                            Gtk.TreeIter root;
+                string plug_down = plug["category"].down();
+                
+                if (!(plug_down in category_ids)) {
+                    warning (_("Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"), 
+                        plug["title"], plug["category"]);
+                    return;
+                }
+                
+                Gdk.Pixbuf icon_pixbuf = null;
+                try {
+                    icon_pixbuf = theme.load_icon (plug["icon"], 48, Gtk.IconLookupFlags.GENERIC_FALLBACK);
+                } catch {
+                    warning(_("Unable to load plug %s's icon: %s"), plug["title"], plug["icon"]);
+                    return; // FIXME: if we get no icon, we probably dont want that one..
+                }
+                category_store[plug_down].append(out root);
+                
+                category_store[plug_down].set(root, 0, plug["title"], 1, icon_pixbuf, 2, plug["exec"], 
+                    3, true, 4, plug["extern"]);
+                category_labels[plug_down].show_all ();
+                category_views[plug_down].show_all ();
+
         }
 
         public void filter_plugs (string filter, SwitchboardApp switchboard) {
