@@ -37,7 +37,7 @@ namespace Switchboard {
             translate_url = TRANSLATE_URL;
             about_authors = AUTHORS;
 
-            about_comments = COPYRIGHT;
+            //about_comments = COPYRIGHT;
             about_license_type = Gtk.License.GPL_3_0;
         }
 
