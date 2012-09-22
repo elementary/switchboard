@@ -30,7 +30,7 @@ namespace Switchboard {
 
         public CategoryView () {
             for (int i = 0; i < category_ids.length; i++) {
-                var store = new Gtk.ListStore (5, typeof (string), typeof (Gdk.Pixbuf), 
+                var store = new Gtk.ListStore (5, typeof (Gdk.Pixbuf), typeof (string), 
                     typeof(string), typeof(bool), typeof(string));
                 store.set_sort_column_id (0, Gtk.SortType.ASCENDING);
                 
@@ -41,15 +41,14 @@ namespace Switchboard {
                 filtered.refilter();
                 
                 var category_plugs = new Gtk.IconView.with_model (filtered);
-                // category_plugs.
-                category_plugs.item_width = 72;
-                category_plugs.set_text_column (0);
-                category_plugs.set_pixbuf_column (1);
-                category_plugs.set_item_width (-1);
+                category_plugs.set_item_width(96);
+                category_plugs.set_text_column (1);
+                category_plugs.set_pixbuf_column (0);
                 category_plugs.set_hexpand (true);
                 category_plugs.selection_changed.connect(() => on_selection_changed(category_plugs, filtered));
                 
                 (category_plugs.get_cells ().nth_data (0) as Gtk.CellRendererText).wrap_mode = Pango.WrapMode.WORD;
+                (category_plugs.get_cells ().nth_data (0) as Gtk.CellRendererText).ellipsize_set = true;
                 
                 var bg_css = new Gtk.CssProvider ();
                 try {
@@ -90,14 +89,14 @@ namespace Switchboard {
                 
                 Gdk.Pixbuf icon_pixbuf = null;
                 try {
-                    icon_pixbuf = theme.load_icon (plug["icon"], 48, Gtk.IconLookupFlags.GENERIC_FALLBACK);
+                    icon_pixbuf = theme.load_icon (plug["icon"], 32, Gtk.IconLookupFlags.GENERIC_FALLBACK);
                 } catch {
                     warning(_("Unable to load plug %s's icon: %s"), plug["title"], plug["icon"]);
                     return; // FIXME: if we get no icon, we probably dont want that one..
                 }
                 category_store[plug_down].append(out root);
                 
-                category_store[plug_down].set(root, 0, plug["title"], 1, icon_pixbuf, 2, plug["exec"], 
+                category_store[plug_down].set(root, 0, icon_pixbuf, 1, plug["title"], 2, plug["exec"], 
                     3, true, 4, plug["extern"]);
                 category_labels[plug_down].show_all ();
                 category_views[plug_down].show_all ();
@@ -117,7 +116,7 @@ namespace Switchboard {
                 store.foreach((model, path, iter) => {
                     string title;
 
-                    store.get (iter, 0, out title);
+                    store.get (iter, 1, out title);
 
                     if (filter.down () in title.down ()) {
                         store.set_value (iter, 3, true);
@@ -157,7 +156,7 @@ namespace Switchboard {
                 return;
 
             store.get_iter (out selected_plug, item);
-            store.get_value (selected_plug, 0, out title);
+            store.get_value (selected_plug, 1, out title);
             store.get_value (selected_plug, 2, out executable);
             store.get_value (selected_plug, 4, out @extern);
 
