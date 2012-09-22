@@ -115,6 +115,7 @@ namespace Switchboard {
             category_view = new Switchboard.CategoryView ();
             category_view.plug_selected.connect ((title, executable, @extern) => load_plug (title, executable, @extern));
             category_view.margin_top = 12;
+            category_view.draw.connect (draw_white);
 
             scrollable_view = new Gtk.ScrolledWindow (null, null);
 
@@ -123,6 +124,7 @@ namespace Switchboard {
             grid.set_hexpand (true);
             grid.set_vexpand (true);
             grid.attach (toolbar, 0, 0, 1, 1);
+            grid.draw.connect (draw_white);
             toolbar.set_hexpand (true);
 
             alert_view = new Granite.Widgets.EmbeddedAlert ();
@@ -194,6 +196,13 @@ namespace Switchboard {
                     return false;
                 });
             }
+        }
+        
+        bool draw_white (Cairo.Context cr) {
+            cr.rectangle (0, 0, category_view.get_allocated_width (), category_view.get_allocated_height ());
+            cr.set_source_rgb (1, 1, 1);
+            cr.fill ();
+            return false;
         }
         
         void shut_down () {
