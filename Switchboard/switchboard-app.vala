@@ -37,7 +37,6 @@ namespace Switchboard {
             translate_url = TRANSLATE_URL;
             about_authors = AUTHORS;
 
-            about_comments = COPYRIGHT;
             about_license_type = Gtk.License.GPL_3_0;
         }
 
@@ -59,8 +58,9 @@ namespace Switchboard {
 
         // Content area widgets
         Gtk.Socket socket;
-        Gtk.VBox vbox;
+        Gtk.Grid grid;
         Granite.Widgets.EmbeddedAlert alert_view;
+        Gtk.ScrolledWindow scrollable_view;
         Switchboard.CategoryView category_view;
 
         // Plug data
@@ -93,6 +93,8 @@ namespace Switchboard {
             // Set up socket
             socket = new Gtk.Socket ();
             socket.plug_removed.connect(switch_to_icons);
+            socket.set_hexpand(true);
+            socket.set_vexpand(true);
 
             // Set up accelerators (hotkeys)
             var accel_group = new Gtk.AccelGroup ();
@@ -110,19 +112,26 @@ namespace Switchboard {
             current_plug["title"] = "";
             current_plug["executable"] = "";
 
-            category_view = new Switchboard.CategoryView();
-            category_view.plug_selected.connect((title, executable, @extern) => load_plug (title, executable, @extern));
+            category_view = new Switchboard.CategoryView ();
+            category_view.plug_selected.connect ((title, executable, @extern) => load_plug (title, executable, @extern));
             category_view.margin_top = 12;
 
+            scrollable_view = new Gtk.ScrolledWindow (null, null);
+
             // Set up UI
-            vbox = new Gtk.VBox (false, 0);
-            vbox.pack_start (toolbar, false, false);
+            grid = new Gtk.Grid ();
+            grid.set_hexpand (true);
+            grid.set_vexpand (true);
+            grid.attach (toolbar, 0, 0, 1, 1);
+            toolbar.set_hexpand (true);
 
             alert_view = new Granite.Widgets.EmbeddedAlert ();
-            vbox.pack_end (alert_view);
+            grid.attach (alert_view, 0, 2, 1, 1);
 
-            main_window.add (vbox);
-            vbox.pack_start (category_view);
+            main_window.add (grid);
+            scrollable_view.add_with_viewport (category_view);
+            scrollable_view.set_vexpand (true);
+            grid.attach (scrollable_view, 0, 1, 1, 1);
 
             main_window.set_application (this);
             main_window.resizable = false;
@@ -136,15 +145,16 @@ namespace Switchboard {
             alert_view.hide();
 
             loading = new Gtk.Spinner ();
+            loading.set_vexpand(true);
             loading.halign = Gtk.Align.CENTER;
             loading.valign = Gtk.Align.CENTER;
             loading.width_request = 72;
             loading.height_request = 72;
             loading.start ();
 
-            vbox.pack_start (socket);
+            grid.attach (socket, 0, 1, 1, 1);
             socket.hide ();
-            vbox.pack_start (loading);
+            grid.attach (loading, 0, 1, 1, 1);
             loading.hide ();
 
             var any_plugs = false;
@@ -217,11 +227,11 @@ namespace Switchboard {
                     
                     // ensure the button is sensitive; it might be the first plug loaded
                     if (!@extern) {
-		                navigation_button.set_sensitive(true);
-		                navigation_button.stock_id = Gtk.Stock.HOME;
-		                current_plug["title"] = title;
-                    	current_plug["executable"] = executable;
-	                }
+                        navigation_button.set_sensitive(true);
+                        navigation_button.stock_id = Gtk.Stock.HOME;
+                        current_plug["title"] = title;
+                        current_plug["executable"] = executable;
+                    }
                 } catch {  warning(_("Failed to launch plug: title %s | executable %s"), title, executable); }
             } else {
                 navigation_button.set_sensitive(true);
@@ -229,9 +239,9 @@ namespace Switchboard {
             }
             
             if (!@extern) {
-            	switch_to_socket ();
-            	main_window.title = @"$APP_TITLE - $title";
-        	}
+                switch_to_socket ();
+                main_window.title = @"$APP_TITLE - $title";
+            }
         }
 
         // Change Switchboard title back to "Switchboard"
@@ -303,17 +313,17 @@ namespace Switchboard {
                     } catch (Error e) { warning("Couldn't load this keyfile, %s (path: %s)", e.message, keyfile); }
                     plug["id"] = kf.get_start_group();
                     try {
-                    	var exec = kf.get_string (head, "exec");
-                    	//if a path starts with a double slash, we take it as an absolute path
-                    	if (exec.substring (0, 2) == "//") {
-                    		exec = exec.substring (1);
-                    		plug["extern"] = "1";
-                		} else {
-                			exec = Path.build_filename(parent, exec);
-                			plug["extern"] = "0";
-                    	}
-                    	
-                    	plug["exec"] = exec;
+                        var exec = kf.get_string (head, "exec");
+                        //if a path starts with a double slash, we take it as an absolute path
+                        if (exec.substring (0, 2) == "//") {
+                            exec = exec.substring (1);
+                            plug["extern"] = "1";
+                        } else {
+                            exec = Path.build_filename(parent, exec);
+                            plug["extern"] = "0";
+                        }
+                        
+                        plug["exec"] = exec;
                     } catch (Error e) { warning("Couldn't read exec field in file %s, %s", keyfile, e.message); }
                     try { plug["icon"] = kf.get_string (head, "icon");
                     } catch (Error e) { warning("Couldn't read icon field in file %s, %s", keyfile, e.message); }
