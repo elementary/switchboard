@@ -136,7 +136,6 @@ namespace Switchboard {
             grid.attach (scrollable_view, 0, 1, 1, 1);
 
             main_window.set_application (this);
-            main_window.resizable = false;
             main_window.show_all ();
 
             foreach (var label in category_view.category_labels.values)
