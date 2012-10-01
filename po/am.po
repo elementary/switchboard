@@ -1,38 +1,37 @@
-# Greek translation for switchboard
-# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# Amharic translation for switchboard
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the switchboard package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-08-01 23:47-0500\n"
-"PO-Revision-Date: 2012-08-25 19:23+0000\n"
-"Last-Translator: Chris Triantafillis <Unknown>\n"
-"Language-Team: Greek <el@li.org>\n"
+"PO-Revision-Date: 2012-10-01 02:27+0000\n"
+"Last-Translator: samson <Unknown>\n"
+"Language-Team: Amharic <am@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2012-10-01 05:02+0000\n"
 "X-Generator: Launchpad (build 16049)\n"
-"Language: el\n"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Personal"
-msgstr "Προσωπικά"
+msgstr "የግል"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Hardware"
-msgstr "Υλικό"
+msgstr "ሀርድዌር"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Network and Wireless"
-msgstr "Δίκτυο και ασύρματα"
+msgstr "ኔትዎርክ እና ሽቦ አልባ"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "System"
-msgstr "Σύστημα"
+msgstr "ስርአት"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:85
 #, c-format
@@ -48,37 +47,37 @@ msgstr ""
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
 msgid "No settings found"
-msgstr "Δεν βρέθηκαν ρυθμίσεις"
+msgstr ""
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
 msgid "Try changing your search terms"
-msgstr "Προσπαθήστε να αλλάξτε τους όρους αναζήτησης"
+msgstr ""
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:6
 msgid "Change system and user settings"
-msgstr "Αλλαγή ρυθμίσεων συστήματος και χρηστών"
+msgstr "ስርአቱን መቀየሪያ እና ተጠቃሚ ማሰናጃ"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:7
 msgid "Settings Center"
-msgstr "Κέντρο ρυθμίσεων"
+msgstr "ማሰናጃ ማእከል"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
 msgid "Install some and re-launch Switchboard"
-msgstr "Εγκατέστησε μερικά και επανεκκίνησε του Switchboard"
+msgstr ""
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:213
 #, c-format
 msgid "Closing plug \"%s\" in Switchboard controller..."
-msgstr "Κλείσιμο του προσθέτου \"%s\" στον διαχειριστή του Switchboard"
+msgstr ""
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:225
 #, c-format
 msgid "Failed to launch plug: title %s | executable %s"
-msgstr "Αδυναμία εκκίνησης προσθέτου: τίτλος %s | εκτελέσιμο %s"
+msgstr ""
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:322
 msgid "title"
-msgstr "τίτλος"
+msgstr "አርእስት"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:369
 msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
@@ -86,28 +85,28 @@ msgstr ""
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:462
 msgid "Search Settings"
-msgstr "Ρυθμίσεις αναζήτησης"
+msgstr "ማሰናጃዎች መፈለጊያ"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:492
 msgid "Open a plug"
-msgstr "Άνοιγμα προσθέτου"
+msgstr ""
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:501
 msgid "Welcome to $APP_TITLE"
-msgstr "Καλώς ήρθατε στο $APP_TITLE"
+msgstr ""
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:502
 msgid "Version: $VERSION"
-msgstr "Έκδοση: $VERSION"
+msgstr "እትም : $VERSION"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:503
 msgid "Report any issues/bugs you mind find to lp:switchboard"
-msgstr "Αναφέρετε κάποιο πρόβλημα/bug που θα βρείτε στο lp:switchboard"
+msgstr ""
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:526
 msgid "Switchboard already running. Exiting.."
-msgstr "Ο Switchboard εκτελείται ήδη. Τερματισμός.."
+msgstr ""
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-resources.vala:3
 msgid "System Settings"
-msgstr "Ρυθμίσεις συστήματος"
+msgstr "ስርአት ማሰናጃ"
