@@ -1,10 +1,10 @@
 [Desktop Entry]
 Type=Application
-Version=0.8
 Name=System Settings
 Comment=Change system and user settings
 Exec=switchboard
 Icon=preferences-desktop
 Terminal=false
-Categories=GTK;Administration;
+Categories=GNOME;GTK;System;
+Keywords=Preferences;
 X-GNOME-Gettext-Domain=switchboard
