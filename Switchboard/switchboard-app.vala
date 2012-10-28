@@ -77,7 +77,9 @@ namespace Switchboard {
         private const string[] SUPPORTED_GETTEXT_DOMAINS_KEYS = {"X-Ubuntu-Gettext-Domain", "X-GNOME-Gettext-Domain"};
 
         public SwitchboardApp () {
-            
+        }
+        
+        void build () {
             main_window = new Gtk.Window();
 
             // Set up defaults
@@ -193,6 +195,8 @@ namespace Switchboard {
                     return false;
                 });
             }
+            
+            progress_toolitem.hide ();
         }
         
         void shut_down () {
@@ -499,7 +503,9 @@ namespace Switchboard {
             toolbar.insert (create_appmenu (new Gtk.Menu ()), -1);
         }
         
-        public override void activate () {}
+        public override void activate () {
+        	build ();
+        }
     }
 
     static const OptionEntry[] entries = {
@@ -527,7 +533,6 @@ namespace Switchboard {
         
         // In the future, the plug_root_dir should be overridable by CLI flags.
         var switchboard_app = new SwitchboardApp ();
-        switchboard_app.progress_toolitem.hide();
         
         Bus.own_name (BusType.SESSION, "org.elementary.switchboard",
                 BusNameOwnerFlags.NONE,
