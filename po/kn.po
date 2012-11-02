@@ -1,117 +1,114 @@
-# Turkish translation for switchboard
-# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# Kannada translation for switchboard
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the switchboard package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-08-01 23:47-0500\n"
-"PO-Revision-Date: 2012-11-02 00:07+0000\n"
-"Last-Translator: Ferhat TUNÇTAN <ferhattnctn66@gmail.com>\n"
-"Language-Team: Turkish <tr@li.org>\n"
+"PO-Revision-Date: 2012-11-01 17:59+0000\n"
+"Last-Translator: Chandan (ಚಂದನ್) <Unknown>\n"
+"Language-Team: Kannada <kn@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2012-11-02 05:29+0000\n"
 "X-Generator: Launchpad (build 16218)\n"
-"Language: tr\n"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Personal"
-msgstr "Kişisel"
+msgstr "ವೈಯಕ್ತಿಕ"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Hardware"
-msgstr "Donanım"
+msgstr "ಯಂತ್ರಾಂಶ"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Network and Wireless"
-msgstr "Ağ ve Kablosuz"
+msgstr "ಸಂಪರ್ಕ ಮತ್ತು ನಿಸ್ತಂತು"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "System"
-msgstr "Sistem"
+msgstr "ವ್ಯವಸ್ಥೆ"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:85
 #, c-format
 msgid ""
 "Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
 msgstr ""
-"\"%s\" anahtardosyası geçersiz kategori içeriyor: \"%s\", ve eklenmeyecek"
+"\"%s\" ಕೀಫೈಲ್ ನಲ್ಲಿ ಸೂಕ್ತವಲ್ಲದ ವರ್ಗ, \"%s\", ಇರುವುದರಿಂದ ಇದನ್ನು ಸೇರ್ಪಡೆ "
+"ಮಾಡುವುದಿಲ್ಲ."
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:94
 #, c-format
 msgid "Unable to load plug %s's icon: %s"
-msgstr "%s eklentisinin simgesi yüklenemiyor: %s"
+msgstr ""
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
 msgid "No settings found"
-msgstr "Hiçbir ayar bulunamadı"
+msgstr "ಯಾವುದೇ ಸೆಟ್ಟಿಂಗ್ ಗಳು ಲಭ್ಯವಿಲ್ಲ"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
 msgid "Try changing your search terms"
-msgstr "Arama tercihlerinizi değiştirmeyi deneyin"
+msgstr "ಬೇರೆ ಸೂಚಿಕೆ ಪದಗಳನ್ನು ಪ್ರಯತ್ನಿಸಿ"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:6
 msgid "Change system and user settings"
-msgstr "Sistem ve kullanıcı ayarlarını değiştir"
+msgstr "ಗಣಕ ವ್ಯವಸ್ಥೆ ಮತ್ತು ಬಳಕೆದಾರ ಸಂಬಂಧಿತ ಸೆಟ್ಟಿಂಗಳನ್ನು ಬದಲಿಸಿ"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:7
 msgid "Settings Center"
-msgstr "Ayar Merkezi"
+msgstr ""
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
 msgid "Install some and re-launch Switchboard"
-msgstr "Bazılarını kur ve Switchboard'ı yeniden başlat"
+msgstr ""
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:213
 #, c-format
 msgid "Closing plug \"%s\" in Switchboard controller..."
-msgstr "Switchboard denetçisindeki \"%s\" eklentisi kapatılıyor..."
+msgstr ""
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:225
 #, c-format
 msgid "Failed to launch plug: title %s | executable %s"
-msgstr "Eklentinin başlatılması başarısız: başlık %s | çalıştırılabilir %s"
+msgstr ""
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:322
 msgid "title"
-msgstr "başlık"
+msgstr "ಶೀರ್ಷಿಕೆ:"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:369
 msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
 msgstr ""
-"Numaralandırılmış eklenti dizini \"$path\"' in içerikleri üzerine yineleme "
-"yapılamıyor"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:462
 msgid "Search Settings"
-msgstr "Arama Ayarları"
+msgstr "ಶೋಧ ಸಂಬಂಧಿತ ಸೆಟ್ಟಿಂಗ್ ಗಳು"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:492
 msgid "Open a plug"
-msgstr "Bir eklenti aç"
+msgstr ""
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:501
 msgid "Welcome to $APP_TITLE"
-msgstr "$APP_TITLE'a Hoşgeldiniz"
+msgstr "$APP_TITLEಗೆ ಸ್ವಾಗತ"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:502
 msgid "Version: $VERSION"
-msgstr "Sürüm:$VERSION"
+msgstr "ಆವೃತ್ತಿ: $VERSION"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:503
 msgid "Report any issues/bugs you mind find to lp:switchboard"
-msgstr ""
-"lp:switchboard'da karşılaştığınız herhangi bir hatayı/sorunu bildiriniz."
+msgstr "ಯಾವುದೇ ತೊಂದರೆಗಳು ಕಂಡುಬಂದಲ್ಲಿ lp:switchboardಗೆ ವರದಿಮಾಡಿ"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:526
 msgid "Switchboard already running. Exiting.."
-msgstr "Switchboard zaten çalışıyor .Çıkılıyor..."
+msgstr "ಸ್ವಿಚ್ ಬೋರ್ಡ್ ಈಗಾಗಲೇ ಚಾಲ್ತಿಯಲ್ಲಿದೆ.ನಿರ್ಗಮಿಸುತ್ತಿದೆ..."
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-resources.vala:3
 msgid "System Settings"
-msgstr "Sistem Ayarları"
+msgstr "ವ್ಯವಸ್ಥೆಯ ಸಂಯೋಜನೆಗಳು"
