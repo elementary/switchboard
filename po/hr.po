@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-08-01 23:47-0500\n"
-"PO-Revision-Date: 2012-07-16 18:05+0000\n"
-"Last-Translator: Karlo Horvat <Unknown>\n"
+"PO-Revision-Date: 2012-11-11 10:56+0000\n"
+"Last-Translator: Sinisa Perovic <Unknown>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-01 05:02+0000\n"
-"X-Generator: Launchpad (build 16049)\n"
+"X-Launchpad-Export-Date: 2012-11-12 04:46+0000\n"
+"X-Generator: Launchpad (build 16251)\n"
 "Language: hr\n"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
@@ -49,11 +49,11 @@ msgstr "Nije moguće učitati \"plug\" %s ikone: %s"
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
 msgid "No settings found"
-msgstr ""
+msgstr "Nema postavki"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
 msgid "Try changing your search terms"
-msgstr ""
+msgstr "Pretraživanje drugih izraza"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:6
 msgid "Change system and user settings"
@@ -87,7 +87,7 @@ msgstr "Error \"$path\""
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:462
 msgid "Search Settings"
-msgstr ""
+msgstr "Postavke pretraživanja"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:492
 msgid "Open a plug"
@@ -111,4 +111,4 @@ msgstr "Swithboard je već pokrenut. Izlazim..."
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-resources.vala:3
 msgid "System Settings"
-msgstr ""
+msgstr "Postavke sustava"
