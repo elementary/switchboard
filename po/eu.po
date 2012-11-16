@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-08-01 23:47-0500\n"
-"PO-Revision-Date: 2012-10-10 20:00+0000\n"
-"Last-Translator: Asier Iturralde Sarasola <Unknown>\n"
+"PO-Revision-Date: 2012-11-15 22:40+0000\n"
+"Last-Translator: Ibai Oihanguren <Unknown>\n"
 "Language-Team: Basque <eu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-11 05:32+0000\n"
-"X-Generator: Launchpad (build 16118)\n"
+"X-Launchpad-Export-Date: 2012-11-16 04:52+0000\n"
+"X-Generator: Launchpad (build 16272)\n"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Personal"
@@ -88,7 +88,7 @@ msgstr ""
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:462
 msgid "Search Settings"
-msgstr "Bilaketa ezarpenak"
+msgstr "Bilatu ezarpenak"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:492
 msgid "Open a plug"
