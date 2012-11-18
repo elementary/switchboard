@@ -548,7 +548,7 @@ namespace Switchboard {
                     } catch (IOError e) { warning (e.message); }
                 },
                 () => {},
-                () => {message(_("Switchboard already running. Exiting..")); Process.exit(1);});
+                () => {logger.notification(_("Switchboard already running. Exiting..")); Process.exit(1);});
         
         return switchboard_app.run (args);
     }
