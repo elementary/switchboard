@@ -504,6 +504,12 @@ namespace Switchboard {
         }
         
         public override void activate () {
+            // If app is already running, present the current window.
+            if (get_windows () != null) {
+                get_windows ().data.present ();
+                return;
+            }
+
         	build ();
         }
     }
@@ -534,7 +540,7 @@ namespace Switchboard {
         // In the future, the plug_root_dir should be overridable by CLI flags.
         var switchboard_app = new SwitchboardApp ();
         
-        Bus.own_name (BusType.SESSION, "org.elementary.switchboard",
+        GLib.Bus.own_name (BusType.SESSION, "org.elementary.switchboard",
                 BusNameOwnerFlags.NONE,
                 (conn) => { 
                     try {
@@ -542,7 +548,7 @@ namespace Switchboard {
                     } catch (IOError e) { warning (e.message); }
                 },
                 () => {},
-                () => {logger.notification(_("Switchboard already running. Exiting..")); Process.exit(1);});
+                () => {message(_("Switchboard already running. Exiting..")); Process.exit(1);});
         
         return switchboard_app.run (args);
     }
