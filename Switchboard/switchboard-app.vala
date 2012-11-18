@@ -510,7 +510,7 @@ namespace Switchboard {
                 return;
             }
 
-        	build ();
+            build ();
         }
     }
 
