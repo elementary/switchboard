@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-08-01 23:47-0500\n"
-"PO-Revision-Date: 2012-11-19 07:29+0000\n"
+"PO-Revision-Date: 2012-11-21 17:47+0000\n"
 "Last-Translator: Martin Myrvold <Unknown>\n"
 "Language-Team: Norwegian Nynorsk <nn@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-11-20 05:10+0000\n"
-"X-Generator: Launchpad (build 16286)\n"
+"X-Launchpad-Export-Date: 2012-11-22 05:21+0000\n"
+"X-Generator: Launchpad (build 16293)\n"
 "Language: nn\n"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
@@ -28,7 +28,7 @@ msgstr "Maskinvare"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Network and Wireless"
-msgstr "Nettverk og trådlaus"
+msgstr "Nettverk og trådlaust"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "System"
@@ -39,7 +39,7 @@ msgstr "System"
 msgid ""
 "Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
 msgstr ""
-"Nøkkelfil \"%s\" inneheld ein ugyldig kategori: \"%s\", og vil difor ikkje "
+"Nøkkelfila \"%s\" inneheld ein ugyldig kategori: \"%s\", og vil difor ikkje "
 "bli lagt til"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:94
