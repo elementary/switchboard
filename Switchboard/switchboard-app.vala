@@ -517,22 +517,21 @@ namespace Switchboard {
             build ();
         }
 
-
-        // Unity.LauncherEntry launcher;
-        // Dbusmenu.Menuitem quicklist;
-
         // Updates items in quicklist menu using the Unity quicklist api.
         void update_libunity_quicklist () {
 
+            // Fetch launcher
             var launcher = Unity.LauncherEntry.get_for_desktop_id (app_launcher);
             var quicklist = new Dbusmenu.Menuitem ();
             
+            // Loop through every plug and add a quicklist item
             foreach (var plug in plugs) {
                 var item = new Dbusmenu.Menuitem ();
 
                 item.property_set (Dbusmenu.MENUITEM_PROP_LABEL, plug["title"]);
                 item.item_activated.connect (() => {
                     load_plug (plug["title"], plug["exec"], plug["extern"] == "1");
+                    activate ();
                 });
 
                 quicklist.child_append (item);
