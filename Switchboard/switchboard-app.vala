@@ -175,6 +175,10 @@ namespace Switchboard {
                 show_alert(_("No settings found"), _("Install some and re-launch Switchboard"), Gtk.MessageType.WARNING);
                 search_box.sensitive = false;
             }
+            else
+            {
+                update_libunity_quicklist ();
+            }
             
             bool found = false;
             if (plug_to_open != null) {
@@ -511,6 +515,30 @@ namespace Switchboard {
             }
 
             build ();
+        }
+
+
+        // Unity.LauncherEntry launcher;
+        // Dbusmenu.Menuitem quicklist;
+
+        // Updates items in quicklist menu using the Unity quicklist api.
+        void update_libunity_quicklist () {
+
+            var launcher = Unity.LauncherEntry.get_for_desktop_id (app_launcher);
+            var quicklist = new Dbusmenu.Menuitem ();
+            
+            foreach (var plug in plugs) {
+                var item = new Dbusmenu.Menuitem ();
+
+                item.property_set (Dbusmenu.MENUITEM_PROP_LABEL, plug["title"]);
+                item.item_activated.connect (() => {
+                    load_plug (plug["title"], plug["exec"], plug["extern"] == "1");
+                });
+
+                quicklist.child_append (item);
+            }
+            
+            launcher.quicklist = quicklist;
         }
     }
 
