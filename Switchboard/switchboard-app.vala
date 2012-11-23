@@ -489,6 +489,15 @@ namespace Switchboard {
             var find_toolitem = new Gtk.ToolItem ();
             find_toolitem.add(search_box);
 
+            // Focus typing to the search bar
+            main_window.key_press_event.connect (() => {
+                if (main_window.get_focus () != search_box) {
+                    search_box.grab_focus ();
+                }
+
+                return false;
+            });
+
             // Nav button
             navigation_button = new Gtk.ToolButton.from_stock(Gtk.Stock.GO_BACK);
             navigation_button.clicked.connect (handle_navigation_button_clicked);
