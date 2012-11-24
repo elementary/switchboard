@@ -39,16 +39,16 @@ namespace Switchboard {
                 
                 var category_label = new Gtk.Label ("<big><b>" + _(category_names[i]) + "</b></big>");
                 category_label.margin_left = 12;
-                var filtered = new Gtk.TreeModelFilter(store, null);
+                var filtered = new Gtk.TreeModelFilter (store, null);
                 filtered.set_visible_column(3);
-                filtered.refilter();
+                filtered.refilter ();
                 
                 var category_plugs = new Gtk.IconView.with_model (filtered);
-                category_plugs.set_item_width(ITEM_WIDTH);
+                category_plugs.set_item_width (ITEM_WIDTH);
                 category_plugs.set_text_column (1);
                 category_plugs.set_pixbuf_column (0);
                 category_plugs.set_hexpand (true);
-                category_plugs.selection_changed.connect (() => on_selection_changed(category_plugs, filtered));
+                category_plugs.selection_changed.connect (() => on_selection_changed (category_plugs, filtered));
                 
                 (category_plugs.get_cells ().nth_data (0) as Gtk.CellRendererText).wrap_mode = Pango.WrapMode.WORD;
                 (category_plugs.get_cells ().nth_data (0) as Gtk.CellRendererText).ellipsize_set = true;
@@ -69,7 +69,7 @@ namespace Switchboard {
                 grid.attach (category_label, 0, 0, 1, 1);
                 grid.attach (h_separator, 1, 0, 1, 1); // expand, fill, padding´
                 
-                grid.attach(category_plugs, 0, 1, 2, 1);
+                grid.attach (category_plugs, 0, 1, 2, 1);
                 
                 category_labels[category_ids[i]] = grid;
                 category_store[category_ids[i]] = store;
@@ -81,8 +81,8 @@ namespace Switchboard {
 
         public void add_plug (Gee.HashMap<string, string> plug) {
 
-                            Gtk.TreeIter root;
-                string plug_down = plug["category"].down();
+                Gtk.TreeIter root;
+                string plug_down = plug["category"].down ();
                 
                 if (!(plug_down in category_ids)) {
                     warning (_("Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"), 
@@ -97,9 +97,9 @@ namespace Switchboard {
                     warning(_("Unable to load plug %s's icon: %s"), plug["title"], plug["icon"]);
                     return; // FIXME: if we get no icon, we probably dont want that one..
                 }
-                category_store[plug_down].append(out root);
+                category_store[plug_down].append (out root);
                 
-                category_store[plug_down].set(root, 0, icon_pixbuf, 1, plug["title"], 2, plug["exec"], 
+                category_store[plug_down].set (root, 0, icon_pixbuf, 1, plug["title"], 2, plug["exec"], 
                     3, true, 4, plug["extern"]);
                 category_labels[plug_down].show_all ();
                 category_views[plug_down].show_all ();
@@ -116,7 +116,7 @@ namespace Switchboard {
 
                 int shown = 0;
 
-                store.foreach((model, path, iter) => {
+                store.foreach ((model, path, iter) => {
                     string title;
 
                     store.get (iter, 1, out title);
@@ -139,9 +139,9 @@ namespace Switchboard {
                 }
             }
             if (!any_found) {
-                switchboard.show_alert(_("No settings found"), _("Try changing your search terms"), Gtk.MessageType.INFO);
+                switchboard.show_alert (_("No settings found"), _("Try changing your search terms"), Gtk.MessageType.INFO);
             } else {
-                switchboard.hide_alert();
+                switchboard.hide_alert ();
             }
         }
 
@@ -160,7 +160,7 @@ namespace Switchboard {
             Gtk.TreeIter selected_plug;
             
             var selected = view.get_selected_items ();
-            var item = selected.nth_data(0);
+            var item = selected.nth_data (0);
 
             if (item == null)
                 return;
@@ -170,7 +170,7 @@ namespace Switchboard {
             store.get_value (selected_plug, 2, out executable);
             store.get_value (selected_plug, 4, out @extern);
 
-            plug_selected (title.get_string(), executable.get_string(), @extern.get_string () == "1");
+            plug_selected (title.get_string (), executable.get_string (), @extern.get_string () == "1");
 
             view.unselect_path (item);
         }
