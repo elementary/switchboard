@@ -528,7 +528,7 @@ namespace Switchboard {
             var category_items = new Gee.HashMap<string, Dbusmenu.Menuitem> ();
             for (int i = 0; i < category_view.category_names.length; i++) {
                 var category_item = new Dbusmenu.Menuitem ();
-                category_item.property_set (Dbusmenu.MENUITEM_PROP_LABEL, category_view.category_names[i]);
+                category_item.property_set (Dbusmenu.MENUITEM_PROP_LABEL, _(category_view.category_names[i]));
                 category_items[category_view.category_ids[i]] += category_item;
 
                 quicklist.child_append (category_item);
