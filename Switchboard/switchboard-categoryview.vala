@@ -148,7 +148,7 @@ namespace Switchboard {
         public void recalculate_columns (int width) {
 
             foreach (var view in category_views.values) {
-                view.set_columns (width/(ITEM_WIDTH+ITEM_PADDING*2));
+                view.set_columns (width / (ITEM_WIDTH + ITEM_PADDING * 2));
             }
         }
 
