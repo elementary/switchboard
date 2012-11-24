@@ -490,10 +490,10 @@ namespace Switchboard {
             find_toolitem.add(search_box);
 
             // Focus typing to the search bar
-            main_window.key_press_event.connect (() => {
-                if (main_window.get_focus () != search_box) {
+            main_window.key_press_event.connect ((event) => {
+                // Don't focus if it is a modifier or if search_box is already focused.
+                if ((event.is_modifier == 0) && !search_box.has_focus)
                     search_box.grab_focus ();
-                }
 
                 return false;
             });
