@@ -128,6 +128,7 @@ namespace Switchboard {
             toolbar.set_hexpand (true);
 
             alert_view = new Granite.Widgets.EmbeddedAlert ();
+            alert_view.set_vexpand (true);
             grid.attach (alert_view, 0, 2, 1, 1);
 
             main_window.add (grid);
@@ -205,13 +206,13 @@ namespace Switchboard {
 
         public void hide_alert () {
             alert_view.hide ();
-            category_view.show ();
+            scrollable_view.show ();
         }
 
         public void show_alert (string primary_text, string secondary_text, Gtk.MessageType type) {
             alert_view.set_alert (primary_text, secondary_text, null, true, type);
             alert_view.show ();
-            category_view.hide ();
+            scrollable_view.hide ();
         }
 
         public void load_plug (string title, string executable, bool @extern) {
