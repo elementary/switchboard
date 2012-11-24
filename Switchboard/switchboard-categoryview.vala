@@ -25,8 +25,8 @@ namespace Switchboard {
         Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
 
         public signal void plug_selected (string title, string executable, bool @extern);
-        string [] category_ids = { "personal", "hardware", "network", "system" };
-        string [] category_names = { N_("Personal"), N_("Hardware"), N_("Network and Wireless"), N_("System") };
+        public string [] category_ids = { "personal", "hardware", "network", "system" };
+        public string [] category_names = { N_("Personal"), N_("Hardware"), N_("Network and Wireless"), N_("System") };
 
         public CategoryView () {
             for (int i = 0; i < category_ids.length; i++) {

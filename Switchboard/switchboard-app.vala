@@ -523,6 +523,16 @@ namespace Switchboard {
             // Fetch launcher
             var launcher = Unity.LauncherEntry.get_for_desktop_id (app_launcher);
             var quicklist = new Dbusmenu.Menuitem ();
+
+            // Add menuitems for every category.
+            var category_items = new Gee.HashMap<string, Dbusmenu.Menuitem> ();
+            for (int i = 0; i < category_view.category_names.length; i++) {
+                var category_item = new Dbusmenu.Menuitem ();
+                category_item.property_set (Dbusmenu.MENUITEM_PROP_LABEL, category_view.category_names[i]);
+                category_items[category_view.category_ids[i]] += category_item;
+
+                quicklist.child_append (category_item);
+            }
             
             // Loop through every plug and add a quicklist item
             foreach (var plug in plugs) {
@@ -534,7 +544,13 @@ namespace Switchboard {
                     activate ();
                 });
 
-                quicklist.child_append (item);
+                // Add item to correct category
+                string plug_down = plug["category"].down();
+                var category_item = category_items.get (plug_down);
+                if (category_item != null)
+                    category_item.child_append (item);
+                else
+                    warning ("Tried to add a plug without correct category to the quicklist.");
             }
             
             launcher.quicklist = quicklist;
