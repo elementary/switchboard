@@ -28,6 +28,9 @@ namespace Switchboard {
         string [] category_ids = { "personal", "hardware", "network", "system" };
         string [] category_names = { N_("Personal"), N_("Hardware"), N_("Network and Wireless"), N_("System") };
 
+        int ITEM_WIDTH = 96;
+        int ITEM_PADDING = 10;
+
         public CategoryView () {
             for (int i = 0; i < category_ids.length; i++) {
                 var store = new Gtk.ListStore (5, typeof (Gdk.Pixbuf), typeof (string), 
@@ -41,11 +44,11 @@ namespace Switchboard {
                 filtered.refilter();
                 
                 var category_plugs = new Gtk.IconView.with_model (filtered);
-                category_plugs.set_item_width(96);
+                category_plugs.set_item_width(ITEM_WIDTH);
                 category_plugs.set_text_column (1);
                 category_plugs.set_pixbuf_column (0);
                 category_plugs.set_hexpand (true);
-                category_plugs.selection_changed.connect(() => on_selection_changed(category_plugs, filtered));
+                category_plugs.selection_changed.connect (() => on_selection_changed(category_plugs, filtered));
                 
                 (category_plugs.get_cells ().nth_data (0) as Gtk.CellRendererText).wrap_mode = Pango.WrapMode.WORD;
                 (category_plugs.get_cells ().nth_data (0) as Gtk.CellRendererText).ellipsize_set = true;
@@ -139,6 +142,13 @@ namespace Switchboard {
                 switchboard.show_alert(_("No settings found"), _("Try changing your search terms"), Gtk.MessageType.INFO);
             } else {
                 switchboard.hide_alert();
+            }
+        }
+
+        public void recalculate_columns (int width) {
+
+            foreach (var view in category_views.values) {
+                view.set_columns (width/(ITEM_WIDTH+ITEM_PADDING*2));
             }
         }
 

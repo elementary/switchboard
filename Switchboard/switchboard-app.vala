@@ -139,6 +139,11 @@ namespace Switchboard {
             main_window.set_application (this);
             main_window.show_all ();
 
+            main_window.size_allocate.connect (() => {
+                var width = main_window.get_allocated_width ();
+                category_view.recalculate_columns (width);
+            });
+
             foreach (var label in category_view.category_labels.values)
                 label.hide ();
             foreach (var view in category_view.category_views.values)
