@@ -525,32 +525,41 @@ namespace Switchboard {
             var quicklist = new Dbusmenu.Menuitem ();
 
             // Add menuitems for every category.
-            var category_items = new Gee.HashMap<string, Dbusmenu.Menuitem> ();
             for (int i = 0; i < category_view.category_names.length; i++) {
+                // Create menuitem for this category
                 var category_item = new Dbusmenu.Menuitem ();
-                category_item.property_set (Dbusmenu.MENUITEM_PROP_LABEL, _(category_view.category_names[i]));
-                category_items[category_view.category_ids[i]] += category_item;
-
-                quicklist.child_append (category_item);
-            }
+                var category_name = category_view.category_names[i];
+                category_item.property_set (Dbusmenu.MENUITEM_PROP_LABEL, _(category_name));
             
-            // Loop through every plug and add a quicklist item
-            foreach (var plug in plugs) {
-                var item = new Dbusmenu.Menuitem ();
+                // Loop through every plug and add a quicklist item
+                var category_id = category_view.category_ids[i];
+                var category_store = category_view.category_store[category_id];
+                category_store.foreach ((plug, path, iter) => {
+                    string title;
+                    string exec;
+                    string @extern;
 
-                item.property_set (Dbusmenu.MENUITEM_PROP_LABEL, plug["title"]);
-                item.item_activated.connect (() => {
-                    load_plug (plug["title"], plug["exec"], plug["extern"] == "1");
-                    activate ();
+                    category_store.get (iter, 1, out title);
+                    category_store.get (iter, 2, out exec);
+                    category_store.get (iter, 4, out @extern);
+
+                    var item = new Dbusmenu.Menuitem ();
+
+                    item.property_set (Dbusmenu.MENUITEM_PROP_LABEL, title);
+
+                    // When item is clicked, open corresponding plug
+                    item.item_activated.connect (() => {
+                        load_plug (title, exec, @extern == "1");
+                        activate ();
+                    });
+
+                    // Add item to correct category
+                    category_item.child_append (item);
+
+                    return false;
                 });
 
-                // Add item to correct category
-                string plug_down = plug["category"].down();
-                var category_item = category_items.get (plug_down);
-                if (category_item != null)
-                    category_item.child_append (item);
-                else
-                    warning ("Tried to add a plug without correct category to the quicklist.");
+                quicklist.child_append (category_item);
             }
             
             launcher.quicklist = quicklist;
