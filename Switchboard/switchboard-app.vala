@@ -174,9 +174,7 @@ namespace Switchboard {
             if (!any_plugs) {
                 show_alert(_("No settings found"), _("Install some and re-launch Switchboard"), Gtk.MessageType.WARNING);
                 search_box.sensitive = false;
-            }
-            else
-            {
+            } else {
                 update_libunity_quicklist ();
             }
             
@@ -519,7 +517,6 @@ namespace Switchboard {
 
         // Updates items in quicklist menu using the Unity quicklist api.
         void update_libunity_quicklist () {
-
             // Fetch launcher
             var launcher = Unity.LauncherEntry.get_for_desktop_id (app_launcher);
             var quicklist = new Dbusmenu.Menuitem ();
