@@ -530,21 +530,15 @@ namespace Switchboard {
                 var category_item = new Dbusmenu.Menuitem ();
                 var category_name = category_view.category_names[i];
                 category_item.property_set (Dbusmenu.MENUITEM_PROP_LABEL, _(category_name));
-            
+
                 // Loop through every plug and add a quicklist item
                 var category_id = category_view.category_ids[i];
                 var category_store = category_view.category_store[category_id];
-                category_store.foreach ((plug, path, iter) => {
-                    string title;
-                    string exec;
-                    string @extern;
-
-                    category_store.get (iter, 1, out title);
-                    category_store.get (iter, 2, out exec);
-                    category_store.get (iter, 4, out @extern);
+                category_store.foreach ((model, path, iter) => {
+                    string title, exec, @extern;
+                    category_store.get (iter, 1, out title, 2, out exec, 4, out @extern);
 
                     var item = new Dbusmenu.Menuitem ();
-
                     item.property_set (Dbusmenu.MENUITEM_PROP_LABEL, title);
 
                     // When item is clicked, open corresponding plug
@@ -561,7 +555,7 @@ namespace Switchboard {
 
                 quicklist.child_append (category_item);
             }
-            
+
             launcher.quicklist = quicklist;
         }
     }
