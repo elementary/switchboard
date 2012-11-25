@@ -180,6 +180,8 @@ namespace Switchboard {
             if (!any_plugs) {
                 show_alert(_("No settings found"), _("Install some and re-launch Switchboard"), Gtk.MessageType.WARNING);
                 search_box.sensitive = false;
+            } else {
+                update_libunity_quicklist ();
             }
             
             bool found = false;
@@ -526,6 +528,47 @@ namespace Switchboard {
             }
 
             build ();
+        }
+
+        // Updates items in quicklist menu using the Unity quicklist api.
+        void update_libunity_quicklist () {
+            // Fetch launcher
+            var launcher = Unity.LauncherEntry.get_for_desktop_id (app_launcher);
+            var quicklist = new Dbusmenu.Menuitem ();
+
+            // Add menuitems for every category.
+            for (int i = 0; i < category_view.category_names.length; i++) {
+                // Create menuitem for this category
+                var category_item = new Dbusmenu.Menuitem ();
+                var category_name = category_view.category_names[i];
+                category_item.property_set (Dbusmenu.MENUITEM_PROP_LABEL, _(category_name));
+
+                // Loop through every plug and add a quicklist item
+                var category_id = category_view.category_ids[i];
+                var category_store = category_view.category_store[category_id];
+                category_store.foreach ((model, path, iter) => {
+                    string title, exec, @extern;
+                    category_store.get (iter, 1, out title, 2, out exec, 4, out @extern);
+
+                    var item = new Dbusmenu.Menuitem ();
+                    item.property_set (Dbusmenu.MENUITEM_PROP_LABEL, title);
+
+                    // When item is clicked, open corresponding plug
+                    item.item_activated.connect (() => {
+                        load_plug (title, exec, @extern == "1");
+                        activate ();
+                    });
+
+                    // Add item to correct category
+                    category_item.child_append (item);
+
+                    return false;
+                });
+
+                quicklist.child_append (category_item);
+            }
+
+            launcher.quicklist = quicklist;
         }
     }
 
