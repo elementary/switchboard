@@ -97,8 +97,8 @@ namespace Switchboard {
             socket.set_hexpand(true);
             socket.set_vexpand(true);
 
-            socket.plug_removed.connect(() => {
-                plug_closed();
+            socket.plug_removed.connect (() => {
+                plug_closed ();
                 return true;
             });
 
