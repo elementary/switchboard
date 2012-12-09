@@ -94,9 +94,13 @@ namespace Switchboard {
 
             // Set up socket
             socket = new Gtk.Socket ();
-            socket.plug_removed.connect(switch_to_icons);
             socket.set_hexpand(true);
             socket.set_vexpand(true);
+
+            socket.plug_removed.connect(() => {
+                plug_closed();
+                return true;
+            });
 
             // Set up accelerators (hotkeys)
             var accel_group = new Gtk.AccelGroup ();
@@ -242,16 +246,13 @@ namespace Switchboard {
                         navigation_button.stock_id = Gtk.Stock.HOME;
                         current_plug["title"] = title;
                         current_plug["executable"] = executable;
+                        switch_to_socket ();
+                        main_window.title = @"$APP_TITLE - $title";
                     }
                 } catch {  warning(_("Failed to launch plug: title %s | executable %s"), title, executable); }
             } else {
                 navigation_button.set_sensitive(true);
                 navigation_button.stock_id = Gtk.Stock.HOME;
-            }
-            
-            if (!@extern) {
-                switch_to_socket ();
-                main_window.title = @"$APP_TITLE - $title";
             }
         }
 
@@ -279,6 +280,7 @@ namespace Switchboard {
             search_box.sensitive = false;
 
             category_view.hide ();
+            socket.hide ();
             loading.show_all ();
         }
         
