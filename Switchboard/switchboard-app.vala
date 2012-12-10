@@ -254,6 +254,10 @@ namespace Switchboard {
                 navigation_button.set_sensitive(true);
                 navigation_button.stock_id = Gtk.Stock.HOME;
             }
+            
+            if (@extern) {
+                switch_to_icons ();
+            }
         }
 
         // Change Switchboard title back to "Switchboard"
