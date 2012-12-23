@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-08-01 23:47-0500\n"
-"PO-Revision-Date: 2012-10-20 19:46+0000\n"
-"Last-Translator: Hlobil Vaclav <Unknown>\n"
+"PO-Revision-Date: 2012-12-22 21:45+0000\n"
+"Last-Translator: Marek Suchánek <suchm@seznam.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-21 05:07+0000\n"
-"X-Generator: Launchpad (build 16165)\n"
+"X-Launchpad-Export-Date: 2012-12-23 04:52+0000\n"
+"X-Generator: Launchpad (build 16378)\n"
 "Language: cs\n"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
@@ -28,7 +28,7 @@ msgstr "Hardware"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Network and Wireless"
-msgstr "Síť a Bezdrátové připojení"
+msgstr "Síť a bezdrátové připojení"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "System"
@@ -39,12 +39,12 @@ msgstr "Systém"
 msgid ""
 "Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
 msgstr ""
-"Klíčový soubor \"%s\" obsahuje neplatnou kategorii: \"%s\", a nebude přidán"
+"Klíčový soubor „%s“ obsahuje neplatnou kategorii: „%s“, a proto nebude přidán"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:94
 #, c-format
 msgid "Unable to load plug %s's icon: %s"
-msgstr ""
+msgstr "Modulu %s nelze načíst ikonu: %s"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
@@ -57,7 +57,7 @@ msgstr "Zkontrolujte správnost zadání"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:6
 msgid "Change system and user settings"
-msgstr "Změnit nastavení"
+msgstr "Změnit systémová a uživatelská nastavení"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:7
 msgid "Settings Center"
@@ -65,21 +65,21 @@ msgstr "Centrum nastavení"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
 msgid "Install some and re-launch Switchboard"
-msgstr ""
+msgstr "Nějaké nainstalujte a znovu spusťte Switchboard"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:213
 #, c-format
 msgid "Closing plug \"%s\" in Switchboard controller..."
-msgstr ""
+msgstr "Zavírám v ovladači Switchboardu modul „%s“…"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:225
 #, c-format
 msgid "Failed to launch plug: title %s | executable %s"
-msgstr ""
+msgstr "Nepovedlo se spustit modul: název %s | spuštěný souborem %s"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:322
 msgid "title"
-msgstr "nadpis"
+msgstr "název"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:369
 msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
@@ -91,7 +91,7 @@ msgstr "Nastavení vyhledávání"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:492
 msgid "Open a plug"
-msgstr ""
+msgstr "Otevřít modul"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:501
 msgid "Welcome to $APP_TITLE"
@@ -104,10 +104,11 @@ msgstr "Verze: $VERSION"
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:503
 msgid "Report any issues/bugs you mind find to lp:switchboard"
 msgstr ""
+"Jakékoliv chyby či potíže, které naleznete, oznamujte na lp:switchboard"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:526
 msgid "Switchboard already running. Exiting.."
-msgstr "Je spuštěno jiné okno Centra nastavení. Zavírání.."
+msgstr "Centrum nastavení už běží v jiném okně. Zavírám…"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-resources.vala:3
 msgid "System Settings"
