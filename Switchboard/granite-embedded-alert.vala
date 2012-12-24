@@ -47,7 +47,7 @@ public class Granite.Widgets.EmbeddedAlert : Gtk.EventBox {
 
     public EmbeddedAlert () {
         get_style_context ().add_class (Gtk.STYLE_CLASS_VIEW);
-        get_style_context ().add_class (Granite.STYLE_CLASS_CONTENT_VIEW);
+        get_style_context ().add_class (Granite.StyleClass.CONTENT_VIEW);
 
         action_button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
         action_button_box.valign = Gtk.Align.START;
