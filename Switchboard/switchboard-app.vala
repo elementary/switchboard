@@ -85,10 +85,10 @@ namespace Switchboard {
             // Set up defaults
             main_window.title = APP_TITLE;
             main_window.icon_name = APP_ICON;
-            main_window.set_size_request (500, 300);
 
             // Set up window
             main_window.set_default_size (842, 475);
+            main_window.set_size_request (500, 300);
             main_window.window_position = Gtk.WindowPosition.CENTER;
             main_window.destroy.connect (shut_down);
             setup_toolbar ();
