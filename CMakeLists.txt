@@ -69,11 +69,11 @@ include(ValaVersion)
 ensure_vala_version("0.15.1" MINIMUM)
 include(ValaPrecompile)
 vala_precompile(VALA_C
-    Switchboard/switchboard-app.vala
-    Switchboard/switchboard-categoryview.vala
-    Switchboard/switchboard-resources.vala
-    Switchboard/switchboard-desktoplauncher.vala
-    Switchboard/granite-embedded-alert.vala
+    src/Switchboard.vala
+    src/CategoryView.vala
+    src/Resources.vala
+    src/DesktopLauncher.vala
+    src/EmbeddedAlert.vala
 PACKAGES
     granite
     gee-1.0
