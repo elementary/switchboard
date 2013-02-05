@@ -6,5 +6,5 @@ Exec=switchboard
 Icon=preferences-desktop
 Terminal=false
 Categories=GNOME;GTK;System;
-Keywords=Preferences;
+Keywords=Preferences;Control;Panel;
 X-GNOME-Gettext-Domain=switchboard
