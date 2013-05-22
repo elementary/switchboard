@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-08-01 23:47-0500\n"
-"PO-Revision-Date: 2013-02-25 19:40+0000\n"
-"Last-Translator: Danny Damsky <dannydamsky99@gmail.com>\n"
+"PO-Revision-Date: 2013-05-22 04:08+0000\n"
+"Last-Translator: uri damsker <ud1955@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-02-26 05:17+0000\n"
-"X-Generator: Launchpad (build 16506)\n"
+"X-Launchpad-Export-Date: 2013-05-22 04:52+0000\n"
+"X-Generator: Launchpad (build 16626)\n"
 "Language: he\n"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
@@ -28,7 +28,7 @@ msgstr "חומרה"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Network and Wireless"
-msgstr "רשתות קוויות ואלחוטיות"
+msgstr "רשת וחיבור קווי"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "System"
@@ -48,15 +48,15 @@ msgstr "לא ניתן לטעון תקע של %s האייקון:  %s"
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
 msgid "No settings found"
-msgstr "הגדרות לא נמצאו"
+msgstr "לא נמצאו הגדרות"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
 msgid "Try changing your search terms"
-msgstr "נסו לשנות את תנאי החיפוש שלכם"
+msgstr "שינוי הגדרות החיפוש"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:6
 msgid "Change system and user settings"
-msgstr "שנה הגדרות מערכת ומשתמש"
+msgstr "שינוי הגדרות מערכת והגדרות משתמש"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:7
 msgid "Settings Center"
