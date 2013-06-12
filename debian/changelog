@@ -1,3 +1,9 @@
+switchboard (1.0) precise; urgency=low
+
+  * New upstream release.
+
+ -- Cody Garver <cody@elementaryos.org>  Sun, 09 Jun 2013 16:06:54 -0500
+
 switchboard (0.9) natty; urgency=low
 
   * Now using libgranite, minor refactoring.
