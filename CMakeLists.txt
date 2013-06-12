@@ -11,8 +11,8 @@ set (DATADIR "${CMAKE_INSTALL_PREFIX}/share")
 set (PKGDATADIR "${DATADIR}/switchboard")
 set (GETTEXT_PACKAGE "switchboard")
 set (RELEASE_NAME "Preferences with piazzaz.")
-set (VERSION "0.9.1")
-set (VERSION_INFO "Release")
+set (VERSION "1.0")
+set (VERSION_INFO "Stable Release")
 #
 
 # Niceties
