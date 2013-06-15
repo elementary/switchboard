@@ -503,6 +503,7 @@ namespace Switchboard {
             search_box.sensitive = (count_plugs () > 0);
             var find_toolitem = new Gtk.ToolItem ();
             find_toolitem.add(search_box);
+            find_toolitem.margin_right = 6;
 
             // Focus typing to the search bar
             main_window.key_press_event.connect ((event) => {
@@ -524,7 +525,6 @@ namespace Switchboard {
             toolbar.insert (progress_toolitem, -1);
             toolbar.insert (rspace, -1);
             toolbar.insert (find_toolitem, -1);
-            toolbar.insert (create_appmenu (new Gtk.Menu ()), -1);
         }
         
         public override void activate () {
