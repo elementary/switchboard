@@ -1,3 +1,9 @@
+switchboard (1.0.1) precise; urgency=low
+
+  * No more appmenu
+
+ -- Cody Garver <cody@elementaryos.org>  Thu, 20 Jun 2013 04:22:32 -0500
+
 switchboard (1.0) precise; urgency=low
 
   * New upstream release.
