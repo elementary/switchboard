@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-08-01 23:47-0500\n"
-"PO-Revision-Date: 2012-09-02 15:30+0000\n"
-"Last-Translator: Igor <Unknown>\n"
+"PO-Revision-Date: 2013-08-18 19:22+0000\n"
+"Last-Translator: Иван Благојевић <ivan_blagojevic@mail.com>\n"
 "Language-Team: Serbian <sr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-02-15 04:53+0000\n"
-"X-Generator: Launchpad (build 16491)\n"
+"X-Launchpad-Export-Date: 2013-08-19 04:48+0000\n"
+"X-Generator: Launchpad (build 16723)\n"
 "Language: sr\n"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
@@ -44,7 +44,7 @@ msgstr ""
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:94
 #, c-format
 msgid "Unable to load plug %s's icon: %s"
-msgstr ""
+msgstr "Нисам успео учитати сличицу прикључка %s: %s"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
@@ -65,7 +65,7 @@ msgstr "Центар Подешавања"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
 msgid "Install some and re-launch Switchboard"
-msgstr ""
+msgstr "Уградите неки, и поново покрените Прекидач"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:213
 #, c-format
@@ -79,7 +79,7 @@ msgstr "Неоспело покретање додатка: title %s | executabl
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:322
 msgid "title"
-msgstr "наслов"
+msgstr "Наслов"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:369
 msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
@@ -87,7 +87,7 @@ msgstr "Није могуће прелистати садржај фасцикл
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:462
 msgid "Search Settings"
-msgstr "Подешавања Претраге"
+msgstr "Претрага"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:492
 msgid "Open a plug"
@@ -108,7 +108,7 @@ msgstr ""
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:526
 msgid "Switchboard already running. Exiting.."
-msgstr ""
+msgstr "Прикључна табла већ ради. Напустање.."
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-resources.vala:3
 msgid "System Settings"
