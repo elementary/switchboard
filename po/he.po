@@ -8,19 +8,19 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-08-01 23:47-0500\n"
-"PO-Revision-Date: 2013-05-22 04:08+0000\n"
-"Last-Translator: Uri Damsker <ud1955@gmail.com>\n"
+"PO-Revision-Date: 2013-08-25 08:18+0000\n"
+"Last-Translator: ori swid <salsero85@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-05-23 05:45+0000\n"
-"X-Generator: Launchpad (build 16640)\n"
+"X-Launchpad-Export-Date: 2013-08-26 05:04+0000\n"
+"X-Generator: Launchpad (build 16738)\n"
 "Language: he\n"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Personal"
-msgstr "אישי"
+msgstr "הגדרות אישיות"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
 msgid "Hardware"
@@ -43,7 +43,7 @@ msgstr "קובץ  \"%s\" מכיל קטגוריה שהיא לא בתוקף:  \"%s
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:94
 #, c-format
 msgid "Unable to load plug %s's icon: %s"
-msgstr "לא ניתן לטעון תקע של %s האייקון:  %s"
+msgstr "לא ניתן לטעון את האייקון %s של התוסף %s"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
@@ -86,11 +86,11 @@ msgstr "לא מצליח לשמור על קצב התקע הנפקד בדרך של
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:462
 msgid "Search Settings"
-msgstr "חפש הגדרות"
+msgstr "חפש בהגדרות"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:492
 msgid "Open a plug"
-msgstr "פתח תקע"
+msgstr "פתח תוסף"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:501
 msgid "Welcome to $APP_TITLE"
@@ -98,7 +98,7 @@ msgstr "ברוכים הבאים ל $APP_TITLE"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:502
 msgid "Version: $VERSION"
-msgstr "גרסה:  $VERSION"
+msgstr ""
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:503
 msgid "Report any issues/bugs you mind find to lp:switchboard"
@@ -106,8 +106,8 @@ msgstr "דווכו על כל שגיאה שאתם מוצאים ל lp:switchboard"
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:526
 msgid "Switchboard already running. Exiting.."
-msgstr "סוויצבורד כבר פועל. יוצא..."
+msgstr "Switchboard כבר פועל. יוצא..."
 
 #: /home/codygarver/switchboard/po/../Switchboard//switchboard-resources.vala:3
 msgid "System Settings"
-msgstr "הגדרות מערכת"
+msgstr "הגדרות המערכת"
