@@ -482,7 +482,7 @@ namespace Switchboard {
             rspace.set_expand(true);
 
             // Progressbar
-            var progress_vbox = new Gtk.VBox (true, 0);
+            var progress_vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
             progress_label = new Gtk.Label ("");
             progress_label.set_use_markup(true);
             progress_bar = new Gtk.ProgressBar ();
