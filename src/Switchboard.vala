@@ -516,7 +516,7 @@ namespace Switchboard {
             });
 
             // Nav button
-            navigation_button = new Gtk.ToolButton (null,null);
+            navigation_button = new Gtk.ToolButton (null, null);
             navigation_button.set_icon_name ("go-previous");
             navigation_button.clicked.connect (handle_navigation_button_clicked);
             navigation_button.set_sensitive(false);
