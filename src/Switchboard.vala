@@ -43,7 +43,7 @@ namespace Switchboard {
         // Chrome widgets
         Gtk.ProgressBar progress_bar;
         Gtk.Label progress_label;
-        Granite.Widgets.SearchBar search_box;
+        Gtk.SearchEntry search_box;
         Gtk.Toolbar toolbar;
         Gtk.ToolButton navigation_button;
         // Public so we can hide it after show_all()
@@ -244,7 +244,7 @@ namespace Switchboard {
                     // ensure the button is sensitive; it might be the first plug loaded
                     if (!@extern) {
                         navigation_button.set_sensitive(true);
-                        navigation_button.stock_id = Gtk.Stock.HOME;
+                        navigation_button.set_icon_name ("go-home");
                         current_plug["title"] = title;
                         current_plug["executable"] = executable;
                         switch_to_socket ();
@@ -253,7 +253,7 @@ namespace Switchboard {
                 } catch {  warning(_("Failed to launch plug: title %s | executable %s"), title, executable); }
             } else {
                 navigation_button.set_sensitive(true);
-                navigation_button.stock_id = Gtk.Stock.HOME;
+                navigation_button.set_icon_name ("go-home");
             }
             
             if (@extern) {
@@ -268,13 +268,14 @@ namespace Switchboard {
 
         // Handles clicking the navigation button
         void handle_navigation_button_clicked () {
-            if (navigation_button.stock_id == Gtk.Stock.HOME) {
+            string icon_name = navigation_button.get_icon_name ();
+            if (icon_name == "go-home") {
                 switch_to_icons();
-                navigation_button.stock_id = Gtk.Stock.GO_BACK;
+                navigation_button.set_icon_name ("go-previous");
             }
             else {
                 load_plug (current_plug["title"], current_plug["executable"], current_plug["extern"] == "1");
-                navigation_button.stock_id = Gtk.Stock.HOME;
+                navigation_button.set_icon_name ("go-home");
             }
         }
 
@@ -482,7 +483,7 @@ namespace Switchboard {
             rspace.set_expand(true);
 
             // Progressbar
-            var progress_vbox = new Gtk.VBox (true, 0);
+            var progress_vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
             progress_label = new Gtk.Label ("");
             progress_label.set_use_markup(true);
             progress_bar = new Gtk.ProgressBar ();
@@ -493,8 +494,8 @@ namespace Switchboard {
             progress_toolitem.set_expand(true);
 
             // Searchbar
-            search_box = new Granite.Widgets.SearchBar (_("Search Settings"));
-            search_box.primary_icon_stock = "gtk-find";
+            search_box = new Gtk.SearchEntry ();
+            search_box.set_placeholder_text (_("Search Settings"));
             search_box.activate.connect(() => search_box_activated());
             search_box.changed.connect(() => {
                 category_view.filter_plugs(search_box.get_text (), this);
@@ -515,7 +516,8 @@ namespace Switchboard {
             });
 
             // Nav button
-            navigation_button = new Gtk.ToolButton.from_stock(Gtk.Stock.GO_BACK);
+            navigation_button = new Gtk.ToolButton (null, null);
+            navigation_button.set_icon_name ("go-previous");
             navigation_button.clicked.connect (handle_navigation_button_clicked);
             navigation_button.set_sensitive(false);
 
