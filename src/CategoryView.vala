@@ -39,6 +39,7 @@ namespace Switchboard {
                 
                 var category_label = new Gtk.Label (_(category_names[i]));
                 var fg_css = new Gtk.CssProvider ();
+                
                 try {
                     fg_css.load_from_data ("*{
                         color: shade (@bg_color, 0.4);
@@ -47,6 +48,7 @@ namespace Switchboard {
                         text-shadow: 0 1px alpha (#fff, 0.6);
                     }", -1);
                 } catch (Error e) { warning (e.message); }
+                
                 category_label.get_style_context ().add_provider (fg_css, 20000);
                 category_label.margin_left = 12;
                 var filtered = new Gtk.TreeModelFilter (store, null);
