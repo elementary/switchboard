@@ -39,6 +39,7 @@ namespace Switchboard {
                 
                 var category_label = new Gtk.Label ("<big><b>" + _(category_names[i]) + "</b></big>");
                 category_label.margin_left = 12;
+                category_label.margin_right = 8;
                 var filtered = new Gtk.TreeModelFilter (store, null);
                 filtered.set_visible_column(3);
                 filtered.refilter ();
@@ -66,6 +67,7 @@ namespace Switchboard {
                 // Always add a Seperator
                 var h_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
                 h_separator.set_hexpand (true);
+                h_separator.margin_right = 12;
                 grid.attach (category_label, 0, 0, 1, 1);
                 grid.attach (h_separator, 1, 0, 1, 1); // expand, fill, padding´
                 
