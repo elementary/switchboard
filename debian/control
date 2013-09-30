@@ -8,9 +8,9 @@ Build-Depends: cmake (>= 2.8),
                libgee-dev (>= 0.5.3),
                libglib2.0-dev (>= 2.26.0),
                libgranite-dev,
-               libgtk-3-dev (>= 3.0.8),
+               libgtk-3-dev (>= 3.6.0),
                libunity-dev,
-               valac-0.16 | valac (>= 0.16)
+               valac (>= 0.18)
 Standards-Version: 3.8.4
 Homepage: https://launchpad.net/switchboard
 Vcs-Bzr: lp:switchboard
