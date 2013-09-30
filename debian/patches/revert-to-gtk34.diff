@@ -1,0 +1,33 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -61,7 +61,7 @@
+ #
+ 
+ find_package(PkgConfig)
+-pkg_check_modules(DEPS REQUIRED granite gio-2.0 gee-1.0 gtk+-3.0>=3.6 unity)
++pkg_check_modules(DEPS REQUIRED granite gio-2.0 gee-1.0 gtk+-3.0 unity)
+ add_definitions(${DEPS_CFLAGS})
+ link_directories(${DEPS_LIBRARY_DIRS})
+ find_package(Vala REQUIRED)
+--- a/src/Switchboard.vala
++++ b/src/Switchboard.vala
+@@ -43,7 +43,7 @@
+         // Chrome widgets
+         Gtk.ProgressBar progress_bar;
+         Gtk.Label progress_label;
+-        Gtk.SearchEntry search_box;
++        Granite.Widgets.SearchBar search_box;
+         Gtk.Toolbar toolbar;
+         Gtk.ToolButton navigation_button;
+         // Public so we can hide it after show_all()
+@@ -494,8 +494,8 @@
+             progress_toolitem.set_expand(true);
+ 
+             // Searchbar
+-            search_box = new Gtk.SearchEntry ();
+-            search_box.set_placeholder_text (_("Search Settings"));
++            search_box = new Granite.Widgets.SearchBar (_("Search Settings"));
++            search_box.primary_icon_stock = "gtk-find";
+             search_box.activate.connect(() => search_box_activated());
+             search_box.changed.connect(() => {
+                 category_view.filter_plugs(search_box.get_text (), this);
