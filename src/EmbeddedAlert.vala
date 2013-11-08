@@ -124,7 +124,6 @@ public class Granite.Widgets.EmbeddedAlert : Gtk.EventBox {
                 case Gtk.MessageType.WARNING:
                     image.set_from_icon_name ("dialog-warning", Gtk.IconSize.DIALOG);
                     break;
-                    break;
                 case Gtk.MessageType.INFO:
                     image.set_from_icon_name ("dialog-information", Gtk.IconSize.DIALOG);
                     break;
