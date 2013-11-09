@@ -45,6 +45,7 @@ namespace Switchboard {
         Gtk.Button navigation_button;
         Switchboard.CategoryView category_view;
         
+        Gee.LinkedList <string> loaded_plugs;
         string current_code_name;
         
         construct {
@@ -76,6 +77,7 @@ namespace Switchboard {
                 Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.DEBUG;
             else
                 Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.INFO;
+            loaded_plugs = new Gee.LinkedList <string> ();
             plugs_manager = new Switchboard.PlugsManager (plug_to_open);
             plugs_manager.open_at_startup.connect ((plug) => {load_plug (plug);});
             build ();
@@ -162,11 +164,15 @@ namespace Switchboard {
         }
 
         public void load_plug (Switchboard.Plug plug) {
-
+            if (!loaded_plugs.contains (plug.code_name)) {
+                stack.add_named (plug.get_widget (), plug.code_name);
+                loaded_plugs.add (plug.code_name);
+            }
             // Launch plug's executable
             ((Gtk.Image)navigation_button.image).icon_name = "go-home";
                 navigation_button.set_sensitive (true);
             headerbar.subtitle = plug.display_name;
+            current_code_name = plug.code_name;
             switch_to_plug (plug.code_name);
         }
 
@@ -188,7 +194,6 @@ namespace Switchboard {
 
         // Switches to the socket view
         void switch_to_plug (string plug) {
-            current_code_name = plug;
             search_box.sensitive = false;
             stack.set_visible_child_name (plug);
         }
@@ -216,7 +221,7 @@ namespace Switchboard {
 
             // Searchbar
             search_box = new Gtk.SearchEntry ();
-            search_box.set_placeholder_text (_("Search Settings"));
+            search_box.set_placeholder_text (_("Search Settings…"));
             search_box.changed.connect(() => {
                 category_view.filter_plugs(search_box.get_text ());
             });

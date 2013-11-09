@@ -179,8 +179,6 @@ public class Switchboard.CategoryView : Gtk.Grid {
         if (plugs_manager.plugs.is_empty == false)
             SwitchboardApp.instance.search_box.sensitive = true;
         
-        SwitchboardApp.instance.stack.add_named (plug.get_widget (), plug.code_name);
-        
         filter_plugs (SwitchboardApp.instance.search_box.get_text ());
 
     }
