@@ -1,0 +1,5 @@
+usr/include/switchboard/*
+usr/lib/*/pkgconfig/switchboard.pc
+usr/share/vala/vapi/switchboard.vapi
+usr/share/vala/vapi/switchboard.deps
+usr/share/gir-1.0/Switchboard*.gir

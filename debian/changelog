@@ -1,3 +1,9 @@
+switchboard (2.0.0) untable; urgency=low
+
+  * Now using libpeas
+
+ -- Corentin "tintou" Noël <tintou@mailoo.org>  Sat, 09 Nov 2013 14:29:41 +0100
+
 switchboard (1.0.1) precise; urgency=low
 
   * No more appmenu
