@@ -32,29 +32,20 @@ namespace Switchboard {
         
         private const string[] SUPPORTED_GETTEXT_DOMAINS_KEYS = {"X-Ubuntu-Gettext-Domain", "X-GNOME-Gettext-Domain"};
         
-        // Chrome widgets
-        Gtk.ProgressBar progress_bar;
-        Gtk.Label progress_label;
-        public Gtk.SearchEntry search_box;
-        Gtk.Toolbar toolbar;
-        Gtk.ToolButton navigation_button;
-        // Public so we can hide it after show_all()
-        public Gtk.ToolItem progress_toolitem;
-        // These two wrap the progress bar
-        Gtk.ToolItem lspace = new Gtk.ToolItem ();
-        Gtk.ToolItem rspace = new Gtk.ToolItem ();
-        
         Gtk.Window main_window;
         
-        // Current items
-        Switchboard.Plug current_plug;
-        Gtk.Widget plug_widget;
+        // Chrome widgets
+        public Gtk.SearchEntry search_box;
+        Gtk.HeaderBar headerbar;
+        public Gtk.Stack stack;
         
         // Content area widgets
-        Gtk.Grid grid;
         Granite.Widgets.EmbeddedAlert alert_view;
-        Gtk.ScrolledWindow scrollable_view;
+        Gtk.ScrolledWindow category_scrolled;
+        Gtk.Button navigation_button;
         Switchboard.CategoryView category_view;
+        
+        string current_code_name;
         
         construct {
             application_id = "org.elementary.Switchboard";
@@ -123,58 +114,47 @@ namespace Switchboard {
             category_view.plug_selected.connect ((plug) => load_plug (plug));
             category_view.margin_top = 12;
 
-            scrollable_view = new Gtk.ScrolledWindow (null, null);
+            category_scrolled = new Gtk.ScrolledWindow (null, null);
+            category_scrolled.add_with_viewport (category_view);
+            category_scrolled.set_vexpand (true);
 
             // Set up UI
-            grid = new Gtk.Grid ();
-            grid.set_hexpand (true);
-            grid.set_vexpand (true);
-            grid.attach (toolbar, 0, 0, 1, 1);
-            toolbar.set_hexpand (true);
-
             alert_view = new Granite.Widgets.EmbeddedAlert ();
             alert_view.set_vexpand (true);
-            grid.attach (alert_view, 0, 2, 1, 1);
-
-            main_window.add (grid);
-            scrollable_view.add_with_viewport (category_view);
-            scrollable_view.set_vexpand (true);
-            grid.attach (scrollable_view, 0, 1, 1, 1);
+            
+            stack = new Gtk.Stack ();
+            stack.expand = true;
+            main_window.add (stack);
+            stack.add_named (category_scrolled, "main");
+            stack.add_named (alert_view, "alert");
+            stack.set_visible_child (category_scrolled);
 
             main_window.set_application (this);
             main_window.show_all ();
 
             main_window.size_allocate.connect (() => {
-                var width = grid.get_allocated_width ();
-                category_view.recalculate_columns (width);
+                category_view.recalculate_columns ();
             });
 
-            alert_view.hide();
-
             if (count_plugs() <= 0) {
-                show_alert(_("No settings found"), _("Install some and re-launch Switchboard"), Gtk.MessageType.WARNING);
+                show_alert (_("No settings found"), _("Install some and re-launch Switchboard"), Gtk.MessageType.WARNING);
                 search_box.sensitive = false;
             } else {
                 update_libunity_quicklist ();
             }
-            
-            progress_toolitem.hide ();
         }
         
         void shut_down () {
-            if (current_plug != null)
-                current_plug.close ();
+            Gtk.main_quit ();
         }
 
         public void hide_alert () {
-            alert_view.hide ();
-            scrollable_view.show ();
+            stack.set_visible_child (category_scrolled);
         }
 
         public void show_alert (string primary_text, string secondary_text, Gtk.MessageType type) {
             alert_view.set_alert (primary_text, secondary_text, null, true, type);
-            alert_view.show ();
-            scrollable_view.hide ();
+            stack.set_visible_child (alert_view);
         }
         
         private int count_plugs () {
@@ -184,62 +164,43 @@ namespace Switchboard {
         public void load_plug (Switchboard.Plug plug) {
 
             // Launch plug's executable
-            if (current_plug != plug) {
-                
+            ((Gtk.Image)navigation_button.image).icon_name = "go-home";
                 navigation_button.set_sensitive (true);
-                navigation_button.set_icon_name ("go-home");
-                current_plug.close ();
-                current_plug = plug;
-                plug_widget = plug.get_widget ();
-                grid.attach (plug_widget, 0, 1, 1, 1);
-                switch_to_plug ();
-                main_window.title = program_name + " - " + plug.display_name;
-            } else {
-                navigation_button.set_sensitive(true);
-                navigation_button.set_icon_name ("go-home");
-                switch_to_plug ();
-                main_window.title = program_name + " - " + plug.display_name;
-            }
+            headerbar.subtitle = plug.display_name;
+            switch_to_plug (plug.code_name);
         }
 
         // Change Switchboard title back to "Switchboard"
         void reset_title () {
-            main_window.title = program_name;
+            headerbar.subtitle = null;
         }
 
         // Handles clicking the navigation button
         void handle_navigation_button_clicked () {
-            string icon_name = navigation_button.get_icon_name ();
-            if (icon_name == "go-home") {
+            if (((Gtk.Image)navigation_button.image).icon_name == "go-home") {
                 switch_to_icons ();
-                navigation_button.set_icon_name ("go-previous");
-            }
-            else {
-                switch_to_plug ();
-                navigation_button.set_icon_name ("go-home");
+                ((Gtk.Image)navigation_button.image).icon_name = "go-previous";
+            } else {
+                switch_to_plug (current_code_name);
+                ((Gtk.Image)navigation_button.image).icon_name = "go-home";
             }
         }
 
         // Switches to the socket view
-        void switch_to_plug () {
+        void switch_to_plug (string plug) {
+            current_code_name = plug;
             search_box.sensitive = false;
-
-            category_view.hide ();
-            plug_widget.show_all ();
+            stack.set_visible_child_name (plug);
         }
         
         // Switches back to the icons
         bool switch_to_icons () {
-            plug_widget.hide ();
-            category_view.show ();
+            stack.set_visible_child (category_scrolled);
 
             // Reset state
             reset_title ();
             search_box.set_text ("");
             search_box.sensitive = count_plugs () > 0;
-            progress_label.set_text ("");
-            progress_bar.fraction = 0.0;
-            progress_toolitem.visible = false;
             
             return true;
         }
@@ -248,23 +209,10 @@ namespace Switchboard {
         void setup_toolbar () {
 
             // Global toolbar widgets
-            toolbar = new Gtk.Toolbar ();
-            toolbar.get_style_context ().add_class ("primary-toolbar");
-
-            // Spacing
-            lspace.set_expand(true);
-            rspace.set_expand(true);
-
-            // Progressbar
-            var progress_vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-            progress_label = new Gtk.Label ("");
-            progress_label.set_use_markup(true);
-            progress_bar = new Gtk.ProgressBar ();
-            progress_toolitem = new Gtk.ToolItem ();
-            progress_vbox.pack_start(progress_label, true, false, 0);
-            progress_vbox.pack_end(progress_bar, false, false, 0);
-            progress_toolitem.add(progress_vbox);
-            progress_toolitem.set_expand(true);
+            headerbar = new Gtk.HeaderBar ();
+            headerbar.show_close_button = true;
+            headerbar.title = program_name;
+            main_window.set_titlebar (headerbar);
 
             // Searchbar
             search_box = new Gtk.SearchEntry ();
@@ -272,10 +220,7 @@ namespace Switchboard {
             search_box.changed.connect(() => {
                 category_view.filter_plugs(search_box.get_text ());
             });
-            search_box.sensitive = (count_plugs () > 0);
-            var find_toolitem = new Gtk.ToolItem ();
-            find_toolitem.add(search_box);
-            find_toolitem.margin_right = 6;
+            search_box.sensitive = false;
 
             // Focus typing to the search bar
             main_window.key_press_event.connect ((event) => {
@@ -287,17 +232,13 @@ namespace Switchboard {
             });
 
             // Nav button
-            navigation_button = new Gtk.ToolButton (null, null);
-            navigation_button.set_icon_name ("go-previous");
+            navigation_button = new Gtk.Button.from_icon_name ("go-previous", Gtk.IconSize.BUTTON);
             navigation_button.clicked.connect (handle_navigation_button_clicked);
-            navigation_button.set_sensitive(false);
+            navigation_button.set_sensitive (false);
 
             // Add everything to the toolbar
-            toolbar.insert (navigation_button, -1);
-            toolbar.insert (lspace, -1);
-            toolbar.insert (progress_toolitem, -1);
-            toolbar.insert (rspace, -1);
-            toolbar.insert (find_toolitem, -1);
+            headerbar.pack_start (navigation_button);
+            headerbar.pack_end (search_box);
         }
 
         // Updates items in quicklist menu using the Unity quicklist api.

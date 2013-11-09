@@ -175,7 +175,12 @@ public class Switchboard.CategoryView : Gtk.Grid {
         
         store.set (root, Columns.ICON, icon_pixbuf, Columns.TEXT, plug.display_name, 
             Columns.DESCRIPTION, plug.description, Columns.VISIBLE, true, Columns.PLUG, plug);
-            
+        
+        if (plugs_manager.plugs.is_empty == false)
+            SwitchboardApp.instance.search_box.sensitive = true;
+        
+        SwitchboardApp.instance.stack.add_named (plug.get_widget (), plug.code_name);
+        
         filter_plugs (SwitchboardApp.instance.search_box.get_text ());
 
     }
@@ -252,7 +257,7 @@ public class Switchboard.CategoryView : Gtk.Grid {
         }
     }
 
-    public void recalculate_columns (int width) {
+    public void recalculate_columns () {
         int columns = personal_iconview.get_columns ();
         columns = int.max (columns, hardware_iconview.get_columns ());
         columns = int.max (columns, network_iconview.get_columns ());

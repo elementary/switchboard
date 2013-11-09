@@ -82,7 +82,7 @@ set (LIB_PKG
   gio-2.0
   gee-1.0
   libpeas-1.0
-  gtk+-3.0
+  gtk+-3.0>=3.10
   gio-unix-2.0
 )
 
@@ -113,7 +113,7 @@ set (GLOBAL_VALAC_OPTIONS
 
 find_package (Vala REQUIRED)
 include (ValaVersion)
-ensure_vala_version ("0.18.0" MINIMUM)
+ensure_vala_version ("0.21.0" MINIMUM)
 include (ValaPrecompile)
 
 set (DEPS_LIBRARIES ${DEPS_LIBRARIES} -lm)
