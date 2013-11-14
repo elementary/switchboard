@@ -125,6 +125,7 @@ namespace Switchboard {
             alert_view.set_vexpand (true);
             
             stack = new Gtk.Stack ();
+            stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
             stack.expand = true;
             main_window.add (stack);
             stack.add_named (category_scrolled, "main");
@@ -221,7 +222,8 @@ namespace Switchboard {
 
             // Searchbar
             search_box = new Gtk.SearchEntry ();
-            search_box.set_placeholder_text (_("Search Settings…"));
+            search_box.set_placeholder_text (_("Search Settings"));
+            search_box.margin_right = 5;
             search_box.changed.connect(() => {
                 category_view.filter_plugs(search_box.get_text ());
             });
@@ -237,7 +239,7 @@ namespace Switchboard {
             });
 
             // Nav button
-            navigation_button = new Gtk.Button.from_icon_name ("go-previous", Gtk.IconSize.BUTTON);
+            navigation_button = new Gtk.Button.from_icon_name ("go-previous", Gtk.IconSize.LARGE_TOOLBAR);
             navigation_button.clicked.connect (handle_navigation_button_clicked);
             navigation_button.set_sensitive (false);
 
