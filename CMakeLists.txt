@@ -99,9 +99,6 @@ set (DEPS_PKG
 )
 find_package(PkgConfig)
 
-find_package(GObjectIntrospection 0.9.12)
-include(GObjectIntrospectionMacros)
-
 pkg_check_modules (LIB REQUIRED ${LIB_PKG})
 pkg_check_modules (DEPS REQUIRED ${DEPS_PKG} ${LIB_PKG})
 
