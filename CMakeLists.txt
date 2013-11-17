@@ -85,22 +85,9 @@ set (LIB_PKG
   gtk+-3.0>=3.10
   gio-unix-2.0
 )
-
-set (DEPS_PACKAGES
-  ${CMAKE_PROJECT_NAME}
-  ${LIB_PACKAGES} # this is needed until we provide a ${CMAKE_PROJECT_NAME}.deps file
-  granite
-  unity
-)
-
-set (DEPS_PKG
-  granite
-  unity
-)
 find_package(PkgConfig)
 
 pkg_check_modules (LIB REQUIRED ${LIB_PKG})
-pkg_check_modules (DEPS REQUIRED ${DEPS_PKG} ${LIB_PKG})
 
 set (GLOBAL_VALAC_OPTIONS
   --vapidir=${CMAKE_BINARY_DIR}/lib
@@ -113,10 +100,24 @@ include (ValaVersion)
 ensure_vala_version ("0.21.0" MINIMUM)
 include (ValaPrecompile)
 
-set (DEPS_LIBRARIES ${DEPS_LIBRARIES} -lm)
 add_subdirectory (lib)
+
+set (DEPS_PACKAGES
+  ${LIB_NAME}
+  ${LIB_PACKAGES} # this is needed until we provide a ${CMAKE_PROJECT_NAME}.deps file
+  granite
+  unity
+)
+
+set (DEPS_PKG
+  granite
+  unity
+)
+
+pkg_check_modules (DEPS REQUIRED ${DEPS_PKG} ${LIB_PKG})
+set (DEPS_LIBRARIES ${DEPS_LIBRARIES} -lm)
 
 # 'src' and 'plugins' depend on the core library
 include_directories (${CMAKE_BINARY_DIR}/lib)
-set (DEPS_LIBRARIES ${DEPS_LIBRARIES} ${CMAKE_PROJECT_NAME})
+set (DEPS_LIBRARIES ${DEPS_LIBRARIES} ${LIB_NAME})
 add_subdirectory (src)

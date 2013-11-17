@@ -1,6 +1,3 @@
-set (LIB_VERSION 2.0)
-set (LIB_SOVERSION 0)
-
 ######################
 # Set Variables
 ######################
@@ -8,7 +5,12 @@ set (LIB_SOVERSION 0)
 set (CONFIG_FILE ${CMAKE_CURRENT_BINARY_DIR}/config.vala)
 set (PREFIX ${CMAKE_INSTALL_PREFIX})
 set (DOLLAR "$") # You hear that? It's kittens being killed by the gods of cmake
+set (LIB_VERSION 2.0)
+set (LIB_VERSION ${LIB_VERSION} PARENT_SCOPE)
+set (LIB_SOVERSION 0)
+set (LIB_SOVERSION ${LIB_SOVERSION} PARENT_SCOPE)
 set (LIB_NAME ${CMAKE_PROJECT_NAME}-${LIB_VERSION})
+set (LIB_NAME ${LIB_NAME} PARENT_SCOPE)
 
 configure_file (${CMAKE_CURRENT_SOURCE_DIR}/config.vala.cmake ${CONFIG_FILE})
 configure_file (${CMAKE_CURRENT_SOURCE_DIR}/${CMAKE_PROJECT_NAME}.pc.cmake ${CMAKE_CURRENT_BINARY_DIR}/${LIB_NAME}.pc)
