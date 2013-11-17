@@ -2,8 +2,9 @@ set (LIB_VERSION 2.0)
 set (LIB_SOVERSION 0)
 
 ######################
-# lib PC file
+# Set Variables
 ######################
+
 set (CONFIG_FILE ${CMAKE_CURRENT_BINARY_DIR}/config.vala)
 set (PREFIX ${CMAKE_INSTALL_PREFIX})
 set (DOLLAR "$") # You hear that? It's kittens being killed by the gods of cmake
@@ -24,6 +25,10 @@ else ()
   set (LINK_MODE STATIC)
 endif ()
 
+######################
+# Generate .c, .vapi, .gir and .h
+######################
+
 vala_precompile (LIB_VALA_C ${LIB_NAME}
   ${LIB_SOURCE}
   PACKAGES
@@ -38,6 +43,10 @@ vala_precompile (LIB_VALA_C ${LIB_NAME}
   Switchboard-${LIB_VERSION}
 )
 
+######################
+# Include definitions
+######################
+
 add_definitions (${LIB_CFLAGS})
 link_directories (${LIB_LIBRARY_DIRS})
 
@@ -51,12 +60,17 @@ set_target_properties (${LIB_NAME} PROPERTIES
 
 target_link_libraries (${LIB_NAME} ${LIB_LIBRARIES})
 
+######################
+# Installation
+######################
+
 if (BUILD_SHARED_LIBS)
-  install (TARGETS ${LIB_NAME} DESTINATION lib)
+  install (TARGETS ${LIB_NAME} DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
   # Install lib stuffs
   install (FILES ${CMAKE_CURRENT_BINARY_DIR}/${LIB_NAME}.pc DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig/)
-  install (FILES ${CMAKE_CURRENT_BINARY_DIR}/${LIB_NAME}.vapi DESTINATION share/vala/vapi/)
-  install (FILES ${CMAKE_CURRENT_BINARY_DIR}/Switchboard-${LIB_VERSION}.gir DESTINATION share/gir-1.0/)
-  install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/${LIB_NAME}.deps DESTINATION share/vala/vapi/)
-  install (FILES ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}.h DESTINATION include/${LIB_NAME}/)
+  install (FILES ${CMAKE_CURRENT_BINARY_DIR}/${LIB_NAME}.vapi DESTINATION ${CMAKE_INSTALL_PREFIX}/share/vala/vapi/)
+  install (FILES ${CMAKE_CURRENT_BINARY_DIR}/Switchboard-${LIB_VERSION}.gir DESTINATION ${CMAKE_INSTALL_PREFIX}/share/gir-1.0/)
+  install (FILES ${CMAKE_CURRENT_BINARY_DIR}/Switchboard-${LIB_VERSION}.typelib DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/girepository-1.0/)
+  install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/${LIB_NAME}.deps DESTINATION ${CMAKE_INSTALL_PREFIX}/share/vala/vapi/)
+  install (FILES ${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/${LIB_NAME}/)
 endif ()

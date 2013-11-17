@@ -4,3 +4,13 @@ Monitors
 Wallpaper
 Appearance
 build
+./build
+./build/CMakeCache.txt
+./build/CMakeFiles
+./build/cmake_install.cmake
+./build/lib
+./build/Makefile
+./build/po
+./build/src
+./build/switchboard
+./build/switchboard-2.0.typelib
