@@ -22,7 +22,7 @@
 
 public abstract class Switchboard.Plug : GLib.Object {
     
-    private string sep = "<sep>"; //For search propurses
+    public string sep = "<sep>"; //For search propurses
     public Category category;
     public string code_name; // The name it is recognised with the open-plug command
     public string display_name; // The localised plug name
@@ -38,7 +38,8 @@ public abstract class Switchboard.Plug : GLib.Object {
     }
     
     public abstract Gtk.Widget get_widget ();
-    public abstract void close ();
+    public abstract void shown (); // called when the user enter the plug
+    public abstract void hidden (); // called when the user quit the plug
     
     // 'search' returns results like ("Keyboard → Behavior → Duration", "keyboard<sep>behavior")
     public abstract async Gee.TreeMap<string, string> search (string search);

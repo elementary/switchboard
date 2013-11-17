@@ -20,7 +20,6 @@ public class Switchboard.CategoryView : Gtk.Grid {
     Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
 
     public signal void plug_selected (Switchboard.Plug plug);
-    public string[] category_ids = { "personal", "hardware", "network", "system"};
     
     public Gtk.IconView personal_iconview;
     public Gtk.IconView hardware_iconview;

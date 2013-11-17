@@ -46,7 +46,7 @@ namespace Switchboard {
         Switchboard.CategoryView category_view;
         
         Gee.LinkedList <string> loaded_plugs;
-        string current_code_name;
+        Switchboard.Plug current_plug;
         
         construct {
             application_id = "org.elementary.Switchboard";
@@ -125,7 +125,6 @@ namespace Switchboard {
             alert_view.set_vexpand (true);
             
             stack = new Gtk.Stack ();
-            stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
             stack.expand = true;
             main_window.add (stack);
             stack.add_named (category_scrolled, "main");
@@ -173,8 +172,8 @@ namespace Switchboard {
             ((Gtk.Image)navigation_button.image).icon_name = "go-home";
                 navigation_button.set_sensitive (true);
             headerbar.subtitle = plug.display_name;
-            current_code_name = plug.code_name;
-            switch_to_plug (plug.code_name);
+            current_plug = plug;
+            switch_to_plug (plug);
         }
 
         // Change Switchboard title back to "Switchboard"
@@ -188,20 +187,24 @@ namespace Switchboard {
                 switch_to_icons ();
                 ((Gtk.Image)navigation_button.image).icon_name = "go-previous";
             } else {
-                switch_to_plug (current_code_name);
+                switch_to_plug (current_plug);
                 ((Gtk.Image)navigation_button.image).icon_name = "go-home";
             }
         }
 
         // Switches to the socket view
-        void switch_to_plug (string plug) {
+        void switch_to_plug (Switchboard.Plug plug) {
+            stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT);
             search_box.sensitive = false;
-            stack.set_visible_child_name (plug);
+            plug.shown ();
+            stack.set_visible_child_name (plug.code_name);
         }
         
         // Switches back to the icons
         bool switch_to_icons () {
+            stack.set_transition_type (Gtk.StackTransitionType.SLIDE_RIGHT);
             stack.set_visible_child (category_scrolled);
+            current_plug.hidden ();
 
             // Reset state
             reset_title ();
