@@ -41,7 +41,7 @@ Description: Modular desktop settings hub (debugging symbols)
  .
  This package contains debugging symbols for switchboard.
 
-Package: libswitchboard2.0-dev
+Package: libswitchboard-2.0-dev
 Section: libdevel
 Architecture: any
 Depends: libswitchboard-2.0-0 (= ${binary:Version})
