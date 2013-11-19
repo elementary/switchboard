@@ -78,7 +78,7 @@ namespace Switchboard {
             else
                 Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.INFO;
             loaded_plugs = new Gee.LinkedList <string> ();
-            plugs_manager = new Switchboard.PlugsManager (plug_to_open);
+            var plugs_manager = Switchboard.PlugsManager.get_default (plug_to_open);
             plugs_manager.open_at_startup.connect ((plug) => {load_plug (plug);});
             build ();
             plugs_manager.activate ();
@@ -160,7 +160,7 @@ namespace Switchboard {
         }
         
         private int count_plugs () {
-            return plugs_manager.plugs.size;
+            return Switchboard.PlugsManager.get_default ().plugs.size;
         }
 
         public void load_plug (Switchboard.Plug plug) {

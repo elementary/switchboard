@@ -20,16 +20,13 @@
  * Authored by: Corentin Noël <tintou@mailoo.org>
  */
 
-namespace Switchboard {
-    public static Switchboard.PlugsManager plugs_manager;
-}
-
 public class Switchboard.PlugsManager : GLib.Object {
+    
+    private static Switchboard.PlugsManager plugs_manager;
     
     private Peas.Engine engine;
     private Peas.ExtensionSet exts;
     public Gee.LinkedList<Switchboard.Plug> plugs;
-    public string[] category_ids = { "personal", "hardware", "network", "system" };
     private string? to_open;
     
     public signal void plug_added (Switchboard.Plug plug);
@@ -48,7 +45,12 @@ public class Switchboard.PlugsManager : GLib.Object {
         engine.add_search_path (Build.PLUGS_DIR + "/network", null);
         engine.add_search_path (Build.PLUGS_DIR + "/system", null);
         engine.add_search_path (Build.PLUGS_DIR, null);
-        
+    }
+    
+    public static PlugsManager get_default (string? to_open = null) {
+        if (plugs_manager == null)
+            plugs_manager = new PlugsManager (to_open);
+        return plugs_manager;
     }
     
     public void activate () {
