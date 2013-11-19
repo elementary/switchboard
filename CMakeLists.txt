@@ -6,12 +6,14 @@ list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/)
 # Base bits
 
 #
+# Generate multi arch triplet
+include (GNUInstallDirs)
 
-set (DATADIR "${CMAKE_INSTALL_PREFIX}/share")
+set (DATADIR ${CMAKE_INSTALL_FULL_DATAROOTDIR})
 set (PKGDATADIR "${DATADIR}/${CMAKE_PROJECT_NAME}")
 set (GETTEXT_PACKAGE "${CMAKE_PROJECT_NAME}")
 set (RELEASE_NAME "Preferences with piazzaz.")
-set (PLUGS_DIR ${CMAKE_INSTALL_PREFIX}/lib/switchboard)
+set (PLUGS_DIR ${CMAKE_INSTALL_FULL_LIBDIR}/switchboard)
 set (VERSION "2.0.0")
 set (VERSION_INFO "Stable Release")
 
