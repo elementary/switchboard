@@ -47,7 +47,7 @@ public class Switchboard.CategoryView : Gtk.Grid {
         setup_category (Switchboard.Plug.Category.HARDWARE, 1);
         setup_category (Switchboard.Plug.Category.NETWORK, 2);
         setup_category (Switchboard.Plug.Category.SYSTEM, 3);
-        Switchboard.PlugsManager.get_default ().plug_added.connect (add_plug);
+        Switchboard.PlugsManager.plugs_manager.plug_added.connect (add_plug);
     }
     
     private void setup_category (Switchboard.Plug.Category category, int i) {
@@ -175,7 +175,7 @@ public class Switchboard.CategoryView : Gtk.Grid {
         store.set (root, Columns.ICON, icon_pixbuf, Columns.TEXT, plug.display_name, 
             Columns.DESCRIPTION, plug.description, Columns.VISIBLE, true, Columns.PLUG, plug);
         
-        if (Switchboard.PlugsManager.get_default ().plugs.is_empty == false)
+        if (Switchboard.PlugsManager.plugs_manager.plugs.is_empty == false)
             SwitchboardApp.instance.search_box.sensitive = true;
         
         filter_plugs (SwitchboardApp.instance.search_box.get_text ());

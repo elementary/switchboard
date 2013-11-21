@@ -78,10 +78,10 @@ namespace Switchboard {
             else
                 Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.INFO;
             loaded_plugs = new Gee.LinkedList <string> ();
-            var plugs_manager = Switchboard.PlugsManager.get_default (plug_to_open);
-            plugs_manager.open_at_startup.connect ((plug) => {load_plug (plug);});
+            Switchboard.PlugsManager.plugs_manager.open_at_startup.connect ((plug) => {load_plug (plug);});
+            Switchboard.PlugsManager.plugs_manager.to_open = plug_to_open;
             build ();
-            plugs_manager.activate ();
+            Switchboard.PlugsManager.plugs_manager.activate ();
             
             Gtk.main ();
         }
@@ -160,7 +160,7 @@ namespace Switchboard {
         }
         
         private int count_plugs () {
-            return Switchboard.PlugsManager.get_default ().plugs.size;
+            return Switchboard.PlugsManager.plugs_manager.plugs.size;
         }
 
         public void load_plug (Switchboard.Plug plug) {
@@ -320,11 +320,7 @@ namespace Switchboard {
 
                 return false;
             });
-            if (empty == false) {
-                return category_item;
-            } else {
-                return null;
-            }
+            return (empty ? null : category_item);
         }
     }
 

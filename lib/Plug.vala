@@ -22,36 +22,6 @@
 
 public abstract class Switchboard.Plug : GLib.Object {
     
-    /**
-     * The localised name of the plug.
-     */
-    public string SEP { public get; private set; default = "<sep>"; }
-    /**
-     * The category under which the plug will be stored.
-     * 
-     * Possible {@link Category} values are PERSONAL, HARDWARE, NETWORK or SYSTEM.
-     */
-    public Category category { get; construct; }
-    /**
-     * The unique name representing the plug.
-     * 
-     * It is also used to recognise it with the open-plug command.
-     * for example "system-pantheon-info" for the official Info plug of the pantheon desktop.
-     */
-    public string code_name { get; construct; }
-    /**
-     * The localised name of the plug.
-     */
-    public string display_name { get; construct; }
-    /**
-     * A short description of the plug.
-     */
-    public string description { get; construct; }
-    /**
-     * The icon representing the plug.
-     */
-    public string icon { get; construct; }
-    
     public enum Category {
         PERSONAL = 0,
         HARDWARE = 1,
@@ -61,17 +31,54 @@ public abstract class Switchboard.Plug : GLib.Object {
     }
     
     /**
+     * The common used separator.
+     */
+    public const string SEP = "<sep>";
+    
+    /**
+     * The category under which the plug will be stored.
+     * 
+     * Possible {@link Category} values are PERSONAL, HARDWARE, NETWORK or SYSTEM.
+     */
+    public Category category { get; construct; }
+    
+    /**
+     * The unique name representing the plug.
+     * 
+     * It is also used to recognise it with the open-plug command.
+     * for example "system-pantheon-info" for the official Info plug of the pantheon desktop.
+     */
+    public string code_name { get; construct; }
+    
+    /**
+     * The localised name of the plug.
+     */
+    public string display_name { get; construct; }
+    
+    /**
+     * A short description of the plug.
+     */
+    public string description { get; construct; }
+    
+    /**
+     * The icon representing the plug.
+     */
+    public string icon { get; construct; }
+    
+    /**
      * Returns the widget that contain the whole interface.
      *
      * @return a {@link Gtk.Widget} containing the interface.
      */
     public abstract Gtk.Widget get_widget ();
+    
     /**
      * Called when the plug appears to the user.
      */
     public virtual void shown () {
         
     }
+    
     /**
      * Called when the plug disappear to the user.
      * 
@@ -80,6 +87,7 @@ public abstract class Switchboard.Plug : GLib.Object {
     public virtual void hidden () {
         
     }
+    
     /**
      * This function should return the widget that contain the whole interface.
      * 
@@ -91,6 +99,7 @@ public abstract class Switchboard.Plug : GLib.Object {
     public virtual async Gee.TreeMap<string, string> search (string search) {
         return new Gee.TreeMap<string, string> (null, null);
     }
+    
     /**
      * This function is used when the user click on a search result, it should show the selected setting (right tab…).
      * 
@@ -99,4 +108,4 @@ public abstract class Switchboard.Plug : GLib.Object {
     public virtual void search_callback (string location) {
         
     }
-} 
+}

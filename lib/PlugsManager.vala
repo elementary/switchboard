@@ -22,18 +22,24 @@
 
 public class Switchboard.PlugsManager : GLib.Object {
     
-    private static Switchboard.PlugsManager plugs_manager;
+    private static Switchboard.PlugsManager _plugs_manager;
+    public static Switchboard.PlugsManager plugs_manager {
+        get {
+            if (_plugs_manager == null)
+                _plugs_manager = new PlugsManager ();
+            return _plugs_manager;
+        }
+    }
     
     private Peas.Engine engine;
     private Peas.ExtensionSet exts;
     public Gee.LinkedList<Switchboard.Plug> plugs;
-    private string? to_open;
+    public string? to_open = null;
     
     public signal void plug_added (Switchboard.Plug plug);
     public signal void open_at_startup (Switchboard.Plug plug);
     
-    public PlugsManager (string? to_open) {
-        this.to_open = to_open;
+    private PlugsManager () {
         plugs = new Gee.LinkedList<Switchboard.Plug> ();
         
         /* Let's init the engine */
@@ -45,12 +51,6 @@ public class Switchboard.PlugsManager : GLib.Object {
         engine.add_search_path (Build.PLUGS_DIR + "/network", null);
         engine.add_search_path (Build.PLUGS_DIR + "/system", null);
         engine.add_search_path (Build.PLUGS_DIR, null);
-    }
-    
-    public static PlugsManager get_default (string? to_open = null) {
-        if (plugs_manager == null)
-            plugs_manager = new PlugsManager (to_open);
-        return plugs_manager;
     }
     
     public void activate () {
@@ -90,6 +90,7 @@ public class Switchboard.PlugsManager : GLib.Object {
             if (to_open != null)
             if (to_open == plug.code_name) {
                 open_at_startup (plug);
+                to_open = null;
             }
         }
     }
