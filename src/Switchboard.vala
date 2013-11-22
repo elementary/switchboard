@@ -32,13 +32,14 @@ public class Switchboard.SwitchboardApp : Granite.Application {
             return _instance;
         }
     }
+    
     public Switchboard.PlugsManager plugs_manager;
     
     public Gtk.SearchEntry search_box;
     public Gtk.Stack stack;
     
     Gee.LinkedList <string> loaded_plugs;
-    Switchboard.Plug current_plug;
+    dynamic Switchboard.Plug current_plug;
     
     Gtk.Window main_window;
     Gtk.HeaderBar headerbar;
@@ -172,7 +173,6 @@ public class Switchboard.SwitchboardApp : Granite.Application {
         ((Gtk.Image)navigation_button.image).icon_name = "go-home";
             navigation_button.set_sensitive (true);
         headerbar.subtitle = plug.display_name;
-        current_plug = plug;
         switch_to_plug (plug);
     }
 
@@ -196,6 +196,7 @@ public class Switchboard.SwitchboardApp : Granite.Application {
     void switch_to_plug (Switchboard.Plug plug) {
         stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT);
         search_box.sensitive = false;
+        current_plug = plug;
         plug.shown ();
         stack.set_visible_child_name (plug.code_name);
     }

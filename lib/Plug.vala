@@ -75,18 +75,14 @@ public abstract class Switchboard.Plug : GLib.Object {
     /**
      * Called when the plug appears to the user.
      */
-    public virtual void shown () {
-        
-    }
+    public abstract void shown ();
     
     /**
      * Called when the plug disappear to the user.
      * 
      * This is not called when the plug got destroyed or the window is closed, use ~Plug () instead.
      */
-    public virtual void hidden () {
-        
-    }
+    public abstract void hidden ();
     
     /**
      * This function should return the widget that contain the whole interface.
@@ -96,16 +92,12 @@ public abstract class Switchboard.Plug : GLib.Object {
      * @param search a {@link string} that represent the search.
      * @return a {@link Gee.TreeMap} containing two strings like {"Keyboard → Behavior → Duration", "keyboard<sep>behavior"}.
      */
-    public virtual async Gee.TreeMap<string, string> search (string search) {
-        return new Gee.TreeMap<string, string> (null, null);
-    }
+    public abstract async Gee.TreeMap<string, string> search (string search);
     
     /**
      * This function is used when the user click on a search result, it should show the selected setting (right tab…).
      * 
      * @param location a {@link string} that represents the setting to show.
      */
-    public virtual void search_callback (string location) {
-        
-    }
+    public abstract void search_callback (string location);
 }
