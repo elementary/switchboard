@@ -33,6 +33,7 @@ namespace Switchboard {
         private const string[] SUPPORTED_GETTEXT_DOMAINS_KEYS = {"X-Ubuntu-Gettext-Domain", "X-GNOME-Gettext-Domain"};
         
         Gtk.Window main_window;
+        public Switchboard.PlugsManager plugs_manager;
         
         // Chrome widgets
         public Gtk.SearchEntry search_box;
@@ -78,10 +79,11 @@ namespace Switchboard {
             else
                 Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.INFO;
             loaded_plugs = new Gee.LinkedList <string> ();
-            Switchboard.PlugsManager.get_default ().open_at_startup.connect ((plug) => {load_plug (plug);});
-            Switchboard.PlugsManager.get_default ().to_open = plug_to_open;
+            plugs_manager = Switchboard.PlugsManager.get_default ();
+            plugs_manager.open_at_startup.connect ((plug) => {load_plug (plug);});
+            plugs_manager.to_open = plug_to_open;
             build ();
-            Switchboard.PlugsManager.get_default ().activate ();
+            plugs_manager.activate ();
             
             Gtk.main ();
         }

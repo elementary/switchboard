@@ -24,6 +24,12 @@ public class Switchboard.PlugsManager : GLib.Object {
     
     private static Switchboard.PlugsManager? plugs_manager = null;
     
+    public static PlugsManager get_default () {
+        if (plugs_manager == null)
+            plugs_manager = new PlugsManager ();
+        return plugs_manager;
+    }
+    
     private Peas.Engine engine;
     private Peas.ExtensionSet exts;
     public Gee.LinkedList<Switchboard.Plug> plugs;
@@ -44,12 +50,6 @@ public class Switchboard.PlugsManager : GLib.Object {
         engine.add_search_path (Build.PLUGS_DIR + "/network", null);
         engine.add_search_path (Build.PLUGS_DIR + "/system", null);
         engine.add_search_path (Build.PLUGS_DIR, null);
-    }
-    
-    public static PlugsManager get_default () {
-        if (plugs_manager == null)
-            plugs_manager = new PlugsManager ();
-        return plugs_manager;
     }
     
     public void activate () {
