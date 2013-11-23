@@ -125,8 +125,9 @@ public class Switchboard.CategoryView : Gtk.Grid {
         
         var category_plugs = new Gtk.IconView.with_model (filtered);
         category_plugs.set_item_width (ITEM_WIDTH);
-        category_plugs.set_text_column (1);
-        category_plugs.set_pixbuf_column (0);
+        category_plugs.set_text_column (Columns.TEXT);
+        category_plugs.set_pixbuf_column (Columns.ICON);
+        category_plugs.set_tooltip_column (Columns.DESCRIPTION);
         category_plugs.set_hexpand (true);
         category_plugs.selection_changed.connect (() => on_selection_changed (category_plugs, filtered));
         
