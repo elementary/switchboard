@@ -33,10 +33,8 @@ public class Switchboard.PlugsManager : GLib.Object {
     private Peas.Engine engine;
     private Peas.ExtensionSet exts;
     public Gee.LinkedList<Switchboard.Plug> plugs;
-    public string? to_open = null;
     
     public signal void plug_added (Switchboard.Plug plug);
-    public signal void open_at_startup (Switchboard.Plug plug);
     
     private PlugsManager () {
         plugs = new Gee.LinkedList<Switchboard.Plug> ();
@@ -86,11 +84,6 @@ public class Switchboard.PlugsManager : GLib.Object {
         if (plugs.contains (plug) == false) {
             plugs.add (plug);
             plug_added (plug);
-            if (to_open != null)
-            if (to_open == plug.code_name) {
-                open_at_startup (plug);
-                to_open = null;
-            }
         }
     }
 }

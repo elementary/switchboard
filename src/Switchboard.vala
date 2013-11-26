@@ -21,24 +21,15 @@ namespace Switchboard {
 
     public class SwitchboardApp : Granite.Application {
         
-        private static SwitchboardApp _instance;
-        public static SwitchboardApp instance {
-            get {
-                if (_instance == null)
-                    _instance = new SwitchboardApp ();
-                return _instance;
-            }
-        }
+        public static SwitchboardApp instance;
         
         private const string[] SUPPORTED_GETTEXT_DOMAINS_KEYS = {"X-Ubuntu-Gettext-Domain", "X-GNOME-Gettext-Domain"};
         
         Gtk.Window main_window;
-        public Switchboard.PlugsManager plugs_manager;
-        
         // Chrome widgets
         public Gtk.SearchEntry search_box;
-        Gtk.HeaderBar headerbar;
         public Gtk.Stack stack;
+        Gtk.HeaderBar headerbar;
         
         // Content area widgets
         Granite.Widgets.EmbeddedAlert alert_view;
@@ -47,7 +38,7 @@ namespace Switchboard {
         Switchboard.CategoryView category_view;
         
         Gee.LinkedList <string> loaded_plugs;
-        Switchboard.Plug current_plug;
+        public Switchboard.Plug current_plug;
         
         construct {
             application_id = "org.elementary.Switchboard";
@@ -79,12 +70,11 @@ namespace Switchboard {
             else
                 Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.INFO;
             loaded_plugs = new Gee.LinkedList <string> ();
-            plugs_manager = Switchboard.PlugsManager.get_default ();
-            plugs_manager.open_at_startup.connect ((plug) => {load_plug (plug);});
-            plugs_manager.to_open = plug_to_open;
+            var plugs_manager = Switchboard.PlugsManager.get_default ();
             build ();
             plugs_manager.activate ();
-            
+            if (current_plug != null)
+                load_plug (current_plug);
             Gtk.main ();
         }
         
@@ -254,7 +244,7 @@ namespace Switchboard {
         }
 
         // Updates items in quicklist menu using the Unity quicklist api.
-        void update_libunity_quicklist () {
+        public void update_libunity_quicklist () {
             // Fetch launcher
             var launcher = Unity.LauncherEntry.get_for_desktop_id (app_launcher);
             var quicklist = new Dbusmenu.Menuitem ();
@@ -341,6 +331,7 @@ namespace Switchboard {
         try {
             context.parse(ref args);
         } catch(Error e) { warning (e.message); }
+        SwitchboardApp.instance = new SwitchboardApp ();
         
         return SwitchboardApp.instance.run (args);
     }
