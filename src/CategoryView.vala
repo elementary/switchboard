@@ -178,7 +178,7 @@ namespace Switchboard {
             store.set (root, Columns.ICON, icon_pixbuf, Columns.TEXT, plug.display_name, 
                 Columns.DESCRIPTION, plug.description, Columns.VISIBLE, true, Columns.PLUG, plug);
             
-            var app = GLib.Application.get_default () as SwitchboardApp;
+            unowned SwitchboardApp app = (SwitchboardApp) GLib.Application.get_default ();
             
             if (Switchboard.PlugsManager.get_default ().plugs.is_empty == false)
                 app.search_box.sensitive = true;
