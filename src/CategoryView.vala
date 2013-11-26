@@ -205,10 +205,11 @@ namespace Switchboard {
             if (search_by_category (filter, Switchboard.Plug.Category.SYSTEM))
                 any_found = true;
             
+            unowned SwitchboardApp app = (SwitchboardApp) GLib.Application.get_default ();
             if (!any_found) {
-                ((SwitchboardApp)GLib.Application.get_default ()).show_alert (_("No settings found"), _("Try changing your search terms"), Gtk.MessageType.INFO);
+                app.show_alert (_("No settings found"), _("Try changing your search terms"), Gtk.MessageType.INFO);
             } else {
-                ((SwitchboardApp)GLib.Application.get_default ()).hide_alert ();
+                app.hide_alert ();
             }
         }
         
