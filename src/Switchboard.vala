@@ -128,7 +128,7 @@ namespace Switchboard {
                 category_view.recalculate_columns ();
             });
 
-            if (!has_plugs ()) {
+            if (!Switchboard.PlugsManager.get_default ().has_plugs ()) {
                 show_alert (_("No settings found"), _("Install some and re-launch Switchboard"), Gtk.MessageType.WARNING);
                 search_box.sensitive = false;
             } else {
@@ -147,10 +147,6 @@ namespace Switchboard {
         public void show_alert (string primary_text, string secondary_text, Gtk.MessageType type) {
             alert_view.set_alert (primary_text, secondary_text, null, true, type);
             stack.set_visible_child (alert_view);
-        }
-        
-        private bool has_plugs () {
-            return Switchboard.PlugsManager.get_default ().has_plugs ();
         }
 
         public void load_plug (Switchboard.Plug plug) {
@@ -199,7 +195,7 @@ namespace Switchboard {
             // Reset state
             reset_title ();
             search_box.set_text ("");
-            search_box.sensitive = has_plugs ();
+            search_box.sensitive = Switchboard.PlugsManager.get_default ().has_plugs ();
             
             return true;
         }
