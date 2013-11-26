@@ -25,8 +25,8 @@ namespace Switchboard {
         
         Gtk.Window main_window;
         // Chrome widgets
-        public Gtk.SearchEntry search_box;
-        public Gtk.Stack stack;
+        public Gtk.SearchEntry search_box { public get; private set; }
+        Gtk.Stack stack;
         Gtk.HeaderBar headerbar;
         
         // Content area widgets
