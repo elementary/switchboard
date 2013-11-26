@@ -180,7 +180,7 @@ namespace Switchboard {
             
             unowned SwitchboardApp app = (SwitchboardApp) GLib.Application.get_default ();
             
-            if (Switchboard.PlugsManager.get_default ().plugs.is_empty == false)
+            if (Switchboard.PlugsManager.get_default ().has_plugs ())
                 app.search_box.sensitive = true;
             
             filter_plugs (app.search_box.get_text ());

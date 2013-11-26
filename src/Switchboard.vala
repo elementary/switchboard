@@ -128,7 +128,7 @@ namespace Switchboard {
                 category_view.recalculate_columns ();
             });
 
-            if (count_plugs() <= 0) {
+            if (!has_plugs ()) {
                 show_alert (_("No settings found"), _("Install some and re-launch Switchboard"), Gtk.MessageType.WARNING);
                 search_box.sensitive = false;
             } else {
@@ -149,8 +149,8 @@ namespace Switchboard {
             stack.set_visible_child (alert_view);
         }
         
-        private int count_plugs () {
-            return Switchboard.PlugsManager.get_default ().plugs.size;
+        private bool has_plugs () {
+            return Switchboard.PlugsManager.get_default ().has_plugs ();
         }
 
         public void load_plug (Switchboard.Plug plug) {
@@ -160,7 +160,7 @@ namespace Switchboard {
             }
             // Launch plug's executable
             ((Gtk.Image)navigation_button.image).icon_name = "go-home";
-                navigation_button.set_sensitive (true);
+            navigation_button.set_sensitive (true);
             headerbar.subtitle = plug.display_name;
             current_plug = plug;
             switch_to_plug (plug);
@@ -199,7 +199,7 @@ namespace Switchboard {
             // Reset state
             reset_title ();
             search_box.set_text ("");
-            search_box.sensitive = count_plugs () > 0;
+            search_box.sensitive = has_plugs ();
             
             return true;
         }

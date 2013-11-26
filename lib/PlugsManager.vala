@@ -32,7 +32,7 @@ public class Switchboard.PlugsManager : GLib.Object {
     
     private Peas.Engine engine;
     private Peas.ExtensionSet exts;
-    public Gee.LinkedList<Switchboard.Plug> plugs;
+    private Gee.LinkedList<Switchboard.Plug> plugs;
     
     public signal void plug_added (Switchboard.Plug plug);
     
@@ -85,5 +85,9 @@ public class Switchboard.PlugsManager : GLib.Object {
             plugs.add (plug);
             plug_added (plug);
         }
+    }
+    
+    public bool has_plugs () {
+        return plugs.is_empty;
     }
 }
