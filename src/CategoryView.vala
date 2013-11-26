@@ -178,16 +178,18 @@ namespace Switchboard {
             store.set (root, Columns.ICON, icon_pixbuf, Columns.TEXT, plug.display_name, 
                 Columns.DESCRIPTION, plug.description, Columns.VISIBLE, true, Columns.PLUG, plug);
             
-            if (Switchboard.PlugsManager.get_default ().plugs.is_empty == false)
-                SwitchboardApp.instance.search_box.sensitive = true;
+            var app = GLib.Application.get_default () as SwitchboardApp;
             
-            filter_plugs (SwitchboardApp.instance.search_box.get_text ());
+            if (Switchboard.PlugsManager.get_default ().plugs.is_empty == false)
+                app.search_box.sensitive = true;
+            
+            filter_plugs (app.search_box.get_text ());
             if (plug_to_open != null)
             if (plug_to_open.has_suffix (plug.code_name)) {
-                SwitchboardApp.instance.current_plug = plug;
+                app.current_plug = plug;
                 plug_to_open = null;
             }
-            SwitchboardApp.instance.update_libunity_quicklist ();
+            app.update_libunity_quicklist ();
         }
 
         public void filter_plugs (string filter) {
@@ -204,9 +206,9 @@ namespace Switchboard {
                 any_found = true;
             
             if (!any_found) {
-                SwitchboardApp.instance.show_alert (_("No settings found"), _("Try changing your search terms"), Gtk.MessageType.INFO);
+                ((SwitchboardApp)GLib.Application.get_default ()).show_alert (_("No settings found"), _("Try changing your search terms"), Gtk.MessageType.INFO);
             } else {
-                SwitchboardApp.instance.hide_alert ();
+                ((SwitchboardApp)GLib.Application.get_default ()).hide_alert ();
             }
         }
         

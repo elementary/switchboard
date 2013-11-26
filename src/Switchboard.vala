@@ -21,8 +21,6 @@ namespace Switchboard {
 
     public class SwitchboardApp : Granite.Application {
         
-        public static SwitchboardApp instance;
-        
         private const string[] SUPPORTED_GETTEXT_DOMAINS_KEYS = {"X-Ubuntu-Gettext-Domain", "X-GNOME-Gettext-Domain"};
         
         Gtk.Window main_window;
@@ -331,8 +329,8 @@ namespace Switchboard {
         try {
             context.parse(ref args);
         } catch(Error e) { warning (e.message); }
-        SwitchboardApp.instance = new SwitchboardApp ();
+        var app = new SwitchboardApp ();
         
-        return SwitchboardApp.instance.run (args);
+        return app.run (args);
     }
 }
