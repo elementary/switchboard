@@ -20,7 +20,7 @@
  * Authored by: Corentin Noël <tintou@mailoo.org>
  */
 
-public abstract class Switchboard.Plug : GLib.Object {
+public abstract class Switchboard.Plug : Peas.ExtensionBase, Peas.Activatable {
     
     public enum Category {
         PERSONAL = 0,
@@ -29,6 +29,8 @@ public abstract class Switchboard.Plug : GLib.Object {
         SYSTEM = 3,
         OTHER = 4
     }
+    
+    public GLib.Object object { owned get; construct; }
     
     /**
      * The common used separator.
@@ -100,4 +102,19 @@ public abstract class Switchboard.Plug : GLib.Object {
      * @param location a {@link string} that represents the setting to show.
      */
     public abstract void search_callback (string location);
+    
+    /**
+     * @inheritDoc
+     */
+    public abstract void activate ();
+    
+    /**
+     * @inheritDoc
+     */
+    public abstract void deactivate ();
+    
+    /**
+     * @inheritDoc
+     */
+    public abstract void update_state ();
 }
