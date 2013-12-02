@@ -88,6 +88,6 @@ public class Switchboard.PlugsManager : GLib.Object {
     }
     
     public bool has_plugs () {
-        return plugs.is_empty;
+        return !plugs.is_empty;
     }
 }
