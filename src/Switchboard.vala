@@ -499,10 +499,10 @@ namespace Switchboard {
             // Searchbar
             search_box = new Gtk.SearchEntry ();
             search_box.set_placeholder_text (_("Search Settings"));
-            search_box.activate.connect (() => search_box_activated());
+            search_box.activate.connect (() => search_box_activated ());
 
             search_box.changed.connect (() => {
-                category_view.filter_plugs(search_box.get_text (), this);
+                category_view.filter_plugs (search_box.get_text (), this);
                 search_box_text_changed ();
             });
 
