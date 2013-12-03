@@ -74,7 +74,7 @@ vala_precompile(VALA_C
     src/Resources.vala
     src/DesktopLauncher.vala
     src/EmbeddedAlert.vala
-    src/Buttons.vala
+    src/NavigationButton.vala
 PACKAGES
     granite
     gee-1.0
