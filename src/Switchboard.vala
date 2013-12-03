@@ -21,7 +21,7 @@ namespace Switchboard {
 
     [DBus (name = "org.elementary.switchboard")]
     public class SwitchboardApp : Granite.Application {
-        
+
         construct {
             application_id = "org.elementary.Switchboard";
             program_name = "Switchboard";
@@ -45,15 +45,15 @@ namespace Switchboard {
         Gtk.Label progress_label;
         Gtk.SearchEntry search_box;
         Gtk.Toolbar toolbar;
-        Gtk.ToolButton navigation_button;
+        Switchboard.NavigationButton navigation_button;
         // Public so we can hide it after show_all()
         public Gtk.ToolItem progress_toolitem;
         // These two wrap the progress bar
         Gtk.ToolItem lspace = new Gtk.ToolItem ();
         Gtk.ToolItem rspace = new Gtk.ToolItem ();
-        
+
         Gtk.Spinner loading;
-        
+
         Gtk.Window main_window;
 
         // Content area widgets
@@ -70,15 +70,16 @@ namespace Switchboard {
 
         string[] plug_places = {"/usr/share/plugs/",
                                 "/usr/lib/plugs/",
-                                "/usr/local/share/plugs/", 
+                                "/usr/local/share/plugs/",
                                 "/usr/local/lib/plugs/"};
         string search_box_buffer = "";
 
         private const string[] SUPPORTED_GETTEXT_DOMAINS_KEYS = {"X-Ubuntu-Gettext-Domain", "X-GNOME-Gettext-Domain"};
 
-        public SwitchboardApp () {
-        }
-        
+        string all_settings_label = _("All Settings");
+
+        public SwitchboardApp () { }
+
         void build () {
             main_window = new Gtk.Window();
 
@@ -149,6 +150,8 @@ namespace Switchboard {
                 category_view.recalculate_columns (width);
             });
 
+            navigation_button.hide ();
+
             foreach (var label in category_view.category_labels.values)
                 label.hide ();
             foreach (var view in category_view.category_views.values)
@@ -188,7 +191,7 @@ namespace Switchboard {
             } else {
                 update_libunity_quicklist ();
             }
-            
+
             bool found = false;
             if (plug_to_open != null) {
                 foreach (var plug in plugs) {
@@ -201,17 +204,17 @@ namespace Switchboard {
                     critical ("Couldn't find %s among the loaded settings.", plug_to_open);
                 }
             }
-            
+
             foreach (var store in category_view.category_store.values) {
                 store.foreach ((model, path, iter) => {
                     store.set_value (iter, 3, true);
                     return false;
                 });
             }
-            
+
             progress_toolitem.hide ();
         }
-        
+
         void shut_down () {
             plug_closed ();
         }
@@ -236,15 +239,17 @@ namespace Switchboard {
                     // The plug is already selected
                     debug(_("Closing plug \"%s\" in Switchboard controller..."), current_plug["title"]);
                     plug_closed ();
-                    
+
                     string[] cmd_exploded = (executable!=null)?executable.split (" "):null;
                     GLib.Process.spawn_async (File.new_for_path (cmd_exploded[0]).get_parent ().
                         get_path (), cmd_exploded, null, SpawnFlags.SEARCH_PATH, null, null);
-                    
+
                     // ensure the button is sensitive; it might be the first plug loaded
                     if (!@extern) {
-                        navigation_button.set_sensitive(true);
-                        navigation_button.set_icon_name ("go-home");
+                        navigation_button.set_sensitive (true);
+                        navigation_button.set_text (all_settings_label);
+                        navigation_button.show ();
+
                         current_plug["title"] = title;
                         current_plug["executable"] = executable;
                         switch_to_socket ();
@@ -252,10 +257,11 @@ namespace Switchboard {
                     }
                 } catch {  warning(_("Failed to launch plug: title %s | executable %s"), title, executable); }
             } else {
-                navigation_button.set_sensitive(true);
-                navigation_button.set_icon_name ("go-home");
+                navigation_button.set_sensitive (true);
+                navigation_button.set_text (all_settings_label);
+                navigation_button.show ();
             }
-            
+
             if (@extern) {
                 switch_to_icons ();
             }
@@ -268,20 +274,17 @@ namespace Switchboard {
 
         // Handles clicking the navigation button
         void handle_navigation_button_clicked () {
-            string icon_name = navigation_button.get_icon_name ();
-            if (icon_name == "go-home") {
+            if (navigation_button.get_text () != current_plug["title"]) {
                 switch_to_icons();
-                navigation_button.set_icon_name ("go-previous");
-            }
-            else {
+                navigation_button.set_text (current_plug["title"]);
+            } else {
                 load_plug (current_plug["title"], current_plug["executable"], current_plug["extern"] == "1");
-                navigation_button.set_icon_name ("go-home");
+                navigation_button.set_text (all_settings_label);
             }
         }
 
         // Switches to the socket view
         void switch_to_socket () {
-
             socket_shown = true;
             search_box.sensitive = false;
 
@@ -289,13 +292,13 @@ namespace Switchboard {
             socket.hide ();
             loading.show_all ();
         }
-        
+
         // Switches back to the icons
         bool switch_to_icons () {
             socket.hide ();
             loading.hide ();
             category_view.show ();
-            
+
             socket_shown = false;
 
             // Reset state
@@ -305,9 +308,9 @@ namespace Switchboard {
             progress_label.set_text("");
             progress_bar.fraction = 0.0;
             progress_toolitem.visible = false;
-            
+
             plug_closed ();
-            
+
             return true;
         }
 
@@ -341,7 +344,7 @@ namespace Switchboard {
                             exec = Path.build_filename(parent, exec);
                             plug["extern"] = "0";
                         }
-                        
+
                         plug["exec"] = exec;
                     } catch (Error e) { warning("Couldn't read exec field in file %s, %s", keyfile, e.message); }
                     try { plug["icon"] = kf.get_string (head, "icon");
@@ -385,7 +388,7 @@ namespace Switchboard {
                     keyfiles.append(keyfile);
                 }
             }
-            
+
             var directory = File.new_for_path (path);
             if (!directory.query_exists ()) {
                 return null;
@@ -396,7 +399,7 @@ namespace Switchboard {
                 FileInfo file_info;
                 while ((file_info = enumerator.next_file ()) != null) {
                     string file_path = Path.build_filename(path, file_info.get_name());
-                    if (file_info.get_file_type() == GLib.FileType.REGULAR && 
+                    if (file_info.get_file_type() == GLib.FileType.REGULAR &&
                         is_plug_file(file_info.get_name())) {
                         keyfiles.append(file_path);
                     } else if(file_info.get_file_type() == GLib.FileType.DIRECTORY) {
@@ -404,7 +407,7 @@ namespace Switchboard {
                     }
                 }
             } catch { warning(_(@"Unable to iterate over enumerated plug directory \"$path\"'s contents")); }
-            
+
             return keyfiles;
         }
 
@@ -496,12 +499,15 @@ namespace Switchboard {
             // Searchbar
             search_box = new Gtk.SearchEntry ();
             search_box.set_placeholder_text (_("Search Settings"));
-            search_box.activate.connect(() => search_box_activated());
-            search_box.changed.connect(() => {
+            search_box.activate.connect (() => search_box_activated());
+
+            search_box.changed.connect (() => {
                 category_view.filter_plugs(search_box.get_text (), this);
-                search_box_text_changed();
+                search_box_text_changed ();
             });
+
             search_box.sensitive = (count_plugs () > 0);
+            search_box.margin = 5;
             var find_toolitem = new Gtk.ToolItem ();
             find_toolitem.add(search_box);
             find_toolitem.margin_right = 6;
@@ -516,19 +522,21 @@ namespace Switchboard {
             });
 
             // Nav button
-            navigation_button = new Gtk.ToolButton (null, null);
-            navigation_button.set_icon_name ("go-previous");
+            navigation_button = new NavigationButton ();
             navigation_button.clicked.connect (handle_navigation_button_clicked);
-            navigation_button.set_sensitive(false);
+            navigation_button.margin = 5;
 
             // Add everything to the toolbar
-            toolbar.insert (navigation_button, -1);
+
+            Gtk.ToolItem tool = new Gtk.ToolItem ();
+            tool.add (navigation_button);
+            toolbar.insert (tool, -1);
             toolbar.insert (lspace, -1);
             toolbar.insert (progress_toolitem, -1);
             toolbar.insert (rspace, -1);
             toolbar.insert (find_toolitem, -1);
         }
-        
+
         public override void activate () {
             // If app is already running, present the current window.
             if (get_windows () != null) {
@@ -594,29 +602,29 @@ namespace Switchboard {
         message(_(@"Welcome to $APP_TITLE"));
         message(_(@"Version: $VERSION"));
         message(_("Report any issues/bugs you mind find to lp:switchboard"));
-        
+
         Gtk.init (ref args);
-        
+
         var context = new OptionContext("");
         context.add_main_entries(entries, "switchboard ");
         context.add_group(Gtk.get_option_group(true));
         try {
             context.parse(ref args);
         } catch(Error e) { warning (e.message); }
-        
+
         // In the future, the plug_root_dir should be overridable by CLI flags.
         var switchboard_app = new SwitchboardApp ();
-        
+
         GLib.Bus.own_name (BusType.SESSION, "org.elementary.switchboard",
                 BusNameOwnerFlags.NONE,
-                (conn) => { 
+                (conn) => {
                     try {
                         conn.register_object("/org/elementary/switchboard", switchboard_app);
                     } catch (IOError e) { warning (e.message); }
                 },
                 () => {},
                 () => {logger.notification(_("Switchboard already running. Exiting..")); Process.exit(1);});
-        
+
         return switchboard_app.run (args);
     }
 }
