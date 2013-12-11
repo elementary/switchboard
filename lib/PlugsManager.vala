@@ -24,60 +24,82 @@ public class Switchboard.PlugsManager : GLib.Object {
     
     private static Switchboard.PlugsManager? plugs_manager = null;
     
+    [CCode (has_target = false)]
+    private delegate Switchboard.Plug RegisterPluginFunction (Module module);
+    
+    private Gee.LinkedList<unowned Switchboard.Plug> plugs;
+    
+    public signal void plug_added (Switchboard.Plug plug);
+    
     public static PlugsManager get_default () {
         if (plugs_manager == null)
             plugs_manager = new PlugsManager ();
         return plugs_manager;
     }
     
-    private Peas.Engine engine;
-    private Peas.ExtensionSet exts;
-    private Gee.LinkedList<Switchboard.Plug> plugs;
-    
-    public signal void plug_added (Switchboard.Plug plug);
-    
     private PlugsManager () {
         plugs = new Gee.LinkedList<Switchboard.Plug> ();
-        
-        /* Let's init the engine */
-        engine = Peas.Engine.get_default ();
-        engine.enable_loader ("python");
-        engine.enable_loader ("gjs");
-        engine.add_search_path (Build.PLUGS_DIR + "/personal", null);
-        engine.add_search_path (Build.PLUGS_DIR + "/hardware", null);
-        engine.add_search_path (Build.PLUGS_DIR + "/network", null);
-        engine.add_search_path (Build.PLUGS_DIR + "/system", null);
-        engine.add_search_path (Build.PLUGS_DIR, null);
+    }
+
+    private void load (string path) {
+        if (Module.supported () == false) {
+            warning ("Switchboard is not supported by this system");
+            return;
+        }
+
+        Module module = Module.open (path, ModuleFlags.BIND_LAZY);
+        if (module == null) {
+            warning (Module.error ());
+            return;
+        }
+
+        void* function;
+        module.symbol ("get_plug", out function);
+        if (function == null) {
+            warning ("get_plug () not found in %s", path);
+            return;
+        }
+
+        RegisterPluginFunction register_plugin = (RegisterPluginFunction) function;
+        Switchboard.Plug plug = register_plugin (module);
+        if (plug == null) {
+            warning ("Unknown plugin type for %s !", path);
+            return;
+        }
+        module.make_resident ();
+        plug.activate ();
+    }
+    
+    private int count_plugins (File base_folder, ref Gee.LinkedList<string> files) {
+        FileInfo file_info = null;
+        int index = 0;
+        try {
+            var enumerator = base_folder.enumerate_children(FileAttribute.STANDARD_NAME + "," + FileAttribute.STANDARD_TYPE + "," + FileAttribute.STANDARD_CONTENT_TYPE, 0);
+            while ((file_info = enumerator.next_file ()) != null) {
+                var file = base_folder.get_child (file_info.get_name ());
+
+                if (file_info.get_file_type () == FileType.REGULAR && GLib.ContentType.equals (file_info.get_content_type (), "application/x-sharedlib")) {
+                    index++;
+                    files.add (file.get_path ());
+                } else if (file_info.get_file_type () == FileType.DIRECTORY) {
+                    count_plugins (file, ref files);
+                }
+            }
+        }
+        catch(Error err) {
+            warning("Could not pre-scan music folder. Progress percentage may be off: %s\n", err.message);
+        }
+
+        return index;
     }
     
     public void activate () {
-        
-        foreach (var plugin in engine.get_plugin_list ()) {
-            engine.try_load_plugin (plugin);
+        var base_folder = File.new_for_path (Build.PLUGS_DIR);
+        var files = new Gee.LinkedList<string> ();
+        count_plugins (base_folder, ref files);
+        foreach (var file in files) {
+            load (file);
         }
-
-        /* Our extension set */
-        exts = new Peas.ExtensionSet (engine, typeof (Peas.Activatable), null);
-
-        exts.extension_added.connect ( (info, ext) => {
-            ((Peas.Activatable) ext).activate ();
-        });
-        exts.extension_removed.connect (on_extension_removed);
-        
-        exts.foreach (on_extension_added);
-    }
-    
-    private void on_extension_added (Peas.ExtensionSet set, Peas.PluginInfo info, Peas.Extension extension) {
-        foreach (var plugin in engine.get_plugin_list ()) {
-            string module = plugin.get_module_name ();
-            if (module == info.get_module_name ()) {
-                ((Peas.Activatable)extension).activate();
-            }
-        }
-    }
-
-    private void on_extension_removed (Peas.PluginInfo info, Object extension) {
-        ((Peas.Activatable) extension).deactivate ();
     }
     
     public void register_plug (Switchboard.Plug plug) {

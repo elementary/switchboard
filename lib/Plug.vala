@@ -20,7 +20,7 @@
  * Authored by: Corentin Noël <tintou@mailoo.org>
  */
 
-public abstract class Switchboard.Plug : Peas.ExtensionBase, Peas.Activatable {
+public abstract class Switchboard.Plug : GLib.Object {
     
     public enum Category {
         PERSONAL = 0,
@@ -29,8 +29,6 @@ public abstract class Switchboard.Plug : Peas.ExtensionBase, Peas.Activatable {
         SYSTEM = 3,
         OTHER = 4
     }
-    
-    public GLib.Object object { owned get; construct; }
     
     /**
      * The common used separator.
@@ -42,7 +40,7 @@ public abstract class Switchboard.Plug : Peas.ExtensionBase, Peas.Activatable {
      * 
      * Possible {@link Category} values are PERSONAL, HARDWARE, NETWORK or SYSTEM.
      */
-    public Category category { get; construct; }
+    public Category category { get; set; }
     
     /**
      * The unique name representing the plug.
@@ -50,22 +48,22 @@ public abstract class Switchboard.Plug : Peas.ExtensionBase, Peas.Activatable {
      * It is also used to recognise it with the open-plug command.
      * for example "system-pantheon-info" for the official Info plug of the pantheon desktop.
      */
-    public string code_name { get; construct; }
+    public string code_name { get; set; }
     
     /**
      * The localised name of the plug.
      */
-    public string display_name { get; construct; }
+    public string display_name { get; set; }
     
     /**
      * A short description of the plug.
      */
-    public string description { get; construct; }
+    public string description { get; set; }
     
     /**
      * The icon representing the plug.
      */
-    public string icon { get; construct; }
+    public string icon { get; set; }
     
     /**
      * Returns the widget that contain the whole interface.
@@ -104,17 +102,12 @@ public abstract class Switchboard.Plug : Peas.ExtensionBase, Peas.Activatable {
     public abstract void search_callback (string location);
     
     /**
-     * @inheritDoc
+     * Called when the plug is loaded (basically at Switchboard startup)
      */
     public abstract void activate ();
     
     /**
-     * @inheritDoc
+     * Called when the plug is removed
      */
     public abstract void deactivate ();
-    
-    /**
-     * @inheritDoc
-     */
-    public abstract void update_state ();
 }

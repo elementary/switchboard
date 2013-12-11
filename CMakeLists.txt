@@ -5,10 +5,7 @@ list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/)
 
 # Base bits
 
-#
-# Generate multi arch triplet
 include (GNUInstallDirs)
-
 set (DATADIR ${CMAKE_INSTALL_FULL_DATAROOTDIR})
 set (PKGDATADIR "${DATADIR}/${CMAKE_PROJECT_NAME}")
 set (GETTEXT_PACKAGE "${CMAKE_PROJECT_NAME}")
@@ -74,7 +71,7 @@ set (LIB_PACKAGES
   glib-2.0
   gio-2.0
   gee-1.0
-  libpeas-1.0
+  gmodule-2.0
   gtk+-3.0
   gio-unix-2.0
 )
@@ -83,7 +80,7 @@ set (LIB_PKG
   glib-2.0>=2.32
   gio-2.0
   gee-1.0
-  libpeas-1.0
+  gmodule-2.0
   gtk+-3.0>=3.10
   gio-unix-2.0
 )
