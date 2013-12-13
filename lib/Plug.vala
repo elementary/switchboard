@@ -40,7 +40,7 @@ public abstract class Switchboard.Plug : GLib.Object {
      * 
      * Possible {@link Category} values are PERSONAL, HARDWARE, NETWORK or SYSTEM.
      */
-    public Category category { get; set; }
+    public Category category { get; construct; }
     
     /**
      * The unique name representing the plug.
@@ -48,22 +48,22 @@ public abstract class Switchboard.Plug : GLib.Object {
      * It is also used to recognise it with the open-plug command.
      * for example "system-pantheon-info" for the official Info plug of the pantheon desktop.
      */
-    public string code_name { get; set; }
+    public string code_name { get; construct; }
     
     /**
      * The localised name of the plug.
      */
-    public string display_name { get; set; }
+    public string display_name { get; construct; }
     
     /**
      * A short description of the plug.
      */
-    public string description { get; set; }
+    public string description { get; construct; }
     
     /**
      * The icon representing the plug.
      */
-    public string icon { get; set; }
+    public string icon { get; construct; }
     
     /**
      * Returns the widget that contain the whole interface.
