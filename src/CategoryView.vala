@@ -171,7 +171,7 @@ namespace Switchboard {
                 // FIXME: if we get no icon, we probably dont want that one…
                 icon_pixbuf = theme.load_icon (plug.icon, 32, Gtk.IconLookupFlags.GENERIC_FALLBACK);
             } catch {
-                warning(_("Unable to load plug %s's icon: %s"), plug.display_name, plug.icon);
+                warning("Unable to load plug %s's icon: %s", plug.display_name, plug.icon);
                 return;
             }
             store.append (out root);

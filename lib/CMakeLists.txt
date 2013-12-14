@@ -41,8 +41,6 @@ vala_precompile (LIB_VALA_C ${LIB_NAME}
   ${LIB_NAME}
   GENERATE_HEADER
   ${CMAKE_PROJECT_NAME}
-  GENERATE_GIR
-  Switchboard-${LIB_VERSION}
 )
 
 ######################
