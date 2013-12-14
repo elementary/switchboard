@@ -43,63 +43,53 @@ public class Switchboard.PlugsManager : GLib.Object {
 
     private void load (string path) {
         if (Module.supported () == false) {
-            warning ("Switchboard is not supported by this system");
-            return;
+            error ("Switchboard is not supported by this system!");
         }
 
         Module module = Module.open (path, ModuleFlags.BIND_LAZY);
         if (module == null) {
-            warning (Module.error ());
+            critical (Module.error ());
             return;
         }
 
         void* function;
         module.symbol ("get_plug", out function);
         if (function == null) {
-            warning ("get_plug () not found in %s", path);
+            critical ("get_plug () not found in %s", path);
             return;
         }
 
         RegisterPluginFunction register_plugin = (RegisterPluginFunction) function;
         Switchboard.Plug plug = register_plugin (module);
         if (plug == null) {
-            warning ("Unknown plugin type for %s !", path);
+            critical ("Unknown plugin type for %s !", path);
             return;
         }
         module.make_resident ();
         plug.activate ();
     }
     
-    private int count_plugins (File base_folder, ref Gee.LinkedList<string> files) {
+    private void find_plugins (File base_folder) {
         FileInfo file_info = null;
-        int index = 0;
         try {
-            var enumerator = base_folder.enumerate_children(FileAttribute.STANDARD_NAME + "," + FileAttribute.STANDARD_TYPE + "," + FileAttribute.STANDARD_CONTENT_TYPE, 0);
+            var enumerator = base_folder.enumerate_children (FileAttribute.STANDARD_NAME + "," + FileAttribute.STANDARD_TYPE + "," + FileAttribute.STANDARD_CONTENT_TYPE, 0);
             while ((file_info = enumerator.next_file ()) != null) {
                 var file = base_folder.get_child (file_info.get_name ());
 
                 if (file_info.get_file_type () == FileType.REGULAR && GLib.ContentType.equals (file_info.get_content_type (), "application/x-sharedlib")) {
-                    index++;
-                    files.add (file.get_path ());
+                    load (file.get_path ());
                 } else if (file_info.get_file_type () == FileType.DIRECTORY) {
-                    count_plugins (file, ref files);
+                    find_plugins (file);
                 }
             }
+        } catch (Error err) {
+            warning("Unable to scan plugs folder: %s\n", err.message);
         }
-        catch(Error err) {
-            warning("Could not pre-scan music folder. Progress percentage may be off: %s\n", err.message);
-        }
-
-        return index;
     }
     
     public void activate () {
         var base_folder = File.new_for_path (Build.PLUGS_DIR);
-        var files = new Gee.LinkedList<string> ();
-        count_plugins (base_folder, ref files);
-        foreach (var file in files) {
-            load (file);
-        }
+        find_plugins (base_folder);
     }
     
     public void register_plug (Switchboard.Plug plug) {
