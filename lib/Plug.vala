@@ -68,7 +68,7 @@ public abstract class Switchboard.Plug : GLib.Object {
     /**
      * Inform if the plug should be shown or not
      */
-    public bool can_show { get; private set; default=true;}
+    public bool can_show { get; set; default=true;}
     
     /**
      * Inform the application that the plug can now be listed in the available plugs
