@@ -3,6 +3,7 @@ set(CLIENT_SOURCE
     CategoryView.vala
     DesktopLauncher.vala
     EmbeddedAlert.vala
+    NavigationButton.vala
 )
 
 vala_precompile (CLIENT_VALA_C ${CMAKE_PROJECT_NAME}

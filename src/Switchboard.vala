@@ -21,8 +21,6 @@ namespace Switchboard {
 
     public class SwitchboardApp : Granite.Application {
         
-        private const string[] SUPPORTED_GETTEXT_DOMAINS_KEYS = {"X-Ubuntu-Gettext-Domain", "X-GNOME-Gettext-Domain"};
-        
         Gtk.Window main_window;
         // Chrome widgets
         public Gtk.SearchEntry search_box { public get; private set; }
@@ -32,11 +30,12 @@ namespace Switchboard {
         // Content area widgets
         Granite.Widgets.EmbeddedAlert alert_view;
         Gtk.ScrolledWindow category_scrolled;
-        Gtk.Button navigation_button;
+        Switchboard.NavigationButton navigation_button;
         Switchboard.CategoryView category_view;
         
         Gee.LinkedList <string> loaded_plugs;
         public Switchboard.Plug current_plug;
+        string all_settings_label = _("All Settings");
         
         construct {
             application_id = "org.elementary.Switchboard";
@@ -123,6 +122,7 @@ namespace Switchboard {
 
             main_window.set_application (this);
             main_window.show_all ();
+            navigation_button.hide ();
 
             main_window.size_allocate.connect (() => {
                 category_view.recalculate_columns ();
@@ -155,8 +155,9 @@ namespace Switchboard {
                 loaded_plugs.add (plug.code_name);
             }
             // Launch plug's executable
-            ((Gtk.Image)navigation_button.image).icon_name = "go-home";
             navigation_button.set_sensitive (true);
+            navigation_button.set_text (all_settings_label);
+            navigation_button.show ();
             headerbar.subtitle = plug.display_name;
             current_plug = plug;
             switch_to_plug (plug);
@@ -169,12 +170,12 @@ namespace Switchboard {
 
         // Handles clicking the navigation button
         void handle_navigation_button_clicked () {
-            if (((Gtk.Image)navigation_button.image).icon_name == "go-home") {
+            if (navigation_button.get_text () == all_settings_label) {
                 switch_to_icons ();
-                ((Gtk.Image)navigation_button.image).icon_name = "go-previous";
+                navigation_button.set_text (current_plug.display_name);
             } else {
                 switch_to_plug (current_plug);
-                ((Gtk.Image)navigation_button.image).icon_name = "go-home";
+                navigation_button.set_text (all_settings_label);
             }
         }
 
@@ -228,7 +229,7 @@ namespace Switchboard {
             });
 
             // Nav button
-            navigation_button = new Gtk.Button.from_icon_name ("go-previous", Gtk.IconSize.LARGE_TOOLBAR);
+            navigation_button = new NavigationButton ();
             navigation_button.clicked.connect (handle_navigation_button_clicked);
             navigation_button.set_sensitive (false);
 
