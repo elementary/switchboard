@@ -27,7 +27,7 @@ public class Switchboard.PlugsManager : GLib.Object {
     [CCode (has_target = false)]
     private delegate Switchboard.Plug RegisterPluginFunction (Module module);
     
-    private Gee.LinkedList<unowned Switchboard.Plug> plugs;
+    public Gee.LinkedList<Switchboard.Plug> plugs { get; private set;}
     
     public signal void plug_added (Switchboard.Plug plug);
     
@@ -39,6 +39,8 @@ public class Switchboard.PlugsManager : GLib.Object {
     
     private PlugsManager () {
         plugs = new Gee.LinkedList<Switchboard.Plug> ();
+        var base_folder = File.new_for_path (Build.PLUGS_DIR);
+        find_plugins (base_folder);
     }
 
     private void load (string path) {
@@ -66,7 +68,7 @@ public class Switchboard.PlugsManager : GLib.Object {
             return;
         }
         module.make_resident ();
-        plug.activate ();
+        register_plug (plug);
     }
     
     private void find_plugins (File base_folder) {
@@ -87,12 +89,7 @@ public class Switchboard.PlugsManager : GLib.Object {
         }
     }
     
-    public void activate () {
-        var base_folder = File.new_for_path (Build.PLUGS_DIR);
-        find_plugins (base_folder);
-    }
-    
-    public void register_plug (Switchboard.Plug plug) {
+    private void register_plug (Switchboard.Plug plug) {
         if (plugs.contains (plug) == false) {
             plugs.add (plug);
             plug_added (plug);

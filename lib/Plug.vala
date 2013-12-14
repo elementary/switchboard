@@ -66,6 +66,16 @@ public abstract class Switchboard.Plug : GLib.Object {
     public string icon { get; construct; }
     
     /**
+     * Inform if the plug should be shown or not
+     */
+    public bool can_show { get; private set; default=true;}
+    
+    /**
+     * Inform the application that the plug can now be listed in the available plugs
+     */
+    public signal void visibility_changed ();
+    
+    /**
      * Returns the widget that contain the whole interface.
      *
      * @return a {@link Gtk.Widget} containing the interface.
@@ -100,14 +110,4 @@ public abstract class Switchboard.Plug : GLib.Object {
      * @param location a {@link string} that represents the setting to show.
      */
     public abstract void search_callback (string location);
-    
-    /**
-     * Called when the plug is loaded (basically at Switchboard startup)
-     */
-    public abstract void activate ();
-    
-    /**
-     * Called when the plug is removed
-     */
-    public abstract void deactivate ();
 }

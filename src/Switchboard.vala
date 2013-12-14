@@ -67,9 +67,9 @@ namespace Switchboard {
             else
                 Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.INFO;
             loaded_plugs = new Gee.LinkedList <string> ();
-            var plugs_manager = Switchboard.PlugsManager.get_default ();
+            Switchboard.PlugsManager.get_default ();
             build ();
-            plugs_manager.activate ();
+            category_view.load_default_plugs ();
             if (current_plug != null)
                 load_plug (current_plug);
             Gtk.main ();

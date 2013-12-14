@@ -49,7 +49,6 @@ namespace Switchboard {
             setup_category (Switchboard.Plug.Category.HARDWARE, 1);
             setup_category (Switchboard.Plug.Category.NETWORK, 2);
             setup_category (Switchboard.Plug.Category.SYSTEM, 3);
-            Switchboard.PlugsManager.get_default ().plug_added.connect (add_plug);
         }
         
         private void setup_category (Switchboard.Plug.Category category, int i) {
@@ -115,6 +114,20 @@ namespace Switchboard {
             attach (grid, 0, i, 1, 1);
         }
         
+        public void load_default_plugs () {
+            var plugsmanager = Switchboard.PlugsManager.get_default ();
+            foreach (var plug in plugsmanager.plugs) {
+                plug.visibility_changed.connect (() => plug_visibility_changed (plug));
+                if (plug.can_show == true) {
+                    add_plug (plug);
+                }
+            }
+            plugsmanager.plug_added.connect ( (plug) => {
+                plug.visibility_changed.connect (() => plug_visibility_changed (plug));
+                add_plug (plug);
+            });
+        }
+        
         private Gtk.IconView setup_icon_view () {
             var store = new Gtk.ListStore (Columns.N_COLUMNS, typeof (Gdk.Pixbuf), typeof (string), 
                 typeof(string), typeof(bool), typeof(Switchboard.Plug));
@@ -138,9 +151,16 @@ namespace Switchboard {
             
             return category_plugs;
         }
+        
+        private void plug_visibility_changed (Switchboard.Plug plug) {
+            if (plug.can_show == true) {
+                add_plug (plug);
+            }
+        }
 
         public void add_plug (Switchboard.Plug plug) {
-
+            if (plug.can_show == false)
+                return;
             Gtk.TreeIter root;
             Gtk.TreeModelFilter model_filter;
             
