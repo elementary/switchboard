@@ -24,18 +24,18 @@ public class Switchboard.PlugsManager : GLib.Object {
     
     private static Switchboard.PlugsManager? plugs_manager = null;
     
-    [CCode (has_target = false)]
-    private delegate Switchboard.Plug RegisterPluginFunction (Module module);
-    
-    public Gee.LinkedList<Switchboard.Plug> plugs { get; private set;}
-    
-    public signal void plug_added (Switchboard.Plug plug);
-    
     public static PlugsManager get_default () {
         if (plugs_manager == null)
             plugs_manager = new PlugsManager ();
         return plugs_manager;
     }
+    
+    [CCode (has_target = false)]
+    private delegate Switchboard.Plug RegisterPluginFunction (Module module);
+    
+    private Gee.LinkedList<Switchboard.Plug> plugs;
+    
+    public signal void plug_added (Switchboard.Plug plug);
     
     private PlugsManager () {
         plugs = new Gee.LinkedList<Switchboard.Plug> ();
@@ -90,13 +90,17 @@ public class Switchboard.PlugsManager : GLib.Object {
     }
     
     private void register_plug (Switchboard.Plug plug) {
-        if (plugs.contains (plug) == false) {
-            plugs.add (plug);
-            plug_added (plug);
-        }
+        if (plugs.contains (plug))
+            return;
+        plugs.add (plug);
+        plug_added (plug);
     }
     
     public bool has_plugs () {
         return !plugs.is_empty;
+    }
+    
+    public Gee.Collection<Switchboard.Plug> get_plugs () {
+        return plugs.read_only_view;
     }
 }

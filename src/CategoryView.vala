@@ -116,7 +116,7 @@ namespace Switchboard {
         
         public void load_default_plugs () {
             var plugsmanager = Switchboard.PlugsManager.get_default ();
-            foreach (var plug in plugsmanager.plugs) {
+            foreach (var plug in plugsmanager.get_plugs ()) {
                 plug.visibility_changed.connect (() => plug_visibility_changed (plug));
                 if (plug.can_show == true) {
                     add_plug (plug);
