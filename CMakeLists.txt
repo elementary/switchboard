@@ -20,6 +20,7 @@ add_definitions ("-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\"")
 add_definitions (-w)
 
 option (BUILD_SHARED_LIBS "Switch between shared and static libraries" ON)
+option (BUILD_SAMPLE "Build an example that shows how it works" OFF)
 
 if (BUILD_SHARED_LIBS)
   message ("-- Shared libraries enabled")
@@ -120,3 +121,8 @@ set (DEPS_LIBRARIES ${DEPS_LIBRARIES} -lm)
 include_directories (${CMAKE_BINARY_DIR}/lib)
 set (DEPS_LIBRARIES ${DEPS_LIBRARIES} ${LIB_NAME})
 add_subdirectory (src)
+
+
+if (BUILD_SAMPLE)
+  add_subdirectory (sample)
+endif ()
