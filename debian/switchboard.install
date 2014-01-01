@@ -1,2 +1,3 @@
-usr/bin/switchboard
-usr/share/applications/switchboard.desktop
+/usr/bin/switchboard
+/usr/share/applications/switchboard.desktop
+/usr/share/locale
