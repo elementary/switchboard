@@ -1,6 +1,5 @@
 usr/include/switchboard-2.0/*
 usr/lib/*/libswitchboard-2.0.so
 usr/lib/*/pkgconfig/switchboard-2.0.pc
-usr/share/gir-1.0/Switchboard-2.0.gir
 usr/share/vala/vapi/switchboard-2.0.deps
 usr/share/vala/vapi/switchboard-2.0.vapi

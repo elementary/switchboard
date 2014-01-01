@@ -4,14 +4,11 @@ Priority: optional
 Maintainer: Sergey "Shnatsel" Davidoff <shnatsel@gmail.com>
 Build-Depends: cmake (>= 2.8),
                debhelper (>= 9),
-               gobject-introspection,
                libclutter-gtk-1.0-dev,
                libgee-dev (>= 0.5.3),
-               libgirepository1.0-dev,
                libglib2.0-dev (>= 2.26.0),
                libgranite-dev,
                libgtk-3-dev (>= 3.10.0),
-               libpeas-dev,
                libunity-dev,
                valac (>= 0.22)
 Standards-Version: 3.9.4
@@ -46,26 +43,12 @@ Description: Switchboard Modular Settings Hub - debug symbols
 Package: libswitchboard-2.0-dev
 Section: libdevel
 Architecture: any
-Depends: libswitchboard-2.0-0 (= ${binary:Version}),
-         gir1.2-switchboard-2.0 (= ${binary:Version})
+Depends: libswitchboard-2.0-0 (= ${binary:Version})
 Description: Switchboard Modular Settings Hub - development files
  The Switchboard library is the central library to create plugs.
  .
  This package contains the header and development files which are
  needed for building Switchboard plugs.
-
-Package: gir1.2-switchboard-2.0
-Section: introspection
-Architecture: any
-Depends: libswitchboard-2.0-0 (= ${binary:Version}),
-         ${misc:Depends},
-         ${shlibs:Depends},
-         ${gir:Depends}
-Description: Switchboard Modular Settings Hub - gir bindings
- The Switchboard library is the central library to create plugs.
- .
- This package can be used by other packages using the GIRepository format to
- generate dynamic bindings.
 
 Package: libswitchboard-2.0-0
 Section: libs
