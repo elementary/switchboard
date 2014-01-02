@@ -19,160 +19,290 @@ namespace Switchboard {
 
     public class CategoryView : Gtk.Grid {
 
-        public Gee.HashMap<string, Gtk.Grid> category_labels = new Gee.HashMap<string, Gtk.Grid> ();
-        public Gee.HashMap<string, Gtk.ListStore> category_store = new Gee.HashMap<string, Gtk.ListStore> ();
-        public Gee.HashMap<string, Gtk.IconView> category_views = new Gee.HashMap<string, Gtk.IconView> ();
+        public enum Columns {
+            ICON,
+            TEXT,
+            DESCRIPTION,
+            VISIBLE,
+            PLUG,
+            N_COLUMNS
+        }
+
+        const int ITEM_WIDTH = 96;
+
+        public signal void plug_selected (Switchboard.Plug plug);
+
         Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
+        Gtk.Grid personal_grid;
+        Gtk.Grid hardware_grid;
+        Gtk.Grid network_grid;
+        Gtk.Grid system_grid;
 
-        public signal void plug_selected (string title, string executable, bool @extern);
-        public string[] category_ids = { "personal", "hardware", "network", "system" };
-        public string[] category_names = { N_("Personal"), N_("Hardware"), N_("Network and Wireless"), N_("System") };
-
-        int ITEM_WIDTH = 96;
-        int ITEM_PADDING = 10;
+        public Gtk.IconView personal_iconview;
+        public Gtk.IconView hardware_iconview;
+        public Gtk.IconView network_iconview;
+        public Gtk.IconView system_iconview;
 
         public CategoryView () {
-            for (int i = 0; i < category_ids.length; i++) {
-                var store = new Gtk.ListStore (5, typeof (Gdk.Pixbuf), typeof (string), 
-                    typeof(string), typeof(bool), typeof(string));
-                store.set_sort_column_id (1, Gtk.SortType.ASCENDING);
-                
-                var category_label = new Gtk.Label (_(category_names[i]));
-                var fg_css = new Gtk.CssProvider ();
-                
-                try {
-                    fg_css.load_from_data ("*{
-                        color: shade (@bg_color, 0.4);
-                        font: open sans 11;
-                        font-weight: 600;
-                        text-shadow: 0 1px alpha (#fff, 0.6);
-                    }", -1);
-                } catch (Error e) { warning (e.message); }
-                
+            setup_category (Switchboard.Plug.Category.PERSONAL, 0);
+            setup_category (Switchboard.Plug.Category.HARDWARE, 1);
+            setup_category (Switchboard.Plug.Category.NETWORK, 2);
+            setup_category (Switchboard.Plug.Category.SYSTEM, 3);
+        }
+
+        private void setup_category (Switchboard.Plug.Category category, int i) {
+            var category_label = new Gtk.Label (get_category_name (category));
+            var fg_css = new Gtk.CssProvider ();
+
+            try {
+                fg_css.load_from_data ("*{
+                    color: shade (@bg_color, 0.4);
+                    font: open sans 11;
+                    font-weight: 600;
+                    text-shadow: 0 1px alpha (#fff, 0.6);
+                }", -1);
                 category_label.get_style_context ().add_provider (fg_css, 20000);
-                category_label.margin_left = 12;
-                category_label.margin_right = 8;
-                var filtered = new Gtk.TreeModelFilter (store, null);
-                filtered.set_visible_column(3);
-                filtered.refilter ();
-                
-                var category_plugs = new Gtk.IconView.with_model (filtered);
-                category_plugs.set_item_width (ITEM_WIDTH);
-                category_plugs.set_text_column (1);
-                category_plugs.set_pixbuf_column (0);
-                category_plugs.set_hexpand (true);
-                category_plugs.selection_changed.connect (() => on_selection_changed (category_plugs, filtered));
-                
-                (category_plugs.get_cells ().nth_data (0) as Gtk.CellRendererText).wrap_mode = Pango.WrapMode.WORD;
-                (category_plugs.get_cells ().nth_data (0) as Gtk.CellRendererText).ellipsize_set = true;
-                
-                var bg_css = new Gtk.CssProvider ();
-                try {
-                    bg_css.load_from_data ("*{background-color:@background_color;}", -1);
-                } catch (Error e) { warning (e.message); }
+            } catch (Error e) {
+                critical (e.message);
+            }
+
+            category_label.margin_left = 12;
+            category_label.margin_right = 8;
+            category_label.xalign = (float) 0.02;
+            category_label.use_markup = true;
+
+            var category_plugs = setup_icon_view ();
+
+            var bg_css = new Gtk.CssProvider ();
+            try {
+                bg_css.load_from_data ("*{background-color:@background_color;}", -1);
                 category_plugs.get_style_context ().add_provider (bg_css, 20000);
-                category_label.xalign = (float) 0.02;
-                
-                var grid = new Gtk.Grid ();
-                category_label.use_markup = true;
-                
-                // Always add a Seperator
-                var h_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
-                h_separator.set_hexpand (true);
-                h_separator.margin_right = 12;
-                grid.attach (category_label, 0, 0, 1, 1);
-                grid.attach (h_separator, 1, 0, 1, 1); // expand, fill, padding´
-                
-                grid.attach (category_plugs, 0, 1, 2, 1);
-                
-                category_labels[category_ids[i]] = grid;
-                category_store[category_ids[i]] = store;
-                category_views[category_ids[i]] = category_plugs;
-                
-                attach (grid, 0, i, 1, 1);
+            } catch (Error e) {
+                critical (e.message);
+            }
+
+            var grid = new Gtk.Grid ();
+
+            // Always add a Seperator
+            var h_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
+            h_separator.set_hexpand (true);
+            h_separator.margin_right = 12;
+            grid.attach (category_label, 0, 0, 1, 1);
+            grid.attach (h_separator, 1, 0, 1, 1);
+
+            grid.attach (category_plugs, 0, 1, 2, 1);
+            switch (category) {
+                case Switchboard.Plug.Category.PERSONAL:
+                    personal_iconview = category_plugs;
+                    personal_grid = grid;
+                    break;
+                case Switchboard.Plug.Category.HARDWARE:
+                    hardware_iconview = category_plugs;
+                    hardware_grid = grid;
+                    break;
+                case Switchboard.Plug.Category.NETWORK:
+                    network_iconview = category_plugs;
+                    network_grid = grid;
+                    break;
+                case Switchboard.Plug.Category.SYSTEM:
+                    system_iconview = category_plugs;
+                    system_grid = grid;
+                    break;
+            }
+
+            attach (grid, 0, i, 1, 1);
+        }
+
+        public void load_default_plugs () {
+            var plugsmanager = Switchboard.PlugsManager.get_default ();
+            foreach (var plug in plugsmanager.get_plugs ()) {
+                plug.visibility_changed.connect (() => plug_visibility_changed (plug));
+                if (plug.can_show == true) {
+                    add_plug (plug);
+                }
+            }
+
+            plugsmanager.plug_added.connect ( (plug) => {
+                plug.visibility_changed.connect (() => plug_visibility_changed (plug));
+                add_plug (plug);
+            });
+        }
+        
+        private Gtk.IconView setup_icon_view () {
+            var store = new Gtk.ListStore (Columns.N_COLUMNS, typeof (Gdk.Pixbuf), typeof (string), 
+                typeof(string), typeof(bool), typeof(Switchboard.Plug));
+            store.set_sort_column_id (1, Gtk.SortType.ASCENDING);
+            store.set_sort_column_id (1, Gtk.SortType.ASCENDING);
+
+            var filtered = new Gtk.TreeModelFilter (store, null);
+            filtered.set_visible_column (3);
+            filtered.refilter ();
+
+            var category_plugs = new Gtk.IconView.with_model (filtered);
+            category_plugs.set_item_width (ITEM_WIDTH);
+            category_plugs.set_text_column (Columns.TEXT);
+            category_plugs.set_pixbuf_column (Columns.ICON);
+            category_plugs.set_tooltip_column (Columns.DESCRIPTION);
+            category_plugs.set_hexpand (true);
+            category_plugs.selection_changed.connect (() => on_selection_changed (category_plugs, filtered));
+            var cellrenderer = (Gtk.CellRendererText)category_plugs.get_cells ().nth_data (0);
+            cellrenderer.wrap_mode = Pango.WrapMode.WORD;
+            cellrenderer.ellipsize_set = true;
+
+            return category_plugs;
+        }
+
+        private void plug_visibility_changed (Switchboard.Plug plug) {
+            if (plug.can_show == true) {
+                add_plug (plug);
             }
         }
 
-        public void add_plug (Gee.HashMap<string, string> plug) {
+        public void add_plug (Switchboard.Plug plug) {
+            if (plug.can_show == false)
+                return;
+            Gtk.TreeIter root;
+            Gtk.TreeModelFilter model_filter;
 
-                Gtk.TreeIter root;
-                string plug_down = plug["category"].down ();
-                
-                if (!(plug_down in category_ids)) {
-                    warning (_("Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"), 
-                        plug["title"], plug["category"]);
+            switch (plug.category) {
+                case Switchboard.Plug.Category.PERSONAL:
+                    model_filter = (Gtk.TreeModelFilter)personal_iconview.get_model ();
+                    personal_grid.show_all ();
+                    break;
+                case Switchboard.Plug.Category.HARDWARE:
+                    model_filter = (Gtk.TreeModelFilter)hardware_iconview.get_model ();
+                    hardware_grid.show_all ();
+                    break;
+                case Switchboard.Plug.Category.NETWORK:
+                    model_filter = (Gtk.TreeModelFilter)network_iconview.get_model ();
+                    network_grid.show_all ();
+                    break;
+                case Switchboard.Plug.Category.SYSTEM:
+                    model_filter = (Gtk.TreeModelFilter)system_iconview.get_model ();
+                    system_grid.show_all ();
+                    break;
+                default:
                     return;
-                }
-                
-                Gdk.Pixbuf icon_pixbuf = null;
-                try {
-                    icon_pixbuf = theme.load_icon (plug["icon"], 32, Gtk.IconLookupFlags.GENERIC_FALLBACK);
-                } catch {
-                    warning(_("Unable to load plug %s's icon: %s"), plug["title"], plug["icon"]);
-                    return; // FIXME: if we get no icon, we probably dont want that one..
-                }
-                category_store[plug_down].append (out root);
-                
-                category_store[plug_down].set (root, 0, icon_pixbuf, 1, plug["title"], 2, plug["exec"], 
-                    3, true, 4, plug["extern"]);
-                category_labels[plug_down].show_all ();
-                category_views[plug_down].show_all ();
+            }
 
-        }
+            var store = model_filter.child_model as Gtk.ListStore;
+            Gdk.Pixbuf icon_pixbuf = null;
+            try {
+                // FIXME: if we get no icon, we probably dont want that one…
+                icon_pixbuf = theme.load_icon (plug.icon, 32, Gtk.IconLookupFlags.GENERIC_FALLBACK);
+            } catch {
+                critical ("Unable to load plug %s's icon: %s", plug.display_name, plug.icon);
+                return;
+            }
 
-        public void filter_plugs (string filter, SwitchboardApp switchboard) {
-            
-            var any_found = false;
-            foreach (string category in category_ids) {
+            store.append (out root);
+            store.set (root, Columns.ICON, icon_pixbuf, Columns.TEXT, plug.display_name, 
+                Columns.DESCRIPTION, plug.description, Columns.VISIBLE, true, Columns.PLUG, plug);
+            unowned SwitchboardApp app = (SwitchboardApp) GLib.Application.get_default ();
 
-                var store = category_store[category];
-                var container = category_labels[category];
+            if (Switchboard.PlugsManager.get_default ().has_plugs ()) {
+                app.search_box.sensitive = true;
+                filter_plugs (app.search_box.get_text ());
 
-                int shown = 0;
-
-                store.foreach ((model, path, iter) => {
-                    string title;
-
-                    store.get (iter, 1, out title);
-
-                    if (filter.down () in title.down ()) {
-                        store.set_value (iter, 3, true);
-                        shown ++;
-                    } else {
-                        store.set_value (iter, 3, false);
+                if (plug_to_open != null) {
+                    if (plug_to_open.has_suffix (plug.code_name)) {
+                        app.current_plug = plug;
+                        plug_to_open = null;
                     }
-
-                    return false;
-                });
-                
-                if (shown == 0) {
-                    container.hide ();
-                } else {
-                    any_found = true;
-                    container.show ();
                 }
-            }
-            if (!any_found) {
-                switchboard.show_alert (_("No settings found"), _("Try changing your search terms"), Gtk.MessageType.INFO);
-            } else {
-                switchboard.hide_alert ();
+
+                app.update_libunity_quicklist ();
             }
         }
 
-        public void recalculate_columns (int width) {
+        public void filter_plugs (string filter) {
 
-            foreach (var view in category_views.values) {
-                view.set_columns (width / (ITEM_WIDTH + ITEM_PADDING * 2));
+            var any_found = false;
+
+            if (search_by_category (filter, Switchboard.Plug.Category.PERSONAL))
+                any_found = true;
+            if (search_by_category (filter, Switchboard.Plug.Category.HARDWARE))
+                any_found = true;
+            if (search_by_category (filter, Switchboard.Plug.Category.NETWORK))
+                any_found = true;
+            if (search_by_category (filter, Switchboard.Plug.Category.SYSTEM))
+                any_found = true;
+
+            unowned SwitchboardApp app = (SwitchboardApp) GLib.Application.get_default ();
+            if (!any_found) {
+                app.show_alert (_("No settings found"), _("Try changing your search terms"), Gtk.MessageType.INFO);
+            } else {
+                app.hide_alert ();
             }
+        }
+        
+        private bool search_by_category (string filter, Plug.Category category) {
+            
+            Gtk.TreeModelFilter model_filter;
+            Gtk.Widget grid;
+            
+            switch (category) {
+                case Switchboard.Plug.Category.PERSONAL:
+                    model_filter = (Gtk.TreeModelFilter)personal_iconview.get_model ();
+                    grid = personal_grid;
+                    break;
+                case Switchboard.Plug.Category.HARDWARE:
+                    model_filter = (Gtk.TreeModelFilter)hardware_iconview.get_model ();
+                    grid = hardware_grid;
+                    break;
+                case Switchboard.Plug.Category.NETWORK:
+                    model_filter = (Gtk.TreeModelFilter)network_iconview.get_model ();
+                    grid = network_grid;
+                    break;
+                case Switchboard.Plug.Category.SYSTEM:
+                    model_filter = (Gtk.TreeModelFilter)system_iconview.get_model ();
+                    grid = system_grid;
+                    break;
+                default:
+                    return false;
+            }
+
+            var store = model_filter.child_model as Gtk.ListStore;
+            int shown = 0;
+            store.foreach ((model, path, iter) => {
+                string title;
+
+                store.get (iter, Columns.TEXT, out title);
+
+                if (filter.down () in title.down ()) {
+                    store.set_value (iter, Columns.VISIBLE, true);
+                    shown++;
+                } else {
+                    store.set_value (iter, Columns.VISIBLE, false);
+                }
+
+                return false;
+            });
+            
+            if (shown == 0) {
+                grid.hide ();
+                return false;
+            } else {
+                grid.show_all ();
+                return true;
+            }
+        }
+
+        public void recalculate_columns () {
+            int columns = personal_iconview.get_columns ();
+            columns = int.max (columns, hardware_iconview.get_columns ());
+            columns = int.max (columns, network_iconview.get_columns ());
+            columns = int.max (columns, system_iconview.get_columns ());
+            personal_iconview.set_columns (columns);
+            hardware_iconview.set_columns (columns);
+            network_iconview.set_columns (columns);
+            system_iconview.set_columns (columns);
         }
 
         private void on_selection_changed (Gtk.IconView view, Gtk.TreeModelFilter store) {
-            
-            GLib.Value title;
-            GLib.Value executable;
-            GLib.Value @extern;
+            GLib.Value plug;
             Gtk.TreeIter selected_plug;
-            
+
             var selected = view.get_selected_items ();
             var item = selected.nth_data (0);
 
@@ -180,14 +310,26 @@ namespace Switchboard {
                 return;
 
             store.get_iter (out selected_plug, item);
-            store.get_value (selected_plug, 1, out title);
-            store.get_value (selected_plug, 2, out executable);
-            store.get_value (selected_plug, 4, out @extern);
+            store.get_value (selected_plug, Columns.PLUG, out plug);
 
-            plug_selected (title.get_string (), executable.get_string (), @extern.get_string () == "1");
+            plug_selected ((Switchboard.Plug) plug.get_object ());
 
             view.unselect_path (item);
         }
+
+        public static string? get_category_name (Switchboard.Plug.Category category) {
+            switch (category) {
+                case Plug.Category.PERSONAL:
+                    return _("Personal");
+                case Plug.Category.HARDWARE:
+                    return _("Hardware");
+                case Plug.Category.NETWORK:
+                    return _("Network and Wireless");
+                case Plug.Category.SYSTEM:
+                    return _("System");
+            }
+
+            return null;
+        }
     }
 }
-

@@ -5,21 +5,36 @@ list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/)
 
 # Base bits
 
-#
-
-set (DATADIR "${CMAKE_INSTALL_PREFIX}/share")
-set (PKGDATADIR "${DATADIR}/switchboard")
-set (GETTEXT_PACKAGE "switchboard")
+include (GNUInstallDirs)
+set (DATADIR ${CMAKE_INSTALL_FULL_DATAROOTDIR})
+set (PKGDATADIR "${DATADIR}/${CMAKE_PROJECT_NAME}")
+set (GETTEXT_PACKAGE "${CMAKE_PROJECT_NAME}")
 set (RELEASE_NAME "Preferences with piazzaz.")
-set (VERSION "1.0.1")
+set (PLUGS_DIR ${CMAKE_INSTALL_FULL_LIBDIR}/${CMAKE_PROJECT_NAME})
+set (VERSION "2.0.0")
 set (VERSION_INFO "Stable Release")
+
+add_definitions ("-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\"")
+
+# Comment this out to enable C compiler warnings
+add_definitions (-w)
+
+option (BUILD_SHARED_LIBS "Switch between shared and static libraries" ON)
+option (BUILD_SAMPLE "Build an example that shows how it works" OFF)
+
+if (BUILD_SHARED_LIBS)
+  message ("-- Shared libraries enabled")
+else ()
+  message ("-- Shared libraries disabled")
+endif ()
+
 #
 
 # Niceties
 
 #
 
-set (ARCHIVE_NAME switchboard-${VERSION})
+set (ARCHIVE_NAME ${CMAKE_PROJECT_NAME}-${VERSION})
 add_custom_target (dist
     COMMAND bzr export --root=${ARCHIVE_NAME} ${CMAKE_BINARY_DIR}/${ARCHIVE_NAME}.tar.bz2
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
@@ -38,21 +53,14 @@ add_custom_target (distcheck
 add_dependencies(distcheck dist)
 add_custom_target (uninstall "${CMAKE_COMMAND}" -P
   "${CMAKE_SOURCE_DIR}/cmake/uninstall.cmake")
-#
 
-# config.h
-
-#
-
-configure_file (${CMAKE_SOURCE_DIR}/config.h.cmake ${CMAKE_BINARY_DIR}/config.h)
-add_definitions(-include config.h)
 #
 
 # Data
 
 #
 
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/switchboard.desktop DESTINATION /usr/share/applications)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/${CMAKE_PROJECT_NAME}.desktop DESTINATION /usr/share/applications)
 add_subdirectory(po)
 #
 
@@ -60,31 +68,61 @@ add_subdirectory(po)
 
 #
 
+set (LIB_PACKAGES
+  glib-2.0
+  gio-2.0
+  gee-1.0
+  gmodule-2.0
+  gtk+-3.0
+  gio-unix-2.0
+)
+
+set (LIB_PKG
+  glib-2.0>=2.32
+  gio-2.0
+  gee-1.0
+  gmodule-2.0
+  gtk+-3.0>=3.10
+  gio-unix-2.0
+)
 find_package(PkgConfig)
-pkg_check_modules(DEPS REQUIRED granite gio-2.0 gee-1.0 gtk+-3.0>=3.6 unity)
-add_definitions(${DEPS_CFLAGS})
-link_directories(${DEPS_LIBRARY_DIRS})
-find_package(Vala REQUIRED)
-include(ValaVersion)
-ensure_vala_version("0.18.0" MINIMUM)
-include(ValaPrecompile)
-vala_precompile(VALA_C
-    src/Switchboard.vala
-    src/CategoryView.vala
-    src/Resources.vala
-    src/DesktopLauncher.vala
-    src/EmbeddedAlert.vala
-    src/NavigationButton.vala
-PACKAGES
-    granite
-    gee-1.0
-    gio-2.0
-    gtk+-3.0
-    unity
-CUSTOM_VAPIS
-    vapi/config.vapi
-    )
-add_definitions(${CFLAGS} -Wall -Winit-self -Wwrite-strings -Wunreachable-code -Wstrict-prototypes )
-add_executable(switchboard ${VALA_C})
-target_link_libraries(switchboard ${DEPS_LIBRARIES})
-install(TARGETS switchboard RUNTIME DESTINATION bin)
+
+pkg_check_modules (LIB REQUIRED ${LIB_PKG})
+
+set (GLOBAL_VALAC_OPTIONS
+  --vapidir=${CMAKE_BINARY_DIR}/lib
+  --target-glib=2.32
+  --thread
+)
+
+find_package (Vala REQUIRED)
+include (ValaVersion)
+ensure_vala_version ("0.21.0" MINIMUM)
+include (ValaPrecompile)
+
+add_subdirectory (lib)
+
+set (DEPS_PACKAGES
+  ${LIB_NAME}
+  ${LIB_PACKAGES} # this is needed until we provide a ${CMAKE_PROJECT_NAME}.deps file
+  granite
+  unity
+)
+
+set (DEPS_PKG
+  granite
+  unity
+)
+
+pkg_check_modules (DEPS REQUIRED ${DEPS_PKG} ${LIB_PKG})
+set (DEPS_LIBRARIES ${DEPS_LIBRARIES} -lm)
+
+# 'src' and 'plugins' depend on the core library
+include_directories (${CMAKE_BINARY_DIR}/lib)
+set (DEPS_LIBRARIES ${DEPS_LIBRARIES} ${LIB_NAME})
+add_subdirectory (src)
+
+
+if (BUILD_SAMPLE)
+  add_subdirectory (sample)
+endif ()
