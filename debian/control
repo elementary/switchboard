@@ -22,7 +22,7 @@ Depends: libswitchboard-2.0-0 (= ${binary:Version}),
          ${misc:Depends},
          ${shlibs:Depends}
 Pre-Depends: dpkg (>= 1.15.6)
-Description: Switchboard Modular Settings Hub
+Description: Modular Settings Hub
  Desktop application that manages Switchboard Plugs.
 
 Package: switchboard-dbg
@@ -33,7 +33,7 @@ Depends: switchboard (= ${binary:Version}),
          ${misc:Depends}
 Pre-Depends: dpkg (>= 1.15.6)
 Enhances: switchboard
-Description: Switchboard Modular Settings Hub - debug symbols
+Description: Modular Settings Hub - debug symbols
  Desktop application that manages Switchboard Plugs.
  .
  This package contains detached debugging symbols.
@@ -45,8 +45,8 @@ Section: libdevel
 Architecture: any
 Depends: libswitchboard-2.0-0 (= ${binary:Version}),
          ${misc:Depends}
-Description: Switchboard Modular Settings Hub - development files
- The Switchboard library is the central library to create plugs.
+Description: Modular Settings Hub - development files
+ Common library to create plugs (settings panels).
  .
  This package contains the header and development files which are
  needed for building Switchboard plugs.
@@ -56,7 +56,7 @@ Section: libs
 Architecture: any
 Depends: ${misc:Depends},
          ${shlibs:Depends}
-Description: Switchboard Modular Settings Hub - shared libraries
- The Switchboard library is the central library to create plugs.
+Description: Modular Settings Hub - shared libraries
+ Common library to create plugs (settings panels).
  .
  This package contains the shared library.

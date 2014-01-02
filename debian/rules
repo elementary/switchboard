@@ -16,7 +16,7 @@ override_dh_strip:
 	dh_strip --dbg-package=switchboard-dbg
 
 override_dh_auto_install:
-	dh_auto_install --destdir=debian/switchboard
+	dh_auto_install
 	
 override_dh_builddeb:
 	dh_builddeb -- -Zxz
