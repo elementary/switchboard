@@ -326,7 +326,7 @@ namespace Switchboard {
                 case Plug.Category.NETWORK:
                     return _("Network and Wireless");
                 case Plug.Category.SYSTEM:
-                    return _("System");
+                    return _("Administration");
             }
 
             return null;
