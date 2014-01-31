@@ -68,6 +68,16 @@ add_subdirectory(po)
 
 #
 
+option (USE_UNITY "Use Unity integration" ON)
+
+if (USE_UNITY)
+  message ("-- Unity integration enabled")
+  set (UNITY_DEPS unity)
+  set (UNITY_OPTIONS --define=HAVE_UNITY)
+else ()
+  message ("-- Unity integration disabled")
+endif ()
+
 set (LIB_PACKAGES
   glib-2.0
   gio-2.0
@@ -93,6 +103,7 @@ set (GLOBAL_VALAC_OPTIONS
   --vapidir=${CMAKE_BINARY_DIR}/lib
   --target-glib=2.32
   --thread
+  ${UNITY_OPTIONS}
 )
 
 find_package (Vala REQUIRED)
@@ -106,12 +117,12 @@ set (DEPS_PACKAGES
   ${LIB_NAME}
   ${LIB_PACKAGES} # this is needed until we provide a ${CMAKE_PROJECT_NAME}.deps file
   granite
-  unity
+  ${UNITY_DEPS}
 )
 
 set (DEPS_PKG
   granite
-  unity
+  ${UNITY_DEPS}
 )
 
 pkg_check_modules (DEPS REQUIRED ${DEPS_PKG} ${LIB_PKG})

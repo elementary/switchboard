@@ -211,7 +211,9 @@ namespace Switchboard {
                     }
                 }
 
+#if HAVE_UNITY
                 app.update_libunity_quicklist ();
+#endif
             }
         }
 
