@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-14 17:45+0100\n"
+"POT-Creation-Date: 2014-01-17 17:40-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,56 +17,51 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/noelco/libpeas-isis/po/../src//DesktopLauncher.vala:6
-msgid "Change system and user settings"
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:21
+msgid "Open a plug"
 msgstr ""
 
-#: /home/noelco/libpeas-isis/po/../src//DesktopLauncher.vala:7
-msgid "Settings Center"
-msgstr ""
-
-#: /home/noelco/libpeas-isis/po/../src//CategoryView.vala:174
-#, c-format
-msgid "Unable to load plug %s's icon: %s"
-msgstr ""
-
-#: /home/noelco/libpeas-isis/po/../src//CategoryView.vala:211
-#: /home/noelco/libpeas-isis/po/../src//Switchboard.vala:132
-msgid "No settings found"
-msgstr ""
-
-#: /home/noelco/libpeas-isis/po/../src//CategoryView.vala:211
-msgid "Try changing your search terms"
-msgstr ""
-
-#: /home/noelco/libpeas-isis/po/../src//CategoryView.vala:302
-msgid "Personal"
-msgstr ""
-
-#: /home/noelco/libpeas-isis/po/../src//CategoryView.vala:305
-msgid "Hardware"
-msgstr ""
-
-#: /home/noelco/libpeas-isis/po/../src//CategoryView.vala:308
-msgid "Network and Wireless"
-msgstr ""
-
-#: /home/noelco/libpeas-isis/po/../src//CategoryView.vala:311
-msgid "System"
-msgstr ""
-
-#: /home/noelco/libpeas-isis/po/../src//Switchboard.vala:38
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:53
 msgid "All Settings"
 msgstr ""
 
-#: /home/noelco/libpeas-isis/po/../src//Switchboard.vala:132
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:201
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:233
+msgid "No settings found"
+msgstr ""
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:201
 msgid "Install some and re-launch Switchboard"
 msgstr ""
 
-#: /home/noelco/libpeas-isis/po/../src//Switchboard.vala:215
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:263
 msgid "Search Settings"
 msgstr ""
 
-#: /home/noelco/libpeas-isis/po/../src//Switchboard.vala:315
-msgid "Open a plug"
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:233
+msgid "Try changing your search terms"
+msgstr ""
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:323
+msgid "Personal"
+msgstr ""
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:325
+msgid "Hardware"
+msgstr ""
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:327
+msgid "Network and Wireless"
+msgstr ""
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:329
+msgid "Administration"
+msgstr ""
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//DesktopLauncher.vala:6
+msgid "Change system and user settings"
+msgstr ""
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//DesktopLauncher.vala:7
+msgid "Settings Center"
 msgstr ""
