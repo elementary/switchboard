@@ -119,6 +119,7 @@ namespace Switchboard {
             switch_to_plug (plug);
         }
 
+#if HAVE_UNITY
         // Updates items in quicklist menu using the Unity quicklist api.
         public void update_libunity_quicklist () {
             var launcher = Unity.LauncherEntry.get_for_desktop_id (app_launcher);
@@ -143,6 +144,7 @@ namespace Switchboard {
             if (personal_item != null && hardware_item != null && network_item != null && system_item != null)
                 launcher.quicklist = quicklist;
         }
+#endif
 
         private void build () {
             main_window = new Gtk.Window();
@@ -201,7 +203,9 @@ namespace Switchboard {
                 show_alert (_("No settings found"), _("Install some and re-launch Switchboard"), Gtk.MessageType.WARNING);
                 search_box.sensitive = false;
             } else {
+#if HAVE_UNITY	    
                 update_libunity_quicklist ();
+#endif
             }
         }
 
@@ -286,6 +290,7 @@ namespace Switchboard {
             headerbar.pack_end (search_box);
         }
 
+#if HAVE_UNITY
         private Dbusmenu.Menuitem? add_quicklist_for_category (Switchboard.Plug.Category category) {
             // Create menuitem for this category
             var category_item = new Dbusmenu.Menuitem ();
@@ -334,5 +339,6 @@ namespace Switchboard {
 
             return (empty ? null : category_item);
         }
+#endif
     }
 }
