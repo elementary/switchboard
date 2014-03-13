@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+	<enum id="switchboard-window-states">
+		<value nick="Normal" value="0" />
+		<value nick="Maximized" value="1" />
+	</enum>
+	<schema path="/org/pantheon/switchboard/saved-state/" id="org.pantheon.switchboard.saved-state" gettext-domain="switchboard">
+		<key name="window-state" enum="switchboard-window-states">
+			<default>"Normal"</default>
+			<summary>The saved state of the window.</summary>
+			<description>The saved state of the window.</description>
+		</key>
+		<key name="window-width" type="i">
+			<default>842</default>
+			<summary>The saved width of the window.</summary>
+			<description>The saved width of the window. Must be greater than 700, or it will not take effect.</description>
+		</key>
+		<key name="window-height" type="i">
+			<default>475</default>
+			<summary>The saved height of the window.</summary>
+			<description>The saved height of the window. Must be greater than 400, or it will not take effect.</description>
+		</key>
+		<key name="position" type="as">
+			<default>['']</default>
+			<summary>The position of the window.</summary>
+			<description>The position of the window.</description>
+		</key>
+	</schema>
+</schemalist>
