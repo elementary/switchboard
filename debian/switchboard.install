@@ -1,3 +1,4 @@
 usr/bin/switchboard
 usr/share/applications/switchboard.desktop
 usr/share/locale
+usr/share/glib-2.0/schemas/org.pantheon.switchboard.gschema.xml
