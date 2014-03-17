@@ -22,6 +22,11 @@ namespace Switchboard {
             { null }
     };
 
+    public enum WindowState {
+        NORMAL = 0,
+        MAXIMIZED = 1
+    }
+
     private static string? plug_to_open = null;
     
     public static int main (string[] args) {
@@ -55,6 +60,10 @@ namespace Switchboard {
         public Switchboard.Plug current_plug;
         public Gtk.SearchEntry search_box { public get; private set; }
 
+        private GLib.Settings settings;
+        private int default_width = 0;
+        private int default_height = 0;
+
         construct {
             application_id = "org.elementary.Switchboard";
             program_name = "Switchboard";
@@ -87,6 +96,7 @@ namespace Switchboard {
 
             loaded_plugs = new Gee.LinkedList <string> ();
             Switchboard.PlugsManager.get_default ();
+            settings = new GLib.Settings ("org.pantheon.switchboard.saved-state");
             build ();
             category_view.load_default_plugs ();
             if (current_plug != null)
@@ -154,10 +164,22 @@ namespace Switchboard {
             main_window.icon_name = app_icon;
 
             // Set up window
-            main_window.set_default_size (842, 475);
+            restore_saved_state ();
+            main_window.set_default_size (default_width, default_height);
             main_window.set_size_request (500, 300);
-            main_window.window_position = Gtk.WindowPosition.CENTER;
             main_window.destroy.connect (shut_down);
+            main_window.delete_event.connect (() => {
+                update_saved_state ();
+                return false;
+            });
+            main_window.window_state_event.connect ((event) => {
+                if (event.new_window_state == Gdk.WindowState.MAXIMIZED)
+                    settings.set_enum ("window-state", WindowState.MAXIMIZED);
+                else
+                    settings.set_enum ("window-state", WindowState.NORMAL);
+
+                return true;
+            });
             setup_toolbar ();
 
             // Set up accelerators (hotkeys)
@@ -214,6 +236,35 @@ namespace Switchboard {
                 current_plug.hidden ();
 
             Gtk.main_quit ();
+        }
+
+        private void restore_saved_state () {
+            // Restore window's state
+            default_width = settings.get_int ("window-width");
+            default_height = settings.get_int ("window-height");
+            var position = settings.get_strv ("position");
+
+            if (settings.get_enum ("window-state") == WindowState.MAXIMIZED) {
+                main_window.maximize ();
+            } else {
+                if (position.length != 2)
+                    main_window.window_position = Gtk.WindowPosition.CENTER;
+                else
+                    main_window.move (int.parse (position[0]), int.parse (position[1]));
+            }
+        }
+
+        private void update_saved_state () {
+            // Update saved state of window
+            if (settings.get_enum ("window-state") == WindowState.NORMAL) {
+                int width, height, x, y;
+                main_window.get_size (out width, out height);
+                main_window.get_position (out x, out y);
+                settings.set_int ("window-width", width);
+                settings.set_int ("window-height", height);
+                string[] position = {x.to_string (), y.to_string ()};
+                settings.set_strv ("position", position);
+            }
         }
 
         // Change Switchboard title back to "Switchboard"
