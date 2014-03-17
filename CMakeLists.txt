@@ -7,7 +7,7 @@ list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/)
 
 include (GNUInstallDirs)
 set (DATADIR ${CMAKE_INSTALL_FULL_DATAROOTDIR})
-set (GSETTINGSDIR "/usr/share/glib-2.0/schemas/")
+set (GSETTINGSDIR "${DATADIR}/glib-2.0/schemas/")
 set (PKGDATADIR "${DATADIR}/${CMAKE_PROJECT_NAME}")
 set (GETTEXT_PACKAGE "${CMAKE_PROJECT_NAME}")
 set (RELEASE_NAME "Preferences with piazzaz.")
@@ -61,7 +61,7 @@ add_custom_target (uninstall "${CMAKE_COMMAND}" -P
 
 #
 
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/${CMAKE_PROJECT_NAME}.desktop DESTINATION /usr/share/applications)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/${CMAKE_PROJECT_NAME}.desktop DESTINATION ${DATADIR}/applications)
 add_subdirectory(po)
 #
 
