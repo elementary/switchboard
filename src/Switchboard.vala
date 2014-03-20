@@ -178,7 +178,7 @@ namespace Switchboard {
                 else
                     settings.set_enum ("window-state", WindowState.NORMAL);
 
-                return true;
+                return false;
             });
             setup_toolbar ();
 
