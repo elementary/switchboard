@@ -7,110 +7,69 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-01 23:47-0500\n"
-"PO-Revision-Date: 2012-12-27 18:41+0000\n"
-"Last-Translator: Belenos Govannnon <Unknown>\n"
+"POT-Creation-Date: 2014-01-17 17:40-0600\n"
+"PO-Revision-Date: 2014-01-16 18:51+0000\n"
+"Last-Translator: Leonardo Lemos <leonardolemos@live.com>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-12-15 05:37+0000\n"
-"X-Generator: Launchpad (build 16869)\n"
+"X-Launchpad-Export-Date: 2014-03-21 06:38+0000\n"
+"X-Generator: Launchpad (build 16967)\n"
 "Language: pt_BR\n"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
-msgid "Personal"
-msgstr "Pessoal"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
-msgid "Hardware"
-msgstr "Hardware"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
-msgid "Network and Wireless"
-msgstr "Rede e Wireless"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
-msgid "System"
-msgstr "Sistema"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:85
-#, c-format
-msgid ""
-"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
-msgstr ""
-"Arquivo-chave \"%s\" contém uma categoria inválida: \"%s\", e não será "
-"adicionado"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:94
-#, c-format
-msgid "Unable to load plug %s's icon: %s"
-msgstr "Não foi possível carregar o icone %s da ficha: %s"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
-msgid "No settings found"
-msgstr "Nenhuma configuração foi encontrada"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
-msgid "Try changing your search terms"
-msgstr "Tente mudar os seus termos de busca"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:6
-msgid "Change system and user settings"
-msgstr "Alterar as configurações de sistema e de usuário"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:7
-msgid "Settings Center"
-msgstr "Central de Configurações"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
-msgid "Install some and re-launch Switchboard"
-msgstr "Instale algum e reinicie o Switchboard"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:213
-#, c-format
-msgid "Closing plug \"%s\" in Switchboard controller..."
-msgstr "Fechando a ficha \"%s\" no controlador Switchboard..."
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:225
-#, c-format
-msgid "Failed to launch plug: title %s | executable %s"
-msgstr "Falha ao inicar o plugin: título %s | executavel %s"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:322
-msgid "title"
-msgstr "Título"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:369
-msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
-msgstr ""
-"Não é possível repetir o diretório do plugin enumerado \"$ PATH\" conteúdo"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:462
-msgid "Search Settings"
-msgstr "Pesquisar"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:492
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:21
 msgid "Open a plug"
 msgstr "Abrir um plugin"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:501
-msgid "Welcome to $APP_TITLE"
-msgstr "Bem vindo ao $APP_TITLE"
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:53
+msgid "All Settings"
+msgstr "Todas as configurações"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:502
-msgid "Version: $VERSION"
-msgstr "Versão: $VERSION"
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:201
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:233
+msgid "No settings found"
+msgstr "Nenhuma configuração foi encontrada"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:503
-msgid "Report any issues/bugs you mind find to lp:switchboard"
-msgstr "Reportar quaisquer problemas/bugs que você encontrou no Switchboard"
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:201
+msgid "Install some and re-launch Switchboard"
+msgstr "Instale algum e reinicie o Switchboard"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:526
-msgid "Switchboard already running. Exiting.."
-msgstr "Switchboard ainda está em execução. Saindo..."
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:263
+msgid "Search Settings"
+msgstr "Pesquisar"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-resources.vala:3
-msgid "System Settings"
-msgstr "Configurações do sistema"
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:233
+msgid "Try changing your search terms"
+msgstr "Tente mudar os seus termos de busca"
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:323
+msgid "Personal"
+msgstr "Pessoal"
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:325
+msgid "Hardware"
+msgstr "Hardware"
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:327
+msgid "Network and Wireless"
+msgstr "Rede e Wireless"
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:329
+msgid "Administration"
+msgstr ""
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//DesktopLauncher.vala:6
+msgid "Change system and user settings"
+msgstr "Alterar as configurações de sistema e de usuário"
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//DesktopLauncher.vala:7
+msgid "Settings Center"
+msgstr "Central de Configurações"
+
+#~ msgid "System"
+#~ msgstr "Sistema"
+
+#, c-format
+#~ msgid "Unable to load plug %s's icon: %s"
+#~ msgstr "Não foi possível carregar o icone %s da ficha: %s"

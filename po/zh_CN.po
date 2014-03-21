@@ -7,107 +7,69 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-01 23:47-0500\n"
-"PO-Revision-Date: 2012-08-30 13:37+0000\n"
+"POT-Creation-Date: 2014-01-17 17:40-0600\n"
+"PO-Revision-Date: 2014-01-19 03:11+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-12-15 05:37+0000\n"
-"X-Generator: Launchpad (build 16869)\n"
+"X-Launchpad-Export-Date: 2014-03-21 06:38+0000\n"
+"X-Generator: Launchpad (build 16967)\n"
 "Language: \n"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
-msgid "Personal"
-msgstr "个人"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
-msgid "Hardware"
-msgstr "硬件"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
-msgid "Network and Wireless"
-msgstr "网络和无线连接"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
-msgid "System"
-msgstr "系统"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:85
-#, c-format
-msgid ""
-"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
-msgstr "注册文件“%s”包括一个无效分类：“%s”，它不会被添加"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:94
-#, c-format
-msgid "Unable to load plug %s's icon: %s"
-msgstr "无法上传插件 %s 的图标：%s"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
-msgid "No settings found"
-msgstr "没有发现设置"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
-msgid "Try changing your search terms"
-msgstr "尝试改变您的搜索词"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:6
-msgid "Change system and user settings"
-msgstr "更改系统和用户设置"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:7
-msgid "Settings Center"
-msgstr "设置中心"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
-msgid "Install some and re-launch Switchboard"
-msgstr "安装并重启 Switchboard"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:213
-#, c-format
-msgid "Closing plug \"%s\" in Switchboard controller..."
-msgstr "正在关闭 Switchboard 控制器中的插件“%s”...."
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:225
-#, c-format
-msgid "Failed to launch plug: title %s | executable %s"
-msgstr "无法启动插件：标题 %s | 可执行的 %s"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:322
-msgid "title"
-msgstr "标题"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:369
-msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
-msgstr "无法遍历枚举插件目录“$path”的内容"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:462
-msgid "Search Settings"
-msgstr "搜索设置"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:492
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:21
 msgid "Open a plug"
 msgstr "打开一个插件"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:501
-msgid "Welcome to $APP_TITLE"
-msgstr "欢迎使用 $APP_TITLE"
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:53
+msgid "All Settings"
+msgstr "全部设置"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:502
-msgid "Version: $VERSION"
-msgstr "版本：$VERSION"
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:201
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:233
+msgid "No settings found"
+msgstr "没有发现设置"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:503
-msgid "Report any issues/bugs you mind find to lp:switchboard"
-msgstr "将问题/漏洞报告至 lp:switchboard"
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:201
+msgid "Install some and re-launch Switchboard"
+msgstr "安装并重启 Switchboard"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:526
-msgid "Switchboard already running. Exiting.."
-msgstr "Switchboard 已在运行。正在退出..."
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:263
+msgid "Search Settings"
+msgstr "搜索设置"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-resources.vala:3
-msgid "System Settings"
-msgstr "系统设置"
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:233
+msgid "Try changing your search terms"
+msgstr "尝试改变您的搜索词"
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:323
+msgid "Personal"
+msgstr "个人"
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:325
+msgid "Hardware"
+msgstr "硬件"
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:327
+msgid "Network and Wireless"
+msgstr "网络和无线连接"
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:329
+msgid "Administration"
+msgstr ""
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//DesktopLauncher.vala:6
+msgid "Change system and user settings"
+msgstr "更改系统和用户设置"
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//DesktopLauncher.vala:7
+msgid "Settings Center"
+msgstr "设置中心"
+
+#~ msgid "System"
+#~ msgstr "系统"
+
+#, c-format
+#~ msgid "Unable to load plug %s's icon: %s"
+#~ msgstr "无法上传插件 %s 的图标：%s"

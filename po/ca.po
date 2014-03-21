@@ -7,109 +7,69 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-01 23:47-0500\n"
-"PO-Revision-Date: 2013-05-07 20:58+0000\n"
+"POT-Creation-Date: 2014-01-17 17:40-0600\n"
+"PO-Revision-Date: 2014-01-16 10:58+0000\n"
 "Last-Translator: Alfredo Hernández <Unknown>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-12-15 05:37+0000\n"
-"X-Generator: Launchpad (build 16869)\n"
+"X-Launchpad-Export-Date: 2014-03-21 06:38+0000\n"
+"X-Generator: Launchpad (build 16967)\n"
 "Language: ca\n"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
-msgid "Personal"
-msgstr "Personal"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
-msgid "Hardware"
-msgstr "Maquinari"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
-msgid "Network and Wireless"
-msgstr "Xarxa i inalàmbriques"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
-msgid "System"
-msgstr "Sistema"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:85
-#, c-format
-msgid ""
-"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
-msgstr ""
-"El fitxer de claus «%s» conté una categoria no vàlida: «%s», i no s'afegirà"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:94
-#, c-format
-msgid "Unable to load plug %s's icon: %s"
-msgstr "No s'ha pogut carregar l'icona del connector %s: «%s»"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
-msgid "No settings found"
-msgstr "No s'ha trobat la congifuració"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
-msgid "Try changing your search terms"
-msgstr "Proveu de canviar els parametres de cerca"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:6
-msgid "Change system and user settings"
-msgstr "Canvia la configuració del sistema i de l'usuari"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:7
-msgid "Settings Center"
-msgstr "Centre de configuració"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
-msgid "Install some and re-launch Switchboard"
-msgstr "Instaleu alguns i reinicieu el Switchboard"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:213
-#, c-format
-msgid "Closing plug \"%s\" in Switchboard controller..."
-msgstr "S'està desactivant el connector «%s» al controlador del Switchboard…"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:225
-#, c-format
-msgid "Failed to launch plug: title %s | executable %s"
-msgstr "No s'ha pogut carregar el connector: title %s | executable %s"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:322
-msgid "title"
-msgstr "títol"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:369
-msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
-msgstr ""
-"Incapaç de repetir el procés sobre els continguts del directori «$path»"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:462
-msgid "Search Settings"
-msgstr "Configuració de cerca"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:492
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:21
 msgid "Open a plug"
 msgstr "Obre un connector"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:501
-msgid "Welcome to $APP_TITLE"
-msgstr "Benvigut a $APP_TITLE"
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:53
+msgid "All Settings"
+msgstr "Tots els paràmetres"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:502
-msgid "Version: $VERSION"
-msgstr "Versió: $VERSION"
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:201
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:233
+msgid "No settings found"
+msgstr "No s'ha trobat la congifuració"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:503
-msgid "Report any issues/bugs you mind find to lp:switchboard"
-msgstr "Informeu de qualsevol problema o error que trobeu a lp:switchboard"
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:201
+msgid "Install some and re-launch Switchboard"
+msgstr "Instaleu alguns i reinicieu el Switchboard"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:526
-msgid "Switchboard already running. Exiting.."
-msgstr "El tauler de control ja està en execució. S'està sortint…"
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:263
+msgid "Search Settings"
+msgstr "Cerca paràmetres"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-resources.vala:3
-msgid "System Settings"
-msgstr "Paràmetres del sistema"
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:233
+msgid "Try changing your search terms"
+msgstr "Proveu de canviar els parametres de cerca"
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:323
+msgid "Personal"
+msgstr "Personal"
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:325
+msgid "Hardware"
+msgstr "Maquinari"
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:327
+msgid "Network and Wireless"
+msgstr "Xarxa i inalàmbriques"
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:329
+msgid "Administration"
+msgstr ""
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//DesktopLauncher.vala:6
+msgid "Change system and user settings"
+msgstr "Canvia la configuració del sistema i de l'usuari"
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//DesktopLauncher.vala:7
+msgid "Settings Center"
+msgstr "Centre de configuració"
+
+#~ msgid "System"
+#~ msgstr "Sistema"
+
+#, c-format
+#~ msgid "Unable to load plug %s's icon: %s"
+#~ msgstr "No s'ha pogut carregar l'icona del connector %s: «%s»"

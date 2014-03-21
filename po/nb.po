@@ -7,109 +7,68 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-08-01 23:47-0500\n"
-"PO-Revision-Date: 2013-02-23 14:54+0000\n"
-"Last-Translator: Niklas Fjeldberg <Unknown>\n"
+"POT-Creation-Date: 2014-01-17 17:40-0600\n"
+"PO-Revision-Date: 2014-01-06 14:15+0000\n"
+"Last-Translator: Thomas Hovland <naglfar@gmail.com>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-12-15 05:37+0000\n"
-"X-Generator: Launchpad (build 16869)\n"
+"X-Launchpad-Export-Date: 2014-03-21 06:38+0000\n"
+"X-Generator: Launchpad (build 16967)\n"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
-msgid "Personal"
-msgstr "Personlig"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
-msgid "Hardware"
-msgstr "Maskinvare"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
-msgid "Network and Wireless"
-msgstr "Nettverk og tårdløs"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:29
-msgid "System"
-msgstr "System"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:85
-#, c-format
-msgid ""
-"Keyfile \"%s\" contains an invalid category: \"%s\", and will not be added"
-msgstr ""
-"Nøkkelfilen \"%s\" inneholder en ugyldig kategori: \"%s\", og vil derfor "
-"ikke bli lagt til"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:94
-#, c-format
-msgid "Unable to load plug %s's icon: %s"
-msgstr "Klarte ikke å laste ikonet til %s: %s"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
-msgid "No settings found"
-msgstr "Fant ingen instillinger"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-categoryview.vala:137
-msgid "Try changing your search terms"
-msgstr "Prøv å endre søkeorda dine"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:6
-msgid "Change system and user settings"
-msgstr "Endre system- og burkerinstillinger"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-desktoplauncher.vala:7
-msgid "Settings Center"
-msgstr "Instillingssenter"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:159
-msgid "Install some and re-launch Switchboard"
-msgstr "Installer noen og restart Switchboard"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:213
-#, c-format
-msgid "Closing plug \"%s\" in Switchboard controller..."
-msgstr "Avsluttar \"%s\" i Switchboard"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:225
-#, c-format
-msgid "Failed to launch plug: title %s | executable %s"
-msgstr "Klarte ikke å starte plug: title %s | kjørbar %s"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:322
-msgid "title"
-msgstr "Tittel"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:369
-msgid "Unable to iterate over enumerated plug directory \"$path\"'s contents"
-msgstr "Kunne ikke iterere over plug-katalogen \"$path\"'s innhold"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:462
-msgid "Search Settings"
-msgstr "Søke Innstillinger"
-
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:492
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:21
 msgid "Open a plug"
 msgstr "Åpen en plugg"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:501
-msgid "Welcome to $APP_TITLE"
-msgstr "Velkommen til $APP_TITLE"
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:53
+msgid "All Settings"
+msgstr "Alle innstillinger"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:502
-msgid "Version: $VERSION"
-msgstr "Verson: $VERSION"
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:201
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:233
+msgid "No settings found"
+msgstr "Fant ingen instillinger"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:503
-msgid "Report any issues/bugs you mind find to lp:switchboard"
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:201
+msgid "Install some and re-launch Switchboard"
+msgstr "Installer noen og restart Switchboard"
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:263
+msgid "Search Settings"
+msgstr "Søke Innstillinger"
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:233
+msgid "Try changing your search terms"
+msgstr "Prøv å endre søkeorda dine"
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:323
+msgid "Personal"
+msgstr "Personlig"
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:325
+msgid "Hardware"
+msgstr "Maskinvare"
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:327
+msgid "Network and Wireless"
+msgstr "Nettverk og tårdløs"
+
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:329
+msgid "Administration"
 msgstr ""
-"Rapporter problem eller bugs som du eventuelt finner til lp:switchboard"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-app.vala:526
-msgid "Switchboard already running. Exiting.."
-msgstr "Switchboard kjører allerede. Avslutter.."
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//DesktopLauncher.vala:6
+msgid "Change system and user settings"
+msgstr "Endre system- og burkerinstillinger"
 
-#: /home/codygarver/switchboard/po/../Switchboard//switchboard-resources.vala:3
-msgid "System Settings"
-msgstr "Systeminnstillinger"
+#: /tmp/tmp.KVRL5pG1d8/s/po/../src//DesktopLauncher.vala:7
+msgid "Settings Center"
+msgstr "Instillingssenter"
+
+#~ msgid "System"
+#~ msgstr "System"
+
+#, c-format
+#~ msgid "Unable to load plug %s's icon: %s"
+#~ msgstr "Klarte ikke å laste ikonet til %s: %s"
