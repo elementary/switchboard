@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-17 17:40-0600\n"
-"PO-Revision-Date: 2014-01-16 10:53+0000\n"
+"PO-Revision-Date: 2014-04-07 21:16+0000\n"
 "Last-Translator: Alfredo Hernández <Unknown>\n"
 "Language-Team: English (United Kingdom) <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-03-21 06:38+0000\n"
-"X-Generator: Launchpad (build 16967)\n"
+"X-Launchpad-Export-Date: 2014-04-08 06:49+0000\n"
+"X-Generator: Launchpad (build 16976)\n"
 "Language: \n"
 
 #: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:21
@@ -57,7 +57,7 @@ msgstr "Network and Wireless"
 
 #: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:329
 msgid "Administration"
-msgstr ""
+msgstr "Administration"
 
 #: /tmp/tmp.KVRL5pG1d8/s/po/../src//DesktopLauncher.vala:6
 msgid "Change system and user settings"
