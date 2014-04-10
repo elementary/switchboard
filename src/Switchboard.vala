@@ -28,6 +28,7 @@ namespace Switchboard {
     }
 
     private static string? plug_to_open = null;
+    private static bool should_animate_next_transition = true;
     
     public static int main (string[] args) {
         
@@ -67,7 +68,7 @@ namespace Switchboard {
         construct {
             application_id = "org.elementary.Switchboard";
             program_name = "Switchboard";
-            app_years = "2011-2013";
+            app_years = "2011-2014";
             exec_name = "switchboard";
             app_launcher = exec_name+".desktop";
 
@@ -77,9 +78,14 @@ namespace Switchboard {
             bug_url = "https://bugs.launchpad.net/switchboard";
             help_url = "https://answers.launchpad.net/switchboard";
             translate_url = "https://translations.launchpad.net/switchboard";
-            about_authors = {"Avi Romanoff <aviromanoff@gmail.com>", "Corentin Noël <tintou@mailoo.org>", null};
+            about_authors = {"Avi Romanoff <avi@elementaryos.org>", "Corentin Noël <tintou@mailoo.org>", null};
 
             about_license_type = Gtk.License.GPL_3_0;
+
+            // If plug_to_open was set from the command line
+            if (plug_to_open != null) {
+                should_animate_next_transition = false;
+            }
         }
 
         public override void activate () {
@@ -225,7 +231,7 @@ namespace Switchboard {
                 show_alert (_("No settings found"), _("Install some and re-launch Switchboard"), Gtk.MessageType.WARNING);
                 search_box.sensitive = false;
             } else {
-#if HAVE_UNITY	    
+#if HAVE_UNITY      
                 update_libunity_quicklist ();
 #endif
             }
@@ -283,9 +289,11 @@ namespace Switchboard {
             }
         }
 
-        // Switches to the socket view
+        // Switches to the given plug
         private void switch_to_plug (Switchboard.Plug plug) {
-            stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT);
+            if (should_animate_next_transition) {
+                stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT);
+            }
             search_box.sensitive = false;
             plug.shown ();
             stack.set_visible_child_name (plug.code_name);

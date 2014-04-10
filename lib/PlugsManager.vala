@@ -90,6 +90,7 @@ public class Switchboard.PlugsManager : GLib.Object {
     }
     
     private void register_plug (Switchboard.Plug plug) {
+        debug("%s registered", plug.code_name);
         if (plugs.contains (plug))
             return;
         plugs.add (plug);
