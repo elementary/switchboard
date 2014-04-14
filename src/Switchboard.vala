@@ -66,8 +66,8 @@ namespace Switchboard {
         private int default_height = 0;
 
         construct {
-            application_id = "org.elementary.Switchboard";
-            program_name = "Switchboard";
+            application_id = "org.elementary.switchboard";
+            program_name = _("System Settings");
             app_years = "2011-2014";
             exec_name = "switchboard";
             app_launcher = exec_name+".desktop";
@@ -401,3 +401,8 @@ namespace Switchboard {
 #endif
     }
 }
+
+#if TRANSLATION
+_("Change system and user settings");
+_("Center;Control;Panel;Preferences;System;");
+#endif

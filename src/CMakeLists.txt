@@ -1,7 +1,6 @@
 set(CLIENT_SOURCE
     Switchboard.vala
     CategoryView.vala
-    DesktopLauncher.vala
     EmbeddedAlert.vala
     NavigationButton.vala
 )

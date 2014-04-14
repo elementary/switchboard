@@ -1,5 +1,5 @@
 include(Translations)
-add_translations_directory("switchboard")
-add_translations_catalog("switchboard"
-    ../src/
+add_translations_directory(${CMAKE_PROJECT_NAME})
+add_translations_catalog(${CMAKE_PROJECT_NAME}
+    ../src
 )
