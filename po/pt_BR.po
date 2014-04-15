@@ -7,68 +7,74 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-17 17:40-0600\n"
+"POT-Creation-Date: 2014-04-14 22:38+0200\n"
 "PO-Revision-Date: 2014-03-22 23:59+0000\n"
 "Last-Translator: Leonardo Lemos <leonardolemos@live.com>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-03-23 06:31+0000\n"
-"X-Generator: Launchpad (build 16967)\n"
+"X-Launchpad-Export-Date: 2014-04-15 07:38+0000\n"
+"X-Generator: Launchpad (build 16976)\n"
 "Language: pt_BR\n"
 
-#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:21
+#: ../src/Switchboard.vala:21
 msgid "Open a plug"
 msgstr "Abrir um plugin"
 
-#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:53
+#: ../src/Switchboard.vala:59
 msgid "All Settings"
 msgstr "Todas as configurações"
 
-#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:201
-#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:233
+#: ../src/Switchboard.vala:70
+msgid "System Settings"
+msgstr ""
+
+#: ../src/Switchboard.vala:231 ../src/CategoryView.vala:235
 msgid "No settings found"
 msgstr "Nenhuma configuração foi encontrada"
 
-#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:201
+#: ../src/Switchboard.vala:231
 msgid "Install some and re-launch Switchboard"
 msgstr "Instale algum e reinicie o Switchboard"
 
-#: /tmp/tmp.KVRL5pG1d8/s/po/../src//Switchboard.vala:263
+#: ../src/Switchboard.vala:326
 msgid "Search Settings"
 msgstr "Pesquisar"
 
-#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:233
-msgid "Try changing your search terms"
-msgstr "Tente mudar os seus termos de busca"
-
-#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:323
-msgid "Personal"
-msgstr "Pessoal"
-
-#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:325
-msgid "Hardware"
-msgstr "Hardware"
-
-#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:327
-msgid "Network and Wireless"
-msgstr "Rede e Wireless"
-
-#: /tmp/tmp.KVRL5pG1d8/s/po/../src//CategoryView.vala:329
-msgid "Administration"
-msgstr "Administração"
-
-#: /tmp/tmp.KVRL5pG1d8/s/po/../src//DesktopLauncher.vala:6
+#: ../src/Switchboard.vala:406
 msgid "Change system and user settings"
 msgstr "Alterar as configurações de sistema e de usuário"
 
-#: /tmp/tmp.KVRL5pG1d8/s/po/../src//DesktopLauncher.vala:7
-msgid "Settings Center"
-msgstr "Central de Configurações"
+#: ../src/Switchboard.vala:407
+msgid "Center;Control;Panel;Preferences;System;"
+msgstr ""
+
+#: ../src/CategoryView.vala:235
+msgid "Try changing your search terms"
+msgstr "Tente mudar os seus termos de busca"
+
+#: ../src/CategoryView.vala:325
+msgid "Personal"
+msgstr "Pessoal"
+
+#: ../src/CategoryView.vala:327
+msgid "Hardware"
+msgstr "Hardware"
+
+#: ../src/CategoryView.vala:329
+msgid "Network and Wireless"
+msgstr "Rede e Wireless"
+
+#: ../src/CategoryView.vala:331
+msgid "Administration"
+msgstr "Administração"
 
 #~ msgid "System"
 #~ msgstr "Sistema"
+
+#~ msgid "Settings Center"
+#~ msgstr "Central de Configurações"
 
 #, c-format
 #~ msgid "Unable to load plug %s's icon: %s"
