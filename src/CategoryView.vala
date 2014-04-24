@@ -113,18 +113,22 @@ namespace Switchboard {
             attach (grid, 0, i, 1, 1);
         }
 
-        public void load_default_plugs () {
+        public async void load_default_plugs () {
             var plugsmanager = Switchboard.PlugsManager.get_default ();
-            foreach (var plug in plugsmanager.get_plugs ()) {
-                plug.visibility_changed.connect (() => plug_visibility_changed (plug));
-                if (plug.can_show == true) {
-                    add_plug (plug);
-                }
-            }
-
-            plugsmanager.plug_added.connect ( (plug) => {
+            plugsmanager.plug_added.connect ((plug) => {
                 plug.visibility_changed.connect (() => plug_visibility_changed (plug));
                 add_plug (plug);
+            });
+
+            Idle.add (() => {
+                foreach (var plug in plugsmanager.get_plugs ()) {
+                    plug.visibility_changed.connect (() => plug_visibility_changed (plug));
+                    if (plug.can_show == true) {
+                        add_plug (plug);
+                    }
+                }
+
+                return false;
             });
         }
         
@@ -199,21 +203,16 @@ namespace Switchboard {
             store.set (root, Columns.ICON, icon_pixbuf, Columns.TEXT, plug.display_name, 
                 Columns.DESCRIPTION, plug.description, Columns.VISIBLE, true, Columns.PLUG, plug);
             unowned SwitchboardApp app = (SwitchboardApp) GLib.Application.get_default ();
-
-            if (Switchboard.PlugsManager.get_default ().has_plugs ()) {
-                app.search_box.sensitive = true;
-                filter_plugs (app.search_box.get_text ());
-
-                if (plug_to_open != null) {
-                    if (plug_to_open.has_suffix (plug.code_name)) {
-                        app.current_plug = plug;
-                        plug_to_open = null;
-                    }
-                }
-
+            app.search_box.sensitive = true;
+            filter_plugs (app.search_box.get_text ());
 #if HAVE_UNITY
-                app.update_libunity_quicklist ();
+            app.update_libunity_quicklist ();
 #endif
+            if (plug_to_open != null && plug_to_open != "") {
+                if (plug_to_open.has_suffix (plug.code_name)) {
+                    app.load_plug (plug);
+                    plug_to_open = "";
+                }
             }
         }
 

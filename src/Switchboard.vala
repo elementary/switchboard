@@ -31,17 +31,18 @@ namespace Switchboard {
     private static bool should_animate_next_transition = true;
     
     public static int main (string[] args) {
-        
         Gtk.init (ref args);
-        
-        var context = new OptionContext("");
-        context.add_main_entries(entries, "switchboard ");
-        context.add_group(Gtk.get_option_group(true));
+
+        var context = new OptionContext ("");
+        context.add_main_entries (entries, "switchboard ");
+        context.add_group (Gtk.get_option_group (true));
         try {
-            context.parse(ref args);
-        } catch(Error e) { warning (e.message); }
+            context.parse (ref args);
+        } catch (Error e) {
+            warning (e.message);
+        }
+
         var app = new SwitchboardApp ();
-        
         return app.run (args);
     }
 
@@ -81,17 +82,22 @@ namespace Switchboard {
             about_authors = {"Avi Romanoff <avi@elementaryos.org>", "Corentin Noël <tintou@mailoo.org>", null};
 
             about_license_type = Gtk.License.GPL_3_0;
-
-            // If plug_to_open was set from the command line
-            if (plug_to_open != null) {
-                should_animate_next_transition = false;
-            }
         }
 
         public override void activate () {
             // If app is already running, present the current window.
             if (get_windows () != null) {
                 get_windows ().data.present ();
+                if (plug_to_open != null) {
+                    var plugsmanager = Switchboard.PlugsManager.get_default ();
+                    foreach (var plug in plugsmanager.get_plugs ()) {
+                        if (plug_to_open.has_suffix (plug.code_name)) {
+                            load_plug (plug);
+                            plug_to_open = null;
+                            break;
+                        }
+                    }
+                }
                 return;
             }
 
@@ -100,39 +106,49 @@ namespace Switchboard {
             else
                 Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.INFO;
 
+            // If plug_to_open was set from the command line
+            if (plug_to_open != null) {
+                should_animate_next_transition = false;
+            }
+
             loaded_plugs = new Gee.LinkedList <string> ();
             Switchboard.PlugsManager.get_default ();
             settings = new GLib.Settings ("org.pantheon.switchboard.saved-state");
             build ();
-            category_view.load_default_plugs ();
-            if (current_plug != null)
-                load_plug (current_plug);
-
+            category_view.load_default_plugs.begin ();
             Gtk.main ();
         }
 
         public void hide_alert () {
+            alert_view.no_show_all = true;
+            alert_view.hide ();
             stack.set_visible_child (category_scrolled);
         }
 
         public void show_alert (string primary_text, string secondary_text, Gtk.MessageType type) {
+            alert_view.no_show_all = false;
+            alert_view.show_all ();
             alert_view.set_alert (primary_text, secondary_text, null, true, type);
             stack.set_visible_child (alert_view);
         }
 
         public void load_plug (Switchboard.Plug plug) {
-            if (!loaded_plugs.contains (plug.code_name)) {
-                stack.add_named (plug.get_widget (), plug.code_name);
-                loaded_plugs.add (plug.code_name);
-            }
+            Idle.add (() => {
+                if (!loaded_plugs.contains (plug.code_name)) {
+                    stack.add_named (plug.get_widget (), plug.code_name);
+                    loaded_plugs.add (plug.code_name);
+                }
 
-            // Launch plug's executable
-            navigation_button.set_sensitive (true);
-            navigation_button.set_text (all_settings_label);
-            navigation_button.show ();
-            headerbar.subtitle = plug.display_name;
-            current_plug = plug;
-            switch_to_plug (plug);
+                // Launch plug's executable
+                navigation_button.set_sensitive (true);
+                navigation_button.set_text (all_settings_label);
+                navigation_button.show ();
+                headerbar.subtitle = plug.display_name;
+                current_plug = plug;
+                switch_to_plug (plug);
+
+                return false;
+            });
         }
 
 #if HAVE_UNITY
@@ -211,12 +227,13 @@ namespace Switchboard {
             // Set up UI
             alert_view = new Granite.Widgets.EmbeddedAlert ();
             alert_view.set_vexpand (true);
+            alert_view.no_show_all = true;
 
             stack = new Gtk.Stack ();
             stack.expand = true;
-            stack.add_named (category_scrolled, "main");
             stack.add_named (alert_view, "alert");
-            stack.set_visible_child (category_scrolled);
+            stack.add_named (category_scrolled, "main");
+            stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
 
             main_window.add (stack);
             main_window.set_application (this);
@@ -231,7 +248,7 @@ namespace Switchboard {
                 show_alert (_("No settings found"), _("Install some and re-launch Switchboard"), Gtk.MessageType.WARNING);
                 search_box.sensitive = false;
             } else {
-#if HAVE_UNITY      
+#if HAVE_UNITY
                 update_libunity_quicklist ();
 #endif
             }
@@ -291,17 +308,25 @@ namespace Switchboard {
 
         // Switches to the given plug
         private void switch_to_plug (Switchboard.Plug plug) {
-            if (should_animate_next_transition) {
-                stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT);
+            if (should_animate_next_transition == false) {
+                stack.set_transition_type (Gtk.StackTransitionType.NONE);
+                should_animate_next_transition = true;
+            } else if (stack.transition_type == Gtk.StackTransitionType.NONE) {
+                stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
             }
+
             search_box.sensitive = false;
             plug.shown ();
             stack.set_visible_child_name (plug.code_name);
+            category_scrolled.hide ();
         }
 
         // Switches back to the icons
         private bool switch_to_icons () {
-            stack.set_transition_type (Gtk.StackTransitionType.SLIDE_RIGHT);
+            if (stack.transition_type == Gtk.StackTransitionType.NONE) {
+                stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
+            }
+            category_scrolled.show ();
             stack.set_visible_child (category_scrolled);
             current_plug.hidden ();
 
