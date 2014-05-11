@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-04-14 22:38+0200\n"
-"PO-Revision-Date: 2014-03-26 17:06+0000\n"
+"PO-Revision-Date: 2014-05-10 14:19+0000\n"
 "Last-Translator: samson <Unknown>\n"
 "Language-Team: Amharic <am@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-15 07:37+0000\n"
-"X-Generator: Launchpad (build 16976)\n"
+"X-Launchpad-Export-Date: 2014-05-11 06:57+0000\n"
+"X-Generator: Launchpad (build 16996)\n"
 
 #: ../src/Switchboard.vala:21
 msgid "Open a plug"
@@ -27,7 +27,7 @@ msgstr "ሁሉንም ማሰናጃ"
 
 #: ../src/Switchboard.vala:70
 msgid "System Settings"
-msgstr ""
+msgstr "ስርአት ማሰናጃ"
 
 #: ../src/Switchboard.vala:231 ../src/CategoryView.vala:235
 msgid "No settings found"
@@ -47,7 +47,7 @@ msgstr "ስርአቱን መቀየሪያ እና ተጠቃሚ ማሰናጃ"
 
 #: ../src/Switchboard.vala:407
 msgid "Center;Control;Panel;Preferences;System;"
-msgstr ""
+msgstr "መሀከል: መቆጣጠሪያ: ክፍል: ምርጫዎች: ስርአት"
 
 #: ../src/CategoryView.vala:235
 msgid "Try changing your search terms"
