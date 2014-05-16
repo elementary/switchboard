@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-04-14 22:38+0200\n"
-"PO-Revision-Date: 2014-04-07 21:16+0000\n"
-"Last-Translator: opensas <Unknown>\n"
+"PO-Revision-Date: 2014-05-15 21:01+0000\n"
+"Last-Translator: Alfredo Hernández <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-15 07:38+0000\n"
-"X-Generator: Launchpad (build 16976)\n"
+"X-Launchpad-Export-Date: 2014-05-16 06:32+0000\n"
+"X-Generator: Launchpad (build 17007)\n"
 "Language: es\n"
 
 #: ../src/Switchboard.vala:21
@@ -28,7 +28,7 @@ msgstr "Todas las opciones"
 
 #: ../src/Switchboard.vala:70
 msgid "System Settings"
-msgstr ""
+msgstr "Configuración del sistema"
 
 #: ../src/Switchboard.vala:231 ../src/CategoryView.vala:235
 msgid "No settings found"
@@ -48,7 +48,7 @@ msgstr "Cambiar la configuración del sistema y del usuario"
 
 #: ../src/Switchboard.vala:407
 msgid "Center;Control;Panel;Preferences;System;"
-msgstr ""
+msgstr "Centro;Control;Panel;Preferencias;Sistema;Configuración"
 
 #: ../src/CategoryView.vala:235
 msgid "Try changing your search terms"
