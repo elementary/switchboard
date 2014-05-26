@@ -17,30 +17,14 @@ END LICENSE
 
 namespace Switchboard {
 
-    static const OptionEntry[] entries = {
-            { "open-plug", 'o', 0, OptionArg.STRING, ref plug_to_open, N_("Open a plug"), "PLUG_NAME" },
-            { null }
-    };
 
     public enum WindowState {
         NORMAL = 0,
         MAXIMIZED = 1
     }
 
-    private static string? plug_to_open = null;
-    private static bool should_animate_next_transition = true;
-    
     public static int main (string[] args) {
         Gtk.init (ref args);
-
-        var context = new OptionContext ("");
-        context.add_main_entries (entries, "switchboard ");
-        context.add_group (Gtk.get_option_group (true));
-        try {
-            context.parse (ref args);
-        } catch (Error e) {
-            warning (e.message);
-        }
 
         var app = new SwitchboardApp ();
         return app.run (args);
@@ -66,12 +50,21 @@ namespace Switchboard {
         private int default_width = 0;
         private int default_height = 0;
 
+		private static string? plug_to_open = null;
+        private static bool should_animate_next_transition = true;
+
+        static const OptionEntry[] entries = {
+            { "open-plug", 'o', 0, OptionArg.STRING, ref plug_to_open, N_("Open a plug"), "PLUG_NAME" },
+            { null }
+        };
+
         construct {
             application_id = "org.elementary.switchboard";
             program_name = _("System Settings");
             app_years = "2011-2014";
             exec_name = "switchboard";
             app_launcher = exec_name+".desktop";
+            flags |= ApplicationFlags.HANDLES_COMMAND_LINE;
 
             build_version = "2.0";
             app_icon = "preferences-desktop";
@@ -84,21 +77,26 @@ namespace Switchboard {
             about_license_type = Gtk.License.GPL_3_0;
         }
 
-        public override void activate () {
-            // If app is already running, present the current window.
-            if (get_windows () != null) {
-                get_windows ().data.present ();
-                if (plug_to_open != null) {
-                    var plugsmanager = Switchboard.PlugsManager.get_default ();
-                    foreach (var plug in plugsmanager.get_plugs ()) {
-                        if (plug_to_open.has_suffix (plug.code_name)) {
-                            load_plug (plug);
-                            plug_to_open = null;
-                            break;
-                        }
-                    }
-                }
-                return;
+        public override int command_line (ApplicationCommandLine command_line) {
+            hold ();
+            int res = _command_line (command_line);
+            release ();
+            return res;
+        }
+
+        private int _command_line (ApplicationCommandLine command_line) {
+            var context = new OptionContext ("");
+            context.add_main_entries (entries, "switchboard ");
+            context.add_group (Gtk.get_option_group (true));
+
+            string[] args = command_line.get_arguments ();
+
+            try {
+                unowned string[] tmp = args;
+                context.parse (ref tmp);
+            } catch (Error e) {
+                warning (e.message);
+                return 0;
             }
 
             if (DEBUG)
@@ -106,8 +104,22 @@ namespace Switchboard {
             else
                 Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.INFO;
 
-            // If plug_to_open was set from the command line
             if (plug_to_open != null) {
+                var plugsmanager = Switchboard.PlugsManager.get_default ();
+                foreach (var plug in plugsmanager.get_plugs ()) {
+                    if (plug_to_open.has_suffix (plug.code_name)) {
+                        load_plug (plug);
+                        plug_to_open = null;
+                        break;
+                    }
+                }
+                // If app is already running, present the current window.
+                if (get_windows () != null) {
+                    get_windows ().data.present ();
+                    return 1;
+                }
+
+                // If plug_to_open was set from the command line
                 should_animate_next_transition = false;
             }
 
@@ -116,7 +128,8 @@ namespace Switchboard {
             settings = new GLib.Settings ("org.pantheon.switchboard.saved-state");
             build ();
             category_view.load_default_plugs.begin ();
-            Gtk.main ();
+            
+            return 0;
         }
 
         public void hide_alert () {
@@ -180,6 +193,7 @@ namespace Switchboard {
 
         private void build () {
             main_window = new Gtk.Window();
+            add_window (main_window);
 
             // Set up defaults
             main_window.title = program_name;
@@ -216,7 +230,7 @@ namespace Switchboard {
                 return true;
             });
 
-            category_view = new Switchboard.CategoryView ();
+            category_view = new Switchboard.CategoryView (plug_to_open);
             category_view.plug_selected.connect ((plug) => load_plug (plug));
             category_view.margin_top = 12;
 

@@ -43,7 +43,11 @@ namespace Switchboard {
         public Gtk.IconView network_iconview;
         public Gtk.IconView system_iconview;
 
-        public CategoryView () {
+        private string? plug_to_open = null;
+
+        public CategoryView (string? plug_to_open = null) {
+            this.plug_to_open = plug_to_open;
+
             setup_category (Switchboard.Plug.Category.PERSONAL, 0);
             setup_category (Switchboard.Plug.Category.HARDWARE, 1);
             setup_category (Switchboard.Plug.Category.NETWORK, 2);
