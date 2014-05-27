@@ -273,7 +273,7 @@ namespace Switchboard {
             if (current_plug != null)
                 current_plug.hidden ();
 
-			Gtk.main_quit ();
+            Gtk.main_quit ();
         }
 
         private void restore_saved_state () {
