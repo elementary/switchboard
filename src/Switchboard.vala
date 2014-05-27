@@ -128,7 +128,8 @@ namespace Switchboard {
             settings = new GLib.Settings ("org.pantheon.switchboard.saved-state");
             build ();
             category_view.load_default_plugs.begin ();
-            
+            Gtk.main ();
+
             return 0;
         }
 
@@ -271,6 +272,8 @@ namespace Switchboard {
         private void shut_down () {
             if (current_plug != null)
                 current_plug.hidden ();
+
+			Gtk.main_quit ();
         }
 
         private void restore_saved_state () {
