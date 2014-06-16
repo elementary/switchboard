@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-04-14 22:38+0200\n"
-"PO-Revision-Date: 2014-01-03 02:26+0000\n"
-"Last-Translator: Avi Romanoff <Unknown>\n"
+"PO-Revision-Date: 2014-06-14 08:10+0000\n"
+"Last-Translator: James Spentzos <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-15 07:38+0000\n"
-"X-Generator: Launchpad (build 16976)\n"
+"X-Launchpad-Export-Date: 2014-06-16 05:55+0000\n"
+"X-Generator: Launchpad (build 17045)\n"
 "Language: el\n"
 
 #: ../src/Switchboard.vala:21
@@ -24,11 +24,11 @@ msgstr "Άνοιγμα προσθέτου"
 
 #: ../src/Switchboard.vala:59
 msgid "All Settings"
-msgstr ""
+msgstr "Όλες οι Ρυθμίσεις"
 
 #: ../src/Switchboard.vala:70
 msgid "System Settings"
-msgstr ""
+msgstr "Ρυθμίσεις Συστήματος"
 
 #: ../src/Switchboard.vala:231 ../src/CategoryView.vala:235
 msgid "No settings found"
@@ -36,7 +36,7 @@ msgstr "Δεν βρέθηκαν ρυθμίσεις"
 
 #: ../src/Switchboard.vala:231
 msgid "Install some and re-launch Switchboard"
-msgstr "Εγκατέστησε μερικά και επανεκκίνησε του Switchboard"
+msgstr "Εγκαταστήστε μερικά και επανεκκινήστε το Switchboard"
 
 #: ../src/Switchboard.vala:326
 msgid "Search Settings"
@@ -48,11 +48,11 @@ msgstr "Αλλαγή ρυθμίσεων συστήματος και χρηστώ
 
 #: ../src/Switchboard.vala:407
 msgid "Center;Control;Panel;Preferences;System;"
-msgstr ""
+msgstr "Κέντρο:Έλεγχος:Πάνελ:Προτιμήσεις:Σύστημα:"
 
 #: ../src/CategoryView.vala:235
 msgid "Try changing your search terms"
-msgstr "Προσπαθήστε να αλλάξτε τους όρους αναζήτησης"
+msgstr "Δοκιμάστε να αλλάξετε τους όρους αναζήτησής σας"
 
 #: ../src/CategoryView.vala:325
 msgid "Personal"
@@ -68,7 +68,7 @@ msgstr "Δίκτυο και ασύρματα"
 
 #: ../src/CategoryView.vala:331
 msgid "Administration"
-msgstr ""
+msgstr "Διαχείριση"
 
 #~ msgid "System"
 #~ msgstr "Σύστημα"
