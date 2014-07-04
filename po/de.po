@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-04-14 22:38+0200\n"
-"PO-Revision-Date: 2014-04-30 15:10+0000\n"
-"Last-Translator: Phillip Sz <Unknown>\n"
+"PO-Revision-Date: 2014-07-03 17:53+0000\n"
+"Last-Translator: Eduard Gotwig <g@ox.io>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-05-01 06:02+0000\n"
-"X-Generator: Launchpad (build 16985)\n"
+"X-Launchpad-Export-Date: 2014-07-04 06:09+0000\n"
+"X-Generator: Launchpad (build 17086)\n"
 "Language: de\n"
 
 #: ../src/Switchboard.vala:21
@@ -49,11 +49,13 @@ msgstr "System- und Benutzereinstellungen ändern"
 
 #: ../src/Switchboard.vala:407
 msgid "Center;Control;Panel;Preferences;System;"
-msgstr "Center;Control;Panel;Einstellungen;System;Kontrolle;"
+msgstr ""
+"Zentrum;Steuerung;Leiste;Paneel;Einstellungen;System;Kontrolle;Center;Control"
+";Panel;"
 
 #: ../src/CategoryView.vala:235
 msgid "Try changing your search terms"
-msgstr "Versuchen Sie es mit einer anderen Suchanfrage"
+msgstr "Mit einer anderen Suchanfrage versuchen"
 
 #: ../src/CategoryView.vala:325
 msgid "Personal"
@@ -61,7 +63,7 @@ msgstr "Persönlich"
 
 #: ../src/CategoryView.vala:327
 msgid "Hardware"
-msgstr "Hardware"
+msgstr "Geräte"
 
 #: ../src/CategoryView.vala:329
 msgid "Network and Wireless"
