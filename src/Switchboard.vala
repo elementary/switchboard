@@ -17,6 +17,8 @@ END LICENSE
 
 namespace Switchboard {
 
+    [CCode (cname = "cheese_gtk_init")]
+    public extern static bool cheese_gtk_init ([CCode (array_length_pos = 0.9)] ref unowned string[] argv);
 
     public enum WindowState {
         NORMAL = 0,
@@ -24,7 +26,11 @@ namespace Switchboard {
     }
 
     public static int main (string[] args) {
-        Gtk.init (ref args);
+
+        // FIXME the gcc user-accounts plug requires cheese to be initialized before gtk,
+        //       otherwise it will crash switchboard if it's loaded before the window and
+        //       all its widgets are displayed.
+	cheese_gtk_init (ref args);
 
         var app = new SwitchboardApp ();
         return app.run (args);
@@ -94,6 +100,11 @@ namespace Switchboard {
             try {
                 unowned string[] tmp = args;
                 context.parse (ref tmp);
+
+		// we have an unparsed argument. Assume that it's a gcc plug name
+		if (tmp.length > 1) {
+		    plug_to_open = gcc_to_switchboard_code_name (tmp[1]);
+		}
             } catch (Error e) {
                 warning (e.message);
                 return 0;
@@ -438,6 +449,36 @@ namespace Switchboard {
 
             return (empty ? null : category_item);
         }
+
+	private string? gcc_to_switchboard_code_name (string gcc_name) {
+	    // list of names taken from GCC's shell/cc-panel-loader.c
+	    switch (gcc_name) {
+		case "background": return "pantheon-desktop";
+		case "bluetooth": return "network-gcc-bluetooth";
+		case "color": return "hardware-gcc-color";
+		case "datetime": return "system-gcc-date";
+		case "display": return "hardware-gcc-display";
+		case "info": return "system-pantheon-about";
+		case "keyboard": return "hardware-pantheon-keyboard";
+		case "network": return "network-gcc-network";
+		case "power": return "system-pantheon-power";
+		case "printers": return "hardware-gcc-printer";
+		case "privacy": return "pantheon-security-privacy";
+		case "region": return "hardware-gcc-region";
+		case "sound": return "hardware-gcc-sound";
+		case "universal-access": return "system-gcc-universalaccess";
+		case "user-accounts": return "hardware-gcc-user";
+		case "wacom": return "hardware-gcc-wacom";
+
+		// not available on our system
+		case "notifications":
+		case "search":
+		case "sharing":
+		    return null;
+	    }
+
+	    return null;
+	}
 #endif
     }
 }

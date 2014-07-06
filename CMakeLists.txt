@@ -95,6 +95,7 @@ set (LIB_PKG
   gmodule-2.0
   gtk+-3.0>=3.10
   gio-unix-2.0
+  cheese-gtk
 )
 find_package(PkgConfig)
 
