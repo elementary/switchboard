@@ -449,6 +449,7 @@ namespace Switchboard {
 
             return (empty ? null : category_item);
         }
+#endif
 
         private string? gcc_to_switchboard_code_name (string gcc_name) {
             // list of names taken from GCC's shell/cc-panel-loader.c
@@ -479,7 +480,6 @@ namespace Switchboard {
 
             return null;
         }
-#endif
     }
 }
 
