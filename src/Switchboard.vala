@@ -274,6 +274,8 @@ namespace Switchboard {
                 show_alert (_("No settings found"), _("Install some and re-launch Switchboard"), Gtk.MessageType.WARNING);
                 search_box.sensitive = false;
             } else {
+                search_box.sensitive = true;
+                search_box.has_focus = true;
 #if HAVE_UNITY
                 update_libunity_quicklist ();
 #endif
@@ -361,6 +363,9 @@ namespace Switchboard {
             search_box.set_text ("");
             search_box.sensitive = Switchboard.PlugsManager.get_default ().has_plugs ();
 
+            if (search_box.sensitive)
+                search_box.has_focus = true;
+                
             return true;
         }
 
