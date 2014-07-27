@@ -56,19 +56,7 @@ namespace Switchboard {
 
         private void setup_category (Switchboard.Plug.Category category, int i) {
             var category_label = new Gtk.Label (get_category_name (category));
-            var fg_css = new Gtk.CssProvider ();
-
-            try {
-                fg_css.load_from_data ("*{
-                    color: shade (@bg_color, 0.4);
-                    font: open sans 11;
-                    font-weight: 600;
-                    text-shadow: 0 1px alpha (#fff, 0.6);
-                }", -1);
-                category_label.get_style_context ().add_provider (fg_css, 20000);
-            } catch (Error e) {
-                critical (e.message);
-            }
+            category_label.get_style_context ().add_class ("category-label");
 
             category_label.margin_left = 12;
             category_label.margin_right = 8;
