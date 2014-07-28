@@ -327,7 +327,7 @@ namespace Switchboard {
         private void handle_navigation_button_clicked () {
             if (navigation_button.get_text () == all_settings_label) {
                 switch_to_icons ();
-                navigation_button.set_text (current_plug.display_name);
+                navigation_button.hide ();
             } else {
                 switch_to_plug (current_plug);
                 navigation_button.set_text (all_settings_label);
