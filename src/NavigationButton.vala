@@ -29,11 +29,8 @@ namespace Switchboard {
             vexpand = false;
 
             Gtk.Box button_b = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-            var icon = new Gtk.Image.from_icon_name ("go-previous-symbolic",
-                                                     Gtk.IconSize.MENU);
             text = new Gtk.Label ("");
 
-            button_b.pack_start (icon, true, true, 2);
             button_b.pack_start (text, true, true, 2);
 
             this.add (button_b);
