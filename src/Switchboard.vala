@@ -168,7 +168,7 @@ namespace Switchboard {
                 navigation_button.set_sensitive (true);
                 navigation_button.set_text (all_settings_label);
                 navigation_button.show ();
-                headerbar.subtitle = plug.display_name;
+                headerbar.title = plug.display_name;
                 current_plug = plug;
                 switch_to_plug (plug);
 
@@ -318,7 +318,7 @@ namespace Switchboard {
 
         // Change Switchboard title back to "Switchboard"
         private void reset_title () {
-            headerbar.subtitle = null;
+            headerbar.title = program_name;
         }
 
         // Handles clicking the navigation button
