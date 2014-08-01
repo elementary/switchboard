@@ -25,6 +25,9 @@ option (BUILD_SAMPLE "Build an example that shows how it works" OFF)
 
 if (BUILD_SHARED_LIBS)
   message ("-- Shared libraries enabled")
+  # Force CMake to clear library search path when installing,
+  # see http://wiki.debian.org/RpathIssue for details
+  set (CMAKE_INSTALL_RPATH "")
 else ()
   message ("-- Shared libraries disabled")
 endif ()
