@@ -25,12 +25,15 @@ option (BUILD_SAMPLE "Build an example that shows how it works" OFF)
 
 if (BUILD_SHARED_LIBS)
   message ("-- Shared libraries enabled")
-  # Force CMake to clear library search path when installing,
-  # see http://wiki.debian.org/RpathIssue for details
-  set (CMAKE_INSTALL_RPATH "")
 else ()
   message ("-- Shared libraries disabled")
 endif ()
+
+# Do not override library search path, so that plugs can be loaded to even if
+# Switchboard is run from the source code tree.
+# This is also required by Debian policy,
+# see http://wiki.debian.org/RpathIssue for details
+set (CMAKE_SKIP_BUILD_RPATH  TRUE)
 
 #
 
