@@ -43,9 +43,8 @@ Enhances: switchboard
 Description: Modular Settings Hub - debug symbols
  Desktop application that manages Switchboard Plugs.
  .
- This package contains detached debugging symbols.
- .
- Most people will not need this package.
+ This package contains detached debugging symbols
+ for Switchboard.
 
 Package: libswitchboard-2.0-dev
 Section: libdevel
@@ -64,6 +63,6 @@ Architecture: any
 Depends: ${misc:Depends},
          ${shlibs:Depends}
 Description: Modular Settings Hub - shared libraries
- Common library to create plugs (settings panels).
+ Common library to create Switchboard plugs (settings panels).
  .
- This package contains the shared library.
+ This package contains the shared library required to run the plugs.
