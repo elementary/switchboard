@@ -19,4 +19,3 @@ libswitchboard-2.0.so.0 libswitchboard-2.0-0 #MINVER#
  switchboard_plugs_manager_get_plugs@Base 2.0~bzr468
  switchboard_plugs_manager_get_type@Base 2.0~bzr468
  switchboard_plugs_manager_has_plugs@Base 2.0~bzr468
-
