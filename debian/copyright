@@ -2,10 +2,21 @@ Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Source: https://launchpad.net/switchboard
 
 Files: *
-Copyright: Copyright (C) 2011 Avi Romanoff <aviromanoff@gmail.com>
-           Copyright (C) 2011-2014 Sergey "Shnatsel" Davidoff <shnatsel@gmail.com>
-           Copyright (C) 2013-2014 Corentin "tintou" Noël <tintou@mailoo.org>
-           Copyright (C) 2011-2014 elementary project
+Copyright: TODO
+License: GPL-3
+
+Files: debian/*
+Copyright: 2011 Avi Romanoff <avi@elementaryos.org>
+           2011-2014 Sergey "Shnatsel" Davidoff <sergey@elementaryos.org>
+           2012-2014 Cody Garver <cody@elementaryos.org>
+           2013 Rico Tzschichholz <ricotz@ubuntu.com>
+           2014 Corentin "tintou" Noël <corentin@elementaryos.org>
+License: GPL-3
+
+Files: debian/watch
+Copyright: 2014 Bart Martens <bartm@debian.org>
+License: GPL-3
+
 License: GPL-3
  This library is free software; you can redistribute it and/or modify it
  under the terms of the GNU General Public License as published by the
