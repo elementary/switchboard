@@ -1,0 +1,22 @@
+libswitchboard-2.0.so.0 libswitchboard-2.0-0 #MINVER#
+ switchboard_plug_category_get_type@Base 2.0~bzr468
+ switchboard_plug_construct@Base 2.0~bzr468
+ switchboard_plug_get_can_show@Base 2.0~bzr468
+ switchboard_plug_get_category@Base 2.0~bzr468
+ switchboard_plug_get_code_name@Base 2.0~bzr468
+ switchboard_plug_get_description@Base 2.0~bzr468
+ switchboard_plug_get_display_name@Base 2.0~bzr468
+ switchboard_plug_get_icon@Base 2.0~bzr468
+ switchboard_plug_get_type@Base 2.0~bzr468
+ switchboard_plug_get_widget@Base 2.0~bzr468
+ switchboard_plug_hidden@Base 2.0~bzr468
+ switchboard_plug_search@Base 2.0~bzr468
+ switchboard_plug_search_callback@Base 2.0~bzr468
+ switchboard_plug_search_finish@Base 2.0~bzr468
+ switchboard_plug_set_can_show@Base 2.0~bzr468
+ switchboard_plug_shown@Base 2.0~bzr468
+ switchboard_plugs_manager_get_default@Base 2.0~bzr468
+ switchboard_plugs_manager_get_plugs@Base 2.0~bzr468
+ switchboard_plugs_manager_get_type@Base 2.0~bzr468
+ switchboard_plugs_manager_has_plugs@Base 2.0~bzr468
+
