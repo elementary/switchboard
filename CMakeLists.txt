@@ -33,7 +33,7 @@ endif ()
 # Switchboard is run from the source code tree.
 # This is also required by Debian policy,
 # see http://wiki.debian.org/RpathIssue for details
-set (CMAKE_SKIP_BUILD_RPATH  TRUE)
+set (CMAKE_SKIP_BUILD_RPATH TRUE)
 
 #
 
