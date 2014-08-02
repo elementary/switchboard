@@ -9,3 +9,9 @@ Categories=GNOME;GTK;System;
 X-GNOME-Keywords=Center;Control;Panel;Preferences;System;
 X-AppInstall-Keywords=Center;Control;Panel;Preferences;System;
 X-GNOME-Gettext-Domain=switchboard
+
+X-Ayatana-Desktop-Shortcuts=AboutDialog
+
+[AboutDialog Shortcut Group]
+Name=About System Settings
+Exec=switchboard --about
