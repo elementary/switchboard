@@ -29,6 +29,12 @@ else ()
   message ("-- Shared libraries disabled")
 endif ()
 
+# Do not override library search path, so that plugs can be loaded to even if
+# Switchboard is run from the source code tree.
+# This is also required by Debian policy,
+# see http://wiki.debian.org/RpathIssue for details
+set (CMAKE_SKIP_BUILD_RPATH TRUE)
+
 #
 
 # Niceties
