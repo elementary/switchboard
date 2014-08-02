@@ -15,4 +15,3 @@ X-Ayatana-Desktop-Shortcuts=AboutDialog
 [AboutDialog Shortcut Group]
 Name=About System Settings
 Exec=switchboard --about
-TargetEnvironment=Unity
