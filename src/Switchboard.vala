@@ -365,7 +365,7 @@ namespace Switchboard {
 
             if (search_box.sensitive)
                 search_box.has_focus = true;
-                
+
             return true;
         }
 
@@ -491,4 +491,5 @@ namespace Switchboard {
 #if TRANSLATION
 _("Change system and user settings");
 _("Center;Control;Panel;Preferences;System;");
+_("About");
 #endif
