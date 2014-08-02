@@ -491,5 +491,5 @@ namespace Switchboard {
 #if TRANSLATION
 _("Change system and user settings");
 _("Center;Control;Panel;Preferences;System;");
-_("About");
+_("About System Settings");
 #endif
