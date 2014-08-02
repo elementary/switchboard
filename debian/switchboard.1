@@ -1,0 +1,45 @@
+.TH "SWITCHBOARD" "1" "August 2014"
+.
+.SH "NAME"
+\fBswitchboard\fR \- Modular Settings Hub
+.
+.SH "SYNOPSIS"
+\fBswitchboard\fR [\fIoption\.\.\.\fR] [\fIplug-name\fR|\fIplug-option\.\.\.\fR]
+.
+.SH "DESCRIPTION"
+\fBswitchboard\fR is a modular GUI settings hub. Switchboard provides the chrome and the actual settings are handled by individual settings panels, or \fBplugs\fR\. Plugs interface with Switchboard via GModule and can be added or removed without recompiling Switchboard.
+.
+.P
+When launched without options Switchboard shows a list of all available plugs. It can also be instructed to display a specific plug, either by its short name (e\.g\. "about") or using the fully qualified name (e\.g\. "system-pantheon-about").
+.
+.SH "OPTIONS"
+.
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+Show a help message and exit\.
+.
+.TP
+\fB\-d\fR, \fB\-\-debug\fR
+Enable debug logging\.
+.
+.TP
+\fB\-\-display=\fR\fIDISPLAY\fR
+X display to use\.
+.
+.SH "PLUG OPTIONS"
+.
+.TP
+\fB\-o\fR \fIfull-plug-name\fR, \fB\-\-open\-plug=\fR\fIfull-plug-name\fR
+Launch a plug by its fully qualified name\. Useful for launching plugs without an established short name or if you want to override Switchboard's default plug choice for the short name.
+.
+.TP
+\fB\-a\fR, \fB\-\-about\fR
+Show "About" dialog\. Do not display the main window or open any plugs\.
+.
+.SH "AUTHOR"
+Avi Romanoff <avi@elementaryos.org>,
+Lucas Baudin <xapantu@gmail.com>,
+Corentin Noël <corentin@elementaryos.org> et al.
+.PP
+This manual page was written by Sergey "Shnatsel" Davidoff <sergey@elementaryos.org>,
+for the Debian project (but may be used by others).
