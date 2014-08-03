@@ -7,66 +7,70 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-04-14 22:38+0200\n"
+"POT-Creation-Date: 2014-08-02 16:49-0500\n"
 "PO-Revision-Date: 2014-01-03 01:54+0000\n"
 "Last-Translator: abdXelrhman <abdXelrhman@gmail.com>\n"
 "Language-Team: Arabic <ar@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-15 07:37+0000\n"
-"X-Generator: Launchpad (build 16976)\n"
+"X-Launchpad-Export-Date: 2014-08-03 05:53+0000\n"
+"X-Generator: Launchpad (build 17147)\n"
 
-#: ../src/Switchboard.vala:21
-msgid "Open a plug"
-msgstr ""
-
-#: ../src/Switchboard.vala:59
-msgid "All Settings"
-msgstr ""
-
-#: ../src/Switchboard.vala:70
-msgid "System Settings"
-msgstr ""
-
-#: ../src/Switchboard.vala:231 ../src/CategoryView.vala:235
+#: ../src/CategoryView.vala:226 ../src/Switchboard.vala:274
 msgid "No settings found"
 msgstr "تعذر العثور على اى إعدادات"
 
-#: ../src/Switchboard.vala:231
-msgid "Install some and re-launch Switchboard"
-msgstr ""
-
-#: ../src/Switchboard.vala:326
-msgid "Search Settings"
-msgstr "إعدادات البحث"
-
-#: ../src/Switchboard.vala:406
-msgid "Change system and user settings"
-msgstr "تغيير إعدادات النظام والمستخدم"
-
-#: ../src/Switchboard.vala:407
-msgid "Center;Control;Panel;Preferences;System;"
-msgstr ""
-
-#: ../src/CategoryView.vala:235
+#: ../src/CategoryView.vala:226
 msgid "Try changing your search terms"
 msgstr "جرب تغيير مصطلحات البحث"
 
-#: ../src/CategoryView.vala:325
+#: ../src/CategoryView.vala:316
 msgid "Personal"
 msgstr "الشخصى"
 
-#: ../src/CategoryView.vala:327
+#: ../src/CategoryView.vala:318
 msgid "Hardware"
 msgstr "العتاد الصُلب"
 
-#: ../src/CategoryView.vala:329
+#: ../src/CategoryView.vala:320
 msgid "Network and Wireless"
 msgstr "الشبكه واﻹتصالات اللاسلكيه"
 
-#: ../src/CategoryView.vala:331
+#: ../src/CategoryView.vala:322
 msgid "Administration"
+msgstr ""
+
+#: ../src/Switchboard.vala:50
+msgid "All Settings"
+msgstr ""
+
+#: ../src/Switchboard.vala:63
+msgid "Open a plug"
+msgstr ""
+
+#: ../src/Switchboard.vala:69
+msgid "System Settings"
+msgstr ""
+
+#: ../src/Switchboard.vala:274
+msgid "Install some and re-launch Switchboard"
+msgstr ""
+
+#: ../src/Switchboard.vala:382
+msgid "Search Settings"
+msgstr "إعدادات البحث"
+
+#: ../src/Switchboard.vala:492
+msgid "Change system and user settings"
+msgstr "تغيير إعدادات النظام والمستخدم"
+
+#: ../src/Switchboard.vala:493
+msgid "Center;Control;Panel;Preferences;System;"
+msgstr ""
+
+#: ../src/Switchboard.vala:494
+msgid "About System Settings"
 msgstr ""
 
 #~ msgid "Settings Center"

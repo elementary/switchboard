@@ -7,67 +7,71 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-04-14 22:38+0200\n"
+"POT-Creation-Date: 2014-08-02 16:49-0500\n"
 "PO-Revision-Date: 2014-04-22 15:20+0000\n"
 "Last-Translator: Kristjan Vool <tictac7x@gmail.com>\n"
 "Language-Team: Estonian <et@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-23 06:08+0000\n"
-"X-Generator: Launchpad (build 16985)\n"
+"X-Launchpad-Export-Date: 2014-08-03 05:53+0000\n"
+"X-Generator: Launchpad (build 17147)\n"
 
-#: ../src/Switchboard.vala:21
-msgid "Open a plug"
-msgstr "Plugina avamine"
-
-#: ../src/Switchboard.vala:59
-msgid "All Settings"
-msgstr "Kõik eelistused"
-
-#: ../src/Switchboard.vala:70
-msgid "System Settings"
-msgstr "Süsteemi seaded"
-
-#: ../src/Switchboard.vala:231 ../src/CategoryView.vala:235
+#: ../src/CategoryView.vala:226 ../src/Switchboard.vala:274
 msgid "No settings found"
 msgstr "Eelistusi ei leitud"
 
-#: ../src/Switchboard.vala:231
-msgid "Install some and re-launch Switchboard"
-msgstr "Paigalda mõningad ja taaskäivita Switchboard"
-
-#: ../src/Switchboard.vala:326
-msgid "Search Settings"
-msgstr "Otsi eelistustest..."
-
-#: ../src/Switchboard.vala:406
-msgid "Change system and user settings"
-msgstr "Süsteemi eelistuste muutmine"
-
-#: ../src/Switchboard.vala:407
-msgid "Center;Control;Panel;Preferences;System;"
-msgstr "Keskus;Kontroll;Paneel;Eelistused;Süsteem;Seaded;Juhtimine;Abi"
-
-#: ../src/CategoryView.vala:235
+#: ../src/CategoryView.vala:226
 msgid "Try changing your search terms"
 msgstr "Proovi muuta otsingusõnu"
 
-#: ../src/CategoryView.vala:325
+#: ../src/CategoryView.vala:316
 msgid "Personal"
 msgstr "Personaalne"
 
-#: ../src/CategoryView.vala:327
+#: ../src/CategoryView.vala:318
 msgid "Hardware"
 msgstr "Riistvara"
 
-#: ../src/CategoryView.vala:329
+#: ../src/CategoryView.vala:320
 msgid "Network and Wireless"
 msgstr "Võrk"
 
-#: ../src/CategoryView.vala:331
+#: ../src/CategoryView.vala:322
 msgid "Administration"
 msgstr "Administreerimine"
+
+#: ../src/Switchboard.vala:50
+msgid "All Settings"
+msgstr "Kõik eelistused"
+
+#: ../src/Switchboard.vala:63
+msgid "Open a plug"
+msgstr "Plugina avamine"
+
+#: ../src/Switchboard.vala:69
+msgid "System Settings"
+msgstr "Süsteemi seaded"
+
+#: ../src/Switchboard.vala:274
+msgid "Install some and re-launch Switchboard"
+msgstr "Paigalda mõningad ja taaskäivita Switchboard"
+
+#: ../src/Switchboard.vala:382
+msgid "Search Settings"
+msgstr "Otsi eelistustest..."
+
+#: ../src/Switchboard.vala:492
+msgid "Change system and user settings"
+msgstr "Süsteemi eelistuste muutmine"
+
+#: ../src/Switchboard.vala:493
+msgid "Center;Control;Panel;Preferences;System;"
+msgstr "Keskus;Kontroll;Paneel;Eelistused;Süsteem;Seaded;Juhtimine;Abi"
+
+#: ../src/Switchboard.vala:494
+msgid "About System Settings"
+msgstr ""
 
 #~ msgid "System"
 #~ msgstr "Süsteem"
