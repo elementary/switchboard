@@ -41,7 +41,13 @@ Depends: switchboard (= ${binary:Version}),
 Pre-Depends: dpkg (>= 1.15.6)
 Enhances: switchboard
 Description: Modular Settings Hub - debug symbols
- Desktop application that manages Switchboard Plugs.
+ Switchboard is a modular system settings hub designed
+ for Pantheon desktop.
+ .
+ It features animated transitions, supports adding or
+ removing plugs (settings panels) without recompilation,
+ and follows the Human Interface Guidelines of
+ elementary OS.
  .
  This package contains detached debugging symbols
  for Switchboard.
@@ -52,7 +58,15 @@ Architecture: any
 Depends: libswitchboard-2.0-0 (= ${binary:Version}),
          ${misc:Depends}
 Description: Modular Settings Hub - development files
- Common library to create plugs (settings panels).
+ Shared library to create plugs (settings panels) for Switchboard.
+ .
+ Switchboard is a modular system settings hub designed
+ for Pantheon desktop.
+ .
+ It features animated transitions, supports adding or
+ removing plugs (settings panels) without recompilation,
+ and follows the Human Interface Guidelines of
+ elementary OS.
  .
  This package contains the header and development files which are
  needed for building Switchboard plugs.
@@ -63,6 +77,14 @@ Architecture: any
 Depends: ${misc:Depends},
          ${shlibs:Depends}
 Description: Modular Settings Hub - shared libraries
- Common library to create Switchboard plugs (settings panels).
+ Shared library to create plugs (settings panels) for Switchboard.
+ .
+ Switchboard is a modular system settings hub designed
+ for Pantheon desktop.
+ .
+ It features animated transitions, supports adding or
+ removing plugs (settings panels) without recompilation,
+ and follows the Human Interface Guidelines of
+ elementary OS.
  .
  This package contains the shared library required to run the plugs.
