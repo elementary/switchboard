@@ -140,7 +140,10 @@ namespace Switchboard {
             category_plugs.set_pixbuf_column (Columns.ICON);
             category_plugs.set_tooltip_column (Columns.DESCRIPTION);
             category_plugs.set_hexpand (true);
-            category_plugs.selection_changed.connect (() => on_selection_changed (category_plugs, filtered));
+            category_plugs.set_selection_mode (Gtk.SelectionMode.SINGLE);
+            category_plugs.set_activate_on_single_click (true);
+            
+            category_plugs.item_activated.connect (on_item_activated);
             var cellrenderer = (Gtk.CellRendererText)category_plugs.get_cells ().nth_data (0);
             cellrenderer.wrap_mode = Pango.WrapMode.WORD;
             cellrenderer.ellipsize_set = true;
@@ -292,22 +295,17 @@ namespace Switchboard {
             system_iconview.set_columns (columns);
         }
 
-        private void on_selection_changed (Gtk.IconView view, Gtk.TreeModelFilter store) {
+        private void on_item_activated (Gtk.IconView view, Gtk.TreePath path) {
             GLib.Value plug;
             Gtk.TreeIter selected_plug;
+            var store = view.get_model ();
 
-            var selected = view.get_selected_items ();
-            var item = selected.nth_data (0);
-
-            if (item == null)
-                return;
-
-            store.get_iter (out selected_plug, item);
+            store.get_iter (out selected_plug, path);
             store.get_value (selected_plug, Columns.PLUG, out plug);
 
             plug_selected ((Switchboard.Plug) plug.get_object ());
 
-            view.unselect_path (item);
+            view.unselect_path (path);
         }
 
         public static string? get_category_name (Switchboard.Plug.Category category) {
