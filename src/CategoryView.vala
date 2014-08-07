@@ -140,10 +140,10 @@ namespace Switchboard {
             category_plugs.set_pixbuf_column (Columns.ICON);
             category_plugs.set_tooltip_column (Columns.DESCRIPTION);
             category_plugs.set_hexpand (true);
-			category_plugs.set_selection_mode (Gtk.SelectionMode.SINGLE);
-			category_plugs.set_activate_on_single_click (true);
+            category_plugs.set_selection_mode (Gtk.SelectionMode.SINGLE);
+            category_plugs.set_activate_on_single_click (true);
             
-			category_plugs.item_activated.connect (on_item_activated);
+            category_plugs.item_activated.connect (on_item_activated);
             var cellrenderer = (Gtk.CellRendererText)category_plugs.get_cells ().nth_data (0);
             cellrenderer.wrap_mode = Pango.WrapMode.WORD;
             cellrenderer.ellipsize_set = true;
@@ -298,7 +298,7 @@ namespace Switchboard {
         private void on_item_activated (Gtk.IconView view, Gtk.TreePath path) {
             GLib.Value plug;
             Gtk.TreeIter selected_plug;
-			var store = view.get_model ();
+            var store = view.get_model ();
 
             store.get_iter (out selected_plug, path);
             store.get_value (selected_plug, Columns.PLUG, out plug);
