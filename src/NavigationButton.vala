@@ -27,6 +27,7 @@ namespace Switchboard {
             can_focus = false;
             valign = Gtk.Align.CENTER;
             vexpand = false;
+            this.get_style_context ().add_class("back-button");
 
             Gtk.Box button_b = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
             text = new Gtk.Label ("");
