@@ -154,7 +154,9 @@ namespace Switchboard {
             alert_view.no_show_all = false;
             alert_view.show_all ();
             alert_view.set_alert (primary_text, secondary_text, null, true, type);
+            stack.transition_type = Gtk.StackTransitionType.NONE;
             stack.set_visible_child (alert_view);
+            stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
         }
 
         public void load_plug (Switchboard.Plug plug) {
