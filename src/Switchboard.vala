@@ -146,17 +146,15 @@ namespace Switchboard {
 
         public void hide_alert () {
             alert_view.no_show_all = true;
+            stack.set_visible_child_full ("main", Gtk.StackTransitionType.NONE);
             alert_view.hide ();
-            stack.set_visible_child (category_scrolled);
         }
 
         public void show_alert (string primary_text, string secondary_text, Gtk.MessageType type) {
             alert_view.no_show_all = false;
             alert_view.show_all ();
             alert_view.set_alert (primary_text, secondary_text, null, true, type);
-            stack.transition_type = Gtk.StackTransitionType.NONE;
-            stack.set_visible_child (alert_view);
-            stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
+            stack.set_visible_child_full ("alert", Gtk.StackTransitionType.NONE);
         }
 
         public void load_plug (Switchboard.Plug plug) {
