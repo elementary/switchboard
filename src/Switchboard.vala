@@ -57,6 +57,7 @@ namespace Switchboard {
         private int default_height = 0;
 
         private static string? plug_to_open = null;
+        private static bool plug_direct_open = false;
         private static bool should_animate_next_transition = true;
 
         static const OptionEntry[] entries = {
@@ -132,6 +133,7 @@ namespace Switchboard {
 
                 // If plug_to_open was set from the command line
                 should_animate_next_transition = false;
+                plug_direct_open = true;
             }
 
             loaded_plugs = new Gee.LinkedList <string> ();
@@ -267,6 +269,8 @@ namespace Switchboard {
             navigation_button.hide ();
 
             main_window.size_allocate.connect (() => {
+            if (plug_direct_open)
+                search_box.sensitive = false;
                 category_view.recalculate_columns ();
             });
 
@@ -326,6 +330,8 @@ namespace Switchboard {
         // Handles clicking the navigation button
         private void handle_navigation_button_clicked () {
             if (navigation_button.get_text () == all_settings_label) {
+                plug_direct_open = false;
+                search_box.sensitive = true;
                 switch_to_icons ();
                 navigation_button.hide ();
             } else {
