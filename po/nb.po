@@ -8,22 +8,22 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-08-02 16:49-0500\n"
-"PO-Revision-Date: 2014-08-05 11:50+0000\n"
-"Last-Translator: Thomas Lekanger <datagutt666@hotmail.com>\n"
+"PO-Revision-Date: 2014-10-04 12:44+0000\n"
+"Last-Translator: ProsjektX <Unknown>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-06 06:33+0000\n"
-"X-Generator: Launchpad (build 17147)\n"
+"X-Launchpad-Export-Date: 2014-10-05 06:12+0000\n"
+"X-Generator: Launchpad (build 17196)\n"
 
 #: ../src/CategoryView.vala:226 ../src/Switchboard.vala:274
 msgid "No settings found"
-msgstr "Fant ingen instillinger"
+msgstr "Fant ingen innstillinger"
 
 #: ../src/CategoryView.vala:226
 msgid "Try changing your search terms"
-msgstr "Prøv å endre søkeorda dine"
+msgstr "Prøv å endre søkeordene dine"
 
 #: ../src/CategoryView.vala:316
 msgid "Personal"
@@ -35,7 +35,7 @@ msgstr "Maskinvare"
 
 #: ../src/CategoryView.vala:320
 msgid "Network and Wireless"
-msgstr "Nettverk og tårdløs"
+msgstr "Nettverk og trådløs"
 
 #: ../src/CategoryView.vala:322
 msgid "Administration"
@@ -59,11 +59,11 @@ msgstr "Installer noen og restart Switchboard"
 
 #: ../src/Switchboard.vala:382
 msgid "Search Settings"
-msgstr "Søke Innstillinger"
+msgstr "Søkeinnstillinger"
 
 #: ../src/Switchboard.vala:492
 msgid "Change system and user settings"
-msgstr "Endre system- og burkerinstillinger"
+msgstr "Endre system- og brukerinstillinger"
 
 #: ../src/Switchboard.vala:493
 msgid "Center;Control;Panel;Preferences;System;"
