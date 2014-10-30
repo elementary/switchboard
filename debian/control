@@ -14,8 +14,8 @@ Build-Depends: cmake (>= 2.8),
                valac (>= 0.22)
 Standards-Version: 3.9.6
 Homepage: https://launchpad.net/switchboard
-Vcs-Bzr: lp:switchboard
-Vcs-Browser: https://code.launchpad.net/~elementary-pantheon/switchboard/switchboard
+Vcs-Bzr: lp:~pantheon-debian/pantheon-debian/switchboard
+Vcs-Browser: https://code.launchpad.net/~pantheon-debian/pantheon-debian/switchboard
 
 Package: switchboard
 Architecture: any
