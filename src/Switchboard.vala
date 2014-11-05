@@ -406,6 +406,15 @@ namespace Switchboard {
             navigation_button.clicked.connect (handle_navigation_button_clicked);
             navigation_button.sensitive = false;
 
+            main_window.button_release_event.connect ((event) => {
+                // On back mouse button pressed
+                if (event.button == 8) {
+                    navigation_button.clicked ();
+                }
+
+                return false;
+            });
+
             // Add everything to the toolbar
             headerbar.pack_start (navigation_button);
             headerbar.pack_end (search_box);
