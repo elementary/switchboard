@@ -37,7 +37,7 @@ namespace Switchboard {
     }
 
     public class SwitchboardApp : Granite.Application {
-        private Gtk.Window main_window = null;
+        private Gtk.Window main_window;
         private Gtk.Stack stack;
         private Gtk.HeaderBar headerbar;
 
@@ -95,7 +95,7 @@ namespace Switchboard {
         }
 
         protected override void activate () {
-            
+
         }
 
         public override int command_line (ApplicationCommandLine command_line) {
@@ -144,7 +144,7 @@ namespace Switchboard {
                 should_animate_next_transition = false;
                 opened_directly = true;
             }
-            
+
             // If app is already running, present the current window.
             if (get_windows () != null) {
                 get_windows ().data.present ();
