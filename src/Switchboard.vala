@@ -94,10 +94,6 @@ namespace Switchboard {
             }
         }
 
-        protected override void activate () {
-
-        }
-
         public override int command_line (ApplicationCommandLine command_line) {
             hold ();
             int res = _command_line (command_line);
