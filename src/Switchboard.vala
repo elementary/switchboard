@@ -32,7 +32,7 @@ namespace Switchboard {
         //       all its widgets are displayed.
         cheese_gtk_init (ref args);
 
-        var app = new SwitchboardApp ();
+        var app = SwitchboardApp.instance;
         return app.run (args);
     }
 
@@ -84,6 +84,16 @@ namespace Switchboard {
             about_license_type = Gtk.License.GPL_3_0;
         }
 
+        public static SwitchboardApp _instance = null;
+
+        public static SwitchboardApp instance {
+            get {
+                if (_instance == null)
+                    _instance = new SwitchboardApp ();
+                return _instance;
+            }
+        }
+
         public override int command_line (ApplicationCommandLine command_line) {
             hold ();
             int res = _command_line (command_line);
@@ -125,15 +135,16 @@ namespace Switchboard {
                         break;
                     }
                 }
-                // If app is already running, present the current window.
-                if (get_windows () != null) {
-                    get_windows ().data.present ();
-                    return 1;
-                }
 
                 // If plug_to_open was set from the command line
                 should_animate_next_transition = false;
                 opened_directly = true;
+            }
+
+            // If app is already running, present the current window.
+            if (get_windows () != null) {
+                get_windows ().data.present ();
+                return 1;
             }
 
             loaded_plugs = new Gee.LinkedList <string> ();
