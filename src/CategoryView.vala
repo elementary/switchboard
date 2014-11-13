@@ -135,9 +135,11 @@ namespace Switchboard {
                         new_view.select_path (path);
                         new_view.grab_focus ();
                     }
+                } else {
+                    return false;
                 }
 
-                return false;
+                return true;
             });
 
             attach (grid, 0, i, 1, 1);
