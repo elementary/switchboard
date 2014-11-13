@@ -59,6 +59,13 @@ namespace Switchboard {
         private static string? plug_to_open = null;
         private static bool opened_directly = false;
         private static bool should_animate_next_transition = true;
+        private const uint[] NAVIGATION_KEYS = {
+            Gdk.Key.Up,
+            Gdk.Key.Down,
+            Gdk.Key.Left,
+            Gdk.Key.Right,
+            Gdk.Key.Return
+        };
 
         static const OptionEntry[] entries = {
             { "open-plug", 'o', 0, OptionArg.STRING, ref plug_to_open, N_("Open a plug"), "PLUG_NAME" },
@@ -418,17 +425,9 @@ namespace Switchboard {
                 }
 
                 // arrow key is being used by CategoryView to navigate
-                uint[] nav_key = {
-                    Gdk.Key.Up,
-                    Gdk.Key.Down,
-                    Gdk.Key.Left,
-                    Gdk.Key.Right,
-                    Gdk.Key.Return,
-                    /* 65293, */
-                    Gdk.Key.KP_Enter
-                };
-                if (event.keyval in nav_key)
+                if (event.keyval in NAVIGATION_KEYS)
                     return false;
+                message (Gdk.keyval_name (event.keyval));
 
                 // Don't focus if it is a modifier or if search_box is already focused
                 if ((event.is_modifier == 0) && !search_box.has_focus)
