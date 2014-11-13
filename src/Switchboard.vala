@@ -408,11 +408,22 @@ namespace Switchboard {
                 // alt+left should go back to all settings
                 if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0 && event.keyval == Gdk.Key.Left) {
                     navigation_button.clicked ();
+                    return false;
                 }
 
+                // arrow key is being used by CategoryView to navigate
+                uint[] nav_key = {
+                    Gdk.Key.Up,
+                    Gdk.Key.Down,
+                    Gdk.Key.Left,
+                    Gdk.Key.Right
+                };
+                if (event.keyval in nav_key)
+                    return false;
+
                 // Don't focus if it is a modifier or if search_box is already focused
-                /* if ((event.is_modifier == 0) && !search_box.has_focus) */
-                /*     search_box.grab_focus (); */
+                if ((event.is_modifier == 0) && !search_box.has_focus)
+                    search_box.grab_focus ();
 
                 return false;
             });
