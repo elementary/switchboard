@@ -413,12 +413,14 @@ namespace Switchboard {
                 else
                     category = Plug.Category.HARDWARE;
             }
+
             if (category == Plug.Category.HARDWARE) {
                 if (network_iconview.is_visible ())
                     return network_iconview;
                 else
                     category = Plug.Category.NETWORK;
             }
+
             if (category == Plug.Category.NETWORK) {
                 if (system_iconview.is_visible ())
                     return system_iconview;
@@ -436,12 +438,14 @@ namespace Switchboard {
                 else
                     category = Plug.Category.NETWORK;
             }
+
             if (category == Plug.Category.NETWORK) {
                 if (hardware_iconview.is_visible ())
                     return hardware_iconview;
                 else
                     category = Plug.Category.HARDWARE;
             }
+
             if (category == Plug.Category.HARDWARE) {
                 if (personal_iconview.is_visible ())
                     return personal_iconview;
