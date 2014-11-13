@@ -422,7 +422,10 @@ namespace Switchboard {
                     Gdk.Key.Up,
                     Gdk.Key.Down,
                     Gdk.Key.Left,
-                    Gdk.Key.Right
+                    Gdk.Key.Right,
+                    Gdk.Key.Return,
+                    /* 65293, */
+                    Gdk.Key.KP_Enter
                 };
                 if (event.keyval in nav_key)
                     return false;
