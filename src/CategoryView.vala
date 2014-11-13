@@ -122,6 +122,8 @@ namespace Switchboard {
             category_plugs.keynav_failed.connect ((direction)=> {
                 Gtk.IconView new_view = null;
                 Gtk.TreePath path = null;
+                Gtk.TreePath sel = null;
+                int dist = 1000;
                 Gtk.TreeIter iter;
                 int d;
 
@@ -129,9 +131,6 @@ namespace Switchboard {
                     new_view = get_prev_icon_view (category);
                     if (new_view != null && category_plugs.get_cursor (out path, null)) {
                         var col = category_plugs.get_item_column (path);
-
-                        Gtk.TreePath sel = null;
-                        int dist = 1000;
                         var model = new_view.get_model ();
 
                         model.get_iter_first (out iter);
@@ -144,16 +143,11 @@ namespace Switchboard {
                                 dist = d;
                             }
                         } while (model.iter_next (ref iter));
-
-                        new_view.set_cursor (sel, null, false);
                     }
                 } else if (direction == Gtk.DirectionType.DOWN) {
                     new_view = get_next_icon_view (category);
                     if (new_view != null && category_plugs.get_cursor (out path, null)) {
                         var col = category_plugs.get_item_column (path);
-
-                        Gtk.TreePath sel = null;
-                        int dist = 1000;
                         var model = new_view.get_model ();
 
                         model.get_iter_first (out iter);
@@ -166,12 +160,11 @@ namespace Switchboard {
                                 dist = d;
                             }
                         } while (model.iter_next (ref iter));
-
-                        new_view.set_cursor (sel, null, false);
                     }
                 }
 
                 if (new_view != null) {
+                    new_view.set_cursor (sel, null, false);
                     new_view.grab_focus ();
                     return true;
                 }
