@@ -249,6 +249,17 @@ namespace Switchboard {
             }
         }
 
+        public void grab_focus_first_item () {
+            if (personal_iconview.is_visible ())
+                personal_iconview.grab_focus ();
+            else if (hardware_iconview.is_visible ())
+                hardware_iconview.grab_focus ();
+            else if (network_iconview.is_visible ())
+                network_iconview.grab_focus ();
+            else if (system_iconview.is_visible ())
+                system_iconview.grab_focus ();
+        }
+
         public void filter_plugs (string filter) {
 
             var any_found = false;
