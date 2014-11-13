@@ -427,7 +427,6 @@ namespace Switchboard {
                 // arrow key is being used by CategoryView to navigate
                 if (event.keyval in NAVIGATION_KEYS)
                     return false;
-                message (Gdk.keyval_name (event.keyval));
 
                 // Don't focus if it is a modifier or if search_box is already focused
                 if ((event.is_modifier == 0) && !search_box.has_focus)
