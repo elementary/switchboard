@@ -102,6 +102,44 @@ namespace Switchboard {
                     break;
             }
 
+            category_plugs.focus_out_event.connect ((e)=>{
+                category_plugs.unselect_all ();
+
+                return false;
+            });
+
+            category_plugs.focus_in_event.connect ((e)=>{
+                Gtk.TreePath path;
+
+                if (!category_plugs.get_cursor (out path, null)) {
+                    path = new Gtk.TreePath.from_indices (0, -1);
+                }
+                category_plugs.select_path (path);
+
+                return false;
+            });
+
+            category_plugs.keynav_failed.connect ((direction)=> {
+                Gtk.IconView new_view = null;
+
+                if (direction == Gtk.DirectionType.UP) {
+                    new_view = get_prev_icon_view (category);
+                } else if (direction == Gtk.DirectionType.DOWN) {
+                    new_view = get_next_icon_view (category);
+                }
+
+                if (new_view != null) {
+                    Gtk.TreePath path = null;
+                    if (category_plugs.get_cursor (out path, null)) {
+                        new_view.set_cursor (path, null, false);
+                        new_view.select_path (path);
+                        new_view.grab_focus ();
+                    }
+                }
+
+                return false;
+            });
+
             attach (grid, 0, i, 1, 1);
         }
 
@@ -318,6 +356,32 @@ namespace Switchboard {
                     return _("Network and Wireless");
                 case Plug.Category.SYSTEM:
                     return _("Administration");
+            }
+
+            return null;
+        }
+
+        private Gtk.IconView? get_next_icon_view (Switchboard.Plug.Category category) {
+            switch (category) {
+                case Plug.Category.PERSONAL:
+                    return hardware_iconview;
+                case Plug.Category.HARDWARE:
+                    return network_iconview;
+                case Plug.Category.NETWORK:
+                    return system_iconview;
+            }
+
+            return null;
+        }
+
+        private Gtk.IconView? get_prev_icon_view (Switchboard.Plug.Category category) {
+            switch (category) {
+                case Plug.Category.HARDWARE:
+                    return personal_iconview;
+                case Plug.Category.NETWORK:
+                    return hardware_iconview;
+                case Plug.Category.SYSTEM:
+                    return network_iconview;
             }
 
             return null;
