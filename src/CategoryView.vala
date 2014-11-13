@@ -407,26 +407,46 @@ namespace Switchboard {
         }
 
         private Gtk.IconView? get_next_icon_view (Switchboard.Plug.Category category) {
-            switch (category) {
-                case Plug.Category.PERSONAL:
+            if (category == Plug.Category.PERSONAL) {
+                if (hardware_iconview.is_visible ())
                     return hardware_iconview;
-                case Plug.Category.HARDWARE:
+                else
+                    category = Plug.Category.HARDWARE;
+            }
+            if (category == Plug.Category.HARDWARE) {
+                if (network_iconview.is_visible ())
                     return network_iconview;
-                case Plug.Category.NETWORK:
+                else
+                    category = Plug.Category.NETWORK;
+            }
+            if (category == Plug.Category.NETWORK) {
+                if (system_iconview.is_visible ())
                     return system_iconview;
+                else
+                    category = Plug.Category.SYSTEM;
             }
 
             return null;
         }
 
         private Gtk.IconView? get_prev_icon_view (Switchboard.Plug.Category category) {
-            switch (category) {
-                case Plug.Category.HARDWARE:
-                    return personal_iconview;
-                case Plug.Category.NETWORK:
-                    return hardware_iconview;
-                case Plug.Category.SYSTEM:
+            if (category == Plug.Category.SYSTEM) {
+                if (network_iconview.is_visible ())
                     return network_iconview;
+                else
+                    category = Plug.Category.NETWORK;
+            }
+            if (category == Plug.Category.NETWORK) {
+                if (hardware_iconview.is_visible ())
+                    return hardware_iconview;
+                else
+                    category = Plug.Category.HARDWARE;
+            }
+            if (category == Plug.Category.HARDWARE) {
+                if (personal_iconview.is_visible ())
+                    return personal_iconview;
+                else
+                    category = Plug.Category.SYSTEM;
             }
 
             return null;
