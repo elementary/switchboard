@@ -413,9 +413,7 @@ namespace Switchboard {
 
                 // Down key from search_bar should move focus to CategoryVIew
                 if (search_box.has_focus && event.keyval == Gdk.Key.Down) {
-                    /* CategoryView.grab_focus_first_item (); */
-                    category_view.grab_focus ();
-                    category_view.grab_focus_first_item ();
+                    category_view.grab_focus_first_icon_view ();
                     return false;
                 }
 

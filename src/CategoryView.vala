@@ -249,7 +249,9 @@ namespace Switchboard {
             }
         }
 
-        public void grab_focus_first_item () {
+
+        // in filter mode some icon view will be hidden
+        public void grab_focus_first_icon_view () {
             if (personal_iconview.is_visible ())
                 personal_iconview.grab_focus ();
             else if (hardware_iconview.is_visible ())
