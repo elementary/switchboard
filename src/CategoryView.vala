@@ -112,7 +112,6 @@ namespace Switchboard {
                 Gtk.TreePath path;
 
                 if (!category_plugs.get_cursor (out path, null)) {
-                    message (category.to_string ());
                     path = new Gtk.TreePath.from_indices (0, -1);
                 }
                 category_plugs.select_path (path);
