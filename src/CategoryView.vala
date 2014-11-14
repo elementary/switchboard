@@ -283,7 +283,7 @@ namespace Switchboard {
         }
 
 
-        // in filter mode some icon view will be hidden
+        // focus to first visible item
         public void grab_focus_first_icon_view () {
                 Gtk.TreePath first_path = null;
 
@@ -295,6 +295,21 @@ namespace Switchboard {
                     network_iconview.grab_focus ();
                 } else if (get_first_visible_path (system_iconview, out first_path)){
                     system_iconview.grab_focus ();
+                }
+        }
+
+        // activate first visible item
+        public void activate_first_item () {
+                Gtk.TreePath first_path = null;
+
+                if (get_first_visible_path (personal_iconview, out first_path)) {
+                    personal_iconview.item_activated (first_path);
+                } else if (get_first_visible_path (hardware_iconview, out first_path)){
+                    hardware_iconview.item_activated (first_path);
+                } else if (get_first_visible_path (network_iconview, out first_path)){
+                    network_iconview.item_activated (first_path);
+                } else if (get_first_visible_path (system_iconview, out first_path)){
+                    system_iconview.item_activated (first_path);
                 }
         }
 

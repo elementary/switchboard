@@ -409,6 +409,14 @@ namespace Switchboard {
             search_box.changed.connect(() => {
                 category_view.filter_plugs(search_box.get_text ());
             });
+            search_box.key_press_event.connect ((event) => {
+                if (event.keyval == Gdk.Key.Return) {
+                    category_view.activate_first_item ();
+                    return true;
+                }
+
+                return false;
+            });
 
             // Focus typing to the search bar
             main_window.key_press_event.connect ((event) => {
