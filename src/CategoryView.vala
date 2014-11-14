@@ -112,6 +112,7 @@ namespace Switchboard {
                 Gtk.TreePath path;
 
                 if (!category_plugs.get_cursor (out path, null)) {
+                    message (category.to_string ());
                     path = new Gtk.TreePath.from_indices (0, -1);
                 }
                 category_plugs.select_path (path);
@@ -284,14 +285,23 @@ namespace Switchboard {
 
         // in filter mode some icon view will be hidden
         public void grab_focus_first_icon_view () {
-            if (personal_iconview.is_visible ())
-                personal_iconview.grab_focus ();
-            else if (hardware_iconview.is_visible ())
-                hardware_iconview.grab_focus ();
-            else if (network_iconview.is_visible ())
-                network_iconview.grab_focus ();
-            else if (system_iconview.is_visible ())
-                system_iconview.grab_focus ();
+                Gtk.TreePath first_path = null;
+
+                if (get_first_visible_path (personal_iconview, out first_path)) {
+                    personal_iconview.grab_focus ();
+                } else if (get_first_visible_path (hardware_iconview, out first_path)){
+                    hardware_iconview.grab_focus ();
+                } else if (get_first_visible_path (network_iconview, out first_path)){
+                    network_iconview.grab_focus ();
+                } else if (get_first_visible_path (system_iconview, out first_path)){
+                    system_iconview.grab_focus ();
+                }
+        }
+
+        private bool get_first_visible_path (Gtk.IconView iv, out Gtk.TreePath path) {
+            Gtk.TreePath end;
+
+            return (iv.get_visible_range (out path, out end));
         }
 
         public void filter_plugs (string filter) {

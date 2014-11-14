@@ -412,6 +412,7 @@ namespace Switchboard {
 
             // Focus typing to the search bar
             main_window.key_press_event.connect ((event) => {
+                // TODO: should activate first item when enter pressed in search box
                 // alt+left should go back to all settings
                 if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0 && event.keyval == Gdk.Key.Left) {
                     navigation_button.clicked ();
