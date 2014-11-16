@@ -122,49 +122,49 @@ namespace Switchboard {
             category_plugs.keynav_failed.connect ((direction)=> {
                 Gtk.IconView new_view = null;
                 Gtk.TreePath path = null;
-                Gtk.TreePath sel = null;
-                int dist = 1000;
+                Gtk.TreePath selected_path = null;
+                int smallest_distance = 1000;
                 Gtk.TreeIter iter;
-                int d;
+                int distance;
 
                 if (direction == Gtk.DirectionType.UP) {
                     new_view = get_prev_icon_view (category);
                     if (new_view != null && category_plugs.get_cursor (out path, null)) {
-                        var col = category_plugs.get_item_column (path);
+                        var current_column = category_plugs.get_item_column (path);
                         var model = new_view.get_model ();
 
                         model.get_iter_first (out iter);
                         do {
                             path = model.get_path (iter);
-                            var c = new_view.get_item_column (path);
-                            d = (c-col).abs ();
-                            if (d <= dist) {
-                                sel = path;
-                                dist = d;
+                            var next_column = new_view.get_item_column (path);
+                            distance = (next_column - current_column).abs ();
+                            if (distance <= smallest_distance) {
+                                selected_path = path;
+                                smallest_distance = distance;
                             }
                         } while (model.iter_next (ref iter));
                     }
                 } else if (direction == Gtk.DirectionType.DOWN) {
                     new_view = get_next_icon_view (category);
                     if (new_view != null && category_plugs.get_cursor (out path, null)) {
-                        var col = category_plugs.get_item_column (path);
+                        var current_column = category_plugs.get_item_column (path);
                         var model = new_view.get_model ();
 
                         model.get_iter_first (out iter);
                         do {
                             path = model.get_path (iter);
-                            var c = new_view.get_item_column (path);
-                            d = (c-col).abs ();
-                            if (d < dist) {
-                                sel = path;
-                                dist = d;
+                            var next_column = new_view.get_item_column (path);
+                            distance = (next_column - current_column).abs ();
+                            if (distance < smallest_distance) {
+                                selected_path = path;
+                                smallest_distance = distance;
                             }
                         } while (model.iter_next (ref iter));
                     }
                 }
 
                 if (new_view != null) {
-                    new_view.set_cursor (sel, null, false);
+                    new_view.set_cursor (selected_path, null, false);
                     new_view.grab_focus ();
                     return true;
                 }
@@ -193,9 +193,9 @@ namespace Switchboard {
                 return false;
             });
         }
-        
+
         private Gtk.IconView setup_icon_view () {
-            var store = new Gtk.ListStore (Columns.N_COLUMNS, typeof (Gdk.Pixbuf), typeof (string), 
+            var store = new Gtk.ListStore (Columns.N_COLUMNS, typeof (Gdk.Pixbuf), typeof (string),
                 typeof(string), typeof(bool), typeof(Switchboard.Plug));
             store.set_sort_column_id (1, Gtk.SortType.ASCENDING);
             store.set_sort_column_id (1, Gtk.SortType.ASCENDING);
@@ -212,7 +212,7 @@ namespace Switchboard {
             category_plugs.set_hexpand (true);
             category_plugs.set_selection_mode (Gtk.SelectionMode.SINGLE);
             category_plugs.set_activate_on_single_click (true);
-            
+
             category_plugs.item_activated.connect (on_item_activated);
             var cellrenderer = (Gtk.CellRendererText)category_plugs.get_cells ().nth_data (0);
             cellrenderer.wrap_mode = Pango.WrapMode.WORD;
@@ -265,7 +265,7 @@ namespace Switchboard {
             }
 
             store.append (out root);
-            store.set (root, Columns.ICON, icon_pixbuf, Columns.TEXT, plug.display_name, 
+            store.set (root, Columns.ICON, icon_pixbuf, Columns.TEXT, plug.display_name,
                 Columns.DESCRIPTION, plug.description, Columns.VISIBLE, true, Columns.PLUG, plug);
             unowned SwitchboardApp app = (SwitchboardApp) GLib.Application.get_default ();
             app.search_box.sensitive = true;
@@ -338,12 +338,12 @@ namespace Switchboard {
                 app.hide_alert ();
             }
         }
-        
+
         private bool search_by_category (string filter, Plug.Category category) {
-            
+
             Gtk.TreeModelFilter model_filter;
             Gtk.Widget grid;
-            
+
             switch (category) {
                 case Switchboard.Plug.Category.PERSONAL:
                     model_filter = (Gtk.TreeModelFilter)personal_iconview.get_model ();
@@ -381,7 +381,7 @@ namespace Switchboard {
 
                 return false;
             });
-            
+
             if (shown == 0) {
                 grid.hide ();
                 return false;
