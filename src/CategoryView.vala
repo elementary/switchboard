@@ -102,13 +102,13 @@ namespace Switchboard {
                     break;
             }
 
-            category_plugs.focus_out_event.connect ((e)=>{
+            category_plugs.focus_out_event.connect ((e) => {
                 category_plugs.unselect_all ();
 
                 return false;
             });
 
-            category_plugs.focus_in_event.connect ((e)=>{
+            category_plugs.focus_in_event.connect ((e) => {
                 Gtk.TreePath path;
 
                 if (!category_plugs.get_cursor (out path, null)) {
@@ -119,7 +119,7 @@ namespace Switchboard {
                 return false;
             });
 
-            category_plugs.keynav_failed.connect ((direction)=> {
+            category_plugs.keynav_failed.connect ((direction) => {
                 Gtk.IconView new_view = null;
                 Gtk.TreePath path = null;
                 Gtk.TreePath selected_path = null;
