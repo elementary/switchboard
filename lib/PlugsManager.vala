@@ -83,7 +83,7 @@ public class Switchboard.PlugsManager : GLib.Object {
                 }
             }
         } catch (Error err) {
-            warning("Unable to scan plugs folder: %s\n", err.message);
+            warning("Unable to scan plugs folder %s: %s\n", base_folder.get_path (), err.message);
         }
     }
     
