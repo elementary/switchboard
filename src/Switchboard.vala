@@ -227,7 +227,7 @@ namespace Switchboard {
             // Set up window
             restore_saved_state ();
             main_window.set_default_size (default_width, default_height);
-            main_window.set_size_request (500, 300);
+            main_window.set_size_request (910, 640);
             main_window.destroy.connect (shut_down);
             main_window.delete_event.connect (() => {
                 update_saved_state ();
