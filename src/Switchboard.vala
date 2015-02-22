@@ -493,22 +493,22 @@ namespace Switchboard {
                 case "background": return "pantheon-desktop";
                 case "bluetooth": return "network-gcc-bluetooth";
                 case "color": return "hardware-gcc-color";
-                case "datetime": return "system-gcc-date";
-                case "display": return "hardware-gcc-display";
+                case "datetime": return "system-pantheon-datetime";
+                case "display": return "system-pantheon-display";
                 case "info": return "system-pantheon-about";
                 case "keyboard": return "hardware-pantheon-keyboard";
                 case "network": return "network-gcc-network";
                 case "power": return "system-pantheon-power";
                 case "printers": return "hardware-gcc-printer";
                 case "privacy": return "pantheon-security-privacy";
-                case "region": return "hardware-gcc-region";
+                case "region": return "system-pantheon-locale";
                 case "sound": return "hardware-gcc-sound";
                 case "universal-access": return "system-gcc-universalaccess";
-                case "user-accounts": return "hardware-gcc-user";
+                case "user-accounts": return "system-pantheon-useraccounts";
                 case "wacom": return "hardware-gcc-wacom";
+                case "notifications": return "personal-pantheon-notifications";
 
                 // not available on our system
-                case "notifications":
                 case "search":
                 case "sharing":
                     return null;
