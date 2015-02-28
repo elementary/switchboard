@@ -3,18 +3,18 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-02 16:49-0500\n"
-"PO-Revision-Date: 2015-02-25 09:50+0000\n"
+"PO-Revision-Date: 2015-02-28 00:10+0000\n"
 "Last-Translator: Indrit Bashkimi <indrit.bashkimi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-02-26 05:35+0000\n"
+"X-Launchpad-Export-Date: 2015-02-28 05:41+0000\n"
 "X-Generator: Launchpad (build 17361)\n"
 
 #: ../src/CategoryView.vala:226 ../src/Switchboard.vala:274
 msgid "No settings found"
-msgstr ""
+msgstr "Nuk u gjet asnjë rregullim"
 
 #: ../src/CategoryView.vala:226
 msgid "Try changing your search terms"
@@ -30,7 +30,7 @@ msgstr ""
 
 #: ../src/CategoryView.vala:320
 msgid "Network and Wireless"
-msgstr ""
+msgstr "Rrjeti dhe Wireless"
 
 #: ../src/CategoryView.vala:322
 msgid "Administration"
@@ -38,7 +38,7 @@ msgstr "Administrimi"
 
 #: ../src/Switchboard.vala:50
 msgid "All Settings"
-msgstr ""
+msgstr "Të gjithë rregullimet"
 
 #: ../src/Switchboard.vala:63
 msgid "Open a plug"
@@ -46,7 +46,7 @@ msgstr ""
 
 #: ../src/Switchboard.vala:69
 msgid "System Settings"
-msgstr "Paramentrat e sistemit"
+msgstr "Rregullimet e sistemit"
 
 #: ../src/Switchboard.vala:274
 msgid "Install some and re-launch Switchboard"
@@ -54,11 +54,11 @@ msgstr ""
 
 #: ../src/Switchboard.vala:382
 msgid "Search Settings"
-msgstr ""
+msgstr "Kërko rregullime"
 
 #: ../src/Switchboard.vala:492
 msgid "Change system and user settings"
-msgstr ""
+msgstr "Ndrysho rregullimet e sistemit dhe të përdoruesit"
 
 #: ../src/Switchboard.vala:493
 msgid "Center;Control;Panel;Preferences;System;"
@@ -66,4 +66,4 @@ msgstr ""
 
 #: ../src/Switchboard.vala:494
 msgid "About System Settings"
-msgstr ""
+msgstr "Rreth Rregullimet e sistemit"
