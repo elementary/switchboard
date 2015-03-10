@@ -422,7 +422,6 @@ namespace Switchboard {
             main_window.key_press_event.connect ((event) => {
                 // alt+left should go back to all settings
                 if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0 && event.keyval == Gdk.Key.Left) {
-                // if (Gdk.ModifierType.MOD1_MASK in event.state && event.keyval == Gdk.Key.Left) {
                     navigation_button.clicked ();
                     return false;
                 }
