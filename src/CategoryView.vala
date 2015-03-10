@@ -288,11 +288,11 @@ namespace Switchboard {
 
                 if (get_first_visible_path (personal_iconview, out first_path)) {
                     personal_iconview.grab_focus ();
-                } else if (get_first_visible_path (hardware_iconview, out first_path)){
+                } else if (get_first_visible_path (hardware_iconview, out first_path)) {
                     hardware_iconview.grab_focus ();
-                } else if (get_first_visible_path (network_iconview, out first_path)){
+                } else if (get_first_visible_path (network_iconview, out first_path)) {
                     network_iconview.grab_focus ();
-                } else if (get_first_visible_path (system_iconview, out first_path)){
+                } else if (get_first_visible_path (system_iconview, out first_path)) {
                     system_iconview.grab_focus ();
                 }
         }
