@@ -31,8 +31,6 @@ public class Granite.Widgets.EmbeddedAlert : Gtk.EventBox {
     const string QUESTION_ICON = "dialog-question";
     const string INFO_ICON = "dialog-information";
 
-    const string PRIMARY_TEXT_MARKUP = "<span weight=\"bold\" size=\"larger\">%s</span>";
-
     private Gtk.Box content_hbox;
 
     protected Gtk.Label primary_text_label;
@@ -45,12 +43,12 @@ public class Granite.Widgets.EmbeddedAlert : Gtk.EventBox {
 
     public EmbeddedAlert () {
         get_style_context ().add_class (Gtk.STYLE_CLASS_VIEW);
-        get_style_context ().add_class (Granite.StyleClass.CONTENT_VIEW);
 
         action_button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
         action_button_box.valign = Gtk.Align.START;
 
         primary_text_label = new Gtk.Label (null);
+        primary_text_label.get_style_context ().add_class ("h2");
         primary_text_label.margin_bottom = 12;
 
         secondary_text_label = new Gtk.Label (null);
@@ -111,7 +109,7 @@ public class Granite.Widgets.EmbeddedAlert : Gtk.EventBox {
             primary_text_label.halign = secondary_text_label.halign = Gtk.Align.START;
             primary_text_label.justify = Gtk.Justification.LEFT;
             secondary_text_label.justify = Gtk.Justification.FILL;
-            image.set_pixel_size(64);
+            image.set_pixel_size(48);
 
             // TODO: More intelligent icon support, I guess. Or support all the
             // MessageType flags.
@@ -179,7 +177,7 @@ public class Granite.Widgets.EmbeddedAlert : Gtk.EventBox {
             set_buttons_visible (false);
         }
 
-        primary_text_label.set_markup (PRIMARY_TEXT_MARKUP.printf (Markup.escape_text (primary_text, -1)));
+        primary_text_label.set_markup (primary_text);
         secondary_text_label.set_markup (secondary_text);
     }
 
