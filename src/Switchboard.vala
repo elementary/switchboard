@@ -234,7 +234,7 @@ namespace Switchboard {
             // Set up window
             restore_saved_state ();
             main_window.set_default_size (default_width, default_height);
-            main_window.set_size_request (500, 300);
+            main_window.set_size_request (910, 640);
             main_window.destroy.connect (shut_down);
             main_window.delete_event.connect (() => {
                 update_saved_state ();
@@ -422,6 +422,7 @@ namespace Switchboard {
             main_window.key_press_event.connect ((event) => {
                 // alt+left should go back to all settings
                 if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0 && event.keyval == Gdk.Key.Left) {
+                // if (Gdk.ModifierType.MOD1_MASK in event.state && event.keyval == Gdk.Key.Left) {
                     navigation_button.clicked ();
                     return false;
                 }
@@ -519,22 +520,22 @@ namespace Switchboard {
                 case "background": return "pantheon-desktop";
                 case "bluetooth": return "network-gcc-bluetooth";
                 case "color": return "hardware-gcc-color";
-                case "datetime": return "system-gcc-date";
-                case "display": return "hardware-gcc-display";
+                case "datetime": return "system-pantheon-datetime";
+                case "display": return "system-pantheon-display";
                 case "info": return "system-pantheon-about";
                 case "keyboard": return "hardware-pantheon-keyboard";
                 case "network": return "network-gcc-network";
                 case "power": return "system-pantheon-power";
                 case "printers": return "hardware-gcc-printer";
                 case "privacy": return "pantheon-security-privacy";
-                case "region": return "hardware-gcc-region";
+                case "region": return "system-pantheon-locale";
                 case "sound": return "hardware-gcc-sound";
                 case "universal-access": return "system-gcc-universalaccess";
-                case "user-accounts": return "hardware-gcc-user";
+                case "user-accounts": return "system-pantheon-useraccounts";
                 case "wacom": return "hardware-gcc-wacom";
+                case "notifications": return "personal-pantheon-notifications";
 
                 // not available on our system
-                case "notifications":
                 case "search":
                 case "sharing":
                     return null;
