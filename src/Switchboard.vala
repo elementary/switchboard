@@ -59,6 +59,13 @@ namespace Switchboard {
         private static string? plug_to_open = null;
         private static bool opened_directly = false;
         private static bool should_animate_next_transition = true;
+        private const uint[] NAVIGATION_KEYS = {
+            Gdk.Key.Up,
+            Gdk.Key.Down,
+            Gdk.Key.Left,
+            Gdk.Key.Right,
+            Gdk.Key.Return
+        };
 
         static const OptionEntry[] entries = {
             { "open-plug", 'o', 0, OptionArg.STRING, ref plug_to_open, N_("Open a plug"), "PLUG_NAME" },
@@ -402,13 +409,32 @@ namespace Switchboard {
             search_box.changed.connect(() => {
                 category_view.filter_plugs(search_box.get_text ());
             });
+            search_box.key_press_event.connect ((event) => {
+                if (event.keyval == Gdk.Key.Return) {
+                    category_view.activate_first_item ();
+                    return true;
+                }
+
+                return false;
+            });
 
             // Focus typing to the search bar
             main_window.key_press_event.connect ((event) => {
                 // alt+left should go back to all settings
-                if (Gdk.ModifierType.MOD1_MASK in event.state && event.keyval == Gdk.Key.Left) {
+                if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0 && event.keyval == Gdk.Key.Left) {
                     navigation_button.clicked ();
+                    return false;
                 }
+
+                // Down key from search_bar should move focus to CategoryVIew
+                if (search_box.has_focus && event.keyval == Gdk.Key.Down) {
+                    category_view.grab_focus_first_icon_view ();
+                    return false;
+                }
+
+                // arrow key is being used by CategoryView to navigate
+                if (event.keyval in NAVIGATION_KEYS)
+                    return false;
 
                 // Don't focus if it is a modifier or if search_box is already focused
                 if ((event.is_modifier == 0) && !search_box.has_focus)

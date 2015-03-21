@@ -102,6 +102,76 @@ namespace Switchboard {
                     break;
             }
 
+            category_plugs.focus_out_event.connect ((e) => {
+                category_plugs.unselect_all ();
+
+                return false;
+            });
+
+            category_plugs.focus_in_event.connect ((e) => {
+                Gtk.TreePath path;
+
+                if (!category_plugs.get_cursor (out path, null)) {
+                    path = new Gtk.TreePath.from_indices (0, -1);
+                }
+                category_plugs.select_path (path);
+
+                return false;
+            });
+
+            category_plugs.keynav_failed.connect ((direction) => {
+                Gtk.IconView new_view = null;
+                Gtk.TreePath path = null;
+                Gtk.TreePath selected_path = null;
+                int smallest_distance = 1000;
+                Gtk.TreeIter iter;
+                int distance;
+
+                if (direction == Gtk.DirectionType.UP) {
+                    new_view = get_prev_icon_view (category);
+                    if (new_view != null && category_plugs.get_cursor (out path, null)) {
+                        var current_column = category_plugs.get_item_column (path);
+                        var model = new_view.get_model ();
+
+                        model.get_iter_first (out iter);
+                        do {
+                            path = model.get_path (iter);
+                            var next_column = new_view.get_item_column (path);
+                            distance = (next_column - current_column).abs ();
+                            if (distance <= smallest_distance) {
+                                selected_path = path;
+                                smallest_distance = distance;
+                            }
+                        } while (model.iter_next (ref iter));
+                    }
+                } else if (direction == Gtk.DirectionType.DOWN) {
+                    new_view = get_next_icon_view (category);
+                    if (new_view != null && category_plugs.get_cursor (out path, null)) {
+                        var current_column = category_plugs.get_item_column (path);
+                        var model = new_view.get_model ();
+
+                        model.get_iter_first (out iter);
+                        do {
+                            path = model.get_path (iter);
+                            var next_column = new_view.get_item_column (path);
+                            distance = (next_column - current_column).abs ();
+                            if (distance < smallest_distance) {
+                                selected_path = path;
+                                smallest_distance = distance;
+                            }
+                        } while (model.iter_next (ref iter));
+                    }
+                }
+
+                if (new_view != null) {
+                    new_view.set_cursor (selected_path, null, false);
+                    new_view.grab_focus ();
+                    return true;
+                }
+
+                return false;
+            });
+
             attach (grid, 0, i, 1, 1);
         }
 
@@ -123,9 +193,9 @@ namespace Switchboard {
                 return false;
             });
         }
-        
+
         private Gtk.IconView setup_icon_view () {
-            var store = new Gtk.ListStore (Columns.N_COLUMNS, typeof (Gdk.Pixbuf), typeof (string), 
+            var store = new Gtk.ListStore (Columns.N_COLUMNS, typeof (Gdk.Pixbuf), typeof (string),
                 typeof(string), typeof(bool), typeof(Switchboard.Plug));
             store.set_sort_column_id (1, Gtk.SortType.ASCENDING);
             store.set_sort_column_id (1, Gtk.SortType.ASCENDING);
@@ -142,7 +212,7 @@ namespace Switchboard {
             category_plugs.set_hexpand (true);
             category_plugs.set_selection_mode (Gtk.SelectionMode.SINGLE);
             category_plugs.set_activate_on_single_click (true);
-            
+
             category_plugs.item_activated.connect (on_item_activated);
             var cellrenderer = (Gtk.CellRendererText)category_plugs.get_cells ().nth_data (0);
             cellrenderer.wrap_mode = Pango.WrapMode.WORD;
@@ -195,7 +265,7 @@ namespace Switchboard {
             }
 
             store.append (out root);
-            store.set (root, Columns.ICON, icon_pixbuf, Columns.TEXT, plug.display_name, 
+            store.set (root, Columns.ICON, icon_pixbuf, Columns.TEXT, plug.display_name,
                 Columns.DESCRIPTION, plug.description, Columns.VISIBLE, true, Columns.PLUG, plug);
             unowned SwitchboardApp app = (SwitchboardApp) GLib.Application.get_default ();
             app.search_box.sensitive = true;
@@ -209,6 +279,43 @@ namespace Switchboard {
                     plug_to_open = "";
                 }
             }
+        }
+
+
+        // focus to first visible item
+        public void grab_focus_first_icon_view () {
+                Gtk.TreePath first_path = null;
+
+                if (get_first_visible_path (personal_iconview, out first_path)) {
+                    personal_iconview.grab_focus ();
+                } else if (get_first_visible_path (hardware_iconview, out first_path)) {
+                    hardware_iconview.grab_focus ();
+                } else if (get_first_visible_path (network_iconview, out first_path)) {
+                    network_iconview.grab_focus ();
+                } else if (get_first_visible_path (system_iconview, out first_path)) {
+                    system_iconview.grab_focus ();
+                }
+        }
+
+        // activate first visible item
+        public void activate_first_item () {
+                Gtk.TreePath first_path = null;
+
+                if (get_first_visible_path (personal_iconview, out first_path)) {
+                    personal_iconview.item_activated (first_path);
+                } else if (get_first_visible_path (hardware_iconview, out first_path)){
+                    hardware_iconview.item_activated (first_path);
+                } else if (get_first_visible_path (network_iconview, out first_path)){
+                    network_iconview.item_activated (first_path);
+                } else if (get_first_visible_path (system_iconview, out first_path)){
+                    system_iconview.item_activated (first_path);
+                }
+        }
+
+        private bool get_first_visible_path (Gtk.IconView iv, out Gtk.TreePath path) {
+            Gtk.TreePath end;
+
+            return (iv.get_visible_range (out path, out end));
         }
 
         public void filter_plugs (string filter) {
@@ -231,12 +338,12 @@ namespace Switchboard {
                 app.hide_alert ();
             }
         }
-        
+
         private bool search_by_category (string filter, Plug.Category category) {
-            
+
             Gtk.TreeModelFilter model_filter;
             Gtk.Widget grid;
-            
+
             switch (category) {
                 case Switchboard.Plug.Category.PERSONAL:
                     model_filter = (Gtk.TreeModelFilter)personal_iconview.get_model ();
@@ -274,7 +381,7 @@ namespace Switchboard {
 
                 return false;
             });
-            
+
             if (shown == 0) {
                 grid.hide ();
                 return false;
@@ -318,6 +425,56 @@ namespace Switchboard {
                     return _("Network and Wireless");
                 case Plug.Category.SYSTEM:
                     return _("Administration");
+            }
+
+            return null;
+        }
+
+        private Gtk.IconView? get_next_icon_view (Switchboard.Plug.Category category) {
+            if (category == Plug.Category.PERSONAL) {
+                if (hardware_iconview.is_visible ())
+                    return hardware_iconview;
+                else
+                    category = Plug.Category.HARDWARE;
+            }
+
+            if (category == Plug.Category.HARDWARE) {
+                if (network_iconview.is_visible ())
+                    return network_iconview;
+                else
+                    category = Plug.Category.NETWORK;
+            }
+
+            if (category == Plug.Category.NETWORK) {
+                if (system_iconview.is_visible ())
+                    return system_iconview;
+                else
+                    category = Plug.Category.SYSTEM;
+            }
+
+            return null;
+        }
+
+        private Gtk.IconView? get_prev_icon_view (Switchboard.Plug.Category category) {
+            if (category == Plug.Category.SYSTEM) {
+                if (network_iconview.is_visible ())
+                    return network_iconview;
+                else
+                    category = Plug.Category.NETWORK;
+            }
+
+            if (category == Plug.Category.NETWORK) {
+                if (hardware_iconview.is_visible ())
+                    return hardware_iconview;
+                else
+                    category = Plug.Category.HARDWARE;
+            }
+
+            if (category == Plug.Category.HARDWARE) {
+                if (personal_iconview.is_visible ())
+                    return personal_iconview;
+                else
+                    category = Plug.Category.SYSTEM;
             }
 
             return null;
