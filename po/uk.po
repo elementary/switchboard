@@ -8,27 +8,27 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-02 16:49-0500\n"
-"PO-Revision-Date: 2014-01-23 19:47+0000\n"
-"Last-Translator: Max_ym <kontact.cat@gmail.com>\n"
+"PO-Revision-Date: 2015-03-21 21:20+0000\n"
+"Last-Translator: Sergey Kornienko <b0nzo.deb@gmail.com>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-03 05:53+0000\n"
-"X-Generator: Launchpad (build 17147)\n"
+"X-Launchpad-Export-Date: 2015-03-22 05:18+0000\n"
+"X-Generator: Launchpad (build 17405)\n"
 "Language: uk\n"
 
 #: ../src/CategoryView.vala:226 ../src/Switchboard.vala:274
 msgid "No settings found"
-msgstr "Налаштуваннь не знайдено"
+msgstr "Не знайдено жодного налаштування"
 
 #: ../src/CategoryView.vala:226
 msgid "Try changing your search terms"
-msgstr "Спробуйте переформулювати ваш пошуковий запит"
+msgstr "Спробуйте змінити критерії пошуку"
 
 #: ../src/CategoryView.vala:316
 msgid "Personal"
-msgstr "Персональні"
+msgstr "Особисті"
 
 #: ../src/CategoryView.vala:318
 msgid "Hardware"
@@ -40,7 +40,7 @@ msgstr "Дротові та бездротові мережі"
 
 #: ../src/CategoryView.vala:322
 msgid "Administration"
-msgstr ""
+msgstr "Адміністрування"
 
 #: ../src/Switchboard.vala:50
 msgid "All Settings"
@@ -52,7 +52,7 @@ msgstr "Відкрити модуль"
 
 #: ../src/Switchboard.vala:69
 msgid "System Settings"
-msgstr ""
+msgstr "Системнi налаштування"
 
 #: ../src/Switchboard.vala:274
 msgid "Install some and re-launch Switchboard"
@@ -60,7 +60,7 @@ msgstr "Встановити та перезапустити Switchboard"
 
 #: ../src/Switchboard.vala:382
 msgid "Search Settings"
-msgstr "Пошук Налаштувань"
+msgstr "Пошук налаштувань"
 
 #: ../src/Switchboard.vala:492
 msgid "Change system and user settings"
@@ -68,11 +68,11 @@ msgstr "Змінити налаштування системи та корист
 
 #: ../src/Switchboard.vala:493
 msgid "Center;Control;Panel;Preferences;System;"
-msgstr ""
+msgstr "Центр;Регулювання;Панель;Налаштування;Система;"
 
 #: ../src/Switchboard.vala:494
 msgid "About System Settings"
-msgstr ""
+msgstr "Про системні налаштування"
 
 #~ msgid "Settings Center"
 #~ msgstr "Центр Налаштування"
