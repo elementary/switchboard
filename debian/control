@@ -4,7 +4,6 @@ Priority: optional
 Maintainer: Sergey "Shnatsel" Davidoff <sergey@elementaryos.org>
 Build-Depends: cmake (>= 2.8),
                debhelper (>= 9),
-               libcheese-gtk-dev,
                libclutter-gtk-1.0-dev,
                libgee-0.8-dev (>= 0.5.3),
                libglib2.0-dev (>= 2.26.0),
