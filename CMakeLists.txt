@@ -86,6 +86,7 @@ else ()
 endif ()
 
 set (LIB_PACKAGES
+  clutter-gtk-1.0
   glib-2.0
   gio-2.0
   gee-0.8
@@ -95,14 +96,13 @@ set (LIB_PACKAGES
 )
 
 set (LIB_PKG
+  clutter-gtk-1.0
   glib-2.0>=2.32
   gio-2.0
   gee-0.8
   gmodule-2.0
   gtk+-3.0>=3.10
   gio-unix-2.0
-  # cheese is required for the GCC panels to work
-  cheese-gtk
 )
 find_package(PkgConfig)
 

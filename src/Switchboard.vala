@@ -17,9 +17,6 @@ END LICENSE
 
 namespace Switchboard {
 
-    [CCode (cname = "cheese_gtk_init")]
-    public extern static bool cheese_gtk_init ([CCode (array_length_pos = 0.9)] ref unowned string[] argv);
-
     public enum WindowState {
         NORMAL = 0,
         MAXIMIZED = 1
@@ -27,10 +24,8 @@ namespace Switchboard {
 
     public static int main (string[] args) {
 
-        // FIXME the gcc user-accounts plug requires cheese to be initialized before gtk,
-        //       otherwise it will crash switchboard if it's loaded before the window and
-        //       all its widgets are displayed.
-        cheese_gtk_init (ref args);
+        // Only known plug that requires GtkClutter is switchboard-plug-display
+        GtkClutter.init (ref args);
 
         var app = SwitchboardApp.instance;
         return app.run (args);
