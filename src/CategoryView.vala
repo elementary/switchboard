@@ -60,7 +60,7 @@ namespace Switchboard {
 
             category_label.margin_left = 12;
             category_label.margin_right = 8;
-            category_label.xalign = (float) 0.02;
+            ((Gtk.Misc) category_label).xalign = 0.02f;
             category_label.use_markup = true;
 
             var category_plugs = setup_icon_view ();
