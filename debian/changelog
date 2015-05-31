@@ -1,20 +1,27 @@
+switchboard (2.0.1) UNRELEASED; urgency=low
+
+  * Removed some configuration paths from the library
+  * Fixed build with Valac 0.28
+
+ -- Corentin "tintou" Noël <corentin@elementary.io>  Sun, 31 May 2015 11:45:22 +0100
+
 switchboard (2.0.0) UNRELEASED; urgency=low
 
   * Now using gmodule
 
- -- Corentin "tintou" Noël <tintou@mailoo.org>  Sat, 09 Nov 2013 14:29:41 +0100
+ -- Corentin "tintou" Noël <corentin@elementary.io>  Sat, 09 Nov 2013 14:29:41 +0100
 
 switchboard (1.0.1) precise; urgency=low
 
   * No more appmenu
 
- -- Cody Garver <cody@elementaryos.org>  Thu, 20 Jun 2013 04:22:32 -0500
+ -- Cody Garver <cody@elementary.io>  Thu, 20 Jun 2013 04:22:32 -0500
 
 switchboard (1.0) precise; urgency=low
 
   * New upstream release.
 
- -- Cody Garver <cody@elementaryos.org>  Sun, 09 Jun 2013 16:06:54 -0500
+ -- Cody Garver <cody@elementary.io>  Sun, 09 Jun 2013 16:06:54 -0500
 
 switchboard (0.9) natty; urgency=low
 
