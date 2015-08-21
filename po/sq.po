@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-02 16:49-0500\n"
-"PO-Revision-Date: 2015-07-12 13:14+0000\n"
+"PO-Revision-Date: 2015-08-20 12:26+0000\n"
 "Last-Translator: Indrit Bashkimi <indrit.bashkimi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-07-13 05:23+0000\n"
-"X-Generator: Launchpad (build 17620)\n"
+"X-Launchpad-Export-Date: 2015-08-21 05:23+0000\n"
+"X-Generator: Launchpad (build 17690)\n"
 
 #: ../src/CategoryView.vala:226 ../src/Switchboard.vala:274
 msgid "No settings found"
@@ -62,7 +62,7 @@ msgstr "Ndrysho rregullimet e sistemit dhe të përdoruesit"
 
 #: ../src/Switchboard.vala:493
 msgid "Center;Control;Panel;Preferences;System;"
-msgstr ""
+msgstr "Qendra;Kontroll;Panel;Parametra;Sistem;"
 
 #: ../src/Switchboard.vala:494
 msgid "About System Settings"
