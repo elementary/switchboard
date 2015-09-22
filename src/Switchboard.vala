@@ -183,7 +183,6 @@ namespace Switchboard {
 
                 previous_plugs.add (plug);
 
-                // Launch plug's executable
                 navigation_button.set_sensitive (true);
                 navigation_button.set_text (all_settings_label);
                 navigation_button.show ();
