@@ -380,7 +380,6 @@ namespace Switchboard {
             search_box.sensitive = false;
             plug.shown ();
             stack.set_visible_child_name (plug.code_name);
-
             category_scrolled.hide ();
         }
 
