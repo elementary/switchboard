@@ -189,7 +189,7 @@ namespace Switchboard {
                 navigation_button.show ();
                 headerbar.title = plug.display_name;
                 current_plug = plug;
-                switch_to_plug (plug);           
+                switch_to_plug (plug);
 
                 return false;
             });
