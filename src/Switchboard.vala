@@ -44,6 +44,7 @@ namespace Switchboard {
         private Gee.LinkedList <string> loaded_plugs;
         private string all_settings_label = _("All Settings");
 
+        public Gee.ArrayList <Switchboard.Plug> previous_plugs;
         public Switchboard.Plug current_plug;
         public Gtk.SearchEntry search_box { public get; private set; }
 
@@ -150,6 +151,7 @@ namespace Switchboard {
             }
 
             loaded_plugs = new Gee.LinkedList <string> ();
+            previous_plugs = new Gee.ArrayList <Switchboard.Plug> ();
             Switchboard.PlugsManager.get_default ();
             settings = new GLib.Settings ("org.pantheon.switchboard.saved-state");
             build ();
@@ -178,6 +180,8 @@ namespace Switchboard {
                     stack.add_named (plug.get_widget (), plug.code_name);
                     loaded_plugs.add (plug.code_name);
                 }
+
+                previous_plugs.add (plug);
 
                 // Launch plug's executable
                 navigation_button.set_sensitive (true);
@@ -348,8 +352,12 @@ namespace Switchboard {
                 switch_to_icons ();
                 navigation_button.hide ();
             } else {
-                switch_to_plug (current_plug);
-                navigation_button.set_text (all_settings_label);
+                if (previous_plugs.size > 0 && stack.get_visible_child_name () != "main") {
+                    load_plug (previous_plugs.@get (0));
+                    previous_plugs.remove_at (0);
+                } else {
+                    switch_to_plug (current_plug);                 
+                }
             }
         }
 
@@ -360,6 +368,13 @@ namespace Switchboard {
                 should_animate_next_transition = true;
             } else if (stack.transition_type == Gtk.StackTransitionType.NONE) {
                 stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
+            }
+
+            if (previous_plugs.size > 1 && stack.get_visible_child_name () != "main") {
+                navigation_button.set_text (previous_plugs.@get (0).display_name);
+                previous_plugs.remove_at (previous_plugs.size - 1);
+            } else {
+                navigation_button.set_text (all_settings_label);
             }
 
             search_box.sensitive = false;
@@ -373,6 +388,8 @@ namespace Switchboard {
             if (stack.transition_type == Gtk.StackTransitionType.NONE) {
                 stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
             }
+
+            previous_plugs.clear ();
             category_scrolled.show ();
             stack.set_visible_child (category_scrolled);
             current_plug.hidden ();
