@@ -151,7 +151,7 @@ namespace Switchboard {
             }
 
             loaded_plugs = new Gee.LinkedList <string> ();
-            previous_plugs = new Gee.ArrayList<Switchboard.Plug> ();
+            previous_plugs = new Gee.ArrayList <Switchboard.Plug> ();
             Switchboard.PlugsManager.get_default ();
             settings = new GLib.Settings ("org.pantheon.switchboard.saved-state");
             build ();
