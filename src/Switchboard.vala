@@ -44,7 +44,7 @@ namespace Switchboard {
         private Gee.LinkedList <string> loaded_plugs;
         private string all_settings_label = _("All Settings");
 
-        public Gee.ArrayList<Switchboard.Plug> previous_plugs;
+        public Gee.ArrayList <Switchboard.Plug> previous_plugs;
         public Switchboard.Plug current_plug;
         public Gtk.SearchEntry search_box { public get; private set; }
 
