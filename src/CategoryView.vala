@@ -64,14 +64,7 @@ namespace Switchboard {
             category_label.use_markup = true;
 
             var category_plugs = setup_icon_view ();
-
-            var bg_css = new Gtk.CssProvider ();
-            try {
-                bg_css.load_from_data ("*{background-color:@background_color;}", -1);
-                category_plugs.get_style_context ().add_provider (bg_css, 20000);
-            } catch (Error e) {
-                critical (e.message);
-            }
+            category_plugs.get_style_context ().remove_class (Gtk.STYLE_CLASS_VIEW);
 
             var grid = new Gtk.Grid ();
 
