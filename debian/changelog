@@ -1,11 +1,11 @@
-switchboard (2.0.1) UNRELEASED; urgency=low
+switchboard (2.0.1) trusty; urgency=low
 
   * Removed some configuration paths from the library
   * Fixed build with Valac 0.28
 
  -- Corentin "tintou" Noël <corentin@elementary.io>  Sun, 31 May 2015 11:45:22 +0100
 
-switchboard (2.0.0) UNRELEASED; urgency=low
+switchboard (2.0.0) trusty; urgency=low
 
   * Now using gmodule
 
