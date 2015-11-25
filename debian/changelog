@@ -1,3 +1,9 @@
+switchboard (2.0.2) trusty; urgency=medium
+
+  * New upstream release.
+
+ -- Cody Garver <cody@elementary.io>  Tue, 24 Nov 2015 22:48:36 -0600
+
 switchboard (2.0.1) trusty; urgency=low
 
   * Removed some configuration paths from the library
