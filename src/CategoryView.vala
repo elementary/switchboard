@@ -336,6 +336,7 @@ namespace Switchboard {
 
             Gtk.TreeModelFilter model_filter;
             Gtk.Widget grid;
+            Gee.TreeMap<string, string> plugs_entries = Switchboard.PlugsManager.get_default ().all_search_entries;
 
             switch (category) {
                 case Switchboard.Plug.Category.PERSONAL:
@@ -358,6 +359,15 @@ namespace Switchboard {
                     return false;
             }
 
+            string key_app_name = "";
+            string[] comparable_values = plugs_entries.values.to_array ();
+            string[] matching_keys = plugs_entries.keys.to_array ();
+            for (int i = 0; i < plugs_entries.size; i++) {
+                if (filter.down () in comparable_values[i].down ()) {
+                    key_app_name = matching_keys[i];
+                }
+            }
+
             var store = model_filter.child_model as Gtk.ListStore;
             int shown = 0;
             store.foreach ((model, path, iter) => {
@@ -365,7 +375,7 @@ namespace Switchboard {
 
                 store.get (iter, Columns.TEXT, out title);
 
-                if (filter.down () in title.down ()) {
+                if (filter.down () in title.down () || key_app_name.down () in title.down ()) {
                     store.set_value (iter, Columns.VISIBLE, true);
                     shown++;
                 } else {
