@@ -83,7 +83,8 @@ namespace Switchboard {
             help_url = "https://answers.launchpad.net/switchboard";
             translate_url = "https://translations.launchpad.net/switchboard";
             about_authors = {"Avi Romanoff <avi@elementaryos.org>", "Corentin Noël <tintou@mailoo.org>", null};
-
+            about_translators = _("translator-credits");
+    
             about_license_type = Gtk.License.GPL_3_0;
         }
 
