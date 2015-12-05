@@ -7,70 +7,78 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-02 16:49-0500\n"
-"PO-Revision-Date: 2015-04-26 09:03+0000\n"
-"Last-Translator: pyler <pyler@azet.sk>\n"
+"POT-Creation-Date: 2015-12-04 09:01-0200\n"
+"PO-Revision-Date: 2015-12-04 17:54+0000\n"
+"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-02 05:25+0000\n"
-"X-Generator: Launchpad (build 17856)\n"
+"X-Launchpad-Export-Date: 2015-12-05 05:24+0000\n"
+"X-Generator: Launchpad (build 17862)\n"
 "Language: sk\n"
 
-#: ../src/CategoryView.vala:226 ../src/Switchboard.vala:274
+#: ../src/CategoryView.vala:329 ../src/Switchboard.vala:296
 msgid "No settings found"
 msgstr "Neboli nájdené nastavenia"
 
-#: ../src/CategoryView.vala:226
+#: ../src/CategoryView.vala:329
 msgid "Try changing your search terms"
 msgstr "Skúste zmeniť svoje hľadané výrazy"
 
-#: ../src/CategoryView.vala:316
+#: ../src/CategoryView.vala:414
 msgid "Personal"
 msgstr "Osobné nastavenia"
 
-#: ../src/CategoryView.vala:318
+#: ../src/CategoryView.vala:416
 msgid "Hardware"
 msgstr "Hardvér"
 
-#: ../src/CategoryView.vala:320
+#: ../src/CategoryView.vala:418
 msgid "Network and Wireless"
 msgstr "Sieť a bezdrôtové pripojenie"
 
-#: ../src/CategoryView.vala:322
+#: ../src/CategoryView.vala:420
 msgid "Administration"
 msgstr "Spravovanie"
 
-#: ../src/Switchboard.vala:50
+#: ../src/Switchboard.vala:45
 msgid "All Settings"
 msgstr "Všetky nastavenia"
 
-#: ../src/Switchboard.vala:63
+#: ../src/Switchboard.vala:67
 msgid "Open a plug"
 msgstr "Otvoriť a pripojiť"
 
-#: ../src/Switchboard.vala:69
+#: ../src/Switchboard.vala:73
 msgid "System Settings"
 msgstr "Nastavenia systému"
 
-#: ../src/Switchboard.vala:274
+#: ../src/Switchboard.vala:86
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  Martin Maričák https://launchpad.net/~matko-maricak\n"
+"  Milan Slovák https://launchpad.net/~milboys\n"
+"  pyler https://launchpad.net/~pyler"
+
+#: ../src/Switchboard.vala:296
 msgid "Install some and re-launch Switchboard"
 msgstr "Nainštalovať čiastočne a znovu spustiť Rozvádzač"
 
-#: ../src/Switchboard.vala:382
+#: ../src/Switchboard.vala:419
 msgid "Search Settings"
 msgstr "Nastavenie vyhľadávania"
 
-#: ../src/Switchboard.vala:492
+#: ../src/Switchboard.vala:562
 msgid "Change system and user settings"
 msgstr "Zmenit systemove a pouzivatelske nastavenia"
 
-#: ../src/Switchboard.vala:493
+#: ../src/Switchboard.vala:563
 msgid "Center;Control;Panel;Preferences;System;"
 msgstr "Centrum;Ovládanie;Panel;Predvoľby;Systém;"
 
-#: ../src/Switchboard.vala:494
+#: ../src/Switchboard.vala:564
 msgid "About System Settings"
 msgstr "O Nastaveniach systému"
 
