@@ -34,14 +34,11 @@ public class Switchboard.PlugsManager : GLib.Object {
     private Gee.LinkedList<Switchboard.Plug> plugs;
     
     public signal void plug_added (Switchboard.Plug plug);
-    public Gee.TreeMap<string, string> all_search_entries { get; private set;}
     
     private PlugsManager () {
-        all_search_entries = new Gee.TreeMap<string, string> (null, null);
         plugs = new Gee.LinkedList<Switchboard.Plug> ();
         var base_folder = File.new_for_path (Build.PLUGS_DIR);
         find_plugins (base_folder);
-        get_search_entries ("");
     }
 
     private void load (string path) {
@@ -104,22 +101,5 @@ public class Switchboard.PlugsManager : GLib.Object {
     
     public Gee.Collection<Switchboard.Plug> get_plugs () {
         return plugs.read_only_view;
-    }
-
-    public void get_search_entries (string filter) {
-        var search_entries = new Gee.TreeMap<string, string> (null, null);
-        warning("start search");
-        foreach (Switchboard.Plug tmp_plug in plugs) {
-            tmp_plug.search.begin (filter, (obj, res) => {
-                search_entries = tmp_plug.search.end (res);
-                if (search_entries.size < 0) {
-                    string[] keys = search_entries.keys.to_array ();
-                    string[] values = search_entries.values.to_array ();
-                    for (int i =0;i<search_entries.size;i++) {
-                        all_search_entries.set(keys[i], values[i]);
-                    }
-                }
-            });
-        }
     }
 }

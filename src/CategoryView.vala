@@ -44,14 +44,15 @@ namespace Switchboard {
         public Gtk.IconView system_iconview;
 
         private string? plug_to_open = null;
+        private PlugsSearch plug_search;
 
         public CategoryView (string? plug_to_open = null) {
             this.plug_to_open = plug_to_open;
-
             setup_category (Switchboard.Plug.Category.PERSONAL, 0);
             setup_category (Switchboard.Plug.Category.HARDWARE, 1);
             setup_category (Switchboard.Plug.Category.NETWORK, 2);
             setup_category (Switchboard.Plug.Category.SYSTEM, 3);
+            plug_search = new PlugsSearch ();
         }
 
         private void setup_category (Switchboard.Plug.Category category, int i) {
@@ -315,14 +316,14 @@ namespace Switchboard {
 
             var any_found = false;
 
-            if (search_by_category (filter, Switchboard.Plug.Category.PERSONAL))
+            if (search_by_category (filter, (Gtk.TreeModelFilter)personal_iconview.get_model (), personal_grid))
                 any_found = true;
-            if (search_by_category (filter, Switchboard.Plug.Category.HARDWARE))
+            if (search_by_category (filter, (Gtk.TreeModelFilter)hardware_iconview.get_model (), hardware_grid))
                 any_found = true;
-            if (search_by_category (filter, Switchboard.Plug.Category.NETWORK))
+            if (search_by_category (filter, (Gtk.TreeModelFilter)network_iconview.get_model (), network_grid))
                 any_found = true;
-            if (search_by_category (filter, Switchboard.Plug.Category.SYSTEM))
-                any_found = true;
+            if (search_by_category (filter, (Gtk.TreeModelFilter)system_iconview.get_model (), system_grid))
+                any_found = true;           
 
             unowned SwitchboardApp app = (SwitchboardApp) GLib.Application.get_default ();
             if (!any_found) {
@@ -332,11 +333,22 @@ namespace Switchboard {
             }
         }
 
-        private bool search_by_category (string filter, Plug.Category category) {
+        private string[] deep_search (string filter) {
+            string[] return_val = {};
+            if (plug_search.ready) {
+                for (int i = 0; i <plug_search.entries.size; i++) {
+                    search_entry tmp = plug_search.entries.get(i);
+                    if (tmp.ui_elements.down ().contains (filter.down ())) {
+                        return_val += tmp.plug_name;
+                    }
+                }
+            }
+            return return_val;
+        }
 
-            Gtk.TreeModelFilter model_filter;
+        private bool search_by_category (string filter, Gtk.TreeModelFilter model_filter, Gtk.Widget grid) {
+            /*Gtk.TreeModelFilter model_filter;
             Gtk.Widget grid;
-            Gee.TreeMap<string, string> plugs_entries = Switchboard.PlugsManager.get_default ().all_search_entries;
 
             switch (category) {
                 case Switchboard.Plug.Category.PERSONAL:
@@ -357,28 +369,28 @@ namespace Switchboard {
                     break;
                 default:
                     return false;
-            }
+            }*/
 
-            string key_app_name = "";
-            string[] comparable_values = plugs_entries.values.to_array ();
-            string[] matching_keys = plugs_entries.keys.to_array ();
-            for (int i = 0; i < plugs_entries.size; i++) {
-                if (filter.down () in comparable_values[i].down ()) {
-                    key_app_name = matching_keys[i];
-                }
-            }
-
+            string[] deep_search_result = deep_search (filter);
             var store = model_filter.child_model as Gtk.ListStore;
             int shown = 0;
             store.foreach ((model, path, iter) => {
                 string title;
 
                 store.get (iter, Columns.TEXT, out title);
+                bool show_element = false;
+                for (int i = 0; i < deep_search_result.length; i++) {
+                    if (deep_search_result[i].down () in title.down ()) {
+                        store.set_value (iter, Columns.VISIBLE, true);
+                        shown++;
+                        show_element = true;
+                    }
+                }
 
-                if (filter.down () in title.down () || key_app_name.down () in title.down ()) {
+                if (filter.down () in title.down ()) {
                     store.set_value (iter, Columns.VISIBLE, true);
                     shown++;
-                } else {
+                } else if (!show_element) {
                     store.set_value (iter, Columns.VISIBLE, false);
                 }
 
