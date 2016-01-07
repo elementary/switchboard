@@ -415,7 +415,7 @@ namespace Switchboard {
                 case Plug.Category.HARDWARE:
                     return _("Hardware");
                 case Plug.Category.NETWORK:
-                    return _("Network and Wireless");
+                    return _("Network & Wireless");
                 case Plug.Category.SYSTEM:
                     return _("Administration");
             }
