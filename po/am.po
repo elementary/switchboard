@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-12-04 09:01-0200\n"
+"POT-Creation-Date: 2016-01-07 18:12-0600\n"
 "PO-Revision-Date: 2015-12-06 13:14+0000\n"
 "Last-Translator: Avi Romanoff <Unknown>\n"
 "Language-Team: Amharic <am@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-07 05:22+0000\n"
-"X-Generator: Launchpad (build 17862)\n"
+"X-Launchpad-Export-Date: 2016-01-08 05:20+0000\n"
+"X-Generator: Launchpad (build 17881)\n"
 
 #: ../src/CategoryView.vala:329 ../src/Switchboard.vala:296
 msgid "No settings found"
@@ -34,8 +34,8 @@ msgid "Hardware"
 msgstr "ሀርድዌር"
 
 #: ../src/CategoryView.vala:418
-msgid "Network and Wireless"
-msgstr "ኔትዎርክ እና ሽቦ አልባ"
+msgid "Network & Wireless"
+msgstr ""
 
 #: ../src/CategoryView.vala:420
 msgid "Administration"
@@ -79,6 +79,9 @@ msgstr "መሀከል: መቆጣጠሪያ: ክፍል: ምርጫዎች: ስርአ�
 #: ../src/Switchboard.vala:564
 msgid "About System Settings"
 msgstr "ስለ ስርአት ማሰናጃዎች"
+
+#~ msgid "Network and Wireless"
+#~ msgstr "ኔትዎርክ እና ሽቦ አልባ"
 
 #~ msgid "System"
 #~ msgstr "ስርአት"
