@@ -57,21 +57,19 @@ namespace Switchboard {
         private void setup_category (Switchboard.Plug.Category category, int i) {
             var category_label = new Gtk.Label (get_category_name (category));
             category_label.get_style_context ().add_class ("category-label");
-
-            category_label.margin_left = 12;
-            category_label.margin_right = 8;
-            ((Gtk.Misc) category_label).xalign = 0.02f;
-            category_label.use_markup = true;
+            category_label.halign = Gtk.Align.START;
 
             var category_plugs = setup_icon_view ();
             category_plugs.get_style_context ().remove_class (Gtk.STYLE_CLASS_VIEW);
 
             var grid = new Gtk.Grid ();
+            grid.margin_start = 12;
+            grid.margin_end = 12;
+            grid.column_spacing = 6;
 
             // Always add a Seperator
             var h_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
             h_separator.set_hexpand (true);
-            h_separator.margin_right = 12;
             grid.attach (category_label, 0, 0, 1, 1);
             grid.attach (h_separator, 1, 0, 1, 1);
 
