@@ -42,6 +42,7 @@ namespace Switchboard {
         public Gtk.IconView hardware_iconview;
         public Gtk.IconView network_iconview;
         public Gtk.IconView system_iconview;
+        public Gee.ArrayList<SearchEntry?> plug_search_result;
 
         private string? plug_to_open = null;
         private PlugsSearch plug_search;
@@ -53,6 +54,7 @@ namespace Switchboard {
             setup_category (Switchboard.Plug.Category.NETWORK, 2);
             setup_category (Switchboard.Plug.Category.SYSTEM, 3);
             plug_search = new PlugsSearch ();
+            plug_search_result = new Gee.ArrayList<SearchEntry?> ();
         }
 
         private void setup_category (Switchboard.Plug.Category category, int i) {
@@ -315,15 +317,25 @@ namespace Switchboard {
         public void filter_plugs (string filter) {
 
             var any_found = false;
+            var model_filter = (Gtk.TreeModelFilter) personal_iconview.get_model ();
+            if (search_by_category (filter, model_filter, personal_grid)) {
+                any_found = true;
+            }
 
-            if (search_by_category (filter, (Gtk.TreeModelFilter)personal_iconview.get_model (), personal_grid))
+            model_filter = (Gtk.TreeModelFilter) hardware_iconview.get_model ();
+            if (search_by_category (filter, model_filter, hardware_grid)) {
                 any_found = true;
-            if (search_by_category (filter, (Gtk.TreeModelFilter)hardware_iconview.get_model (), hardware_grid))
+            }
+
+            model_filter = (Gtk.TreeModelFilter) network_iconview.get_model ();
+            if (search_by_category (filter, model_filter, network_grid)) {
                 any_found = true;
-            if (search_by_category (filter, (Gtk.TreeModelFilter)network_iconview.get_model (), network_grid))
+            }
+
+            model_filter = (Gtk.TreeModelFilter) system_iconview.get_model ();
+            if (search_by_category (filter, model_filter, system_grid)) {
                 any_found = true;
-            if (search_by_category (filter, (Gtk.TreeModelFilter)system_iconview.get_model (), system_grid))
-                any_found = true;           
+            }
 
             unowned SwitchboardApp app = (SwitchboardApp) GLib.Application.get_default ();
             if (!any_found) {
@@ -333,45 +345,20 @@ namespace Switchboard {
             }
         }
 
-        private string[] deep_search (string filter) {
-            string[] return_val = {};
+        private void deep_search (string filter) {
             if (plug_search.ready) {
-                for (int i = 0; i <plug_search.entries.size; i++) {
-                    search_entry tmp = plug_search.entries.get(i);
+                plug_search_result.clear ();
+                foreach (var tmp in plug_search.search_entries) {
                     if (tmp.ui_elements.down ().contains (filter.down ())) {
-                        return_val += tmp.plug_name;
+                        plug_search_result.add (tmp);
                     }
                 }
             }
-            return return_val;
         }
 
         private bool search_by_category (string filter, Gtk.TreeModelFilter model_filter, Gtk.Widget grid) {
-            /*Gtk.TreeModelFilter model_filter;
-            Gtk.Widget grid;
 
-            switch (category) {
-                case Switchboard.Plug.Category.PERSONAL:
-                    model_filter = (Gtk.TreeModelFilter)personal_iconview.get_model ();
-                    grid = personal_grid;
-                    break;
-                case Switchboard.Plug.Category.HARDWARE:
-                    model_filter = (Gtk.TreeModelFilter)hardware_iconview.get_model ();
-                    grid = hardware_grid;
-                    break;
-                case Switchboard.Plug.Category.NETWORK:
-                    model_filter = (Gtk.TreeModelFilter)network_iconview.get_model ();
-                    grid = network_grid;
-                    break;
-                case Switchboard.Plug.Category.SYSTEM:
-                    model_filter = (Gtk.TreeModelFilter)system_iconview.get_model ();
-                    grid = system_grid;
-                    break;
-                default:
-                    return false;
-            }*/
-
-            string[] deep_search_result = deep_search (filter);
+            deep_search (filter);
             var store = model_filter.child_model as Gtk.ListStore;
             int shown = 0;
             store.foreach ((model, path, iter) => {
@@ -379,8 +366,8 @@ namespace Switchboard {
 
                 store.get (iter, Columns.TEXT, out title);
                 bool show_element = false;
-                for (int i = 0; i < deep_search_result.length; i++) {
-                    if (deep_search_result[i].down () in title.down ()) {
+                foreach (var tmp in plug_search_result) {
+                    if (tmp.plug_name.down () in title.down ()) {
                         store.set_value (iter, Columns.VISIBLE, true);
                         shown++;
                         show_element = true;

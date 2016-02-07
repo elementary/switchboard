@@ -181,6 +181,20 @@ namespace Switchboard {
                     loaded_plugs.add (plug.code_name);
                 }
 
+                category_view.plug_search_result.foreach ((entry) => {
+                    if (plug.display_name == entry.plug_name) {
+                        if (entry.open_window == null) {
+                            plug.search_callback (""); // open default in the switch
+                        } else {
+                            plug.search_callback (entry.open_window);
+                        }
+                        debug ("open section:%s of plug: %s",entry.open_window, plug.display_name);
+                        return true;
+                    }
+
+                    return false;
+                });
+
                 previous_plugs.add (plug);
 
                 // Launch plug's executable
