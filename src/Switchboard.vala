@@ -197,17 +197,27 @@ namespace Switchboard {
                 });
 
                 previous_plugs.add (plug);
-
-                // Launch plug's executable
-                navigation_button.set_sensitive (true);
-                navigation_button.set_text (all_settings_label);
-                navigation_button.show ();
-                headerbar.title = plug.display_name;
-                current_plug = plug;
-                switch_to_plug (plug);
-
                 return false;
             });
+
+            // Launch plug's executable
+            navigation_button.set_sensitive (true);
+            navigation_button.set_text (all_settings_label);
+            navigation_button.show ();
+            headerbar.title = plug.display_name;
+            current_plug = plug;
+
+            //FIXME lower priority for gcc plugs due crash bug #1528361
+            var priority = GLib.Priority.DEFAULT_IDLE;
+            if (plug.code_name.contains ("-gcc-")) {
+                priority = GLib.Priority.LOW;
+            }
+
+            Idle.add (()=> {
+                switch_to_plug (plug);
+                return false;
+            }, priority);
+
         }
 
 #if HAVE_UNITY
