@@ -200,12 +200,6 @@ namespace Switchboard {
                 return false;
             });
 
-            // Launch plug's executable
-            navigation_button.set_sensitive (true);
-            navigation_button.set_text (all_settings_label);
-            navigation_button.show ();
-            headerbar.title = plug.display_name;
-            current_plug = plug;
 
             //FIXME lower priority for gcc plugs due crash bug #1528361
             var priority = GLib.Priority.DEFAULT_IDLE;
@@ -214,6 +208,13 @@ namespace Switchboard {
             }
 
             Idle.add (()=> {
+                // Launch plug's executable
+                navigation_button.set_sensitive (true);
+                navigation_button.set_text (all_settings_label);
+                navigation_button.show ();
+                headerbar.title = plug.display_name;
+                current_plug = plug;
+
                 switch_to_plug (plug);
                 return false;
             }, priority);
@@ -587,3 +588,4 @@ _("Change system and user settings");
 _("Center;Control;Panel;Preferences;System;");
 _("About System Settings");
 #endif
+
