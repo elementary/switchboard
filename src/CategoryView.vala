@@ -210,6 +210,7 @@ namespace Switchboard {
             category_plugs.item_activated.connect (on_item_activated);
             var cellrenderer = (Gtk.CellRendererText)category_plugs.get_cells ().nth_data (0);
             cellrenderer.wrap_mode = Pango.WrapMode.WORD;
+            cellrenderer.ellipsize = Pango.EllipsizeMode.END;
             cellrenderer.ellipsize_set = true;
 
             return category_plugs;
