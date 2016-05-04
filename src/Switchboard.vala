@@ -559,7 +559,7 @@ namespace Switchboard {
                 case "display": return "system-pantheon-display";
                 case "info": return "system-pantheon-about";
                 case "keyboard": return "hardware-pantheon-keyboard";
-                case "network": return "network-gcc-network";
+                case "network": return "pantheon-network";
                 case "power": return "system-pantheon-power";
                 case "printers": return "hardware-gcc-printer";
                 case "privacy": return "pantheon-security-privacy";
