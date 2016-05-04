@@ -36,7 +36,7 @@ namespace Switchboard {
         private Gtk.Stack stack;
         private Gtk.HeaderBar headerbar;
 
-        private Granite.Widgets.EmbeddedAlert alert_view;
+        private Granite.Widgets.AlertView alert_view;
         private Gtk.ScrolledWindow category_scrolled;
         private Switchboard.NavigationButton navigation_button;
         private Switchboard.CategoryView category_view;
@@ -168,10 +168,12 @@ namespace Switchboard {
             alert_view.hide ();
         }
 
-        public void show_alert (string primary_text, string secondary_text, Gtk.MessageType type) {
+        public void show_alert (string primary_text, string secondary_text, string icon_name) {
             alert_view.no_show_all = false;
             alert_view.show_all ();
-            alert_view.set_alert (primary_text, secondary_text, null, true, type);
+            alert_view.title = primary_text;
+            alert_view.description = secondary_text;
+            alert_view.icon_name = icon_name;
             stack.set_visible_child_full ("alert", Gtk.StackTransitionType.NONE);
         }
 
@@ -291,7 +293,8 @@ namespace Switchboard {
             category_scrolled.set_vexpand (true);
 
             // Set up UI
-            alert_view = new Granite.Widgets.EmbeddedAlert ();
+            alert_view = new Granite.Widgets.AlertView ("", "", "");
+            alert_view.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
             alert_view.set_vexpand (true);
             alert_view.no_show_all = true;
 
@@ -313,7 +316,7 @@ namespace Switchboard {
             });
 
             if (Switchboard.PlugsManager.get_default ().has_plugs () == false) {
-                show_alert (_("No settings found"), _("Install some and re-launch Switchboard"), Gtk.MessageType.WARNING);
+                show_alert (_("No Settings Found"), _("Install some and re-launch Switchboard."), "dialog-warning");
                 search_box.sensitive = false;
             } else {
                 search_box.sensitive = true;

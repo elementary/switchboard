@@ -2,7 +2,6 @@ set(CLIENT_SOURCE
     Switchboard.vala
     CategoryView.vala
     PlugsSearch.vala
-    EmbeddedAlert.vala
     NavigationButton.vala
 )
 
