@@ -336,7 +336,7 @@ namespace Switchboard {
 
             unowned SwitchboardApp app = (SwitchboardApp) GLib.Application.get_default ();
             if (!any_found) {
-                app.show_alert (_("No settings found"), _("Try changing your search terms"), Gtk.MessageType.INFO);
+                app.show_alert (_("No Results for “%s”".printf (filter)), _("Try changing search terms."), "edit-find-symbolic");
             } else {
                 app.hide_alert ();
             }
