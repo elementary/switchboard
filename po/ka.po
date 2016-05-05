@@ -7,39 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-01-07 18:12-0600\n"
+"POT-Creation-Date: 2016-05-04 02:30-0500\n"
 "PO-Revision-Date: 2015-12-06 13:13+0000\n"
 "Last-Translator: Avi Romanoff <Unknown>\n"
 "Language-Team: Georgian <ka@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-04-18 05:29+0000\n"
+"X-Launchpad-Export-Date: 2016-05-05 05:26+0000\n"
 "X-Generator: Launchpad (build 17995)\n"
-
-#: ../src/CategoryView.vala:329 ../src/Switchboard.vala:296
-msgid "No settings found"
-msgstr "პარამეტრები ვერ მოიძებნა"
-
-#: ../src/CategoryView.vala:329
-msgid "Try changing your search terms"
-msgstr "სცადეთ თქვენი საძიებო სიტყვის შეცვლა"
-
-#: ../src/CategoryView.vala:414
-msgid "Personal"
-msgstr "პერსონალური"
-
-#: ../src/CategoryView.vala:416
-msgid "Hardware"
-msgstr "მოწყობილობები"
-
-#: ../src/CategoryView.vala:418
-msgid "Network & Wireless"
-msgstr ""
-
-#: ../src/CategoryView.vala:420
-msgid "Administration"
-msgstr "ადმინისტრაცია"
 
 #: ../src/Switchboard.vala:45
 msgid "All Settings"
@@ -60,25 +36,53 @@ msgstr ""
 "  Avi Romanoff https://launchpad.net/~aroman\n"
 "  Beqa Arabuli https://launchpad.net/~arabulibeqa"
 
-#: ../src/Switchboard.vala:296
-msgid "Install some and re-launch Switchboard"
-msgstr "დააინსტალირეთ რამე და ხელახლა გაუშვით კომუტატორი"
+#: ../src/Switchboard.vala:319
+msgid "No Settings Found"
+msgstr ""
 
-#: ../src/Switchboard.vala:419
+#: ../src/Switchboard.vala:319
+msgid "Install some and re-launch Switchboard."
+msgstr ""
+
+#: ../src/Switchboard.vala:442
 msgid "Search Settings"
 msgstr "მოძებნეთ პარამეტრები"
 
-#: ../src/Switchboard.vala:562
+#: ../src/Switchboard.vala:585
 msgid "Change system and user settings"
 msgstr "სისტემური და სამომხმარებლო პარამეტრების შეცვლა"
 
-#: ../src/Switchboard.vala:563
+#: ../src/Switchboard.vala:586
 msgid "Center;Control;Panel;Preferences;System;"
 msgstr "ცენტრი;მართვა;პანელი;პარამეტრები;სისტემა;"
 
-#: ../src/Switchboard.vala:564
+#: ../src/Switchboard.vala:587
 msgid "About System Settings"
 msgstr "სისტემის პარამეტრების შესახებ"
+
+#: ../src/CategoryView.vala:339
+msgid "No Results for “%s”"
+msgstr ""
+
+#: ../src/CategoryView.vala:339
+msgid "Try changing search terms."
+msgstr ""
+
+#: ../src/CategoryView.vala:420
+msgid "Personal"
+msgstr "პერსონალური"
+
+#: ../src/CategoryView.vala:422
+msgid "Hardware"
+msgstr "მოწყობილობები"
+
+#: ../src/CategoryView.vala:424
+msgid "Network & Wireless"
+msgstr ""
+
+#: ../src/CategoryView.vala:426
+msgid "Administration"
+msgstr "ადმინისტრაცია"
 
 #~ msgid "Network and Wireless"
 #~ msgstr "ქსელი და უსადენო ქსელი"
@@ -92,3 +96,12 @@ msgstr "სისტემის პარამეტრების შეს�
 #, c-format
 #~ msgid "Unable to load plug %s's icon: %s"
 #~ msgstr "ვერ მოხერხდა %s ხატულის ჩატვირთვა: %s"
+
+#~ msgid "No settings found"
+#~ msgstr "პარამეტრები ვერ მოიძებნა"
+
+#~ msgid "Try changing your search terms"
+#~ msgstr "სცადეთ თქვენი საძიებო სიტყვის შეცვლა"
+
+#~ msgid "Install some and re-launch Switchboard"
+#~ msgstr "დააინსტალირეთ რამე და ხელახლა გაუშვით კომუტატორი"

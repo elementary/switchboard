@@ -7,40 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-07 18:12-0600\n"
+"POT-Creation-Date: 2016-05-04 02:30-0500\n"
 "PO-Revision-Date: 2016-03-23 16:22+0000\n"
 "Last-Translator: Avi Romanoff <Unknown>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-04-18 05:29+0000\n"
+"X-Launchpad-Export-Date: 2016-05-05 05:26+0000\n"
 "X-Generator: Launchpad (build 17995)\n"
 "Language: pt_BR\n"
-
-#: ../src/CategoryView.vala:329 ../src/Switchboard.vala:296
-msgid "No settings found"
-msgstr "Nenhuma configuração foi encontrada"
-
-#: ../src/CategoryView.vala:329
-msgid "Try changing your search terms"
-msgstr "Tente mudar os seus termos de busca"
-
-#: ../src/CategoryView.vala:414
-msgid "Personal"
-msgstr "Pessoal"
-
-#: ../src/CategoryView.vala:416
-msgid "Hardware"
-msgstr "Hardware"
-
-#: ../src/CategoryView.vala:418
-msgid "Network & Wireless"
-msgstr "Rede & Sem fio"
-
-#: ../src/CategoryView.vala:420
-msgid "Administration"
-msgstr "Administração"
 
 #: ../src/Switchboard.vala:45
 msgid "All Settings"
@@ -65,25 +41,53 @@ msgstr ""
 "  Murilo Venturoso https://launchpad.net/~muriloventuroso\n"
 "  Rafael Belenos Govannon https://launchpad.net/~belenos"
 
-#: ../src/Switchboard.vala:296
-msgid "Install some and re-launch Switchboard"
-msgstr "Instale algum e reinicie o Switchboard"
+#: ../src/Switchboard.vala:319
+msgid "No Settings Found"
+msgstr ""
 
-#: ../src/Switchboard.vala:419
+#: ../src/Switchboard.vala:319
+msgid "Install some and re-launch Switchboard."
+msgstr ""
+
+#: ../src/Switchboard.vala:442
 msgid "Search Settings"
 msgstr "Pesquisar"
 
-#: ../src/Switchboard.vala:562
+#: ../src/Switchboard.vala:585
 msgid "Change system and user settings"
 msgstr "Alterar as configurações de sistema e de usuário"
 
-#: ../src/Switchboard.vala:563
+#: ../src/Switchboard.vala:586
 msgid "Center;Control;Panel;Preferences;System;"
 msgstr "Centro;Controle;Painel;Preferências;Sistema;"
 
-#: ../src/Switchboard.vala:564
+#: ../src/Switchboard.vala:587
 msgid "About System Settings"
 msgstr "Sobre as configurações do sistema"
+
+#: ../src/CategoryView.vala:339
+msgid "No Results for “%s”"
+msgstr ""
+
+#: ../src/CategoryView.vala:339
+msgid "Try changing search terms."
+msgstr ""
+
+#: ../src/CategoryView.vala:420
+msgid "Personal"
+msgstr "Pessoal"
+
+#: ../src/CategoryView.vala:422
+msgid "Hardware"
+msgstr "Hardware"
+
+#: ../src/CategoryView.vala:424
+msgid "Network & Wireless"
+msgstr "Rede & Sem fio"
+
+#: ../src/CategoryView.vala:426
+msgid "Administration"
+msgstr "Administração"
 
 #~ msgid "Network and Wireless"
 #~ msgstr "Rede e Wireless"
@@ -97,3 +101,12 @@ msgstr "Sobre as configurações do sistema"
 #, c-format
 #~ msgid "Unable to load plug %s's icon: %s"
 #~ msgstr "Não foi possível carregar o icone %s da ficha: %s"
+
+#~ msgid "Install some and re-launch Switchboard"
+#~ msgstr "Instale algum e reinicie o Switchboard"
+
+#~ msgid "No settings found"
+#~ msgstr "Nenhuma configuração foi encontrada"
+
+#~ msgid "Try changing your search terms"
+#~ msgstr "Tente mudar os seus termos de busca"

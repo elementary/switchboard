@@ -7,40 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-07 18:12-0600\n"
+"POT-Creation-Date: 2016-05-04 02:30-0500\n"
 "PO-Revision-Date: 2016-03-13 07:47+0000\n"
 "Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-04-18 05:29+0000\n"
+"X-Launchpad-Export-Date: 2016-05-05 05:26+0000\n"
 "X-Generator: Launchpad (build 17995)\n"
 "Language: es\n"
-
-#: ../src/CategoryView.vala:329 ../src/Switchboard.vala:296
-msgid "No settings found"
-msgstr "No se encontraron configuraciones"
-
-#: ../src/CategoryView.vala:329
-msgid "Try changing your search terms"
-msgstr "Intente con otros términos de búsqueda"
-
-#: ../src/CategoryView.vala:414
-msgid "Personal"
-msgstr "Personal"
-
-#: ../src/CategoryView.vala:416
-msgid "Hardware"
-msgstr "Hardware"
-
-#: ../src/CategoryView.vala:418
-msgid "Network & Wireless"
-msgstr "Red y conexiones inalámbricas"
-
-#: ../src/CategoryView.vala:420
-msgid "Administration"
-msgstr "Administración"
 
 #: ../src/Switchboard.vala:45
 msgid "All Settings"
@@ -65,31 +41,57 @@ msgstr ""
 "  Christopher https://launchpad.net/~cdhornb\n"
 "  Irwin Boom https://launchpad.net/~vendettaboom\n"
 "  Javi de Motta https://launchpad.net/~javimotta98\n"
-"  Kern Goldstein https://launchpad.net/~kern-goldstein\n"
-"  R. Santana https://launchpad.net/~robermad1986\n"
 "  Raymundo https://launchpad.net/~yotihuanatili\n"
 "  opensas https://launchpad.net/~opensas\n"
 "  ttosttos https://launchpad.net/~ttosttos"
 
-#: ../src/Switchboard.vala:296
-msgid "Install some and re-launch Switchboard"
-msgstr "Instale algunos y reinicie Switchboard"
+#: ../src/Switchboard.vala:319
+msgid "No Settings Found"
+msgstr ""
 
-#: ../src/Switchboard.vala:419
+#: ../src/Switchboard.vala:319
+msgid "Install some and re-launch Switchboard."
+msgstr ""
+
+#: ../src/Switchboard.vala:442
 msgid "Search Settings"
 msgstr "Buscar opciones"
 
-#: ../src/Switchboard.vala:562
+#: ../src/Switchboard.vala:585
 msgid "Change system and user settings"
 msgstr "Cambiar la configuración del sistema y del usuario"
 
-#: ../src/Switchboard.vala:563
+#: ../src/Switchboard.vala:586
 msgid "Center;Control;Panel;Preferences;System;"
 msgstr "Centro;Control;Panel;Preferencias;Sistema;Configuración"
 
-#: ../src/Switchboard.vala:564
+#: ../src/Switchboard.vala:587
 msgid "About System Settings"
 msgstr "Acerca de Configuración del sistema"
+
+#: ../src/CategoryView.vala:339
+msgid "No Results for “%s”"
+msgstr ""
+
+#: ../src/CategoryView.vala:339
+msgid "Try changing search terms."
+msgstr ""
+
+#: ../src/CategoryView.vala:420
+msgid "Personal"
+msgstr "Personal"
+
+#: ../src/CategoryView.vala:422
+msgid "Hardware"
+msgstr "Hardware"
+
+#: ../src/CategoryView.vala:424
+msgid "Network & Wireless"
+msgstr "Red y conexiones inalámbricas"
+
+#: ../src/CategoryView.vala:426
+msgid "Administration"
+msgstr "Administración"
 
 #~ msgid "System"
 #~ msgstr "Sistema"
@@ -100,6 +102,15 @@ msgstr "Acerca de Configuración del sistema"
 #~ msgid "Settings Center"
 #~ msgstr "Centro de configuración"
 
+#~ msgid "No settings found"
+#~ msgstr "No se encontraron configuraciones"
+
+#~ msgid "Try changing your search terms"
+#~ msgstr "Intente con otros términos de búsqueda"
+
 #, c-format
 #~ msgid "Unable to load plug %s's icon: %s"
 #~ msgstr "No se pudo cargar el icono del conector %s: «%s»"
+
+#~ msgid "Install some and re-launch Switchboard"
+#~ msgstr "Instale algunos y reinicie Switchboard"

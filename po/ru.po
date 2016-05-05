@@ -7,40 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-07 18:12-0600\n"
-"PO-Revision-Date: 2016-01-12 11:25+0000\n"
-"Last-Translator: Yuly Nesterov <crow@rikka.io>\n"
+"POT-Creation-Date: 2016-05-04 02:30-0500\n"
+"PO-Revision-Date: 2016-05-04 08:30+0000\n"
+"Last-Translator: Sergey Kislyakov <Unknown>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-04-18 05:29+0000\n"
+"X-Launchpad-Export-Date: 2016-05-05 05:26+0000\n"
 "X-Generator: Launchpad (build 17995)\n"
 "Language: ru\n"
-
-#: ../src/CategoryView.vala:329 ../src/Switchboard.vala:296
-msgid "No settings found"
-msgstr "Настройки не найдены"
-
-#: ../src/CategoryView.vala:329
-msgid "Try changing your search terms"
-msgstr "Попробуйте изменить условия поиска"
-
-#: ../src/CategoryView.vala:414
-msgid "Personal"
-msgstr "Личные"
-
-#: ../src/CategoryView.vala:416
-msgid "Hardware"
-msgstr "Оборудование"
-
-#: ../src/CategoryView.vala:418
-msgid "Network & Wireless"
-msgstr "Проводные & беспроводные сети"
-
-#: ../src/CategoryView.vala:420
-msgid "Administration"
-msgstr "Администрирование"
 
 #: ../src/Switchboard.vala:45
 msgid "All Settings"
@@ -65,29 +41,57 @@ msgstr ""
 "  Ilya Vorozhbit https://launchpad.net/~medvedkoo\n"
 "  Nikita Putko https://launchpad.net/~ktototam98\n"
 "  Pasha. P. Komar https://launchpad.net/~cellachain\n"
-"  Sergey \"Shnatsel\" Davidoff https://launchpad.net/~shnatsel\n"
+"  Sergey Kislyakov https://launchpad.net/~defman21\n"
 "  Victor Makarov https://launchpad.net/~viktis\n"
 "  Yuly Nesterov https://launchpad.net/~inpr1se"
 
-#: ../src/Switchboard.vala:296
-msgid "Install some and re-launch Switchboard"
-msgstr "Установите их и перезапустите Switchboard"
+#: ../src/Switchboard.vala:319
+msgid "No Settings Found"
+msgstr "Настройки не найдены"
 
-#: ../src/Switchboard.vala:419
+#: ../src/Switchboard.vala:319
+msgid "Install some and re-launch Switchboard."
+msgstr ""
+
+#: ../src/Switchboard.vala:442
 msgid "Search Settings"
 msgstr "Поиск параметров"
 
-#: ../src/Switchboard.vala:562
+#: ../src/Switchboard.vala:585
 msgid "Change system and user settings"
 msgstr "Изменить параметры пользователя и системы"
 
-#: ../src/Switchboard.vala:563
+#: ../src/Switchboard.vala:586
 msgid "Center;Control;Panel;Preferences;System;"
 msgstr "Система;Управление;Настройки;Параметры;"
 
-#: ../src/Switchboard.vala:564
+#: ../src/Switchboard.vala:587
 msgid "About System Settings"
 msgstr "О программе"
+
+#: ../src/CategoryView.vala:339
+msgid "No Results for “%s”"
+msgstr "Нет результатов по запросу \"%s\""
+
+#: ../src/CategoryView.vala:339
+msgid "Try changing search terms."
+msgstr "Попробуйте изменить запрос."
+
+#: ../src/CategoryView.vala:420
+msgid "Personal"
+msgstr "Личные"
+
+#: ../src/CategoryView.vala:422
+msgid "Hardware"
+msgstr "Оборудование"
+
+#: ../src/CategoryView.vala:424
+msgid "Network & Wireless"
+msgstr "Проводные & беспроводные сети"
+
+#: ../src/CategoryView.vala:426
+msgid "Administration"
+msgstr "Администрирование"
 
 #~ msgid "Network and Wireless"
 #~ msgstr "Проводные и беспроводные сети"
@@ -101,3 +105,12 @@ msgstr "О программе"
 #, c-format
 #~ msgid "Unable to load plug %s's icon: %s"
 #~ msgstr "Не удалось загрузить значок «%s»: %s"
+
+#~ msgid "No settings found"
+#~ msgstr "Настройки не найдены"
+
+#~ msgid "Try changing your search terms"
+#~ msgstr "Попробуйте изменить условия поиска"
+
+#~ msgid "Install some and re-launch Switchboard"
+#~ msgstr "Установите их и перезапустите Switchboard"
