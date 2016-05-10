@@ -28,20 +28,13 @@ namespace Switchboard {
             N_COLUMNS
         }
 
-        const int ITEM_WIDTH = 96;
-
         public signal void plug_selected (Switchboard.Plug plug);
 
-        Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
-        Gtk.Grid personal_grid;
-        Gtk.Grid hardware_grid;
-        Gtk.Grid network_grid;
-        Gtk.Grid system_grid;
+        public Switchboard.Category personal_category;
+        public Switchboard.Category hardware_category;
+        public Switchboard.Category network_category;
+        public Switchboard.Category system_category;
 
-        public Gtk.IconView personal_iconview;
-        public Gtk.IconView hardware_iconview;
-        public Gtk.IconView network_iconview;
-        public Gtk.IconView system_iconview;
         public Gee.ArrayList<SearchEntry?> plug_search_result;
 
         private string? plug_to_open = null;
@@ -49,15 +42,22 @@ namespace Switchboard {
 
         public CategoryView (string? plug_to_open = null) {
             this.plug_to_open = plug_to_open;
-            setup_category (Switchboard.Plug.Category.PERSONAL, 0);
-            setup_category (Switchboard.Plug.Category.HARDWARE, 1);
-            setup_category (Switchboard.Plug.Category.NETWORK, 2);
-            setup_category (Switchboard.Plug.Category.SYSTEM, 3);
+            personal_category = new Switchboard.Category (Switchboard.Plug.Category.PERSONAL);
+            hardware_category = new Switchboard.Category (Switchboard.Plug.Category.HARDWARE);
+            network_category = new Switchboard.Category (Switchboard.Plug.Category.NETWORK);
+            system_category = new Switchboard.Category (Switchboard.Plug.Category.SYSTEM);
+
+            orientation = Gtk.Orientation.VERTICAL;
+            add (personal_category);
+            add (hardware_category);
+            add (network_category);
+            add (system_category);
+
             plug_search = new PlugsSearch ();
             plug_search_result = new Gee.ArrayList<SearchEntry?> ();
         }
 
-        private void setup_category (Switchboard.Plug.Category category, int i) {
+        /*private void setup_category (Switchboard.Plug.Category category, int i) {
             var category_label = new Gtk.Label (get_category_name (category));
             category_label.get_style_context ().add_class ("category-label");
             category_label.halign = Gtk.Align.START;
@@ -78,10 +78,6 @@ namespace Switchboard {
 
             grid.attach (category_plugs, 0, 1, 2, 1);
             switch (category) {
-                case Switchboard.Plug.Category.PERSONAL:
-                    personal_iconview = category_plugs;
-                    personal_grid = grid;
-                    break;
                 case Switchboard.Plug.Category.HARDWARE:
                     hardware_iconview = category_plugs;
                     hardware_grid = grid;
@@ -167,7 +163,7 @@ namespace Switchboard {
             });
 
             attach (grid, 0, i, 1, 1);
-        }
+        }*/
 
         public async void load_default_plugs () {
             var plugsmanager = Switchboard.PlugsManager.get_default ();
@@ -188,7 +184,7 @@ namespace Switchboard {
             });
         }
 
-        private Gtk.IconView setup_icon_view () {
+        /*private Gtk.IconView setup_icon_view () {
             var store = new Gtk.ListStore (Columns.N_COLUMNS, typeof (Gdk.Pixbuf), typeof (string),
                 typeof(string), typeof(bool), typeof(Switchboard.Plug));
             store.set_sort_column_id (1, Gtk.SortType.ASCENDING);
@@ -212,7 +208,7 @@ namespace Switchboard {
             cellrenderer.wrap_mode = Pango.WrapMode.WORD_CHAR;
 
             return category_plugs;
-        }
+        }*/
 
         private void plug_visibility_changed (Switchboard.Plug plug) {
             if (plug.can_show == true) {
@@ -221,45 +217,36 @@ namespace Switchboard {
         }
 
         public void add_plug (Switchboard.Plug plug) {
-            if (plug.can_show == false)
+            if (plug.can_show == false) {
                 return;
-            Gtk.TreeIter root;
-            Gtk.TreeModelFilter model_filter;
+            }
+
+            var icon = new Switchboard.CategoryIcon (plug);
 
             switch (plug.category) {
                 case Switchboard.Plug.Category.PERSONAL:
-                    model_filter = (Gtk.TreeModelFilter)personal_iconview.get_model ();
-                    personal_grid.show_all ();
+                    personal_category.flowbox.add (icon);
+                    personal_category.show_all ();
                     break;
                 case Switchboard.Plug.Category.HARDWARE:
-                    model_filter = (Gtk.TreeModelFilter)hardware_iconview.get_model ();
-                    hardware_grid.show_all ();
+                    hardware_category.flowbox.add (icon);
+                    hardware_category.show_all ();
                     break;
                 case Switchboard.Plug.Category.NETWORK:
-                    model_filter = (Gtk.TreeModelFilter)network_iconview.get_model ();
-                    network_grid.show_all ();
+                    network_category.flowbox.add (icon);
+                    network_category.show_all ();
                     break;
                 case Switchboard.Plug.Category.SYSTEM:
-                    model_filter = (Gtk.TreeModelFilter)system_iconview.get_model ();
-                    system_grid.show_all ();
+                    system_category.flowbox.add (icon);
+                    system_category.show_all ();
                     break;
                 default:
                     return;
             }
 
-            var store = model_filter.child_model as Gtk.ListStore;
-            Gdk.Pixbuf icon_pixbuf = null;
-            try {
-                // FIXME: if we get no icon, we probably dont want that one…
-                icon_pixbuf = theme.load_icon (plug.icon, 32, Gtk.IconLookupFlags.GENERIC_FALLBACK);
-            } catch {
-                critical ("Unable to load plug %s's icon: %s", plug.display_name, plug.icon);
-                return;
-            }
+            Gtk.TreeIter root;
+            Gtk.TreeModelFilter model_filter;
 
-            store.append (out root);
-            store.set (root, Columns.ICON, icon_pixbuf, Columns.TEXT, plug.display_name,
-                Columns.DESCRIPTION, plug.description, Columns.VISIBLE, true, Columns.PLUG, plug);
             unowned SwitchboardApp app = (SwitchboardApp) GLib.Application.get_default ();
             app.search_box.sensitive = true;
             filter_plugs (app.search_box.get_text ());
@@ -277,7 +264,7 @@ namespace Switchboard {
 
         // focus to first visible item
         public void grab_focus_first_icon_view () {
-                Gtk.TreePath first_path = null;
+                /*Gtk.TreePath first_path = null;
 
                 if (get_first_visible_path (personal_iconview, out first_path)) {
                     personal_iconview.grab_focus ();
@@ -287,12 +274,12 @@ namespace Switchboard {
                     network_iconview.grab_focus ();
                 } else if (get_first_visible_path (system_iconview, out first_path)) {
                     system_iconview.grab_focus ();
-                }
+                }*/
         }
 
         // activate first visible item
         public void activate_first_item () {
-                Gtk.TreePath first_path = null;
+                /*Gtk.TreePath first_path = null;
 
                 if (get_first_visible_path (personal_iconview, out first_path)) {
                     personal_iconview.item_activated (first_path);
@@ -302,7 +289,7 @@ namespace Switchboard {
                     network_iconview.item_activated (first_path);
                 } else if (get_first_visible_path (system_iconview, out first_path)){
                     system_iconview.item_activated (first_path);
-                }
+                }*/
         }
 
         private bool get_first_visible_path (Gtk.IconView iv, out Gtk.TreePath path) {
@@ -313,7 +300,7 @@ namespace Switchboard {
 
         public void filter_plugs (string filter) {
 
-            var any_found = false;
+            /*var any_found = false;
             var model_filter = (Gtk.TreeModelFilter) personal_iconview.get_model ();
             if (search_by_category (filter, model_filter, personal_grid)) {
                 any_found = true;
@@ -339,7 +326,7 @@ namespace Switchboard {
                 app.show_alert (_("No Results for “%s”".printf (filter)), _("Try changing search terms."), "edit-find-symbolic");
             } else {
                 app.hide_alert ();
-            }
+            }*/
         }
 
         private void deep_search (string filter) {
@@ -391,14 +378,14 @@ namespace Switchboard {
         }
 
         public void recalculate_columns () {
-            int columns = personal_iconview.get_columns ();
-            columns = int.max (columns, hardware_iconview.get_columns ());
+            /*int columns = personal_iconview.get_columns ();
+            int columns = hardware_iconview.get_columns ();
             columns = int.max (columns, network_iconview.get_columns ());
             columns = int.max (columns, system_iconview.get_columns ());
-            personal_iconview.set_columns (columns);
+            //personal_iconview.set_columns (columns);
             hardware_iconview.set_columns (columns);
             network_iconview.set_columns (columns);
-            system_iconview.set_columns (columns);
+            system_iconview.set_columns (columns);*/
         }
 
         private void on_item_activated (Gtk.IconView view, Gtk.TreePath path) {
@@ -429,7 +416,7 @@ namespace Switchboard {
             return null;
         }
 
-        private Gtk.IconView? get_next_icon_view (Switchboard.Plug.Category category) {
+        /*private Gtk.IconView? get_next_icon_view (Switchboard.Plug.Category category) {
             if (category == Plug.Category.PERSONAL) {
                 if (hardware_iconview.is_visible ())
                     return hardware_iconview;
@@ -452,9 +439,9 @@ namespace Switchboard {
             }
 
             return null;
-        }
+        }*/
 
-        private Gtk.IconView? get_prev_icon_view (Switchboard.Plug.Category category) {
+        /*private Gtk.IconView? get_prev_icon_view (Switchboard.Plug.Category category) {
             if (category == Plug.Category.SYSTEM) {
                 if (network_iconview.is_visible ())
                     return network_iconview;
@@ -477,6 +464,6 @@ namespace Switchboard {
             }
 
             return null;
-        }
+        }*/
     }
 }

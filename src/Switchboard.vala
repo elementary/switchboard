@@ -505,7 +505,7 @@ namespace Switchboard {
             category_item.property_set (Dbusmenu.MENUITEM_PROP_LABEL, CategoryView.get_category_name (category));
 
             Gtk.TreeModelFilter model_filter;
-            switch (category) {
+            switch (category) {/*
                 case Switchboard.Plug.Category.PERSONAL:
                     model_filter = (Gtk.TreeModelFilter)category_view.personal_iconview.get_model ();
                     break;
@@ -517,7 +517,7 @@ namespace Switchboard {
                     break;
                 case Switchboard.Plug.Category.SYSTEM:
                     model_filter = (Gtk.TreeModelFilter)category_view.system_iconview.get_model ();
-                    break;
+                    break;*/
                 default:
                     return null;
             }
