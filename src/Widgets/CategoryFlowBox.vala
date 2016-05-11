@@ -22,7 +22,7 @@ namespace Switchboard {
 
     public class Category : Gtk.Grid {
 
-        public Gtk.FlowBox flowbox;
+        private Gtk.FlowBox flowbox;
 
         public Category (Switchboard.Plug.Category category) {
             var category_label = new Gtk.Label (Switchboard.CategoryView.get_category_name (category));
@@ -48,6 +48,10 @@ namespace Switchboard {
             attach (category_label, 0, 0, 1, 1);
             attach (h_separator, 1, 0, 1, 1);
             attach (flowbox, 0, 1, 2, 1);
+        }
+
+        public new void add (Gtk.Widget widget) {
+            flowbox.add (widget);
         }
     }
 }

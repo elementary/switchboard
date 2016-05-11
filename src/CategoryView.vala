@@ -58,111 +58,11 @@ namespace Switchboard {
         }
 
         /*private void setup_category (Switchboard.Plug.Category category, int i) {
-            var category_label = new Gtk.Label (get_category_name (category));
-            category_label.get_style_context ().add_class ("category-label");
-            category_label.halign = Gtk.Align.START;
-
-            var category_plugs = setup_icon_view ();
-            category_plugs.get_style_context ().remove_class (Gtk.STYLE_CLASS_VIEW);
-
-            var grid = new Gtk.Grid ();
-            grid.margin_start = 12;
-            grid.margin_end = 12;
-            grid.column_spacing = 6;
-
-            // Always add a Seperator
-            var h_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
-            h_separator.set_hexpand (true);
-            grid.attach (category_label, 0, 0, 1, 1);
-            grid.attach (h_separator, 1, 0, 1, 1);
-
-            grid.attach (category_plugs, 0, 1, 2, 1);
-            switch (category) {
-                case Switchboard.Plug.Category.HARDWARE:
-                    hardware_iconview = category_plugs;
-                    hardware_grid = grid;
-                    break;
-                case Switchboard.Plug.Category.NETWORK:
-                    network_iconview = category_plugs;
-                    network_grid = grid;
-                    break;
-                case Switchboard.Plug.Category.SYSTEM:
-                    system_iconview = category_plugs;
-                    system_grid = grid;
-                    break;
-            }
-
             category_plugs.focus_out_event.connect ((e) => {
                 category_plugs.unselect_all ();
 
                 return false;
             });
-
-            category_plugs.focus_in_event.connect ((e) => {
-                Gtk.TreePath path;
-
-                if (!category_plugs.get_cursor (out path, null)) {
-                    path = new Gtk.TreePath.from_indices (0, -1);
-                }
-                category_plugs.select_path (path);
-
-                return false;
-            });
-
-            category_plugs.keynav_failed.connect ((direction) => {
-                Gtk.IconView new_view = null;
-                Gtk.TreePath path = null;
-                Gtk.TreePath selected_path = null;
-                int smallest_distance = 1000;
-                Gtk.TreeIter iter;
-                int distance;
-
-                if (direction == Gtk.DirectionType.UP) {
-                    new_view = get_prev_icon_view (category);
-                    if (new_view != null && category_plugs.get_cursor (out path, null)) {
-                        var current_column = category_plugs.get_item_column (path);
-                        var model = new_view.get_model ();
-
-                        model.get_iter_first (out iter);
-                        do {
-                            path = model.get_path (iter);
-                            var next_column = new_view.get_item_column (path);
-                            distance = (next_column - current_column).abs ();
-                            if (distance <= smallest_distance) {
-                                selected_path = path;
-                                smallest_distance = distance;
-                            }
-                        } while (model.iter_next (ref iter));
-                    }
-                } else if (direction == Gtk.DirectionType.DOWN) {
-                    new_view = get_next_icon_view (category);
-                    if (new_view != null && category_plugs.get_cursor (out path, null)) {
-                        var current_column = category_plugs.get_item_column (path);
-                        var model = new_view.get_model ();
-
-                        model.get_iter_first (out iter);
-                        do {
-                            path = model.get_path (iter);
-                            var next_column = new_view.get_item_column (path);
-                            distance = (next_column - current_column).abs ();
-                            if (distance < smallest_distance) {
-                                selected_path = path;
-                                smallest_distance = distance;
-                            }
-                        } while (model.iter_next (ref iter));
-                    }
-                }
-
-                if (new_view != null) {
-                    new_view.set_cursor (selected_path, null, false);
-                    new_view.grab_focus ();
-                    return true;
-                }
-
-                return false;
-            });
-
-            attach (grid, 0, i, 1, 1);
         }*/
 
         public async void load_default_plugs () {
@@ -225,19 +125,19 @@ namespace Switchboard {
 
             switch (plug.category) {
                 case Switchboard.Plug.Category.PERSONAL:
-                    personal_category.flowbox.add (icon);
+                    personal_category.add (icon);
                     personal_category.show_all ();
                     break;
                 case Switchboard.Plug.Category.HARDWARE:
-                    hardware_category.flowbox.add (icon);
+                    hardware_category.add (icon);
                     hardware_category.show_all ();
                     break;
                 case Switchboard.Plug.Category.NETWORK:
-                    network_category.flowbox.add (icon);
+                    network_category.add (icon);
                     network_category.show_all ();
                     break;
                 case Switchboard.Plug.Category.SYSTEM:
-                    system_category.flowbox.add (icon);
+                    system_category.add (icon);
                     system_category.show_all ();
                     break;
                 default:
