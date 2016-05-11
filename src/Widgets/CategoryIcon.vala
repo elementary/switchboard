@@ -47,9 +47,5 @@ namespace Switchboard {
 
             add (layout);
         }
-
-        public void launch_plug () {
-            Switchboard.SwitchboardApp.instance.load_plug (plug);    
-        }
     }
 }

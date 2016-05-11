@@ -51,7 +51,7 @@ namespace Switchboard {
             attach (flowbox, 0, 1, 2, 1);
 
             flowbox.child_activated.connect ((child) => {
-                ((CategoryIcon) child).launch_plug ();
+                Switchboard.SwitchboardApp.instance.load_plug (((CategoryIcon) child).plug);
             });
 
             flowbox.set_filter_func (plug_filter_func);
@@ -97,6 +97,13 @@ namespace Switchboard {
 }
 
 /*
+        public Gee.ArrayList<SearchEntry?> plug_search_result;
+        private PlugsSearch plug_search;
+
+            plug_search = new PlugsSearch ();
+            plug_search_result = new Gee.ArrayList<SearchEntry?> ();
+
+
         private void deep_search (string filter) {
             if (plug_search.ready) {
                 plug_search_result.clear ();

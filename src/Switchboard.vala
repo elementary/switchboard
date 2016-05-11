@@ -190,7 +190,7 @@ namespace Switchboard {
                     loaded_plugs.add (plug.code_name);
                 }
 
-                category_view.plug_search_result.foreach ((entry) => {
+                /*category_view.plug_search_result.foreach ((entry) => {
                     if (plug.display_name == entry.plug_name) {
                         if (entry.open_window == null) {
                             plug.search_callback (""); // open default in the switch
@@ -202,7 +202,7 @@ namespace Switchboard {
                     }
 
                     return false;
-                });
+                });*/
 
                 previous_plugs.add (plug);
                 // Launch plug's executable

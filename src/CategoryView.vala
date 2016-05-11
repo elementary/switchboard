@@ -39,10 +39,7 @@ namespace Switchboard {
         public Switchboard.Category network_category;
         public Switchboard.Category system_category;
 
-        public Gee.ArrayList<SearchEntry?> plug_search_result;
-
         private string? plug_to_open = null;
-        private PlugsSearch plug_search;
 
         public CategoryView (string? plug_to_open = null) {
             orientation = Gtk.Orientation.VERTICAL;
@@ -57,9 +54,6 @@ namespace Switchboard {
             add (hardware_category);
             add (network_category);
             add (system_category);
-
-            plug_search = new PlugsSearch ();
-            plug_search_result = new Gee.ArrayList<SearchEntry?> ();
         }
 
         public async void load_default_plugs () {
@@ -115,9 +109,6 @@ namespace Switchboard {
                     return;
             }
 
-            Gtk.TreeIter root;
-            Gtk.TreeModelFilter model_filter;
-
             unowned SwitchboardApp app = (SwitchboardApp) GLib.Application.get_default ();
             app.search_box.sensitive = true;
             filter_plugs (app.search_box.get_text ());
@@ -156,12 +147,6 @@ namespace Switchboard {
             }
         }
 
-        private bool get_first_visible_path (Gtk.IconView iv, out Gtk.TreePath path) {
-            Gtk.TreePath end;
-
-            return (iv.get_visible_range (out path, out end));
-        }
-
         public void filter_plugs (string filter) {
             var any_found = false;
 
@@ -172,18 +157,26 @@ namespace Switchboard {
 
             if (personal_category.has_child ()) {
                 any_found = true;
+            } else {
+                personal_category.hide ();
             }
 
             if (hardware_category.has_child ()) {
                 any_found = true;
+            } else {
+                hardware_category.hide ();
             }
 
             if (network_category.has_child ()) {
                 any_found = true;
+            } else {
+                network_category.hide ();
             }
 
             if (system_category.has_child ()) {
                 any_found = true;
+            } else {
+                system_category.hide ();
             }
 
             unowned SwitchboardApp app = (SwitchboardApp) GLib.Application.get_default ();
