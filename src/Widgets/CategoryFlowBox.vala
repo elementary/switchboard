@@ -57,19 +57,6 @@ namespace Switchboard {
             flowbox.set_filter_func (plug_filter_func);
         }
 
-        private bool plug_filter_func (Gtk.FlowBoxChild child) {
-            string filter = SwitchboardApp.instance.search_box.get_text ();
-            string plug_name = ((CategoryIcon) child).plug.display_name;
-            filter = filter.up ();
-            plug_name = plug_name.up ();
-
-            if (plug_name.contains (filter)) {
-                return true;
-            }
-            
-            return false;
-        }
-
         public new void add (Gtk.Widget widget) {
             flowbox.add (widget);
         }
@@ -103,6 +90,35 @@ namespace Switchboard {
             hide ();
             return false;
         }
+
+        private bool plug_filter_func (Gtk.FlowBoxChild child) {
+            var filter = SwitchboardApp.instance.search_box.get_text ();
+            var plug_name = ((CategoryIcon) child).plug.display_name;
+            var plug_search = new PlugsSearch ();
+
+            if (plug_search.ready) {
+                var plug_search_result = new Gee.ArrayList<SearchEntry?> ();
+                plug_search_result.clear ();
+
+                foreach (var tmp in plug_search.search_entries) {
+                    if (tmp.ui_elements.down ().contains (filter.down ())) {
+                        plug_search_result.add (tmp);
+                    }
+                }
+
+                foreach (var tmp in plug_search_result) {
+                    if (tmp.plug_name.down () in plug_name.down ()) {
+                        return true;
+                    }
+                }
+            }
+
+            if (filter.down () in plug_name.down ()) {
+                return true;
+            }
+            
+            return false;
+        }
     }
 }
 
@@ -110,8 +126,8 @@ namespace Switchboard {
         public Gee.ArrayList<SearchEntry?> plug_search_result;
         private PlugsSearch plug_search;
 
-            plug_search = new PlugsSearch ();
-            plug_search_result = new Gee.ArrayList<SearchEntry?> ();
+        plug_search = new PlugsSearch ();
+        plug_search_result = new Gee.ArrayList<SearchEntry?> ();
 
 
         private void deep_search (string filter) {
@@ -152,13 +168,5 @@ namespace Switchboard {
 
                 return false;
             });
-
-            if (shown == 0) {
-                grid.hide ();
-                return false;
-            } else {
-                grid.show_all ();
-                return true;
-            }
         }
 */
