@@ -37,6 +37,7 @@ namespace Switchboard {
             flowbox.column_spacing = 12;
             flowbox.row_spacing = 12;
             flowbox.homogeneous = true;
+            flowbox.selection_mode = Gtk.SelectionMode.SINGLE;
 
             margin_bottom = 12;
             margin_start = 12;
@@ -55,3 +56,11 @@ namespace Switchboard {
         }
     }
 }
+
+        /*private void setup_category (Switchboard.Plug.Category category, int i) {
+            category_plugs.focus_out_event.connect ((e) => {
+                category_plugs.unselect_all ();
+
+                return false;
+            });
+        }*/

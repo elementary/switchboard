@@ -23,10 +23,15 @@ namespace Switchboard {
     public class CategoryIcon : Gtk.FlowBoxChild {
 
         public CategoryIcon (Switchboard.Plug plug) {
+            width_request = 144;
+
             var icon = new Gtk.Image.from_icon_name (plug.icon, Gtk.IconSize.DND);
             icon.tooltip_text = plug.description;
 
             var plug_name = new Gtk.Label (plug.display_name);
+            plug_name.justify = Gtk.Justification.CENTER;
+            plug_name.max_width_chars = 18;
+            plug_name.wrap = true;
             
             var layout = new Gtk.Grid ();
             layout.halign = Gtk.Align.CENTER;

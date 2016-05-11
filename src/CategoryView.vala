@@ -57,14 +57,6 @@ namespace Switchboard {
             plug_search_result = new Gee.ArrayList<SearchEntry?> ();
         }
 
-        /*private void setup_category (Switchboard.Plug.Category category, int i) {
-            category_plugs.focus_out_event.connect ((e) => {
-                category_plugs.unselect_all ();
-
-                return false;
-            });
-        }*/
-
         public async void load_default_plugs () {
             var plugsmanager = Switchboard.PlugsManager.get_default ();
             plugsmanager.plug_added.connect ((plug) => {
@@ -96,11 +88,6 @@ namespace Switchboard {
 
             var category_plugs = new Gtk.IconView.with_model (filtered);
             category_plugs.set_item_width (ITEM_WIDTH);
-            category_plugs.set_text_column (Columns.TEXT);
-            category_plugs.set_pixbuf_column (Columns.ICON);
-            category_plugs.set_tooltip_column (Columns.DESCRIPTION);
-            category_plugs.set_hexpand (true);
-            category_plugs.set_selection_mode (Gtk.SelectionMode.SINGLE);
             category_plugs.set_activate_on_single_click (true);
 
             category_plugs.item_activated.connect (on_item_activated);
