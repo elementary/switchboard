@@ -75,7 +75,12 @@ namespace Switchboard {
         }
 
         public void activate_first_child () {
-            flowbox.get_child_at_index (0).activate ();
+            foreach (unowned Gtk.Widget child in flowbox.get_children ()) {
+                   if (child.get_child_visible ()) {
+                    child.activate ();
+                    return;
+                }
+            }
         }
 
         public void filter () {
