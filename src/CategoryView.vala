@@ -266,19 +266,6 @@ namespace Switchboard {
             }
         }
 
-        private void on_item_activated (Gtk.IconView view, Gtk.TreePath path) {
-            GLib.Value plug;
-            Gtk.TreeIter selected_plug;
-            var store = view.get_model ();
-
-            store.get_iter (out selected_plug, path);
-            store.get_value (selected_plug, Columns.PLUG, out plug);
-
-            plug_selected ((Switchboard.Plug) plug.get_object ());
-
-            view.unselect_path (path);
-        }
-
         public static string? get_category_name (Switchboard.Plug.Category category) {
             switch (category) {
                 case Plug.Category.PERSONAL:
