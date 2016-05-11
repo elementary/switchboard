@@ -37,7 +37,7 @@ namespace Switchboard {
             flowbox.column_spacing = 12;
             flowbox.row_spacing = 12;
             flowbox.homogeneous = true;
-            flowbox.selection_mode = Gtk.SelectionMode.SINGLE;
+            flowbox.selection_mode = Gtk.SelectionMode.NONE;
 
             margin_bottom = 12;
             margin_start = 12;
