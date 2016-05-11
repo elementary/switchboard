@@ -60,6 +60,9 @@ namespace Switchboard {
         private bool plug_filter_func (Gtk.FlowBoxChild child) {
             string filter = SwitchboardApp.instance.search_box.get_text ();
             string plug_name = ((CategoryIcon) child).plug.display_name;
+            filter = filter.up ();
+            plug_name = plug_name.up ();
+
             if (plug_name.contains (filter)) {
                 return true;
             }
@@ -92,3 +95,53 @@ namespace Switchboard {
         }
     }
 }
+
+/*
+        private void deep_search (string filter) {
+            if (plug_search.ready) {
+                plug_search_result.clear ();
+                foreach (var tmp in plug_search.search_entries) {
+                    if (tmp.ui_elements.down ().contains (filter.down ())) {
+                        plug_search_result.add (tmp);
+                    }
+                }
+            }
+        }
+
+        private bool search_by_category (string filter, Gtk.TreeModelFilter model_filter, Gtk.Widget grid) {
+
+            deep_search (filter);
+            var store = model_filter.child_model as Gtk.ListStore;
+            int shown = 0;
+            store.foreach ((model, path, iter) => {
+                string title;
+
+                store.get (iter, Columns.TEXT, out title);
+                bool show_element = false;
+                foreach (var tmp in plug_search_result) {
+                    if (tmp.plug_name.down () in title.down ()) {
+                        store.set_value (iter, Columns.VISIBLE, true);
+                        shown++;
+                        show_element = true;
+                    }
+                }
+
+                if (filter.down () in title.down ()) {
+                    store.set_value (iter, Columns.VISIBLE, true);
+                    shown++;
+                } else if (!show_element) {
+                    store.set_value (iter, Columns.VISIBLE, false);
+                }
+
+                return false;
+            });
+
+            if (shown == 0) {
+                grid.hide ();
+                return false;
+            } else {
+                grid.show_all ();
+                return true;
+            }
+        }
+*/
