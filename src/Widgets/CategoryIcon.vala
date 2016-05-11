@@ -22,7 +22,7 @@ namespace Switchboard {
 
     public class CategoryIcon : Gtk.FlowBoxChild {
 
-        public Switchboard.Plug plug_item;
+        private Switchboard.Plug plug_item;
 
         public CategoryIcon (Switchboard.Plug plug) {
             plug_item = plug;
