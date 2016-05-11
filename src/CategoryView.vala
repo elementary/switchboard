@@ -87,12 +87,9 @@ namespace Switchboard {
             filtered.refilter ();
 
             var category_plugs = new Gtk.IconView.with_model (filtered);
-            category_plugs.set_item_width (ITEM_WIDTH);
-            category_plugs.set_activate_on_single_click (true);
 
             category_plugs.item_activated.connect (on_item_activated);
             var cellrenderer = (Gtk.CellRendererText)category_plugs.get_cells ().nth_data (0);
-            cellrenderer.wrap_mode = Pango.WrapMode.WORD_CHAR;
 
             return category_plugs;
         }*/
@@ -262,17 +259,6 @@ namespace Switchboard {
                 grid.show_all ();
                 return true;
             }
-        }
-
-        public void recalculate_columns () {
-            /*int columns = personal_iconview.get_columns ();
-            int columns = hardware_iconview.get_columns ();
-            columns = int.max (columns, network_iconview.get_columns ());
-            columns = int.max (columns, system_iconview.get_columns ());
-            //personal_iconview.set_columns (columns);
-            hardware_iconview.set_columns (columns);
-            network_iconview.set_columns (columns);
-            system_iconview.set_columns (columns);*/
         }
 
         private void on_item_activated (Gtk.IconView view, Gtk.TreePath path) {

@@ -32,6 +32,7 @@ namespace Switchboard {
             plug_name.justify = Gtk.Justification.CENTER;
             plug_name.max_width_chars = 18;
             plug_name.wrap = true;
+            plug_name.wrap_mode = Pango.WrapMode.WORD_CHAR;
             
             var layout = new Gtk.Grid ();
             layout.halign = Gtk.Align.CENTER;

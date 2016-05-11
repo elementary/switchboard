@@ -56,11 +56,3 @@ namespace Switchboard {
         }
     }
 }
-
-        /*private void setup_category (Switchboard.Plug.Category category, int i) {
-            category_plugs.focus_out_event.connect ((e) => {
-                category_plugs.unselect_all ();
-
-                return false;
-            });
-        }*/

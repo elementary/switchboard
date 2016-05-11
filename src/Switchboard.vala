@@ -310,9 +310,9 @@ namespace Switchboard {
             navigation_button.hide ();
 
             main_window.size_allocate.connect (() => {
-                if (opened_directly)
+                if (opened_directly) {
                     search_box.sensitive = false;
-                category_view.recalculate_columns ();
+                }
             });
 
             if (Switchboard.PlugsManager.get_default ().has_plugs () == false) {
