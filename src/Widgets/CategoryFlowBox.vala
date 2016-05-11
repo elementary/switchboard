@@ -54,5 +54,17 @@ namespace Switchboard {
         public new void add (Gtk.Widget widget) {
             flowbox.add (widget);
         }
+
+        public void focus_first_child () {
+            flowbox.get_child_at_index (0).grab_focus ();
+        }
+
+        public bool has_child () {
+            if (flowbox.get_child_at_index (0) != null) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 }

@@ -81,24 +81,6 @@ namespace Switchboard {
             });
         }
 
-        /*private Gtk.IconView setup_icon_view () {
-            var store = new Gtk.ListStore (Columns.N_COLUMNS, typeof (Gdk.Pixbuf), typeof (string),
-                typeof(string), typeof(bool), typeof(Switchboard.Plug));
-            store.set_sort_column_id (1, Gtk.SortType.ASCENDING);
-            store.set_sort_column_id (1, Gtk.SortType.ASCENDING);
-
-            var filtered = new Gtk.TreeModelFilter (store, null);
-            filtered.set_visible_column (3);
-            filtered.refilter ();
-
-            var category_plugs = new Gtk.IconView.with_model (filtered);
-
-            category_plugs.item_activated.connect (on_item_activated);
-            var cellrenderer = (Gtk.CellRendererText)category_plugs.get_cells ().nth_data (0);
-
-            return category_plugs;
-        }*/
-
         private void plug_visibility_changed (Switchboard.Plug plug) {
             if (plug.can_show == true) {
                 add_plug (plug);
@@ -150,35 +132,30 @@ namespace Switchboard {
             }
         }
 
-
-        // focus to first visible item
         public void grab_focus_first_icon_view () {
-                /*Gtk.TreePath first_path = null;
-
-                if (get_first_visible_path (personal_iconview, out first_path)) {
-                    personal_category.grab_focus ();
-                } else if (get_first_visible_path (hardware_iconview, out first_path)) {
-                    hardware_category.grab_focus ();
-                } else if (get_first_visible_path (network_iconview, out first_path)) {
-                    network_category.grab_focus ();
-                } else if (get_first_visible_path (system_iconview, out first_path)) {
-                    system_category.grab_focus ();
-                }*/
+            if (personal_category.has_child ()) {
+                personal_category.focus_first_child ();
+            } else if (hardware_category.has_child ()) {
+                hardware_category.focus_first_child ();
+            } else if (network_category.has_child ()) {
+                network_category.focus_first_child ();
+            } else if (system_category.has_child ()) {
+                system_category.focus_first_child ();
+            }
         }
 
-        // activate first visible item
         public void activate_first_item () {
-                /*Gtk.TreePath first_path = null;
+            /*Gtk.TreePath first_path = null;
 
-                if (get_first_visible_path (personal_iconview, out first_path)) {
-                    personal_iconview.item_activated (first_path);
-                } else if (get_first_visible_path (hardware_iconview, out first_path)){
-                    hardware_iconview.item_activated (first_path);
-                } else if (get_first_visible_path (network_iconview, out first_path)){
-                    network_iconview.item_activated (first_path);
-                } else if (get_first_visible_path (system_iconview, out first_path)){
-                    system_iconview.item_activated (first_path);
-                }*/
+            if (get_first_visible_path (personal_iconview, out first_path)) {
+                personal_iconview.item_activated (first_path);
+            } else if (get_first_visible_path (hardware_iconview, out first_path)){
+                hardware_iconview.item_activated (first_path);
+            } else if (get_first_visible_path (network_iconview, out first_path)){
+                network_iconview.item_activated (first_path);
+            } else if (get_first_visible_path (system_iconview, out first_path)){
+                system_iconview.item_activated (first_path);
+            }*/
         }
 
         private bool get_first_visible_path (Gtk.IconView iv, out Gtk.TreePath path) {
