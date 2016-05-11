@@ -49,6 +49,10 @@ namespace Switchboard {
             attach (category_label, 0, 0, 1, 1);
             attach (h_separator, 1, 0, 1, 1);
             attach (flowbox, 0, 1, 2, 1);
+
+            flowbox.child_activated.connect ((child) => {
+                ((CategoryIcon) child).launch_plug ();
+            });
         }
 
         public new void add (Gtk.Widget widget) {
