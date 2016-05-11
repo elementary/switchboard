@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-04 02:30-0500\n"
-"PO-Revision-Date: 2016-02-18 18:31+0000\n"
-"Last-Translator: Avi Romanoff <Unknown>\n"
+"PO-Revision-Date: 2016-05-10 10:15+0000\n"
+"Last-Translator: Andi Chandler <Unknown>\n"
 "Language-Team: English (United Kingdom) <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-05 05:26+0000\n"
-"X-Generator: Launchpad (build 17995)\n"
+"X-Launchpad-Export-Date: 2016-05-11 05:32+0000\n"
+"X-Generator: Launchpad (build 18025)\n"
 "Language: \n"
 
 #: ../src/Switchboard.vala:45
@@ -40,11 +40,11 @@ msgstr ""
 
 #: ../src/Switchboard.vala:319
 msgid "No Settings Found"
-msgstr ""
+msgstr "No Settings Found"
 
 #: ../src/Switchboard.vala:319
 msgid "Install some and re-launch Switchboard."
-msgstr ""
+msgstr "Install some and re-launch Switchboard."
 
 #: ../src/Switchboard.vala:442
 msgid "Search Settings"
@@ -64,11 +64,11 @@ msgstr "About System Settings"
 
 #: ../src/CategoryView.vala:339
 msgid "No Results for “%s”"
-msgstr ""
+msgstr "No Results for “%s”"
 
 #: ../src/CategoryView.vala:339
 msgid "Try changing search terms."
-msgstr ""
+msgstr "Try changing search terms."
 
 #: ../src/CategoryView.vala:420
 msgid "Personal"
