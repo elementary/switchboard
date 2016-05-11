@@ -145,17 +145,15 @@ namespace Switchboard {
         }
 
         public void activate_first_item () {
-            /*Gtk.TreePath first_path = null;
-
-            if (get_first_visible_path (personal_iconview, out first_path)) {
-                personal_iconview.item_activated (first_path);
-            } else if (get_first_visible_path (hardware_iconview, out first_path)){
-                hardware_iconview.item_activated (first_path);
-            } else if (get_first_visible_path (network_iconview, out first_path)){
-                network_iconview.item_activated (first_path);
-            } else if (get_first_visible_path (system_iconview, out first_path)){
-                system_iconview.item_activated (first_path);
-            }*/
+            if (personal_category.has_child ()) {
+                personal_category.activate_first_child ();
+            } else if (hardware_category.has_child ()) {
+                hardware_category.activate_first_child ();
+            } else if (network_category.has_child ()) {
+                network_category.activate_first_child ();
+            } else if (system_category.has_child ()) {
+                system_category.activate_first_child ();
+            }
         }
 
         private bool get_first_visible_path (Gtk.IconView iv, out Gtk.TreePath path) {

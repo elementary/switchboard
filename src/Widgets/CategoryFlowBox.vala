@@ -55,6 +55,10 @@ namespace Switchboard {
             flowbox.add (widget);
         }
 
+        public void activate_first_child () {
+            flowbox.get_child_at_index (0).activate ();
+        }
+
         public void focus_first_child () {
             flowbox.get_child_at_index (0).grab_focus ();
         }
