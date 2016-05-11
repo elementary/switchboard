@@ -53,6 +53,18 @@ namespace Switchboard {
             flowbox.child_activated.connect ((child) => {
                 ((CategoryIcon) child).launch_plug ();
             });
+
+            flowbox.set_filter_func (plug_filter_func);
+        }
+
+        private bool plug_filter_func (Gtk.FlowBoxChild child) {
+            string filter = SwitchboardApp.instance.search_box.get_text ();
+            string plug_name = ((CategoryIcon) child).plug.display_name;
+            if (plug_name.contains (filter)) {
+                return true;
+            }
+            
+            return false;
         }
 
         public new void add (Gtk.Widget widget) {
@@ -61,6 +73,10 @@ namespace Switchboard {
 
         public void activate_first_child () {
             flowbox.get_child_at_index (0).activate ();
+        }
+
+        public void filter () {
+            flowbox.invalidate_filter ();
         }
 
         public void focus_first_child () {

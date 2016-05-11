@@ -22,10 +22,10 @@ namespace Switchboard {
 
     public class CategoryIcon : Gtk.FlowBoxChild {
 
-        private Switchboard.Plug plug_item;
+        public Switchboard.Plug plug;
 
-        public CategoryIcon (Switchboard.Plug plug) {
-            plug_item = plug;
+        public CategoryIcon (Switchboard.Plug plug_item) {
+            plug = plug_item;
             width_request = 144;
 
             var icon = new Gtk.Image.from_icon_name (plug.icon, Gtk.IconSize.DND);
@@ -49,7 +49,7 @@ namespace Switchboard {
         }
 
         public void launch_plug () {
-            Switchboard.SwitchboardApp.instance.load_plug (plug_item);    
+            Switchboard.SwitchboardApp.instance.load_plug (plug);    
         }
     }
 }

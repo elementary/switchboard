@@ -163,25 +163,26 @@ namespace Switchboard {
         }
 
         public void filter_plugs (string filter) {
+            var any_found = false;
 
-            /*var any_found = false;
-            var model_filter = (Gtk.TreeModelFilter) personal_iconview.get_model ();
-            if (search_by_category (filter, model_filter, personal_grid)) {
+            personal_category.filter ();
+            hardware_category.filter ();
+            network_category.filter ();
+            system_category.filter ();
+
+            if (personal_category.has_child ()) {
                 any_found = true;
             }
 
-            model_filter = (Gtk.TreeModelFilter) hardware_iconview.get_model ();
-            if (search_by_category (filter, model_filter, hardware_grid)) {
+            if (hardware_category.has_child ()) {
                 any_found = true;
             }
 
-            model_filter = (Gtk.TreeModelFilter) network_iconview.get_model ();
-            if (search_by_category (filter, model_filter, network_grid)) {
+            if (network_category.has_child ()) {
                 any_found = true;
             }
 
-            model_filter = (Gtk.TreeModelFilter) system_iconview.get_model ();
-            if (search_by_category (filter, model_filter, system_grid)) {
+            if (system_category.has_child ()) {
                 any_found = true;
             }
 
@@ -190,7 +191,7 @@ namespace Switchboard {
                 app.show_alert (_("No Results for “%s”".printf (filter)), _("Try changing search terms."), "edit-find-symbolic");
             } else {
                 app.hide_alert ();
-            }*/
+            }
         }
 
         private void deep_search (string filter) {
