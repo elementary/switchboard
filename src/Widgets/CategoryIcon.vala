@@ -43,6 +43,10 @@ namespace Switchboard {
             layout.add (plug_name);
 
             add (layout);
+
+            activate.connect (() => {
+                Switchboard.SwitchboardApp.instance.load_plug (plug);    
+            });
         }
     }
 }
