@@ -157,26 +157,18 @@ namespace Switchboard {
 
             if (personal_category.has_child ()) {
                 any_found = true;
-            } else {
-                personal_category.hide ();
             }
 
             if (hardware_category.has_child ()) {
                 any_found = true;
-            } else {
-                hardware_category.hide ();
             }
 
             if (network_category.has_child ()) {
                 any_found = true;
-            } else {
-                network_category.hide ();
             }
 
             if (system_category.has_child ()) {
                 any_found = true;
-            } else {
-                system_category.hide ();
             }
 
             unowned SwitchboardApp app = (SwitchboardApp) GLib.Application.get_default ();

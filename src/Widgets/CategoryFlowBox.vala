@@ -88,10 +88,15 @@ namespace Switchboard {
 
         public bool has_child () {
             if (flowbox.get_child_at_index (0) != null) {
-                return true;
-            } else {
-                return false;
+               foreach (unowned Gtk.Widget child in flowbox.get_children ()) {
+                   if (child.get_child_visible ()) {
+                       show_all ();
+                       return true;
+                   }
+                }
             }
+            hide ();
+            return false;
         }
     }
 }
