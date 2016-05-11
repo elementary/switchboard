@@ -41,13 +41,14 @@ namespace Switchboard {
         private PlugsSearch plug_search;
 
         public CategoryView (string? plug_to_open = null) {
-            this.plug_to_open = plug_to_open;
+            orientation = Gtk.Orientation.VERTICAL;
+            plug_to_open = plug_to_open;
+
             personal_category = new Switchboard.Category (Switchboard.Plug.Category.PERSONAL);
             hardware_category = new Switchboard.Category (Switchboard.Plug.Category.HARDWARE);
             network_category = new Switchboard.Category (Switchboard.Plug.Category.NETWORK);
             system_category = new Switchboard.Category (Switchboard.Plug.Category.SYSTEM);
 
-            orientation = Gtk.Orientation.VERTICAL;
             add (personal_category);
             add (hardware_category);
             add (network_category);
@@ -151,13 +152,13 @@ namespace Switchboard {
                 /*Gtk.TreePath first_path = null;
 
                 if (get_first_visible_path (personal_iconview, out first_path)) {
-                    personal_iconview.grab_focus ();
+                    personal_category.grab_focus ();
                 } else if (get_first_visible_path (hardware_iconview, out first_path)) {
-                    hardware_iconview.grab_focus ();
+                    hardware_category.grab_focus ();
                 } else if (get_first_visible_path (network_iconview, out first_path)) {
-                    network_iconview.grab_focus ();
+                    network_category.grab_focus ();
                 } else if (get_first_visible_path (system_iconview, out first_path)) {
-                    system_iconview.grab_focus ();
+                    system_category.grab_focus ();
                 }*/
         }
 
@@ -288,55 +289,5 @@ namespace Switchboard {
 
             return null;
         }
-
-        /*private Gtk.IconView? get_next_icon_view (Switchboard.Plug.Category category) {
-            if (category == Plug.Category.PERSONAL) {
-                if (hardware_iconview.is_visible ())
-                    return hardware_iconview;
-                else
-                    category = Plug.Category.HARDWARE;
-            }
-
-            if (category == Plug.Category.HARDWARE) {
-                if (network_iconview.is_visible ())
-                    return network_iconview;
-                else
-                    category = Plug.Category.NETWORK;
-            }
-
-            if (category == Plug.Category.NETWORK) {
-                if (system_iconview.is_visible ())
-                    return system_iconview;
-                else
-                    category = Plug.Category.SYSTEM;
-            }
-
-            return null;
-        }*/
-
-        /*private Gtk.IconView? get_prev_icon_view (Switchboard.Plug.Category category) {
-            if (category == Plug.Category.SYSTEM) {
-                if (network_iconview.is_visible ())
-                    return network_iconview;
-                else
-                    category = Plug.Category.NETWORK;
-            }
-
-            if (category == Plug.Category.NETWORK) {
-                if (hardware_iconview.is_visible ())
-                    return hardware_iconview;
-                else
-                    category = Plug.Category.HARDWARE;
-            }
-
-            if (category == Plug.Category.HARDWARE) {
-                if (personal_iconview.is_visible ())
-                    return personal_iconview;
-                else
-                    category = Plug.Category.SYSTEM;
-            }
-
-            return null;
-        }*/
     }
 }
