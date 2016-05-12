@@ -57,13 +57,21 @@ namespace Switchboard {
             flowbox.set_filter_func (plug_filter_func);
         }
 
+        public Gee.ArrayList get_plugs () {
+            var plugs = new Gee.ArrayList<Plug?> ();
+            foreach (unowned Gtk.Widget child in flowbox.get_children ()) {
+                plugs.add (((CategoryIcon) child).plug);
+            }
+            return plugs;
+        }
+
         public new void add (Gtk.Widget widget) {
             flowbox.add (widget);
         }
 
         public void activate_first_child () {
             foreach (unowned Gtk.Widget child in flowbox.get_children ()) {
-                   if (child.get_child_visible ()) {
+                if (child.get_child_visible ()) {
                     child.activate ();
                     return;
                 }
