@@ -41,9 +41,9 @@ namespace Switchboard {
 
         private string? plug_to_open = null;
 
-        public CategoryView (string? plug_to_open = null) {
+        public CategoryView (string? plug = null) {
             orientation = Gtk.Orientation.VERTICAL;
-            plug_to_open = plug_to_open;
+            plug_to_open = plug;
 
             personal_category = new Switchboard.Category (Switchboard.Plug.Category.PERSONAL);
             hardware_category = new Switchboard.Category (Switchboard.Plug.Category.HARDWARE);
@@ -91,19 +91,15 @@ namespace Switchboard {
             switch (plug.category) {
                 case Switchboard.Plug.Category.PERSONAL:
                     personal_category.add (icon);
-                    personal_category.show_all ();
                     break;
                 case Switchboard.Plug.Category.HARDWARE:
                     hardware_category.add (icon);
-                    hardware_category.show_all ();
                     break;
                 case Switchboard.Plug.Category.NETWORK:
                     network_category.add (icon);
-                    network_category.show_all ();
                     break;
                 case Switchboard.Plug.Category.SYSTEM:
                     system_category.add (icon);
-                    system_category.show_all ();
                     break;
                 default:
                     return;
