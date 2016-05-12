@@ -39,7 +39,7 @@ namespace Switchboard {
         private Granite.Widgets.AlertView alert_view;
         private Gtk.ScrolledWindow category_scrolled;
         private Switchboard.NavigationButton navigation_button;
-        private Switchboard.CategoryView category_view;
+        public Switchboard.CategoryView category_view;
 
         private Gee.LinkedList <string> loaded_plugs;
         private string all_settings_label = _("All Settings");

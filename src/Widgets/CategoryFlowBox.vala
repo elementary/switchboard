@@ -102,10 +102,10 @@ namespace Switchboard {
         private bool plug_filter_func (Gtk.FlowBoxChild child) {
             var filter = SwitchboardApp.instance.search_box.get_text ();
             var plug_name = ((CategoryIcon) child).plug.display_name;
-            var plug_search = new PlugsSearch ();
+            var plug_search = SwitchboardApp.instance.category_view.plug_search;
+            var plug_search_result = SwitchboardApp.instance.category_view.plug_search_result;
 
             if (plug_search.ready) {
-                var plug_search_result = new Gee.ArrayList<SearchEntry?> ();
                 plug_search_result.clear ();
 
                 foreach (var tmp in plug_search.search_entries) {

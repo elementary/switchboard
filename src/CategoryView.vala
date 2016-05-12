@@ -24,13 +24,14 @@ namespace Switchboard {
     public class CategoryView : Gtk.Grid {
         public signal void plug_selected (Switchboard.Plug plug);
 
-        public Gee.ArrayList<SearchEntry?> plug_search_result;
+        public Gee.ArrayList <SearchEntry?> plug_search_result;
         public Switchboard.Category personal_category;
         public Switchboard.Category hardware_category;
         public Switchboard.Category network_category;
         public Switchboard.Category system_category;
 
         private string? plug_to_open = null;
+        public PlugsSearch plug_search;
 
         public CategoryView (string? plug = null) {
             orientation = Gtk.Orientation.VERTICAL;
@@ -40,6 +41,9 @@ namespace Switchboard {
             hardware_category = new Switchboard.Category (Switchboard.Plug.Category.HARDWARE);
             network_category = new Switchboard.Category (Switchboard.Plug.Category.NETWORK);
             system_category = new Switchboard.Category (Switchboard.Plug.Category.SYSTEM);
+
+            plug_search = new PlugsSearch ();
+            plug_search_result = new Gee.ArrayList<SearchEntry?> ();
 
             add (personal_category);
             add (hardware_category);
