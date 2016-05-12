@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2011-2016 elementary LLC (http://launchpad.net/switchboard)
+* Copyright (c) 2016 elementary LLC (http://launchpad.net/switchboard)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
