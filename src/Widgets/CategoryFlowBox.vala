@@ -55,6 +55,7 @@ namespace Switchboard {
             });
 
             flowbox.set_filter_func (plug_filter_func);
+            flowbox.set_sort_func (plug_sort_func);
         }
 
         public Gee.ArrayList get_plugs () {
@@ -126,6 +127,13 @@ namespace Switchboard {
             }
             
             return false;
+        }
+
+        private int plug_sort_func (Gtk.FlowBoxChild child_a, Gtk.FlowBoxChild child_b) {
+            var plug_name_a = ((CategoryIcon) child_a).plug.display_name;
+            var plug_name_b = ((CategoryIcon) child_b).plug.display_name;
+
+            return strcmp (plug_name_a, plug_name_b);
         }
     }
 }
