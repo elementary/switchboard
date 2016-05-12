@@ -22,9 +22,9 @@
 namespace Switchboard {
 
     public class CategoryView : Gtk.Grid {
-
         public signal void plug_selected (Switchboard.Plug plug);
 
+        public Gee.ArrayList<SearchEntry?> plug_search_result;
         public Switchboard.Category personal_category;
         public Switchboard.Category hardware_category;
         public Switchboard.Category network_category;
