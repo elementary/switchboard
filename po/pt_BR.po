@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-04 02:30-0500\n"
-"PO-Revision-Date: 2016-05-10 15:24+0000\n"
-"Last-Translator: douglaseccker <douglaseccker@hotmail.com>\n"
+"PO-Revision-Date: 2016-05-11 13:43+0000\n"
+"Last-Translator: Leonardo Lemos <Unknown>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-11 05:32+0000\n"
+"X-Launchpad-Export-Date: 2016-05-12 05:26+0000\n"
 "X-Generator: Launchpad (build 18025)\n"
 "Language: pt_BR\n"
 
@@ -48,7 +48,7 @@ msgstr "Nenhuma configuração encontrada"
 
 #: ../src/Switchboard.vala:319
 msgid "Install some and re-launch Switchboard."
-msgstr ""
+msgstr "Instale algum e reabra o Switchboard."
 
 #: ../src/Switchboard.vala:442
 msgid "Search Settings"
