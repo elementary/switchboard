@@ -23,15 +23,6 @@ namespace Switchboard {
 
     public class CategoryView : Gtk.Grid {
 
-        public enum Columns {
-            ICON,
-            TEXT,
-            DESCRIPTION,
-            VISIBLE,
-            PLUG,
-            N_COLUMNS
-        }
-
         public signal void plug_selected (Switchboard.Plug plug);
 
         public Switchboard.Category personal_category;
