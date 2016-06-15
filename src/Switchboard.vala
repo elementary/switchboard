@@ -63,7 +63,7 @@ namespace Switchboard {
             Gdk.Key.Return
         };
 
-        static const OptionEntry[] entries = {
+        const OptionEntry[] entries = {
             { "open-plug", 'o', 0, OptionArg.STRING, ref plug_to_open, N_("Open a plug"), "PLUG_NAME" },
             { null }
         };
