@@ -204,7 +204,10 @@ namespace Switchboard {
                     return false;
                 });
 
-                previous_plugs.add (plug);
+                if ((previous_plugs.size > 0 && previous_plugs.@get (0) != plug) || previous_plugs.size == 0) {
+                    previous_plugs.add (plug);
+                }
+
                 // Launch plug's executable
                 navigation_button.set_sensitive (true);
                 navigation_button.set_text (all_settings_label);
