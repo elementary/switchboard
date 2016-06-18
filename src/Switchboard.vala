@@ -204,7 +204,7 @@ namespace Switchboard {
                     return false;
                 });
 
-                if ((previous_plugs.size > 0 && previous_plugs.@get (0) != plug) || previous_plugs.size == 0) {
+                if (previous_plugs.size == 0 || previous_plugs.@get (0) != plug) {
                     previous_plugs.add (plug);
                 }
 
