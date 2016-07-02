@@ -39,7 +39,7 @@ namespace Switchboard {
         private Granite.Widgets.AlertView alert_view;
         private Gtk.ScrolledWindow category_scrolled;
         private Switchboard.NavigationButton navigation_button;
-        private Switchboard.CategoryView category_view;
+        public Switchboard.CategoryView category_view;
 
         private Gee.LinkedList <string> loaded_plugs;
         private string all_settings_label = _("All Settings");
@@ -313,9 +313,9 @@ namespace Switchboard {
             navigation_button.hide ();
 
             main_window.size_allocate.connect (() => {
-                if (opened_directly)
+                if (opened_directly) {
                     search_box.sensitive = false;
-                category_view.recalculate_columns ();
+                }
             });
 
             if (Switchboard.PlugsManager.get_default ().has_plugs () == false) {
@@ -507,31 +507,27 @@ namespace Switchboard {
             var category_item = new Dbusmenu.Menuitem ();
             category_item.property_set (Dbusmenu.MENUITEM_PROP_LABEL, CategoryView.get_category_name (category));
 
-            Gtk.TreeModelFilter model_filter;
+            var plugs = new Gee.ArrayList<Plug?> ();
             switch (category) {
                 case Switchboard.Plug.Category.PERSONAL:
-                    model_filter = (Gtk.TreeModelFilter)category_view.personal_iconview.get_model ();
+                    plugs = category_view.personal_category.get_plugs ();
                     break;
                 case Switchboard.Plug.Category.HARDWARE:
-                    model_filter = (Gtk.TreeModelFilter)category_view.hardware_iconview.get_model ();
+                    plugs = category_view.hardware_category.get_plugs ();
                     break;
                 case Switchboard.Plug.Category.NETWORK:
-                    model_filter = (Gtk.TreeModelFilter)category_view.network_iconview.get_model ();
+                    plugs = category_view.network_category.get_plugs ();
                     break;
                 case Switchboard.Plug.Category.SYSTEM:
-                    model_filter = (Gtk.TreeModelFilter)category_view.system_iconview.get_model ();
+                    plugs = category_view.system_category.get_plugs ();
                     break;
                 default:
                     return null;
             }
 
-            var category_store = model_filter.child_model as Gtk.ListStore;
             bool empty = true;
 
-            category_store.foreach ((model, path, iter) => {
-                Switchboard.Plug plug;
-                category_store.get (iter, CategoryView.Columns.PLUG, out plug);
-
+            foreach (var plug in plugs) {
                 var item = new Dbusmenu.Menuitem ();
                 item.property_set (Dbusmenu.MENUITEM_PROP_LABEL, plug.display_name);
 
@@ -544,9 +540,7 @@ namespace Switchboard {
                 // Add item to correct category
                 category_item.child_append (item);
                 empty = false;
-
-                return false;
-            });
+            }
 
             return (empty ? null : category_item);
         }

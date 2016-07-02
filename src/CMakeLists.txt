@@ -3,6 +3,8 @@ set(CLIENT_SOURCE
     CategoryView.vala
     PlugsSearch.vala
     NavigationButton.vala
+    Widgets/CategoryFlowBox.vala
+    Widgets/CategoryIcon.vala
 )
 
 vala_precompile (CLIENT_VALA_C ${CMAKE_PROJECT_NAME}
