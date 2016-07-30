@@ -71,7 +71,7 @@ namespace Switchboard {
         construct {
             application_id = "org.elementary.switchboard";
             program_name = _("System Settings");
-            app_years = "2011-2014";
+            app_years = "2011-2016";
             exec_name = "switchboard";
             app_launcher = exec_name+".desktop";
             flags |= ApplicationFlags.HANDLES_COMMAND_LINE;
