@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-04 02:30-0500\n"
-"PO-Revision-Date: 2016-07-26 12:31+0000\n"
+"PO-Revision-Date: 2016-07-29 09:26+0000\n"
 "Last-Translator: Mikael Nyberg <mikanybe@gmail.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-07-27 06:07+0000\n"
-"X-Generator: Launchpad (build 18153)\n"
+"X-Launchpad-Export-Date: 2016-07-30 05:52+0000\n"
+"X-Generator: Launchpad (build 18169)\n"
 "Language: sv\n"
 
 #: ../src/Switchboard.vala:45
@@ -86,7 +86,7 @@ msgstr "Hårdvara"
 
 #: ../src/CategoryView.vala:424
 msgid "Network & Wireless"
-msgstr "Nätverk & trådlöst"
+msgstr "Nätverk och trådlöst"
 
 #: ../src/CategoryView.vala:426
 msgid "Administration"
