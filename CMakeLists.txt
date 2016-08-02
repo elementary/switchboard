@@ -67,8 +67,12 @@ add_custom_target (uninstall "${CMAKE_COMMAND}" -P
 
 #
 
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/${CMAKE_PROJECT_NAME}.desktop DESTINATION ${DATADIR}/applications)
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/${CMAKE_PROJECT_NAME}.appdata.xml DESTINATION ${DATADIR}/appdata)
+include (Translations)
+configure_file_translation(${CMAKE_SOURCE_DIR}/data/${CMAKE_PROJECT_NAME}.desktop.in ${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.desktop ${CMAKE_SOURCE_DIR}/po/)
+configure_file_translation(${CMAKE_SOURCE_DIR}/data/${CMAKE_PROJECT_NAME}.appdata.xml.in ${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.appdata.xml ${CMAKE_SOURCE_DIR}/po/)
+
+install(FILES ${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.desktop DESTINATION ${DATADIR}/applications)
+install(FILES ${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.appdata.xml DESTINATION ${DATADIR}/appdata)
 
 add_subdirectory(po)
 

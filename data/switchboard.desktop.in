@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
-Name=System Settings
-Comment=Change system and user settings
+_Name=System Settings
+_Comment=Change system and user settings
 Exec=switchboard
 Icon=preferences-desktop
 Terminal=false
@@ -13,4 +13,4 @@ Actions=AboutDialog;
 
 [Desktop Action AboutDialog]
 Exec=switchboard --about
-Name=About System Settings
+_Name=About System Settings
