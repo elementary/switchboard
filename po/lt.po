@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-05-04 02:30-0500\n"
-"PO-Revision-Date: 2016-05-05 15:01+0000\n"
-"Last-Translator: Avi Romanoff <Unknown>\n"
+"PO-Revision-Date: 2016-08-01 22:05+0000\n"
+"Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <lt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-06 04:44+0000\n"
-"X-Generator: Launchpad (build 17995)\n"
+"X-Launchpad-Export-Date: 2016-08-02 05:27+0000\n"
+"X-Generator: Launchpad (build 18169)\n"
 
 #: ../src/Switchboard.vala:45
 msgid "All Settings"
@@ -35,11 +35,12 @@ msgstr ""
 "Launchpad Contributions:\n"
 "  Avi Romanoff https://launchpad.net/~aroman\n"
 "  Erikas https://launchpad.net/~erikasras\n"
-"  Mantas Kriaučiūnas https://launchpad.net/~mantas"
+"  Mantas Kriaučiūnas https://launchpad.net/~mantas\n"
+"  Moo https://launchpad.net/~mooo"
 
 #: ../src/Switchboard.vala:319
 msgid "No Settings Found"
-msgstr ""
+msgstr "Nustatymų nerasta"
 
 #: ../src/Switchboard.vala:319
 msgid "Install some and re-launch Switchboard."
@@ -51,11 +52,11 @@ msgstr "Ieškoti nustatymuose"
 
 #: ../src/Switchboard.vala:585
 msgid "Change system and user settings"
-msgstr "Keisti sistemos ar naudotojo nustatymus"
+msgstr "Keisti sistemos ir naudotojo nustatymus"
 
 #: ../src/Switchboard.vala:586
 msgid "Center;Control;Panel;Preferences;System;"
-msgstr "Centras;Kontrolė;Skydelis;Nustatymai;Nuostatos;Sistema;"
+msgstr "Centras;Valdymas;Skydelis;Nustatymai;Nuostatos;Sistema;"
 
 #: ../src/Switchboard.vala:587
 msgid "About System Settings"
@@ -63,11 +64,11 @@ msgstr "Apie sistemos nustatymus"
 
 #: ../src/CategoryView.vala:339
 msgid "No Results for “%s”"
-msgstr ""
+msgstr "“%s” negrąžino jokių rezultatų"
 
 #: ../src/CategoryView.vala:339
 msgid "Try changing search terms."
-msgstr ""
+msgstr "Pabandykite pakeisti paieškos žodžius."
 
 #: ../src/CategoryView.vala:420
 msgid "Personal"
@@ -75,11 +76,11 @@ msgstr "Asmeniniai"
 
 #: ../src/CategoryView.vala:422
 msgid "Hardware"
-msgstr "Įrenginiai"
+msgstr "Aparatinė įranga"
 
 #: ../src/CategoryView.vala:424
 msgid "Network & Wireless"
-msgstr ""
+msgstr "Tinklas ir bevielis ryšys"
 
 #: ../src/CategoryView.vala:426
 msgid "Administration"
