@@ -68,7 +68,10 @@ add_custom_target (uninstall "${CMAKE_COMMAND}" -P
 #
 
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/${CMAKE_PROJECT_NAME}.desktop DESTINATION ${DATADIR}/applications)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/${CMAKE_PROJECT_NAME}.appdata.xml DESTINATION ${DATADIR}/appdata)
+
 add_subdirectory(po)
+
 #
 
 # Switchboard
