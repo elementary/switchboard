@@ -7,15 +7,39 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-05-04 02:30-0500\n"
+"POT-Creation-Date: 2016-08-02 11:13-0700\n"
 "PO-Revision-Date: 2016-05-29 14:33+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-30 05:21+0000\n"
-"X-Generator: Launchpad (build 18053)\n"
+"X-Launchpad-Export-Date: 2016-08-03 05:26+0000\n"
+"X-Generator: Launchpad (build 18169)\n"
+
+#: ../src/CategoryView.vala:167
+msgid "No Results for “%s”"
+msgstr "“%s”에 대한 검색 결과가 없습니다"
+
+#: ../src/CategoryView.vala:167
+msgid "Try changing search terms."
+msgstr "검색어를 바꿔보세요."
+
+#: ../src/CategoryView.vala:176
+msgid "Personal"
+msgstr "사용자 설정"
+
+#: ../src/CategoryView.vala:178
+msgid "Hardware"
+msgstr "하드웨어"
+
+#: ../src/CategoryView.vala:180
+msgid "Network & Wireless"
+msgstr "네트워크 & 무선 연결"
+
+#: ../src/CategoryView.vala:182
+msgid "Administration"
+msgstr "관리"
 
 #: ../src/Switchboard.vala:45
 msgid "All Settings"
@@ -40,53 +64,29 @@ msgstr ""
 "  Youngbin Han https://launchpad.net/~sukso96100\n"
 "  강민석 https://launchpad.net/~linuxlovemin"
 
-#: ../src/Switchboard.vala:319
+#: ../src/Switchboard.vala:322
 msgid "No Settings Found"
 msgstr "설정 값이 없습니다"
 
-#: ../src/Switchboard.vala:319
+#: ../src/Switchboard.vala:322
 msgid "Install some and re-launch Switchboard."
 msgstr "설치 후 스위치보드 다시 실행."
 
-#: ../src/Switchboard.vala:442
+#: ../src/Switchboard.vala:445
 msgid "Search Settings"
 msgstr "검색 설정"
 
-#: ../src/Switchboard.vala:585
+#: ../src/Switchboard.vala:582
 msgid "Change system and user settings"
 msgstr "시스템, 사용자 설정 변경"
 
-#: ../src/Switchboard.vala:586
+#: ../src/Switchboard.vala:583
 msgid "Center;Control;Panel;Preferences;System;"
 msgstr "중앙;제어;패널;설정;시스템;"
 
-#: ../src/Switchboard.vala:587
+#: ../src/Switchboard.vala:584
 msgid "About System Settings"
 msgstr "시스템 설정 소개"
-
-#: ../src/CategoryView.vala:339
-msgid "No Results for “%s”"
-msgstr "“%s”에 대한 검색 결과가 없습니다"
-
-#: ../src/CategoryView.vala:339
-msgid "Try changing search terms."
-msgstr "검색어를 바꿔보세요."
-
-#: ../src/CategoryView.vala:420
-msgid "Personal"
-msgstr "사용자 설정"
-
-#: ../src/CategoryView.vala:422
-msgid "Hardware"
-msgstr "하드웨어"
-
-#: ../src/CategoryView.vala:424
-msgid "Network & Wireless"
-msgstr "네트워크 & 무선 연결"
-
-#: ../src/CategoryView.vala:426
-msgid "Administration"
-msgstr "관리"
 
 #~ msgid "Network and Wireless"
 #~ msgstr "무선 및 네트워크"
