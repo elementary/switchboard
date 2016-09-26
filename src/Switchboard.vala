@@ -53,6 +53,7 @@ namespace Switchboard {
         private int default_height = 0;
 
         private static string? plug_to_open = null;
+        private static string? open_window  = null;
         private static bool opened_directly = false;
         private static bool should_animate_next_transition = true;
         private const uint[] NAVIGATION_KEYS = {
@@ -118,7 +119,13 @@ namespace Switchboard {
 
                 // we have an unparsed argument. Assume that it's a gcc plug name
                 if (tmp.length > 1) {
-                    plug_to_open = gcc_to_switchboard_code_name (tmp[1]);
+                    if (":" in tmp[1]) {
+                        var parts = tmp[1].split (":");
+                        plug_to_open = gcc_to_switchboard_code_name (parts[0]);
+                        open_window  = parts[1];
+                    } else {
+                        plug_to_open = gcc_to_switchboard_code_name (tmp[1]);
+                    }
                 }
             } catch (Error e) {
                 warning (e.message);
@@ -214,6 +221,12 @@ namespace Switchboard {
                 navigation_button.show ();
                 headerbar.title = plug.display_name;
                 current_plug = plug;
+
+                // open window was set by command line argument
+                if (open_window != null) {
+                    plug.search_callback (open_window); 
+                    open_window = null;
+                }
 
                 switch_to_plug (plug);
                 return false;
