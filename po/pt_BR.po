@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-03 05:27+0000\n"
-"X-Generator: Launchpad (build 18169)\n"
+"X-Launchpad-Export-Date: 2016-10-18 05:58+0000\n"
+"X-Generator: Launchpad (build 18232)\n"
 "Language: pt_BR\n"
 
 #: ../src/CategoryView.vala:167
@@ -59,11 +59,11 @@ msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  Avi Romanoff https://launchpad.net/~aroman\n"
+"  Belenos https://launchpad.net/~belenos\n"
 "  DavyS https://launchpad.net/~davysson\n"
 "  Leonardo Lemos https://launchpad.net/~leonardolemos\n"
 "  Matheus Macabu https://launchpad.net/~mkbu\n"
 "  Murilo Venturoso https://launchpad.net/~muriloventuroso\n"
-"  Rafael Belenos Govannon https://launchpad.net/~belenos\n"
 "  douglaseccker https://launchpad.net/~douglaseccker"
 
 #: ../src/Switchboard.vala:322
