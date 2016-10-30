@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-02 11:13-0700\n"
+"POT-Creation-Date: 2016-10-30 15:50+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,6 +21,9 @@ msgid "System Settings"
 msgstr ""
 
 msgid "Change system and user settings"
+msgstr ""
+
+msgid "Center;Control;Panel;Preferences;System;"
 msgstr ""
 
 msgid "About System Settings"
