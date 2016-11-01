@@ -1,5 +1,77 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-08-02 11:13-0700\n"
+"PO-Revision-Date: 2016-11-01 03:29+0000\n"
+"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2016-11-01 05:36+0000\n"
+"X-Generator: Launchpad (build 18246)\n"
+
+#: ../src/CategoryView.vala:167
+msgid "No Results for “%s”"
+msgstr ""
+
+#: ../src/CategoryView.vala:167
+msgid "Try changing search terms."
+msgstr ""
+
+#: ../src/CategoryView.vala:176
+msgid "Personal"
+msgstr ""
+
+#: ../src/CategoryView.vala:178
+msgid "Hardware"
+msgstr ""
+
+#: ../src/CategoryView.vala:180
+msgid "Network & Wireless"
+msgstr ""
+
+#: ../src/CategoryView.vala:182
+msgid "Administration"
+msgstr ""
+
+#: ../src/Switchboard.vala:45
+msgid "All Settings"
+msgstr ""
+
+#: ../src/Switchboard.vala:67
+msgid "Open a plug"
+msgstr ""
+
+#: ../src/Switchboard.vala:73
+msgid "System Settings"
+msgstr ""
+
+#: ../src/Switchboard.vala:86
+msgid "translator-credits"
+msgstr ""
+
+#: ../src/Switchboard.vala:322
+msgid "No Settings Found"
+msgstr ""
+
+#: ../src/Switchboard.vala:322
+msgid "Install some and re-launch Switchboard."
+msgstr ""
+
+#: ../src/Switchboard.vala:445
+msgid "Search Settings"
+msgstr ""
+
+#: ../src/Switchboard.vala:582
+msgid "Change system and user settings"
+msgstr ""
+
+#: ../src/Switchboard.vala:583
+msgid "Center;Control;Panel;Preferences;System;"
+msgstr ""
+
+#: ../src/Switchboard.vala:584
+msgid "About System Settings"
+msgstr ""
