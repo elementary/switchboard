@@ -54,6 +54,7 @@ namespace Switchboard {
 
         private static string? plug_to_open = null;
         private static string? open_window  = null;
+        private static string? link  = null;
         private static bool opened_directly = false;
         private static bool should_animate_next_transition = true;
         private const uint[] NAVIGATION_KEYS = {
@@ -62,11 +63,6 @@ namespace Switchboard {
             Gdk.Key.Left,
             Gdk.Key.Right,
             Gdk.Key.Return
-        };
-
-        const OptionEntry[] entries = {
-            { "open-plug", 'o', 0, OptionArg.STRING, ref plug_to_open, N_("Open a plug"), "PLUG_NAME" },
-            { null }
         };
 
         construct {
@@ -114,16 +110,11 @@ namespace Switchboard {
             }
 
             if (file.get_uri_scheme () == "settings") {
-                var link = file.get_uri ().replace ("settings://", "");
+                link = file.get_uri ().replace ("settings://", "");
                 if (link.has_suffix ("/")) {
                     link = link.substring (0, link.last_index_of_char ('/'));
                 }
 
-                var setting = new Settings ("org.pantheon.switchboard.preferences");
-                var mapping_dic = setting.get_value ("mapping");
-                if (!mapping_dic.lookup (link, "(ss)", ref plug_to_open, ref open_window)) {
-                    warning (_("Specified link '%s' does not exist, going back to the main panel").printf (link));
-                }
             } else {
                 warning ("Calling Switchboard directly is deprecated, please use the settings:// scheme instead");
                 var name = file.get_basename ();
@@ -140,19 +131,43 @@ namespace Switchboard {
         }
 
         public override void activate () {
-            if (plug_to_open != null) {
-                var plugsmanager = Switchboard.PlugsManager.get_default ();
+            var plugsmanager = Switchboard.PlugsManager.get_default ();
+            var setting = new Settings ("org.pantheon.switchboard.preferences");
+            var mapping_dic = setting.get_value ("mapping-override");
+            if (link != null && !mapping_dic.lookup (link, "(ss)", ref plug_to_open, ref open_window)) {
+                bool plug_found = false;
                 foreach (var plug in plugsmanager.get_plugs ()) {
-                    if (plug_to_open.has_suffix (plug.code_name)) {
+                    if (plug.supported_settings == null)
+                        continue;
+
+                    if (plug.supported_settings.has_key (link)) {
                         load_plug (plug);
-                        plug_to_open = null;
+                        open_window = plug.supported_settings.get (link);
+                        link = null;
+
+                        // If plug_to_open was set from the command line
+                        should_animate_next_transition = false;
+                        opened_directly = true;
+                        plug_found = true;
                         break;
                     }
                 }
 
-                // If plug_to_open was set from the command line
-                should_animate_next_transition = false;
-                opened_directly = true;
+                if (!plug_found) {
+                    warning (_("Specified link '%s' does not exist, going back to the main panel").printf (link));
+                }
+            } else if (plug_to_open != null) {
+                foreach (var plug in plugsmanager.get_plugs ()) {
+                    if (plug_to_open.has_suffix (plug.code_name)) {
+                        load_plug (plug);
+                        plug_to_open = null;
+
+                        // If plug_to_open was set from the command line
+                        should_animate_next_transition = false;
+                        opened_directly = true;
+                        break;
+                    }
+                }
             }
 
             // If app is already running, present the current window.

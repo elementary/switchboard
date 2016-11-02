@@ -27,10 +27,10 @@
 		</key>
 	</schema>
 	<schema path="/org/pantheon/switchboard/preferences/" id="org.pantheon.switchboard.preferences">
-		<key name="mapping" type="a{s(ss)}">
-			<default>{'wallpaper': ('pantheon-desktop',''), 'display': ('system-pantheon-display',''), 'display/color': ('hardware-gcc-color',''), 'language': ('system-pantheon-locale',''), 'sound': ('hardware-gcc-sound',''), 'power': ('system-pantheon-power',''), 'input': ('hardware-pantheon-keyboard',''), 'input/mouse': ('pantheon-mouse-touchpad',''), 'input/touch': ('pantheon-mouse-touchpad',''), 'input/keyboard': ('hardware-pantheon-keyboard',''), 'input/wacom': ('hardware-gcc-wacom',''), 'printer': ('pantheon-printers',''), 'network': ('pantheon-network',''), 'network/share': ('pantheon-sharing',''), 'network/bluetooth': ('network-gcc-bluetooth',''), 'accounts': ('system-pantheon-useraccounts',''), 'accounts/online': ('network-pantheon-online-accounts',''), 'time': ('system-pantheon-datetime',''), 'date': ('system-pantheon-datetime',''), 'universal-access': ('system-gcc-universalaccess',''), 'notifications': ('personal-pantheon-notifications',''), 'security': ('pantheon-security-privacy',''), 'security/privacy': ('pantheon-security-privacy',''), 'security/firewall': ('pantheon-security-privacy','')}</default>
-			<summary>Mapping a command with a plug</summary>
-			<description>Contains a dictionary of path and two strings: the plug name and an argument</description>
+		<key name="mapping-override" type="a{s(ss)}">
+			<default>{}</default>
+			<summary>Override (and extends) the default mapping with plugs</summary>
+			<description>Contains a dictionary of path and two strings: the plug name and an argument. For example {'wallpaper': ('foo-desktop','wallpaper'), 'display': ('bar-display','')}</description>
 		</key>
 	</schema>
 </schemalist>

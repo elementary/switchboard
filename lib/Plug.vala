@@ -19,7 +19,6 @@
  */
 
 public abstract class Switchboard.Plug : GLib.Object {
-    
     public enum Category {
         PERSONAL = 0,
         HARDWARE = 1,
@@ -64,9 +63,16 @@ public abstract class Switchboard.Plug : GLib.Object {
     public string icon { get; construct; }
     
     /**
+     * A map of settings:// endpoints and location to pass to the
+     * {@link search_callback} method if the value is not %NULL.
+     * For example {"input/keyboard", "keyboard"}.
+     */
+    public Gee.TreeMap<string, string?> supported_settings { get; construct; default = new Gee.TreeMap<string, string?> (null, null); }
+    
+    /**
      * Inform if the plug should be shown or not
      */
-    public bool can_show { get; set; default=true;}
+    public bool can_show { get; set; default=true; }
     
     /**
      * Inform the application that the plug can now be listed in the available plugs

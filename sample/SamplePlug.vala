@@ -19,23 +19,26 @@
  */
 
 public class Sample.Plug : Switchboard.Plug {
-
     private Gtk.Grid main_grid;
+    private Gtk.Label hello_label;
 
     public Plug () {
         Object (category: Category.SYSTEM,
                 code_name: "sample-plug",
                 display_name: _("Sample Plug"),
                 description:_("Does nothing, but it is cool !"),
-                icon: "system-run");
+                icon: "system-run",
+                supported_settings: new Gee.TreeMap<string, string?> (null, null));
+        supported_settings.set ("wallpaper", null);
     }
-    
+
     public override Gtk.Widget get_widget () {
         if (main_grid == null) {
             main_grid = new Gtk.Grid ();
-            var hello_label = new Gtk.Label ("Hello World!");
+            hello_label = new Gtk.Label ("Hello World!");
             main_grid.attach (hello_label, 0, 0, 1, 1);
         }
+
         main_grid.show_all ();
         return main_grid;
     }
@@ -49,7 +52,7 @@ public class Sample.Plug : Switchboard.Plug {
     }
     
     public override void search_callback (string location) {
-    
+        hello_label.label = "Callback : %s".printf (location);
     }
     
     // 'search' returns results like ("Keyboard → Behavior → Duration", "keyboard<sep>behavior")
