@@ -54,6 +54,7 @@ namespace Switchboard {
 
         private static string? plug_to_open = null;
         private static string? open_window  = null;
+        private static string? link  = null;
         private static bool opened_directly = false;
         private static bool should_animate_next_transition = true;
         private const uint[] NAVIGATION_KEYS = {
@@ -64,18 +65,13 @@ namespace Switchboard {
             Gdk.Key.Return
         };
 
-        const OptionEntry[] entries = {
-            { "open-plug", 'o', 0, OptionArg.STRING, ref plug_to_open, N_("Open a plug"), "PLUG_NAME" },
-            { null }
-        };
-
         construct {
             application_id = "org.elementary.switchboard";
             program_name = _("System Settings");
             app_years = "2011-2016";
             exec_name = "switchboard";
             app_launcher = exec_name+".desktop";
-            flags |= ApplicationFlags.HANDLES_COMMAND_LINE;
+            flags |= ApplicationFlags.HANDLES_OPEN;
 
             build_version = "2.0";
             app_icon = "preferences-desktop";
@@ -85,13 +81,21 @@ namespace Switchboard {
             translate_url = "https://translations.launchpad.net/switchboard";
             about_authors = {"Avi Romanoff <avi@elementaryos.org>", "Corentin Noël <tintou@mailoo.org>", null};
             about_translators = _("translator-credits");
-    
             about_license_type = Gtk.License.GPL_3_0;
+
+            if (GLib.AppInfo.get_default_for_uri_scheme ("settings") == null) {
+                var appinfo = new GLib.DesktopAppInfo (app_launcher);
+                try {
+                    appinfo.set_as_default_for_type ("x-scheme-handler/settings");
+                } catch (Error e) {
+                    critical ("Unable to set default for the settings scheme: %s", e.message);
+                }
+            }
         }
 
         public static SwitchboardApp _instance = null;
 
-        public static SwitchboardApp instance {
+        public static unowned SwitchboardApp instance {
             get {
                 if (_instance == null)
                     _instance = new SwitchboardApp ();
@@ -99,74 +103,85 @@ namespace Switchboard {
             }
         }
 
-        public override int command_line (ApplicationCommandLine command_line) {
-            hold ();
-            int res = _command_line (command_line);
-            release ();
-            return res;
-        }
-
-        private int _command_line (ApplicationCommandLine command_line) {
-            var context = new OptionContext ("");
-            context.add_main_entries (entries, "switchboard ");
-            context.add_group (Gtk.get_option_group (true));
-
-            string[] args = command_line.get_arguments ();
-
-            try {
-                unowned string[] tmp = args;
-                context.parse (ref tmp);
-
-                // we have an unparsed argument. Assume that it's a gcc plug name
-                if (tmp.length > 1) {
-                    if (":" in tmp[1]) {
-                        var parts = tmp[1].split (":");
-                        plug_to_open = gcc_to_switchboard_code_name (parts[0]);
-                        open_window  = parts[1];
-                    } else {
-                        plug_to_open = gcc_to_switchboard_code_name (tmp[1]);
-                    }
-                }
-            } catch (Error e) {
-                warning (e.message);
-                return 0;
+        public override void open (File[] files, string hint) {
+            var file = files[0];
+            if (file == null) {
+                return;
             }
 
-            if (DEBUG)
-                Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.DEBUG;
-            else
-                Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.INFO;
+            if (file.get_uri_scheme () == "settings") {
+                link = file.get_uri ().replace ("settings://", "");
+                if (link.has_suffix ("/")) {
+                    link = link.substring (0, link.last_index_of_char ('/'));
+                }
 
-            if (plug_to_open != null) {
-                var plugsmanager = Switchboard.PlugsManager.get_default ();
+            } else {
+                warning ("Calling Switchboard directly is deprecated, please use the settings:// scheme instead");
+                var name = file.get_basename ();
+                if (":" in name) {
+                    var parts = name.split (":");
+                    plug_to_open = gcc_to_switchboard_code_name (parts[0]);
+                    open_window  = parts[1];
+                } else {
+                    plug_to_open = gcc_to_switchboard_code_name (name);
+                }
+            }
+
+            activate ();
+        }
+
+        public override void activate () {
+            var plugsmanager = Switchboard.PlugsManager.get_default ();
+            var setting = new Settings ("org.pantheon.switchboard.preferences");
+            var mapping_dic = setting.get_value ("mapping-override");
+            if (link != null && !mapping_dic.lookup (link, "(ss)", ref plug_to_open, ref open_window)) {
+                bool plug_found = false;
                 foreach (var plug in plugsmanager.get_plugs ()) {
-                    if (plug_to_open.has_suffix (plug.code_name)) {
+                    if (plug.supported_settings == null)
+                        continue;
+
+                    if (plug.supported_settings.has_key (link)) {
                         load_plug (plug);
-                        plug_to_open = null;
+                        open_window = plug.supported_settings.get (link);
+                        link = null;
+
+                        // If plug_to_open was set from the command line
+                        should_animate_next_transition = false;
+                        opened_directly = true;
+                        plug_found = true;
                         break;
                     }
                 }
 
-                // If plug_to_open was set from the command line
-                should_animate_next_transition = false;
-                opened_directly = true;
+                if (!plug_found) {
+                    warning (_("Specified link '%s' does not exist, going back to the main panel").printf (link));
+                }
+            } else if (plug_to_open != null) {
+                foreach (var plug in plugsmanager.get_plugs ()) {
+                    if (plug_to_open.has_suffix (plug.code_name)) {
+                        load_plug (plug);
+                        plug_to_open = null;
+
+                        // If plug_to_open was set from the command line
+                        should_animate_next_transition = false;
+                        opened_directly = true;
+                        break;
+                    }
+                }
             }
 
             // If app is already running, present the current window.
-            if (get_windows () != null) {
+            if (get_windows ().length () > 0) {
                 get_windows ().data.present ();
-                return 1;
+                return;
             }
 
             loaded_plugs = new Gee.LinkedList <string> ();
             previous_plugs = new Gee.ArrayList <Switchboard.Plug> ();
-            Switchboard.PlugsManager.get_default ();
             settings = new GLib.Settings ("org.pantheon.switchboard.saved-state");
             build ();
             category_view.load_default_plugs.begin ();
             Gtk.main ();
-
-            return 0;
         }
 
         public void hide_alert () {
@@ -590,10 +605,4 @@ namespace Switchboard {
         }
     }
 }
-
-#if TRANSLATION
-_("Change system and user settings");
-_("Center;Control;Panel;Preferences;System;");
-_("About System Settings");
-#endif
 

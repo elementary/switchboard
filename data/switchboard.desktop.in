@@ -2,13 +2,13 @@
 Type=Application
 _Name=System Settings
 _Comment=Change system and user settings
-Exec=switchboard
+Exec=switchboard %u
 Icon=preferences-desktop
 Terminal=false
+StartupNotify=true
 Categories=GNOME;GTK;System;
-X-GNOME-Keywords=Center;Control;Panel;Preferences;System;
-X-AppInstall-Keywords=Center;Control;Panel;Preferences;System;
-X-GNOME-Gettext-Domain=switchboard
+_Keywords=Center;Control;Panel;Preferences;System;
+MimeType=x-scheme-handler/settings;
 Actions=AboutDialog;
 
 [Desktop Action AboutDialog]

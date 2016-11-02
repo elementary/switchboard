@@ -4,7 +4,7 @@
 		<value nick="Normal" value="0" />
 		<value nick="Maximized" value="1" />
 	</enum>
-	<schema path="/org/pantheon/switchboard/saved-state/" id="org.pantheon.switchboard.saved-state" gettext-domain="switchboard">
+	<schema path="/org/pantheon/switchboard/saved-state/" id="org.pantheon.switchboard.saved-state">
 		<key name="window-state" enum="switchboard-window-states">
 			<default>"Normal"</default>
 			<summary>The saved state of the window.</summary>
@@ -24,6 +24,13 @@
 			<default>['']</default>
 			<summary>The position of the window.</summary>
 			<description>The position of the window.</description>
+		</key>
+	</schema>
+	<schema path="/org/pantheon/switchboard/preferences/" id="org.pantheon.switchboard.preferences">
+		<key name="mapping-override" type="a{s(ss)}">
+			<default>{}</default>
+			<summary>Override (and extends) the default mapping with plugs</summary>
+			<description>Contains a dictionary of path and two strings: the plug name and an argument. For example {'wallpaper': ('foo-desktop','wallpaper'), 'display': ('bar-display','')}</description>
 		</key>
 	</schema>
 </schemalist>
