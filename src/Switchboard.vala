@@ -478,17 +478,17 @@ namespace Switchboard {
             });
 
             search_box.key_press_event.connect ((event) => {
-            	switch (event.keyval) {
-            		case Gdk.Key.Return:
-            			category_view.activate_first_item ();
-            			return true;
-            		case Gdk.Key.Escape:
-            			search_box.text = "";
-            			return true;
-            		default:
-            			break;
-            	}
-            	
+                switch (event.keyval) {
+                    case Gdk.Key.Return:
+                        category_view.activate_first_item ();
+                        return true;
+                    case Gdk.Key.Escape:
+                        search_box.text = "";
+                        return true;
+                    default:
+                        break;
+                }
+                
                 return false;
             });
 
