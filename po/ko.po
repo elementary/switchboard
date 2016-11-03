@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-08-02 11:13-0700\n"
+"POT-Creation-Date: 2016-10-30 15:50+0100\n"
 "PO-Revision-Date: 2016-05-29 14:33+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-10-18 05:57+0000\n"
-"X-Generator: Launchpad (build 18232)\n"
+"X-Launchpad-Export-Date: 2016-11-03 05:34+0000\n"
+"X-Generator: Launchpad (build 18246)\n"
 
 #: ../src/CategoryView.vala:167
 msgid "No Results for “%s”"
@@ -45,15 +45,15 @@ msgstr "관리"
 msgid "All Settings"
 msgstr "모든 설정"
 
-#: ../src/Switchboard.vala:67
+#: ../src/Switchboard.vala:68
 msgid "Open a plug"
 msgstr "플러그 열기"
 
-#: ../src/Switchboard.vala:73
+#: ../src/Switchboard.vala:74
 msgid "System Settings"
 msgstr "시스템 설정"
 
-#: ../src/Switchboard.vala:86
+#: ../src/Switchboard.vala:87
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
@@ -64,29 +64,21 @@ msgstr ""
 "  Youngbin Han https://launchpad.net/~sukso96100\n"
 "  강민석 https://launchpad.net/~linuxlovemin"
 
-#: ../src/Switchboard.vala:322
+#: ../src/Switchboard.vala:117
+msgid "Specified link '%s' does not exist, going back to the main panel"
+msgstr ""
+
+#: ../src/Switchboard.vala:327
 msgid "No Settings Found"
 msgstr "설정 값이 없습니다"
 
-#: ../src/Switchboard.vala:322
+#: ../src/Switchboard.vala:327
 msgid "Install some and re-launch Switchboard."
 msgstr "설치 후 스위치보드 다시 실행."
 
-#: ../src/Switchboard.vala:445
+#: ../src/Switchboard.vala:450
 msgid "Search Settings"
 msgstr "검색 설정"
-
-#: ../src/Switchboard.vala:582
-msgid "Change system and user settings"
-msgstr "시스템, 사용자 설정 변경"
-
-#: ../src/Switchboard.vala:583
-msgid "Center;Control;Panel;Preferences;System;"
-msgstr "중앙;제어;패널;설정;시스템;"
-
-#: ../src/Switchboard.vala:584
-msgid "About System Settings"
-msgstr "시스템 설정 소개"
 
 #~ msgid "Network and Wireless"
 #~ msgstr "무선 및 네트워크"
@@ -102,6 +94,9 @@ msgstr "시스템 설정 소개"
 
 #~ msgid "Try changing your search terms"
 #~ msgstr "다른 단어로 검색해보세요."
+
+#~ msgid "Change system and user settings"
+#~ msgstr "시스템, 사용자 설정 변경"
 
 #, c-format
 #~ msgid "Unable to load plug %s's icon: %s"

@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-02 11:13-0700\n"
+"POT-Creation-Date: 2016-10-30 15:50+0100\n"
 "PO-Revision-Date: 2016-06-29 14:16+0000\n"
 "Last-Translator: Indrit Bashkimi <indrit.bashkimi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-10-18 05:57+0000\n"
-"X-Generator: Launchpad (build 18232)\n"
+"X-Launchpad-Export-Date: 2016-11-03 05:34+0000\n"
+"X-Generator: Launchpad (build 18246)\n"
 
 #: ../src/CategoryView.vala:167
 msgid "No Results for “%s”"
@@ -40,47 +40,42 @@ msgstr "Administrimi"
 msgid "All Settings"
 msgstr "Të gjithë rregullimet"
 
-#: ../src/Switchboard.vala:67
+#: ../src/Switchboard.vala:68
 msgid "Open a plug"
 msgstr "Hap një plug"
 
-#: ../src/Switchboard.vala:73
+#: ../src/Switchboard.vala:74
 msgid "System Settings"
 msgstr "Rregullimet e sistemit"
 
-#: ../src/Switchboard.vala:86
+#: ../src/Switchboard.vala:87
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  Avi Romanoff https://launchpad.net/~aroman\n"
 "  Indrit Bashkimi https://launchpad.net/~indritbsh"
 
-#: ../src/Switchboard.vala:322
+#: ../src/Switchboard.vala:117
+msgid "Specified link '%s' does not exist, going back to the main panel"
+msgstr ""
+
+#: ../src/Switchboard.vala:327
 msgid "No Settings Found"
 msgstr "Nuk u gjetën rregullime"
 
-#: ../src/Switchboard.vala:322
+#: ../src/Switchboard.vala:327
 msgid "Install some and re-launch Switchboard."
 msgstr "Instalo diçka dhe rinis Switchboard."
 
-#: ../src/Switchboard.vala:445
+#: ../src/Switchboard.vala:450
 msgid "Search Settings"
 msgstr "Kërko rregullime"
 
-#: ../src/Switchboard.vala:582
-msgid "Change system and user settings"
-msgstr "Ndrysho rregullimet e sistemit dhe të përdoruesit"
-
-#: ../src/Switchboard.vala:583
-msgid "Center;Control;Panel;Preferences;System;"
-msgstr "Qendra;Kontroll;Panel;Parametra;Sistem;"
-
-#: ../src/Switchboard.vala:584
-msgid "About System Settings"
-msgstr "Rreth Rregullimet e sistemit"
-
 #~ msgid "Network and Wireless"
 #~ msgstr "Rrjeti dhe Wireless"
+
+#~ msgid "Change system and user settings"
+#~ msgstr "Ndrysho rregullimet e sistemit dhe të përdoruesit"
 
 #~ msgid "No settings found"
 #~ msgstr "Nuk u gjetën rregullime"

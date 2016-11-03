@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-02 11:13-0700\n"
+"POT-Creation-Date: 2016-10-30 15:50+0100\n"
 "PO-Revision-Date: 2016-08-06 22:04+0000\n"
 "Last-Translator: Marek Suchánek <suchm@seznam.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-10-18 05:57+0000\n"
-"X-Generator: Launchpad (build 18232)\n"
+"X-Launchpad-Export-Date: 2016-11-03 05:34+0000\n"
+"X-Generator: Launchpad (build 18246)\n"
 "Language: cs\n"
 
 #: ../src/CategoryView.vala:167
@@ -46,15 +46,15 @@ msgstr "Systém"
 msgid "All Settings"
 msgstr "Všechna nastavení"
 
-#: ../src/Switchboard.vala:67
+#: ../src/Switchboard.vala:68
 msgid "Open a plug"
 msgstr "Otevřít modul"
 
-#: ../src/Switchboard.vala:73
+#: ../src/Switchboard.vala:74
 msgid "System Settings"
 msgstr "Nastavení"
 
-#: ../src/Switchboard.vala:86
+#: ../src/Switchboard.vala:87
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
@@ -64,29 +64,21 @@ msgstr ""
 "  Marek Suchánek https://launchpad.net/~suchm\n"
 "  Radek Starosta https://launchpad.net/~rstarosta"
 
-#: ../src/Switchboard.vala:322
+#: ../src/Switchboard.vala:117
+msgid "Specified link '%s' does not exist, going back to the main panel"
+msgstr ""
+
+#: ../src/Switchboard.vala:327
 msgid "No Settings Found"
 msgstr "Nastavení nenalezena"
 
-#: ../src/Switchboard.vala:322
+#: ../src/Switchboard.vala:327
 msgid "Install some and re-launch Switchboard."
 msgstr "Nainstalujte nějaká a znovu spusťte Switchboard."
 
-#: ../src/Switchboard.vala:445
+#: ../src/Switchboard.vala:450
 msgid "Search Settings"
 msgstr "Hledat v nastavení"
-
-#: ../src/Switchboard.vala:582
-msgid "Change system and user settings"
-msgstr "Změnit systémová a uživatelská nastavení"
-
-#: ../src/Switchboard.vala:583
-msgid "Center;Control;Panel;Preferences;System;"
-msgstr "Centrum;Ovládání;Panel;Preference;Systém;"
-
-#: ../src/Switchboard.vala:584
-msgid "About System Settings"
-msgstr "O nastavení"
 
 #~ msgid "System"
 #~ msgstr "Systém"
@@ -102,6 +94,9 @@ msgstr "O nastavení"
 
 #~ msgid "Network and Wireless"
 #~ msgstr "Síť a bezdrátové připojení"
+
+#~ msgid "Change system and user settings"
+#~ msgstr "Změnit systémová a uživatelská nastavení"
 
 #, c-format
 #~ msgid "Unable to load plug %s's icon: %s"
