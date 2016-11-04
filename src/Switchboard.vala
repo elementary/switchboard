@@ -66,7 +66,7 @@ namespace Switchboard {
         };
 
         construct {
-            application_id = "org.elementary.switchboard";
+            application_id = "org.pantheon.switchboard";
             program_name = _("System Settings");
             app_years = "2011-2016";
             exec_name = "switchboard";
