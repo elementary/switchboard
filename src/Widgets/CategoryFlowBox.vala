@@ -88,7 +88,7 @@ namespace Switchboard {
         }
 
         public bool has_child () {
-           foreach (unowned Gtk.Widget child in flowbox.get_children ()) {
+            foreach (unowned Gtk.Widget child in flowbox.get_children ()) {
                if (child.get_child_visible ()) {
                    show_all ();
                    return true;
@@ -121,11 +121,7 @@ namespace Switchboard {
                 }
             }
 
-            if (filter.down () in plug_name.down ()) {
-                return true;
-            }
-            
-            return false;
+            return filter.down () in plug_name.down ();
         }
 
         private int plug_sort_func (Gtk.FlowBoxChild child_a, Gtk.FlowBoxChild child_b) {

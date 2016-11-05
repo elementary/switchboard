@@ -24,19 +24,18 @@ namespace Switchboard {
     public class CategoryView : Gtk.Grid {
         public signal void plug_selected (Switchboard.Plug plug);
 
-        public Gee.ArrayList <SearchEntry?> plug_search_result;
-        public Switchboard.Category personal_category;
-        public Switchboard.Category hardware_category;
-        public Switchboard.Category network_category;
-        public Switchboard.Category system_category;
+        public PlugsSearch plug_search { get; construct; }
+        public Gee.ArrayList<SearchEntry?> plug_search_result { get; construct; }
+        public Switchboard.Category personal_category { get; construct; }
+        public Switchboard.Category hardware_category { get; construct; }
+        public Switchboard.Category network_category { get; construct; }
+        public Switchboard.Category system_category { get; construct; }
 
         private string? plug_to_open = null;
-        public PlugsSearch plug_search;
 
-        public CategoryView (string? plug = null) {
+        construct {
             orientation = Gtk.Orientation.VERTICAL;
-            plug_to_open = plug;
-
+            
             personal_category = new Switchboard.Category (Switchboard.Plug.Category.PERSONAL);
             hardware_category = new Switchboard.Category (Switchboard.Plug.Category.HARDWARE);
             network_category = new Switchboard.Category (Switchboard.Plug.Category.NETWORK);
@@ -51,33 +50,29 @@ namespace Switchboard {
             add (system_category);
         }
 
+        public CategoryView (string? plug = null) {
+            plug_to_open = plug;
+        }
+
         public async void load_default_plugs () {
             var plugsmanager = Switchboard.PlugsManager.get_default ();
             plugsmanager.plug_added.connect ((plug) => {
-                plug.visibility_changed.connect (() => plug_visibility_changed (plug));
+                plug.visibility_changed.connect (() => add_plug (plug));
                 add_plug (plug);
             });
 
             Idle.add (() => {
                 foreach (var plug in plugsmanager.get_plugs ()) {
-                    plug.visibility_changed.connect (() => plug_visibility_changed (plug));
-                    if (plug.can_show == true) {
-                        add_plug (plug);
-                    }
+                    plug.visibility_changed.connect (() => add_plug (plug));
+                    add_plug (plug);
                 }
 
                 return false;
             });
         }
 
-        private void plug_visibility_changed (Switchboard.Plug plug) {
-            if (plug.can_show == true) {
-                add_plug (plug);
-            }
-        }
-
         public void add_plug (Switchboard.Plug plug) {
-            if (plug.can_show == false) {
+            if (!plug.can_show) {
                 return;
             }
 
@@ -100,17 +95,15 @@ namespace Switchboard {
                     return;
             }
 
-            unowned SwitchboardApp app = (SwitchboardApp) GLib.Application.get_default ();
+            unowned SwitchboardApp app = SwitchboardApp.instance;
             app.search_box.sensitive = true;
             filter_plugs (app.search_box.get_text ());
 #if HAVE_UNITY
             app.update_libunity_quicklist ();
 #endif
-            if (plug_to_open != null && plug_to_open != "") {
-                if (plug_to_open.has_suffix (plug.code_name)) {
-                    app.load_plug (plug);
-                    plug_to_open = "";
-                }
+            if (plug_to_open != null && plug_to_open.has_suffix (plug.code_name)) {
+                app.load_plug (plug);
+                plug_to_open = null;
             }
         }
 
@@ -162,11 +155,10 @@ namespace Switchboard {
                 any_found = true;
             }
 
-            unowned SwitchboardApp app = (SwitchboardApp) GLib.Application.get_default ();
-            if (!any_found) {
-                app.show_alert (_("No Results for “%s”".printf (filter)), _("Try changing search terms."), "edit-find-symbolic");
+            if (any_found) {
+                SwitchboardApp.instance.hide_alert ();
             } else {
-                app.hide_alert ();
+                SwitchboardApp.instance.show_alert (_("No Results for “%s”".printf (filter)), _("Try changing search terms."), "edit-find-symbolic");
             }
         }
 
