@@ -124,7 +124,7 @@ namespace Switchboard {
             if (filter.down () in plug_name.down ()) {
                 return true;
             }
-             
+
             return false;
         }
 
