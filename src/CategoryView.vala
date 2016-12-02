@@ -31,7 +31,7 @@ namespace Switchboard {
         public Switchboard.Category network_category { get; construct; }
         public Switchboard.Category system_category { get; construct; }
 
-        private string? plug_to_open = null;
+        public string? plug_to_open { get; construct set; default = null; }
 
         construct {
             orientation = Gtk.Orientation.VERTICAL;
@@ -51,7 +51,7 @@ namespace Switchboard {
         }
 
         public CategoryView (string? plug = null) {
-            plug_to_open = plug;
+            Object (plug_to_open: plug);
         }
 
         public async void load_default_plugs () {
