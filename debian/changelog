@@ -1,3 +1,9 @@
+switchboard (2.2.0) xenial; urgency=medium
+
+  * New upstream release.
+
+ -- Cody Garver <cody@elementary.io>  Thu, 08 Dec 2016 11:42:46 -0600
+
 switchboard (2.1.0) xenial; urgency=medium
 
   * New upstream release.
