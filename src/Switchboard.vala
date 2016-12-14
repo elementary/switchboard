@@ -135,25 +135,15 @@ namespace Switchboard {
             var setting = new Settings ("org.pantheon.switchboard.preferences");
             var mapping_dic = setting.get_value ("mapping-override");
             if (link != null && !mapping_dic.lookup (link, "(ss)", ref plug_to_open, ref open_window)) {
-                bool plug_found = false;
-                foreach (var plug in plugsmanager.get_plugs ()) {
-                    if (plug.supported_settings == null)
-                        continue;
+                bool plug_found = load_setting_path (link, plugsmanager);
 
-                    if (plug.supported_settings.has_key (link)) {
-                        load_plug (plug);
-                        open_window = plug.supported_settings.get (link);
-                        link = null;
+                if (plug_found) {
+                    link = null;
 
-                        // If plug_to_open was set from the command line
-                        should_animate_next_transition = false;
-                        opened_directly = true;
-                        plug_found = true;
-                        break;
-                    }
-                }
-
-                if (!plug_found) {
+                    // If plug_to_open was set from the command line
+                    should_animate_next_transition = false;
+                    opened_directly = true;
+                } else {
                     warning (_("Specified link '%s' does not exist, going back to the main panel").printf (link));
                 }
             } else if (plug_to_open != null) {
@@ -411,9 +401,33 @@ namespace Switchboard {
                     load_plug (previous_plugs.@get (0));
                     previous_plugs.remove_at (0);
                 } else {
-                    switch_to_plug (current_plug);                 
+                    switch_to_plug (current_plug);
                 }
             }
+        }
+
+        // Try to find a supported plug, fallback paths like "foo/bar" to "foo"
+        private bool load_setting_path (string setting_path, Switchboard.PlugsManager plugsmanager) {
+            foreach (var plug in plugsmanager.get_plugs ()) {
+                var supported_settings = plug.supported_settings;
+                if (supported_settings == null) {
+                    continue;
+                }
+
+                if (supported_settings.has_key (setting_path)) {
+                    load_plug (plug);
+                    open_window = supported_settings.get (setting_path);
+                    return true;
+                }
+            }
+
+            // Fallback to subpath
+            if ("/" in setting_path) {
+                int last_index = setting_path.last_index_of_char ('/');
+                return load_setting_path (setting_path.substring (0, last_index), plugsmanager);
+            }
+
+            return false;
         }
 
         // Switches to the given plug
