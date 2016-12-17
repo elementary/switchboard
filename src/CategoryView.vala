@@ -57,7 +57,8 @@ namespace Switchboard {
         public async void load_default_plugs () {
             var plugsmanager = Switchboard.PlugsManager.get_default ();
             plugsmanager.plug_added.connect ((plug) => {
-                plug.visibility_changed.connect (() => add_plug (plug));
+                plug.visibility_changed.connect (() => plug_visibility_changed (plug));
+                plug.notify["can-show"].connect (() => plug_visibility_changed (plug));
                 add_plug (plug);
             });
 
@@ -69,6 +70,14 @@ namespace Switchboard {
 
                 return false;
             });
+        }
+
+        private void plug_visibility_changed (Switchboard.Plug plug) {
+            if (plug.can_show) {
+                add_plug (plug);
+            } else {
+                remove_plug (plug);
+            }
         }
 
         public void add_plug (Switchboard.Plug plug) {
@@ -105,6 +114,50 @@ namespace Switchboard {
                 app.load_plug (plug);
                 plug_to_open = null;
             }
+        }
+
+        public void remove_plug (Switchboard.Plug plug) {
+            if (plug.can_show == true) {
+                return;
+            }
+
+            switch (plug.category) {
+                case Switchboard.Plug.Category.PERSONAL:
+                    personal_category.get_flow_children ().foreach ((child) => {
+                        if (child is Switchboard.CategoryIcon && ((Switchboard.CategoryIcon) child).plug == plug) {
+                            child.destroy ();
+                        }
+                    });
+                    break;
+                case Switchboard.Plug.Category.HARDWARE:
+                    hardware_category.get_flow_children ().foreach ((child) => {
+                        if (child is Switchboard.CategoryIcon && ((Switchboard.CategoryIcon) child).plug == plug) {
+                            child.destroy ();
+                        }
+                    });
+                    break;
+                case Switchboard.Plug.Category.NETWORK:
+                    network_category.get_flow_children ().foreach ((child) => {
+                        if (child is Switchboard.CategoryIcon && ((Switchboard.CategoryIcon) child).plug == plug) {
+                            child.destroy ();
+                        }
+                    });
+                    break;
+                case Switchboard.Plug.Category.SYSTEM:
+                    system_category.get_flow_children ().foreach ((child) => {
+                        if (child is Switchboard.CategoryIcon && ((Switchboard.CategoryIcon) child).plug == plug) {
+                            child.destroy ();
+                        }
+                    });
+                    break;
+                default:
+                    return;
+            }
+
+#if HAVE_UNITY
+            unowned SwitchboardApp app = (SwitchboardApp) GLib.Application.get_default ();
+            app.update_libunity_quicklist ();
+#endif
         }
 
         public void grab_focus_first_icon_view () {

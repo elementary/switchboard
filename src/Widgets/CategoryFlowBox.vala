@@ -70,6 +70,10 @@ namespace Switchboard {
             flowbox.add (widget);
         }
 
+        public GLib.List<weak Gtk.Widget> get_flow_children () {
+            return flowbox.get_children ();
+        }
+
         public void activate_first_child () {
             foreach (unowned Gtk.Widget child in flowbox.get_children ()) {
                 if (child.get_child_visible ()) {

@@ -75,7 +75,8 @@ public abstract class Switchboard.Plug : GLib.Object {
     public bool can_show { get; set; default=true; }
     
     /**
-     * Inform the application that the plug can now be listed in the available plugs
+     * Inform the application that the plug can now be listed in the available plugs.
+     * The application will also listen to the notify::can-show signal.
      */
     public signal void visibility_changed ();
     
