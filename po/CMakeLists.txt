@@ -3,7 +3,7 @@ add_translations_directory(${CMAKE_PROJECT_NAME})
 add_translations_catalog(${CMAKE_PROJECT_NAME}
     ../src
     DESKTOP_FILES
-        ${CMAKE_SOURCE_DIR}/data/${CMAKE_PROJECT_NAME}.desktop.in
+        ${CMAKE_SOURCE_DIR}/data/org.pantheon.switchboard.desktop.in
     APPDATA_FILES
         ${CMAKE_SOURCE_DIR}/data/${CMAKE_PROJECT_NAME}.appdata.xml.in
 )

@@ -211,7 +211,7 @@ namespace Switchboard {
             if (any_found) {
                 SwitchboardApp.instance.hide_alert ();
             } else {
-                SwitchboardApp.instance.show_alert (_("No Results for “%s”".printf (filter)), _("Try changing search terms."), "edit-find-symbolic");
+                SwitchboardApp.instance.show_alert (_("No Results for “%s”").printf (filter), _("Try changing search terms."), "edit-find-symbolic");
             }
         }
 
