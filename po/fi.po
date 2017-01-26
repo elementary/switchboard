@@ -7,54 +7,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-30 15:50+0100\n"
+"POT-Creation-Date: 2017-01-25 23:45+0100\n"
 "PO-Revision-Date: 2016-11-10 07:42+0000\n"
 "Last-Translator: Jiri Grönroos <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-11-11 05:56+0000\n"
-"X-Generator: Launchpad (build 18255)\n"
+"X-Launchpad-Export-Date: 2017-01-26 05:38+0000\n"
+"X-Generator: Launchpad (build 18315)\n"
 "Language: fi\n"
-
-#: ../src/CategoryView.vala:167
-msgid "No Results for “%s”"
-msgstr "Ei tuloksia haulle “%s”"
-
-#: ../src/CategoryView.vala:167
-msgid "Try changing search terms."
-msgstr "Yritä käyttää eri hakuehtoja."
-
-#: ../src/CategoryView.vala:176
-msgid "Personal"
-msgstr "Henkilökohtaiset"
-
-#: ../src/CategoryView.vala:178
-msgid "Hardware"
-msgstr "Laitteisto"
-
-#: ../src/CategoryView.vala:180
-msgid "Network & Wireless"
-msgstr "Verkko ja langaton"
-
-#: ../src/CategoryView.vala:182
-msgid "Administration"
-msgstr "Ylläpito"
 
 #: ../src/Switchboard.vala:45
 msgid "All Settings"
 msgstr "Kaikki asetukset"
 
-#: ../src/Switchboard.vala:68
-msgid "Open a plug"
-msgstr "Avaa asetusosio"
-
-#: ../src/Switchboard.vala:74
+#: ../src/Switchboard.vala:70
 msgid "System Settings"
 msgstr "Järjestelmän asetukset"
 
-#: ../src/Switchboard.vala:87
+#: ../src/Switchboard.vala:83
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
@@ -63,22 +35,46 @@ msgstr ""
 "  Petri Hämäläinen https://launchpad.net/~petri-hamalainen\n"
 "  Teemu Kielinen https://launchpad.net/~teemu-kielinen"
 
-#: ../src/Switchboard.vala:117
+#: ../src/Switchboard.vala:147
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr ""
 "Määritettyä linkkiä '%s' ei ole olemassa, siirrytään takaisin pääpaneeliin"
 
-#: ../src/Switchboard.vala:327
+#: ../src/Switchboard.vala:340
 msgid "No Settings Found"
 msgstr "Asetuksia ei löytynyt"
 
-#: ../src/Switchboard.vala:327
+#: ../src/Switchboard.vala:340
 msgid "Install some and re-launch Switchboard."
 msgstr "Suorita asetusten asennuksia ja käynnistä Switchboard uudelleen."
 
-#: ../src/Switchboard.vala:450
+#: ../src/Switchboard.vala:487
 msgid "Search Settings"
 msgstr "Etsi asetuksista"
+
+#: ../src/CategoryView.vala:214
+msgid "No Results for “%s”"
+msgstr "Ei tuloksia haulle “%s”"
+
+#: ../src/CategoryView.vala:214
+msgid "Try changing search terms."
+msgstr "Yritä käyttää eri hakuehtoja."
+
+#: ../src/CategoryView.vala:221
+msgid "Personal"
+msgstr "Henkilökohtaiset"
+
+#: ../src/CategoryView.vala:223
+msgid "Hardware"
+msgstr "Laitteisto"
+
+#: ../src/CategoryView.vala:225
+msgid "Network & Wireless"
+msgstr "Verkko ja langaton"
+
+#: ../src/CategoryView.vala:227
+msgid "Administration"
+msgstr "Ylläpito"
 
 #~ msgid "System"
 #~ msgstr "Järjestelmä"
@@ -97,6 +93,9 @@ msgstr "Etsi asetuksista"
 
 #~ msgid "Try changing your search terms"
 #~ msgstr "Yritä etsiä eri hakusanoilla"
+
+#~ msgid "Open a plug"
+#~ msgstr "Avaa asetusosio"
 
 #~ msgid "Install some and re-launch Switchboard"
 #~ msgstr "Asenna jokin asetusosio ja käynnistä Switchboard uudelleen"

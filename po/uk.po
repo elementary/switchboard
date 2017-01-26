@@ -7,54 +7,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-30 15:50+0100\n"
+"POT-Creation-Date: 2017-01-25 23:45+0100\n"
 "PO-Revision-Date: 2016-09-18 09:01+0000\n"
 "Last-Translator: neiron13 <Unknown>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-11-03 05:35+0000\n"
-"X-Generator: Launchpad (build 18246)\n"
+"X-Launchpad-Export-Date: 2017-01-26 05:38+0000\n"
+"X-Generator: Launchpad (build 18315)\n"
 "Language: uk\n"
-
-#: ../src/CategoryView.vala:167
-msgid "No Results for “%s”"
-msgstr "Результати для “%s” відсутні"
-
-#: ../src/CategoryView.vala:167
-msgid "Try changing search terms."
-msgstr "Спробуйте змінити пошукові терміни"
-
-#: ../src/CategoryView.vala:176
-msgid "Personal"
-msgstr "Особисте"
-
-#: ../src/CategoryView.vala:178
-msgid "Hardware"
-msgstr "Обладнання"
-
-#: ../src/CategoryView.vala:180
-msgid "Network & Wireless"
-msgstr "Мережі та Бездротові мережі"
-
-#: ../src/CategoryView.vala:182
-msgid "Administration"
-msgstr "Адміністрування"
 
 #: ../src/Switchboard.vala:45
 msgid "All Settings"
 msgstr "Усі налаштування"
 
-#: ../src/Switchboard.vala:68
-msgid "Open a plug"
-msgstr "Відкрити модуль"
-
-#: ../src/Switchboard.vala:74
+#: ../src/Switchboard.vala:70
 msgid "System Settings"
 msgstr "Системнi налаштування"
 
-#: ../src/Switchboard.vala:87
+#: ../src/Switchboard.vala:83
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
@@ -65,27 +37,49 @@ msgstr ""
 "  Bogdan Lisnenko https://launchpad.net/~lem8r\n"
 "  Max_ym https://launchpad.net/~kontact-cat\n"
 "  Nazar https://launchpad.net/~n-suhovich\n"
-"  PsyClip-R https://launchpad.net/~victor-sokyrko\n"
 "  Roman Sytnyk https://launchpad.net/~roman-sytnyk\n"
-"  Sergey Kornienko https://launchpad.net/~b0nzo-deb\n"
 "  Sho0ter https://launchpad.net/~sho0ter\n"
 "  neiron13 https://launchpad.net/~heneral"
 
-#: ../src/Switchboard.vala:117
+#: ../src/Switchboard.vala:147
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr ""
 
-#: ../src/Switchboard.vala:327
+#: ../src/Switchboard.vala:340
 msgid "No Settings Found"
 msgstr "Налаштувань незнайдено"
 
-#: ../src/Switchboard.vala:327
+#: ../src/Switchboard.vala:340
 msgid "Install some and re-launch Switchboard."
 msgstr "Встановіть дещо і повторно запустіть Switchboard."
 
-#: ../src/Switchboard.vala:450
+#: ../src/Switchboard.vala:487
 msgid "Search Settings"
 msgstr "Пошук налаштувань"
+
+#: ../src/CategoryView.vala:214
+msgid "No Results for “%s”"
+msgstr "Результати для “%s” відсутні"
+
+#: ../src/CategoryView.vala:214
+msgid "Try changing search terms."
+msgstr "Спробуйте змінити пошукові терміни"
+
+#: ../src/CategoryView.vala:221
+msgid "Personal"
+msgstr "Особисте"
+
+#: ../src/CategoryView.vala:223
+msgid "Hardware"
+msgstr "Обладнання"
+
+#: ../src/CategoryView.vala:225
+msgid "Network & Wireless"
+msgstr "Мережі та Бездротові мережі"
+
+#: ../src/CategoryView.vala:227
+msgid "Administration"
+msgstr "Адміністрування"
 
 #~ msgid "Settings Center"
 #~ msgstr "Центр Налаштування"
@@ -95,6 +89,9 @@ msgstr "Пошук налаштувань"
 
 #~ msgid "Change system and user settings"
 #~ msgstr "Змінити налаштування системи та користувача"
+
+#~ msgid "Open a plug"
+#~ msgstr "Відкрити модуль"
 
 #, c-format
 #~ msgid "Unable to load plug %s's icon: %s"

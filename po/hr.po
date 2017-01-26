@@ -7,54 +7,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-30 15:50+0100\n"
+"POT-Creation-Date: 2017-01-25 23:45+0100\n"
 "PO-Revision-Date: 2017-01-12 09:01+0000\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-01-13 05:46+0000\n"
-"X-Generator: Launchpad (build 18302)\n"
+"X-Launchpad-Export-Date: 2017-01-26 05:38+0000\n"
+"X-Generator: Launchpad (build 18315)\n"
 "Language: hr\n"
-
-#: ../src/CategoryView.vala:167
-msgid "No Results for “%s”"
-msgstr "Nema rezultata za “%s”"
-
-#: ../src/CategoryView.vala:167
-msgid "Try changing search terms."
-msgstr "Pokušaj promijeniti izraz pretrage."
-
-#: ../src/CategoryView.vala:176
-msgid "Personal"
-msgstr "Osobno"
-
-#: ../src/CategoryView.vala:178
-msgid "Hardware"
-msgstr "Hardver"
-
-#: ../src/CategoryView.vala:180
-msgid "Network & Wireless"
-msgstr "Mreža i bežična mreža"
-
-#: ../src/CategoryView.vala:182
-msgid "Administration"
-msgstr "Administracija"
 
 #: ../src/Switchboard.vala:45
 msgid "All Settings"
 msgstr "Sve postavke"
 
-#: ../src/Switchboard.vala:68
-msgid "Open a plug"
-msgstr "Otvori priključak"
-
-#: ../src/Switchboard.vala:74
+#: ../src/Switchboard.vala:70
 msgid "System Settings"
 msgstr "Postavke sustava"
 
-#: ../src/Switchboard.vala:87
+#: ../src/Switchboard.vala:83
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
@@ -66,21 +38,45 @@ msgstr ""
 "  dom https://launchpad.net/~dominique2\n"
 "  gogo https://launchpad.net/~trebelnik-stefina"
 
-#: ../src/Switchboard.vala:117
+#: ../src/Switchboard.vala:147
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Navedena poveznica '%s' ne postoji, vraćanje na glavni panel"
 
-#: ../src/Switchboard.vala:327
+#: ../src/Switchboard.vala:340
 msgid "No Settings Found"
 msgstr "Nema pronađenih postavki"
 
-#: ../src/Switchboard.vala:327
+#: ../src/Switchboard.vala:340
 msgid "Install some and re-launch Switchboard."
 msgstr "Instalirajte nešto i ponovno pokrenite Switchboard."
 
-#: ../src/Switchboard.vala:450
+#: ../src/Switchboard.vala:487
 msgid "Search Settings"
 msgstr "Pretraži postavke"
+
+#: ../src/CategoryView.vala:214
+msgid "No Results for “%s”"
+msgstr "Nema rezultata za “%s”"
+
+#: ../src/CategoryView.vala:214
+msgid "Try changing search terms."
+msgstr "Pokušaj promijeniti izraz pretrage."
+
+#: ../src/CategoryView.vala:221
+msgid "Personal"
+msgstr "Osobno"
+
+#: ../src/CategoryView.vala:223
+msgid "Hardware"
+msgstr "Hardver"
+
+#: ../src/CategoryView.vala:225
+msgid "Network & Wireless"
+msgstr "Mreža i bežična mreža"
+
+#: ../src/CategoryView.vala:227
+msgid "Administration"
+msgstr "Administracija"
 
 #~ msgid "System"
 #~ msgstr "Sustav"
@@ -100,6 +96,9 @@ msgstr "Pretraži postavke"
 
 #~ msgid "Try changing your search terms"
 #~ msgstr "Pokusaj promjeniti uvjete pretrazivanja"
+
+#~ msgid "Open a plug"
+#~ msgstr "Otvori priključak"
 
 #~ msgid "Change system and user settings"
 #~ msgstr "Promijenite postavke sustava i korisnika"

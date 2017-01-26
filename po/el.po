@@ -7,54 +7,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-30 15:50+0100\n"
+"POT-Creation-Date: 2017-01-25 23:45+0100\n"
 "PO-Revision-Date: 2017-01-21 09:04+0000\n"
 "Last-Translator: Avi Romanoff <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-01-22 05:36+0000\n"
-"X-Generator: Launchpad (build 18302)\n"
+"X-Launchpad-Export-Date: 2017-01-26 05:38+0000\n"
+"X-Generator: Launchpad (build 18315)\n"
 "Language: el\n"
-
-#: ../src/CategoryView.vala:167
-msgid "No Results for “%s”"
-msgstr "Κανένα αποτέλεσμα για “%s”"
-
-#: ../src/CategoryView.vala:167
-msgid "Try changing search terms."
-msgstr "Δοκιμάστε να αλλάξετε τους όρους αναζήτησης"
-
-#: ../src/CategoryView.vala:176
-msgid "Personal"
-msgstr "Προσωπικές"
-
-#: ../src/CategoryView.vala:178
-msgid "Hardware"
-msgstr "Υλικό"
-
-#: ../src/CategoryView.vala:180
-msgid "Network & Wireless"
-msgstr ""
-
-#: ../src/CategoryView.vala:182
-msgid "Administration"
-msgstr "Διαχείριση"
 
 #: ../src/Switchboard.vala:45
 msgid "All Settings"
 msgstr "Όλες οι Ρυθμίσεις"
 
-#: ../src/Switchboard.vala:68
-msgid "Open a plug"
-msgstr "Άνοιγμα προσθέτου"
-
-#: ../src/Switchboard.vala:74
+#: ../src/Switchboard.vala:70
 msgid "System Settings"
 msgstr "Ρυθμίσεις Συστήματος"
 
-#: ../src/Switchboard.vala:87
+#: ../src/Switchboard.vala:83
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
@@ -65,22 +37,46 @@ msgstr ""
 "  Jim Spentzos https://launchpad.net/~jamesspentzos\n"
 "  koleoptero https://launchpad.net/~vaggus-deactivatedaccount"
 
-#: ../src/Switchboard.vala:117
+#: ../src/Switchboard.vala:147
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr ""
 "Ο συγκεκριμένος σύνδεσμος '%s' δεν υπάρχει, επιστροφή στον κύριο πίνακα"
 
-#: ../src/Switchboard.vala:327
+#: ../src/Switchboard.vala:340
 msgid "No Settings Found"
 msgstr "Δε βρέθηκαν ρυθμίσεις"
 
-#: ../src/Switchboard.vala:327
+#: ../src/Switchboard.vala:340
 msgid "Install some and re-launch Switchboard."
 msgstr ""
 
-#: ../src/Switchboard.vala:450
+#: ../src/Switchboard.vala:487
 msgid "Search Settings"
 msgstr "Ρυθμίσεις Αναζήτησης"
+
+#: ../src/CategoryView.vala:214
+msgid "No Results for “%s”"
+msgstr "Κανένα αποτέλεσμα για “%s”"
+
+#: ../src/CategoryView.vala:214
+msgid "Try changing search terms."
+msgstr "Δοκιμάστε να αλλάξετε τους όρους αναζήτησης"
+
+#: ../src/CategoryView.vala:221
+msgid "Personal"
+msgstr "Προσωπικές"
+
+#: ../src/CategoryView.vala:223
+msgid "Hardware"
+msgstr "Υλικό"
+
+#: ../src/CategoryView.vala:225
+msgid "Network & Wireless"
+msgstr ""
+
+#: ../src/CategoryView.vala:227
+msgid "Administration"
+msgstr "Διαχείριση"
 
 #~ msgid "System"
 #~ msgstr "Σύστημα"
@@ -94,6 +90,9 @@ msgstr "Ρυθμίσεις Αναζήτησης"
 #, c-format
 #~ msgid "Unable to load plug %s's icon: %s"
 #~ msgstr "Αδυναμία φόρτωσης εικονιδίου του προσθέτου %s : %s"
+
+#~ msgid "Open a plug"
+#~ msgstr "Άνοιγμα προσθέτου"
 
 #~ msgid "Install some and re-launch Switchboard"
 #~ msgstr "Εγκαταστήστε μερικά και επανεκκινήστε το Switchboard"
