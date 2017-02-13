@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-01 11:40-0600\n"
-"PO-Revision-Date: 2017-02-02 09:34+0000\n"
-"Last-Translator: Avi Romanoff <Unknown>\n"
+"PO-Revision-Date: 2017-02-12 16:59+0000\n"
+"Last-Translator: Leonardo Lemos <Unknown>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-02-04 05:40+0000\n"
-"X-Generator: Launchpad (build 18322)\n"
+"X-Launchpad-Export-Date: 2017-02-13 05:44+0000\n"
+"X-Generator: Launchpad (build 18326)\n"
 "Language: pt_BR\n"
 
 #: ../src/Switchboard.vala:45
@@ -39,7 +39,7 @@ msgstr ""
 
 #: ../src/Switchboard.vala:147
 msgid "Specified link '%s' does not exist, going back to the main panel"
-msgstr ""
+msgstr "O link '%s' especificado não existe, indo para o painel principal"
 
 #: ../src/Switchboard.vala:340
 msgid "No Settings Found"
