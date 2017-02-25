@@ -1,0 +1,34 @@
+# Czech translation for switchboard
+# Copyright (c) 2017 Rosetta Contributors and Canonical Ltd 2017
+# This file is distributed under the same license as the switchboard package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: switchboard\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2017-02-01 11:40-0600\n"
+"PO-Revision-Date: 2017-02-24 11:07+0000\n"
+"Last-Translator: Jan Marek <janmarek28@gmail.com>\n"
+"Language-Team: Czech <cs@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2017-02-25 05:47+0000\n"
+"X-Generator: Launchpad (build 18328)\n"
+
+msgid "System Settings"
+msgstr "Nastavení systému"
+
+msgid "Change system and user settings"
+msgstr "Změnit systémová a uživatelská nastavení"
+
+msgid "Center;Control;Panel;Preferences;System;"
+msgstr "Centrum;Ovládání;Panel;Vlastnosti;Systém"
+
+msgid "About System Settings"
+msgstr ""
+
+msgid ""
+"A system settings application that focuses on modularity and simplicity."
+msgstr ""
