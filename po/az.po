@@ -3,63 +3,65 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-01 11:40-0600\n"
-"PO-Revision-Date: 2015-12-04 17:54+0000\n"
-"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
+"PO-Revision-Date: 2017-03-03 12:04+0000\n"
+"Last-Translator: Ramiz Demiurge <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-02-02 05:47+0000\n"
-"X-Generator: Launchpad (build 18315)\n"
+"X-Launchpad-Export-Date: 2017-03-05 06:05+0000\n"
+"X-Generator: Launchpad (build 18329)\n"
 
 #: ../src/Switchboard.vala:45
 msgid "All Settings"
-msgstr ""
+msgstr "Bütün Ayarlar"
 
 #: ../src/Switchboard.vala:70
 msgid "System Settings"
-msgstr ""
+msgstr "Sistem Tənzimləmələri"
 
 #: ../src/Switchboard.vala:83
 msgid "translator-credits"
 msgstr ""
+"Launchpad Contributions:\n"
+"  Ramiz Demiurge https://launchpad.net/~ramiz.demiurge"
 
 #: ../src/Switchboard.vala:147
 msgid "Specified link '%s' does not exist, going back to the main panel"
-msgstr ""
+msgstr "Müəyyən olunan link '%s' mövcud deyildir, əsas panelə keçid"
 
 #: ../src/Switchboard.vala:340
 msgid "No Settings Found"
-msgstr ""
+msgstr "Ayarlar tapılmadı"
 
 #: ../src/Switchboard.vala:340
 msgid "Install some and re-launch Switchboard."
-msgstr ""
+msgstr "Bərpa edib Switchboard-ı yenidən başladın."
 
 #: ../src/Switchboard.vala:487
 msgid "Search Settings"
-msgstr ""
+msgstr "Axtarış parametrləri"
 
 #: ../src/CategoryView.vala:214
 msgid "No Results for “%s”"
-msgstr ""
+msgstr "“%s” üçün heç bir nəticə yoxdur"
 
 #: ../src/CategoryView.vala:214
 msgid "Try changing search terms."
-msgstr ""
+msgstr "Axtarış sözünü dəyişməyə cəhd edin"
 
 #: ../src/CategoryView.vala:221
 msgid "Personal"
-msgstr ""
+msgstr "Şəxsi"
 
 #: ../src/CategoryView.vala:223
 msgid "Hardware"
-msgstr ""
+msgstr "Avadanlıq"
 
 #: ../src/CategoryView.vala:225
 msgid "Network & Wireless"
-msgstr ""
+msgstr "Simli və simsiz şəbəkələr"
 
 #: ../src/CategoryView.vala:227
 msgid "Administration"
-msgstr ""
+msgstr "İnzibat"
