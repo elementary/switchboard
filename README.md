@@ -6,14 +6,15 @@
 
 You'll need the following dependencies:
 
-    cmake
-    debhelper
-    libclutter-gtk-1.0-dev
-    libgee-0.8-dev
-    libglib2.0-dev
-    libgranite-dev
-    libgtk-3-dev
-    valac
+* cmake
+* debhelper
+* libclutter-gtk-1.0-dev
+* libgee-0.8-dev
+* libglib2.0-dev
+* libgranite-dev
+* libgtk-3-dev
+* libunity-dev
+* valac
 
 It's recommended to create a clean build environment
 
