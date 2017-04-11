@@ -30,3 +30,4 @@ To install, use `make install`, then execute with `switchboard`
 
     sudo make install
     switchboard
+
