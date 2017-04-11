@@ -15,6 +15,13 @@ set (PLUGS_DIR ${CMAKE_INSTALL_FULL_LIBDIR}/${CMAKE_PROJECT_NAME})
 set (VERSION "2.2.1")
 set (VERSION_INFO "Stable Release")
 
+# CTest
+include (CTest)
+if (BUILD_TESTING)
+    add_test (NAME validate-daemon-desktop-file COMMAND desktop-file-validate ${CMAKE_BINARY_DIR}/data/org.pantheon.switchboard.desktop)
+    add_test (NAME validate-appdata COMMAND appstreamcli validate ${CMAKE_BINARY_DIR}/data/switchboard.appdata.xml)
+endif ()
+
 add_definitions ("-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\"")
 
 # Comment this out to enable C compiler warnings
