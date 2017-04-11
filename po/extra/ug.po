@@ -24,7 +24,7 @@ msgid "Change system and user settings"
 msgstr "سىستېما ۋە ئابونت تەڭشەكلىرىنى ئۆزگەرتىش"
 
 msgid "Center;Control;Panel;Preferences;System;"
-msgstr "،مەركەز، كونترول، تاختا، مايىللىق، سىستېما"
+msgstr "،مەركەز، كونترول، تاختا، مايىللىق، سىستېما;"
 
 msgid "About System Settings"
 msgstr "سىستېما تەڭشەكلىرى ھەققىدە"

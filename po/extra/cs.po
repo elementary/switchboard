@@ -24,7 +24,7 @@ msgid "Change system and user settings"
 msgstr "Změnit systémová a uživatelská nastavení"
 
 msgid "Center;Control;Panel;Preferences;System;"
-msgstr "Centrum;Ovládání;Panel;Vlastnosti;Systém"
+msgstr "Centrum;Ovládání;Panel;Vlastnosti;Systém;"
 
 msgid "About System Settings"
 msgstr "O aplikaci Nastavení systému"
