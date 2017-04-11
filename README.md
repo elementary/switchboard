@@ -6,6 +6,7 @@
 
 You'll need the following dependencies:
 
+* appstream
 * cmake
 * debhelper
 * desktop-file-utils
