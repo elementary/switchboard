@@ -61,20 +61,8 @@ add_dependencies(distcheck dist)
 add_custom_target (uninstall "${CMAKE_COMMAND}" -P
   "${CMAKE_SOURCE_DIR}/cmake/uninstall.cmake")
 
-#
-
-# Data
-
-#
-
-include (Translations)
-configure_file_translation(${CMAKE_SOURCE_DIR}/data/org.pantheon.switchboard.desktop.in ${CMAKE_BINARY_DIR}/data/org.pantheon.switchboard.desktop ${CMAKE_SOURCE_DIR}/po/)
-configure_file_translation(${CMAKE_SOURCE_DIR}/data/${CMAKE_PROJECT_NAME}.appdata.xml.in ${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.appdata.xml ${CMAKE_SOURCE_DIR}/po/)
-
-install(FILES ${CMAKE_BINARY_DIR}/data/org.pantheon.switchboard.desktop DESTINATION ${DATADIR}/applications)
-install(FILES ${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.appdata.xml DESTINATION ${DATADIR}/appdata)
-
-add_subdirectory(po)
+add_subdirectory (data)
+add_subdirectory (po)
 
 # CTest
 include (CTest)
