@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-01 11:40-0600\n"
-"PO-Revision-Date: 2017-04-13 08:56+0000\n"
+"PO-Revision-Date: 2017-04-20 02:29+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) "
 "<https://l10n.elementary.io/projects/switchboard/switchboard/zh_CN/>\n"
@@ -70,7 +70,7 @@ msgstr "个人"
 
 #: ../src/CategoryView.vala:223
 msgid "Hardware"
-msgstr "硬件"
+msgstr "硬件信息："
 
 #: ../src/CategoryView.vala:225
 msgid "Network & Wireless"
