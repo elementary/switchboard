@@ -38,7 +38,7 @@ namespace Switchboard {
 
         private Granite.Widgets.AlertView alert_view;
         private Gtk.ScrolledWindow category_scrolled;
-        private Switchboard.NavigationButton navigation_button;
+        private Gtk.Button navigation_button;
         public Switchboard.CategoryView category_view;
 
         private Gee.LinkedList <string> loaded_plugs;
@@ -221,9 +221,10 @@ namespace Switchboard {
                 }
 
                 // Launch plug's executable
-                navigation_button.set_sensitive (true);
-                navigation_button.set_text (all_settings_label);
+                navigation_button.label = all_settings_label;
+                navigation_button.sensitive = true;
                 navigation_button.show ();
+
                 headerbar.title = plug.display_name;
                 current_plug = plug;
 
@@ -391,7 +392,7 @@ namespace Switchboard {
 
         // Handles clicking the navigation button
         private void handle_navigation_button_clicked () {
-            if (navigation_button.get_text () == all_settings_label) {
+            if (navigation_button.label == all_settings_label) {
                 opened_directly = false;
                 search_box.sensitive = true;
                 switch_to_icons ();
@@ -440,10 +441,10 @@ namespace Switchboard {
             }
 
             if (previous_plugs.size > 1 && stack.get_visible_child_name () != "main") {
-                navigation_button.set_text (previous_plugs.@get (0).display_name);
+                navigation_button.label = previous_plugs.@get (0).display_name;
                 previous_plugs.remove_at (previous_plugs.size - 1);
             } else {
-                navigation_button.set_text (all_settings_label);
+                navigation_button.label = all_settings_label;
             }
 
             search_box.sensitive = false;
@@ -531,10 +532,12 @@ namespace Switchboard {
                 return false;
             });
 
-            // Nav button
-            navigation_button = new NavigationButton ();
-            navigation_button.clicked.connect (handle_navigation_button_clicked);
+            navigation_button = new Gtk.Button ();
+            navigation_button.get_style_context ().add_class ("back-button");
             navigation_button.sensitive = false;
+            navigation_button.valign = Gtk.Align.CENTER;
+            navigation_button.vexpand = false;
+            navigation_button.clicked.connect (handle_navigation_button_clicked);
 
             main_window.button_release_event.connect ((event) => {
                 // On back mouse button pressed
