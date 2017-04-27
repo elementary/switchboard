@@ -75,10 +75,10 @@ namespace Switchboard {
 
             build_version = "2.0";
             app_icon = "preferences-desktop";
-            main_url = "https://launchpad.net/switchboard";
-            bug_url = "https://bugs.launchpad.net/switchboard";
-            help_url = "https://answers.launchpad.net/switchboard";
-            translate_url = "https://translations.launchpad.net/switchboard";
+            main_url = "https://github.com/elementary/switchboard";
+            bug_url = "https://github.com/elementary/switchboard/issues";
+            help_url = "https://elementaryos.stackexchange.com/questions/tagged/settings";
+            translate_url = "https://l10n.elementary.io/projects/switchboard";
             about_authors = {"Avi Romanoff <avi@elementaryos.org>", "Corentin Noël <tintou@mailoo.org>", null};
             about_translators = _("translator-credits");
             about_license_type = Gtk.License.GPL_3_0;
