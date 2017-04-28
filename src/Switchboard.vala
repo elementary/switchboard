@@ -535,8 +535,6 @@ namespace Switchboard {
             navigation_button = new Gtk.Button ();
             navigation_button.get_style_context ().add_class ("back-button");
             navigation_button.sensitive = false;
-            navigation_button.valign = Gtk.Align.CENTER;
-            navigation_button.vexpand = false;
             navigation_button.clicked.connect (handle_navigation_button_clicked);
 
             main_window.button_release_event.connect ((event) => {
