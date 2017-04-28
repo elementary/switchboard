@@ -2,7 +2,6 @@ set(CLIENT_SOURCE
     Switchboard.vala
     CategoryView.vala
     PlugsSearch.vala
-    NavigationButton.vala
     Widgets/CategoryFlowBox.vala
     Widgets/CategoryIcon.vala
 )
