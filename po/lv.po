@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2017-01-26 09:46+0000\n"
 "Last-Translator: Avi Romanoff <Unknown>\n"
 "Language-Team: Latvian <lv@li.org>\n"
+"Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:47+0000\n"
 "X-Generator: Launchpad (build 18315)\n"
-"Language: lv\n"
 
 #: ../src/Switchboard.vala:45
 msgid "All Settings"
@@ -86,7 +86,6 @@ msgstr "Administrācija"
 #~ msgid "Network and Wireless"
 #~ msgstr "Vadu un bezvadu tīkli"
 
-#, c-format
 #~ msgid "Unable to load plug %s's icon: %s"
 #~ msgstr "Nevarēja ielādēt spraudņa %s ikonu: %s"
 
