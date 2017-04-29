@@ -101,8 +101,9 @@ namespace Switchboard {
 
         public static unowned SwitchboardApp instance {
             get {
-                if (_instance == null)
+                if (_instance == null) {
                     _instance = new SwitchboardApp ();
+                }
                 return _instance;
             }
         }
@@ -252,23 +253,28 @@ namespace Switchboard {
             var quicklist = new Dbusmenu.Menuitem ();
 
             var personal_item = add_quicklist_for_category (Switchboard.Plug.Category.PERSONAL);
-            if (personal_item != null)
+            if (personal_item != null) {
                 quicklist.child_append (personal_item);
+            }
 
             var hardware_item = add_quicklist_for_category (Switchboard.Plug.Category.HARDWARE);
-            if (hardware_item != null)
+            if (hardware_item != null) {
                 quicklist.child_append (hardware_item);
+            }
 
             var network_item = add_quicklist_for_category (Switchboard.Plug.Category.NETWORK);
-            if (network_item != null)
+            if (network_item != null) {
                 quicklist.child_append (network_item);
+            }
 
             var system_item = add_quicklist_for_category (Switchboard.Plug.Category.SYSTEM);
-            if (system_item != null)
+            if (system_item != null) {
                 quicklist.child_append (system_item);
+            }
 
-            if (personal_item != null && hardware_item != null && network_item != null && system_item != null)
+            if (personal_item != null && hardware_item != null && network_item != null && system_item != null) {
                 launcher.quicklist = quicklist;
+            }
         }
 #endif
 
@@ -354,8 +360,9 @@ namespace Switchboard {
         }
 
         private void shut_down () {
-            if (current_plug != null)
+            if (current_plug != null) {
                 current_plug.hidden ();
+            }
 
             Gtk.main_quit ();
         }
@@ -469,8 +476,9 @@ namespace Switchboard {
             search_box.set_text ("");
             search_box.sensitive = Switchboard.PlugsManager.get_default ().has_plugs ();
 
-            if (search_box.sensitive)
+            if (search_box.sensitive) {
                 search_box.has_focus = true;
+            }
 
             return true;
         }
