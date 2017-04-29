@@ -173,8 +173,9 @@ namespace Switchboard {
             loaded_plugs = new Gee.LinkedList <string> ();
             previous_plugs = new Gee.ArrayList <Switchboard.Plug> ();
             settings = new GLib.Settings ("org.pantheon.switchboard.saved-state");
+
             build ();
-            category_view.load_default_plugs.begin ();
+
             Gtk.main ();
         }
 
@@ -272,31 +273,43 @@ namespace Switchboard {
 #endif
 
         private void build () {
+            category_view = new Switchboard.CategoryView (plug_to_open);
+            category_view.margin_top = 12;
+            category_view.plug_selected.connect ((plug) => load_plug (plug));
+            category_view.load_default_plugs.begin ();
+
+            category_scrolled = new Gtk.ScrolledWindow (null, null);
+            category_scrolled.vexpand = true;
+            category_scrolled.add_with_viewport (category_view);
+
+            alert_view = new Granite.Widgets.AlertView ("", "", "");
+            alert_view.no_show_all = true;
+            alert_view.vexpand = true;
+            alert_view.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+
+            stack = new Gtk.Stack ();
+            stack.expand = true;
+            stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
+            stack.add_named (alert_view, "alert");
+            stack.add_named (category_scrolled, "main");
+
             main_window = new Gtk.Window();
-            add_window (main_window);
-
-            // Set up defaults
-            main_window.title = program_name;
+            main_window.application = this;
             main_window.icon_name = app_icon;
+            main_window.title = program_name;
+            main_window.add (stack);
 
-            // Set up window
             restore_saved_state ();
+            setup_toolbar ();
+
             main_window.set_default_size (default_width, default_height);
             main_window.set_size_request (910, 640);
-            main_window.destroy.connect (shut_down);
-            main_window.delete_event.connect (() => {
-                update_saved_state ();
-                return false;
-            });
-            main_window.window_state_event.connect ((event) => {
-                if (event.new_window_state == Gdk.WindowState.MAXIMIZED)
-                    settings.set_enum ("window-state", WindowState.MAXIMIZED);
-                else
-                    settings.set_enum ("window-state", WindowState.NORMAL);
+            main_window.set_titlebar (headerbar);
+            main_window.show_all ();
 
-                return false;
-            });
-            setup_toolbar ();
+            navigation_button.hide ();
+
+            add_window (main_window);
 
             var quit_action = new SimpleAction ("quit", null);
             add_action (quit_action);
@@ -306,30 +319,21 @@ namespace Switchboard {
                 main_window.destroy ();
             });
 
-            category_view = new Switchboard.CategoryView (plug_to_open);
-            category_view.plug_selected.connect ((plug) => load_plug (plug));
-            category_view.margin_top = 12;
+            main_window.destroy.connect (shut_down);
+            main_window.delete_event.connect (() => {
+                update_saved_state ();
+                return false;
+            });
 
-            category_scrolled = new Gtk.ScrolledWindow (null, null);
-            category_scrolled.add_with_viewport (category_view);
-            category_scrolled.set_vexpand (true);
+            main_window.window_state_event.connect ((event) => {
+                if (event.new_window_state == Gdk.WindowState.MAXIMIZED) {
+                    settings.set_enum ("window-state", WindowState.MAXIMIZED);
+                } else {
+                    settings.set_enum ("window-state", WindowState.NORMAL);
+                }
 
-            // Set up UI
-            alert_view = new Granite.Widgets.AlertView ("", "", "");
-            alert_view.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
-            alert_view.set_vexpand (true);
-            alert_view.no_show_all = true;
-
-            stack = new Gtk.Stack ();
-            stack.expand = true;
-            stack.add_named (alert_view, "alert");
-            stack.add_named (category_scrolled, "main");
-            stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
-
-            main_window.add (stack);
-            main_window.set_application (this);
-            main_window.show_all ();
-            navigation_button.hide ();
+                return false;
+            });
 
             main_window.size_allocate.connect (() => {
                 if (opened_directly) {
@@ -365,10 +369,11 @@ namespace Switchboard {
             if (settings.get_enum ("window-state") == WindowState.MAXIMIZED) {
                 main_window.maximize ();
             } else {
-                if (position.length != 2)
+                if (position.length != 2) {
                     main_window.window_position = Gtk.WindowPosition.CENTER;
-                else
+                } else {
                     main_window.move (int.parse (position[0]), int.parse (position[1]));
+                }
             }
         }
 
@@ -383,11 +388,6 @@ namespace Switchboard {
                 string[] position = {x.to_string (), y.to_string ()};
                 settings.set_strv ("position", position);
             }
-        }
-
-        // Change Switchboard title back to "Switchboard"
-        private void reset_title () {
-            headerbar.title = program_name;
         }
 
         // Handles clicking the navigation button
@@ -465,7 +465,7 @@ namespace Switchboard {
             current_plug.hidden ();
 
             // Reset state
-            reset_title ();
+            headerbar.title = program_name;
             search_box.set_text ("");
             search_box.sensitive = Switchboard.PlugsManager.get_default ().has_plugs ();
 
@@ -481,7 +481,6 @@ namespace Switchboard {
             headerbar = new Gtk.HeaderBar ();
             headerbar.show_close_button = true;
             headerbar.title = program_name;
-            main_window.set_titlebar (headerbar);
 
             // Searchbar
             search_box = new Gtk.SearchEntry ();
