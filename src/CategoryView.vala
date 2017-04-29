@@ -105,8 +105,8 @@ namespace Switchboard {
             }
 
             unowned SwitchboardApp app = SwitchboardApp.instance;
-            app.search_box.sensitive = true;
-            filter_plugs (app.search_box.get_text ());
+            app.main_window.search_box.sensitive = true;
+            filter_plugs (app.main_window.search_box.get_text ());
 #if HAVE_UNITY
             app.update_libunity_quicklist ();
 #endif
@@ -209,9 +209,9 @@ namespace Switchboard {
             }
 
             if (any_found) {
-                SwitchboardApp.instance.hide_alert ();
+                SwitchboardApp.instance.main_window.hide_alert ();
             } else {
-                SwitchboardApp.instance.show_alert (_("No Results for “%s”").printf (filter), _("Try changing search terms."), "edit-find-symbolic");
+                SwitchboardApp.instance.main_window.show_alert (_("No Results for “%s”").printf (filter), _("Try changing search terms."), "edit-find-symbolic");
             }
         }
 
