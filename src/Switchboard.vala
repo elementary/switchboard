@@ -227,7 +227,6 @@ namespace Switchboard {
 
                 // Launch plug's executable
                 navigation_button.label = all_settings_label;
-                navigation_button.sensitive = true;
                 navigation_button.show ();
 
                 headerbar.title = plug.display_name;
@@ -533,7 +532,6 @@ namespace Switchboard {
 
             navigation_button = new Gtk.Button ();
             navigation_button.get_style_context ().add_class ("back-button");
-            navigation_button.sensitive = false;
             navigation_button.clicked.connect (handle_navigation_button_clicked);
 
             main_window.button_release_event.connect ((event) => {
