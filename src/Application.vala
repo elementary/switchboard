@@ -47,8 +47,6 @@ namespace Switchboard {
         public Switchboard.Plug current_plug;
 
         private GLib.Settings settings;
-        private int default_width = 0;
-        private int default_height = 0;
 
         private static string? plug_to_open = null;
         private static string? open_window  = null;
@@ -163,7 +161,24 @@ namespace Switchboard {
 
             main_window = new MainWindow (this);
 
-            restore_saved_state ();
+            int default_width = 0;
+            int default_height = 0;
+
+            default_width = settings.get_int ("window-width");
+            default_height = settings.get_int ("window-height");
+
+            var position = settings.get_strv ("position");
+
+            if (settings.get_enum ("window-state") == WindowState.MAXIMIZED) {
+                main_window.maximize ();
+            } else {
+                if (position.length != 2) {
+                    main_window.window_position = Gtk.WindowPosition.CENTER;
+                } else {
+                    main_window.move (int.parse (position[0]), int.parse (position[1]));
+                }
+            }
+
             main_window.set_default_size (default_width, default_height);
             main_window.set_size_request (910, 640);
             main_window.destroy.connect (shut_down);
@@ -196,8 +211,9 @@ namespace Switchboard {
             });
 
             category_view = new Switchboard.CategoryView (plug_to_open);
-            category_view.plug_selected.connect ((plug) => load_plug (plug));
             category_view.margin_top = 12;
+            category_view.load_default_plugs.begin ();
+            category_view.plug_selected.connect ((plug) => load_plug (plug));
 
             main_window.category_scrolled.add_with_viewport (category_view);
 
@@ -212,7 +228,6 @@ namespace Switchboard {
                 }
             });
 
-            category_view.load_default_plugs.begin ();
             Gtk.main ();
         }
 
@@ -298,22 +313,6 @@ namespace Switchboard {
                 current_plug.hidden ();
 
             Gtk.main_quit ();
-        }
-
-        private void restore_saved_state () {
-            // Restore window's state
-            default_width = settings.get_int ("window-width");
-            default_height = settings.get_int ("window-height");
-            var position = settings.get_strv ("position");
-
-            if (settings.get_enum ("window-state") == WindowState.MAXIMIZED) {
-                main_window.maximize ();
-            } else {
-                if (position.length != 2)
-                    main_window.window_position = Gtk.WindowPosition.CENTER;
-                else
-                    main_window.move (int.parse (position[0]), int.parse (position[1]));
-            }
         }
 
         private void update_saved_state () {
