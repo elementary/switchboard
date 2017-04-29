@@ -298,16 +298,12 @@ namespace Switchboard {
             });
             setup_toolbar ();
 
-            // Set up accelerators (hotkeys)
-            var accel_group = new Gtk.AccelGroup ();
-            uint accel_key;
-            Gdk.ModifierType accel_mod;
-            var accel_flags = Gtk.AccelFlags.LOCKED;
-            Gtk.accelerator_parse ("<Control>q", out accel_key, out accel_mod);
-            main_window.add_accel_group (accel_group);
-            accel_group.connect (accel_key, accel_mod, accel_flags, () => {
+            var quit_action = new SimpleAction ("quit", null);
+            add_action (quit_action);
+            add_accelerator ("<Control>q", "app.quit", null);
+
+            quit_action.activate.connect (() => {
                 main_window.destroy ();
-                return true;
             });
 
             category_view = new Switchboard.CategoryView (plug_to_open);
