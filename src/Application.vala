@@ -55,13 +55,6 @@ namespace Switchboard {
         private static string? link  = null;
         private static bool opened_directly = false;
         private static bool should_animate_next_transition = true;
-        private const uint[] NAVIGATION_KEYS = {
-            Gdk.Key.Up,
-            Gdk.Key.Down,
-            Gdk.Key.Left,
-            Gdk.Key.Right,
-            Gdk.Key.Return
-        };
 
         construct {
             application_id = "org.pantheon.switchboard";
@@ -167,7 +160,58 @@ namespace Switchboard {
             loaded_plugs = new Gee.LinkedList <string> ();
             previous_plugs = new Gee.ArrayList <Switchboard.Plug> ();
             settings = new GLib.Settings ("org.pantheon.switchboard.saved-state");
-            build ();
+
+            main_window = new MainWindow (this);
+
+            restore_saved_state ();
+            main_window.set_default_size (default_width, default_height);
+            main_window.set_size_request (910, 640);
+            main_window.destroy.connect (shut_down);
+            main_window.delete_event.connect (() => {
+                update_saved_state ();
+                return false;
+            });
+
+            main_window.window_state_event.connect ((event) => {
+                if (event.new_window_state == Gdk.WindowState.MAXIMIZED)
+                    settings.set_enum ("window-state", WindowState.MAXIMIZED);
+                else
+                    settings.set_enum ("window-state", WindowState.NORMAL);
+
+                return false;
+            });
+
+            main_window.navigation_button.clicked.connect (handle_navigation_button_clicked);
+
+            // Set up accelerators (hotkeys)
+            var accel_group = new Gtk.AccelGroup ();
+            uint accel_key;
+            Gdk.ModifierType accel_mod;
+            var accel_flags = Gtk.AccelFlags.LOCKED;
+            Gtk.accelerator_parse ("<Control>q", out accel_key, out accel_mod);
+            main_window.add_accel_group (accel_group);
+            accel_group.connect (accel_key, accel_mod, accel_flags, () => {
+                main_window.destroy ();
+                return true;
+            });
+
+            category_view = new Switchboard.CategoryView (plug_to_open);
+            category_view.plug_selected.connect ((plug) => load_plug (plug));
+            category_view.margin_top = 12;
+
+            main_window.category_scrolled.add_with_viewport (category_view);
+
+            main_window.show_all ();
+            main_window.navigation_button.hide ();
+
+            add_window (main_window);
+
+            main_window.size_allocate.connect (() => {
+                if (opened_directly) {
+                    main_window.search_box.sensitive = false;
+                }
+            });
+
             category_view.load_default_plugs.begin ();
             Gtk.main ();
         }
@@ -249,114 +293,6 @@ namespace Switchboard {
         }
 #endif
 
-        private void build () {
-            main_window = new MainWindow (this);
-
-            restore_saved_state ();
-            main_window.set_default_size (default_width, default_height);
-            main_window.set_size_request (910, 640);
-            main_window.destroy.connect (shut_down);
-            main_window.delete_event.connect (() => {
-                update_saved_state ();
-                return false;
-            });
-
-            main_window.window_state_event.connect ((event) => {
-                if (event.new_window_state == Gdk.WindowState.MAXIMIZED)
-                    settings.set_enum ("window-state", WindowState.MAXIMIZED);
-                else
-                    settings.set_enum ("window-state", WindowState.NORMAL);
-
-                return false;
-            });
-
-            main_window.search_box.changed.connect(() => {
-                category_view.filter_plugs(main_window.search_box.get_text ());
-            });
-
-            main_window.search_box.key_press_event.connect ((event) => {
-                switch (event.keyval) {
-                    case Gdk.Key.Return:
-                        category_view.activate_first_item ();
-                        return true;
-                    case Gdk.Key.Escape:
-                        main_window.search_box.text = "";
-                        return true;
-                    default:
-                        break;
-                }
-                
-                return false;
-            });
-
-            // Focus typing to the search bar
-            main_window.key_press_event.connect ((event) => {
-                // alt+left should go back to all settings
-                if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0 && event.keyval == Gdk.Key.Left) {
-                    main_window.navigation_button.clicked ();
-                    return false;
-                }
-
-                // Down key from search_bar should move focus to CategoryVIew
-                if (main_window.search_box.has_focus && event.keyval == Gdk.Key.Down) {
-                    category_view.grab_focus_first_icon_view ();
-                    return false;
-                }
-
-                // arrow key is being used by CategoryView to navigate
-                if (event.keyval in NAVIGATION_KEYS)
-                    return false;
-
-                // Don't focus if it is a modifier or if main_window.search_box is already focused
-                if ((event.is_modifier == 0) && !main_window.search_box.has_focus)
-                    main_window.search_box.grab_focus ();
-
-                return false;
-            });
-
-            main_window.navigation_button.clicked.connect (handle_navigation_button_clicked);
-
-            // Set up accelerators (hotkeys)
-            var accel_group = new Gtk.AccelGroup ();
-            uint accel_key;
-            Gdk.ModifierType accel_mod;
-            var accel_flags = Gtk.AccelFlags.LOCKED;
-            Gtk.accelerator_parse ("<Control>q", out accel_key, out accel_mod);
-            main_window.add_accel_group (accel_group);
-            accel_group.connect (accel_key, accel_mod, accel_flags, () => {
-                main_window.destroy ();
-                return true;
-            });
-
-            category_view = new Switchboard.CategoryView (plug_to_open);
-            category_view.plug_selected.connect ((plug) => load_plug (plug));
-            category_view.margin_top = 12;
-
-            main_window.category_scrolled.add_with_viewport (category_view);
-
-            main_window.show_all ();
-            main_window.navigation_button.hide ();
-
-            add_window (main_window);
-
-            main_window.size_allocate.connect (() => {
-                if (opened_directly) {
-                    main_window.search_box.sensitive = false;
-                }
-            });
-
-            if (Switchboard.PlugsManager.get_default ().has_plugs () == false) {
-                main_window.show_alert (_("No Settings Found"), _("Install some and re-launch Switchboard."), "dialog-warning");
-                main_window.search_box.sensitive = false;
-            } else {
-                main_window.search_box.sensitive = true;
-                main_window.search_box.has_focus = true;
-#if HAVE_UNITY
-                update_libunity_quicklist ();
-#endif
-            }
-        }
-
         private void shut_down () {
             if (current_plug != null)
                 current_plug.hidden ();
@@ -393,12 +329,11 @@ namespace Switchboard {
             }
         }
 
-        // Handles clicking the navigation button
         private void handle_navigation_button_clicked () {
             if (main_window.navigation_button.label == all_settings_label) {
                 opened_directly = false;
                 main_window.search_box.sensitive = true;
-                switch_to_icons ();
+                main_window.switch_to_icons ();
                 main_window.navigation_button.hide ();
             } else {
                 if (previous_plugs.size > 0 && main_window.stack.get_visible_child_name () != "main") {
@@ -454,23 +389,6 @@ namespace Switchboard {
             plug.shown ();
             main_window.stack.set_visible_child_name (plug.code_name);
             main_window.category_scrolled.hide ();
-        }
-
-        // Switches back to the icons
-        private bool switch_to_icons () {
-            if (main_window.stack.transition_type == Gtk.StackTransitionType.NONE) {
-                main_window.stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
-            }
-
-            previous_plugs.clear ();
-            main_window.category_scrolled.show ();
-            main_window.stack.set_visible_child (main_window.category_scrolled);
-            current_plug.hidden ();
-
-            // Reset state
-            main_window.reset_state ();
-
-            return true;
         }
 
 #if HAVE_UNITY

@@ -21,6 +21,14 @@
 
 public class Switchboard.MainWindow : Gtk.Window {
     private Granite.Widgets.AlertView alert_view;
+    private const uint[] NAVIGATION_KEYS = {
+        Gdk.Key.Up,
+        Gdk.Key.Down,
+        Gdk.Key.Left,
+        Gdk.Key.Right,
+        Gdk.Key.Return
+    };
+
     public Gtk.Button navigation_button;
     public Gtk.HeaderBar headerbar;
     public Gtk.ScrolledWindow category_scrolled;
@@ -65,12 +73,68 @@ public class Switchboard.MainWindow : Gtk.Window {
         add (stack);
         set_titlebar (headerbar);
 
+        if (Switchboard.PlugsManager.get_default ().has_plugs () == false) {
+            show_alert (_("No Settings Found"), _("Install some and re-launch Switchboard."), "dialog-warning");
+            search_box.sensitive = false;
+        } else {
+            search_box.sensitive = true;
+            search_box.has_focus = true;
+#if HAVE_UNITY
+            SwitchboardApp.instance.update_libunity_quicklist ();
+#endif
+        }
+
         button_release_event.connect ((event) => {
             // On back mouse button pressed
             if (event.button == 8) {
                 navigation_button.clicked ();
             }
 
+            return false;
+        });
+
+        key_press_event.connect ((event) => {
+            // alt+left should go back to all settings
+            if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0 && event.keyval == Gdk.Key.Left) {
+                navigation_button.clicked ();
+                return false;
+            }
+
+            // Down key from search_bar should move focus to CategoryVIew
+            if (search_box.has_focus && event.keyval == Gdk.Key.Down) {
+                SwitchboardApp.instance.category_view.grab_focus_first_icon_view ();
+                return false;
+            }
+
+            // arrow key is being used by CategoryView to navigate
+            if (event.keyval in NAVIGATION_KEYS) {
+                return false;
+            }
+
+            // Don't focus if it is a modifier or if main_window.search_box is already focused
+            if ((event.is_modifier == 0) && !search_box.has_focus) {
+                search_box.grab_focus ();
+            }
+
+            return false;
+        });
+
+        search_box.changed.connect (() => {
+            SwitchboardApp.instance.category_view.filter_plugs (search_box.get_text ());
+        });
+
+        search_box.key_press_event.connect ((event) => {
+            switch (event.keyval) {
+                case Gdk.Key.Return:
+                    SwitchboardApp.instance.category_view.activate_first_item ();
+                    return true;
+                case Gdk.Key.Escape:
+                    search_box.text = "";
+                    return true;
+                default:
+                    break;
+            }
+            
             return false;
         });
     }
@@ -98,5 +162,20 @@ public class Switchboard.MainWindow : Gtk.Window {
         alert_view.description = secondary_text;
         alert_view.icon_name = icon_name;
         stack.set_visible_child_full ("alert", Gtk.StackTransitionType.NONE);
+    }
+
+    public bool switch_to_icons () {
+        if (stack.transition_type == Gtk.StackTransitionType.NONE) {
+            stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
+        }
+
+        SwitchboardApp.instance.previous_plugs.clear ();
+        category_scrolled.show ();
+        stack.set_visible_child (category_scrolled);
+        SwitchboardApp.instance.current_plug.hidden ();
+
+        reset_state ();
+
+        return true;
     }
 }
