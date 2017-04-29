@@ -180,13 +180,10 @@ namespace Switchboard {
         }
 
         public void hide_alert () {
-            alert_view.no_show_all = true;
             stack.set_visible_child_full ("main", Gtk.StackTransitionType.NONE);
-            alert_view.hide ();
         }
 
         public void show_alert (string primary_text, string secondary_text, string icon_name) {
-            alert_view.no_show_all = false;
             alert_view.show_all ();
             alert_view.title = primary_text;
             alert_view.description = secondary_text;
@@ -281,7 +278,6 @@ namespace Switchboard {
             category_scrolled.add_with_viewport (category_view);
 
             alert_view = new Granite.Widgets.AlertView ("", "", "");
-            alert_view.no_show_all = true;
             alert_view.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
 
             stack = new Gtk.Stack ();
