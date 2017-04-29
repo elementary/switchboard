@@ -36,13 +36,8 @@ namespace Switchboard {
     }
 
     public class SwitchboardApp : Granite.Application {
-        private Gtk.Window main_window;
-        private Gtk.Stack stack;
-        private Gtk.HeaderBar headerbar;
+        public MainWindow main_window;
 
-        private Granite.Widgets.AlertView alert_view;
-        private Gtk.ScrolledWindow category_scrolled;
-        private Gtk.Button navigation_button;
         public Switchboard.CategoryView category_view;
 
         private Gee.LinkedList <string> loaded_plugs;
@@ -50,7 +45,6 @@ namespace Switchboard {
 
         public Gee.ArrayList <Switchboard.Plug> previous_plugs;
         public Switchboard.Plug current_plug;
-        public Gtk.SearchEntry search_box { public get; private set; }
 
         private GLib.Settings settings;
         private int default_width = 0;
@@ -178,21 +172,6 @@ namespace Switchboard {
             Gtk.main ();
         }
 
-        public void hide_alert () {
-            alert_view.no_show_all = true;
-            stack.set_visible_child_full ("main", Gtk.StackTransitionType.NONE);
-            alert_view.hide ();
-        }
-
-        public void show_alert (string primary_text, string secondary_text, string icon_name) {
-            alert_view.no_show_all = false;
-            alert_view.show_all ();
-            alert_view.title = primary_text;
-            alert_view.description = secondary_text;
-            alert_view.icon_name = icon_name;
-            stack.set_visible_child_full ("alert", Gtk.StackTransitionType.NONE);
-        }
-
         public void load_plug (Switchboard.Plug plug) {
             //FIXME lower priority for gcc plugs due crash bug #1528361
             var priority = GLib.Priority.DEFAULT_IDLE;
@@ -202,7 +181,7 @@ namespace Switchboard {
 
             Idle.add (() => {
                 if (!loaded_plugs.contains (plug.code_name)) {
-                    stack.add_named (plug.get_widget (), plug.code_name);
+                    main_window.stack.add_named (plug.get_widget (), plug.code_name);
                     loaded_plugs.add (plug.code_name);
                 }
 
@@ -225,11 +204,10 @@ namespace Switchboard {
                 }
 
                 // Launch plug's executable
-                navigation_button.label = all_settings_label;
-                navigation_button.sensitive = true;
-                navigation_button.show ();
-
-                headerbar.title = plug.display_name;
+                main_window.navigation_button.label = all_settings_label;
+                main_window.navigation_button.sensitive = true;
+                main_window.navigation_button.show ();
+                main_window.headerbar.title = plug.display_name;
                 current_plug = plug;
 
                 // open window was set by command line argument
@@ -272,14 +250,8 @@ namespace Switchboard {
 #endif
 
         private void build () {
-            main_window = new Gtk.Window();
-            add_window (main_window);
+            main_window = new MainWindow (this);
 
-            // Set up defaults
-            main_window.title = program_name;
-            main_window.icon_name = app_icon;
-
-            // Set up window
             restore_saved_state ();
             main_window.set_default_size (default_width, default_height);
             main_window.set_size_request (910, 640);
@@ -288,6 +260,7 @@ namespace Switchboard {
                 update_saved_state ();
                 return false;
             });
+
             main_window.window_state_event.connect ((event) => {
                 if (event.new_window_state == Gdk.WindowState.MAXIMIZED)
                     settings.set_enum ("window-state", WindowState.MAXIMIZED);
@@ -296,7 +269,52 @@ namespace Switchboard {
 
                 return false;
             });
-            setup_toolbar ();
+
+            main_window.search_box.changed.connect(() => {
+                category_view.filter_plugs(main_window.search_box.get_text ());
+            });
+
+            main_window.search_box.key_press_event.connect ((event) => {
+                switch (event.keyval) {
+                    case Gdk.Key.Return:
+                        category_view.activate_first_item ();
+                        return true;
+                    case Gdk.Key.Escape:
+                        main_window.search_box.text = "";
+                        return true;
+                    default:
+                        break;
+                }
+                
+                return false;
+            });
+
+            // Focus typing to the search bar
+            main_window.key_press_event.connect ((event) => {
+                // alt+left should go back to all settings
+                if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0 && event.keyval == Gdk.Key.Left) {
+                    main_window.navigation_button.clicked ();
+                    return false;
+                }
+
+                // Down key from search_bar should move focus to CategoryVIew
+                if (main_window.search_box.has_focus && event.keyval == Gdk.Key.Down) {
+                    category_view.grab_focus_first_icon_view ();
+                    return false;
+                }
+
+                // arrow key is being used by CategoryView to navigate
+                if (event.keyval in NAVIGATION_KEYS)
+                    return false;
+
+                // Don't focus if it is a modifier or if main_window.search_box is already focused
+                if ((event.is_modifier == 0) && !main_window.search_box.has_focus)
+                    main_window.search_box.grab_focus ();
+
+                return false;
+            });
+
+            main_window.navigation_button.clicked.connect (handle_navigation_button_clicked);
 
             // Set up accelerators (hotkeys)
             var accel_group = new Gtk.AccelGroup ();
@@ -314,39 +332,25 @@ namespace Switchboard {
             category_view.plug_selected.connect ((plug) => load_plug (plug));
             category_view.margin_top = 12;
 
-            category_scrolled = new Gtk.ScrolledWindow (null, null);
-            category_scrolled.add_with_viewport (category_view);
-            category_scrolled.set_vexpand (true);
+            main_window.category_scrolled.add_with_viewport (category_view);
 
-            // Set up UI
-            alert_view = new Granite.Widgets.AlertView ("", "", "");
-            alert_view.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
-            alert_view.set_vexpand (true);
-            alert_view.no_show_all = true;
-
-            stack = new Gtk.Stack ();
-            stack.expand = true;
-            stack.add_named (alert_view, "alert");
-            stack.add_named (category_scrolled, "main");
-            stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
-
-            main_window.add (stack);
-            main_window.set_application (this);
             main_window.show_all ();
-            navigation_button.hide ();
+            main_window.navigation_button.hide ();
+
+            add_window (main_window);
 
             main_window.size_allocate.connect (() => {
                 if (opened_directly) {
-                    search_box.sensitive = false;
+                    main_window.search_box.sensitive = false;
                 }
             });
 
             if (Switchboard.PlugsManager.get_default ().has_plugs () == false) {
-                show_alert (_("No Settings Found"), _("Install some and re-launch Switchboard."), "dialog-warning");
-                search_box.sensitive = false;
+                main_window.show_alert (_("No Settings Found"), _("Install some and re-launch Switchboard."), "dialog-warning");
+                main_window.search_box.sensitive = false;
             } else {
-                search_box.sensitive = true;
-                search_box.has_focus = true;
+                main_window.search_box.sensitive = true;
+                main_window.search_box.has_focus = true;
 #if HAVE_UNITY
                 update_libunity_quicklist ();
 #endif
@@ -389,20 +393,15 @@ namespace Switchboard {
             }
         }
 
-        // Change Switchboard title back to "Switchboard"
-        private void reset_title () {
-            headerbar.title = program_name;
-        }
-
         // Handles clicking the navigation button
         private void handle_navigation_button_clicked () {
-            if (navigation_button.label == all_settings_label) {
+            if (main_window.navigation_button.label == all_settings_label) {
                 opened_directly = false;
-                search_box.sensitive = true;
+                main_window.search_box.sensitive = true;
                 switch_to_icons ();
-                navigation_button.hide ();
+                main_window.navigation_button.hide ();
             } else {
-                if (previous_plugs.size > 0 && stack.get_visible_child_name () != "main") {
+                if (previous_plugs.size > 0 && main_window.stack.get_visible_child_name () != "main") {
                     load_plug (previous_plugs.@get (0));
                     previous_plugs.remove_at (0);
                 } else {
@@ -438,121 +437,40 @@ namespace Switchboard {
         // Switches to the given plug
         private void switch_to_plug (Switchboard.Plug plug) {
             if (should_animate_next_transition == false) {
-                stack.set_transition_type (Gtk.StackTransitionType.NONE);
+                main_window.stack.set_transition_type (Gtk.StackTransitionType.NONE);
                 should_animate_next_transition = true;
-            } else if (stack.transition_type == Gtk.StackTransitionType.NONE) {
-                stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
+            } else if (main_window.stack.transition_type == Gtk.StackTransitionType.NONE) {
+                main_window.stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
             }
 
-            if (previous_plugs.size > 1 && stack.get_visible_child_name () != "main") {
-                navigation_button.label = previous_plugs.@get (0).display_name;
+            if (previous_plugs.size > 1 && main_window.stack.get_visible_child_name () != "main") {
+                main_window.navigation_button.label = previous_plugs.@get (0).display_name;
                 previous_plugs.remove_at (previous_plugs.size - 1);
             } else {
-                navigation_button.label = all_settings_label;
+                main_window.navigation_button.label = all_settings_label;
             }
 
-            search_box.sensitive = false;
+            main_window.search_box.sensitive = false;
             plug.shown ();
-            stack.set_visible_child_name (plug.code_name);
-            category_scrolled.hide ();
+            main_window.stack.set_visible_child_name (plug.code_name);
+            main_window.category_scrolled.hide ();
         }
 
         // Switches back to the icons
         private bool switch_to_icons () {
-            if (stack.transition_type == Gtk.StackTransitionType.NONE) {
-                stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
+            if (main_window.stack.transition_type == Gtk.StackTransitionType.NONE) {
+                main_window.stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
             }
 
             previous_plugs.clear ();
-            category_scrolled.show ();
-            stack.set_visible_child (category_scrolled);
+            main_window.category_scrolled.show ();
+            main_window.stack.set_visible_child (main_window.category_scrolled);
             current_plug.hidden ();
 
             // Reset state
-            reset_title ();
-            search_box.set_text ("");
-            search_box.sensitive = Switchboard.PlugsManager.get_default ().has_plugs ();
-
-            if (search_box.sensitive)
-                search_box.has_focus = true;
+            main_window.reset_state ();
 
             return true;
-        }
-
-        // Sets up the toolbar for the Switchboard app
-        private void setup_toolbar () {
-            // Global toolbar widgets
-            headerbar = new Gtk.HeaderBar ();
-            headerbar.show_close_button = true;
-            headerbar.title = program_name;
-            main_window.set_titlebar (headerbar);
-
-            // Searchbar
-            search_box = new Gtk.SearchEntry ();
-            search_box.placeholder_text = _("Search Settings");
-            search_box.margin_right = 5;
-            search_box.sensitive = false;
-            search_box.changed.connect(() => {
-                category_view.filter_plugs(search_box.get_text ());
-            });
-
-            search_box.key_press_event.connect ((event) => {
-                switch (event.keyval) {
-                    case Gdk.Key.Return:
-                        category_view.activate_first_item ();
-                        return true;
-                    case Gdk.Key.Escape:
-                        search_box.text = "";
-                        return true;
-                    default:
-                        break;
-                }
-                
-                return false;
-            });
-
-            // Focus typing to the search bar
-            main_window.key_press_event.connect ((event) => {
-                // alt+left should go back to all settings
-                if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0 && event.keyval == Gdk.Key.Left) {
-                    navigation_button.clicked ();
-                    return false;
-                }
-
-                // Down key from search_bar should move focus to CategoryVIew
-                if (search_box.has_focus && event.keyval == Gdk.Key.Down) {
-                    category_view.grab_focus_first_icon_view ();
-                    return false;
-                }
-
-                // arrow key is being used by CategoryView to navigate
-                if (event.keyval in NAVIGATION_KEYS)
-                    return false;
-
-                // Don't focus if it is a modifier or if search_box is already focused
-                if ((event.is_modifier == 0) && !search_box.has_focus)
-                    search_box.grab_focus ();
-
-                return false;
-            });
-
-            navigation_button = new Gtk.Button ();
-            navigation_button.get_style_context ().add_class ("back-button");
-            navigation_button.sensitive = false;
-            navigation_button.clicked.connect (handle_navigation_button_clicked);
-
-            main_window.button_release_event.connect ((event) => {
-                // On back mouse button pressed
-                if (event.button == 8) {
-                    navigation_button.clicked ();
-                }
-
-                return false;
-            });
-
-            // Add everything to the toolbar
-            headerbar.pack_start (navigation_button);
-            headerbar.pack_end (search_box);
         }
 
 #if HAVE_UNITY
