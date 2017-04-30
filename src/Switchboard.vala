@@ -449,22 +449,15 @@ namespace Switchboard {
             search_box.sensitive = false;
             plug.shown ();
             stack.set_visible_child_name (plug.code_name);
-            category_scrolled.hide ();
         }
 
-        // Switches back to the icons
         private bool switch_to_icons () {
-            if (stack.transition_type == Gtk.StackTransitionType.NONE) {
-                stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
-            }
-
             previous_plugs.clear ();
-            category_scrolled.show ();
-            stack.set_visible_child (category_scrolled);
+            stack.set_visible_child_full ("main", Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
             current_plug.hidden ();
 
-            // Reset state
             headerbar.title = program_name;
+
             search_box.set_text ("");
             search_box.sensitive = Switchboard.PlugsManager.get_default ().has_plugs ();
 
