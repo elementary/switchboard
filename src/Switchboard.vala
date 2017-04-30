@@ -275,6 +275,20 @@ namespace Switchboard {
 #endif
 
         private void build () {
+            navigation_button = new Gtk.Button ();
+            navigation_button.get_style_context ().add_class ("back-button");
+
+            search_box = new Gtk.SearchEntry ();
+            search_box.placeholder_text = _("Search Settings");
+            search_box.margin_right = 5;
+            search_box.sensitive = false;
+
+            headerbar = new Gtk.HeaderBar ();
+            headerbar.show_close_button = true;
+            headerbar.title = program_name;
+            headerbar.pack_start (navigation_button);
+            headerbar.pack_end (search_box);
+
             category_view = new Switchboard.CategoryView (plug_to_open);
             category_view.margin_top = 12;
             category_view.plug_selected.connect ((plug) => load_plug (plug));
@@ -298,7 +312,6 @@ namespace Switchboard {
             main_window.add (stack);
 
             restore_saved_state ();
-            setup_toolbar ();
 
             main_window.set_default_size (default_width, default_height);
             main_window.set_size_request (910, 640);
@@ -309,6 +322,27 @@ namespace Switchboard {
 
             add_window (main_window);
 
+            navigation_button.clicked.connect (handle_navigation_button_clicked);
+
+            search_box.changed.connect (() => {
+                category_view.filter_plugs (search_box.get_text ());
+            });
+
+            search_box.key_press_event.connect ((event) => {
+                switch (event.keyval) {
+                    case Gdk.Key.Return:
+                        category_view.activate_first_item ();
+                        return true;
+                    case Gdk.Key.Escape:
+                        search_box.text = "";
+                        return true;
+                    default:
+                        break;
+                }
+                
+                return false;
+            });
+
             var quit_action = new SimpleAction ("quit", null);
             add_action (quit_action);
             add_accelerator ("<Control>q", "app.quit", null);
@@ -317,9 +351,42 @@ namespace Switchboard {
                 main_window.destroy ();
             });
 
+            main_window.button_release_event.connect ((event) => {
+                // On back mouse button pressed
+                if (event.button == 8) {
+                    navigation_button.clicked ();
+                }
+
+                return false;
+            });
+
             main_window.destroy.connect (shut_down);
             main_window.delete_event.connect (() => {
                 update_saved_state ();
+                return false;
+            });
+
+            main_window.key_press_event.connect ((event) => {
+                // alt+left should go back to all settings
+                if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0 && event.keyval == Gdk.Key.Left) {
+                    navigation_button.clicked ();
+                    return false;
+                }
+
+                // Down key from search_bar should move focus to CategoryVIew
+                if (search_box.has_focus && event.keyval == Gdk.Key.Down) {
+                    category_view.grab_focus_first_icon_view ();
+                    return false;
+                }
+
+                // arrow key is being used by CategoryView to navigate
+                if (event.keyval in NAVIGATION_KEYS)
+                    return false;
+
+                // Don't focus if it is a modifier or if search_box is already focused
+                if ((event.is_modifier == 0) && !search_box.has_focus)
+                    search_box.grab_focus ();
+
                 return false;
             });
 
@@ -466,80 +533,6 @@ namespace Switchboard {
             }
 
             return true;
-        }
-
-        // Sets up the toolbar for the Switchboard app
-        private void setup_toolbar () {
-            // Global toolbar widgets
-            headerbar = new Gtk.HeaderBar ();
-            headerbar.show_close_button = true;
-            headerbar.title = program_name;
-
-            // Searchbar
-            search_box = new Gtk.SearchEntry ();
-            search_box.placeholder_text = _("Search Settings");
-            search_box.margin_right = 5;
-            search_box.sensitive = false;
-            search_box.changed.connect(() => {
-                category_view.filter_plugs(search_box.get_text ());
-            });
-
-            search_box.key_press_event.connect ((event) => {
-                switch (event.keyval) {
-                    case Gdk.Key.Return:
-                        category_view.activate_first_item ();
-                        return true;
-                    case Gdk.Key.Escape:
-                        search_box.text = "";
-                        return true;
-                    default:
-                        break;
-                }
-                
-                return false;
-            });
-
-            // Focus typing to the search bar
-            main_window.key_press_event.connect ((event) => {
-                // alt+left should go back to all settings
-                if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0 && event.keyval == Gdk.Key.Left) {
-                    navigation_button.clicked ();
-                    return false;
-                }
-
-                // Down key from search_bar should move focus to CategoryVIew
-                if (search_box.has_focus && event.keyval == Gdk.Key.Down) {
-                    category_view.grab_focus_first_icon_view ();
-                    return false;
-                }
-
-                // arrow key is being used by CategoryView to navigate
-                if (event.keyval in NAVIGATION_KEYS)
-                    return false;
-
-                // Don't focus if it is a modifier or if search_box is already focused
-                if ((event.is_modifier == 0) && !search_box.has_focus)
-                    search_box.grab_focus ();
-
-                return false;
-            });
-
-            navigation_button = new Gtk.Button ();
-            navigation_button.get_style_context ().add_class ("back-button");
-            navigation_button.clicked.connect (handle_navigation_button_clicked);
-
-            main_window.button_release_event.connect ((event) => {
-                // On back mouse button pressed
-                if (event.button == 8) {
-                    navigation_button.clicked ();
-                }
-
-                return false;
-            });
-
-            // Add everything to the toolbar
-            headerbar.pack_start (navigation_button);
-            headerbar.pack_end (search_box);
         }
 
 #if HAVE_UNITY
