@@ -374,6 +374,7 @@ namespace Switchboard {
                     settings.set_int ("window-height", height);
                     settings.set_strv ("position", position);
                 }
+
                 return false;
             });
 
