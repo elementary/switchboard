@@ -52,8 +52,6 @@ namespace Switchboard {
         public Gtk.SearchEntry search_box { public get; private set; }
 
         private GLib.Settings settings;
-        private int default_width = 0;
-        private int default_height = 0;
 
         private static string? plug_to_open = null;
         private static string? open_window  = null;
@@ -309,12 +307,21 @@ namespace Switchboard {
             main_window.icon_name = app_icon;
             main_window.title = program_name;
             main_window.add (stack);
-
-            restore_saved_state ();
-
-            main_window.set_default_size (default_width, default_height);
+            main_window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));
             main_window.set_size_request (910, 640);
             main_window.set_titlebar (headerbar);
+
+            if (settings.get_enum ("window-state") == WindowState.MAXIMIZED) {
+                main_window.maximize ();
+            } else {
+                var position = settings.get_strv ("position");
+                if (position.length != 2) {
+                    main_window.window_position = Gtk.WindowPosition.CENTER;
+                } else {
+                    main_window.move (int.parse (position[0]), int.parse (position[1]));
+                }
+            }
+
             main_window.show_all ();
 
             navigation_button.hide ();
@@ -423,23 +430,6 @@ namespace Switchboard {
             }
 
             Gtk.main_quit ();
-        }
-
-        private void restore_saved_state () {
-            // Restore window's state
-            default_width = settings.get_int ("window-width");
-            default_height = settings.get_int ("window-height");
-            var position = settings.get_strv ("position");
-
-            if (settings.get_enum ("window-state") == WindowState.MAXIMIZED) {
-                main_window.maximize ();
-            } else {
-                if (position.length != 2) {
-                    main_window.window_position = Gtk.WindowPosition.CENTER;
-                } else {
-                    main_window.move (int.parse (position[0]), int.parse (position[1]));
-                }
-            }
         }
 
         private void update_saved_state () {
