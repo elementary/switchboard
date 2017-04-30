@@ -361,8 +361,20 @@ namespace Switchboard {
             });
 
             main_window.destroy.connect (shut_down);
+
             main_window.delete_event.connect (() => {
-                update_saved_state ();
+                if (settings.get_enum ("window-state") == WindowState.NORMAL) {
+                    int width, height, x, y;
+
+                    main_window.get_size (out width, out height);
+                    main_window.get_position (out x, out y);
+
+                    string[] position = {x.to_string (), y.to_string ()};
+
+                    settings.set_int ("window-width", width);
+                    settings.set_int ("window-height", height);
+                    settings.set_strv ("position", position);
+                }
                 return false;
             });
 
@@ -440,19 +452,6 @@ namespace Switchboard {
                 } else {
                     main_window.move (int.parse (position[0]), int.parse (position[1]));
                 }
-            }
-        }
-
-        private void update_saved_state () {
-            // Update saved state of window
-            if (settings.get_enum ("window-state") == WindowState.NORMAL) {
-                int width, height, x, y;
-                main_window.get_size (out width, out height);
-                main_window.get_position (out x, out y);
-                settings.set_int ("window-width", width);
-                settings.set_int ("window-height", height);
-                string[] position = {x.to_string (), y.to_string ()};
-                settings.set_strv ("position", position);
             }
         }
 
