@@ -324,8 +324,8 @@ namespace Switchboard {
 
             navigation_button.clicked.connect (handle_navigation_button_clicked);
 
-            search_box.changed.connect(() => {
-                category_view.filter_plugs(search_box.get_text ());
+            search_box.changed.connect (() => {
+                category_view.filter_plugs (search_box.get_text ());
             });
 
             search_box.key_press_event.connect ((event) => {
