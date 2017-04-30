@@ -315,7 +315,7 @@ namespace Switchboard {
             if (settings.get_enum ("window-state") == WindowState.MAXIMIZED) {
                 main_window.maximize ();
             } else {
-            var position = settings.get_strv ("position");
+                var position = settings.get_strv ("position");
                 if (position.length != 2) {
                     main_window.window_position = Gtk.WindowPosition.CENTER;
                 } else {
