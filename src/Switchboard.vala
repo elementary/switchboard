@@ -51,8 +51,6 @@ namespace Switchboard {
         public Switchboard.Plug current_plug;
         public Gtk.SearchEntry search_box { public get; private set; }
 
-        private GLib.Settings settings;
-
         private static string? plug_to_open = null;
         private static string? open_window  = null;
         private static string? link  = null;
@@ -170,7 +168,6 @@ namespace Switchboard {
 
             loaded_plugs = new Gee.LinkedList <string> ();
             previous_plugs = new Gee.ArrayList <Switchboard.Plug> ();
-            settings = new GLib.Settings ("org.pantheon.switchboard.saved-state");
 
             build ();
 
@@ -301,6 +298,8 @@ namespace Switchboard {
             stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
             stack.add_named (alert_view, "alert");
             stack.add_named (category_scrolled, "main");
+
+            var settings = new GLib.Settings ("org.pantheon.switchboard.saved-state");
 
             main_window = new Gtk.Window();
             main_window.application = this;
