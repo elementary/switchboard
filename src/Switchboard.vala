@@ -41,7 +41,6 @@ namespace Switchboard {
         private Gtk.HeaderBar headerbar;
 
         private Granite.Widgets.AlertView alert_view;
-        private Gtk.ScrolledWindow category_scrolled;
         private Gtk.Button navigation_button;
         public Switchboard.CategoryView category_view;
 
@@ -294,7 +293,7 @@ namespace Switchboard {
             category_view.plug_selected.connect ((plug) => load_plug (plug));
             category_view.load_default_plugs.begin ();
 
-            category_scrolled = new Gtk.ScrolledWindow (null, null);
+            var category_scrolled = new Gtk.ScrolledWindow (null, null);
             category_scrolled.add_with_viewport (category_view);
 
             alert_view = new Granite.Widgets.AlertView ("", "", "");
