@@ -576,7 +576,7 @@ namespace Switchboard {
             // list of names taken from GCC's shell/cc-panel-loader.c
             switch (gcc_name) {
                 case "background": return "pantheon-desktop";
-                case "bluetooth": return "network-gcc-bluetooth";
+                case "bluetooth": return "network-pantheon-bluetooth";
                 case "color": return "hardware-gcc-color";
                 case "datetime": return "system-pantheon-datetime";
                 case "display": return "system-pantheon-display";
@@ -584,18 +584,18 @@ namespace Switchboard {
                 case "keyboard": return "hardware-pantheon-keyboard";
                 case "network": return "pantheon-network";
                 case "power": return "system-pantheon-power";
-                case "printers": return "hardware-gcc-printer";
+                case "printers": return "pantheon-printers";
                 case "privacy": return "pantheon-security-privacy";
                 case "region": return "system-pantheon-locale";
+                case "sharing": return "pantheon-sharing";
                 case "sound": return "hardware-gcc-sound";
-                case "universal-access": return "system-gcc-universalaccess";
+                case "universal-access": return "pantheon-accessibility";
                 case "user-accounts": return "system-pantheon-useraccounts";
                 case "wacom": return "hardware-gcc-wacom";
                 case "notifications": return "personal-pantheon-notifications";
 
                 // not available on our system
                 case "search":
-                case "sharing":
                     return null;
             }
 
