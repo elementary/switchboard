@@ -37,6 +37,7 @@ namespace Switchboard {
 
     public class SwitchboardApp : Granite.Application {
         private Gtk.Window main_window;
+        private Gtk.ScrolledWindow category_scrolled;
         private Gtk.Stack stack;
         private Gtk.HeaderBar headerbar;
 
@@ -291,7 +292,7 @@ namespace Switchboard {
             category_view.plug_selected.connect ((plug) => load_plug (plug));
             category_view.load_default_plugs.begin ();
 
-            var category_scrolled = new Gtk.ScrolledWindow (null, null);
+            category_scrolled = new Gtk.ScrolledWindow (null, null);
             category_scrolled.add_with_viewport (category_view);
 
             alert_view = new Granite.Widgets.AlertView ("", "", "");
@@ -505,10 +506,12 @@ namespace Switchboard {
             search_box.sensitive = false;
             plug.shown ();
             stack.set_visible_child_name (plug.code_name);
+            category_scrolled.hide ();
         }
 
         private bool switch_to_icons () {
             previous_plugs.clear ();
+            category_scrolled.show ();
             stack.set_visible_child_full ("main", Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
             current_plug.hidden ();
 
