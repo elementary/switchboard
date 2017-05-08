@@ -52,8 +52,6 @@ namespace Switchboard {
         public Switchboard.Plug current_plug;
         public Gtk.SearchEntry search_box { public get; private set; }
 
-        private GLib.Settings settings;
-
         private static string? plug_to_open = null;
         private static string? open_window  = null;
         private static string? link  = null;
@@ -171,7 +169,6 @@ namespace Switchboard {
 
             loaded_plugs = new Gee.LinkedList <string> ();
             previous_plugs = new Gee.ArrayList <Switchboard.Plug> ();
-            settings = new GLib.Settings ("org.pantheon.switchboard.saved-state");
 
             build ();
 
@@ -303,6 +300,8 @@ namespace Switchboard {
             stack.add_named (alert_view, "alert");
             stack.add_named (category_scrolled, "main");
 
+            var settings = new GLib.Settings ("org.pantheon.switchboard.saved-state");
+
             main_window = new Gtk.Window();
             main_window.application = this;
             main_window.icon_name = app_icon;
@@ -368,8 +367,21 @@ namespace Switchboard {
             });
 
             main_window.destroy.connect (shut_down);
+
             main_window.delete_event.connect (() => {
-                update_saved_state ();
+                if (settings.get_enum ("window-state") == WindowState.NORMAL) {
+                    int width, height, x, y;
+
+                    main_window.get_size (out width, out height);
+                    main_window.get_position (out x, out y);
+
+                    string[] position = {x.to_string (), y.to_string ()};
+
+                    settings.set_int ("window-width", width);
+                    settings.set_int ("window-height", height);
+                    settings.set_strv ("position", position);
+                }
+
                 return false;
             });
 
@@ -431,19 +443,6 @@ namespace Switchboard {
             }
 
             Gtk.main_quit ();
-        }
-
-        private void update_saved_state () {
-            // Update saved state of window
-            if (settings.get_enum ("window-state") == WindowState.NORMAL) {
-                int width, height, x, y;
-                main_window.get_size (out width, out height);
-                main_window.get_position (out x, out y);
-                settings.set_int ("window-width", width);
-                settings.set_int ("window-height", height);
-                string[] position = {x.to_string (), y.to_string ()};
-                settings.set_strv ("position", position);
-            }
         }
 
         // Handles clicking the navigation button
