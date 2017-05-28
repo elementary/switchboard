@@ -455,8 +455,9 @@ namespace Switchboard {
             } else {
                 if (previous_plugs.size > 0 && stack.get_visible_child_name () != "main") {
                     if (current_plug != null) {
-                        current_plug.hidden();
+                        current_plug.hidden ();
                     }
+                    
                     load_plug (previous_plugs.@get (0));
                     previous_plugs.remove_at (0);
                 } else {
@@ -475,8 +476,9 @@ namespace Switchboard {
 
                 if (supported_settings.has_key (setting_path)) {
                     if (current_plug != null) {
-                        current_plug.hidden();
+                        current_plug.hidden ();
                     }
+                    
                     load_plug (plug);
                     open_window = supported_settings.get (setting_path);
                     return true;
