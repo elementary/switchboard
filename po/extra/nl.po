@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-01 11:40-0600\n"
 "PO-Revision-Date: 2017-05-12 16:03+0000\n"
 "Last-Translator: Dieter Debast <dieter_debast@hotmail.com>\n"
