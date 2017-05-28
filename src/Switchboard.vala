@@ -454,6 +454,9 @@ namespace Switchboard {
                 navigation_button.hide ();
             } else {
                 if (previous_plugs.size > 0 && stack.get_visible_child_name () != "main") {
+                    if (current_plug != null) {
+                        current_plug.hidden();
+                    }
                     load_plug (previous_plugs.@get (0));
                     previous_plugs.remove_at (0);
                 } else {
