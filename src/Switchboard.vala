@@ -454,7 +454,6 @@ namespace Switchboard {
                 navigation_button.hide ();
             } else {
                 if (previous_plugs.size > 0 && stack.get_visible_child_name () != "main") {
-                    print("SWITCHBOARD navigate\n");
                     if (current_plug != null) {
                         current_plug.hidden();
                     }
@@ -475,7 +474,6 @@ namespace Switchboard {
                 }
 
                 if (supported_settings.has_key (setting_path)) {
-                    print("SWITCHBOARD link\n");
                     if (current_plug != null) {
                         current_plug.hidden();
                     }
