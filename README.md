@@ -6,8 +6,10 @@
 
 You'll need the following dependencies:
 
+* appstream
 * cmake
 * debhelper
+* desktop-file-utils
 * libclutter-gtk-1.0-dev
 * libgee-0.8-dev
 * libglib2.0-dev
@@ -21,10 +23,10 @@ It's recommended to create a clean build environment
     mkdir build
     cd build/
     
-Run `cmake` to configure the build environment and then `make` to build
+Run `cmake` to configure the build environment and then `make all test` to build and run tests
 
     cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-    make
+    make all test
     
 To install, use `make install`, then execute with `switchboard`
 

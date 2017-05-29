@@ -25,7 +25,7 @@ msgid "Change system and user settings"
 msgstr "سسٹم اور صارف کی ترتیبات تبدیل کریں"
 
 msgid "Center;Control;Panel;Preferences;System;"
-msgstr "؛سینٹر؛مرکز؛پینل؛ترجیحات؛سسٹم؛نظام"
+msgstr "؛سینٹر؛مرکز؛پینل؛ترجیحات؛سسٹم؛نظام;"
 
 msgid "About System Settings"
 msgstr "سسٹم ترتیبات کے بارے میں"
