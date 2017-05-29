@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-01 11:40-0600\n"
-"PO-Revision-Date: 2017-05-29 22:15+0000\n"
-"Last-Translator: Dieter Debast <dieter_debast@hotmail.com>\n"
+"PO-Revision-Date: 2017-05-29 22:16+0000\n"
+"Last-Translator: Kay van der Zander <kay20@hotmail.com>\n"
 "Language-Team: Dutch "
 "<https://l10n.elementary.io/projects/switchboard/switchboard/nl/>\n"
 "Language: nl\n"
@@ -38,11 +38,11 @@ msgstr "Specifieke link '%s' bestaat niet, teruggaan naar het hoofdpaneel"
 
 #: ../src/Switchboard.vala:340
 msgid "No Settings Found"
-msgstr ""
+msgstr "Geen instellingen gevonden"
 
 #: ../src/Switchboard.vala:340
 msgid "Install some and re-launch Switchboard."
-msgstr ""
+msgstr "Installeer een aantal en start Switchboard opnieuw."
 
 #: ../src/Switchboard.vala:487
 msgid "Search Settings"
@@ -50,11 +50,11 @@ msgstr "Zoek in instellingen"
 
 #: ../src/CategoryView.vala:214
 msgid "No Results for “%s”"
-msgstr ""
+msgstr "Geen resultaat voor \"%s\""
 
 #: ../src/CategoryView.vala:214
 msgid "Try changing search terms."
-msgstr ""
+msgstr "Probeer je zoektermen te wijzigen."
 
 #: ../src/CategoryView.vala:221
 msgid "Personal"
