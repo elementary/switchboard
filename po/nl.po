@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-01 11:40-0600\n"
 "PO-Revision-Date: 2017-05-29 22:15+0000\n"
-"Last-Translator: Kay van der Zander <kay20@hotmail.com>\n"
+"Last-Translator: Dieter Debast <dieter_debast@hotmail.com>\n"
 "Language-Team: Dutch "
 "<https://l10n.elementary.io/projects/switchboard/switchboard/nl/>\n"
 "Language: nl\n"
@@ -34,7 +34,7 @@ msgstr "vertaler-credits"
 
 #: ../src/Switchboard.vala:147
 msgid "Specified link '%s' does not exist, going back to the main panel"
-msgstr "Specifieke link '%s' bestaat niet, ga terug naar het hoofd paneel."
+msgstr "Specifieke link '%s' bestaat niet, teruggaan naar het hoofdpaneel"
 
 #: ../src/Switchboard.vala:340
 msgid "No Settings Found"
