@@ -8,15 +8,17 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-01 11:40-0600\n"
-"PO-Revision-Date: 2017-02-02 09:41+0000\n"
-"Last-Translator: Félix Brezo <felixbrezo@gmail.com>\n"
-"Language-Team: Spanish <es@li.org>\n"
+"PO-Revision-Date: 2017-07-20 21:11+0000\n"
+"Last-Translator: haggen svastian <h2gn@openmailbox.org>\n"
+"Language-Team: Spanish "
+"<https://weblate.elementary.io/projects/switchboard/switchboard/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.15\n"
 "X-Launchpad-Export-Date: 2017-02-04 05:40+0000\n"
-"X-Generator: Launchpad (build 18322)\n"
 
 #: ../src/Switchboard.vala:45
 msgid "All Settings"
@@ -52,7 +54,7 @@ msgstr "No se encontraron ajustes"
 
 #: ../src/Switchboard.vala:340
 msgid "Install some and re-launch Switchboard."
-msgstr "Instala cualquier cosa y reinicia Switchboard"
+msgstr "Instalar algo y reiniciar Switchboard"
 
 #: ../src/Switchboard.vala:487
 msgid "Search Settings"
