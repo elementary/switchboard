@@ -22,6 +22,7 @@ Architecture: any
 Depends: libswitchboard-2.0-0 (= ${binary:Version}),
          ${misc:Depends},
          ${shlibs:Depends}
+Provides: unity-control-center
 Pre-Depends: dpkg (>= 1.15.6)
 Description: Modular Settings Hub
  Switchboard is a modular system settings hub designed
