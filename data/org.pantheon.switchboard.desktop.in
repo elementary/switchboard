@@ -9,8 +9,3 @@ StartupNotify=true
 Categories=GNOME;GTK;System;
 _Keywords=Center;Control;Panel;Preferences;System;
 MimeType=x-scheme-handler/settings;
-Actions=AboutDialog;
-
-[Desktop Action AboutDialog]
-Exec=switchboard --about
-_Name=About System Settings
