@@ -11,7 +11,7 @@ set (GSETTINGSDIR "${DATADIR}/glib-2.0/schemas/")
 set (PKGDATADIR "${DATADIR}/${CMAKE_PROJECT_NAME}")
 set (GETTEXT_PACKAGE "${CMAKE_PROJECT_NAME}")
 set (RELEASE_NAME "Preferences with piazzaz.")
-set (PLUGS_DIR ${CMAKE_INSTALL_FULL_LIBDIR}/${CMAKE_PROJECT_NAME})
+set (PLUGS_DIR ${CMAKE_INSTALL_FULL_LIBDIR}/switchboard)
 set (VERSION "2.3.0")
 set (VERSION_INFO "Stable Release")
 
