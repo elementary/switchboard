@@ -66,11 +66,11 @@ namespace Switchboard {
         };
 
         construct {
-            application_id = "org.pantheon.switchboard";
+            application_id = "io.elementary.switchboard";
             program_name = _("System Settings");
             app_years = "2011-2016";
-            exec_name = "switchboard";
-            app_launcher = exec_name+".desktop";
+            exec_name = "io.elementary.switchboard";
+            app_launcher = "org.pantheon.switchboard.desktop";
             flags |= ApplicationFlags.HANDLES_OPEN;
 
             build_version = "2.0";
