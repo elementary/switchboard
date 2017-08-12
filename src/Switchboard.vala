@@ -76,12 +76,6 @@ namespace Switchboard {
             build_version = "2.0";
             app_icon = "preferences-desktop";
             main_url = "https://github.com/elementary/switchboard";
-            bug_url = "https://github.com/elementary/switchboard/issues";
-            help_url = "https://elementaryos.stackexchange.com/questions/tagged/settings";
-            translate_url = "https://l10n.elementary.io/projects/switchboard";
-            about_authors = {"Avi Romanoff <avi@elementaryos.org>", "Corentin Noël <tintou@mailoo.org>", null};
-            about_translators = _("translator-credits");
-            about_license_type = Gtk.License.GPL_3_0;
 
             if (GLib.AppInfo.get_default_for_uri_scheme ("settings") == null) {
                 var appinfo = new GLib.DesktopAppInfo (app_launcher);

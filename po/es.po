@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-01 11:40-0600\n"
-"PO-Revision-Date: 2017-07-20 21:11+0000\n"
+"PO-Revision-Date: 2017-08-03 15:31+0000\n"
 "Last-Translator: haggen svastian <h2gn@openmailbox.org>\n"
 "Language-Team: Spanish "
 "<https://weblate.elementary.io/projects/switchboard/switchboard/es/>\n"
@@ -53,8 +53,9 @@ msgid "No Settings Found"
 msgstr "No se encontraron ajustes"
 
 #: ../src/Switchboard.vala:340
+#, fuzzy
 msgid "Install some and re-launch Switchboard."
-msgstr "Instalar algo y reiniciar Switchboard"
+msgstr "Instalar algo y reiniciar Switchboard."
 
 #: ../src/Switchboard.vala:487
 msgid "Search Settings"
