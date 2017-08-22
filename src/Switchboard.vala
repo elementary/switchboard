@@ -273,6 +273,7 @@ namespace Switchboard {
             search_box.sensitive = false;
 
             headerbar = new Gtk.HeaderBar ();
+            headerbar.has_subtitle = false;
             headerbar.show_close_button = true;
             headerbar.title = program_name;
             headerbar.pack_start (navigation_button);
