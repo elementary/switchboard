@@ -2,6 +2,7 @@ prefix=@PREFIX@
 exec_prefix=${prefix}
 libdir=${prefix}/@CMAKE_INSTALL_LIBDIR@
 includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@
+plugsdir=${libdir}/switchboard
  
 Name: Switchboard
 Description: Switchboard headers
