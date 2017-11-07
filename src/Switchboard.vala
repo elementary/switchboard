@@ -68,14 +68,11 @@ namespace Switchboard {
         construct {
             application_id = "org.pantheon.switchboard";
             program_name = _("System Settings");
-            app_years = "2011-2016";
             exec_name = "switchboard";
             app_launcher = exec_name+".desktop";
             flags |= ApplicationFlags.HANDLES_OPEN;
 
             build_version = "2.0";
-            app_icon = "preferences-desktop";
-            main_url = "https://github.com/elementary/switchboard";
 
             if (GLib.AppInfo.get_default_for_uri_scheme ("settings") == null) {
                 var appinfo = new GLib.DesktopAppInfo (app_launcher);
@@ -299,7 +296,7 @@ namespace Switchboard {
 
             main_window = new Gtk.Window();
             main_window.application = this;
-            main_window.icon_name = app_icon;
+            main_window.icon_name = "preferences-desktop";
             main_window.title = program_name;
             main_window.add (stack);
             main_window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));
