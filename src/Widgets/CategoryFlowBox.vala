@@ -25,9 +25,7 @@ namespace Switchboard {
         private Gtk.FlowBox flowbox;
 
         public Category (Switchboard.Plug.Category category) {
-            var category_label = new Gtk.Label (Switchboard.CategoryView.get_category_name (category));
-            category_label.get_style_context ().add_class ("category-label");
-            category_label.halign = Gtk.Align.START;
+            var category_label = new Granite.HeaderLabel (Switchboard.CategoryView.get_category_name (category));
 
             var h_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
             h_separator.set_hexpand (true);
