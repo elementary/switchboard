@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-01 11:40-0600\n"
+"POT-Creation-Date: 2018-01-19 05:50-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/Switchboard.vala:45
+#: ../src/Switchboard.vala:49
 msgid "All Settings"
 msgstr ""
 
@@ -25,24 +25,20 @@ msgstr ""
 msgid "System Settings"
 msgstr ""
 
-#: ../src/Switchboard.vala:83
-msgid "translator-credits"
-msgstr ""
-
-#: ../src/Switchboard.vala:147
+#: ../src/Switchboard.vala:139
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr ""
 
-#: ../src/Switchboard.vala:340
+#: ../src/Switchboard.vala:268
+msgid "Search Settings"
+msgstr ""
+
+#: ../src/Switchboard.vala:421
 msgid "No Settings Found"
 msgstr ""
 
-#: ../src/Switchboard.vala:340
+#: ../src/Switchboard.vala:421
 msgid "Install some and re-launch Switchboard."
-msgstr ""
-
-#: ../src/Switchboard.vala:487
-msgid "Search Settings"
 msgstr ""
 
 #: ../src/CategoryView.vala:214
