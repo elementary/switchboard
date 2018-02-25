@@ -35,7 +35,7 @@ namespace Switchboard {
         return app.run (args);
     }
 
-    public class SwitchboardApp : Granite.Application {
+    public class SwitchboardApp : Gtk.Application {
         private Gtk.Window main_window;
         private Gtk.ScrolledWindow category_scrolled;
         private Gtk.Stack stack;
@@ -67,15 +67,10 @@ namespace Switchboard {
 
         construct {
             application_id = "org.pantheon.switchboard";
-            program_name = _("System Settings");
-            exec_name = "switchboard";
-            app_launcher = exec_name+".desktop";
             flags |= ApplicationFlags.HANDLES_OPEN;
 
-            build_version = "2.0";
-
             if (GLib.AppInfo.get_default_for_uri_scheme ("settings") == null) {
-                var appinfo = new GLib.DesktopAppInfo (app_launcher);
+                var appinfo = new GLib.DesktopAppInfo (application_id + ".desktop");
                 try {
                     appinfo.set_as_default_for_type ("x-scheme-handler/settings");
                 } catch (Error e) {
@@ -84,8 +79,7 @@ namespace Switchboard {
             }
         }
 
-        public static SwitchboardApp _instance = null;
-
+        private static SwitchboardApp _instance = null;
         public static unowned SwitchboardApp instance {
             get {
                 if (_instance == null) {
@@ -231,7 +225,7 @@ namespace Switchboard {
 #if HAVE_UNITY
         // Updates items in quicklist menu using the Unity quicklist api.
         public void update_libunity_quicklist () {
-            var launcher = Unity.LauncherEntry.get_for_desktop_id (app_launcher);
+            var launcher = Unity.LauncherEntry.get_for_desktop_id (application_id + ".desktop");
             var quicklist = new Dbusmenu.Menuitem ();
 
             var personal_item = add_quicklist_for_category (Switchboard.Plug.Category.PERSONAL);
@@ -272,7 +266,7 @@ namespace Switchboard {
             headerbar = new Gtk.HeaderBar ();
             headerbar.has_subtitle = false;
             headerbar.show_close_button = true;
-            headerbar.title = program_name;
+            headerbar.title = _("System Settings");
             headerbar.pack_start (navigation_button);
             headerbar.pack_end (search_box);
 
@@ -297,7 +291,7 @@ namespace Switchboard {
             main_window = new Gtk.Window();
             main_window.application = this;
             main_window.icon_name = "preferences-desktop";
-            main_window.title = program_name;
+            main_window.title = _("System Settings");
             main_window.add (stack);
             main_window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));
             main_window.set_size_request (910, 640);
@@ -514,7 +508,7 @@ namespace Switchboard {
             stack.set_visible_child_full ("main", Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
             current_plug.hidden ();
 
-            headerbar.title = program_name;
+            headerbar.title = _("System Settings");
 
             search_box.set_text ("");
             search_box.sensitive = Switchboard.PlugsManager.get_default ().has_plugs ();
