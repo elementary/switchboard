@@ -46,6 +46,14 @@ namespace Switchboard {
             layout.add (plug_name);
 
             add (layout);
+
+            plug.visibility_changed.connect (() => {
+                changed ();
+            });
+
+            plug.notify["can-show"].connect (() => {
+                changed ();
+            });
         }
     }
 }
