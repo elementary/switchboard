@@ -28,7 +28,8 @@ namespace Switchboard {
             var category_label = new Granite.HeaderLabel (Switchboard.CategoryView.get_category_name (category));
 
             var h_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
-            h_separator.set_hexpand (true);
+            h_separator.hexpand = true;
+            h_separator.valign = Gtk.Align.CENTER;
 
             flowbox = new Gtk.FlowBox ();
             flowbox.activate_on_single_click = true;
