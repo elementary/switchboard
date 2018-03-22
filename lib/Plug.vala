@@ -77,6 +77,8 @@ public abstract class Switchboard.Plug : GLib.Object {
     /**
      * Inform the application that the plug can now be listed in the available plugs.
      * The application will also listen to the notify::can-show signal.
+     *
+     * @deprecated: The changing {@link can_show} activate the notify::can-show signal.
      */
     public signal void visibility_changed ();
     

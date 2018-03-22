@@ -16,6 +16,7 @@ set (VERSION "2.3.0")
 set (VERSION_INFO "Stable Release")
 
 add_definitions ("-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\"")
+add_definitions ("-DG_LOG_DOMAIN=\"switchboard\"")
 
 # Comment this out to enable C compiler warnings
 add_definitions (-w)

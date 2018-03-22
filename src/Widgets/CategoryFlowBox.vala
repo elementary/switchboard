@@ -13,8 +13,8 @@
 *
 * You should have received a copy of the GNU General Public
 * License along with this program; if not, write to the
-* Free Software Foundation, Inc., 59 Temple Place - Suite 330,
-* Boston, MA 02111-1307, USA.
+* Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+* Boston, MA 02110-1301 USA.
 *
 */
 
@@ -25,12 +25,11 @@ namespace Switchboard {
         private Gtk.FlowBox flowbox;
 
         public Category (Switchboard.Plug.Category category) {
-            var category_label = new Gtk.Label (Switchboard.CategoryView.get_category_name (category));
-            category_label.get_style_context ().add_class ("category-label");
-            category_label.halign = Gtk.Align.START;
+            var category_label = new Granite.HeaderLabel (Switchboard.CategoryView.get_category_name (category));
 
             var h_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
-            h_separator.set_hexpand (true);
+            h_separator.hexpand = true;
+            h_separator.valign = Gtk.Align.CENTER;
 
             flowbox = new Gtk.FlowBox ();
             flowbox.activate_on_single_click = true;
@@ -105,7 +104,12 @@ namespace Switchboard {
 
         private bool plug_filter_func (Gtk.FlowBoxChild child) {
             var filter = SwitchboardApp.instance.search_box.get_text ();
-            var plug_name = ((CategoryIcon) child).plug.display_name;
+            var plug = ((CategoryIcon) child).plug;
+            if (plug.can_show == false) {
+                return false;
+            }
+
+            var plug_name = plug.display_name;
             var plug_search = SwitchboardApp.instance.category_view.plug_search;
             var plug_search_result = SwitchboardApp.instance.category_view.plug_search_result;
 
