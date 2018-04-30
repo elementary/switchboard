@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-01 11:40-0600\n"
-"PO-Revision-Date: 2018-02-19 19:06+0000\n"
-"Last-Translator: Piotr Strebski <strebski@o2.pl>\n"
+"PO-Revision-Date: 2018-05-01 20:43+0000\n"
+"Last-Translator: Piotr Strebski <strebski@gmail.com>\n"
 "Language-Team: Polish "
 "<https://weblate.elementary.io/projects/switchboard/switchboard/pl/>\n"
 "Language: pl\n"
@@ -27,7 +27,7 @@ msgstr "Wszystkie ustawienia"
 
 #: ../src/Switchboard.vala:70
 msgid "System Settings"
-msgstr "Ustawienia systemu"
+msgstr "Ustawienia systemowe"
 
 #: ../src/Switchboard.vala:83
 msgid "translator-credits"
