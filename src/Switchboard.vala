@@ -118,7 +118,7 @@ namespace Switchboard {
 
         public override void activate () {
             var plugsmanager = Switchboard.PlugsManager.get_default ();
-            var setting = new Settings ("org.pantheon.switchboard.preferences");
+            var setting = new Settings ("io.elementary.switchboard.preferences");
             var mapping_dic = setting.get_value ("mapping-override");
             if (link != null && !mapping_dic.lookup (link, "(ss)", ref plug_to_open, ref open_window)) {
                 bool plug_found = load_setting_path (link, plugsmanager);
