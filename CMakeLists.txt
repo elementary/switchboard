@@ -144,7 +144,7 @@ if (BUILD_SAMPLE)
 endif ()
 
 add_subdirectory (schemas)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/schemas/org.pantheon.switchboard.gschema.xml DESTINATION ${GSETTINGSDIR})
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/schemas/io.elementary.switchboard.gschema.xml DESTINATION ${GSETTINGSDIR})
 
 # Create the standard directories to insert plugs.
 install(DIRECTORY DESTINATION ${PLUGS_DIR})

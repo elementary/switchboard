@@ -1,2 +1,2 @@
 include(GSettings)
-add_schema("org.pantheon.switchboard.gschema.xml")
+add_schema("io.elementary.switchboard.gschema.xml")
