@@ -66,7 +66,7 @@ namespace Switchboard {
         };
 
         construct {
-            application_id = "org.pantheon.switchboard";
+            application_id = "io.elementary.switchboard";
             flags |= ApplicationFlags.HANDLES_OPEN;
 
             if (GLib.AppInfo.get_default_for_uri_scheme ("settings") == null) {
@@ -118,7 +118,7 @@ namespace Switchboard {
 
         public override void activate () {
             var plugsmanager = Switchboard.PlugsManager.get_default ();
-            var setting = new Settings ("org.pantheon.switchboard.preferences");
+            var setting = new Settings ("io.elementary.switchboard.preferences");
             var mapping_dic = setting.get_value ("mapping-override");
             if (link != null && !mapping_dic.lookup (link, "(ss)", ref plug_to_open, ref open_window)) {
                 bool plug_found = load_setting_path (link, plugsmanager);
@@ -286,7 +286,7 @@ namespace Switchboard {
             stack.add_named (alert_view, "alert");
             stack.add_named (category_scrolled, "main");
 
-            var settings = new GLib.Settings ("org.pantheon.switchboard.saved-state");
+            var settings = new GLib.Settings ("io.elementary.switchboard.saved-state");
 
             main_window = new Gtk.Window();
             main_window.application = this;
