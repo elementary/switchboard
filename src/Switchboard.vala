@@ -286,7 +286,7 @@ namespace Switchboard {
             stack.add_named (alert_view, "alert");
             stack.add_named (category_scrolled, "main");
 
-            var settings = new GLib.Settings ("org.pantheon.switchboard.saved-state");
+            var settings = new GLib.Settings ("io.elementary.switchboard.saved-state");
 
             main_window = new Gtk.Window();
             main_window.application = this;
