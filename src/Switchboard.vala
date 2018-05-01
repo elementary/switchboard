@@ -66,7 +66,7 @@ namespace Switchboard {
         };
 
         construct {
-            application_id = "org.pantheon.switchboard";
+            application_id = "io.elementary.switchboard";
             flags |= ApplicationFlags.HANDLES_OPEN;
 
             if (GLib.AppInfo.get_default_for_uri_scheme ("settings") == null) {
