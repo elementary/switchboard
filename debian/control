@@ -1,9 +1,9 @@
 Source: switchboard
 Section: admin
 Priority: optional
-Maintainer: Sergey "Shnatsel" Davidoff <sergey@elementaryos.org>
+Maintainer: elementary OS Team <builds@elementary.io>
 Build-Depends: cmake (>= 2.8),
-               debhelper (>= 9),
+               debhelper (>= 10.5.1),
                intltool,
                libclutter-gtk-1.0-dev,
                libgee-0.8-dev (>= 0.5.3),
@@ -12,10 +12,8 @@ Build-Depends: cmake (>= 2.8),
                libgtk-3-dev (>= 3.10.0),
                libunity-dev,
                valac (>= 0.22)
-Standards-Version: 3.9.6
-Homepage: https://launchpad.net/switchboard
-Vcs-Bzr: lp:~pantheon-debian/pantheon-debian/switchboard
-Vcs-Browser: https://code.launchpad.net/~pantheon-debian/pantheon-debian/switchboard
+Standards-Version: 4.1.1
+Homepage: https://github.com/elementary/switchboard
 
 Package: switchboard
 Architecture: any
@@ -33,31 +31,10 @@ Description: Modular Settings Hub
  and follows the Human Interface Guidelines of
  elementary OS.
 
-Package: switchboard-dbg
-Architecture: any
-Section: debug
-Priority: extra
-Depends: switchboard (= ${binary:Version}),
-         ${misc:Depends}
-Pre-Depends: dpkg (>= 1.15.6)
-Enhances: switchboard
-Description: Modular Settings Hub - debug symbols
- Switchboard is a modular system settings hub designed
- for Pantheon desktop.
- .
- It features animated transitions, supports adding or
- removing plugs (settings panels) without recompilation,
- and follows the Human Interface Guidelines of
- elementary OS.
- .
- This package contains detached debugging symbols
- for Switchboard.
-
 Package: libswitchboard-2.0-dev
 Section: libdevel
 Architecture: any
-Depends: libswitchboard-2.0-0 (= ${binary:Version}),
-         ${misc:Depends}
+Depends: libswitchboard-2.0-0 (= ${binary:Version}), ${misc:Depends}
 Description: Modular Settings Hub - development files
  Shared library to create plugs (settings panels) for Switchboard.
  .
@@ -75,8 +52,7 @@ Description: Modular Settings Hub - development files
 Package: libswitchboard-2.0-0
 Section: libs
 Architecture: any
-Depends: ${misc:Depends},
-         ${shlibs:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: Modular Settings Hub - shared libraries
  Shared library to create plugs (settings panels) for Switchboard.
  .
