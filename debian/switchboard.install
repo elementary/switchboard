@@ -1,5 +1,5 @@
 usr/bin/switchboard
-usr/share/applications/org.pantheon.switchboard.desktop
+usr/share/applications/io.elementary.switchboard.desktop
+usr/share/glib-2.0/schemas/io.elementary.switchboard.gschema.xml
 usr/share/locale
-usr/share/glib-2.0/schemas/org.pantheon.switchboard.gschema.xml
-usr/share/metainfo/switchboard.appdata.xml
+usr/share/metainfo/io.elementary.switchboard.appdata.xml

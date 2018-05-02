@@ -7,6 +7,7 @@ libswitchboard-2.0.so.0 libswitchboard-2.0-0 #MINVER#
  switchboard_plug_get_description@Base 2.0~bzr468
  switchboard_plug_get_display_name@Base 2.0~bzr468
  switchboard_plug_get_icon@Base 2.0~bzr468
+ switchboard_plug_get_supported_settings@Base 2.3.0
  switchboard_plug_get_type@Base 2.0~bzr468
  switchboard_plug_get_widget@Base 2.0~bzr468
  switchboard_plug_hidden@Base 2.0~bzr468

@@ -1,4 +1,4 @@
 version=3
 opts=dversionmangle=s/\+dfsg$// \
-https://launchpad.net/switchboard/ \
-.*/switchboard-(\d\S*)\.(?:tar\.xz|txz|tar\.bz2|tbz2|tar\.gz|tgz)
+https://github.com/elementary/switchboard/archive/ \
+.*/(\d\S*)\.(?:tar\.xz|txz|tar\.bz2|tbz2|tar\.gz|tgz)
