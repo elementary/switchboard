@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-01 11:40-0600\n"
-"PO-Revision-Date: 2018-05-30 00:04+0000\n"
+"PO-Revision-Date: 2018-06-01 00:08+0000\n"
 "Last-Translator: Majer Tamás <mtamas@disroot.org>\n"
 "Language-Team: Hungarian "
 "<https://weblate.elementary.io/projects/switchboard/switchboard/hu/>\n"
@@ -73,7 +73,7 @@ msgstr "Hardver"
 
 #: ../src/CategoryView.vala:225
 msgid "Network & Wireless"
-msgstr "Vezetékes és vezeték nélküli hálózat"
+msgstr "Hálózat és vezeték nélküli kapcsolat"
 
 #: ../src/CategoryView.vala:227
 msgid "Administration"
