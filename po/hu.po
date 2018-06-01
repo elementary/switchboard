@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-01 11:40-0600\n"
-"PO-Revision-Date: 2018-06-01 00:08+0000\n"
+"PO-Revision-Date: 2018-06-02 00:06+0000\n"
 "Last-Translator: Majer Tamás <mtamas@disroot.org>\n"
 "Language-Team: Hungarian "
 "<https://weblate.elementary.io/projects/switchboard/switchboard/hu/>\n"
@@ -41,7 +41,7 @@ msgstr ""
 
 #: ../src/Switchboard.vala:147
 msgid "Specified link '%s' does not exist, going back to the main panel"
-msgstr "A megadott \"% s\" link nem létezik, visszatérés a fő panelhez"
+msgstr "A(z) '%s' hivatkozás nem létezik, visszatérés a fő panelhez"
 
 #: ../src/Switchboard.vala:340
 msgid "No Settings Found"
@@ -77,7 +77,7 @@ msgstr "Hálózat és vezeték nélküli kapcsolat"
 
 #: ../src/CategoryView.vala:227
 msgid "Administration"
-msgstr "Adminisztráció"
+msgstr "Felügyelet"
 
 #~ msgid "Network and Wireless"
 #~ msgstr "Hálózati kapcsolatok"
