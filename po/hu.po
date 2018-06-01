@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-01 11:40-0600\n"
-"PO-Revision-Date: 2018-06-02 00:06+0000\n"
+"PO-Revision-Date: 2018-06-14 08:16+0000\n"
 "Last-Translator: Majer Tamás <mtamas@disroot.org>\n"
 "Language-Team: Hungarian "
 "<https://weblate.elementary.io/projects/switchboard/switchboard/hu/>\n"
@@ -49,7 +49,7 @@ msgstr "Nem található beállítás"
 
 #: ../src/Switchboard.vala:340
 msgid "Install some and re-launch Switchboard."
-msgstr ""
+msgstr "Telepítsen valamit és indítsa újra a Kapcsolótáblát."
 
 #: ../src/Switchboard.vala:487
 msgid "Search Settings"
