@@ -2,57 +2,65 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-01 11:40-0600\n"
+"PO-Revision-Date: 2018-05-27 16:13+0000\n"
+"Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
+"Language-Team: Moldovan "
+"<https://weblate.elementary.io/projects/switchboard/switchboard/mo/>\n"
+"Language: mo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.18\n"
 
 #: ../src/Switchboard.vala:45
 msgid "All Settings"
-msgstr ""
+msgstr "Toate setările"
 
 #: ../src/Switchboard.vala:70
 msgid "System Settings"
-msgstr ""
+msgstr "Setări sistem"
 
 #: ../src/Switchboard.vala:83
 msgid "translator-credits"
-msgstr ""
+msgstr "traducător-credite"
 
 #: ../src/Switchboard.vala:147
 msgid "Specified link '%s' does not exist, going back to the main panel"
-msgstr ""
+msgstr "Linkul specificat '%s'  nu există, revenind la panoul principal"
 
 #: ../src/Switchboard.vala:340
 msgid "No Settings Found"
-msgstr ""
+msgstr "Nu au fost găsite setări"
 
 #: ../src/Switchboard.vala:340
 msgid "Install some and re-launch Switchboard."
-msgstr ""
+msgstr "Instalați și relansați tabloul de bord."
 
 #: ../src/Switchboard.vala:487
 msgid "Search Settings"
-msgstr ""
+msgstr "Căutați setări"
 
 #: ../src/CategoryView.vala:214
 msgid "No Results for “%s”"
-msgstr ""
+msgstr "Niciun rezultat pentru “%s”"
 
 #: ../src/CategoryView.vala:214
 msgid "Try changing search terms."
-msgstr ""
+msgstr "Încercați să modificați termenii de căutare."
 
 #: ../src/CategoryView.vala:221
 msgid "Personal"
-msgstr ""
+msgstr "Individual"
 
 #: ../src/CategoryView.vala:223
 msgid "Hardware"
-msgstr ""
+msgstr "Hard-ware"
 
 #: ../src/CategoryView.vala:225
 msgid "Network & Wireless"
-msgstr ""
+msgstr "Rețea și wireless"
 
 #: ../src/CategoryView.vala:227
 msgid "Administration"
-msgstr ""
+msgstr "Administrare"
