@@ -1,8 +1,8 @@
-switchboard (2.3.1) UNRELEASED; urgency=medium
+switchboard (2.3.1) bionic; urgency=medium
 
-  * Pre-release version bump.
+  * New upstream release.
 
- -- Cody Garver <cody@elementary.io>  Wed, 02 May 2018 10:44:15 -0500
+ -- Cody Garver <cody@elementary.io>  Wed, 06 Jun 2018 04:27:04 -0500
 
 switchboard (2.3.0) xenial; urgency=medium
 
