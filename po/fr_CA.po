@@ -8,15 +8,17 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-01 11:40-0600\n"
-"PO-Revision-Date: 2015-12-06 13:14+0000\n"
-"Last-Translator: Avi Romanoff <Unknown>\n"
-"Language-Team: French (Canada) <fr_CA@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2018-06-16 00:10+0000\n"
+"Last-Translator: martin fromont <martin.fromont1@gmail.com>\n"
+"Language-Team: French (Canada) "
+"<https://weblate.elementary.io/projects/switchboard/switchboard/fr_CA/>\n"
+"Language: fr_CA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
-"X-Generator: Launchpad (build 18315)\n"
 
 #: ../src/Switchboard.vala:45
 msgid "All Settings"
@@ -24,7 +26,7 @@ msgstr ""
 
 #: ../src/Switchboard.vala:70
 msgid "System Settings"
-msgstr ""
+msgstr "Paramètres système"
 
 #: ../src/Switchboard.vala:83
 msgid "translator-credits"
