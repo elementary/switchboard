@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-01 11:40-0600\n"
-"PO-Revision-Date: 2018-05-15 00:06+0000\n"
+"PO-Revision-Date: 2018-06-18 00:05+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock@gmail.com>\n"
 "Language-Team: Japanese "
 "<https://weblate.elementary.io/projects/switchboard/switchboard/ja/>\n"
@@ -51,7 +51,7 @@ msgstr "いくつかをインストールして Switchboard を再起動して�
 
 #: ../src/Switchboard.vala:487
 msgid "Search Settings"
-msgstr "設定の検索"
+msgstr "設定を検索"
 
 #: ../src/CategoryView.vala:214
 msgid "No Results for “%s”"
