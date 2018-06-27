@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-19 05:50-0600\n"
+"POT-Creation-Date: 2018-06-27 10:07-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,50 +17,51 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: ../src/CategoryView.vala:155
+msgid "No Results for “%s”"
+msgstr ""
+
+#: ../src/CategoryView.vala:155
+msgid "Try changing search terms."
+msgstr ""
+
+#: ../src/CategoryView.vala:162
+msgid "Personal"
+msgstr ""
+
+#: ../src/CategoryView.vala:164
+msgid "Hardware"
+msgstr ""
+
+#: ../src/CategoryView.vala:166
+msgid "Network & Wireless"
+msgstr ""
+
+#: ../src/CategoryView.vala:168
+msgid "Administration"
+msgstr ""
+
 #: ../src/Switchboard.vala:49
 msgid "All Settings"
 msgstr ""
 
-#: ../src/Switchboard.vala:70
-msgid "System Settings"
-msgstr ""
-
-#: ../src/Switchboard.vala:139
+#: ../src/Switchboard.vala:133
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr ""
 
-#: ../src/Switchboard.vala:268
+#: ../src/Switchboard.vala:262
 msgid "Search Settings"
 msgstr ""
 
-#: ../src/Switchboard.vala:421
+#: ../src/Switchboard.vala:269 ../src/Switchboard.vala:294
+#: ../src/Switchboard.vala:511
+msgid "System Settings"
+msgstr ""
+
+#: ../src/Switchboard.vala:415
 msgid "No Settings Found"
 msgstr ""
 
-#: ../src/Switchboard.vala:421
+#: ../src/Switchboard.vala:415
 msgid "Install some and re-launch Switchboard."
-msgstr ""
-
-#: ../src/CategoryView.vala:214
-msgid "No Results for “%s”"
-msgstr ""
-
-#: ../src/CategoryView.vala:214
-msgid "Try changing search terms."
-msgstr ""
-
-#: ../src/CategoryView.vala:221
-msgid "Personal"
-msgstr ""
-
-#: ../src/CategoryView.vala:223
-msgid "Hardware"
-msgstr ""
-
-#: ../src/CategoryView.vala:225
-msgid "Network & Wireless"
-msgstr ""
-
-#: ../src/CategoryView.vala:227
-msgid "Administration"
 msgstr ""
