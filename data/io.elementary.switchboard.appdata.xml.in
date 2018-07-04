@@ -15,6 +15,11 @@
   <provides>
     <binary>switchboard</binary>
   </provides>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/elementary/switchboard/master/data/screenshot.png</image>
+    </screenshot>
+  </screenshots>
   <developer_name>elementary LLC.</developer_name>
   <url type="homepage">https://elementary.io/</url>
   <url type="bugtracker">https://github.com/elementary/switchboard/issues</url>
