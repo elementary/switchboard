@@ -32,3 +32,6 @@ To install, use `make install`, then execute with `switchboard`
     sudo make install
     switchboard
 
+## Making Switchboard Plugins
+
+Documentation for LibSwitchboard is available [on Valadoc.org](https://valadoc.org/switchboard-2.0/Switchboard.Plug.html)
