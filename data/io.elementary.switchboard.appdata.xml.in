@@ -13,7 +13,7 @@
     </_p>
   </description>
   <provides>
-    <binary>switchboard</binary>
+    <binary>io.elementary.switchboard</binary>
   </provides>
   <screenshots>
     <screenshot type="default">

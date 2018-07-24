@@ -27,10 +27,10 @@ Run `cmake` to configure the build environment and then `make` to build
     cmake -DCMAKE_INSTALL_PREFIX=/usr ..
     make
     
-To install, use `make install`, then execute with `switchboard`
+To install, use `make install`, then execute with `io.elementary.switchboard`
 
     sudo make install
-    switchboard
+    io.elementary.switchboard
 
 ## Making Switchboard Plugins
 
