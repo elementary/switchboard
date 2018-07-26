@@ -17,6 +17,6 @@ i18n.merge_file('appdata',
 )
 
 install_data(
-    '../schemas/io.elementary.switchboard.gschema.xml',
+    'io.elementary.switchboard.gschema.xml',
     install_dir: join_paths(get_option('datadir'), 'glib-2.0', 'schemas')
 )
