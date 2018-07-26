@@ -3,7 +3,7 @@ Section: admin
 Priority: optional
 Maintainer: elementary OS Team <builds@elementary.io>
 Build-Depends: debhelper (>= 10.5.1),
-               intltool,
+               gettext,
                libclutter-gtk-1.0-dev,
                libgee-0.8-dev (>= 0.5.3),
                libglib2.0-dev (>= 2.26.0),
