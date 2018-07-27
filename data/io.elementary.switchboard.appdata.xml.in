@@ -5,12 +5,12 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_group>elementary</project_group>
   <project_license>GPL-3.0+</project_license>
-  <_name>System Settings</_name>
-  <_summary>Change system and user settings</_summary>
+  <name>System Settings</name>
+  <summary>Change system and user settings</summary>
   <description>
-    <_p>
+    <p>
       A system settings application that focuses on modularity and simplicity.
-    </_p>
+    </p>
   </description>
   <provides>
     <binary>switchboard</binary>

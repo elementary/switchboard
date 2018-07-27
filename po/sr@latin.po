@@ -1,0 +1,69 @@
+# Serbian translations for switchboard package.
+# Copyright (C) 2018 THE switchboard'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the switchboard package.
+# Automatically generated, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: switchboard\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-26 08:51-0700\n"
+"PO-Revision-Date: 2018-07-26 08:51-0700\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: sr@latin\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: src/Switchboard.vala:49
+msgid "All Settings"
+msgstr ""
+
+#: src/Switchboard.vala:133
+#, c-format
+msgid "Specified link '%s' does not exist, going back to the main panel"
+msgstr ""
+
+#: src/Switchboard.vala:262
+msgid "Search Settings"
+msgstr ""
+
+#: src/Switchboard.vala:269 src/Switchboard.vala:294 src/Switchboard.vala:511
+msgid "System Settings"
+msgstr ""
+
+#: src/Switchboard.vala:415
+msgid "No Settings Found"
+msgstr ""
+
+#: src/Switchboard.vala:415
+msgid "Install some and re-launch Switchboard."
+msgstr ""
+
+#: src/CategoryView.vala:155
+#, c-format
+msgid "No Results for “%s”"
+msgstr ""
+
+#: src/CategoryView.vala:155
+msgid "Try changing search terms."
+msgstr ""
+
+#: src/CategoryView.vala:162
+msgid "Personal"
+msgstr ""
+
+#: src/CategoryView.vala:164
+msgid "Hardware"
+msgstr ""
+
+#: src/CategoryView.vala:166
+msgid "Network & Wireless"
+msgstr ""
+
+#: src/CategoryView.vala:168
+msgid "Administration"
+msgstr ""

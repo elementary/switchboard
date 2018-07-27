@@ -1,0 +1,7 @@
+lib/PlugsManager.vala
+lib/Plug.vala
+src/Switchboard.vala
+src/PlugsSearch.vala
+src/CategoryView.vala
+src/Widgets/CategoryIcon.vala
+src/Widgets/CategoryFlowBox.vala

@@ -1,0 +1,2 @@
+option('libunity', type: 'boolean', description: 'Use Unity integration')
+option('example', type: 'boolean', value: false, description: 'Build an example that shows how it works')

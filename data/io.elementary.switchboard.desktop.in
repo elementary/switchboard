@@ -1,11 +1,11 @@
 [Desktop Entry]
 Type=Application
-_Name=System Settings
-_Comment=Change system and user settings
+Name=System Settings
+Comment=Change system and user settings
 Exec=switchboard %u
 Icon=preferences-desktop
 Terminal=false
 StartupNotify=true
 Categories=GNOME;GTK;System;
-_Keywords=Center;Control;Panel;Preferences;System;
+Keywords=Center;Control;Panel;Preferences;System;
 MimeType=x-scheme-handler/settings;
