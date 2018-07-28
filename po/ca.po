@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-01 11:40-0600\n"
+"POT-Creation-Date: 2018-07-27 17:43-0700\n"
 "PO-Revision-Date: 2016-11-18 08:18+0000\n"
 "Last-Translator: Davidmp <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
@@ -18,62 +18,63 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-02-02 05:47+0000\n"
 "X-Generator: Launchpad (build 18315)\n"
 
-#: ../src/Switchboard.vala:45
+#: src/Switchboard.vala:49
 msgid "All Settings"
 msgstr "Tots els paràmetres"
 
-#: ../src/Switchboard.vala:70
-msgid "System Settings"
-msgstr "Configuració del sistema"
-
-#: ../src/Switchboard.vala:83
-msgid "translator-credits"
-msgstr ""
-"Launchpad Contributions:\n"
-"  Alfredo Hernández https://launchpad.net/~aldomann\n"
-"  Arniroig https://launchpad.net/~arniroig\n"
-"  Avi Romanoff https://launchpad.net/~aroman\n"
-"  Davidmp https://launchpad.net/~davidmp"
-
-#: ../src/Switchboard.vala:147
+#: src/Switchboard.vala:133
+#, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "L'enllaç especificat \"%s\" no existeix. Es torna al plafó principal."
 
-#: ../src/Switchboard.vala:340
-msgid "No Settings Found"
-msgstr "No s'ha trobat cap paràmetre"
-
-#: ../src/Switchboard.vala:340
-msgid "Install some and re-launch Switchboard."
-msgstr "Instal·leu-ne alguns i torneu a iniciar el Switchboard."
-
-#: ../src/Switchboard.vala:487
+#: src/Switchboard.vala:262
 msgid "Search Settings"
 msgstr "Cerca paràmetres"
 
-#: ../src/CategoryView.vala:214
+#: src/Switchboard.vala:269 src/Switchboard.vala:294 src/Switchboard.vala:511
+msgid "System Settings"
+msgstr "Configuració del sistema"
+
+#: src/Switchboard.vala:415
+msgid "No Settings Found"
+msgstr "No s'ha trobat cap paràmetre"
+
+#: src/Switchboard.vala:415
+msgid "Install some and re-launch Switchboard."
+msgstr "Instal·leu-ne alguns i torneu a iniciar el Switchboard."
+
+#: src/CategoryView.vala:155
+#, c-format
 msgid "No Results for “%s”"
 msgstr "Cap resultat per a “%s”"
 
-#: ../src/CategoryView.vala:214
+#: src/CategoryView.vala:155
 msgid "Try changing search terms."
 msgstr "Proveu de canviar els termes de la cerca."
 
-#: ../src/CategoryView.vala:221
+#: src/CategoryView.vala:162
 msgid "Personal"
 msgstr "Personal"
 
-#: ../src/CategoryView.vala:223
+#: src/CategoryView.vala:164
 msgid "Hardware"
 msgstr "Maquinari"
 
-#: ../src/CategoryView.vala:225
+#: src/CategoryView.vala:166
 msgid "Network & Wireless"
 msgstr "Xarxa i xarxa sense fil"
 
-#: ../src/CategoryView.vala:227
+#: src/CategoryView.vala:168
 msgid "Administration"
 msgstr "Administració"
+
+#~ msgid "translator-credits"
+#~ msgstr ""
+#~ "Launchpad Contributions:\n"
+#~ "  Alfredo Hernández https://launchpad.net/~aldomann\n"
+#~ "  Arniroig https://launchpad.net/~arniroig\n"
+#~ "  Avi Romanoff https://launchpad.net/~aroman\n"
+#~ "  Davidmp https://launchpad.net/~davidmp"
 
 #~ msgid "Network and Wireless"
 #~ msgstr "Xarxa i inalàmbriques"

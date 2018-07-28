@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-01 11:40-0600\n"
+"POT-Creation-Date: 2018-07-27 17:43-0700\n"
 "PO-Revision-Date: 2016-08-04 00:11+0000\n"
 "Last-Translator: Kristjan Vool <tictac7x@gmail.com>\n"
 "Language-Team: Estonian <et@li.org>\n"
@@ -18,20 +18,34 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 "X-Generator: Launchpad (build 18315)\n"
 
+#: data/io.elementary.switchboard.desktop.in:4
+#: data/io.elementary.switchboard.appdata.xml.in:8
 msgid "System Settings"
 msgstr "Süsteemi seaded"
 
+#: data/io.elementary.switchboard.desktop.in:5
+#: data/io.elementary.switchboard.appdata.xml.in:9
 msgid "Change system and user settings"
 msgstr "Süsteemi seadete muutmine"
 
+#: data/io.elementary.switchboard.desktop.in:7
+msgid "preferences-desktop"
+msgstr ""
+
+#: data/io.elementary.switchboard.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"
 msgstr ""
 
-msgid "About System Settings"
-msgstr "Rakendusest…"
-
+#: data/io.elementary.switchboard.appdata.xml.in:11
 msgid ""
 "A system settings application that focuses on modularity and simplicity."
 msgstr ""
 "Süsteemi seadete muutmise rakendus, mille fookus on moodulehitusel ning "
 "lihtsusel."
+
+#: data/io.elementary.switchboard.appdata.xml.in:23
+msgid "elementary LLC."
+msgstr ""
+
+#~ msgid "About System Settings"
+#~ msgstr "Rakendusest…"

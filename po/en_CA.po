@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-01 11:40-0600\n"
+"POT-Creation-Date: 2018-07-27 17:43-0700\n"
 "PO-Revision-Date: 2016-11-04 07:42+0000\n"
 "Last-Translator: wec <tungsten314@gmail.com>\n"
 "Language-Team: English (Canada) <en_CA@li.org>\n"
@@ -18,62 +18,63 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 "X-Generator: Launchpad (build 18315)\n"
 
-#: ../src/Switchboard.vala:45
+#: src/Switchboard.vala:49
 msgid "All Settings"
 msgstr "All Settings"
 
-#: ../src/Switchboard.vala:70
-msgid "System Settings"
-msgstr "System Settings"
-
-#: ../src/Switchboard.vala:83
-msgid "translator-credits"
-msgstr ""
-"Launchpad Contributions:\n"
-"  Avi Romanoff https://launchpad.net/~aroman\n"
-"  Giovanni Caligaris https://launchpad.net/~giovannicaligaris\n"
-"  Shawn McTear https://launchpad.net/~syst3mfailur3\n"
-"  wec https://launchpad.net/~tungsten314"
-
-#: ../src/Switchboard.vala:147
+#: src/Switchboard.vala:133
+#, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Specified link '%s' does not exist, going back to the main panel"
 
-#: ../src/Switchboard.vala:340
-msgid "No Settings Found"
-msgstr "No Settings Found"
-
-#: ../src/Switchboard.vala:340
-msgid "Install some and re-launch Switchboard."
-msgstr "Install some and re-launch Switchboard."
-
-#: ../src/Switchboard.vala:487
+#: src/Switchboard.vala:262
 msgid "Search Settings"
 msgstr "Search Settings"
 
-#: ../src/CategoryView.vala:214
+#: src/Switchboard.vala:269 src/Switchboard.vala:294 src/Switchboard.vala:511
+msgid "System Settings"
+msgstr "System Settings"
+
+#: src/Switchboard.vala:415
+msgid "No Settings Found"
+msgstr "No Settings Found"
+
+#: src/Switchboard.vala:415
+msgid "Install some and re-launch Switchboard."
+msgstr "Install some and re-launch Switchboard."
+
+#: src/CategoryView.vala:155
+#, c-format
 msgid "No Results for “%s”"
 msgstr "No Results for “%s”"
 
-#: ../src/CategoryView.vala:214
+#: src/CategoryView.vala:155
 msgid "Try changing search terms."
 msgstr "Try changing search terms."
 
-#: ../src/CategoryView.vala:221
+#: src/CategoryView.vala:162
 msgid "Personal"
 msgstr "Personal"
 
-#: ../src/CategoryView.vala:223
+#: src/CategoryView.vala:164
 msgid "Hardware"
 msgstr "Hardware"
 
-#: ../src/CategoryView.vala:225
+#: src/CategoryView.vala:166
 msgid "Network & Wireless"
 msgstr "Network & Wireless"
 
-#: ../src/CategoryView.vala:227
+#: src/CategoryView.vala:168
 msgid "Administration"
 msgstr "Administration"
+
+#~ msgid "translator-credits"
+#~ msgstr ""
+#~ "Launchpad Contributions:\n"
+#~ "  Avi Romanoff https://launchpad.net/~aroman\n"
+#~ "  Giovanni Caligaris https://launchpad.net/~giovannicaligaris\n"
+#~ "  Shawn McTear https://launchpad.net/~syst3mfailur3\n"
+#~ "  wec https://launchpad.net/~tungsten314"
 
 #~ msgid "Open a plug"
 #~ msgstr "Open a plug"

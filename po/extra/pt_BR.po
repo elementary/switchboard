@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-01 11:40-0600\n"
+"POT-Creation-Date: 2018-07-27 17:43-0700\n"
 "PO-Revision-Date: 2017-02-12 16:59+0000\n"
 "Last-Translator: Leonardo Lemos <Unknown>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
@@ -18,20 +18,34 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-02-13 05:44+0000\n"
 "X-Generator: Launchpad (build 18326)\n"
 
+#: data/io.elementary.switchboard.desktop.in:4
+#: data/io.elementary.switchboard.appdata.xml.in:8
 msgid "System Settings"
 msgstr "Configurações do sistema"
 
+#: data/io.elementary.switchboard.desktop.in:5
+#: data/io.elementary.switchboard.appdata.xml.in:9
 msgid "Change system and user settings"
 msgstr "Alterar as configurações de sistema e de usuário"
 
+#: data/io.elementary.switchboard.desktop.in:7
+msgid "preferences-desktop"
+msgstr ""
+
+#: data/io.elementary.switchboard.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"
 msgstr "Centro;Controle;Painel;Preferências;Sistema;"
 
-msgid "About System Settings"
-msgstr "Sobre as configurações do sistema"
-
+#: data/io.elementary.switchboard.appdata.xml.in:11
 msgid ""
 "A system settings application that focuses on modularity and simplicity."
 msgstr ""
 "Um aplicativo de configurações do sistema que foca em modularidade e "
 "simplicidade."
+
+#: data/io.elementary.switchboard.appdata.xml.in:23
+msgid "elementary LLC."
+msgstr ""
+
+#~ msgid "About System Settings"
+#~ msgstr "Sobre as configurações do sistema"

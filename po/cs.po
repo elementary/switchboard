@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-01 11:40-0600\n"
+"POT-Creation-Date: 2018-07-27 17:43-0700\n"
 "PO-Revision-Date: 2018-04-25 00:03+0000\n"
 "Last-Translator: Jan Marek <janmarek28@gmail.com>\n"
-"Language-Team: Czech "
-"<https://weblate.elementary.io/projects/switchboard/switchboard/cs/>\n"
+"Language-Team: Czech <https://weblate.elementary.io/projects/switchboard/"
+"switchboard/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,64 +20,65 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-02-28 04:57+0000\n"
 
-#: ../src/Switchboard.vala:45
+#: src/Switchboard.vala:49
 msgid "All Settings"
 msgstr "Všechna nastavení"
 
-#: ../src/Switchboard.vala:70
-msgid "System Settings"
-msgstr "Nastavení systému"
-
-#: ../src/Switchboard.vala:83
-msgid "translator-credits"
-msgstr ""
-"Launchpad Contributions:\n"
-"  Avi Romanoff https://launchpad.net/~aroman\n"
-"  Honza Lafek https://launchpad.net/~hlafek99\n"
-"  Jan Marek https://launchpad.net/~janmarek28\n"
-"  Marek Doležel https://launchpad.net/~marekdolezel\n"
-"  Marek Suchánek https://launchpad.net/~suchm\n"
-"  Radek Starosta https://launchpad.net/~rstarosta"
-
-#: ../src/Switchboard.vala:147
+#: src/Switchboard.vala:133
+#, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Zadaný odkaz '%s' neexistuje, probíhá návrat zpět do hlavního panelu"
 
-#: ../src/Switchboard.vala:340
-msgid "No Settings Found"
-msgstr "Nastavení nenalezena"
-
-#: ../src/Switchboard.vala:340
-msgid "Install some and re-launch Switchboard."
-msgstr "Nainstalujte nějaká a znovu spusťte Switchboard."
-
-#: ../src/Switchboard.vala:487
+#: src/Switchboard.vala:262
 msgid "Search Settings"
 msgstr "Hledat v nastavení"
 
-#: ../src/CategoryView.vala:214
+#: src/Switchboard.vala:269 src/Switchboard.vala:294 src/Switchboard.vala:511
+msgid "System Settings"
+msgstr "Nastavení systému"
+
+#: src/Switchboard.vala:415
+msgid "No Settings Found"
+msgstr "Nastavení nenalezena"
+
+#: src/Switchboard.vala:415
+msgid "Install some and re-launch Switchboard."
+msgstr "Nainstalujte nějaká a znovu spusťte Switchboard."
+
+#: src/CategoryView.vala:155
+#, c-format
 msgid "No Results for “%s”"
 msgstr "Žádné výsledky pro „%s“"
 
-#: ../src/CategoryView.vala:214
+#: src/CategoryView.vala:155
 msgid "Try changing search terms."
 msgstr "Zkuste změnit vyhledávaný výraz."
 
-#: ../src/CategoryView.vala:221
+#: src/CategoryView.vala:162
 msgid "Personal"
 msgstr "Osobní"
 
-#: ../src/CategoryView.vala:223
+#: src/CategoryView.vala:164
 msgid "Hardware"
 msgstr "Hardware"
 
-#: ../src/CategoryView.vala:225
+#: src/CategoryView.vala:166
 msgid "Network & Wireless"
 msgstr "Síť a wi-fi"
 
-#: ../src/CategoryView.vala:227
+#: src/CategoryView.vala:168
 msgid "Administration"
 msgstr "Systém"
+
+#~ msgid "translator-credits"
+#~ msgstr ""
+#~ "Launchpad Contributions:\n"
+#~ "  Avi Romanoff https://launchpad.net/~aroman\n"
+#~ "  Honza Lafek https://launchpad.net/~hlafek99\n"
+#~ "  Jan Marek https://launchpad.net/~janmarek28\n"
+#~ "  Marek Doležel https://launchpad.net/~marekdolezel\n"
+#~ "  Marek Suchánek https://launchpad.net/~suchm\n"
+#~ "  Radek Starosta https://launchpad.net/~rstarosta"
 
 #~ msgid "System"
 #~ msgstr "Systém"

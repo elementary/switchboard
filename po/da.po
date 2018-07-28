@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-01 11:40-0600\n"
+"POT-Creation-Date: 2018-07-27 17:43-0700\n"
 "PO-Revision-Date: 2017-03-17 20:51+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish <da@li.org>\n"
@@ -18,68 +18,69 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-03-19 06:24+0000\n"
 "X-Generator: Launchpad (build 18332)\n"
 
-#: ../src/Switchboard.vala:45
+#: src/Switchboard.vala:49
 msgid "All Settings"
 msgstr "Alle indstillinger"
 
-#: ../src/Switchboard.vala:70
-msgid "System Settings"
-msgstr "Systemindstillinger"
-
-#: ../src/Switchboard.vala:83
-msgid "translator-credits"
-msgstr ""
-"Launchpad Contributions:\n"
-"  Avi Romanoff https://launchpad.net/~aroman\n"
-"  Brian Bentsen https://launchpad.net/~bimsebasse\n"
-"  Jimmy Merrild Krag https://launchpad.net/~beruic\n"
-"  Jonatan Nordentoft https://launchpad.net/~lo\n"
-"  Patrick https://launchpad.net/~mangodjango\n"
-"  Rasmus Mathiesen https://launchpad.net/~razzer-mathiesen\n"
-"  Simon https://launchpad.net/~sims73\n"
-"  Steffen Christensen https://launchpad.net/~drmclaser\n"
-"  moscar https://launchpad.net/~mikkeloscar\n"
-"  scootergrisen https://launchpad.net/~scootergrisen"
-
-#: ../src/Switchboard.vala:147
+#: src/Switchboard.vala:133
+#, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Det angivne link '%s' findes ikke - går tilbage til hovedpanelet"
 
-#: ../src/Switchboard.vala:340
-msgid "No Settings Found"
-msgstr "Ingen indstillinger fundet"
-
-#: ../src/Switchboard.vala:340
-msgid "Install some and re-launch Switchboard."
-msgstr "Installer nogle og genstart krydsfelt."
-
-#: ../src/Switchboard.vala:487
+#: src/Switchboard.vala:262
 msgid "Search Settings"
 msgstr "Søgeindstillinger"
 
-#: ../src/CategoryView.vala:214
+#: src/Switchboard.vala:269 src/Switchboard.vala:294 src/Switchboard.vala:511
+msgid "System Settings"
+msgstr "Systemindstillinger"
+
+#: src/Switchboard.vala:415
+msgid "No Settings Found"
+msgstr "Ingen indstillinger fundet"
+
+#: src/Switchboard.vala:415
+msgid "Install some and re-launch Switchboard."
+msgstr "Installer nogle og genstart krydsfelt."
+
+#: src/CategoryView.vala:155
+#, c-format
 msgid "No Results for “%s”"
 msgstr "Ingen resultater for \"%s\""
 
-#: ../src/CategoryView.vala:214
+#: src/CategoryView.vala:155
 msgid "Try changing search terms."
 msgstr "Prøv at ændre søgetermerne."
 
-#: ../src/CategoryView.vala:221
+#: src/CategoryView.vala:162
 msgid "Personal"
 msgstr "Personlig"
 
-#: ../src/CategoryView.vala:223
+#: src/CategoryView.vala:164
 msgid "Hardware"
 msgstr "Hardware"
 
-#: ../src/CategoryView.vala:225
+#: src/CategoryView.vala:166
 msgid "Network & Wireless"
 msgstr "Netværk og trådløs"
 
-#: ../src/CategoryView.vala:227
+#: src/CategoryView.vala:168
 msgid "Administration"
 msgstr "Administration"
+
+#~ msgid "translator-credits"
+#~ msgstr ""
+#~ "Launchpad Contributions:\n"
+#~ "  Avi Romanoff https://launchpad.net/~aroman\n"
+#~ "  Brian Bentsen https://launchpad.net/~bimsebasse\n"
+#~ "  Jimmy Merrild Krag https://launchpad.net/~beruic\n"
+#~ "  Jonatan Nordentoft https://launchpad.net/~lo\n"
+#~ "  Patrick https://launchpad.net/~mangodjango\n"
+#~ "  Rasmus Mathiesen https://launchpad.net/~razzer-mathiesen\n"
+#~ "  Simon https://launchpad.net/~sims73\n"
+#~ "  Steffen Christensen https://launchpad.net/~drmclaser\n"
+#~ "  moscar https://launchpad.net/~mikkeloscar\n"
+#~ "  scootergrisen https://launchpad.net/~scootergrisen"
 
 #~ msgid "Network and Wireless"
 #~ msgstr "Netværk og Trådløs"

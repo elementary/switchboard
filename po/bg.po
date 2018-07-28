@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-01 11:40-0600\n"
+"POT-Creation-Date: 2018-07-27 17:43-0700\n"
 "PO-Revision-Date: 2016-08-06 19:11+0000\n"
 "Last-Translator: Avi Romanoff <Unknown>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
@@ -18,65 +18,66 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-02-02 05:47+0000\n"
 "X-Generator: Launchpad (build 18315)\n"
 
-#: ../src/Switchboard.vala:45
+#: src/Switchboard.vala:49
 msgid "All Settings"
 msgstr "Всички настройки"
 
-#: ../src/Switchboard.vala:70
-msgid "System Settings"
-msgstr "Настройки на системата"
-
-#: ../src/Switchboard.vala:83
-msgid "translator-credits"
-msgstr ""
-"Launchpad Contributions:\n"
-"  Avi Romanoff https://launchpad.net/~aroman\n"
-"  ITPROJECTS https://launchpad.net/~itprojects\n"
-"  Niko Mitov https://launchpad.net/~niksancho96\n"
-"  Svetoslav Stefanov https://launchpad.net/~svetlisashkov\n"
-"  Veselin Trakiyski https://launchpad.net/~wesako\n"
-"  Viktor Reseleshki https://launchpad.net/~vikktor91\n"
-"  Адмирал АнимЕ https://launchpad.net/~aeternus-arcis"
-
-#: ../src/Switchboard.vala:147
+#: src/Switchboard.vala:133
+#, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr ""
 
-#: ../src/Switchboard.vala:340
-msgid "No Settings Found"
-msgstr "Не са намерени настройки"
-
-#: ../src/Switchboard.vala:340
-msgid "Install some and re-launch Switchboard."
-msgstr ""
-
-#: ../src/Switchboard.vala:487
+#: src/Switchboard.vala:262
 msgid "Search Settings"
 msgstr "Настройки за търсене"
 
-#: ../src/CategoryView.vala:214
+#: src/Switchboard.vala:269 src/Switchboard.vala:294 src/Switchboard.vala:511
+msgid "System Settings"
+msgstr "Настройки на системата"
+
+#: src/Switchboard.vala:415
+msgid "No Settings Found"
+msgstr "Не са намерени настройки"
+
+#: src/Switchboard.vala:415
+msgid "Install some and re-launch Switchboard."
+msgstr ""
+
+#: src/CategoryView.vala:155
+#, c-format
 msgid "No Results for “%s”"
 msgstr "Няма намерени резултати за “%s”"
 
-#: ../src/CategoryView.vala:214
+#: src/CategoryView.vala:155
 msgid "Try changing search terms."
 msgstr "Опитайте да търсите с други критерии"
 
-#: ../src/CategoryView.vala:221
+#: src/CategoryView.vala:162
 msgid "Personal"
 msgstr "Лични"
 
-#: ../src/CategoryView.vala:223
+#: src/CategoryView.vala:164
 msgid "Hardware"
 msgstr "Апаратура"
 
-#: ../src/CategoryView.vala:225
+#: src/CategoryView.vala:166
 msgid "Network & Wireless"
 msgstr "Жични и безжични мрежи"
 
-#: ../src/CategoryView.vala:227
+#: src/CategoryView.vala:168
 msgid "Administration"
 msgstr "Управление"
+
+#~ msgid "translator-credits"
+#~ msgstr ""
+#~ "Launchpad Contributions:\n"
+#~ "  Avi Romanoff https://launchpad.net/~aroman\n"
+#~ "  ITPROJECTS https://launchpad.net/~itprojects\n"
+#~ "  Niko Mitov https://launchpad.net/~niksancho96\n"
+#~ "  Svetoslav Stefanov https://launchpad.net/~svetlisashkov\n"
+#~ "  Veselin Trakiyski https://launchpad.net/~wesako\n"
+#~ "  Viktor Reseleshki https://launchpad.net/~vikktor91\n"
+#~ "  Адмирал АнимЕ https://launchpad.net/~aeternus-arcis"
 
 #~ msgid "System"
 #~ msgstr "Система"

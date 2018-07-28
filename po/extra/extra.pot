@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the extra package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-27 10:07-0700\n"
+"POT-Creation-Date: 2018-07-27 17:43-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,29 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: data/io.elementary.switchboard.desktop.in:4
+#: data/io.elementary.switchboard.appdata.xml.in:8
 msgid "System Settings"
 msgstr ""
 
+#: data/io.elementary.switchboard.desktop.in:5
+#: data/io.elementary.switchboard.appdata.xml.in:9
 msgid "Change system and user settings"
 msgstr ""
 
+#: data/io.elementary.switchboard.desktop.in:7
+msgid "preferences-desktop"
+msgstr ""
+
+#: data/io.elementary.switchboard.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"
 msgstr ""
 
+#: data/io.elementary.switchboard.appdata.xml.in:11
 msgid ""
 "A system settings application that focuses on modularity and simplicity."
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:23
+msgid "elementary LLC."
 msgstr ""

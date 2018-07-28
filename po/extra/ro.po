@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-26 08:51-0700\n"
+"POT-Creation-Date: 2018-07-27 17:43-0700\n"
 "PO-Revision-Date: 2018-07-26 08:51-0700\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,8 +18,22 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
 
+#: data/io.elementary.switchboard.desktop.in:4
+#: data/io.elementary.switchboard.appdata.xml.in:8
+msgid "System Settings"
+msgstr ""
+
+#: data/io.elementary.switchboard.desktop.in:5
+#: data/io.elementary.switchboard.appdata.xml.in:9
+msgid "Change system and user settings"
+msgstr ""
+
 #: data/io.elementary.switchboard.desktop.in:7
 msgid "preferences-desktop"
+msgstr ""
+
+#: data/io.elementary.switchboard.desktop.in:11
+msgid "Center;Control;Panel;Preferences;System;"
 msgstr ""
 
 #: data/io.elementary.switchboard.appdata.xml.in:11

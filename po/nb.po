@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-01 11:40-0600\n"
+"POT-Creation-Date: 2018-07-27 17:43-0700\n"
 "PO-Revision-Date: 2017-04-01 23:16+0000\n"
 "Last-Translator: Allan Nordhøy <comradekingu@gmail.com>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
@@ -18,65 +18,66 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-04-05 06:34+0000\n"
 "X-Generator: Launchpad (build 18335)\n"
 
-#: ../src/Switchboard.vala:45
+#: src/Switchboard.vala:49
 msgid "All Settings"
 msgstr "Alle innstillinger"
 
-#: ../src/Switchboard.vala:70
-msgid "System Settings"
-msgstr "Systeminnstillinger"
-
-#: ../src/Switchboard.vala:83
-msgid "translator-credits"
-msgstr ""
-"Launchpad Contributions:\n"
-"  Allan Nordhøy https://launchpad.net/~comradekingu\n"
-"  Avi Romanoff https://launchpad.net/~aroman\n"
-"  Magnus Meyer Hustveit https://launchpad.net/~dizzi90\n"
-"  Niklas Fjeldberg https://launchpad.net/~niklasolai\n"
-"  ProsjektX https://launchpad.net/~prosjektx\n"
-"  Skandee https://launchpad.net/~skandee\n"
-"  Thomas Hovland https://launchpad.net/~naglfar"
-
-#: ../src/Switchboard.vala:147
+#: src/Switchboard.vala:133
+#, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Oppgitt lenke '%s' finnes ikke, går tilbake til hovedpanelet"
 
-#: ../src/Switchboard.vala:340
-msgid "No Settings Found"
-msgstr "Ingen innstillinger funnet"
-
-#: ../src/Switchboard.vala:340
-msgid "Install some and re-launch Switchboard."
-msgstr "Installer noen og start Systeminnstillinger på nytt."
-
-#: ../src/Switchboard.vala:487
+#: src/Switchboard.vala:262
 msgid "Search Settings"
 msgstr "Søkeinnstillinger"
 
-#: ../src/CategoryView.vala:214
+#: src/Switchboard.vala:269 src/Switchboard.vala:294 src/Switchboard.vala:511
+msgid "System Settings"
+msgstr "Systeminnstillinger"
+
+#: src/Switchboard.vala:415
+msgid "No Settings Found"
+msgstr "Ingen innstillinger funnet"
+
+#: src/Switchboard.vala:415
+msgid "Install some and re-launch Switchboard."
+msgstr "Installer noen og start Systeminnstillinger på nytt."
+
+#: src/CategoryView.vala:155
+#, c-format
 msgid "No Results for “%s”"
 msgstr "Ingen resultater for \"%s\""
 
-#: ../src/CategoryView.vala:214
+#: src/CategoryView.vala:155
 msgid "Try changing search terms."
 msgstr "Prøv å endre søkeord."
 
-#: ../src/CategoryView.vala:221
+#: src/CategoryView.vala:162
 msgid "Personal"
 msgstr "Personlig"
 
-#: ../src/CategoryView.vala:223
+#: src/CategoryView.vala:164
 msgid "Hardware"
 msgstr "Maskinvare"
 
-#: ../src/CategoryView.vala:225
+#: src/CategoryView.vala:166
 msgid "Network & Wireless"
 msgstr "Nettverk og trådløst"
 
-#: ../src/CategoryView.vala:227
+#: src/CategoryView.vala:168
 msgid "Administration"
 msgstr "Administrasjon"
+
+#~ msgid "translator-credits"
+#~ msgstr ""
+#~ "Launchpad Contributions:\n"
+#~ "  Allan Nordhøy https://launchpad.net/~comradekingu\n"
+#~ "  Avi Romanoff https://launchpad.net/~aroman\n"
+#~ "  Magnus Meyer Hustveit https://launchpad.net/~dizzi90\n"
+#~ "  Niklas Fjeldberg https://launchpad.net/~niklasolai\n"
+#~ "  ProsjektX https://launchpad.net/~prosjektx\n"
+#~ "  Skandee https://launchpad.net/~skandee\n"
+#~ "  Thomas Hovland https://launchpad.net/~naglfar"
 
 #~ msgid "System"
 #~ msgstr "System"

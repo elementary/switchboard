@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-01 11:40-0600\n"
+"POT-Creation-Date: 2018-07-27 17:43-0700\n"
 "PO-Revision-Date: 2017-02-03 16:38+0000\n"
 "Last-Translator: Fabio Zaramella <FFabio.96.X@Gmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
@@ -18,71 +18,72 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-02-04 05:40+0000\n"
 "X-Generator: Launchpad (build 18322)\n"
 
-#: ../src/Switchboard.vala:45
+#: src/Switchboard.vala:49
 msgid "All Settings"
 msgstr "Tutte le impostazioni"
 
-#: ../src/Switchboard.vala:70
-msgid "System Settings"
-msgstr "Impostazioni di sistema"
-
-#: ../src/Switchboard.vala:83
-msgid "translator-credits"
-msgstr ""
-"Launchpad Contributions:\n"
-"  :P !Leo! :P https://launchpad.net/~bboy-blackup\n"
-"  Avi Romanoff https://launchpad.net/~aroman\n"
-"  Bennici Piercarlo https://launchpad.net/~piercarlo-bennici-"
-"deactivatedaccount-deactivatedaccount\n"
-"  Devid Antonio Filoni https://launchpad.net/~d.filoni\n"
-"  Fabio Gaudenzi https://launchpad.net/~bafio-fruges-c\n"
-"  Fabio Zaramella https://launchpad.net/~fabiozaramella\n"
-"  Federico Flecchia https://launchpad.net/~federico-flecchia\n"
-"  Giancarlo Buomprisco https://launchpad.net/~carloprisco\n"
-"  Gusions https://launchpad.net/~gusions\n"
-"  Mario Guerriero https://launchpad.net/~mefrio-g\n"
-"  grizzo94 https://launchpad.net/~nicolaramoso"
-
-#: ../src/Switchboard.vala:147
+#: src/Switchboard.vala:133
+#, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr ""
 "Il collegamento '%s' specificato non esiste, ritorno al pannello principale"
 
-#: ../src/Switchboard.vala:340
-msgid "No Settings Found"
-msgstr "Nessuna impostazione trovata"
-
-#: ../src/Switchboard.vala:340
-msgid "Install some and re-launch Switchboard."
-msgstr "Installa qualcosa e riavvia Switchboard."
-
-#: ../src/Switchboard.vala:487
+#: src/Switchboard.vala:262
 msgid "Search Settings"
 msgstr "Cerca impostazioni"
 
-#: ../src/CategoryView.vala:214
+#: src/Switchboard.vala:269 src/Switchboard.vala:294 src/Switchboard.vala:511
+msgid "System Settings"
+msgstr "Impostazioni di sistema"
+
+#: src/Switchboard.vala:415
+msgid "No Settings Found"
+msgstr "Nessuna impostazione trovata"
+
+#: src/Switchboard.vala:415
+msgid "Install some and re-launch Switchboard."
+msgstr "Installa qualcosa e riavvia Switchboard."
+
+#: src/CategoryView.vala:155
+#, c-format
 msgid "No Results for “%s”"
 msgstr "Nessun risultato per \"%s\""
 
-#: ../src/CategoryView.vala:214
+#: src/CategoryView.vala:155
 msgid "Try changing search terms."
 msgstr "Prova a cambiare i termini di ricerca."
 
-#: ../src/CategoryView.vala:221
+#: src/CategoryView.vala:162
 msgid "Personal"
 msgstr "Personali"
 
-#: ../src/CategoryView.vala:223
+#: src/CategoryView.vala:164
 msgid "Hardware"
 msgstr "Hardware"
 
-#: ../src/CategoryView.vala:225
+#: src/CategoryView.vala:166
 msgid "Network & Wireless"
 msgstr "Rete e Wireless"
 
-#: ../src/CategoryView.vala:227
+#: src/CategoryView.vala:168
 msgid "Administration"
 msgstr "Amministrazione"
+
+#~ msgid "translator-credits"
+#~ msgstr ""
+#~ "Launchpad Contributions:\n"
+#~ "  :P !Leo! :P https://launchpad.net/~bboy-blackup\n"
+#~ "  Avi Romanoff https://launchpad.net/~aroman\n"
+#~ "  Bennici Piercarlo https://launchpad.net/~piercarlo-bennici-"
+#~ "deactivatedaccount-deactivatedaccount\n"
+#~ "  Devid Antonio Filoni https://launchpad.net/~d.filoni\n"
+#~ "  Fabio Gaudenzi https://launchpad.net/~bafio-fruges-c\n"
+#~ "  Fabio Zaramella https://launchpad.net/~fabiozaramella\n"
+#~ "  Federico Flecchia https://launchpad.net/~federico-flecchia\n"
+#~ "  Giancarlo Buomprisco https://launchpad.net/~carloprisco\n"
+#~ "  Gusions https://launchpad.net/~gusions\n"
+#~ "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
+#~ "  grizzo94 https://launchpad.net/~nicolaramoso"
 
 #~ msgid "System"
 #~ msgstr "Sistema"

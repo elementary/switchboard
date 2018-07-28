@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-01 11:40-0600\n"
+"POT-Creation-Date: 2018-07-27 17:43-0700\n"
 "PO-Revision-Date: 2018-03-18 03:47+0000\n"
 "Last-Translator: Anand Kumar <anand@anandkumar.net>\n"
-"Language-Team: Hindi "
-"<https://weblate.elementary.io/projects/switchboard/switchboard/hi/>\n"
+"Language-Team: Hindi <https://weblate.elementary.io/projects/switchboard/"
+"switchboard/hi/>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,62 +20,63 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:47+0000\n"
 
-#: ../src/Switchboard.vala:45
+#: src/Switchboard.vala:49
 msgid "All Settings"
 msgstr "सभी विन्यास"
 
-#: ../src/Switchboard.vala:70
-msgid "System Settings"
-msgstr "तंत्र विन्यास"
-
-#: ../src/Switchboard.vala:83
-msgid "translator-credits"
-msgstr ""
-"Launchpad Contributions:\n"
-"  Anand Kumar https://launchpad.net/~anandkumar\n"
-"  Avi Romanoff https://launchpad.net/~aroman\n"
-"  Satchit Bhogle https://launchpad.net/~satchitb\n"
-"  shrikanth https://launchpad.net/~alwaysshrek"
-
-#: ../src/Switchboard.vala:147
+#: src/Switchboard.vala:133
+#, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "निर्दिष्ट पैनल '%s' मौजूद नहीं है, मुख्य पैनल पर वापस जा रहा है"
 
-#: ../src/Switchboard.vala:340
-msgid "No Settings Found"
-msgstr "कोई विन्यास नहीं मिला"
-
-#: ../src/Switchboard.vala:340
-msgid "Install some and re-launch Switchboard."
-msgstr "कुछ इनस्टॉल कर स्विचबोर्ड पुनः प्रारम्भ करें."
-
-#: ../src/Switchboard.vala:487
+#: src/Switchboard.vala:262
 msgid "Search Settings"
 msgstr "विन्यास खोजें"
 
-#: ../src/CategoryView.vala:214
+#: src/Switchboard.vala:269 src/Switchboard.vala:294 src/Switchboard.vala:511
+msgid "System Settings"
+msgstr "तंत्र विन्यास"
+
+#: src/Switchboard.vala:415
+msgid "No Settings Found"
+msgstr "कोई विन्यास नहीं मिला"
+
+#: src/Switchboard.vala:415
+msgid "Install some and re-launch Switchboard."
+msgstr "कुछ इनस्टॉल कर स्विचबोर्ड पुनः प्रारम्भ करें."
+
+#: src/CategoryView.vala:155
+#, c-format
 msgid "No Results for “%s”"
 msgstr "“%s” के लिए कोई परिणाम नहीं"
 
-#: ../src/CategoryView.vala:214
+#: src/CategoryView.vala:155
 msgid "Try changing search terms."
 msgstr "ख़ोज के लिए कोई और पद चुनें."
 
-#: ../src/CategoryView.vala:221
+#: src/CategoryView.vala:162
 msgid "Personal"
 msgstr "निजी"
 
-#: ../src/CategoryView.vala:223
+#: src/CategoryView.vala:164
 msgid "Hardware"
 msgstr "हार्डवेयर"
 
-#: ../src/CategoryView.vala:225
+#: src/CategoryView.vala:166
 msgid "Network & Wireless"
 msgstr "नेटवर्क और वायरलेस"
 
-#: ../src/CategoryView.vala:227
+#: src/CategoryView.vala:168
 msgid "Administration"
 msgstr "प्रशासन"
+
+#~ msgid "translator-credits"
+#~ msgstr ""
+#~ "Launchpad Contributions:\n"
+#~ "  Anand Kumar https://launchpad.net/~anandkumar\n"
+#~ "  Avi Romanoff https://launchpad.net/~aroman\n"
+#~ "  Satchit Bhogle https://launchpad.net/~satchitb\n"
+#~ "  shrikanth https://launchpad.net/~alwaysshrek"
 
 #~ msgid "Network and Wireless"
 #~ msgstr "प्रसार और बेतार"
