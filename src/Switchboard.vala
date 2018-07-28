@@ -260,7 +260,6 @@ namespace Switchboard {
 
             search_box = new Gtk.SearchEntry ();
             search_box.placeholder_text = _("Search Settings");
-            search_box.margin_right = 5;
             search_box.sensitive = false;
 
             headerbar = new Gtk.HeaderBar ();
@@ -276,7 +275,7 @@ namespace Switchboard {
             category_view.load_default_plugs.begin ();
 
             category_scrolled = new Gtk.ScrolledWindow (null, null);
-            category_scrolled.add_with_viewport (category_view);
+            category_scrolled.add (category_view);
 
             alert_view = new Granite.Widgets.AlertView ("", "", "");
             alert_view.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
@@ -337,7 +336,8 @@ namespace Switchboard {
 
             var quit_action = new SimpleAction ("quit", null);
             add_action (quit_action);
-            add_accelerator ("<Control>q", "app.quit", null);
+
+            set_accels_for_action ("app.quit", {"<Control>q"});
 
             quit_action.activate.connect (() => {
                 main_window.destroy ();
