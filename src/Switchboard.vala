@@ -334,10 +334,18 @@ namespace Switchboard {
                 return false;
             });
 
+            var back_action = new SimpleAction ("back", null);
             var quit_action = new SimpleAction ("quit", null);
+
+            add_action (back_action);
             add_action (quit_action);
 
+            set_accels_for_action ("app.back", {"<Alt>Left"});
             set_accels_for_action ("app.quit", {"<Control>q"});
+
+            back_action.activate.connect (() => {
+                navigation_button.clicked ();
+            });
 
             quit_action.activate.connect (() => {
                 main_window.destroy ();
@@ -372,12 +380,6 @@ namespace Switchboard {
             });
 
             main_window.key_press_event.connect ((event) => {
-                // alt+left should go back to all settings
-                if ((event.state & Gdk.ModifierType.MOD1_MASK) != 0 && event.keyval == Gdk.Key.Left) {
-                    navigation_button.clicked ();
-                    return false;
-                }
-
                 // Down key from search_bar should move focus to CategoryVIew
                 if (search_box.has_focus && event.keyval == Gdk.Key.Down) {
                     category_view.grab_focus_first_icon_view ();
