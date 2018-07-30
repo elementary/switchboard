@@ -340,7 +340,7 @@ namespace Switchboard {
             add_action (back_action);
             add_action (quit_action);
 
-            set_accels_for_action ("app.back", {"<Alt>Left"});
+            set_accels_for_action ("app.back", {"<Alt>Left", "Back"});
             set_accels_for_action ("app.quit", {"<Control>q"});
 
             back_action.activate.connect (() => {
