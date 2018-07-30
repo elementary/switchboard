@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-27 17:43-0700\n"
-"PO-Revision-Date: 2017-08-20 13:23+0000\n"
+"PO-Revision-Date: 2018-07-30 08:33+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://weblate.elementary.io/projects/switchboard/"
 "extra/ca/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.15\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 
 #: data/io.elementary.switchboard.desktop.in:4
@@ -32,7 +32,7 @@ msgstr "Canvia la configuració del sistema i de l'usuari"
 
 #: data/io.elementary.switchboard.desktop.in:7
 msgid "preferences-desktop"
-msgstr ""
+msgstr "preferències-escriptori"
 
 #: data/io.elementary.switchboard.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"
@@ -47,7 +47,7 @@ msgstr ""
 
 #: data/io.elementary.switchboard.appdata.xml.in:23
 msgid "elementary LLC."
-msgstr ""
+msgstr "elementary LLC."
 
 #~ msgid "About System Settings"
 #~ msgstr "Quant a la Configuració del sistema"
