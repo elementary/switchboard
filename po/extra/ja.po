@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-27 17:43-0700\n"
-"PO-Revision-Date: 2018-07-28 12:56+0000\n"
+"PO-Revision-Date: 2018-08-03 00:04+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.elementary.io/projects/switchboard/"
 "extra/ja/>\n"
@@ -36,7 +36,7 @@ msgstr ""
 
 #: data/io.elementary.switchboard.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"
-msgstr "センター;コントロール;パネル;設定;システム;"
+msgstr "Center;Control;Panel;Preferences;System;センター;コントロール;パネル;設定;システム;"
 
 #: data/io.elementary.switchboard.appdata.xml.in:11
 msgid ""
