@@ -2,7 +2,7 @@
 Type=Application
 Name=System Settings
 Comment=Change system and user settings
-Exec=switchboard %u
+Exec=io.elementary.switchboard %u
 Icon=preferences-desktop
 Terminal=false
 StartupNotify=true
