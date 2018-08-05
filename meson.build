@@ -1,5 +1,5 @@
 project(
-    'switchboard',
+    'io.elementary.switchboard',
     'c', 'vala',
     version: '2.3.1',
 )
@@ -13,7 +13,7 @@ add_project_arguments([
     language: 'c'
 )
 
-plugs_dir = join_paths(get_option('prefix'), get_option('libdir'), meson.project_name())
+plugs_dir = join_paths(get_option('prefix'), get_option('libdir'), 'switchboard')
 
 i18n = import('i18n')
 pkg = import('pkgconfig')
