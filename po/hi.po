@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-27 17:43-0700\n"
+"POT-Creation-Date: 2018-08-14 10:24-0700\n"
 "PO-Revision-Date: 2018-03-18 03:47+0000\n"
 "Last-Translator: Anand Kumar <anand@anandkumar.net>\n"
 "Language-Team: Hindi <https://weblate.elementary.io/projects/switchboard/"
@@ -33,15 +33,15 @@ msgstr "निर्दिष्ट पैनल '%s' मौजूद नही�
 msgid "Search Settings"
 msgstr "विन्यास खोजें"
 
-#: src/Switchboard.vala:269 src/Switchboard.vala:294 src/Switchboard.vala:511
+#: src/Switchboard.vala:268 src/Switchboard.vala:293 src/Switchboard.vala:513
 msgid "System Settings"
 msgstr "तंत्र विन्यास"
 
-#: src/Switchboard.vala:415
+#: src/Switchboard.vala:417
 msgid "No Settings Found"
 msgstr "कोई विन्यास नहीं मिला"
 
-#: src/Switchboard.vala:415
+#: src/Switchboard.vala:417
 msgid "Install some and re-launch Switchboard."
 msgstr "कुछ इनस्टॉल कर स्विचबोर्ड पुनः प्रारम्भ करें."
 

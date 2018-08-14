@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-27 17:43-0700\n"
+"POT-Creation-Date: 2018-08-14 10:24-0700\n"
 "PO-Revision-Date: 2017-03-17 20:51+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish <da@li.org>\n"
@@ -31,15 +31,15 @@ msgstr "Det angivne link '%s' findes ikke - går tilbage til hovedpanelet"
 msgid "Search Settings"
 msgstr "Søgeindstillinger"
 
-#: src/Switchboard.vala:269 src/Switchboard.vala:294 src/Switchboard.vala:511
+#: src/Switchboard.vala:268 src/Switchboard.vala:293 src/Switchboard.vala:513
 msgid "System Settings"
 msgstr "Systemindstillinger"
 
-#: src/Switchboard.vala:415
+#: src/Switchboard.vala:417
 msgid "No Settings Found"
 msgstr "Ingen indstillinger fundet"
 
-#: src/Switchboard.vala:415
+#: src/Switchboard.vala:417
 msgid "Install some and re-launch Switchboard."
 msgstr "Installer nogle og genstart krydsfelt."
 

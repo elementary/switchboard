@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-27 17:43-0700\n"
+"POT-Creation-Date: 2018-08-14 10:24-0700\n"
 "PO-Revision-Date: 2017-04-01 23:16+0000\n"
 "Last-Translator: Allan Nordhøy <comradekingu@gmail.com>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
@@ -31,15 +31,15 @@ msgstr "Oppgitt lenke '%s' finnes ikke, går tilbake til hovedpanelet"
 msgid "Search Settings"
 msgstr "Søkeinnstillinger"
 
-#: src/Switchboard.vala:269 src/Switchboard.vala:294 src/Switchboard.vala:511
+#: src/Switchboard.vala:268 src/Switchboard.vala:293 src/Switchboard.vala:513
 msgid "System Settings"
 msgstr "Systeminnstillinger"
 
-#: src/Switchboard.vala:415
+#: src/Switchboard.vala:417
 msgid "No Settings Found"
 msgstr "Ingen innstillinger funnet"
 
-#: src/Switchboard.vala:415
+#: src/Switchboard.vala:417
 msgid "Install some and re-launch Switchboard."
 msgstr "Installer noen og start Systeminnstillinger på nytt."
 

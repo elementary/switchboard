@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-27 17:43-0700\n"
+"POT-Creation-Date: 2018-08-14 10:24-0700\n"
 "PO-Revision-Date: 2017-03-07 11:39+0000\n"
 "Last-Translator: Avi Romanoff <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,15 +26,15 @@ msgstr "Müəyyən olunan link '%s' mövcud deyildir, əsas panelə keçid"
 msgid "Search Settings"
 msgstr "Axtarış parametrləri"
 
-#: src/Switchboard.vala:269 src/Switchboard.vala:294 src/Switchboard.vala:511
+#: src/Switchboard.vala:268 src/Switchboard.vala:293 src/Switchboard.vala:513
 msgid "System Settings"
 msgstr "Sistem Tənzimləmələri"
 
-#: src/Switchboard.vala:415
+#: src/Switchboard.vala:417
 msgid "No Settings Found"
 msgstr "Ayarlar tapılmadı"
 
-#: src/Switchboard.vala:415
+#: src/Switchboard.vala:417
 msgid "Install some and re-launch Switchboard."
 msgstr "Bərpa edib Switchboard-ı yenidən başladın."
 

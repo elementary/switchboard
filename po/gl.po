@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-27 17:43-0700\n"
+"POT-Creation-Date: 2018-08-14 10:24-0700\n"
 "PO-Revision-Date: 2017-01-26 09:23+0000\n"
 "Last-Translator: Avi Romanoff <Unknown>\n"
 "Language-Team: Galician <gl@li.org>\n"
@@ -31,15 +31,15 @@ msgstr ""
 msgid "Search Settings"
 msgstr "Configuración da busca"
 
-#: src/Switchboard.vala:269 src/Switchboard.vala:294 src/Switchboard.vala:511
+#: src/Switchboard.vala:268 src/Switchboard.vala:293 src/Switchboard.vala:513
 msgid "System Settings"
 msgstr "Axustes do sistema"
 
-#: src/Switchboard.vala:415
+#: src/Switchboard.vala:417
 msgid "No Settings Found"
 msgstr ""
 
-#: src/Switchboard.vala:415
+#: src/Switchboard.vala:417
 msgid "Install some and re-launch Switchboard."
 msgstr ""
 
