@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-27 17:43-0700\n"
-"PO-Revision-Date: 2018-07-28 11:53+0000\n"
+"PO-Revision-Date: 2018-09-02 00:08+0000\n"
 "Last-Translator: Kaj Printz Madsen <kajprintz@gmail.com>\n"
 "Language-Team: Danish <https://weblate.elementary.io/projects/switchboard/"
 "extra/da/>\n"
@@ -36,7 +36,7 @@ msgstr "preferences-desktop"
 
 #: data/io.elementary.switchboard.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"
-msgstr "Center;Control;Panel;Preferences;Præferencer;System;"
+msgstr "Center;Kontrol;Panel;Præferencer;System;"
 
 #: data/io.elementary.switchboard.appdata.xml.in:11
 msgid ""
