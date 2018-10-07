@@ -7,7 +7,7 @@ project(
 lib_version = '2.0'
 
 add_project_arguments([
-        '-DGETTEXT_PACKAGE="switchboard"',
+        '-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()),
         '-DG_LOG_DOMAIN="switchboard"'
     ],
     language: 'c'
