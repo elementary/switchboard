@@ -1,0 +1,44 @@
+# Chuvash translations for extra package.
+# Copyright (C) 2018 THE extra'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# Automatically generated, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-18 05:32-0500\n"
+"PO-Revision-Date: 2018-10-18 05:32-0500\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: cv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/io.elementary.switchboard.desktop.in:4
+#: data/io.elementary.switchboard.appdata.xml.in:8
+msgid "System Settings"
+msgstr ""
+
+#: data/io.elementary.switchboard.desktop.in:5
+#: data/io.elementary.switchboard.appdata.xml.in:9
+msgid "Change system and user settings"
+msgstr ""
+
+#: data/io.elementary.switchboard.desktop.in:7
+msgid "preferences-desktop"
+msgstr ""
+
+#: data/io.elementary.switchboard.desktop.in:11
+msgid "Center;Control;Panel;Preferences;System;"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:11
+msgid ""
+"A system settings application that focuses on modularity and simplicity."
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:23
+msgid "elementary LLC."
+msgstr ""
