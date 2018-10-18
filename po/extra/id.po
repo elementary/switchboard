@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-27 17:43-0700\n"
 "PO-Revision-Date: 2018-10-18 08:26+0000\n"
-"Last-Translator: Eri Hidayat <eriwhidayat@gmail.com>\n"
+"Last-Translator: baguskusumaloka@gmail.com <baguskusumaloka@gmail.com>\n"
 "Language-Team: Indonesian <https://weblate.elementary.io/projects/"
 "switchboard/extra/id/>\n"
 "Language: id\n"
@@ -27,7 +27,7 @@ msgstr "Pengaturan Sistem"
 #: data/io.elementary.switchboard.desktop.in:5
 #: data/io.elementary.switchboard.appdata.xml.in:9
 msgid "Change system and user settings"
-msgstr ""
+msgstr "Ubah Sistem dan Setelan User"
 
 #: data/io.elementary.switchboard.desktop.in:7
 msgid "preferences-desktop"
