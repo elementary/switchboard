@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 05:32-0500\n"
-"PO-Revision-Date: 2018-10-21 11:29+0000\n"
+"PO-Revision-Date: 2018-10-22 20:03+0000\n"
 "Last-Translator: Fredrik B <frbo9002@gmail.com>\n"
 "Language-Team: Swedish <https://weblate.elementary.io/projects/switchboard/"
 "switchboard/sv/>\n"
@@ -31,7 +31,7 @@ msgstr "Den angivna länken '%s' finns inte, går tillbala till huvudpanelen"
 
 #: src/Switchboard.vala:262
 msgid "Search Settings"
-msgstr "Sök inställningar"
+msgstr "Sökinställningar"
 
 #: src/Switchboard.vala:268 src/Switchboard.vala:293 src/Switchboard.vala:513
 msgid "System Settings"
