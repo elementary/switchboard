@@ -20,12 +20,6 @@
 */
 
 namespace Switchboard {
-
-    public enum WindowState {
-        NORMAL = 0,
-        MAXIMIZED = 1
-    }
-
     public static int main (string[] args) {
 
         // Only known plug that requires GtkClutter is switchboard-plug-display
