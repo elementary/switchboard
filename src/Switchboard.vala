@@ -288,20 +288,17 @@ namespace Switchboard {
             main_window.set_size_request (910, 640);
             main_window.set_titlebar (headerbar);
 
-            var settings = new GLib.Settings ("io.elementary.switchboard.saved-state");
-
             int window_x, window_y;
+            var rect = Gtk.Allocation ();
+
+            var settings = new GLib.Settings ("io.elementary.switchboard.saved-state");
             settings.get ("window-position", "(ii)", out window_x, out window_y);
+            settings.get ("window-size", "(ii)", out rect.width, out rect.height);
 
             if (window_x != -1 ||  window_y != -1) {
                 main_window.move (window_x, window_y);
             }
 
-            int window_width, window_height;
-            settings.get ("window-size", "(ii)", out window_width, out window_height);
-            var rect = Gtk.Allocation ();
-            rect.width = window_width;
-            rect.height = window_height;
             main_window.set_allocation (rect);
 
             if (settings.get_boolean ("window-maximized")) {
