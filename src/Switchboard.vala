@@ -47,6 +47,7 @@ namespace Switchboard {
 
         private Gee.LinkedList <string> loaded_plugs;
         private string all_settings_label = _("All Settings");
+        private uint configure_id;
 
         public Gee.ArrayList <Switchboard.Plug> previous_plugs;
         public Switchboard.Plug current_plug;
@@ -285,26 +286,32 @@ namespace Switchboard {
             stack.add_named (alert_view, "alert");
             stack.add_named (category_scrolled, "main");
 
-            var settings = new GLib.Settings ("io.elementary.switchboard.saved-state");
-
             main_window = new Gtk.Window();
             main_window.application = this;
             main_window.icon_name = "preferences-desktop";
             main_window.title = _("System Settings");
             main_window.add (stack);
-            main_window.set_default_size (settings.get_int ("window-width"), settings.get_int ("window-height"));
             main_window.set_size_request (910, 640);
             main_window.set_titlebar (headerbar);
 
-            if (settings.get_enum ("window-state") == WindowState.MAXIMIZED) {
+            var settings = new GLib.Settings ("io.elementary.switchboard.saved-state");
+
+            int window_x, window_y;
+            settings.get ("window-position", "(ii)", out window_x, out window_y);
+
+            if (window_x != -1 ||  window_y != -1) {
+                main_window.move (window_x, window_y);
+            }
+
+            int window_width, window_height;
+            settings.get ("window-size", "(ii)", out window_width, out window_height);
+            var rect = Gtk.Allocation ();
+            rect.width = window_width;
+            rect.height = window_height;
+            main_window.set_allocation (rect);
+
+            if (settings.get_boolean ("window-maximized")) {
                 main_window.maximize ();
-            } else {
-                var position = settings.get_strv ("position");
-                if (position.length != 2) {
-                    main_window.window_position = Gtk.WindowPosition.CENTER;
-                } else {
-                    main_window.move (int.parse (position[0]), int.parse (position[1]));
-                }
             }
 
             main_window.show_all ();
@@ -362,19 +369,29 @@ namespace Switchboard {
 
             main_window.destroy.connect (shut_down);
 
-            main_window.delete_event.connect (() => {
-                if (settings.get_enum ("window-state") == WindowState.NORMAL) {
-                    int width, height, x, y;
-
-                    main_window.get_size (out width, out height);
-                    main_window.get_position (out x, out y);
-
-                    string[] position = {x.to_string (), y.to_string ()};
-
-                    settings.set_int ("window-width", width);
-                    settings.set_int ("window-height", height);
-                    settings.set_strv ("position", position);
+            main_window.configure_event.connect ((event) => {
+                if (configure_id != 0) {
+                    GLib.Source.remove (configure_id);
                 }
+
+                configure_id = Timeout.add (100, () => {
+                    configure_id = 0;
+
+                    if (main_window.is_maximized) {
+                        settings.set_boolean ("window-maximized", true);
+                    } else {
+                        settings.set_boolean ("window-maximized", false);
+
+                        main_window.get_allocation (out rect);
+                        settings.set ("window-size", "(ii)", rect.width, rect.height);
+
+                        int root_x, root_y;
+                        main_window.get_position (out root_x, out root_y);
+                        settings.set ("window-position", "(ii)", root_x, root_y);
+                    }
+
+                    return false;
+                });
 
                 return false;
             });
@@ -393,16 +410,6 @@ namespace Switchboard {
                 // Don't focus if it is a modifier or if search_box is already focused
                 if ((event.is_modifier == 0) && !search_box.has_focus)
                     search_box.grab_focus ();
-
-                return false;
-            });
-
-            main_window.window_state_event.connect ((event) => {
-                if (event.new_window_state == Gdk.WindowState.MAXIMIZED) {
-                    settings.set_enum ("window-state", WindowState.MAXIMIZED);
-                } else {
-                    settings.set_enum ("window-state", WindowState.NORMAL);
-                }
 
                 return false;
             });

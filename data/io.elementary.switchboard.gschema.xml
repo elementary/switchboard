@@ -1,30 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-	<enum id="switchboard-window-states">
-		<value nick="Normal" value="0" />
-		<value nick="Maximized" value="1" />
-	</enum>
 	<schema path="/io/elementary/switchboard/saved-state/" id="io.elementary.switchboard.saved-state">
-		<key name="window-state" enum="switchboard-window-states">
-			<default>"Normal"</default>
-			<summary>The saved state of the window.</summary>
-			<description>The saved state of the window.</description>
-		</key>
-		<key name="window-width" type="i">
-			<default>850</default>
-			<summary>The saved width of the window.</summary>
-			<description>The saved width of the window. Must be greater than 700, or it will not take effect.</description>
-		</key>
-		<key name="window-height" type="i">
-			<default>520</default>
-			<summary>The saved height of the window.</summary>
-			<description>The saved height of the window. Must be greater than 400, or it will not take effect.</description>
-		</key>
-		<key name="position" type="as">
-			<default>['']</default>
-			<summary>The position of the window.</summary>
-			<description>The position of the window.</description>
-		</key>
+    <key name="window-maximized" type="b">
+      <default>false</default>
+      <summary>Whether the window was maximized on last run</summary>
+      <description>Whether the window was maximized on last run</description>
+    </key>
+    <key name="window-position" type="(ii)">
+      <default>(-1, -1)</default>
+      <summary>Window position</summary>
+      <description>Most recent window position (x, y)</description>
+    </key>
+    <key name="window-size" type="(ii)">
+      <default>(1024, 720)</default>
+      <summary>Most recent window size</summary>
+      <description>Most recent window size (width, height)</description>
+    </key>
 	</schema>
 	<schema path="/io/elementary/switchboard/preferences/" id="io.elementary.switchboard.preferences">
 		<key name="mapping-override" type="a{s(ss)}">
