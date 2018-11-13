@@ -8,7 +8,7 @@
 
 Switchboard is just the container application for Switchboard Plugs, which provide the actual settings for various hardware and software.
 
-[Browse all Plugs](https://github.com/elementary?q=switchboard-plug)
+[Browse all Plugs](https://github.com/elementary?q=switchboard-plug#org-repositories)
 
 ## Building, Testing, and Installation
 
