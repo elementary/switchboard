@@ -4,6 +4,12 @@
 
 ![System Settings Screenshot](data/screenshot.png?raw=true)
 
+## Plugs
+
+Switchboard is just the container application for Switchboard Plugs, which provide the actual settings for various hardware and software.
+
+[Browse all Plugs](https://github.com/elementary?q=switchboard-plug)
+
 ## Building, Testing, and Installation
 
 You'll need the following dependencies:
@@ -28,6 +34,6 @@ To install, use `ninja install` then execute with `switchboard`
     sudo ninja install
     switchboard
 
-## Making Switchboard Plugins
+## Making Switchboard Plugs
 
 Documentation for LibSwitchboard is available [on Valadoc.org](https://valadoc.org/switchboard-2.0/Switchboard.Plug.html)
