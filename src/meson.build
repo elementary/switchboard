@@ -1,5 +1,5 @@
 switchboard_files = files(
-    'Switchboard.vala',
+    'Application.vala',
     'PlugsSearch.vala',
     'CategoryView.vala',
     'Widgets/CategoryIcon.vala',
