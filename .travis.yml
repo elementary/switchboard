@@ -23,6 +23,5 @@ install:
 script:
   - houston ci
     --type system-app
-    --name-appstream io.elementary.switchboard
     --name-domain io.elementary.switchboard
     --name-human Switchboard
