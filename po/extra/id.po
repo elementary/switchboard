@@ -7,38 +7,43 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-27 17:43-0700\n"
-"PO-Revision-Date: 2018-07-26 08:51-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"POT-Creation-Date: 2018-10-18 05:32-0500\n"
+"PO-Revision-Date: 2018-10-18 08:29+0000\n"
+"Last-Translator: Eri Hidayat <eriwhidayat@gmail.com>\n"
+"Language-Team: Indonesian <https://weblate.elementary.io/projects/"
+"switchboard/extra/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: data/io.elementary.switchboard.desktop.in:4
 #: data/io.elementary.switchboard.appdata.xml.in:8
 msgid "System Settings"
-msgstr ""
+msgstr "Pengaturan Sistem"
 
 #: data/io.elementary.switchboard.desktop.in:5
 #: data/io.elementary.switchboard.appdata.xml.in:9
 msgid "Change system and user settings"
-msgstr ""
+msgstr "Ubah sistem dan Pengaturan Pengguna"
 
 #: data/io.elementary.switchboard.desktop.in:7
 msgid "preferences-desktop"
-msgstr ""
+msgstr "preferensi-dekstop"
 
 #: data/io.elementary.switchboard.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"
-msgstr ""
+msgstr "Pusat;Kontrol;Panel;Preferensi;Sistem;"
 
 #: data/io.elementary.switchboard.appdata.xml.in:11
 msgid ""
 "A system settings application that focuses on modularity and simplicity."
 msgstr ""
+"Sebuah aplikasi pengaturan sistem yang berfokus pada modularitas dan "
+"kesederhanaan."
 
 #: data/io.elementary.switchboard.appdata.xml.in:23
 msgid "elementary LLC."
-msgstr ""
+msgstr "elementary LLC."

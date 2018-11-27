@@ -7,16 +7,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-14 10:24-0700\n"
-"PO-Revision-Date: 2016-05-25 13:25+0000\n"
-"Last-Translator: yavinfour <anjelo.passionist@gmail.com>\n"
-"Language-Team: Tagalog <tl@li.org>\n"
+"POT-Creation-Date: 2018-10-18 05:32-0500\n"
+"PO-Revision-Date: 2018-09-25 00:02+0000\n"
+"Last-Translator: Axel Philip Advento <badwolf.bloodseeker.rev@gmail.com>\n"
+"Language-Team: Tagalog <https://weblate.elementary.io/projects/switchboard/"
+"switchboard/tl/>\n"
 "Language: tl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1 && n != 2 && n != 3 && (n % 10 == 4 "
+"|| n % 10 == 6 || n % 10 == 9);\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
-"X-Generator: Launchpad (build 18315)\n"
 
 #: src/Switchboard.vala:49
 msgid "All Settings"
@@ -33,7 +36,7 @@ msgstr "Paano hanapin"
 
 #: src/Switchboard.vala:268 src/Switchboard.vala:293 src/Switchboard.vala:513
 msgid "System Settings"
-msgstr "Mga Settings ukol  sa Sistema"
+msgstr "Mga Settings ng System"
 
 #: src/Switchboard.vala:417
 msgid "No Settings Found"

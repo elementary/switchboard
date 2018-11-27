@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-14 10:24-0700\n"
-"PO-Revision-Date: 2018-05-12 00:11+0000\n"
-"Last-Translator: Pedro Ferreira <pmaf.ferreira@gmail.com>\n"
+"POT-Creation-Date: 2018-10-18 05:32-0500\n"
+"PO-Revision-Date: 2018-09-19 00:09+0000\n"
+"Last-Translator: Nuno Alexandre MS ribeiro <nuno.anarresti@gmail.com>\n"
 "Language-Team: Portuguese <https://weblate.elementary.io/projects/"
 "switchboard/switchboard/pt/>\n"
 "Language: pt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 
 #: src/Switchboard.vala:49
@@ -44,7 +44,7 @@ msgstr "Nenhuma Painel de Definições Encontrado"
 
 #: src/Switchboard.vala:417
 msgid "Install some and re-launch Switchboard."
-msgstr "Instale um e reabra as Definições de Sistema"
+msgstr "Instale alguns e reabra as Definições do Switchboard."
 
 #: src/CategoryView.vala:155
 #, c-format
@@ -53,7 +53,7 @@ msgstr "Sem resultados para \"%s\""
 
 #: src/CategoryView.vala:155
 msgid "Try changing search terms."
-msgstr "Tente mudar os termos de pesquisa"
+msgstr "Tente mudar os termos de pesquisa."
 
 #: src/CategoryView.vala:162
 msgid "Personal"

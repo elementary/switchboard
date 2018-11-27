@@ -1,13 +1,13 @@
 project(
     'io.elementary.switchboard',
     'c', 'vala',
-    version: '2.3.1',
+    version: '2.3.4',
 )
 
 lib_version = '2.0'
 
 add_project_arguments([
-        '-DGETTEXT_PACKAGE="switchboard"',
+        '-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()),
         '-DG_LOG_DOMAIN="switchboard"'
     ],
     language: 'c'

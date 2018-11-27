@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-27 17:43-0700\n"
-"PO-Revision-Date: 2018-05-01 20:43+0000\n"
-"Last-Translator: Ciaran Ainsworth <cda@whistlingkappa.com>\n"
+"POT-Creation-Date: 2018-10-18 05:32-0500\n"
+"PO-Revision-Date: 2018-10-25 07:13+0000\n"
+"Last-Translator: Ciaran Ainsworth <ciaranainsworth@outlook.com>\n"
 "Language-Team: English (United Kingdom) <https://weblate.elementary.io/"
 "projects/switchboard/extra/en_GB/>\n"
 "Language: en_GB\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 
 #: data/io.elementary.switchboard.desktop.in:4
@@ -32,7 +32,7 @@ msgstr "Change system and user settings"
 
 #: data/io.elementary.switchboard.desktop.in:7
 msgid "preferences-desktop"
-msgstr ""
+msgstr "preferences-desktop"
 
 #: data/io.elementary.switchboard.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"
@@ -46,7 +46,7 @@ msgstr ""
 
 #: data/io.elementary.switchboard.appdata.xml.in:23
 msgid "elementary LLC."
-msgstr ""
+msgstr "elementary LLC."
 
 #~ msgid "About System Settings"
 #~ msgstr "About System Settings"
