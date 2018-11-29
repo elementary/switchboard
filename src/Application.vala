@@ -207,7 +207,7 @@ namespace Switchboard {
 
                 // open window was set by command line argument
                 if (open_window != null) {
-                    plug.search_callback (open_window); 
+                    plug.search_callback (open_window);
                     open_window = null;
                 }
 
@@ -328,7 +328,7 @@ namespace Switchboard {
                     default:
                         break;
                 }
-                
+
                 return false;
             });
 
@@ -443,7 +443,7 @@ namespace Switchboard {
                     if (current_plug != null) {
                         current_plug.hidden ();
                     }
-                    
+
                     load_plug (previous_plugs.@get (0));
                     previous_plugs.remove_at (0);
                 } else {
@@ -464,7 +464,7 @@ namespace Switchboard {
                     if (current_plug != null) {
                         current_plug.hidden ();
                     }
-                    
+
                     load_plug (plug);
                     open_window = supported_settings.get (setting_path);
                     return true;
