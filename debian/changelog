@@ -1,3 +1,9 @@
+switchboard (2.3.5) bionic; urgency=medium
+
+  * New upstream release.
+
+ -- Cody Garver <cody@elementary.io>  Thu, 29 Nov 2018 09:44:15 -0600
+
 switchboard (2.3.4) bionic; urgency=medium
 
   * New upstream release.
