@@ -251,6 +251,7 @@ namespace Switchboard {
 
         private void build () {
             navigation_button = new Gtk.Button ();
+            navigation_button.set_tooltip_markup (Granite.markup_accel_tooltip ({"<alt>leftarrow"}));
             navigation_button.get_style_context ().add_class ("back-button");
 
             search_box = new Gtk.SearchEntry ();
