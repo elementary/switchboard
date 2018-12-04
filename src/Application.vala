@@ -250,8 +250,20 @@ namespace Switchboard {
 #endif
 
         private void build () {
+            var back_action = new SimpleAction ("back", null);
+            var quit_action = new SimpleAction ("quit", null);
+
+            add_action (back_action);
+            add_action (quit_action);
+
+            set_accels_for_action ("app.back", {"<Alt>Left", "Back"});
+            set_accels_for_action ("app.quit", {"<Control>q"});
+
             navigation_button = new Gtk.Button ();
-            navigation_button.set_tooltip_markup (Granite.markup_accel_tooltip ({"<alt>leftarrow"}));
+            navigation_button.action_name = "app.back";
+            navigation_button.set_tooltip_markup (
+                Granite.markup_accel_tooltip (get_accels_for_action (navigation_button.action_name))
+            );
             navigation_button.get_style_context ().add_class ("back-button");
 
             search_box = new Gtk.SearchEntry ();
@@ -312,8 +324,6 @@ namespace Switchboard {
 
             add_window (main_window);
 
-            navigation_button.clicked.connect (handle_navigation_button_clicked);
-
             search_box.changed.connect (() => {
                 category_view.filter_plugs (search_box.get_text ());
             });
@@ -333,17 +343,8 @@ namespace Switchboard {
                 return false;
             });
 
-            var back_action = new SimpleAction ("back", null);
-            var quit_action = new SimpleAction ("quit", null);
-
-            add_action (back_action);
-            add_action (quit_action);
-
-            set_accels_for_action ("app.back", {"<Alt>Left", "Back"});
-            set_accels_for_action ("app.quit", {"<Control>q"});
-
             back_action.activate.connect (() => {
-                navigation_button.clicked ();
+                handle_navigation_button_clicked ();
             });
 
             quit_action.activate.connect (() => {
