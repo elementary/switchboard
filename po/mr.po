@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 05:32-0500\n"
-"PO-Revision-Date: 2018-12-10 19:36+0000\n"
+"PO-Revision-Date: 2018-12-23 18:43+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://weblate.elementary.io/projects/switchboard/"
 "switchboard/mr/>\n"
@@ -17,16 +17,16 @@ msgstr ""
 
 #: src/Switchboard.vala:49
 msgid "All Settings"
-msgstr ""
+msgstr "सर्व सेटिंग्ज"
 
 #: src/Switchboard.vala:133
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
-msgstr ""
+msgstr "निर्दिष्ट लिंक '%s' अस्तित्वात नाही, मुख्य पॅनेलवर परत जात आहे"
 
 #: src/Switchboard.vala:262
 msgid "Search Settings"
-msgstr ""
+msgstr "शोध सेटिंग्ज"
 
 #: src/Switchboard.vala:268 src/Switchboard.vala:293 src/Switchboard.vala:513
 msgid "System Settings"
@@ -34,33 +34,33 @@ msgstr "सिस्टिम सेटिंग्ज"
 
 #: src/Switchboard.vala:417
 msgid "No Settings Found"
-msgstr ""
+msgstr "कोणतीही सेटिंग्ज सापडली नाहीत"
 
 #: src/Switchboard.vala:417
 msgid "Install some and re-launch Switchboard."
-msgstr ""
+msgstr "काही स्थापित करा आणि स्विचबोर्ड पुन्हा लॉन्च करा."
 
 #: src/CategoryView.vala:155
 #, c-format
 msgid "No Results for “%s”"
-msgstr ""
+msgstr "\"%s\" साठी कोणतेही परिणाम नाहीत"
 
 #: src/CategoryView.vala:155
 msgid "Try changing search terms."
-msgstr ""
+msgstr "शोध संज्ञा बदलून प्रयत्न करा."
 
 #: src/CategoryView.vala:162
 msgid "Personal"
-msgstr ""
+msgstr "वैयक्तिक"
 
 #: src/CategoryView.vala:164
 msgid "Hardware"
-msgstr ""
+msgstr "हार्डवेयर"
 
 #: src/CategoryView.vala:166
 msgid "Network & Wireless"
-msgstr ""
+msgstr "नेटवर्क आणि वायरलेस"
 
 #: src/CategoryView.vala:168
 msgid "Administration"
-msgstr ""
+msgstr "प्रशासन"
