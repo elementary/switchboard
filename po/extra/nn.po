@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 05:32-0500\n"
-"PO-Revision-Date: 2019-01-04 00:08+0000\n"
+"PO-Revision-Date: 2019-01-05 03:21+0000\n"
 "Last-Translator: Simon Dagfinrud <semonje@gmail.com>\n"
 "Language-Team: Norwegian Nynorsk <https://weblate.elementary.io/projects/"
 "switchboard/extra/nn/>\n"
@@ -27,21 +27,21 @@ msgstr "Systeminnstillingar"
 #: data/io.elementary.switchboard.desktop.in:5
 #: data/io.elementary.switchboard.appdata.xml.in:9
 msgid "Change system and user settings"
-msgstr ""
+msgstr "Endre system- og brukarinnstillingar"
 
 #: data/io.elementary.switchboard.desktop.in:7
 msgid "preferences-desktop"
-msgstr ""
+msgstr "preferences-desktop"
 
 #: data/io.elementary.switchboard.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"
-msgstr ""
+msgstr "Senter;Kontroll;Panel;Innstillingar;System;Kontrollpanel;"
 
 #: data/io.elementary.switchboard.appdata.xml.in:11
 msgid ""
 "A system settings application that focuses on modularity and simplicity."
-msgstr ""
+msgstr "Eit systeminnstillingsprogram der fokuset er modularitet og enkelheit."
 
 #: data/io.elementary.switchboard.appdata.xml.in:23
 msgid "elementary LLC."
-msgstr ""
+msgstr "elementary LLC."
