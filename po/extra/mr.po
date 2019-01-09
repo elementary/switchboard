@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 05:32-0500\n"
-"PO-Revision-Date: 2018-12-10 19:36+0000\n"
-"Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
+"PO-Revision-Date: 2019-01-09 11:39+0000\n"
+"Last-Translator: Cody Garver <cody@elementary.io>\n"
 "Language-Team: Marathi <https://weblate.elementary.io/projects/switchboard/"
 "extra/mr/>\n"
 "Language: mr\n"
@@ -31,7 +31,7 @@ msgstr "सिस्टिम आणि वापरकर्ता सेटि
 
 #: data/io.elementary.switchboard.desktop.in:7
 msgid "preferences-desktop"
-msgstr "प्राधान्य-डेस्कटॉप"
+msgstr "preferences-desktop"
 
 #: data/io.elementary.switchboard.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"
