@@ -1,3 +1,9 @@
+switchboard (2.3.6) bionic; urgency=medium
+
+  * New upstream release.
+
+ -- Cody Garver <codygarver@gmail.com>  Wed, 23 Jan 2019 02:18:24 -0600
+
 switchboard (2.3.5) bionic; urgency=medium
 
   * New upstream release.
