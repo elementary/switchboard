@@ -1,7 +1,7 @@
 project(
     'io.elementary.switchboard',
     'c', 'vala',
-    version: '2.3.4',
+    version: '2.3.6',
 )
 
 lib_version = '2.0'
@@ -25,7 +25,7 @@ gmodule_dep = dependency('gmodule-2.0')
 gtk_dep = dependency('gtk+-3.0', version: '>=3.10')
 clutter_gtk_dep = dependency('clutter-gtk-1.0')
 gee_dep = dependency('gee-0.8')
-granite_dep = dependency('granite')
+granite_dep = dependency('granite', version: '>=5.2.0')
 m_dep = meson.get_compiler('c').find_library('m', required : false)
 libunity_dep = []
 if get_option('libunity')

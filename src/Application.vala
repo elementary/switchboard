@@ -207,7 +207,7 @@ namespace Switchboard {
 
                 // open window was set by command line argument
                 if (open_window != null) {
-                    plug.search_callback (open_window); 
+                    plug.search_callback (open_window);
                     open_window = null;
                 }
 
@@ -250,7 +250,20 @@ namespace Switchboard {
 #endif
 
         private void build () {
+            var back_action = new SimpleAction ("back", null);
+            var quit_action = new SimpleAction ("quit", null);
+
+            add_action (back_action);
+            add_action (quit_action);
+
+            set_accels_for_action ("app.back", {"<Alt>Left", "Back"});
+            set_accels_for_action ("app.quit", {"<Control>q"});
+
             navigation_button = new Gtk.Button ();
+            navigation_button.action_name = "app.back";
+            navigation_button.set_tooltip_markup (
+                Granite.markup_accel_tooltip (get_accels_for_action (navigation_button.action_name))
+            );
             navigation_button.get_style_context ().add_class ("back-button");
 
             search_box = new Gtk.SearchEntry ();
@@ -311,8 +324,6 @@ namespace Switchboard {
 
             add_window (main_window);
 
-            navigation_button.clicked.connect (handle_navigation_button_clicked);
-
             search_box.changed.connect (() => {
                 category_view.filter_plugs (search_box.get_text ());
             });
@@ -328,21 +339,12 @@ namespace Switchboard {
                     default:
                         break;
                 }
-                
+
                 return false;
             });
 
-            var back_action = new SimpleAction ("back", null);
-            var quit_action = new SimpleAction ("quit", null);
-
-            add_action (back_action);
-            add_action (quit_action);
-
-            set_accels_for_action ("app.back", {"<Alt>Left", "Back"});
-            set_accels_for_action ("app.quit", {"<Control>q"});
-
             back_action.activate.connect (() => {
-                navigation_button.clicked ();
+                handle_navigation_button_clicked ();
             });
 
             quit_action.activate.connect (() => {
@@ -443,7 +445,7 @@ namespace Switchboard {
                     if (current_plug != null) {
                         current_plug.hidden ();
                     }
-                    
+
                     load_plug (previous_plugs.@get (0));
                     previous_plugs.remove_at (0);
                 } else {
@@ -464,7 +466,7 @@ namespace Switchboard {
                     if (current_plug != null) {
                         current_plug.hidden ();
                     }
-                    
+
                     load_plug (plug);
                     open_window = supported_settings.get (setting_path);
                     return true;

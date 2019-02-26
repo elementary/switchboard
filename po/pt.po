@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 05:32-0500\n"
-"PO-Revision-Date: 2018-09-19 00:09+0000\n"
-"Last-Translator: Nuno Alexandre MS ribeiro <nuno.anarresti@gmail.com>\n"
+"PO-Revision-Date: 2019-01-10 00:07+0000\n"
+"Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://weblate.elementary.io/projects/"
 "switchboard/switchboard/pt/>\n"
 "Language: pt\n"
@@ -32,15 +32,15 @@ msgstr ""
 
 #: src/Switchboard.vala:262
 msgid "Search Settings"
-msgstr "Definições de procura"
+msgstr "Definições de pesquisa"
 
 #: src/Switchboard.vala:268 src/Switchboard.vala:293 src/Switchboard.vala:513
 msgid "System Settings"
-msgstr "Configurações do Sistema"
+msgstr "Definições do Sistema"
 
 #: src/Switchboard.vala:417
 msgid "No Settings Found"
-msgstr "Nenhuma Painel de Definições Encontrado"
+msgstr "Nenhuma Definição Encontrada"
 
 #: src/Switchboard.vala:417
 msgid "Install some and re-launch Switchboard."
