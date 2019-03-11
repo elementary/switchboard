@@ -8,37 +8,41 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 05:32-0500\n"
-"PO-Revision-Date: 2018-10-18 05:32-0500\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2019-01-09 11:39+0000\n"
+"Last-Translator: Cody Garver <cody@elementary.io>\n"
+"Language-Team: Marathi <https://weblate.elementary.io/projects/switchboard/"
+"extra/mr/>\n"
 "Language: mr\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: data/io.elementary.switchboard.desktop.in:4
 #: data/io.elementary.switchboard.appdata.xml.in:8
 msgid "System Settings"
-msgstr ""
+msgstr "सिस्टिम सेटिंग्ज"
 
 #: data/io.elementary.switchboard.desktop.in:5
 #: data/io.elementary.switchboard.appdata.xml.in:9
 msgid "Change system and user settings"
-msgstr ""
+msgstr "सिस्टिम आणि वापरकर्ता सेटिंग्ज बदला"
 
 #: data/io.elementary.switchboard.desktop.in:7
 msgid "preferences-desktop"
-msgstr ""
+msgstr "preferences-desktop"
 
 #: data/io.elementary.switchboard.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"
-msgstr ""
+msgstr "केंद्र; नियंत्रण; पॅनेल; प्राधान्ये; सिस्टम;"
 
 #: data/io.elementary.switchboard.appdata.xml.in:11
 msgid ""
 "A system settings application that focuses on modularity and simplicity."
 msgstr ""
+"एक सिस्टम सेटिंग्ज अप्लिकेशन जे मॉड्यूलरिटी आणि साधेपणावर केंद्रित करते."
 
 #: data/io.elementary.switchboard.appdata.xml.in:23
 msgid "elementary LLC."
-msgstr ""
+msgstr "एलिमेंटरी LLC."
