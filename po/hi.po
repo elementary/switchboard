@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-18 05:32-0500\n"
+"POT-Creation-Date: 2019-06-26 22:44+0200\n"
 "PO-Revision-Date: 2018-03-18 03:47+0000\n"
 "Last-Translator: Anand Kumar <anand@anandkumar.net>\n"
 "Language-Team: Hindi <https://weblate.elementary.io/projects/switchboard/"
@@ -20,28 +20,28 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:47+0000\n"
 
-#: src/Switchboard.vala:49
+#: src/Application.vala:43
 msgid "All Settings"
 msgstr "सभी विन्यास"
 
-#: src/Switchboard.vala:133
+#: src/Application.vala:128
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "निर्दिष्ट पैनल '%s' मौजूद नहीं है, मुख्य पैनल पर वापस जा रहा है"
 
-#: src/Switchboard.vala:262
+#: src/Application.vala:270
 msgid "Search Settings"
 msgstr "विन्यास खोजें"
 
-#: src/Switchboard.vala:268 src/Switchboard.vala:293 src/Switchboard.vala:513
+#: src/Application.vala:276 src/Application.vala:299 src/Application.vala:513
 msgid "System Settings"
 msgstr "तंत्र विन्यास"
 
-#: src/Switchboard.vala:417
+#: src/Application.vala:417
 msgid "No Settings Found"
 msgstr "कोई विन्यास नहीं मिला"
 
-#: src/Switchboard.vala:417
+#: src/Application.vala:417
 msgid "Install some and re-launch Switchboard."
 msgstr "कुछ इनस्टॉल कर स्विचबोर्ड पुनः प्रारम्भ करें."
 

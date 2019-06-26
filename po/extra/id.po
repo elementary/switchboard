@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-18 05:32-0500\n"
+"POT-Creation-Date: 2019-06-26 22:44+0200\n"
 "PO-Revision-Date: 2018-10-18 08:29+0000\n"
 "Last-Translator: Eri Hidayat <eriwhidayat@gmail.com>\n"
 "Language-Team: Indonesian <https://weblate.elementary.io/projects/"
@@ -44,6 +44,6 @@ msgstr ""
 "Sebuah aplikasi pengaturan sistem yang berfokus pada modularitas dan "
 "kesederhanaan."
 
-#: data/io.elementary.switchboard.appdata.xml.in:23
+#: data/io.elementary.switchboard.appdata.xml.in:24
 msgid "elementary LLC."
 msgstr "elementary LLC."
