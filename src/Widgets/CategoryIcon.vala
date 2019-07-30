@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2016 elementary LLC (http://launchpad.net/switchboard)
+* Copyright (c) 2016-2019 elementary, Inc. (https://elementary.io)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -17,43 +17,39 @@
 * Boston, MA 02110-1301 USA.
 *
 */
+public class Switchboard.CategoryIcon : Gtk.FlowBoxChild {
+    public unowned Switchboard.Plug plug { get; construct; }
 
-namespace Switchboard {
+    public CategoryIcon (Switchboard.Plug plug) {
+        Object (plug: plug);
+    }
+    construct {
+        width_request = 144;
 
-    public class CategoryIcon : Gtk.FlowBoxChild {
+        var icon = new Gtk.Image.from_icon_name (plug.icon, Gtk.IconSize.DND);
+        icon.tooltip_text = plug.description;
 
-        public unowned Switchboard.Plug plug;
+        var plug_name = new Gtk.Label (plug.display_name);
+        plug_name.justify = Gtk.Justification.CENTER;
+        plug_name.max_width_chars = 18;
+        plug_name.wrap = true;
+        plug_name.wrap_mode = Pango.WrapMode.WORD_CHAR;
 
-        public CategoryIcon (Switchboard.Plug plug_item) {
-            plug = plug_item;
-            width_request = 144;
+        var layout = new Gtk.Grid ();
+        layout.halign = Gtk.Align.CENTER;
+        layout.margin = 6;
+        layout.orientation = Gtk.Orientation.VERTICAL;
+        layout.add (icon);
+        layout.add (plug_name);
 
-            var icon = new Gtk.Image.from_icon_name (plug.icon, Gtk.IconSize.DND);
-            icon.tooltip_text = plug.description;
+        add (layout);
 
-            var plug_name = new Gtk.Label (plug.display_name);
-            plug_name.justify = Gtk.Justification.CENTER;
-            plug_name.max_width_chars = 18;
-            plug_name.wrap = true;
-            plug_name.wrap_mode = Pango.WrapMode.WORD_CHAR;
-            
-            var layout = new Gtk.Grid ();
-            layout.halign = Gtk.Align.CENTER;
-            layout.margin = 6;
-            layout.orientation = Gtk.Orientation.VERTICAL;
+        plug.visibility_changed.connect (() => {
+            changed ();
+        });
 
-            layout.add (icon);
-            layout.add (plug_name);
-
-            add (layout);
-
-            plug.visibility_changed.connect (() => {
-                changed ();
-            });
-
-            plug.notify["can-show"].connect (() => {
-                changed ();
-            });
-        }
+        plug.notify["can-show"].connect (() => {
+            changed ();
+        });
     }
 }
