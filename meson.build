@@ -27,11 +27,6 @@ clutter_gtk_dep = dependency('clutter-gtk-1.0')
 gee_dep = dependency('gee-0.8')
 granite_dep = dependency('granite', version: '>=5.2.0')
 m_dep = meson.get_compiler('c').find_library('m', required : false)
-libunity_dep = []
-if get_option('libunity')
-    libunity_dep = dependency('unity')
-    add_project_arguments('--define=HAVE_UNITY', language: 'vala')
-endif
 
 subdir('data')
 subdir('lib')
