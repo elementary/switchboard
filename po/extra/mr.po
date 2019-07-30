@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-18 05:32-0500\n"
+"POT-Creation-Date: 2019-06-26 22:44+0200\n"
 "PO-Revision-Date: 2019-01-09 11:39+0000\n"
 "Last-Translator: Cody Garver <cody@elementary.io>\n"
 "Language-Team: Marathi <https://weblate.elementary.io/projects/switchboard/"
@@ -40,9 +40,8 @@ msgstr "केंद्र; नियंत्रण; पॅनेल; प्र
 #: data/io.elementary.switchboard.appdata.xml.in:11
 msgid ""
 "A system settings application that focuses on modularity and simplicity."
-msgstr ""
-"एक सिस्टम सेटिंग्ज अप्लिकेशन जे मॉड्यूलरिटी आणि साधेपणावर केंद्रित करते."
+msgstr "एक सिस्टम सेटिंग्ज अप्लिकेशन जे मॉड्यूलरिटी आणि साधेपणावर केंद्रित करते."
 
-#: data/io.elementary.switchboard.appdata.xml.in:23
+#: data/io.elementary.switchboard.appdata.xml.in:24
 msgid "elementary LLC."
 msgstr "एलिमेंटरी LLC."
