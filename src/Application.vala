@@ -242,38 +242,6 @@ namespace Switchboard {
 
         }
 
-#if HAVE_UNITY
-        // Updates items in quicklist menu using the Unity quicklist api.
-        public void update_libunity_quicklist () {
-            var launcher = Unity.LauncherEntry.get_for_desktop_id (application_id + ".desktop");
-            var quicklist = new Dbusmenu.Menuitem ();
-
-            var personal_item = add_quicklist_for_category (Switchboard.Plug.Category.PERSONAL);
-            if (personal_item != null) {
-                quicklist.child_append (personal_item);
-            }
-
-            var hardware_item = add_quicklist_for_category (Switchboard.Plug.Category.HARDWARE);
-            if (hardware_item != null) {
-                quicklist.child_append (hardware_item);
-            }
-
-            var network_item = add_quicklist_for_category (Switchboard.Plug.Category.NETWORK);
-            if (network_item != null) {
-                quicklist.child_append (network_item);
-            }
-
-            var system_item = add_quicklist_for_category (Switchboard.Plug.Category.SYSTEM);
-            if (system_item != null) {
-                quicklist.child_append (system_item);
-            }
-
-            if (personal_item != null && hardware_item != null && network_item != null && system_item != null) {
-                launcher.quicklist = quicklist;
-            }
-        }
-#endif
-
         private void build () {
             var back_action = new SimpleAction ("back", null);
             var quit_action = new SimpleAction ("quit", null);
@@ -444,9 +412,6 @@ namespace Switchboard {
             } else {
                 search_box.sensitive = true;
                 search_box.has_focus = true;
-#if HAVE_UNITY
-                update_libunity_quicklist ();
-#endif
             }
         }
 
@@ -546,51 +511,6 @@ namespace Switchboard {
 
             return true;
         }
-
-#if HAVE_UNITY
-        private Dbusmenu.Menuitem? add_quicklist_for_category (Switchboard.Plug.Category category) {
-            // Create menuitem for this category
-            var category_item = new Dbusmenu.Menuitem ();
-            category_item.property_set (Dbusmenu.MENUITEM_PROP_LABEL, CategoryView.get_category_name (category));
-
-            var plugs = new Gee.ArrayList<Plug?> ();
-            switch (category) {
-                case Switchboard.Plug.Category.PERSONAL:
-                    plugs = category_view.personal_category.get_plugs ();
-                    break;
-                case Switchboard.Plug.Category.HARDWARE:
-                    plugs = category_view.hardware_category.get_plugs ();
-                    break;
-                case Switchboard.Plug.Category.NETWORK:
-                    plugs = category_view.network_category.get_plugs ();
-                    break;
-                case Switchboard.Plug.Category.SYSTEM:
-                    plugs = category_view.system_category.get_plugs ();
-                    break;
-                default:
-                    return null;
-            }
-
-            bool empty = true;
-
-            foreach (var plug in plugs) {
-                var item = new Dbusmenu.Menuitem ();
-                item.property_set (Dbusmenu.MENUITEM_PROP_LABEL, plug.display_name);
-
-                // When item is clicked, open corresponding plug
-                item.item_activated.connect (() => {
-                    load_plug (plug);
-                    activate ();
-                });
-
-                // Add item to correct category
-                category_item.child_append (item);
-                empty = false;
-            }
-
-            return (empty ? null : category_item);
-        }
-#endif
 
         private string? gcc_to_switchboard_code_name (string gcc_name) {
             // list of names taken from GCC's shell/cc-panel-loader.c
