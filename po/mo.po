@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-18 05:32-0500\n"
+"POT-Creation-Date: 2019-06-26 22:44+0200\n"
 "PO-Revision-Date: 2018-05-27 16:13+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
 "Language-Team: Moldovan <https://weblate.elementary.io/projects/switchboard/"
@@ -13,28 +13,28 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.18\n"
 
-#: src/Switchboard.vala:49
+#: src/Application.vala:43
 msgid "All Settings"
 msgstr "Toate setările"
 
-#: src/Switchboard.vala:133
+#: src/Application.vala:128
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Linkul specificat '%s'  nu există, revenind la panoul principal"
 
-#: src/Switchboard.vala:262
+#: src/Application.vala:270
 msgid "Search Settings"
 msgstr "Căutați setări"
 
-#: src/Switchboard.vala:268 src/Switchboard.vala:293 src/Switchboard.vala:513
+#: src/Application.vala:276 src/Application.vala:299 src/Application.vala:513
 msgid "System Settings"
 msgstr "Setări sistem"
 
-#: src/Switchboard.vala:417
+#: src/Application.vala:417
 msgid "No Settings Found"
 msgstr "Nu au fost găsite setări"
 
-#: src/Switchboard.vala:417
+#: src/Application.vala:417
 msgid "Install some and re-launch Switchboard."
 msgstr "Instalați și relansați tabloul de bord."
 

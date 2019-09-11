@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-18 05:32-0500\n"
+"POT-Creation-Date: 2019-06-26 22:44+0200\n"
 "PO-Revision-Date: 2017-03-07 11:39+0000\n"
 "Last-Translator: Avi Romanoff <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,28 +13,28 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-03-09 05:40+0000\n"
 "X-Generator: Launchpad (build 18330)\n"
 
-#: src/Switchboard.vala:49
+#: src/Application.vala:43
 msgid "All Settings"
 msgstr "Bütün Ayarlar"
 
-#: src/Switchboard.vala:133
+#: src/Application.vala:128
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Müəyyən olunan link '%s' mövcud deyildir, əsas panelə keçid"
 
-#: src/Switchboard.vala:262
+#: src/Application.vala:270
 msgid "Search Settings"
 msgstr "Axtarış parametrləri"
 
-#: src/Switchboard.vala:268 src/Switchboard.vala:293 src/Switchboard.vala:513
+#: src/Application.vala:276 src/Application.vala:299 src/Application.vala:513
 msgid "System Settings"
 msgstr "Sistem Tənzimləmələri"
 
-#: src/Switchboard.vala:417
+#: src/Application.vala:417
 msgid "No Settings Found"
 msgstr "Ayarlar tapılmadı"
 
-#: src/Switchboard.vala:417
+#: src/Application.vala:417
 msgid "Install some and re-launch Switchboard."
 msgstr "Bərpa edib Switchboard-ı yenidən başladın."
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-18 05:32-0500\n"
+"POT-Creation-Date: 2019-06-26 22:44+0200\n"
 "PO-Revision-Date: 2016-11-03 19:41+0000\n"
 "Last-Translator: wec <tungsten314@gmail.com>\n"
 "Language-Team: English (Canada) <en_CA@li.org>\n"
@@ -42,7 +42,7 @@ msgid ""
 msgstr ""
 "A system settings application that focuses on modularity and simplicity."
 
-#: data/io.elementary.switchboard.appdata.xml.in:23
+#: data/io.elementary.switchboard.appdata.xml.in:24
 msgid "elementary LLC."
 msgstr ""
 

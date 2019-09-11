@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2016 elementary LLC (http://launchpad.net/switchboard)
+* Copyright (c) 2016-2019 elementary, Inc. (https://elementary.io)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -19,12 +19,16 @@
 */
 
 namespace Switchboard {
-
     public class Category : Gtk.Grid {
+        public Switchboard.Plug.Category category { get; construct; }
 
         private Gtk.FlowBox flowbox;
 
         public Category (Switchboard.Plug.Category category) {
+            Object (category: category);
+        }
+
+        construct {
             var category_label = new Granite.HeaderLabel (Switchboard.CategoryView.get_category_name (category));
 
             var h_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
@@ -69,10 +73,6 @@ namespace Switchboard {
             flowbox.add (widget);
         }
 
-        public GLib.List<weak Gtk.Widget> get_flow_children () {
-            return flowbox.get_children ();
-        }
-
         public void activate_first_child () {
             foreach (unowned Gtk.Widget child in flowbox.get_children ()) {
                 if (child.get_child_visible ()) {
@@ -97,7 +97,7 @@ namespace Switchboard {
                    return true;
                }
             }
-            
+
             hide ();
             return false;
         }

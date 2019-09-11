@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-18 05:32-0500\n"
+"POT-Creation-Date: 2019-06-26 22:44+0200\n"
 "PO-Revision-Date: 2015-12-06 13:13+0000\n"
 "Last-Translator: Avi Romanoff <Unknown>\n"
 "Language-Team: Kannada <kn@li.org>\n"
@@ -18,28 +18,28 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-02-02 05:47+0000\n"
 "X-Generator: Launchpad (build 18315)\n"
 
-#: src/Switchboard.vala:49
+#: src/Application.vala:43
 msgid "All Settings"
 msgstr ""
 
-#: src/Switchboard.vala:133
+#: src/Application.vala:128
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr ""
 
-#: src/Switchboard.vala:262
+#: src/Application.vala:270
 msgid "Search Settings"
 msgstr "ಶೋಧ ಸಂಬಂಧಿತ ಸೆಟ್ಟಿಂಗ್ ಗಳು"
 
-#: src/Switchboard.vala:268 src/Switchboard.vala:293 src/Switchboard.vala:513
+#: src/Application.vala:276 src/Application.vala:299 src/Application.vala:513
 msgid "System Settings"
 msgstr ""
 
-#: src/Switchboard.vala:417
+#: src/Application.vala:417
 msgid "No Settings Found"
 msgstr ""
 
-#: src/Switchboard.vala:417
+#: src/Application.vala:417
 msgid "Install some and re-launch Switchboard."
 msgstr ""
 
