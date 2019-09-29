@@ -8,15 +8,17 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-26 22:44+0200\n"
-"PO-Revision-Date: 2017-01-26 09:23+0000\n"
-"Last-Translator: Avi Romanoff <Unknown>\n"
-"Language-Team: Galician <gl@li.org>\n"
+"PO-Revision-Date: 2019-09-30 14:23+0000\n"
+"Last-Translator: Daniel R. <riesp@pm.me>\n"
+"Language-Team: Galician <https://l10n.elementary.io/projects/switchboard/"
+"switchboard/gl/>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:47+0000\n"
-"X-Generator: Launchpad (build 18315)\n"
 
 #: src/Application.vala:43
 msgid "All Settings"
@@ -25,7 +27,7 @@ msgstr "Todos os axustes"
 #: src/Application.vala:128
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
-msgstr ""
+msgstr "A ligazón especificada «%s» non existe, volvendo ao panel principal"
 
 #: src/Application.vala:270
 msgid "Search Settings"
@@ -37,20 +39,20 @@ msgstr "Axustes do sistema"
 
 #: src/Application.vala:417
 msgid "No Settings Found"
-msgstr ""
+msgstr "Non se encontraron axustes"
 
 #: src/Application.vala:417
 msgid "Install some and re-launch Switchboard."
-msgstr ""
+msgstr "Instalar algo e relanzar Switchboard."
 
 #: src/CategoryView.vala:155
 #, c-format
 msgid "No Results for “%s”"
-msgstr ""
+msgstr "Sen resultados para «%s»"
 
 #: src/CategoryView.vala:155
 msgid "Try changing search terms."
-msgstr ""
+msgstr "Ténteo cambiando os termos de procura."
 
 #: src/CategoryView.vala:162
 msgid "Personal"
@@ -62,7 +64,7 @@ msgstr "Hardware"
 
 #: src/CategoryView.vala:166
 msgid "Network & Wireless"
-msgstr ""
+msgstr "Rede e conexións sen fíos"
 
 #: src/CategoryView.vala:168
 msgid "Administration"
