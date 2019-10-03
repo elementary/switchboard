@@ -19,22 +19,21 @@
  */
 
 public class Switchboard.PlugsManager : GLib.Object {
-    
     private static Switchboard.PlugsManager? plugs_manager = null;
-    
+
     public static PlugsManager get_default () {
         if (plugs_manager == null)
             plugs_manager = new PlugsManager ();
         return plugs_manager;
     }
-    
+
     [CCode (has_target = false)]
     private delegate Switchboard.Plug RegisterPluginFunction (Module module);
-    
+
     private Gee.LinkedList<Switchboard.Plug> plugs;
-    
+
     public signal void plug_added (Switchboard.Plug plug);
-    
+
     private PlugsManager () {
         plugs = new Gee.LinkedList<Switchboard.Plug> ();
         var base_folder = File.new_for_path (Build.PLUGS_DIR);
@@ -68,7 +67,7 @@ public class Switchboard.PlugsManager : GLib.Object {
         module.make_resident ();
         register_plug (plug);
     }
-    
+
     private void find_plugins (File base_folder) {
         FileInfo file_info = null;
         try {
@@ -86,22 +85,24 @@ public class Switchboard.PlugsManager : GLib.Object {
                 }
             }
         } catch (Error err) {
-            warning("Unable to scan plugs folder %s: %s\n", base_folder.get_path (), err.message);
+            warning ("Unable to scan plugs folder %s: %s\n", base_folder.get_path (), err.message);
         }
     }
-    
+
     private void register_plug (Switchboard.Plug plug) {
-        debug("%s registered", plug.code_name);
-        if (plugs.contains (plug))
+        debug ("%s registered", plug.code_name);
+        if (plugs.contains (plug)) {
             return;
+        }
+
         plugs.add (plug);
         plug_added (plug);
     }
-    
+
     public bool has_plugs () {
         return !plugs.is_empty;
     }
-    
+
     public Gee.Collection<Switchboard.Plug> get_plugs () {
         return plugs.read_only_view;
     }

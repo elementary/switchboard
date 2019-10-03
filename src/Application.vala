@@ -21,7 +21,6 @@
 
 namespace Switchboard {
     public static int main (string[] args) {
-
         // Only known plug that requires GtkClutter is switchboard-plug-display
         GtkClutter.init (ref args);
 
@@ -48,8 +47,8 @@ namespace Switchboard {
         public Gtk.SearchEntry search_box { public get; private set; }
 
         private static string? plug_to_open = null;
-        private static string? open_window  = null;
-        private static string? link  = null;
+        private static string? open_window = null;
+        private static string? link = null;
         private static bool opened_directly = false;
         private static bool should_animate_next_transition = true;
         private const uint[] NAVIGATION_KEYS = {
@@ -102,7 +101,7 @@ namespace Switchboard {
                 if (":" in name) {
                     var parts = name.split (":");
                     plug_to_open = gcc_to_switchboard_code_name (parts[0]);
-                    open_window  = parts[1];
+                    open_window = parts[1];
                 } else {
                     plug_to_open = gcc_to_switchboard_code_name (name);
                 }
@@ -187,7 +186,7 @@ namespace Switchboard {
                         } else {
                             plug.search_callback (entry.open_window);
                         }
-                        debug ("open section:%s of plug: %s",entry.open_window, plug.display_name);
+                        debug ("open section:%s of plug: %s", entry.open_window, plug.display_name);
                         return true;
                     }
 
@@ -261,7 +260,7 @@ namespace Switchboard {
             stack.add_named (alert_view, "alert");
             stack.add_named (category_scrolled, "main");
 
-            main_window = new Gtk.Window();
+            main_window = new Gtk.Window ();
             main_window.application = this;
             main_window.icon_name = "preferences-desktop";
             main_window.title = _("System Settings");
@@ -276,7 +275,7 @@ namespace Switchboard {
             settings.get ("window-position", "(ii)", out window_x, out window_y);
             settings.get ("window-size", "(ii)", out rect.width, out rect.height);
 
-            if (window_x != -1 ||  window_y != -1) {
+            if (window_x != -1 || window_y != -1) {
                 main_window.move (window_x, window_y);
             }
 
@@ -518,4 +517,3 @@ namespace Switchboard {
         }
     }
 }
-
