@@ -42,19 +42,19 @@ public class Sample.Plug : Switchboard.Plug {
         main_grid.show_all ();
         return main_grid;
     }
-    
+
     public override void shown () {
-        
+
     }
-    
+
     public override void hidden () {
-        
+
     }
-    
+
     public override void search_callback (string location) {
         hello_label.label = "Callback : %s".printf (location);
     }
-    
+
     // 'search' returns results like ("Keyboard → Behavior → Duration", "keyboard<sep>behavior")
     public override async Gee.TreeMap<string, string> search (string search) {
         return new Gee.TreeMap<string, string> (null, null);
