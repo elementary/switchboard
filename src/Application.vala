@@ -360,18 +360,18 @@ namespace Switchboard {
                 // Down key from search_bar should move focus to CategoryVIew
                 if (search_box.has_focus && event.keyval == Gdk.Key.Down) {
                     category_view.grab_focus_first_icon_view ();
-                    return false;
+                        return Gdk.EVENT_STOP;
                 }
 
                 // arrow key is being used by CategoryView to navigate
                 if (event.keyval in NAVIGATION_KEYS)
-                    return false;
+                    return Gdk.EVENT_PROPAGATE;
 
                 // Don't focus if it is a modifier or if search_box is already focused
                 if ((event.is_modifier == 0) && !search_box.has_focus)
                     search_box.grab_focus ();
 
-                return false;
+                return Gdk.EVENT_PROPAGATE;
             });
 
             main_window.size_allocate.connect (() => {
