@@ -92,9 +92,7 @@ namespace Switchboard {
             unowned SwitchboardApp app = SwitchboardApp.instance;
             app.search_box.sensitive = true;
             filter_plugs (app.search_box.get_text ());
-#if HAVE_UNITY
-            app.update_libunity_quicklist ();
-#endif
+
             if (plug_to_open != null && plug_to_open.has_suffix (plug.code_name)) {
                 app.load_plug (plug);
                 plug_to_open = null;
