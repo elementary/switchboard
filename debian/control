@@ -1,7 +1,7 @@
 Source: switchboard
 Section: admin
 Priority: optional
-Maintainer: elementary OS Team <builds@elementary.io>
+Maintainer: elementary, Inc. <builds@elementary.io>
 Build-Depends: debhelper (>= 10.5.1),
                gettext,
                libclutter-gtk-1.0-dev,
@@ -9,7 +9,6 @@ Build-Depends: debhelper (>= 10.5.1),
                libglib2.0-dev (>= 2.26.0),
                libgranite-dev (>= 0.3.0~),
                libgtk-3-dev (>= 3.10.0),
-               libunity-dev,
                meson,
                valac (>= 0.22)
 Standards-Version: 4.1.1
