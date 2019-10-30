@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:44+0200\n"
+"POT-Creation-Date: 2019-10-30 09:21-0700\n"
 "PO-Revision-Date: 2018-12-23 18:43+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://weblate.elementary.io/projects/switchboard/"
@@ -15,52 +15,52 @@ msgstr ""
 "X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 
-#: src/Application.vala:43
+#: src/Application.vala:42
 msgid "All Settings"
 msgstr "सर्व सेटिंग्ज"
 
-#: src/Application.vala:128
+#: src/Application.vala:127
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "निर्दिष्ट लिंक '%s' अस्तित्वात नाही, मुख्य पॅनेलवर परत जात आहे"
 
-#: src/Application.vala:270
+#: src/Application.vala:237
 msgid "Search Settings"
 msgstr "शोध सेटिंग्ज"
 
-#: src/Application.vala:276 src/Application.vala:299 src/Application.vala:513
+#: src/Application.vala:243 src/Application.vala:266 src/Application.vala:477
 msgid "System Settings"
 msgstr "सिस्टिम सेटिंग्ज"
 
-#: src/Application.vala:417
+#: src/Application.vala:384
 msgid "No Settings Found"
 msgstr "कोणतीही सेटिंग्ज सापडली नाहीत"
 
-#: src/Application.vala:417
+#: src/Application.vala:384
 msgid "Install some and re-launch Switchboard."
 msgstr "काही स्थापित करा आणि स्विचबोर्ड पुन्हा लॉन्च करा."
 
-#: src/CategoryView.vala:155
+#: src/CategoryView.vala:153
 #, c-format
 msgid "No Results for “%s”"
 msgstr "\"%s\" साठी कोणतेही परिणाम नाहीत"
 
-#: src/CategoryView.vala:155
+#: src/CategoryView.vala:153
 msgid "Try changing search terms."
 msgstr "शोध संज्ञा बदलून प्रयत्न करा."
 
-#: src/CategoryView.vala:162
+#: src/CategoryView.vala:160
 msgid "Personal"
 msgstr "वैयक्तिक"
 
-#: src/CategoryView.vala:164
+#: src/CategoryView.vala:162
 msgid "Hardware"
 msgstr "हार्डवेयर"
 
-#: src/CategoryView.vala:166
+#: src/CategoryView.vala:164
 msgid "Network & Wireless"
 msgstr "नेटवर्क आणि वायरलेस"
 
-#: src/CategoryView.vala:168
+#: src/CategoryView.vala:166
 msgid "Administration"
 msgstr "प्रशासन"

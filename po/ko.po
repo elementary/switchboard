@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:44+0200\n"
+"POT-Creation-Date: 2019-10-30 09:21-0700\n"
 "PO-Revision-Date: 2016-11-06 08:48+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <ko@li.org>\n"
@@ -18,53 +18,53 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-02-02 05:47+0000\n"
 "X-Generator: Launchpad (build 18315)\n"
 
-#: src/Application.vala:43
+#: src/Application.vala:42
 msgid "All Settings"
 msgstr "모든 설정"
 
-#: src/Application.vala:128
+#: src/Application.vala:127
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "지정된 링크 '%s'가 없습니다, 메인 패널로 돌아갑니다"
 
-#: src/Application.vala:270
+#: src/Application.vala:237
 msgid "Search Settings"
 msgstr "검색 설정"
 
-#: src/Application.vala:276 src/Application.vala:299 src/Application.vala:513
+#: src/Application.vala:243 src/Application.vala:266 src/Application.vala:477
 msgid "System Settings"
 msgstr "시스템 설정"
 
-#: src/Application.vala:417
+#: src/Application.vala:384
 msgid "No Settings Found"
 msgstr "설정 값이 없습니다"
 
-#: src/Application.vala:417
+#: src/Application.vala:384
 msgid "Install some and re-launch Switchboard."
 msgstr "설치 후 스위치보드 다시 실행."
 
-#: src/CategoryView.vala:155
+#: src/CategoryView.vala:153
 #, c-format
 msgid "No Results for “%s”"
 msgstr "“%s”에 대한 검색 결과가 없습니다"
 
-#: src/CategoryView.vala:155
+#: src/CategoryView.vala:153
 msgid "Try changing search terms."
 msgstr "검색어를 바꿔보세요."
 
-#: src/CategoryView.vala:162
+#: src/CategoryView.vala:160
 msgid "Personal"
 msgstr "사용자 설정"
 
-#: src/CategoryView.vala:164
+#: src/CategoryView.vala:162
 msgid "Hardware"
 msgstr "하드웨어"
 
-#: src/CategoryView.vala:166
+#: src/CategoryView.vala:164
 msgid "Network & Wireless"
 msgstr "네트워크 & 무선 연결"
 
-#: src/CategoryView.vala:168
+#: src/CategoryView.vala:166
 msgid "Administration"
 msgstr "관리"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:44+0200\n"
+"POT-Creation-Date: 2019-10-30 09:21-0700\n"
 "PO-Revision-Date: 2018-03-18 03:47+0000\n"
 "Last-Translator: Anand Kumar <anand@anandkumar.net>\n"
 "Language-Team: Hindi <https://weblate.elementary.io/projects/switchboard/"
@@ -20,53 +20,53 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:47+0000\n"
 
-#: src/Application.vala:43
+#: src/Application.vala:42
 msgid "All Settings"
 msgstr "सभी विन्यास"
 
-#: src/Application.vala:128
+#: src/Application.vala:127
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "निर्दिष्ट पैनल '%s' मौजूद नहीं है, मुख्य पैनल पर वापस जा रहा है"
 
-#: src/Application.vala:270
+#: src/Application.vala:237
 msgid "Search Settings"
 msgstr "विन्यास खोजें"
 
-#: src/Application.vala:276 src/Application.vala:299 src/Application.vala:513
+#: src/Application.vala:243 src/Application.vala:266 src/Application.vala:477
 msgid "System Settings"
 msgstr "तंत्र विन्यास"
 
-#: src/Application.vala:417
+#: src/Application.vala:384
 msgid "No Settings Found"
 msgstr "कोई विन्यास नहीं मिला"
 
-#: src/Application.vala:417
+#: src/Application.vala:384
 msgid "Install some and re-launch Switchboard."
 msgstr "कुछ इनस्टॉल कर स्विचबोर्ड पुनः प्रारम्भ करें."
 
-#: src/CategoryView.vala:155
+#: src/CategoryView.vala:153
 #, c-format
 msgid "No Results for “%s”"
 msgstr "“%s” के लिए कोई परिणाम नहीं"
 
-#: src/CategoryView.vala:155
+#: src/CategoryView.vala:153
 msgid "Try changing search terms."
 msgstr "ख़ोज के लिए कोई और पद चुनें."
 
-#: src/CategoryView.vala:162
+#: src/CategoryView.vala:160
 msgid "Personal"
 msgstr "निजी"
 
-#: src/CategoryView.vala:164
+#: src/CategoryView.vala:162
 msgid "Hardware"
 msgstr "हार्डवेयर"
 
-#: src/CategoryView.vala:166
+#: src/CategoryView.vala:164
 msgid "Network & Wireless"
 msgstr "नेटवर्क और वायरलेस"
 
-#: src/CategoryView.vala:168
+#: src/CategoryView.vala:166
 msgid "Administration"
 msgstr "प्रशासन"
 

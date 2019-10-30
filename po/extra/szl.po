@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:44+0200\n"
+"POT-Creation-Date: 2019-10-30 09:22-0700\n"
 "PO-Revision-Date: 2019-06-26 18:53+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -35,6 +35,20 @@ msgid ""
 "A system settings application that focuses on modularity and simplicity."
 msgstr ""
 
-#: data/io.elementary.switchboard.appdata.xml.in:24
-msgid "elementary LLC."
+#: data/io.elementary.switchboard.appdata.xml.in:17
+msgid ""
+"Pressing the \"Down\" arrow key from the search box correctly focuses the "
+"first row"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:18
+msgid "Drop dynamic items from the Dock secondary-click menu"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:19
+msgid "Updated translations"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:33
+msgid "elementary, Inc."
 msgstr ""

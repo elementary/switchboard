@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:44+0200\n"
+"POT-Creation-Date: 2019-10-30 09:22-0700\n"
 "PO-Revision-Date: 2017-05-29 22:29+0000\n"
 "Last-Translator: Dieter Debast <dieter_debast@hotmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/switchboard/extra/"
@@ -45,8 +45,22 @@ msgstr ""
 "Een toepassing voor systeeminstellingen die de focus legt op modulariteit en "
 "eenvoud."
 
-#: data/io.elementary.switchboard.appdata.xml.in:24
-msgid "elementary LLC."
+#: data/io.elementary.switchboard.appdata.xml.in:17
+msgid ""
+"Pressing the \"Down\" arrow key from the search box correctly focuses the "
+"first row"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:18
+msgid "Drop dynamic items from the Dock secondary-click menu"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:19
+msgid "Updated translations"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:33
+msgid "elementary, Inc."
 msgstr ""
 
 #~ msgid "About System Settings"

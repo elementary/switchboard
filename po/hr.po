@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:44+0200\n"
+"POT-Creation-Date: 2019-10-30 09:21-0700\n"
 "PO-Revision-Date: 2017-02-02 09:42+0000\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
@@ -18,53 +18,53 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-02-04 05:40+0000\n"
 "X-Generator: Launchpad (build 18322)\n"
 
-#: src/Application.vala:43
+#: src/Application.vala:42
 msgid "All Settings"
 msgstr "Sve postavke"
 
-#: src/Application.vala:128
+#: src/Application.vala:127
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Navedena poveznica '%s' ne postoji, vraćanje na glavni panel"
 
-#: src/Application.vala:270
+#: src/Application.vala:237
 msgid "Search Settings"
 msgstr "Pretraži postavke"
 
-#: src/Application.vala:276 src/Application.vala:299 src/Application.vala:513
+#: src/Application.vala:243 src/Application.vala:266 src/Application.vala:477
 msgid "System Settings"
 msgstr "Postavke sustava"
 
-#: src/Application.vala:417
+#: src/Application.vala:384
 msgid "No Settings Found"
 msgstr "Nema pronađenih postavki"
 
-#: src/Application.vala:417
+#: src/Application.vala:384
 msgid "Install some and re-launch Switchboard."
 msgstr "Instalirajte nešto i ponovno pokrenite Switchboard."
 
-#: src/CategoryView.vala:155
+#: src/CategoryView.vala:153
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Nema rezultata za “%s”"
 
-#: src/CategoryView.vala:155
+#: src/CategoryView.vala:153
 msgid "Try changing search terms."
 msgstr "Pokušaj promijeniti izraz pretrage."
 
-#: src/CategoryView.vala:162
+#: src/CategoryView.vala:160
 msgid "Personal"
 msgstr "Osobno"
 
-#: src/CategoryView.vala:164
+#: src/CategoryView.vala:162
 msgid "Hardware"
 msgstr "Hardver"
 
-#: src/CategoryView.vala:166
+#: src/CategoryView.vala:164
 msgid "Network & Wireless"
 msgstr "Mreža i bežična mreža"
 
-#: src/CategoryView.vala:168
+#: src/CategoryView.vala:166
 msgid "Administration"
 msgstr "Administracija"
 
