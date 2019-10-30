@@ -8,10 +8,19 @@
   <name>System Settings</name>
   <summary>Change system and user settings</summary>
   <description>
-    <p>
-      A system settings application that focuses on modularity and simplicity.
-    </p>
+    <p>A system settings application that focuses on modularity and simplicity.</p>
   </description>
+  <releases>
+    <release version="2.3.7" date="2019-10-29" urgency="medium">
+      <description>
+        <ul>
+          <li>Pressing the "Down" arrow key from the search box correctly focuses the first row</li>
+          <li>Drop dynamic items from the Dock secondary-click menu</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
   <provides>
     <binary>switchboard</binary>
   </provides>
@@ -21,7 +30,7 @@
     </screenshot>
   </screenshots>
   <compulsory_for_desktop>Pantheon</compulsory_for_desktop>
-  <developer_name>elementary LLC.</developer_name>
+  <developer_name>elementary, Inc.</developer_name>
   <url type="homepage">https://elementary.io/</url>
   <url type="bugtracker">https://github.com/elementary/switchboard/issues</url>
   <url type="donation">https://elementary.io/get-involved#funding</url>
