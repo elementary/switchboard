@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-30 09:22-0700\n"
-"PO-Revision-Date: 2019-10-07 15:23+0000\n"
+"PO-Revision-Date: 2019-11-01 14:24+0000\n"
 "Last-Translator: Daniel R. <riesp@pm.me>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/switchboard/"
 "extra/es/>\n"
@@ -50,19 +50,20 @@ msgid ""
 "Pressing the \"Down\" arrow key from the search box correctly focuses the "
 "first row"
 msgstr ""
+"Al presionar la tecla de flecha \"Abajo\" del cuadro de búsqueda, se enfoca "
+"correctamente la primera fila"
 
 #: data/io.elementary.switchboard.appdata.xml.in:18
 msgid "Drop dynamic items from the Dock secondary-click menu"
-msgstr ""
+msgstr "Soltar elementos dinámicos desde el menú de clic secundario del Dock"
 
 #: data/io.elementary.switchboard.appdata.xml.in:19
 msgid "Updated translations"
-msgstr ""
+msgstr "Traducciones actualizadas"
 
 #: data/io.elementary.switchboard.appdata.xml.in:33
-#, fuzzy
 msgid "elementary, Inc."
-msgstr "elementary LLC."
+msgstr "elementary, Inc."
 
 #~ msgid "About System Settings"
 #~ msgstr "Acerca de Ajustes del sistema"
