@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-30 09:22-0700\n"
-"PO-Revision-Date: 2018-12-19 00:07+0000\n"
+"PO-Revision-Date: 2019-11-03 15:24+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://weblate.elementary.io/projects/switchboard/"
+"Language-Team: Japanese <https://l10n.elementary.io/projects/switchboard/"
 "extra/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 
 #: data/io.elementary.switchboard.desktop.in:4
@@ -50,20 +50,19 @@ msgstr ""
 msgid ""
 "Pressing the \"Down\" arrow key from the search box correctly focuses the "
 "first row"
-msgstr ""
+msgstr "検索ボックスで下矢印キーを押した際に最初の行に正しくフォーカスするように修正"
 
 #: data/io.elementary.switchboard.appdata.xml.in:18
 msgid "Drop dynamic items from the Dock secondary-click menu"
-msgstr ""
+msgstr "ドックの右クリックメニューから動的な項目を削除"
 
 #: data/io.elementary.switchboard.appdata.xml.in:19
 msgid "Updated translations"
-msgstr ""
+msgstr "翻訳の更新"
 
 #: data/io.elementary.switchboard.appdata.xml.in:33
-#, fuzzy
 msgid "elementary, Inc."
-msgstr "elementary LLC."
+msgstr "elementary, Inc."
 
 #~ msgid "About System Settings"
 #~ msgstr "\"システム設定\" について"
