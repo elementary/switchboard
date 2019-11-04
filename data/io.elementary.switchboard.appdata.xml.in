@@ -11,7 +11,7 @@
     <p>A system settings application that focuses on modularity and simplicity.</p>
   </description>
   <releases>
-    <release version="2.3.7" date="2019-10-29" urgency="medium">
+    <release version="2.3.7" date="2019-11-04" urgency="medium">
       <description>
         <ul>
           <li>Pressing the "Down" arrow key from the search box correctly focuses the first row</li>
