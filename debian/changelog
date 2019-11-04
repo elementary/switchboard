@@ -1,3 +1,25 @@
+switchboard (2.3.7) bionic; urgency=medium
+
+  * Release 2.3.7 (#124)
+  * Create release.yml
+  * Update translation files
+  * AppData: Add 2.3.7 info (#120)
+  * Add Release Action (#121)
+  * Fix keyboard navigation issue (#117)
+  * Fix missed unity bits (#116)
+  * Add Lint to CI (#115)
+  * Fix code style issues
+  * Delete CODE_OF_CONDUCT.md
+  * Delete FUNDING.yml
+  * CategoryFlowBox: GObject-style construction (#110)
+  * CategoryIcon: GObject style, inline namespace (#111)
+  * Drop LibUnity quicklists (#109)
+  * Add Silesian and update translation template
+  * Create FUNDING.yml
+  * AppData: Add compulsory for Pantheon (#102)
+
+ -- elementary, Inc. <builds@elementary.io>  Mon, 04 Nov 2019 22:11:38 +0000
+
 switchboard (2.3.6) bionic; urgency=medium
 
   * New upstream release.
