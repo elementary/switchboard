@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-30 09:22-0700\n"
-"PO-Revision-Date: 2019-07-15 17:31+0000\n"
+"PO-Revision-Date: 2019-11-07 10:24+0000\n"
 "Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
 "Language-Team: Esperanto <https://l10n.elementary.io/projects/switchboard/"
 "extra/eo/>\n"
@@ -46,17 +46,16 @@ msgstr "Sistem-agorda aplikaĵo fokusanta je moduligo kaj simpleco."
 msgid ""
 "Pressing the \"Down\" arrow key from the search box correctly focuses the "
 "first row"
-msgstr ""
+msgstr "Premo de la suben-klavo el la serĉujo ĝuste fokusigas la unuan rangon"
 
 #: data/io.elementary.switchboard.appdata.xml.in:18
 msgid "Drop dynamic items from the Dock secondary-click menu"
-msgstr ""
+msgstr "Demetaj dinamikaj elementoj de la butonbreta duaranga-klaka menuo"
 
 #: data/io.elementary.switchboard.appdata.xml.in:19
 msgid "Updated translations"
-msgstr ""
+msgstr "Ĝisdatigitaj tradukoj"
 
 #: data/io.elementary.switchboard.appdata.xml.in:33
-#, fuzzy
 msgid "elementary, Inc."
-msgstr "elementary LLC."
+msgstr "elementary, Inc."
