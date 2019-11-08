@@ -8,7 +8,8 @@ lib_version = '2.0'
 
 add_project_arguments([
         '-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()),
-        '-DG_LOG_DOMAIN="switchboard"'
+        '-DG_LOG_DOMAIN="switchboard"',
+        '-DHANDY_USE_UNSTABLE_API'
     ],
     language: 'c'
 )
@@ -23,6 +24,7 @@ gio_dep = dependency('gio-2.0')
 gio_unix_dep = dependency('gio-unix-2.0')
 gmodule_dep = dependency('gmodule-2.0')
 gtk_dep = dependency('gtk+-3.0', version: '>=3.10')
+handy_dep = dependency('libhandy-0.0', version: '>=0.0.11')
 clutter_gtk_dep = dependency('clutter-gtk-1.0')
 gee_dep = dependency('gee-0.8')
 granite_dep = dependency('granite', version: '>=5.2.0')

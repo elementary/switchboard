@@ -31,7 +31,7 @@ namespace Switchboard {
     public class SwitchboardApp : Gtk.Application {
         private Gtk.Window main_window;
         private Gtk.ScrolledWindow category_scrolled;
-        private Gtk.Stack stack;
+        private Hdy.Paginator stack;
         private Gtk.HeaderBar headerbar;
 
         private Granite.Widgets.AlertView alert_view;
@@ -155,7 +155,7 @@ namespace Switchboard {
         }
 
         public void hide_alert () {
-            stack.set_visible_child_full ("main", Gtk.StackTransitionType.NONE);
+            stack.scroll_to (category_scrolled);
         }
 
         public void show_alert (string primary_text, string secondary_text, string icon_name) {
@@ -163,7 +163,7 @@ namespace Switchboard {
             alert_view.title = primary_text;
             alert_view.description = secondary_text;
             alert_view.icon_name = icon_name;
-            stack.set_visible_child_full ("alert", Gtk.StackTransitionType.NONE);
+            stack.scroll_to (alert_view);
         }
 
         public void load_plug (Switchboard.Plug plug) {
@@ -175,7 +175,7 @@ namespace Switchboard {
 
             Idle.add (() => {
                 if (!loaded_plugs.contains (plug.code_name)) {
-                    stack.add_named (plug.get_widget (), plug.code_name);
+                    stack.add (plug.get_widget ());
                     loaded_plugs.add (plug.code_name);
                 }
 
@@ -250,15 +250,17 @@ namespace Switchboard {
             category_view.load_default_plugs.begin ();
 
             category_scrolled = new Gtk.ScrolledWindow (null, null);
+            category_scrolled.hexpand = true;
+            category_scrolled.hscrollbar_policy = Gtk.PolicyType.NEVER;
             category_scrolled.add (category_view);
 
             alert_view = new Granite.Widgets.AlertView ("", "", "");
             alert_view.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
 
-            stack = new Gtk.Stack ();
-            stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
-            stack.add_named (alert_view, "alert");
-            stack.add_named (category_scrolled, "main");
+            stack = new Hdy.Paginator ();
+            stack.interactive = false;
+            stack.add (alert_view);
+            stack.add (category_scrolled);
 
             main_window = new Gtk.Window ();
             main_window.application = this;
@@ -405,7 +407,7 @@ namespace Switchboard {
                 switch_to_icons ();
                 navigation_button.hide ();
             } else {
-                if (previous_plugs.size > 0 && stack.get_visible_child_name () != "main") {
+                if (previous_plugs.size > 0 && stack.position != 1) {
                     if (current_plug != null) {
                         current_plug.hidden ();
                     }
@@ -448,14 +450,7 @@ namespace Switchboard {
 
         // Switches to the given plug
         private void switch_to_plug (Switchboard.Plug plug) {
-            if (should_animate_next_transition == false) {
-                stack.set_transition_type (Gtk.StackTransitionType.NONE);
-                should_animate_next_transition = true;
-            } else if (stack.transition_type == Gtk.StackTransitionType.NONE) {
-                stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
-            }
-
-            if (previous_plugs.size > 1 && stack.get_visible_child_name () != "main") {
+            if (previous_plugs.size > 1 && stack.position != 1) {
                 navigation_button.label = previous_plugs.@get (0).display_name;
                 previous_plugs.remove_at (previous_plugs.size - 1);
             } else {
@@ -464,14 +459,18 @@ namespace Switchboard {
 
             search_box.sensitive = false;
             plug.shown ();
-            stack.set_visible_child_name (plug.code_name);
-            category_scrolled.hide ();
+            stack.scroll_to (plug.get_widget ());
+            stack.interactive = true;
+            //category_scrolled.hide ();
         }
 
         private bool switch_to_icons () {
             previous_plugs.clear ();
             category_scrolled.show ();
-            stack.set_visible_child_full ("main", Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
+
+            stack.scroll_to (category_scrolled);
+            stack.interactive = false;
+
             current_plug.hidden ();
 
             headerbar.title = _("System Settings");
