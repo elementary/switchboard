@@ -153,12 +153,6 @@ namespace Switchboard {
         }
 
         public void load_plug (Switchboard.Plug plug) {
-            //FIXME lower priority for gcc plugs due crash bug #1528361
-            var priority = GLib.Priority.DEFAULT_IDLE;
-            if (plug.code_name.contains ("-gcc-")) {
-                priority = GLib.Priority.LOW;
-            }
-
             Idle.add (() => {
                 if (!loaded_plugs.contains (plug.code_name)) {
                     stack.add_named (plug.get_widget (), plug.code_name);
@@ -198,8 +192,7 @@ namespace Switchboard {
 
                 switch_to_plug (plug);
                 return false;
-            }, priority);
-
+            }, GLib.Priority.DEFAULT_IDLE);
         }
 
         private void build () {
