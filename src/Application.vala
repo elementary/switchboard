@@ -30,11 +30,9 @@ namespace Switchboard {
 
     public class SwitchboardApp : Gtk.Application {
         private Gtk.Window main_window;
-        private Gtk.ScrolledWindow category_scrolled;
         private Gtk.Stack stack;
         private Gtk.HeaderBar headerbar;
 
-        private Granite.Widgets.AlertView alert_view;
         private Gtk.Button navigation_button;
         public Switchboard.CategoryView category_view;
 
@@ -154,18 +152,6 @@ namespace Switchboard {
             Gtk.main ();
         }
 
-        public void hide_alert () {
-            stack.set_visible_child_full ("main", Gtk.StackTransitionType.NONE);
-        }
-
-        public void show_alert (string primary_text, string secondary_text, string icon_name) {
-            alert_view.show_all ();
-            alert_view.title = primary_text;
-            alert_view.description = secondary_text;
-            alert_view.icon_name = icon_name;
-            stack.set_visible_child_full ("alert", Gtk.StackTransitionType.NONE);
-        }
-
         public void load_plug (Switchboard.Plug plug) {
             Idle.add (() => {
                 if (!loaded_plugs.contains (plug.code_name)) {
@@ -238,27 +224,19 @@ namespace Switchboard {
             headerbar.pack_end (search_box);
 
             category_view = new Switchboard.CategoryView (plug_to_open);
-            category_view.margin_top = 12;
             category_view.plug_selected.connect ((plug) => load_plug (plug));
             category_view.load_default_plugs.begin ();
 
-            category_scrolled = new Gtk.ScrolledWindow (null, null);
-            category_scrolled.add (category_view);
-
-            alert_view = new Granite.Widgets.AlertView ("", "", "");
-            alert_view.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
-
             stack = new Gtk.Stack ();
             stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
-            stack.add_named (alert_view, "alert");
-            stack.add_named (category_scrolled, "main");
+            stack.add_named (category_view, "main");
 
             main_window = new Gtk.Window ();
             main_window.application = this;
             main_window.icon_name = "preferences-desktop";
             main_window.title = _("System Settings");
             main_window.add (stack);
-            main_window.set_size_request (910, 640);
+            main_window.set_size_request (640, 480);
             main_window.set_titlebar (headerbar);
 
             int window_x, window_y;
@@ -374,7 +352,7 @@ namespace Switchboard {
             });
 
             if (Switchboard.PlugsManager.get_default ().has_plugs () == false) {
-                show_alert (_("No Settings Found"), _("Install some and re-launch Switchboard."), "dialog-warning");
+                category_view.show_alert (_("No Settings Found"), _("Install some and re-launch Switchboard."), "dialog-warning");
                 search_box.sensitive = false;
             } else {
                 search_box.sensitive = true;
@@ -458,12 +436,10 @@ namespace Switchboard {
             search_box.sensitive = false;
             plug.shown ();
             stack.set_visible_child_name (plug.code_name);
-            category_scrolled.hide ();
         }
 
         private bool switch_to_icons () {
             previous_plugs.clear ();
-            category_scrolled.show ();
             stack.set_visible_child_full ("main", Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
             current_plug.hidden ();
 

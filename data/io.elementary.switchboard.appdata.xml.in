@@ -11,6 +11,15 @@
     <p>A system settings application that focuses on modularity and simplicity.</p>
   </description>
   <releases>
+    <release version="2.3.8" date="2019-11-07" urgency="medium">
+      <description>
+        <ul>
+          <li>Fix an issue that prevented tiling on small displays</li>
+          <li>Fix an issue with restoring the correct window size</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="2.3.7" date="2019-11-04" urgency="medium">
       <description>
         <ul>
