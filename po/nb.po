@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-30 09:21-0700\n"
+"POT-Creation-Date: 2019-11-20 17:48+0000\n"
 "PO-Revision-Date: 2019-01-10 00:07+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://weblate.elementary.io/projects/"
@@ -20,56 +20,56 @@ msgstr ""
 "X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-04-05 06:34+0000\n"
 
-#: src/Application.vala:42
+#: src/Application.vala:40
 msgid "All Settings"
 msgstr "Alle innstillinger"
 
-#: src/Application.vala:127
+#: src/Application.vala:125
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Oppgitt lenke '%s' finnes ikke, går tilbake til hovedpanelet"
 
-#: src/Application.vala:237
+#: src/Application.vala:216
 msgid "Search Settings"
 msgstr "Søkeinnstillinger"
 
-#: src/Application.vala:243 src/Application.vala:266 src/Application.vala:477
+#: src/Application.vala:222 src/Application.vala:237 src/Application.vala:446
 #, fuzzy
 msgid "System Settings"
 msgstr ""
 "System-\n"
 "innstillinger"
 
-#: src/Application.vala:384
+#: src/Application.vala:355
 msgid "No Settings Found"
 msgstr "Ingen innstillinger funnet"
 
-#: src/Application.vala:384
+#: src/Application.vala:355
 msgid "Install some and re-launch Switchboard."
 msgstr "Installer noen og start Systeminnstillinger på nytt."
 
-#: src/CategoryView.vala:153
+#: src/CategoryView.vala:171
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Ingen resultater for \"%s\""
 
-#: src/CategoryView.vala:153
+#: src/CategoryView.vala:171
 msgid "Try changing search terms."
 msgstr "Prøv å endre søkeord."
 
-#: src/CategoryView.vala:160
+#: src/CategoryView.vala:178
 msgid "Personal"
 msgstr "Personlig"
 
-#: src/CategoryView.vala:162
+#: src/CategoryView.vala:180
 msgid "Hardware"
 msgstr "Maskinvare"
 
-#: src/CategoryView.vala:164
+#: src/CategoryView.vala:182
 msgid "Network & Wireless"
 msgstr "Nettverk og trådløst"
 
-#: src/CategoryView.vala:166
+#: src/CategoryView.vala:184
 msgid "Administration"
 msgstr "Administrasjon"
 

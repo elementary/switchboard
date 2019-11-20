@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-30 09:22-0700\n"
+"POT-Creation-Date: 2019-11-20 17:48+0000\n"
 "PO-Revision-Date: 2019-01-02 18:28+0000\n"
 "Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
 "Language-Team: German <https://weblate.elementary.io/projects/switchboard/"
@@ -44,20 +44,29 @@ msgid ""
 msgstr "Eine unkomplizierte, modulare Anwendung für die  Systemeinstellungen."
 
 #: data/io.elementary.switchboard.appdata.xml.in:17
+msgid "Fix an issue that prevented tiling on small displays"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:18
+msgid "Fix an issue with restoring the correct window size"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:19
+#: data/io.elementary.switchboard.appdata.xml.in:28
+msgid "Updated translations"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:26
 msgid ""
 "Pressing the \"Down\" arrow key from the search box correctly focuses the "
 "first row"
 msgstr ""
 
-#: data/io.elementary.switchboard.appdata.xml.in:18
+#: data/io.elementary.switchboard.appdata.xml.in:27
 msgid "Drop dynamic items from the Dock secondary-click menu"
 msgstr ""
 
-#: data/io.elementary.switchboard.appdata.xml.in:19
-msgid "Updated translations"
-msgstr ""
-
-#: data/io.elementary.switchboard.appdata.xml.in:33
+#: data/io.elementary.switchboard.appdata.xml.in:42
 #, fuzzy
 msgid "elementary, Inc."
 msgstr "elementary LLC."

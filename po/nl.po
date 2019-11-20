@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-30 09:21-0700\n"
+"POT-Creation-Date: 2019-11-20 17:48+0000\n"
 "PO-Revision-Date: 2017-05-29 22:16+0000\n"
 "Last-Translator: Kay van der Zander <kay20@hotmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/switchboard/"
@@ -20,53 +20,53 @@ msgstr ""
 "X-Generator: Weblate 2.14\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:47+0000\n"
 
-#: src/Application.vala:42
+#: src/Application.vala:40
 msgid "All Settings"
 msgstr "Alle instellingen"
 
-#: src/Application.vala:127
+#: src/Application.vala:125
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Specifieke link '%s' bestaat niet, teruggaan naar het hoofdpaneel"
 
-#: src/Application.vala:237
+#: src/Application.vala:216
 msgid "Search Settings"
 msgstr "Zoek in instellingen"
 
-#: src/Application.vala:243 src/Application.vala:266 src/Application.vala:477
+#: src/Application.vala:222 src/Application.vala:237 src/Application.vala:446
 msgid "System Settings"
 msgstr "Systeeminstellingen"
 
-#: src/Application.vala:384
+#: src/Application.vala:355
 msgid "No Settings Found"
 msgstr "Geen instellingen gevonden"
 
-#: src/Application.vala:384
+#: src/Application.vala:355
 msgid "Install some and re-launch Switchboard."
 msgstr "Installeer een aantal en start Switchboard opnieuw."
 
-#: src/CategoryView.vala:153
+#: src/CategoryView.vala:171
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Geen resultaat voor \"%s\""
 
-#: src/CategoryView.vala:153
+#: src/CategoryView.vala:171
 msgid "Try changing search terms."
 msgstr "Probeer uw zoektermen te wijzigen."
 
-#: src/CategoryView.vala:160
+#: src/CategoryView.vala:178
 msgid "Personal"
 msgstr "Persoonlijk"
 
-#: src/CategoryView.vala:162
+#: src/CategoryView.vala:180
 msgid "Hardware"
 msgstr "Hardware"
 
-#: src/CategoryView.vala:164
+#: src/CategoryView.vala:182
 msgid "Network & Wireless"
 msgstr "Netwerk & Draadloos"
 
-#: src/CategoryView.vala:166
+#: src/CategoryView.vala:184
 msgid "Administration"
 msgstr "Beheer"
 

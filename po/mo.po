@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-30 09:21-0700\n"
+"POT-Creation-Date: 2019-11-20 17:48+0000\n"
 "PO-Revision-Date: 2018-05-27 16:13+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
 "Language-Team: Moldovan <https://weblate.elementary.io/projects/switchboard/"
@@ -13,53 +13,53 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.18\n"
 
-#: src/Application.vala:42
+#: src/Application.vala:40
 msgid "All Settings"
 msgstr "Toate setările"
 
-#: src/Application.vala:127
+#: src/Application.vala:125
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Linkul specificat '%s'  nu există, revenind la panoul principal"
 
-#: src/Application.vala:237
+#: src/Application.vala:216
 msgid "Search Settings"
 msgstr "Căutați setări"
 
-#: src/Application.vala:243 src/Application.vala:266 src/Application.vala:477
+#: src/Application.vala:222 src/Application.vala:237 src/Application.vala:446
 msgid "System Settings"
 msgstr "Setări sistem"
 
-#: src/Application.vala:384
+#: src/Application.vala:355
 msgid "No Settings Found"
 msgstr "Nu au fost găsite setări"
 
-#: src/Application.vala:384
+#: src/Application.vala:355
 msgid "Install some and re-launch Switchboard."
 msgstr "Instalați și relansați tabloul de bord."
 
-#: src/CategoryView.vala:153
+#: src/CategoryView.vala:171
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Niciun rezultat pentru “%s”"
 
-#: src/CategoryView.vala:153
+#: src/CategoryView.vala:171
 msgid "Try changing search terms."
 msgstr "Încercați să modificați termenii de căutare."
 
-#: src/CategoryView.vala:160
+#: src/CategoryView.vala:178
 msgid "Personal"
 msgstr "Individual"
 
-#: src/CategoryView.vala:162
+#: src/CategoryView.vala:180
 msgid "Hardware"
 msgstr "Hard-ware"
 
-#: src/CategoryView.vala:164
+#: src/CategoryView.vala:182
 msgid "Network & Wireless"
 msgstr "Rețea și wireless"
 
-#: src/CategoryView.vala:166
+#: src/CategoryView.vala:184
 msgid "Administration"
 msgstr "Administrare"
 

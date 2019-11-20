@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-30 09:22-0700\n"
+"POT-Creation-Date: 2019-11-20 17:48+0000\n"
 "PO-Revision-Date: 2019-11-07 10:24+0000\n"
 "Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
 "Language-Team: Esperanto <https://l10n.elementary.io/projects/switchboard/"
@@ -43,19 +43,28 @@ msgid ""
 msgstr "Sistem-agorda aplikaĵo fokusanta je moduligo kaj simpleco."
 
 #: data/io.elementary.switchboard.appdata.xml.in:17
+msgid "Fix an issue that prevented tiling on small displays"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:18
+msgid "Fix an issue with restoring the correct window size"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:19
+#: data/io.elementary.switchboard.appdata.xml.in:28
+msgid "Updated translations"
+msgstr "Ĝisdatigitaj tradukoj"
+
+#: data/io.elementary.switchboard.appdata.xml.in:26
 msgid ""
 "Pressing the \"Down\" arrow key from the search box correctly focuses the "
 "first row"
 msgstr "Premo de la suben-klavo el la serĉujo ĝuste fokusigas la unuan rangon"
 
-#: data/io.elementary.switchboard.appdata.xml.in:18
+#: data/io.elementary.switchboard.appdata.xml.in:27
 msgid "Drop dynamic items from the Dock secondary-click menu"
 msgstr "Demetaj dinamikaj elementoj de la butonbreta duaranga-klaka menuo"
 
-#: data/io.elementary.switchboard.appdata.xml.in:19
-msgid "Updated translations"
-msgstr "Ĝisdatigitaj tradukoj"
-
-#: data/io.elementary.switchboard.appdata.xml.in:33
+#: data/io.elementary.switchboard.appdata.xml.in:42
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
