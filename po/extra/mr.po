@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-20 17:48+0000\n"
-"PO-Revision-Date: 2019-01-09 11:39+0000\n"
-"Last-Translator: Cody Garver <cody@elementary.io>\n"
-"Language-Team: Marathi <https://weblate.elementary.io/projects/switchboard/"
+"PO-Revision-Date: 2019-11-25 10:24+0000\n"
+"Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
+"Language-Team: Marathi <https://l10n.elementary.io/projects/switchboard/"
 "extra/mr/>\n"
 "Language: mr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.7.1\n"
 
 #: data/io.elementary.switchboard.desktop.in:4
 #: data/io.elementary.switchboard.appdata.xml.in:8
@@ -44,28 +44,29 @@ msgstr "एक सिस्टम सेटिंग्ज अप्लिके
 
 #: data/io.elementary.switchboard.appdata.xml.in:17
 msgid "Fix an issue that prevented tiling on small displays"
-msgstr ""
+msgstr "छोट्या प्रदर्शनांवर टाइल लावण्यास रोखणारी समस्या सोडवा"
 
 #: data/io.elementary.switchboard.appdata.xml.in:18
 msgid "Fix an issue with restoring the correct window size"
-msgstr ""
+msgstr "योग्य विंडो आकार पुनर्संचयित करण्याशी संबंधित समस्येचे निराकरण करा"
 
 #: data/io.elementary.switchboard.appdata.xml.in:19
 #: data/io.elementary.switchboard.appdata.xml.in:28
 msgid "Updated translations"
-msgstr ""
+msgstr "अद्ययावत भाषांतर"
 
 #: data/io.elementary.switchboard.appdata.xml.in:26
 msgid ""
 "Pressing the \"Down\" arrow key from the search box correctly focuses the "
 "first row"
 msgstr ""
+"शोध बॉक्समधून \"डाऊन\" बाण की दाबल्याने योग्य प्रकारे प्रथम पंक्ती केंद्रित "
+"होते"
 
 #: data/io.elementary.switchboard.appdata.xml.in:27
 msgid "Drop dynamic items from the Dock secondary-click menu"
-msgstr ""
+msgstr "डॉक दुय्यम-क्लिक मेनूमधून डायनॅमिक आयटम ड्रॉप करा"
 
 #: data/io.elementary.switchboard.appdata.xml.in:42
-#, fuzzy
 msgid "elementary, Inc."
-msgstr "एलिमेंटरी LLC."
+msgstr "एलिमेंटरी, Inc ."
