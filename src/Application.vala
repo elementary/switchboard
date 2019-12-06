@@ -44,6 +44,7 @@ namespace Switchboard {
         public Switchboard.Plug current_plug;
         public Gtk.SearchEntry search_box { public get; private set; }
 
+        private static GLib.Settings settings;
         private static string? plug_to_open = null;
         private static string? open_window = null;
         private static string? link = null;
@@ -56,6 +57,10 @@ namespace Switchboard {
             Gdk.Key.Right,
             Gdk.Key.Return
         };
+
+        static construct {
+            settings = new GLib.Settings ("io.elementary.switchboard.saved-state");
+        }
 
         construct {
             application_id = "io.elementary.switchboard";
@@ -436,12 +441,14 @@ namespace Switchboard {
             search_box.sensitive = false;
             plug.shown ();
             stack.set_visible_child_name (plug.code_name);
+            settings.set_string ("plug", plug.code_name);
         }
 
         private bool switch_to_icons () {
             previous_plugs.clear ();
             stack.set_visible_child_full ("main", Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
             current_plug.hidden ();
+            settings.reset ("plug");
 
             headerbar.title = _("System Settings");
 

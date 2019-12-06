@@ -19,7 +19,7 @@
     <key name="plug" type="s">
       <default>""</default>
       <summary>Most recent plug opened</summary>
-      <description>The most recent "plug" that was open, used to ensure we reopen the app to the right place</description>
+      <description>Codename of the most recent plug that was open to ensure we reopen the app to the right place</description>
     </key>
   </schema>
   <schema path="/io/elementary/switchboard/preferences/" id="io.elementary.switchboard.preferences">
