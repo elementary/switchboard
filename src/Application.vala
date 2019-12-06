@@ -44,7 +44,7 @@ namespace Switchboard {
         public Switchboard.Plug current_plug;
         public Gtk.SearchEntry search_box { public get; private set; }
 
-        private static GLib.Settings settings;
+        private static GLib.Settings saved_state;
         private static string? plug_to_open = null;
         private static string? open_window = null;
         private static string? link = null;
@@ -59,7 +59,7 @@ namespace Switchboard {
         };
 
         static construct {
-            settings = new GLib.Settings ("io.elementary.switchboard.saved-state");
+            saved_state = new GLib.Settings ("io.elementary.switchboard.saved-state");
         }
 
         construct {
@@ -115,8 +115,8 @@ namespace Switchboard {
 
         public override void activate () {
             var plugsmanager = Switchboard.PlugsManager.get_default ();
-            var setting = new Settings ("io.elementary.switchboard.preferences");
-            var mapping_dic = setting.get_value ("mapping-override");
+            var preferences = new Settings ("io.elementary.switchboard.preferences");
+            var mapping_dic = preferences.get_value ("mapping-override");
             if (link != null && !mapping_dic.lookup (link, "(ss)", ref plug_to_open, ref open_window)) {
                 bool plug_found = load_setting_path (link, plugsmanager);
 
@@ -139,6 +139,14 @@ namespace Switchboard {
                         should_animate_next_transition = false;
                         opened_directly = true;
                         break;
+                    }
+                }
+            } else if (saved_state.get_string ("plug") != "") {
+                foreach (var plug in plugsmanager.get_plugs ()) {
+                    if (plug.code_name.has_suffix (saved_state.get_string ("plug"))) {
+                        load_plug (plug);
+                        should_animate_next_transition = false;
+                        opened_directly = true;
                     }
                 }
             }
@@ -247,9 +255,8 @@ namespace Switchboard {
             int window_x, window_y;
             var rect = Gtk.Allocation ();
 
-            var settings = new GLib.Settings ("io.elementary.switchboard.saved-state");
-            settings.get ("window-position", "(ii)", out window_x, out window_y);
-            settings.get ("window-size", "(ii)", out rect.width, out rect.height);
+            saved_state.get ("window-position", "(ii)", out window_x, out window_y);
+            saved_state.get ("window-size", "(ii)", out rect.width, out rect.height);
 
             if (window_x != -1 || window_y != -1) {
                 main_window.move (window_x, window_y);
@@ -257,7 +264,7 @@ namespace Switchboard {
 
             main_window.set_allocation (rect);
 
-            if (settings.get_boolean ("window-maximized")) {
+            if (saved_state.get_boolean ("window-maximized")) {
                 main_window.maximize ();
             }
 
@@ -314,16 +321,16 @@ namespace Switchboard {
                     configure_id = 0;
 
                     if (main_window.is_maximized) {
-                        settings.set_boolean ("window-maximized", true);
+                        saved_state.set_boolean ("window-maximized", true);
                     } else {
-                        settings.set_boolean ("window-maximized", false);
+                        saved_state.set_boolean ("window-maximized", false);
 
                         main_window.get_allocation (out rect);
-                        settings.set ("window-size", "(ii)", rect.width, rect.height);
+                        saved_state.set ("window-size", "(ii)", rect.width, rect.height);
 
                         int root_x, root_y;
                         main_window.get_position (out root_x, out root_y);
-                        settings.set ("window-position", "(ii)", root_x, root_y);
+                        saved_state.set ("window-position", "(ii)", root_x, root_y);
                     }
 
                     return false;
@@ -441,14 +448,14 @@ namespace Switchboard {
             search_box.sensitive = false;
             plug.shown ();
             stack.set_visible_child_name (plug.code_name);
-            settings.set_string ("plug", plug.code_name);
+            saved_state.set_string ("plug", plug.code_name);
         }
 
         private bool switch_to_icons () {
             previous_plugs.clear ();
             stack.set_visible_child_full ("main", Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
             current_plug.hidden ();
-            settings.reset ("plug");
+            saved_state.reset ("plug");
 
             headerbar.title = _("System Settings");
 
