@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-20 17:48+0000\n"
+"POT-Creation-Date: 2020-01-14 23:12+0000\n"
 "PO-Revision-Date: 2019-11-17 21:24+0000\n"
 "Last-Translator: Piotr Strebski <strebski@gmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/switchboard/extra/"
@@ -55,21 +55,25 @@ msgid "Fix an issue with restoring the correct window size"
 msgstr ""
 
 #: data/io.elementary.switchboard.appdata.xml.in:19
-#: data/io.elementary.switchboard.appdata.xml.in:28
+msgid "Make the category grid fill the available space when maximized"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:20
+#: data/io.elementary.switchboard.appdata.xml.in:29
 msgid "Updated translations"
 msgstr "Zaktualizowane tłumaczenia"
 
-#: data/io.elementary.switchboard.appdata.xml.in:26
+#: data/io.elementary.switchboard.appdata.xml.in:27
 msgid ""
 "Pressing the \"Down\" arrow key from the search box correctly focuses the "
 "first row"
 msgstr ""
 
-#: data/io.elementary.switchboard.appdata.xml.in:27
+#: data/io.elementary.switchboard.appdata.xml.in:28
 msgid "Drop dynamic items from the Dock secondary-click menu"
 msgstr ""
 
-#: data/io.elementary.switchboard.appdata.xml.in:42
+#: data/io.elementary.switchboard.appdata.xml.in:43
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
