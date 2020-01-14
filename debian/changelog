@@ -1,3 +1,18 @@
+switchboard (2.3.8) bionic; urgency=medium
+
+  * Release 2.3.8 (#137)
+  * Update translation files
+  * Update translation template
+  * CategoryFlowbox: vexpand everything (#138)
+  * Update translation files
+  * Update translation template
+  * Make AlertView internal to CategoryFlowBox (#126)
+  * Application: Remove dead code related to GCC (#128)
+  * Add Gettext Updates to Actions
+  * .github: Rename release.yml to release.md
+
+ -- elementary, Inc. <builds@elementary.io>  Tue, 14 Jan 2020 23:18:47 +0000
+
 switchboard (2.3.7) bionic; urgency=medium
 
   * Release 2.3.7 (#124)
