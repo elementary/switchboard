@@ -30,6 +30,7 @@ namespace Switchboard {
 
         construct {
             var category_label = new Granite.HeaderLabel (Switchboard.CategoryView.get_category_name (category));
+            category_label.vexpand = true;
 
             var h_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
             h_separator.hexpand = true;
@@ -43,6 +44,7 @@ namespace Switchboard {
             flowbox.min_children_per_line = 5;
             flowbox.max_children_per_line = 5;
             flowbox.selection_mode = Gtk.SelectionMode.NONE;
+            flowbox.vexpand = true;
 
             margin_bottom = 12;
             margin_start = 12;
@@ -50,6 +52,8 @@ namespace Switchboard {
 
             column_spacing = 3;
             row_spacing = 6;
+
+            vexpand = true;
 
             attach (category_label, 0, 0, 1, 1);
             attach (h_separator, 1, 0, 1, 1);

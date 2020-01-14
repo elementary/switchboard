@@ -16,6 +16,7 @@
         <ul>
           <li>Fix an issue that prevented tiling on small displays</li>
           <li>Fix an issue with restoring the correct window size</li>
+          <li>Make the category grid fill the available space when maximized</li>
           <li>Updated translations</li>
         </ul>
       </description>
