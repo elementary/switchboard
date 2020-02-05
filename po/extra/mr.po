@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-14 23:12+0000\n"
-"PO-Revision-Date: 2019-11-25 10:24+0000\n"
+"PO-Revision-Date: 2020-02-06 20:08+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/switchboard/"
 "extra/mr/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.9.1\n"
 
 #: data/io.elementary.switchboard.desktop.in:4
 #: data/io.elementary.switchboard.appdata.xml.in:8
@@ -52,7 +52,7 @@ msgstr "योग्य विंडो आकार पुनर्संचय
 
 #: data/io.elementary.switchboard.appdata.xml.in:19
 msgid "Make the category grid fill the available space when maximized"
-msgstr ""
+msgstr "सर्वात मोठा केल्यावर श्रेणी ग्रीड उपलब्ध जागा भरा"
 
 #: data/io.elementary.switchboard.appdata.xml.in:20
 #: data/io.elementary.switchboard.appdata.xml.in:29
