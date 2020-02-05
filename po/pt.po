@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-20 17:48+0000\n"
-"PO-Revision-Date: 2019-11-09 00:24+0000\n"
+"PO-Revision-Date: 2020-02-06 20:08+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/switchboard/"
 "switchboard/pt/>\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 
 #: src/Application.vala:40
 msgid "All Settings"
-msgstr "Definições do Wacom"
+msgstr "Todas as definições"
 
 #: src/Application.vala:125
 #, c-format
@@ -43,7 +43,7 @@ msgstr "Nenhuma Definição Encontrada"
 
 #: src/Application.vala:355
 msgid "Install some and re-launch Switchboard."
-msgstr "Instale alguns e reabra as Definições do Switchboard."
+msgstr "Instalar alguns e relançar o Switchboard."
 
 #: src/CategoryView.vala:171
 #, c-format
