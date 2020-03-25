@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-24 17:51+0000\n"
-"PO-Revision-Date: 2019-11-27 20:25+0000\n"
+"PO-Revision-Date: 2020-03-26 23:09+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/switchboard/extra/"
 "he/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 
 #: data/io.elementary.switchboard.desktop.in:4
@@ -51,30 +51,29 @@ msgstr "תרגומים עודכנו"
 
 #: data/io.elementary.switchboard.appdata.xml.in:24
 msgid "Fix an issue that prevented tiling on small displays"
-msgstr ""
+msgstr "תיקון תקלה שמנעה מריצוף חלונות בתצוגות קטנות"
 
 #: data/io.elementary.switchboard.appdata.xml.in:25
 msgid "Fix an issue with restoring the correct window size"
-msgstr ""
+msgstr "תיקון תקלה עם שחזור לגודל החלון הנכון"
 
 #: data/io.elementary.switchboard.appdata.xml.in:26
 msgid "Make the category grid fill the available space when maximized"
-msgstr ""
+msgstr "סודר כך שרשת הקטגוריות תמלא את כל החלל הזמין כשהיא מוגדלת"
 
 #: data/io.elementary.switchboard.appdata.xml.in:34
 msgid ""
 "Pressing the \"Down\" arrow key from the search box correctly focuses the "
 "first row"
-msgstr ""
+msgstr "לחיצה על כפתור החץ „למטה” מתיבת החיפוש מתמקדת נכון על השורה הראשונה"
 
 #: data/io.elementary.switchboard.appdata.xml.in:35
 msgid "Drop dynamic items from the Dock secondary-click menu"
-msgstr ""
+msgstr "השמטת פריטים דינמיים מתפריט הלחיצה הימני במעגן"
 
 #: data/io.elementary.switchboard.appdata.xml.in:50
-#, fuzzy
 msgid "elementary, Inc."
-msgstr "elementary LLC.‎"
+msgstr "elementary בע״מ."
 
 #~ msgid "About System Settings"
 #~ msgstr "על אודות הגדרות המערכת"
