@@ -1,3 +1,12 @@
+switchboard (2.3.9) bionic; urgency=medium
+
+  * Release 2.3.9 (#145)
+  * Update translation files
+  * Update translation template
+  * Update io.elementary.switchboard.appdata.xml.in
+
+ -- elementary, Inc. <builds@elementary.io>  Mon, 30 Mar 2020 21:02:44 +0000
+
 switchboard (2.3.8) bionic; urgency=medium
 
   * Release 2.3.8 (#137)
