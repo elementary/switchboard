@@ -11,7 +11,7 @@
     <p>A system settings application that focuses on modularity and simplicity.</p>
   </description>
   <releases>
-    <release version="2.3.9" date="2020-03-23" urgency="medium">
+    <release version="2.3.9" date="2020-03-30" urgency="medium">
       <description>
         <ul>
           <li>Updated translations</li>
