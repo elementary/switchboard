@@ -31,6 +31,7 @@ public class Switchboard.SearchView : Gtk.ScrolledWindow {
         alert_view.show_all ();
 
         listbox = new Gtk.ListBox ();
+        listbox.selection_mode = Gtk.SelectionMode.BROWSE;
         listbox.set_filter_func (filter_func);
         listbox.set_placeholder (alert_view);
 
@@ -42,6 +43,7 @@ public class Switchboard.SearchView : Gtk.ScrolledWindow {
         search_entry.search_changed.connect (() => {
             alert_view.title = _("No Results for “%s”").printf (search_entry.text);
             listbox.invalidate_filter ();
+            listbox.select_row (null);
         });
 
         listbox.row_activated.connect ((row) => {
@@ -54,7 +56,7 @@ public class Switchboard.SearchView : Gtk.ScrolledWindow {
     }
 
     public void activate_first_item () {
-        listbox.get_row_at_index (0).activate ();
+        listbox.get_row_at_y (0).activate ();
     }
 
     private bool filter_func (Gtk.ListBoxRow listbox_row) {

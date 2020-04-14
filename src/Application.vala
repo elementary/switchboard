@@ -153,7 +153,6 @@ namespace Switchboard {
         }
 
         public void load_plug (Switchboard.Plug plug) {
-            search_box.text = "";
             Idle.add (() => {
                 if (!loaded_plugs.contains (plug.code_name)) {
                     stack.add_named (plug.get_widget (), plug.code_name);
