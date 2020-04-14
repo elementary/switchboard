@@ -153,6 +153,7 @@ namespace Switchboard {
         }
 
         public void load_plug (Switchboard.Plug plug) {
+            search_box.text = "";
             Idle.add (() => {
                 if (!loaded_plugs.contains (plug.code_name)) {
                     stack.add_named (plug.get_widget (), plug.code_name);
@@ -231,11 +232,18 @@ namespace Switchboard {
             stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
             stack.add_named (category_view, "main");
 
+            var searchview = new SearchView ();
+
+            var search_stack = new Gtk.Stack ();
+            search_stack.transition_type = Gtk.StackTransitionType.OVER_DOWN_UP;
+            search_stack.add (stack);
+            search_stack.add (searchview);
+
             main_window = new Gtk.Window ();
             main_window.application = this;
             main_window.icon_name = "preferences-desktop";
             main_window.title = _("System Settings");
-            main_window.add (stack);
+            main_window.add (search_stack);
             main_window.set_size_request (640, 480);
             main_window.set_titlebar (headerbar);
 
@@ -262,14 +270,18 @@ namespace Switchboard {
 
             add_window (main_window);
 
-            search_box.changed.connect (() => {
-                category_view.filter_plugs (search_box.get_text ());
+            search_box.search_changed.connect (() => {
+                if (search_box.text_length > 0) {
+                    search_stack.visible_child = searchview;
+                } else {
+                    search_stack.visible_child = stack;
+                }
             });
 
             search_box.key_press_event.connect ((event) => {
                 switch (event.keyval) {
                     case Gdk.Key.Return:
-                        category_view.activate_first_item ();
+                        searchview.activate_first_item ();
                         return true;
                     case Gdk.Key.Escape:
                         search_box.text = "";
@@ -330,7 +342,8 @@ namespace Switchboard {
             main_window.key_press_event.connect ((event) => {
                 // Down key from search_bar should move focus to CategoryVIew
                 if (search_box.has_focus && event.keyval == Gdk.Key.Down) {
-                    category_view.grab_focus_first_icon_view ();
+                    search_box.move_focus (Gtk.DirectionType.TAB_FORWARD);
+
                     return Gdk.EVENT_STOP;
                 }
 
@@ -390,7 +403,7 @@ namespace Switchboard {
         }
 
         // Try to find a supported plug, fallback paths like "foo/bar" to "foo"
-        private bool load_setting_path (string setting_path, Switchboard.PlugsManager plugsmanager) {
+        public bool load_setting_path (string setting_path, Switchboard.PlugsManager plugsmanager) {
             foreach (var plug in plugsmanager.get_plugs ()) {
                 var supported_settings = plug.supported_settings;
                 if (supported_settings == null) {

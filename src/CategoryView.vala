@@ -109,45 +109,8 @@ namespace Switchboard {
 
             unowned SwitchboardApp app = SwitchboardApp.instance;
             app.search_box.sensitive = true;
-            filter_plugs (app.search_box.get_text ());
 
-            if (plug_to_open != null && plug_to_open.has_suffix (plug.code_name)) {
-                app.load_plug (plug);
-                plug_to_open = null;
-            }
-        }
-
-        public void grab_focus_first_icon_view () {
-            if (personal_category.has_child ()) {
-                personal_category.focus_first_child ();
-            } else if (hardware_category.has_child ()) {
-                hardware_category.focus_first_child ();
-            } else if (network_category.has_child ()) {
-                network_category.focus_first_child ();
-            } else if (system_category.has_child ()) {
-                system_category.focus_first_child ();
-            }
-        }
-
-        public void activate_first_item () {
-            if (personal_category.has_child ()) {
-                personal_category.activate_first_child ();
-            } else if (hardware_category.has_child ()) {
-                hardware_category.activate_first_child ();
-            } else if (network_category.has_child ()) {
-                network_category.activate_first_child ();
-            } else if (system_category.has_child ()) {
-                system_category.activate_first_child ();
-            }
-        }
-
-        public void filter_plugs (string filter) {
             var any_found = false;
-
-            personal_category.filter ();
-            hardware_category.filter ();
-            network_category.filter ();
-            system_category.filter ();
 
             if (personal_category.has_child ()) {
                 any_found = true;
@@ -167,8 +130,11 @@ namespace Switchboard {
 
             if (any_found) {
                 visible_child_name = "category-grid";
-            } else {
-                show_alert (_("No Results for “%s”").printf (filter), _("Try changing search terms."), "edit-find-symbolic");
+            }
+
+            if (plug_to_open != null && plug_to_open.has_suffix (plug.code_name)) {
+                app.load_plug (plug);
+                plug_to_open = null;
             }
         }
 
