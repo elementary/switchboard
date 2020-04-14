@@ -342,7 +342,6 @@ namespace Switchboard {
                 // Down key from search_bar should move focus to CategoryVIew
                 if (search_box.has_focus && event.keyval == Gdk.Key.Down) {
                     search_box.move_focus (Gtk.DirectionType.TAB_FORWARD);
-
                     return Gdk.EVENT_STOP;
                 }
 
