@@ -11,6 +11,14 @@
     <p>A system settings application that focuses on modularity and simplicity.</p>
   </description>
   <releases>
+    <release version="2.4.0" date="2020-04-14" urgency="medium">
+      <description>
+        <p>New feature:</p>
+        <ul>
+          <li>Remember the last-viewed settings pane for a minute after closing</li>
+        </ul>
+      </description>
+    </release>
     <release version="2.3.9" date="2020-03-30" urgency="medium">
       <description>
         <ul>
@@ -20,11 +28,6 @@
     </release>
     <release version="2.3.8" date="2020-01-14" urgency="medium">
       <description>
-        <p>New features:</p>
-        <ul>
-          <li>Save and restore opened settings pane</li>
-        </ul>
-        <p>Improvements:</p>
         <ul>
           <li>Fix an issue that prevented tiling on small displays</li>
           <li>Fix an issue with restoring the correct window size</li>
