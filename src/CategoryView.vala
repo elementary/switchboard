@@ -117,18 +117,6 @@ namespace Switchboard {
             }
         }
 
-        public void grab_focus_first_icon_view () {
-            if (personal_category.has_child ()) {
-                personal_category.focus_first_child ();
-            } else if (hardware_category.has_child ()) {
-                hardware_category.focus_first_child ();
-            } else if (network_category.has_child ()) {
-                network_category.focus_first_child ();
-            } else if (system_category.has_child ()) {
-                system_category.focus_first_child ();
-            }
-        }
-
         public void activate_first_item () {
             if (personal_category.has_child ()) {
                 personal_category.activate_first_child ();

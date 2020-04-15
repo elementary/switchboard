@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-20 17:48+0000\n"
-"PO-Revision-Date: 2019-11-23 07:24+0000\n"
+"POT-Creation-Date: 2020-03-24 17:51+0000\n"
+"PO-Revision-Date: 2020-01-24 02:08+0000\n"
 "Last-Translator: Rodrigo Oliveira <rod.oliveira@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
 "switchboard/extra/pt_BR/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-02-13 05:44+0000\n"
 
 #: data/io.elementary.switchboard.desktop.in:4
@@ -46,19 +46,26 @@ msgstr ""
 "simplicidade."
 
 #: data/io.elementary.switchboard.appdata.xml.in:17
-msgid "Fix an issue that prevented tiling on small displays"
-msgstr "Corrige um problema que impedia a disposição em monitores pequenos"
-
-#: data/io.elementary.switchboard.appdata.xml.in:18
-msgid "Fix an issue with restoring the correct window size"
-msgstr "Corrige um problema que impedia a disposição em monitores pequenos"
-
-#: data/io.elementary.switchboard.appdata.xml.in:19
-#: data/io.elementary.switchboard.appdata.xml.in:28
+#: data/io.elementary.switchboard.appdata.xml.in:27
+#: data/io.elementary.switchboard.appdata.xml.in:36
 msgid "Updated translations"
 msgstr "Traduções atualizadas"
 
+#: data/io.elementary.switchboard.appdata.xml.in:24
+msgid "Fix an issue that prevented tiling on small displays"
+msgstr "Corrige um problema que impedia a disposição em monitores pequenos"
+
+#: data/io.elementary.switchboard.appdata.xml.in:25
+msgid "Fix an issue with restoring the correct window size"
+msgstr "Corrige um problema que impedia a disposição em monitores pequenos"
+
 #: data/io.elementary.switchboard.appdata.xml.in:26
+msgid "Make the category grid fill the available space when maximized"
+msgstr ""
+"Faça com que a grade de categoria preencha o espaço disponível quando "
+"maximizada"
+
+#: data/io.elementary.switchboard.appdata.xml.in:34
 msgid ""
 "Pressing the \"Down\" arrow key from the search box correctly focuses the "
 "first row"
@@ -66,11 +73,11 @@ msgstr ""
 "Pressionar a tecla de seta \"Para baixo\" na caixa de pesquisa focaliza "
 "corretamente a primeira linha"
 
-#: data/io.elementary.switchboard.appdata.xml.in:27
+#: data/io.elementary.switchboard.appdata.xml.in:35
 msgid "Drop dynamic items from the Dock secondary-click menu"
 msgstr "Solte itens dinâmicos no menu de clique secundário do Dock"
 
-#: data/io.elementary.switchboard.appdata.xml.in:42
+#: data/io.elementary.switchboard.appdata.xml.in:50
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
