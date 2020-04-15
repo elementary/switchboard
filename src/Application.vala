@@ -142,8 +142,14 @@ namespace Switchboard {
                     }
                 }
             } else if (saved_state.get_string ("plug") != "") {
+                int64 now = new DateTime.now_utc ().to_unix ();
+
                 foreach (var plug in plugsmanager.get_plugs ()) {
-                    if (plug.code_name.has_suffix (saved_state.get_string ("plug"))) {
+                    if (
+                        plug.code_name.has_suffix (saved_state.get_string ("plug")) &&
+                        // Only restore for one minute after close
+                        now < (saved_state.get_int64 ("window-close-time") + 60)
+                    ) {
                         load_plug (plug);
                         should_animate_next_transition = false;
                         opened_directly = true;
@@ -376,6 +382,8 @@ namespace Switchboard {
             if (current_plug != null) {
                 current_plug.hidden ();
             }
+
+            saved_state.set_int64 ("window-close-time", new DateTime.now_utc ().to_unix ());
 
             Gtk.main_quit ();
         }

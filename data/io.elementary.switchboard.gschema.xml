@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
   <schema path="/io/elementary/switchboard/saved-state/" id="io.elementary.switchboard.saved-state">
+    <key name="plug" type="s">
+      <default>""</default>
+      <summary>Most recent plug opened</summary>
+      <description>Codename of the most recent plug that was open to ensure we reopen the app to the right place</description>
+    </key>
+    <key name="window-close-time" type="x">
+      <!-- int64 min -->
+      <default>-9223372036854775808</default>
+      <summary>Time of most recent window close</summary>
+      <description>UNIX timestamp of when Switchboard was last closed to help determine whether to restore the most recent open plug</description>
+    </key>
     <key name="window-maximized" type="b">
       <default>false</default>
       <summary>Whether the window was maximized on last run</summary>
@@ -15,11 +26,6 @@
       <default>(1024, 720)</default>
       <summary>Most recent window size</summary>
       <description>Most recent window size (width, height)</description>
-    </key>
-    <key name="plug" type="s">
-      <default>""</default>
-      <summary>Most recent plug opened</summary>
-      <description>Codename of the most recent plug that was open to ensure we reopen the app to the right place</description>
     </key>
   </schema>
   <schema path="/io/elementary/switchboard/preferences/" id="io.elementary.switchboard.preferences">
