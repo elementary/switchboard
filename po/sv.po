@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-20 17:48+0000\n"
+"POT-Creation-Date: 2020-04-20 23:04+0000\n"
 "PO-Revision-Date: 2018-10-22 20:03+0000\n"
 "Last-Translator: Fredrik B <frbo9002@gmail.com>\n"
 "Language-Team: Swedish <https://weblate.elementary.io/projects/switchboard/"
@@ -29,46 +29,46 @@ msgstr "Alla inställningar"
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Den angivna länken '%s' finns inte, går tillbala till huvudpanelen"
 
-#: src/Application.vala:216
+#: src/Application.vala:218
 msgid "Search Settings"
 msgstr "Sökinställningar"
 
-#: src/Application.vala:222 src/Application.vala:237 src/Application.vala:446
+#: src/Application.vala:224 src/Application.vala:246 src/Application.vala:459
 msgid "System Settings"
 msgstr "Systeminställningar"
 
-#: src/Application.vala:355
+#: src/Application.vala:368
 msgid "No Settings Found"
 msgstr "Inga inställningar hittades"
 
-#: src/Application.vala:355
+#: src/Application.vala:368
 msgid "Install some and re-launch Switchboard."
 msgstr "Installera några och starta om Switchboard."
 
-#: src/CategoryView.vala:171
-#, c-format
-msgid "No Results for “%s”"
-msgstr "Inga resultat för \"%s\""
-
-#: src/CategoryView.vala:171
-msgid "Try changing search terms."
-msgstr "Försök med att ändra söktermer."
-
-#: src/CategoryView.vala:178
+#: src/CategoryView.vala:144
 msgid "Personal"
 msgstr "Personligt"
 
-#: src/CategoryView.vala:180
+#: src/CategoryView.vala:146
 msgid "Hardware"
 msgstr "Hårdvara"
 
-#: src/CategoryView.vala:182
+#: src/CategoryView.vala:148
 msgid "Network & Wireless"
 msgstr "Nätverk och trådlöst"
 
-#: src/CategoryView.vala:184
+#: src/CategoryView.vala:150
 msgid "Administration"
 msgstr "Administration"
+
+#: src/SearchView.vala:27
+msgid "Try changing search terms."
+msgstr "Försök med att ändra söktermer."
+
+#: src/SearchView.vala:44
+#, c-format
+msgid "No Results for “%s”"
+msgstr "Inga resultat för \"%s\""
 
 #~ msgid "translator-credits"
 #~ msgstr ""

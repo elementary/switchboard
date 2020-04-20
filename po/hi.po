@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-20 17:48+0000\n"
+"POT-Creation-Date: 2020-04-20 23:04+0000\n"
 "PO-Revision-Date: 2018-03-18 03:47+0000\n"
 "Last-Translator: Anand Kumar <anand@anandkumar.net>\n"
 "Language-Team: Hindi <https://weblate.elementary.io/projects/switchboard/"
@@ -29,46 +29,46 @@ msgstr "सभी विन्यास"
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "निर्दिष्ट पैनल '%s' मौजूद नहीं है, मुख्य पैनल पर वापस जा रहा है"
 
-#: src/Application.vala:216
+#: src/Application.vala:218
 msgid "Search Settings"
 msgstr "विन्यास खोजें"
 
-#: src/Application.vala:222 src/Application.vala:237 src/Application.vala:446
+#: src/Application.vala:224 src/Application.vala:246 src/Application.vala:459
 msgid "System Settings"
 msgstr "तंत्र विन्यास"
 
-#: src/Application.vala:355
+#: src/Application.vala:368
 msgid "No Settings Found"
 msgstr "कोई विन्यास नहीं मिला"
 
-#: src/Application.vala:355
+#: src/Application.vala:368
 msgid "Install some and re-launch Switchboard."
 msgstr "कुछ इनस्टॉल कर स्विचबोर्ड पुनः प्रारम्भ करें."
 
-#: src/CategoryView.vala:171
-#, c-format
-msgid "No Results for “%s”"
-msgstr "“%s” के लिए कोई परिणाम नहीं"
-
-#: src/CategoryView.vala:171
-msgid "Try changing search terms."
-msgstr "ख़ोज के लिए कोई और पद चुनें."
-
-#: src/CategoryView.vala:178
+#: src/CategoryView.vala:144
 msgid "Personal"
 msgstr "निजी"
 
-#: src/CategoryView.vala:180
+#: src/CategoryView.vala:146
 msgid "Hardware"
 msgstr "हार्डवेयर"
 
-#: src/CategoryView.vala:182
+#: src/CategoryView.vala:148
 msgid "Network & Wireless"
 msgstr "नेटवर्क और वायरलेस"
 
-#: src/CategoryView.vala:184
+#: src/CategoryView.vala:150
 msgid "Administration"
 msgstr "प्रशासन"
+
+#: src/SearchView.vala:27
+msgid "Try changing search terms."
+msgstr "ख़ोज के लिए कोई और पद चुनें."
+
+#: src/SearchView.vala:44
+#, c-format
+msgid "No Results for “%s”"
+msgstr "“%s” के लिए कोई परिणाम नहीं"
 
 #~ msgid "translator-credits"
 #~ msgstr ""

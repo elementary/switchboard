@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-20 17:48+0000\n"
+"POT-Creation-Date: 2020-04-20 23:04+0000\n"
 "PO-Revision-Date: 2016-06-29 14:16+0000\n"
 "Last-Translator: Indrit Bashkimi <indrit.bashkimi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,46 +22,46 @@ msgstr "Të gjithë rregullimet"
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr ""
 
-#: src/Application.vala:216
+#: src/Application.vala:218
 msgid "Search Settings"
 msgstr "Kërko rregullime"
 
-#: src/Application.vala:222 src/Application.vala:237 src/Application.vala:446
+#: src/Application.vala:224 src/Application.vala:246 src/Application.vala:459
 msgid "System Settings"
 msgstr "Rregullimet e sistemit"
 
-#: src/Application.vala:355
+#: src/Application.vala:368
 msgid "No Settings Found"
 msgstr "Nuk u gjetën rregullime"
 
-#: src/Application.vala:355
+#: src/Application.vala:368
 msgid "Install some and re-launch Switchboard."
 msgstr "Instalo diçka dhe rinis Switchboard."
 
-#: src/CategoryView.vala:171
-#, c-format
-msgid "No Results for “%s”"
-msgstr "Asnjë rezultat për “%s”"
-
-#: src/CategoryView.vala:171
-msgid "Try changing search terms."
-msgstr "Provo të ndryshosh termat e kërkimit."
-
-#: src/CategoryView.vala:178
+#: src/CategoryView.vala:144
 msgid "Personal"
 msgstr "Personale"
 
-#: src/CategoryView.vala:180
+#: src/CategoryView.vala:146
 msgid "Hardware"
 msgstr "Hardware"
 
-#: src/CategoryView.vala:182
+#: src/CategoryView.vala:148
 msgid "Network & Wireless"
 msgstr "Rrjeti & Wireless"
 
-#: src/CategoryView.vala:184
+#: src/CategoryView.vala:150
 msgid "Administration"
 msgstr "Administrimi"
+
+#: src/SearchView.vala:27
+msgid "Try changing search terms."
+msgstr "Provo të ndryshosh termat e kërkimit."
+
+#: src/SearchView.vala:44
+#, c-format
+msgid "No Results for “%s”"
+msgstr "Asnjë rezultat për “%s”"
 
 #~ msgid "translator-credits"
 #~ msgstr ""

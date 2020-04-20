@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-20 17:48+0000\n"
+"POT-Creation-Date: 2020-04-20 23:04+0000\n"
 "PO-Revision-Date: 2018-04-25 00:03+0000\n"
 "Last-Translator: Jan Marek <janmarek28@gmail.com>\n"
 "Language-Team: Czech <https://weblate.elementary.io/projects/switchboard/"
@@ -29,46 +29,46 @@ msgstr "Všechna nastavení"
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Zadaný odkaz '%s' neexistuje, probíhá návrat zpět do hlavního panelu"
 
-#: src/Application.vala:216
+#: src/Application.vala:218
 msgid "Search Settings"
 msgstr "Hledat v nastavení"
 
-#: src/Application.vala:222 src/Application.vala:237 src/Application.vala:446
+#: src/Application.vala:224 src/Application.vala:246 src/Application.vala:459
 msgid "System Settings"
 msgstr "Nastavení systému"
 
-#: src/Application.vala:355
+#: src/Application.vala:368
 msgid "No Settings Found"
 msgstr "Nastavení nenalezena"
 
-#: src/Application.vala:355
+#: src/Application.vala:368
 msgid "Install some and re-launch Switchboard."
 msgstr "Nainstalujte nějaká a znovu spusťte Switchboard."
 
-#: src/CategoryView.vala:171
-#, c-format
-msgid "No Results for “%s”"
-msgstr "Žádné výsledky pro „%s“"
-
-#: src/CategoryView.vala:171
-msgid "Try changing search terms."
-msgstr "Zkuste změnit vyhledávaný výraz."
-
-#: src/CategoryView.vala:178
+#: src/CategoryView.vala:144
 msgid "Personal"
 msgstr "Osobní"
 
-#: src/CategoryView.vala:180
+#: src/CategoryView.vala:146
 msgid "Hardware"
 msgstr "Hardware"
 
-#: src/CategoryView.vala:182
+#: src/CategoryView.vala:148
 msgid "Network & Wireless"
 msgstr "Síť a wi-fi"
 
-#: src/CategoryView.vala:184
+#: src/CategoryView.vala:150
 msgid "Administration"
 msgstr "Systém"
+
+#: src/SearchView.vala:27
+msgid "Try changing search terms."
+msgstr "Zkuste změnit vyhledávaný výraz."
+
+#: src/SearchView.vala:44
+#, c-format
+msgid "No Results for “%s”"
+msgstr "Žádné výsledky pro „%s“"
 
 #~ msgid "translator-credits"
 #~ msgstr ""
