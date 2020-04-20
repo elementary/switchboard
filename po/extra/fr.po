@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-24 17:51+0000\n"
+"POT-Creation-Date: 2020-04-20 23:04+0000\n"
 "PO-Revision-Date: 2020-01-16 09:07+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/switchboard/extra/"
@@ -46,30 +46,35 @@ msgstr ""
 "modularité et la simplicité."
 
 #: data/io.elementary.switchboard.appdata.xml.in:17
-#: data/io.elementary.switchboard.appdata.xml.in:27
-#: data/io.elementary.switchboard.appdata.xml.in:36
+msgid "Redesign search results view"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:18
+#: data/io.elementary.switchboard.appdata.xml.in:25
+#: data/io.elementary.switchboard.appdata.xml.in:35
+#: data/io.elementary.switchboard.appdata.xml.in:44
 msgid "Updated translations"
 msgstr "Mise à jour des traductions"
 
-#: data/io.elementary.switchboard.appdata.xml.in:24
+#: data/io.elementary.switchboard.appdata.xml.in:32
 msgid "Fix an issue that prevented tiling on small displays"
 msgstr ""
 "Correction d'un problème qui empêchait l'affichage en tuiles sur de petits "
 "écrans"
 
-#: data/io.elementary.switchboard.appdata.xml.in:25
+#: data/io.elementary.switchboard.appdata.xml.in:33
 msgid "Fix an issue with restoring the correct window size"
 msgstr ""
 "Correction d'un problème avec la restauration de la taille correcte de la "
 "fenêtre"
 
-#: data/io.elementary.switchboard.appdata.xml.in:26
+#: data/io.elementary.switchboard.appdata.xml.in:34
 msgid "Make the category grid fill the available space when maximized"
 msgstr ""
 "La grille des catégories remplit désormais tout l'espace disponible lors de "
 "l'agrandissement de la fenêtre"
 
-#: data/io.elementary.switchboard.appdata.xml.in:34
+#: data/io.elementary.switchboard.appdata.xml.in:42
 msgid ""
 "Pressing the \"Down\" arrow key from the search box correctly focuses the "
 "first row"
@@ -77,11 +82,11 @@ msgstr ""
 "Appuyer sur la flèche « Bas » depuis la boîte de recherche devrait "
 "correctement sélectionner la première ligne"
 
-#: data/io.elementary.switchboard.appdata.xml.in:35
+#: data/io.elementary.switchboard.appdata.xml.in:43
 msgid "Drop dynamic items from the Dock secondary-click menu"
 msgstr "Éléments dynamiques dans le menu contextuel au clic droit dans le Dock"
 
-#: data/io.elementary.switchboard.appdata.xml.in:50
+#: data/io.elementary.switchboard.appdata.xml.in:58
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
