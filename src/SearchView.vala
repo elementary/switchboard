@@ -132,6 +132,8 @@ public class Switchboard.SearchView : Gtk.ScrolledWindow {
             var image = new Gtk.Image.from_icon_name (icon_name, Gtk.IconSize.DND);
 
             var label = new Gtk.Label (description);
+            label.ellipsize = Pango.EllipsizeMode.MIDDLE;
+            label.max_width_chars = 80;
             label.width_chars = 80;
             label.xalign = 0;
 
