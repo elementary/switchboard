@@ -177,6 +177,8 @@ namespace Switchboard {
                     previous_plugs.add (plug);
                 }
 
+                search_box.text = "";
+
                 // Launch plug's executable
                 navigation_button.label = all_settings_label;
                 navigation_button.show ();
