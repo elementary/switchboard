@@ -54,7 +54,8 @@ namespace Switchboard {
             Gdk.Key.Down,
             Gdk.Key.Left,
             Gdk.Key.Right,
-            Gdk.Key.Return
+            Gdk.Key.Return,
+            Gdk.Key.Tab
         };
 
         construct {
@@ -283,6 +284,9 @@ namespace Switchboard {
                     case Gdk.Key.Return:
                         searchview.activate_first_item ();
                         return true;
+                    case Gdk.Key.Down:
+                        search_box.move_focus (Gtk.DirectionType.TAB_FORWARD);
+                        return Gdk.EVENT_STOP;
                     case Gdk.Key.Escape:
                         search_box.text = "";
                         return true;
@@ -340,12 +344,6 @@ namespace Switchboard {
             });
 
             main_window.key_press_event.connect ((event) => {
-                // Down key from search_bar should move focus to CategoryVIew
-                if (search_box.has_focus && event.keyval == Gdk.Key.Down) {
-                    search_box.move_focus (Gtk.DirectionType.TAB_FORWARD);
-                    return Gdk.EVENT_STOP;
-                }
-
                 // arrow key is being used by CategoryView to navigate
                 if (event.keyval in NAVIGATION_KEYS)
                     return Gdk.EVENT_PROPAGATE;
