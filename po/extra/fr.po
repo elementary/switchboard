@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-20 23:04+0000\n"
-"PO-Revision-Date: 2020-01-16 09:07+0000\n"
+"PO-Revision-Date: 2020-04-22 14:10+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/switchboard/extra/"
 "fr/>\n"
@@ -47,7 +47,7 @@ msgstr ""
 
 #: data/io.elementary.switchboard.appdata.xml.in:17
 msgid "Redesign search results view"
-msgstr ""
+msgstr "Refonte de la vue des résultats de recherche"
 
 #: data/io.elementary.switchboard.appdata.xml.in:18
 #: data/io.elementary.switchboard.appdata.xml.in:25
