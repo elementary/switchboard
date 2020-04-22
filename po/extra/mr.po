@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-20 23:04+0000\n"
+"POT-Creation-Date: 2020-04-22 23:04+0000\n"
 "PO-Revision-Date: 2020-02-06 20:08+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/switchboard/"
@@ -47,34 +47,38 @@ msgid "Redesign search results view"
 msgstr ""
 
 #: data/io.elementary.switchboard.appdata.xml.in:18
-#: data/io.elementary.switchboard.appdata.xml.in:25
-#: data/io.elementary.switchboard.appdata.xml.in:35
-#: data/io.elementary.switchboard.appdata.xml.in:44
+msgid "Tab key moves focus out of search"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:19
+#: data/io.elementary.switchboard.appdata.xml.in:26
+#: data/io.elementary.switchboard.appdata.xml.in:36
+#: data/io.elementary.switchboard.appdata.xml.in:45
 msgid "Updated translations"
 msgstr "अद्ययावत भाषांतर"
 
-#: data/io.elementary.switchboard.appdata.xml.in:32
+#: data/io.elementary.switchboard.appdata.xml.in:33
 msgid "Fix an issue that prevented tiling on small displays"
 msgstr "छोट्या प्रदर्शनांवर टाइल लावण्यास रोखणारी समस्या सोडवा"
 
-#: data/io.elementary.switchboard.appdata.xml.in:33
+#: data/io.elementary.switchboard.appdata.xml.in:34
 msgid "Fix an issue with restoring the correct window size"
 msgstr "योग्य विंडो आकार पुनर्संचयित करण्याशी संबंधित समस्येचे निराकरण करा"
 
-#: data/io.elementary.switchboard.appdata.xml.in:34
+#: data/io.elementary.switchboard.appdata.xml.in:35
 msgid "Make the category grid fill the available space when maximized"
 msgstr "सर्वात मोठा केल्यावर श्रेणी ग्रीड उपलब्ध जागा भरा"
 
-#: data/io.elementary.switchboard.appdata.xml.in:42
+#: data/io.elementary.switchboard.appdata.xml.in:43
 msgid ""
 "Pressing the \"Down\" arrow key from the search box correctly focuses the "
 "first row"
 msgstr "शोध बॉक्समधून \"डाऊन\" बाण की दाबल्याने योग्य प्रकारे प्रथम पंक्ती केंद्रित होते"
 
-#: data/io.elementary.switchboard.appdata.xml.in:43
+#: data/io.elementary.switchboard.appdata.xml.in:44
 msgid "Drop dynamic items from the Dock secondary-click menu"
 msgstr "डॉक दुय्यम-क्लिक मेनूमधून डायनॅमिक आयटम ड्रॉप करा"
 
-#: data/io.elementary.switchboard.appdata.xml.in:58
+#: data/io.elementary.switchboard.appdata.xml.in:59
 msgid "elementary, Inc."
 msgstr "एलिमेंटरी, Inc ."
