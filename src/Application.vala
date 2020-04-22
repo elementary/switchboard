@@ -49,14 +49,6 @@ namespace Switchboard {
         private static string? link = null;
         private static bool opened_directly = false;
         private static bool should_animate_next_transition = true;
-        private const uint[] NAVIGATION_KEYS = {
-            Gdk.Key.Up,
-            Gdk.Key.Down,
-            Gdk.Key.Left,
-            Gdk.Key.Right,
-            Gdk.Key.Return,
-            Gdk.Key.Tab
-        };
 
         construct {
             application_id = "io.elementary.switchboard";
@@ -283,18 +275,18 @@ namespace Switchboard {
                 switch (event.keyval) {
                     case Gdk.Key.Return:
                         searchview.activate_first_item ();
-                        return true;
+                        return Gdk.EVENT_STOP;
                     case Gdk.Key.Down:
                         search_box.move_focus (Gtk.DirectionType.TAB_FORWARD);
                         return Gdk.EVENT_STOP;
                     case Gdk.Key.Escape:
                         search_box.text = "";
-                        return true;
+                        return Gdk.EVENT_STOP;
                     default:
                         break;
                 }
 
-                return false;
+                return Gdk.EVENT_PROPAGATE;
             });
 
             back_action.activate.connect (() => {
@@ -344,13 +336,21 @@ namespace Switchboard {
             });
 
             main_window.key_press_event.connect ((event) => {
-                // arrow key is being used by CategoryView to navigate
-                if (event.keyval in NAVIGATION_KEYS)
-                    return Gdk.EVENT_PROPAGATE;
+                switch (event.keyval) {
+                    // arrow or tab key is being used by CategoryView to navigate
+                    case Gdk.Key.Up:
+                    case Gdk.Key.Down:
+                    case Gdk.Key.Left:
+                    case Gdk.Key.Right:
+                    case Gdk.Key.Return:
+                    case Gdk.Key.Tab:
+                        return Gdk.EVENT_PROPAGATE;
+                }
 
                 // Don't focus if it is a modifier or if search_box is already focused
-                if ((event.is_modifier == 0) && !search_box.has_focus)
+                if ((event.is_modifier == 0) && !search_box.has_focus) {
                     search_box.grab_focus ();
+                }
 
                 return Gdk.EVENT_PROPAGATE;
             });
