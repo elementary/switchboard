@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-20 23:04+0000\n"
+"POT-Creation-Date: 2020-04-22 23:04+0000\n"
 "PO-Revision-Date: 2018-09-25 00:02+0000\n"
 "Last-Translator: Axel Philip Advento <badwolf.bloodseeker.rev@gmail.com>\n"
 "Language-Team: Tagalog <https://weblate.elementary.io/projects/switchboard/"
@@ -25,24 +25,24 @@ msgstr ""
 msgid "All Settings"
 msgstr "Lahat nang Settings"
 
-#: src/Application.vala:125
+#: src/Application.vala:118
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr ""
 
-#: src/Application.vala:218
+#: src/Application.vala:211
 msgid "Search Settings"
 msgstr "Paano hanapin"
 
-#: src/Application.vala:224 src/Application.vala:246 src/Application.vala:459
+#: src/Application.vala:217 src/Application.vala:239 src/Application.vala:457
 msgid "System Settings"
 msgstr "Mga Settings ng System"
 
-#: src/Application.vala:368
+#: src/Application.vala:366
 msgid "No Settings Found"
 msgstr ""
 
-#: src/Application.vala:368
+#: src/Application.vala:366
 msgid "Install some and re-launch Switchboard."
 msgstr ""
 
