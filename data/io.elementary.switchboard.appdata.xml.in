@@ -15,6 +15,7 @@
       <description>
         <ul>
           <li>Redesign search results view</li>
+          <li>Tab key moves focus out of search</li>
           <li>Updated translations</li>
         </ul>
       </description>
