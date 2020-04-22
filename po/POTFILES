@@ -1,7 +1,8 @@
 lib/PlugsManager.vala
 lib/Plug.vala
 src/Application.vala
-src/PlugsSearch.vala
 src/CategoryView.vala
-src/Widgets/CategoryIcon.vala
+src/PlugsSearch.vala
+src/SearchView.vala
 src/Widgets/CategoryFlowBox.vala
+src/Widgets/CategoryIcon.vala

@@ -11,11 +11,13 @@
     <p>A system settings application that focuses on modularity and simplicity.</p>
   </description>
   <releases>
-    <release version="2.4.0" date="2020-04-14" urgency="medium">
+    <release version="2.4.0" date="2020-04-20" urgency="medium">
       <description>
-        <p>New feature:</p>
         <ul>
+          <li>Redesign search results view</li>
+          <li>Tab key moves focus out of search</li>
           <li>Remember the last-viewed settings pane for a minute after closing</li>
+          <li>Updated translations</li>
         </ul>
       </description>
     </release>
