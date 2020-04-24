@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-22 23:04+0000\n"
-"PO-Revision-Date: 2020-04-22 14:10+0000\n"
+"PO-Revision-Date: 2020-04-24 17:30+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/switchboard/"
 "extra/ca/>\n"
@@ -51,7 +51,7 @@ msgstr "Redisseny de la vista dels resultats de la cerca"
 
 #: data/io.elementary.switchboard.appdata.xml.in:18
 msgid "Tab key moves focus out of search"
-msgstr ""
+msgstr "La tecla de tabulació mou el focus fora de la cerca."
 
 #: data/io.elementary.switchboard.appdata.xml.in:19
 #: data/io.elementary.switchboard.appdata.xml.in:26
