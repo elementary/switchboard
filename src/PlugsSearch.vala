@@ -20,7 +20,6 @@
 */
 
 namespace Switchboard {
-
     public struct SearchEntry {
         string plug_name;
         string ui_elements;
@@ -28,14 +27,13 @@ namespace Switchboard {
     }
 
     public class PlugsSearch {
-        
         public Gee.ArrayList<SearchEntry?> search_entries;
         public bool ready {get; private set;}
 
         public PlugsSearch () {
             ready = false;
-            search_entries = new Gee.ArrayList<SearchEntry?>();
-            cache_search_entries.begin((obj, res) => {
+            search_entries = new Gee.ArrayList<SearchEntry?> ();
+            cache_search_entries.begin ((obj, res) => {
                 cache_search_entries.end (res);
                 ready = true;
             });
@@ -49,7 +47,7 @@ namespace Switchboard {
                 var tmp_entries = yield plug.search ("");
 
                 foreach (var entry in tmp_entries.entries) {
-                    string [] tmp = entry.key.split(" → ");
+                    string [] tmp = entry.key.split (" → ");
                     SearchEntry tmp_entry = SearchEntry ();
                     tmp_entry.plug_name = tmp[0];
                     string ui_elements_name = entry.key;

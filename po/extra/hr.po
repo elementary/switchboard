@@ -7,16 +7,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:44+0200\n"
-"PO-Revision-Date: 2017-01-11 23:09+0000\n"
-"Last-Translator: gogo <trebelnik2@gmail.com>\n"
-"Language-Team: Croatian <hr@li.org>\n"
+"POT-Creation-Date: 2020-04-22 23:04+0000\n"
+"PO-Revision-Date: 2020-04-11 00:10+0000\n"
+"Last-Translator: gogogogi <trebelnik2@gmail.com>\n"
+"Language-Team: Croatian <https://l10n.elementary.io/projects/switchboard/"
+"extra/hr/>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
-"X-Generator: Launchpad (build 18315)\n"
 
 #: data/io.elementary.switchboard.desktop.in:4
 #: data/io.elementary.switchboard.appdata.xml.in:8
@@ -43,8 +46,45 @@ msgstr ""
 "Aplikacija postavka sustava koja je usredotočena na prilagodljivost i "
 "jednostavnost."
 
-#: data/io.elementary.switchboard.appdata.xml.in:24
-msgid "elementary LLC."
+#: data/io.elementary.switchboard.appdata.xml.in:17
+msgid "Redesign search results view"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:18
+msgid "Tab key moves focus out of search"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:19
+#: data/io.elementary.switchboard.appdata.xml.in:26
+#: data/io.elementary.switchboard.appdata.xml.in:36
+#: data/io.elementary.switchboard.appdata.xml.in:45
+msgid "Updated translations"
+msgstr "Nadopunjeni prijevodi"
+
+#: data/io.elementary.switchboard.appdata.xml.in:33
+msgid "Fix an issue that prevented tiling on small displays"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:34
+msgid "Fix an issue with restoring the correct window size"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:35
+msgid "Make the category grid fill the available space when maximized"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:43
+msgid ""
+"Pressing the \"Down\" arrow key from the search box correctly focuses the "
+"first row"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:44
+msgid "Drop dynamic items from the Dock secondary-click menu"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:59
+msgid "elementary, Inc."
 msgstr ""
 
 #~ msgid "About System Settings"

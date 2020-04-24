@@ -21,7 +21,6 @@
 
 namespace Switchboard {
     public static int main (string[] args) {
-
         // Only known plug that requires GtkClutter is switchboard-plug-display
         GtkClutter.init (ref args);
 
@@ -31,11 +30,9 @@ namespace Switchboard {
 
     public class SwitchboardApp : Gtk.Application {
         private Gtk.Window main_window;
-        private Gtk.ScrolledWindow category_scrolled;
         private Gtk.Stack stack;
         private Gtk.HeaderBar headerbar;
 
-        private Granite.Widgets.AlertView alert_view;
         private Gtk.Button navigation_button;
         public Switchboard.CategoryView category_view;
 
@@ -48,17 +45,10 @@ namespace Switchboard {
         public Gtk.SearchEntry search_box { public get; private set; }
 
         private static string? plug_to_open = null;
-        private static string? open_window  = null;
-        private static string? link  = null;
+        private static string? open_window = null;
+        private static string? link = null;
         private static bool opened_directly = false;
         private static bool should_animate_next_transition = true;
-        private const uint[] NAVIGATION_KEYS = {
-            Gdk.Key.Up,
-            Gdk.Key.Down,
-            Gdk.Key.Left,
-            Gdk.Key.Right,
-            Gdk.Key.Return
-        };
 
         construct {
             application_id = "io.elementary.switchboard";
@@ -102,7 +92,7 @@ namespace Switchboard {
                 if (":" in name) {
                     var parts = name.split (":");
                     plug_to_open = gcc_to_switchboard_code_name (parts[0]);
-                    open_window  = parts[1];
+                    open_window = parts[1];
                 } else {
                     plug_to_open = gcc_to_switchboard_code_name (name);
                 }
@@ -180,25 +170,7 @@ namespace Switchboard {
             Gtk.main ();
         }
 
-        public void hide_alert () {
-            stack.set_visible_child_full ("main", Gtk.StackTransitionType.NONE);
-        }
-
-        public void show_alert (string primary_text, string secondary_text, string icon_name) {
-            alert_view.show_all ();
-            alert_view.title = primary_text;
-            alert_view.description = secondary_text;
-            alert_view.icon_name = icon_name;
-            stack.set_visible_child_full ("alert", Gtk.StackTransitionType.NONE);
-        }
-
         public void load_plug (Switchboard.Plug plug) {
-            //FIXME lower priority for gcc plugs due crash bug #1528361
-            var priority = GLib.Priority.DEFAULT_IDLE;
-            if (plug.code_name.contains ("-gcc-")) {
-                priority = GLib.Priority.LOW;
-            }
-
             Idle.add (() => {
                 if (!loaded_plugs.contains (plug.code_name)) {
                     stack.add_named (plug.get_widget (), plug.code_name);
@@ -212,7 +184,7 @@ namespace Switchboard {
                         } else {
                             plug.search_callback (entry.open_window);
                         }
-                        debug ("open section:%s of plug: %s",entry.open_window, plug.display_name);
+                        debug ("open section:%s of plug: %s", entry.open_window, plug.display_name);
                         return true;
                     }
 
@@ -222,6 +194,8 @@ namespace Switchboard {
                 if (previous_plugs.size == 0 || previous_plugs.@get (0) != plug) {
                     previous_plugs.add (plug);
                 }
+
+                search_box.text = "";
 
                 // Launch plug's executable
                 navigation_button.label = all_settings_label;
@@ -238,8 +212,7 @@ namespace Switchboard {
 
                 switch_to_plug (plug);
                 return false;
-            }, priority);
-
+            }, GLib.Priority.DEFAULT_IDLE);
         }
 
         private void build () {
@@ -271,27 +244,26 @@ namespace Switchboard {
             headerbar.pack_end (search_box);
 
             category_view = new Switchboard.CategoryView (plug_to_open);
-            category_view.margin_top = 12;
             category_view.plug_selected.connect ((plug) => load_plug (plug));
             category_view.load_default_plugs.begin ();
 
-            category_scrolled = new Gtk.ScrolledWindow (null, null);
-            category_scrolled.add (category_view);
-
-            alert_view = new Granite.Widgets.AlertView ("", "", "");
-            alert_view.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
-
             stack = new Gtk.Stack ();
             stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
-            stack.add_named (alert_view, "alert");
-            stack.add_named (category_scrolled, "main");
+            stack.add_named (category_view, "main");
 
-            main_window = new Gtk.Window();
+            var searchview = new SearchView ();
+
+            var search_stack = new Gtk.Stack ();
+            search_stack.transition_type = Gtk.StackTransitionType.OVER_DOWN_UP;
+            search_stack.add (stack);
+            search_stack.add (searchview);
+
+            main_window = new Gtk.Window ();
             main_window.application = this;
             main_window.icon_name = "preferences-desktop";
             main_window.title = _("System Settings");
-            main_window.add (stack);
-            main_window.set_size_request (910, 640);
+            main_window.add (search_stack);
+            main_window.set_size_request (640, 480);
             main_window.set_titlebar (headerbar);
 
             int window_x, window_y;
@@ -301,7 +273,7 @@ namespace Switchboard {
             settings.get ("window-position", "(ii)", out window_x, out window_y);
             settings.get ("window-size", "(ii)", out rect.width, out rect.height);
 
-            if (window_x != -1 ||  window_y != -1) {
+            if (window_x != -1 || window_y != -1) {
                 main_window.move (window_x, window_y);
             }
 
@@ -317,23 +289,30 @@ namespace Switchboard {
 
             add_window (main_window);
 
-            search_box.changed.connect (() => {
-                category_view.filter_plugs (search_box.get_text ());
+            search_box.search_changed.connect (() => {
+                if (search_box.text_length > 0) {
+                    search_stack.visible_child = searchview;
+                } else {
+                    search_stack.visible_child = stack;
+                }
             });
 
             search_box.key_press_event.connect ((event) => {
                 switch (event.keyval) {
                     case Gdk.Key.Return:
-                        category_view.activate_first_item ();
-                        return true;
+                        searchview.activate_first_item ();
+                        return Gdk.EVENT_STOP;
+                    case Gdk.Key.Down:
+                        search_box.move_focus (Gtk.DirectionType.TAB_FORWARD);
+                        return Gdk.EVENT_STOP;
                     case Gdk.Key.Escape:
                         search_box.text = "";
-                        return true;
+                        return Gdk.EVENT_STOP;
                     default:
                         break;
                 }
 
-                return false;
+                return Gdk.EVENT_PROPAGATE;
             });
 
             back_action.activate.connect (() => {
@@ -383,21 +362,23 @@ namespace Switchboard {
             });
 
             main_window.key_press_event.connect ((event) => {
-                // Down key from search_bar should move focus to CategoryVIew
-                if (search_box.has_focus && event.keyval == Gdk.Key.Down) {
-                    category_view.grab_focus_first_icon_view ();
-                    return false;
+                switch (event.keyval) {
+                    // arrow or tab key is being used by CategoryView to navigate
+                    case Gdk.Key.Up:
+                    case Gdk.Key.Down:
+                    case Gdk.Key.Left:
+                    case Gdk.Key.Right:
+                    case Gdk.Key.Return:
+                    case Gdk.Key.Tab:
+                        return Gdk.EVENT_PROPAGATE;
                 }
 
-                // arrow key is being used by CategoryView to navigate
-                if (event.keyval in NAVIGATION_KEYS)
-                    return false;
-
                 // Don't focus if it is a modifier or if search_box is already focused
-                if ((event.is_modifier == 0) && !search_box.has_focus)
+                if ((event.is_modifier == 0) && !search_box.has_focus) {
                     search_box.grab_focus ();
+                }
 
-                return false;
+                return Gdk.EVENT_PROPAGATE;
             });
 
             main_window.size_allocate.connect (() => {
@@ -407,7 +388,7 @@ namespace Switchboard {
             });
 
             if (Switchboard.PlugsManager.get_default ().has_plugs () == false) {
-                show_alert (_("No Settings Found"), _("Install some and re-launch Switchboard."), "dialog-warning");
+                category_view.show_alert (_("No Settings Found"), _("Install some and re-launch Switchboard."), "dialog-warning");
                 search_box.sensitive = false;
             } else {
                 search_box.sensitive = true;
@@ -445,7 +426,7 @@ namespace Switchboard {
         }
 
         // Try to find a supported plug, fallback paths like "foo/bar" to "foo"
-        private bool load_setting_path (string setting_path, Switchboard.PlugsManager plugsmanager) {
+        public bool load_setting_path (string setting_path, Switchboard.PlugsManager plugsmanager) {
             foreach (var plug in plugsmanager.get_plugs ()) {
                 var supported_settings = plug.supported_settings;
                 if (supported_settings == null) {
@@ -491,12 +472,10 @@ namespace Switchboard {
             search_box.sensitive = false;
             plug.shown ();
             stack.set_visible_child_name (plug.code_name);
-            category_scrolled.hide ();
         }
 
         private bool switch_to_icons () {
             previous_plugs.clear ();
-            category_scrolled.show ();
             stack.set_visible_child_full ("main", Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
             current_plug.hidden ();
 
@@ -543,4 +522,3 @@ namespace Switchboard {
         }
     }
 }
-

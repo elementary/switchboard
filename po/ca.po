@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:44+0200\n"
+"POT-Creation-Date: 2020-04-22 23:04+0000\n"
 "PO-Revision-Date: 2016-11-18 08:18+0000\n"
 "Last-Translator: Davidmp <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
@@ -18,55 +18,55 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-02-02 05:47+0000\n"
 "X-Generator: Launchpad (build 18315)\n"
 
-#: src/Application.vala:43
+#: src/Application.vala:40
 msgid "All Settings"
 msgstr "Tots els paràmetres"
 
-#: src/Application.vala:128
+#: src/Application.vala:118
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "L'enllaç especificat \"%s\" no existeix. Es torna al plafó principal."
 
-#: src/Application.vala:270
+#: src/Application.vala:211
 msgid "Search Settings"
 msgstr "Cerca paràmetres"
 
-#: src/Application.vala:276 src/Application.vala:299 src/Application.vala:513
+#: src/Application.vala:217 src/Application.vala:239 src/Application.vala:457
 msgid "System Settings"
 msgstr "Configuració del sistema"
 
-#: src/Application.vala:417
+#: src/Application.vala:366
 msgid "No Settings Found"
 msgstr "No s'ha trobat cap paràmetre"
 
-#: src/Application.vala:417
+#: src/Application.vala:366
 msgid "Install some and re-launch Switchboard."
 msgstr "Instal·leu-ne alguns i torneu a iniciar el Switchboard."
 
-#: src/CategoryView.vala:155
-#, c-format
-msgid "No Results for “%s”"
-msgstr "Cap resultat per a “%s”"
-
-#: src/CategoryView.vala:155
-msgid "Try changing search terms."
-msgstr "Proveu de canviar els termes de la cerca."
-
-#: src/CategoryView.vala:162
+#: src/CategoryView.vala:144
 msgid "Personal"
 msgstr "Personal"
 
-#: src/CategoryView.vala:164
+#: src/CategoryView.vala:146
 msgid "Hardware"
 msgstr "Maquinari"
 
-#: src/CategoryView.vala:166
+#: src/CategoryView.vala:148
 msgid "Network & Wireless"
 msgstr "Xarxa i xarxa sense fil"
 
-#: src/CategoryView.vala:168
+#: src/CategoryView.vala:150
 msgid "Administration"
 msgstr "Administració"
+
+#: src/SearchView.vala:27
+msgid "Try changing search terms."
+msgstr "Proveu de canviar els termes de la cerca."
+
+#: src/SearchView.vala:44
+#, c-format
+msgid "No Results for “%s”"
+msgstr "Cap resultat per a “%s”"
 
 #~ msgid "translator-credits"
 #~ msgstr ""

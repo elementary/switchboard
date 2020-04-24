@@ -30,6 +30,7 @@ namespace Switchboard {
 
         construct {
             var category_label = new Granite.HeaderLabel (Switchboard.CategoryView.get_category_name (category));
+            category_label.vexpand = true;
 
             var h_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
             h_separator.hexpand = true;
@@ -40,7 +41,10 @@ namespace Switchboard {
             flowbox.column_spacing = 12;
             flowbox.row_spacing = 12;
             flowbox.homogeneous = true;
+            flowbox.min_children_per_line = 5;
+            flowbox.max_children_per_line = 5;
             flowbox.selection_mode = Gtk.SelectionMode.NONE;
+            flowbox.vexpand = true;
 
             margin_bottom = 12;
             margin_start = 12;
@@ -48,6 +52,8 @@ namespace Switchboard {
 
             column_spacing = 3;
             row_spacing = 6;
+
+            vexpand = true;
 
             attach (category_label, 0, 0, 1, 1);
             attach (h_separator, 1, 0, 1, 1);
@@ -57,7 +63,6 @@ namespace Switchboard {
                 Switchboard.SwitchboardApp.instance.load_plug (((CategoryIcon) child).plug);
             });
 
-            flowbox.set_filter_func (plug_filter_func);
             flowbox.set_sort_func (plug_sort_func);
         }
 
@@ -73,23 +78,6 @@ namespace Switchboard {
             flowbox.add (widget);
         }
 
-        public void activate_first_child () {
-            foreach (unowned Gtk.Widget child in flowbox.get_children ()) {
-                if (child.get_child_visible ()) {
-                    child.activate ();
-                    return;
-                }
-            }
-        }
-
-        public void filter () {
-            flowbox.invalidate_filter ();
-        }
-
-        public void focus_first_child () {
-            flowbox.get_child_at_index (0).grab_focus ();
-        }
-
         public bool has_child () {
            foreach (unowned Gtk.Widget child in flowbox.get_children ()) {
                if (child.get_child_visible ()) {
@@ -99,40 +87,6 @@ namespace Switchboard {
             }
 
             hide ();
-            return false;
-        }
-
-        private bool plug_filter_func (Gtk.FlowBoxChild child) {
-            var filter = SwitchboardApp.instance.search_box.get_text ();
-            var plug = ((CategoryIcon) child).plug;
-            if (plug.can_show == false) {
-                return false;
-            }
-
-            var plug_name = plug.display_name;
-            var plug_search = SwitchboardApp.instance.category_view.plug_search;
-            var plug_search_result = SwitchboardApp.instance.category_view.plug_search_result;
-
-            if (plug_search.ready) {
-                plug_search_result.clear ();
-
-                foreach (var tmp in plug_search.search_entries) {
-                    if (tmp.ui_elements.down ().contains (filter.down ())) {
-                        plug_search_result.add (tmp);
-                    }
-                }
-
-                foreach (var tmp in plug_search_result) {
-                    if (tmp.plug_name.down () in plug_name.down ()) {
-                        return true;
-                    }
-                }
-            }
-
-            if (filter.down () in plug_name.down ()) {
-                return true;
-            }
-
             return false;
         }
 

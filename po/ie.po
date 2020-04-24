@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:44+0200\n"
+"POT-Creation-Date: 2020-04-22 23:04+0000\n"
 "PO-Revision-Date: 2017-02-06 03:38+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,52 +13,52 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-02-07 05:38+0000\n"
 "X-Generator: Launchpad (build 18326)\n"
 
-#: src/Application.vala:43
+#: src/Application.vala:40
 msgid "All Settings"
 msgstr ""
 
-#: src/Application.vala:128
+#: src/Application.vala:118
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr ""
 
-#: src/Application.vala:270
+#: src/Application.vala:211
 msgid "Search Settings"
 msgstr ""
 
-#: src/Application.vala:276 src/Application.vala:299 src/Application.vala:513
+#: src/Application.vala:217 src/Application.vala:239 src/Application.vala:457
 msgid "System Settings"
 msgstr ""
 
-#: src/Application.vala:417
+#: src/Application.vala:366
 msgid "No Settings Found"
 msgstr ""
 
-#: src/Application.vala:417
+#: src/Application.vala:366
 msgid "Install some and re-launch Switchboard."
 msgstr ""
 
-#: src/CategoryView.vala:155
-#, c-format
-msgid "No Results for “%s”"
-msgstr ""
-
-#: src/CategoryView.vala:155
-msgid "Try changing search terms."
-msgstr ""
-
-#: src/CategoryView.vala:162
+#: src/CategoryView.vala:144
 msgid "Personal"
 msgstr ""
 
-#: src/CategoryView.vala:164
+#: src/CategoryView.vala:146
 msgid "Hardware"
 msgstr ""
 
-#: src/CategoryView.vala:166
+#: src/CategoryView.vala:148
 msgid "Network & Wireless"
 msgstr ""
 
-#: src/CategoryView.vala:168
+#: src/CategoryView.vala:150
 msgid "Administration"
+msgstr ""
+
+#: src/SearchView.vala:27
+msgid "Try changing search terms."
+msgstr ""
+
+#: src/SearchView.vala:44
+#, c-format
+msgid "No Results for “%s”"
 msgstr ""

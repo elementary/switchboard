@@ -21,7 +21,7 @@
 
 namespace Switchboard {
 
-    public class CategoryView : Gtk.Grid {
+    public class CategoryView : Gtk.Stack {
         public signal void plug_selected (Switchboard.Plug plug);
 
         public PlugsSearch plug_search { get; construct; }
@@ -33,8 +33,11 @@ namespace Switchboard {
 
         public string? plug_to_open { get; construct set; default = null; }
 
+        private Granite.Widgets.AlertView alert_view;
+
         construct {
-            orientation = Gtk.Orientation.VERTICAL;
+            alert_view = new Granite.Widgets.AlertView ("", "", "");
+            alert_view.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
 
             personal_category = new Switchboard.Category (Switchboard.Plug.Category.PERSONAL);
             hardware_category = new Switchboard.Category (Switchboard.Plug.Category.HARDWARE);
@@ -44,14 +47,29 @@ namespace Switchboard {
             plug_search = new PlugsSearch ();
             plug_search_result = new Gee.ArrayList<SearchEntry?> ();
 
-            add (personal_category);
-            add (hardware_category);
-            add (network_category);
-            add (system_category);
+            var category_grid = new Gtk.Grid ();
+            category_grid.margin_top = 12;
+            category_grid.orientation = Gtk.Orientation.VERTICAL;
+            category_grid.add (personal_category);
+            category_grid.add (hardware_category);
+            category_grid.add (network_category);
+            category_grid.add (system_category);
+
+            add (alert_view);
+            add_named (category_grid, "category-grid");
         }
 
         public CategoryView (string? plug = null) {
             Object (plug_to_open: plug);
+        }
+
+        public void show_alert (string primary_text, string secondary_text, string icon_name) {
+            alert_view.show_all ();
+            alert_view.title = primary_text;
+            alert_view.description = secondary_text;
+            alert_view.icon_name = icon_name;
+
+            visible_child = alert_view;
         }
 
         public async void load_default_plugs () {
@@ -91,47 +109,8 @@ namespace Switchboard {
 
             unowned SwitchboardApp app = SwitchboardApp.instance;
             app.search_box.sensitive = true;
-            filter_plugs (app.search_box.get_text ());
-#if HAVE_UNITY
-            app.update_libunity_quicklist ();
-#endif
-            if (plug_to_open != null && plug_to_open.has_suffix (plug.code_name)) {
-                app.load_plug (plug);
-                plug_to_open = null;
-            }
-        }
 
-        public void grab_focus_first_icon_view () {
-            if (personal_category.has_child ()) {
-                personal_category.focus_first_child ();
-            } else if (hardware_category.has_child ()) {
-                hardware_category.focus_first_child ();
-            } else if (network_category.has_child ()) {
-                network_category.focus_first_child ();
-            } else if (system_category.has_child ()) {
-                system_category.focus_first_child ();
-            }
-        }
-
-        public void activate_first_item () {
-            if (personal_category.has_child ()) {
-                personal_category.activate_first_child ();
-            } else if (hardware_category.has_child ()) {
-                hardware_category.activate_first_child ();
-            } else if (network_category.has_child ()) {
-                network_category.activate_first_child ();
-            } else if (system_category.has_child ()) {
-                system_category.activate_first_child ();
-            }
-        }
-
-        public void filter_plugs (string filter) {
             var any_found = false;
-
-            personal_category.filter ();
-            hardware_category.filter ();
-            network_category.filter ();
-            system_category.filter ();
 
             if (personal_category.has_child ()) {
                 any_found = true;
@@ -150,9 +129,12 @@ namespace Switchboard {
             }
 
             if (any_found) {
-                SwitchboardApp.instance.hide_alert ();
-            } else {
-                SwitchboardApp.instance.show_alert (_("No Results for “%s”").printf (filter), _("Try changing search terms."), "edit-find-symbolic");
+                visible_child_name = "category-grid";
+            }
+
+            if (plug_to_open != null && plug_to_open.has_suffix (plug.code_name)) {
+                app.load_plug (plug);
+                plug_to_open = null;
             }
         }
 
