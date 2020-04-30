@@ -1,3 +1,20 @@
+switchboard (2.4.0) bionic; urgency=medium
+
+  * Release 2.4.0 (#155)
+  * Respect an OS-wide dark preference (#99)
+  * Update translation files
+  * Update translation files
+  * Update translation template
+  * Application: minor search cleanups (#152)
+  * Update translation files
+  * Update translation files
+  * Update translation template
+  * Update io.elementary.switchboard.appdata.xml.in
+  * Add SearchView (#147)
+  * Application: use move_focus when pressing down (#148)
+
+ -- elementary, Inc. <builds@elementary.io>  Thu, 30 Apr 2020 20:49:00 +0000
+
 switchboard (2.3.9) bionic; urgency=medium
 
   * Release 2.3.9 (#145)
