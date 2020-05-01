@@ -18,7 +18,7 @@
 */
 
 public class Switchboard.SearchView : Gtk.ScrolledWindow {
-    private Gtk.SearchEntry search_entry = SwitchboardApp.instance.search_box;
+    private Gtk.SearchEntry search_entry;
     private Gtk.ListBox listbox;
 
     construct {
@@ -29,6 +29,8 @@ public class Switchboard.SearchView : Gtk.ScrolledWindow {
         );
         alert_view.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
         alert_view.show_all ();
+
+        search_entry = SwitchboardApp.instance.search_box;
 
         listbox = new Gtk.ListBox ();
         listbox.selection_mode = Gtk.SelectionMode.BROWSE;
