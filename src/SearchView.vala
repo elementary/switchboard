@@ -18,7 +18,7 @@
 */
 
 public class Switchboard.SearchView : Gtk.ScrolledWindow {
-    private Gtk.SearchEntry search_entry;
+    private Gtk.SearchEntry search_entry = SwitchboardApp.instance.search_box;
     private Gtk.ListBox listbox;
 
     construct {
@@ -39,7 +39,6 @@ public class Switchboard.SearchView : Gtk.ScrolledWindow {
 
         load_plugs.begin ();
 
-        search_entry = SwitchboardApp.instance.search_box;
         search_entry.search_changed.connect (() => {
             alert_view.title = _("No Results for “%s”").printf (search_entry.text);
             listbox.invalidate_filter ();
