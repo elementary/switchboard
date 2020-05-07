@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-22 23:04+0000\n"
-"PO-Revision-Date: 2018-07-28 15:20+0000\n"
-"Last-Translator: Jan Marek <janmarek28@gmail.com>\n"
-"Language-Team: Czech <https://weblate.elementary.io/projects/switchboard/"
-"extra/cs/>\n"
+"PO-Revision-Date: 2020-05-08 15:10+0000\n"
+"Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
+"Language-Team: Czech <https://l10n.elementary.io/projects/switchboard/extra/"
+"cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-02-27 05:39+0000\n"
 
 #: data/io.elementary.switchboard.desktop.in:4
@@ -36,7 +36,7 @@ msgstr "preferences-desktop"
 
 #: data/io.elementary.switchboard.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"
-msgstr "Centrum;Ovládání;Panel;Vlastnosti;Systém"
+msgstr "Centrum;Ovládání;Panel;Vlastnosti;Systém;"
 
 #: data/io.elementary.switchboard.appdata.xml.in:11
 msgid ""
@@ -58,7 +58,7 @@ msgstr ""
 #: data/io.elementary.switchboard.appdata.xml.in:36
 #: data/io.elementary.switchboard.appdata.xml.in:45
 msgid "Updated translations"
-msgstr ""
+msgstr "Aktualizované překlady"
 
 #: data/io.elementary.switchboard.appdata.xml.in:33
 msgid "Fix an issue that prevented tiling on small displays"
