@@ -30,7 +30,7 @@ namespace Switchboard {
 
     public class SwitchboardApp : Gtk.Application {
         private Gtk.Window main_window;
-        private Gtk.Stack stack;
+        private Hdy.Deck deck;
         private Gtk.HeaderBar headerbar;
 
         private Gtk.Button navigation_button;
@@ -157,7 +157,7 @@ namespace Switchboard {
         public void load_plug (Switchboard.Plug plug) {
             Idle.add (() => {
                 if (!loaded_plugs.contains (plug.code_name)) {
-                    stack.add_named (plug.get_widget (), plug.code_name);
+                    deck.add (plug.get_widget ());
                     loaded_plugs.add (plug.code_name);
                 }
 
@@ -231,15 +231,15 @@ namespace Switchboard {
             category_view.plug_selected.connect ((plug) => load_plug (plug));
             category_view.load_default_plugs.begin ();
 
-            stack = new Gtk.Stack ();
-            stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
-            stack.add_named (category_view, "main");
+            deck = new Hdy.Deck ();
+            // deck.can_swipe_back = true;
+            deck.add (category_view);
 
             var searchview = new SearchView ();
 
             var search_stack = new Gtk.Stack ();
             search_stack.transition_type = Gtk.StackTransitionType.OVER_DOWN_UP;
-            search_stack.add (stack);
+            search_stack.add (deck);
             search_stack.add (searchview);
 
             main_window = new Gtk.Window ();
@@ -277,7 +277,7 @@ namespace Switchboard {
                 if (search_box.text_length > 0) {
                     search_stack.visible_child = searchview;
                 } else {
-                    search_stack.visible_child = stack;
+                    search_stack.visible_child = deck;
                 }
             });
 
@@ -396,16 +396,16 @@ namespace Switchboard {
                 switch_to_icons ();
                 navigation_button.hide ();
             } else {
-                if (previous_plugs.size > 0 && stack.get_visible_child_name () != "main") {
-                    if (current_plug != null) {
-                        current_plug.hidden ();
-                    }
+                // if (previous_plugs.size > 0 && deck.visible_child != category_view) {
+                //     if (current_plug != null) {
+                //         current_plug.hidden ();
+                //     }
 
-                    load_plug (previous_plugs.@get (0));
-                    previous_plugs.remove_at (0);
-                } else {
-                    switch_to_plug (current_plug);
-                }
+                //     load_plug (previous_plugs.@get (0));
+                //     previous_plugs.remove_at (0);
+                // } else {
+                //     switch_to_plug (current_plug);
+                // }
             }
         }
 
@@ -439,28 +439,28 @@ namespace Switchboard {
 
         // Switches to the given plug
         private void switch_to_plug (Switchboard.Plug plug) {
-            if (should_animate_next_transition == false) {
-                stack.set_transition_type (Gtk.StackTransitionType.NONE);
-                should_animate_next_transition = true;
-            } else if (stack.transition_type == Gtk.StackTransitionType.NONE) {
-                stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
-            }
+            // if (should_animate_next_transition == false) {
+            //     stack.set_transition_type (Gtk.StackTransitionType.NONE);
+            //     should_animate_next_transition = true;
+            // } else if (stack.transition_type == Gtk.StackTransitionType.NONE) {
+            //     stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
+            // }
 
-            if (previous_plugs.size > 1 && stack.get_visible_child_name () != "main") {
-                navigation_button.label = previous_plugs.@get (0).display_name;
-                previous_plugs.remove_at (previous_plugs.size - 1);
-            } else {
-                navigation_button.label = all_settings_label;
-            }
+            // if (previous_plugs.size > 1 && deck.visible_child != category_view) {
+            //     navigation_button.label = previous_plugs.@get (0).display_name;
+            //     previous_plugs.remove_at (previous_plugs.size - 1);
+            // } else {
+            //     navigation_button.label = all_settings_label;
+            // }
 
             search_box.sensitive = false;
             plug.shown ();
-            stack.set_visible_child_name (plug.code_name);
+            // deck.set_visible_child ((Gtk.Widget) plug);
         }
 
         private bool switch_to_icons () {
             previous_plugs.clear ();
-            stack.set_visible_child_full ("main", Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
+            // deck.visible_child = category_view;
             current_plug.hidden ();
 
             headerbar.title = _("System Settings");
