@@ -224,6 +224,7 @@ namespace Switchboard {
             headerbar.has_subtitle = false;
             headerbar.show_close_button = true;
             headerbar.title = _("System Settings");
+            headerbar.get_style_context ().add_class (Gtk.STYLE_CLASS_TITLEBAR);
             headerbar.pack_start (navigation_button);
             headerbar.pack_end (search_box);
 
