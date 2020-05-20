@@ -29,7 +29,7 @@ namespace Switchboard {
     }
 
     public class SwitchboardApp : Gtk.Application {
-        private Gtk.Window main_window;
+        private Hdy.Window main_window;
         private Gtk.Stack stack;
         private Gtk.HeaderBar headerbar;
 
@@ -242,13 +242,16 @@ namespace Switchboard {
             search_stack.add (stack);
             search_stack.add (searchview);
 
-            main_window = new Gtk.Window ();
+            var grid = new Gtk.Grid ();
+            grid.attach (headerbar, 0, 0);
+            grid.attach (search_stack, 0, 1);
+
+            main_window = new Hdy.Window ();
             main_window.application = this;
             main_window.icon_name = "preferences-desktop";
             main_window.title = _("System Settings");
-            main_window.add (search_stack);
+            main_window.add (grid);
             main_window.set_size_request (640, 480);
-            main_window.set_titlebar (headerbar);
 
             int window_x, window_y;
             var rect = Gtk.Allocation ();
