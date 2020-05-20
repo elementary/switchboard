@@ -24,7 +24,7 @@ namespace Switchboard {
         // Only known plug that requires GtkClutter is switchboard-plug-display
         GtkClutter.init (ref args);
 
-        var app = SwitchboardApp.instance;
+        var app = new SwitchboardApp ();
         return app.run (args);
     }
 
@@ -61,16 +61,6 @@ namespace Switchboard {
                 } catch (Error e) {
                     critical ("Unable to set default for the settings scheme: %s", e.message);
                 }
-            }
-        }
-
-        private static SwitchboardApp _instance = null;
-        public static unowned SwitchboardApp instance {
-            get {
-                if (_instance == null) {
-                    _instance = new SwitchboardApp ();
-                }
-                return _instance;
             }
         }
 
