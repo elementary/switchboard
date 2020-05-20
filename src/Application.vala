@@ -243,8 +243,11 @@ namespace Switchboard {
             search_stack.add (stack);
             search_stack.add (searchview);
 
+            var window_handle = new Hdy.WindowHandle ();
+            window_handle.add (headerbar);
+
             var grid = new Gtk.Grid ();
-            grid.attach (headerbar, 0, 0);
+            grid.attach (window_handle, 0, 0);
             grid.attach (search_stack, 0, 1);
 
             main_window = new Hdy.Window ();
