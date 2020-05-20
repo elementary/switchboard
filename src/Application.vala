@@ -21,9 +21,6 @@
 
 namespace Switchboard {
     public static int main (string[] args) {
-        // Only known plug that requires GtkClutter is switchboard-plug-display
-        GtkClutter.init (ref args);
-
         var app = SwitchboardApp.instance;
         return app.run (args);
     }
