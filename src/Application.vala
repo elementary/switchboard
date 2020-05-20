@@ -232,7 +232,7 @@ namespace Switchboard {
             category_view.load_default_plugs.begin ();
 
             deck = new Hdy.Deck ();
-            // deck.can_swipe_back = true;
+            deck.can_swipe_back = true;
             deck.add (category_view);
 
             var searchview = new SearchView ();
@@ -396,16 +396,16 @@ namespace Switchboard {
                 switch_to_icons ();
                 navigation_button.hide ();
             } else {
-                // if (previous_plugs.size > 0 && deck.visible_child != category_view) {
-                //     if (current_plug != null) {
-                //         current_plug.hidden ();
-                //     }
+                if (previous_plugs.size > 0 && deck.visible_child != category_view) {
+                    if (current_plug != null) {
+                        current_plug.hidden ();
+                    }
 
-                //     load_plug (previous_plugs.@get (0));
-                //     previous_plugs.remove_at (0);
-                // } else {
-                //     switch_to_plug (current_plug);
-                // }
+                    load_plug (previous_plugs.@get (0));
+                    previous_plugs.remove_at (0);
+                } else {
+                    switch_to_plug (current_plug);
+                }
             }
         }
 
@@ -439,23 +439,23 @@ namespace Switchboard {
 
         // Switches to the given plug
         private void switch_to_plug (Switchboard.Plug plug) {
-            // if (should_animate_next_transition == false) {
-            //     stack.set_transition_type (Gtk.StackTransitionType.NONE);
-            //     should_animate_next_transition = true;
+            if (should_animate_next_transition == false) {
+                // stack.set_transition_type (Gtk.StackTransitionType.NONE);
+                should_animate_next_transition = true;
             // } else if (stack.transition_type == Gtk.StackTransitionType.NONE) {
-            //     stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
-            // }
+                // stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
+            }
 
-            // if (previous_plugs.size > 1 && deck.visible_child != category_view) {
-            //     navigation_button.label = previous_plugs.@get (0).display_name;
-            //     previous_plugs.remove_at (previous_plugs.size - 1);
-            // } else {
-            //     navigation_button.label = all_settings_label;
-            // }
+            if (previous_plugs.size > 1 && deck.visible_child != category_view) {
+                navigation_button.label = previous_plugs.@get (0).display_name;
+                previous_plugs.remove_at (previous_plugs.size - 1);
+            } else {
+                navigation_button.label = all_settings_label;
+            }
 
             search_box.sensitive = false;
             plug.shown ();
-            // deck.set_visible_child ((Gtk.Widget) plug);
+            deck.visible_child = plug.get_widget ();
         }
 
         private bool switch_to_icons () {
