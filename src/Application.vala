@@ -21,7 +21,7 @@
 
 namespace Switchboard {
     public static int main (string[] args) {
-        var app = SwitchboardApp.instance;
+        var app = new SwitchboardApp ();
         return app.run (args);
     }
 
@@ -61,16 +61,6 @@ namespace Switchboard {
             }
         }
 
-        private static SwitchboardApp _instance = null;
-        public static unowned SwitchboardApp instance {
-            get {
-                if (_instance == null) {
-                    _instance = new SwitchboardApp ();
-                }
-                return _instance;
-            }
-        }
-
         public override void open (File[] files, string hint) {
             var file = files[0];
             if (file == null) {
@@ -82,17 +72,8 @@ namespace Switchboard {
                 if (link.has_suffix ("/")) {
                     link = link.substring (0, link.last_index_of_char ('/'));
                 }
-
             } else {
-                warning ("Calling Switchboard directly is deprecated, please use the settings:// scheme instead");
-                var name = file.get_basename ();
-                if (":" in name) {
-                    var parts = name.split (":");
-                    plug_to_open = gcc_to_switchboard_code_name (parts[0]);
-                    open_window = parts[1];
-                } else {
-                    plug_to_open = gcc_to_switchboard_code_name (name);
-                }
+                critical ("Calling Switchboard directly is unsupported, please use the settings:// scheme instead");
             }
 
             activate ();
@@ -466,36 +447,6 @@ namespace Switchboard {
             }
 
             return true;
-        }
-
-        private string? gcc_to_switchboard_code_name (string gcc_name) {
-            // list of names taken from GCC's shell/cc-panel-loader.c
-            switch (gcc_name) {
-                case "background": return "pantheon-desktop";
-                case "bluetooth": return "network-pantheon-bluetooth";
-                case "color": return "hardware-gcc-color";
-                case "datetime": return "system-pantheon-datetime";
-                case "display": return "system-pantheon-display";
-                case "info": return "system-pantheon-about";
-                case "keyboard": return "hardware-pantheon-keyboard";
-                case "network": return "pantheon-network";
-                case "power": return "system-pantheon-power";
-                case "printers": return "pantheon-printers";
-                case "privacy": return "pantheon-security-privacy";
-                case "region": return "system-pantheon-locale";
-                case "sharing": return "pantheon-sharing";
-                case "sound": return "hardware-gcc-sound";
-                case "universal-access": return "pantheon-accessibility";
-                case "user-accounts": return "system-pantheon-useraccounts";
-                case "wacom": return "hardware-gcc-wacom";
-                case "notifications": return "personal-pantheon-notifications";
-
-                // not available on our system
-                case "search":
-                    return null;
-            }
-
-            return null;
         }
     }
 }
