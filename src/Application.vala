@@ -370,8 +370,20 @@ namespace Switchboard {
         private void handle_navigation_button_clicked () {
             if (navigation_button.label == all_settings_label) {
                 opened_directly = false;
-                search_box.sensitive = true;
-                switch_to_icons ();
+
+                previous_plugs.clear ();
+                current_plug.hidden ();
+
+                stack.set_visible_child_full ("main", Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
+
+                headerbar.title = _("System Settings");
+
+                search_box.set_text ("");
+                search_box.sensitive = Switchboard.PlugsManager.get_default ().has_plugs ();
+                if (search_box.sensitive) {
+                    search_box.has_focus = true;
+                }
+
                 navigation_button.hide ();
             } else {
                 if (previous_plugs.size > 0 && stack.get_visible_child_name () != "main") {
@@ -434,23 +446,6 @@ namespace Switchboard {
             search_box.sensitive = false;
             plug.shown ();
             stack.set_visible_child_name (plug.code_name);
-        }
-
-        private bool switch_to_icons () {
-            previous_plugs.clear ();
-            stack.set_visible_child_full ("main", Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
-            current_plug.hidden ();
-
-            headerbar.title = _("System Settings");
-
-            search_box.set_text ("");
-            search_box.sensitive = Switchboard.PlugsManager.get_default ().has_plugs ();
-
-            if (search_box.sensitive) {
-                search_box.has_focus = true;
-            }
-
-            return true;
         }
     }
 }
