@@ -299,13 +299,9 @@ namespace Switchboard {
             });
 
             stack.notify["visible-child"].connect (() => {
-                foreach (var plug in previous_plugs) {
-                    if (stack.visible_child == plug.get_widget ()) {
-                        current_plug = plug;
-                    }
-                }
-
                 if (stack.visible_child == category_view) {
+                    current_plug = null;
+
                     headerbar.title = _("System Settings");
 
                     navigation_button.hide ();
@@ -313,6 +309,12 @@ namespace Switchboard {
                     search_box.sensitive = Switchboard.PlugsManager.get_default ().has_plugs ();
                     search_box.has_focus = search_box.sensitive;
                 } else {
+                    foreach (var plug in previous_plugs) {
+                        if (stack.visible_child == plug.get_widget ()) {
+                            current_plug = plug;
+                        }
+                    }
+
                     headerbar.title = current_plug.display_name;
 
                     if (previous_plugs.size > 1) {
@@ -338,16 +340,6 @@ namespace Switchboard {
             }
 
             Gtk.main ();
-        }
-
-        private string display_name_from_widget (Gtk.Widget widget) {
-            foreach (var plug in previous_plugs) {
-                if (widget == plug.get_widget ()) {
-                    return plug.display_name;
-                }
-            }
-
-            return _("System Settings");
         }
 
         public void load_plug (Switchboard.Plug plug) {
