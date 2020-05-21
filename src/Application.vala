@@ -299,6 +299,12 @@ namespace Switchboard {
             });
 
             stack.notify["visible-child"].connect (() => {
+                foreach (var plug in previous_plugs) {
+                    if (stack.visible_child == plug.get_widget ()) {
+                        current_plug = plug;
+                    }
+                }
+
                 if (stack.visible_child == category_view) {
                     headerbar.title = _("System Settings");
 
@@ -307,11 +313,7 @@ namespace Switchboard {
                     search_box.sensitive = Switchboard.PlugsManager.get_default ().has_plugs ();
                     search_box.has_focus = search_box.sensitive;
                 } else {
-                    foreach (var plug in previous_plugs) {
-                        if (stack.visible_child == plug.get_widget ()) {
-                            headerbar.title = plug.display_name;
-                        }
-                    }
+                    headerbar.title = current_plug.display_name;
 
                     if (previous_plugs.size > 1) {
                         navigation_button.label = previous_plugs.@get (0).display_name;
@@ -338,6 +340,16 @@ namespace Switchboard {
             Gtk.main ();
         }
 
+        private string display_name_from_widget (Gtk.Widget widget) {
+            foreach (var plug in previous_plugs) {
+                if (widget == plug.get_widget ()) {
+                    return plug.display_name;
+                }
+            }
+
+            return _("System Settings");
+        }
+
         public void load_plug (Switchboard.Plug plug) {
             Idle.add (() => {
                 if (!loaded_plugs.contains (plug.code_name)) {
@@ -362,8 +374,6 @@ namespace Switchboard {
                 if (previous_plugs.size == 0 || previous_plugs.@get (0) != plug) {
                     previous_plugs.add (plug);
                 }
-
-                current_plug = plug;
 
                 // open window was set by command line argument
                 if (open_window != null) {
