@@ -136,7 +136,7 @@ namespace Switchboard {
             set_accels_for_action ("app.back", {"<Alt>Left", "Back"});
             set_accels_for_action ("app.quit", {"<Control>q"});
 
-            navigation_button = new Gtk.Button ();
+            navigation_button = new Gtk.Button.with_label (all_settings_label);
             navigation_button.action_name = "app.back";
             navigation_button.set_tooltip_markup (
                 Granite.markup_accel_tooltip (get_accels_for_action (navigation_button.action_name))
@@ -309,6 +309,12 @@ namespace Switchboard {
                 } else {
                     headerbar.title = current_plug.display_name;
 
+                    if (previous_plugs.size > 1) {
+                        navigation_button.label = previous_plugs.@get (0).display_name;
+                        previous_plugs.remove_at (previous_plugs.size - 1);
+                    } else {
+                        navigation_button.label = all_settings_label;
+                    }
                     navigation_button.show ();
 
                     search_box.sensitive = false;
@@ -353,8 +359,6 @@ namespace Switchboard {
                     previous_plugs.add (plug);
                 }
 
-                navigation_button.label = all_settings_label;
-
                 current_plug = plug;
 
                 // open window was set by command line argument
@@ -386,7 +390,7 @@ namespace Switchboard {
 
                 stack.set_visible_child_full ("main", Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
             } else {
-                if (previous_plugs.size > 0 && stack.get_visible_child_name () != "main") {
+                if (previous_plugs.size > 0) {
                     if (current_plug != null) {
                         current_plug.hidden ();
                     }
@@ -434,13 +438,6 @@ namespace Switchboard {
                 should_animate_next_transition = true;
             } else if (stack.transition_type == Gtk.StackTransitionType.NONE) {
                 stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
-            }
-
-            if (previous_plugs.size > 1 && stack.get_visible_child_name () != "main") {
-                navigation_button.label = previous_plugs.@get (0).display_name;
-                previous_plugs.remove_at (previous_plugs.size - 1);
-            } else {
-                navigation_button.label = all_settings_label;
             }
 
             plug.shown ();
