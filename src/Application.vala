@@ -312,7 +312,7 @@ namespace Switchboard {
                     foreach (var plug in previous_plugs) {
                         if (stack.visible_child == plug.get_widget ()) {
                             current_plug = plug;
-                            continue;
+                            break;
                         }
                     }
 
