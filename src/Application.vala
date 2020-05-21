@@ -307,7 +307,11 @@ namespace Switchboard {
                     search_box.sensitive = Switchboard.PlugsManager.get_default ().has_plugs ();
                     search_box.has_focus = search_box.sensitive;
                 } else {
-                    headerbar.title = current_plug.display_name;
+                    foreach (var plug in previous_plugs) {
+                        if (stack.visible_child == plug.get_widget ()) {
+                            headerbar.title = plug.display_name;
+                        }
+                    }
 
                     if (previous_plugs.size > 1) {
                         navigation_button.label = previous_plugs.@get (0).display_name;
