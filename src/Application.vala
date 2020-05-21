@@ -298,6 +298,25 @@ namespace Switchboard {
                 }
             });
 
+            stack.notify["visible-child"].connect (() => {
+                if (stack.visible_child == category_view) {
+                    headerbar.title = _("System Settings");
+
+                    navigation_button.hide ();
+
+                    search_box.sensitive = Switchboard.PlugsManager.get_default ().has_plugs ();
+                    search_box.has_focus = search_box.sensitive;
+                } else {
+                    headerbar.title = current_plug.display_name;
+
+                    navigation_button.show ();
+
+                    search_box.sensitive = false;
+                }
+
+                search_box.text = "";
+            });
+
             if (Switchboard.PlugsManager.get_default ().has_plugs () == false) {
                 category_view.show_alert (_("No Settings Found"), _("Install some and re-launch Switchboard."), "dialog-warning");
                 search_box.sensitive = false;
@@ -334,13 +353,8 @@ namespace Switchboard {
                     previous_plugs.add (plug);
                 }
 
-                search_box.text = "";
-
-                // Launch plug's executable
                 navigation_button.label = all_settings_label;
-                navigation_button.show ();
 
-                headerbar.title = plug.display_name;
                 current_plug = plug;
 
                 // open window was set by command line argument
@@ -371,16 +385,6 @@ namespace Switchboard {
                 current_plug.hidden ();
 
                 stack.set_visible_child_full ("main", Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
-
-                headerbar.title = _("System Settings");
-
-                search_box.set_text ("");
-                search_box.sensitive = Switchboard.PlugsManager.get_default ().has_plugs ();
-                if (search_box.sensitive) {
-                    search_box.has_focus = true;
-                }
-
-                navigation_button.hide ();
             } else {
                 if (previous_plugs.size > 0 && stack.get_visible_child_name () != "main") {
                     if (current_plug != null) {
@@ -439,7 +443,6 @@ namespace Switchboard {
                 navigation_button.label = all_settings_label;
             }
 
-            search_box.sensitive = false;
             plug.shown ();
             stack.set_visible_child_name (plug.code_name);
         }
