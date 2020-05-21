@@ -127,57 +127,6 @@ namespace Switchboard {
             loaded_plugs = new Gee.LinkedList <string> ();
             previous_plugs = new Gee.ArrayList <Switchboard.Plug> ();
 
-            build ();
-
-            Gtk.main ();
-        }
-
-        public void load_plug (Switchboard.Plug plug) {
-            Idle.add (() => {
-                if (!loaded_plugs.contains (plug.code_name)) {
-                    stack.add_named (plug.get_widget (), plug.code_name);
-                    loaded_plugs.add (plug.code_name);
-                }
-
-                category_view.plug_search_result.foreach ((entry) => {
-                    if (plug.display_name == entry.plug_name) {
-                        if (entry.open_window == null) {
-                            plug.search_callback (""); // open default in the switch
-                        } else {
-                            plug.search_callback (entry.open_window);
-                        }
-                        debug ("open section:%s of plug: %s", entry.open_window, plug.display_name);
-                        return true;
-                    }
-
-                    return false;
-                });
-
-                if (previous_plugs.size == 0 || previous_plugs.@get (0) != plug) {
-                    previous_plugs.add (plug);
-                }
-
-                search_box.text = "";
-
-                // Launch plug's executable
-                navigation_button.label = all_settings_label;
-                navigation_button.show ();
-
-                headerbar.title = plug.display_name;
-                current_plug = plug;
-
-                // open window was set by command line argument
-                if (open_window != null) {
-                    plug.search_callback (open_window);
-                    open_window = null;
-                }
-
-                switch_to_plug (plug);
-                return false;
-            }, GLib.Priority.DEFAULT_IDLE);
-        }
-
-        private void build () {
             var back_action = new SimpleAction ("back", null);
             var quit_action = new SimpleAction ("quit", null);
 
@@ -356,6 +305,53 @@ namespace Switchboard {
                 search_box.sensitive = true;
                 search_box.has_focus = true;
             }
+
+            Gtk.main ();
+        }
+
+        public void load_plug (Switchboard.Plug plug) {
+            Idle.add (() => {
+                if (!loaded_plugs.contains (plug.code_name)) {
+                    stack.add_named (plug.get_widget (), plug.code_name);
+                    loaded_plugs.add (plug.code_name);
+                }
+
+                category_view.plug_search_result.foreach ((entry) => {
+                    if (plug.display_name == entry.plug_name) {
+                        if (entry.open_window == null) {
+                            plug.search_callback (""); // open default in the switch
+                        } else {
+                            plug.search_callback (entry.open_window);
+                        }
+                        debug ("open section:%s of plug: %s", entry.open_window, plug.display_name);
+                        return true;
+                    }
+
+                    return false;
+                });
+
+                if (previous_plugs.size == 0 || previous_plugs.@get (0) != plug) {
+                    previous_plugs.add (plug);
+                }
+
+                search_box.text = "";
+
+                // Launch plug's executable
+                navigation_button.label = all_settings_label;
+                navigation_button.show ();
+
+                headerbar.title = plug.display_name;
+                current_plug = plug;
+
+                // open window was set by command line argument
+                if (open_window != null) {
+                    plug.search_callback (open_window);
+                    open_window = null;
+                }
+
+                switch_to_plug (plug);
+                return false;
+            }, GLib.Priority.DEFAULT_IDLE);
         }
 
         private void shut_down () {
