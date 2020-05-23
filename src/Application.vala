@@ -135,7 +135,7 @@ namespace Switchboard {
             set_accels_for_action ("app.back", {"<Alt>Left", "Back"});
             set_accels_for_action ("app.quit", {"<Control>q"});
 
-            navigation_button = new Gtk.Button ();
+            navigation_button = new Gtk.Button.with_label (all_settings_label);
             navigation_button.action_name = "app.back";
             navigation_button.set_tooltip_markup (
                 Granite.markup_accel_tooltip (get_accels_for_action (navigation_button.action_name))
@@ -297,6 +297,40 @@ namespace Switchboard {
                 }
             });
 
+            stack.notify["visible-child"].connect (() => {
+                if (stack.visible_child == category_view) {
+                    current_plug = null;
+
+                    headerbar.title = _("System Settings");
+
+                    navigation_button.hide ();
+
+                    search_box.sensitive = Switchboard.PlugsManager.get_default ().has_plugs ();
+                    search_box.has_focus = search_box.sensitive;
+                } else {
+                    foreach (var plug in previous_plugs) {
+                        if (stack.visible_child == plug.get_widget ()) {
+                            current_plug = plug;
+                            break;
+                        }
+                    }
+
+                    headerbar.title = current_plug.display_name;
+
+                    if (previous_plugs.size > 1) {
+                        navigation_button.label = previous_plugs.@get (0).display_name;
+                        previous_plugs.remove_at (previous_plugs.size - 1);
+                    } else {
+                        navigation_button.label = all_settings_label;
+                    }
+                    navigation_button.show ();
+
+                    search_box.sensitive = false;
+                }
+
+                search_box.text = "";
+            });
+
             if (Switchboard.PlugsManager.get_default ().has_plugs () == false) {
                 category_view.show_alert (_("No Settings Found"), _("Install some and re-launch Switchboard."), "dialog-warning");
                 search_box.sensitive = false;
@@ -333,15 +367,6 @@ namespace Switchboard {
                     previous_plugs.add (plug);
                 }
 
-                search_box.text = "";
-
-                // Launch plug's executable
-                navigation_button.label = all_settings_label;
-                navigation_button.show ();
-
-                headerbar.title = plug.display_name;
-                current_plug = plug;
-
                 // open window was set by command line argument
                 if (open_window != null) {
                     plug.search_callback (open_window);
@@ -370,18 +395,8 @@ namespace Switchboard {
                 current_plug.hidden ();
 
                 stack.set_visible_child_full ("main", Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
-
-                headerbar.title = _("System Settings");
-
-                search_box.set_text ("");
-                search_box.sensitive = Switchboard.PlugsManager.get_default ().has_plugs ();
-                if (search_box.sensitive) {
-                    search_box.has_focus = true;
-                }
-
-                navigation_button.hide ();
             } else {
-                if (previous_plugs.size > 0 && stack.get_visible_child_name () != "main") {
+                if (previous_plugs.size > 0) {
                     if (current_plug != null) {
                         current_plug.hidden ();
                     }
@@ -431,14 +446,6 @@ namespace Switchboard {
                 stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
             }
 
-            if (previous_plugs.size > 1 && stack.get_visible_child_name () != "main") {
-                navigation_button.label = previous_plugs.@get (0).display_name;
-                previous_plugs.remove_at (previous_plugs.size - 1);
-            } else {
-                navigation_button.label = all_settings_label;
-            }
-
-            search_box.sensitive = false;
             plug.shown ();
             stack.set_visible_child_name (plug.code_name);
         }
