@@ -26,26 +26,25 @@ namespace Switchboard {
     }
 
     public class SwitchboardApp : Gtk.Application {
-        private Gtk.Window main_window;
-        private Gtk.Stack stack;
-        private Gtk.HeaderBar headerbar;
+        public Gtk.SearchEntry search_box { get; private set; }
 
-        private Gtk.Button navigation_button;
-        public Switchboard.CategoryView category_view;
-
-        private Gee.LinkedList <string> loaded_plugs;
         private string all_settings_label = _("All Settings");
         private uint configure_id;
 
-        public Gee.ArrayList <Switchboard.Plug> previous_plugs;
-        public Switchboard.Plug current_plug;
-        public Gtk.SearchEntry search_box { public get; private set; }
+        private Gee.ArrayList <Switchboard.Plug> previous_plugs;
+        private Gee.LinkedList <string> loaded_plugs;
+        private Gtk.Button navigation_button;
+        private Gtk.HeaderBar headerbar;
+        private Gtk.Stack stack;
+        private Gtk.Window main_window;
+        private Switchboard.CategoryView category_view;
+        private Switchboard.Plug current_plug;
 
-        private static string? plug_to_open = null;
-        private static string? open_window = null;
-        private static string? link = null;
         private static bool opened_directly = false;
         private static bool should_animate_next_transition = true;
+        private static string? link = null;
+        private static string? open_window = null;
+        private static string? plug_to_open = null;
 
         construct {
             application_id = "io.elementary.switchboard";
