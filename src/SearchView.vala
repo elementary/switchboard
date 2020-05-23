@@ -30,7 +30,9 @@ public class Switchboard.SearchView : Gtk.ScrolledWindow {
         alert_view.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
         alert_view.show_all ();
 
-        search_entry = SwitchboardApp.instance.search_box;
+        unowned SwitchboardApp app = (SwitchboardApp) GLib.Application.get_default ();
+
+        search_entry = app.search_box;
 
         listbox = new Gtk.ListBox ();
         listbox.selection_mode = Gtk.SelectionMode.BROWSE;
@@ -48,7 +50,7 @@ public class Switchboard.SearchView : Gtk.ScrolledWindow {
         });
 
         listbox.row_activated.connect ((row) => {
-            SwitchboardApp.instance.load_setting_path (
+            app.load_setting_path (
                 ((SearchRow) row).uri.replace ("settings://", ""),
                 Switchboard.PlugsManager.get_default ()
             );

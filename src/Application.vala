@@ -21,34 +21,30 @@
 
 namespace Switchboard {
     public static int main (string[] args) {
-        // Only known plug that requires GtkClutter is switchboard-plug-display
-        GtkClutter.init (ref args);
-
-        var app = SwitchboardApp.instance;
+        var app = new SwitchboardApp ();
         return app.run (args);
     }
 
     public class SwitchboardApp : Gtk.Application {
-        private Hdy.Window main_window;
-        private Gtk.Stack stack;
-        private Gtk.HeaderBar headerbar;
+        public Gtk.SearchEntry search_box { get; private set; }
 
-        private Gtk.Button navigation_button;
-        public Switchboard.CategoryView category_view;
-
-        private Gee.LinkedList <string> loaded_plugs;
         private string all_settings_label = _("All Settings");
         private uint configure_id;
 
-        public Gee.ArrayList <Switchboard.Plug> previous_plugs;
-        public Switchboard.Plug current_plug;
-        public Gtk.SearchEntry search_box { public get; private set; }
+        private Gee.ArrayList <Switchboard.Plug> previous_plugs;
+        private Gee.LinkedList <string> loaded_plugs;
+        private Gtk.Button navigation_button;
+        private Gtk.HeaderBar headerbar;
+        private Gtk.Stack stack;
+        private Hdy.Window main_window;
+        private Switchboard.CategoryView category_view;
+        private Switchboard.Plug current_plug;
 
-        private static string? plug_to_open = null;
-        private static string? open_window = null;
-        private static string? link = null;
         private static bool opened_directly = false;
         private static bool should_animate_next_transition = true;
+        private static string? link = null;
+        private static string? open_window = null;
+        private static string? plug_to_open = null;
 
         construct {
             application_id = "io.elementary.switchboard";
@@ -64,16 +60,6 @@ namespace Switchboard {
             }
         }
 
-        private static SwitchboardApp _instance = null;
-        public static unowned SwitchboardApp instance {
-            get {
-                if (_instance == null) {
-                    _instance = new SwitchboardApp ();
-                }
-                return _instance;
-            }
-        }
-
         public override void open (File[] files, string hint) {
             var file = files[0];
             if (file == null) {
@@ -85,17 +71,8 @@ namespace Switchboard {
                 if (link.has_suffix ("/")) {
                     link = link.substring (0, link.last_index_of_char ('/'));
                 }
-
             } else {
-                warning ("Calling Switchboard directly is deprecated, please use the settings:// scheme instead");
-                var name = file.get_basename ();
-                if (":" in name) {
-                    var parts = name.split (":");
-                    plug_to_open = gcc_to_switchboard_code_name (parts[0]);
-                    open_window = parts[1];
-                } else {
-                    plug_to_open = gcc_to_switchboard_code_name (name);
-                }
+                critical ("Calling Switchboard directly is unsupported, please use the settings:// scheme instead");
             }
 
             activate ();
@@ -149,57 +126,6 @@ namespace Switchboard {
             loaded_plugs = new Gee.LinkedList <string> ();
             previous_plugs = new Gee.ArrayList <Switchboard.Plug> ();
 
-            build ();
-
-            Gtk.main ();
-        }
-
-        public void load_plug (Switchboard.Plug plug) {
-            Idle.add (() => {
-                if (!loaded_plugs.contains (plug.code_name)) {
-                    stack.add_named (plug.get_widget (), plug.code_name);
-                    loaded_plugs.add (plug.code_name);
-                }
-
-                category_view.plug_search_result.foreach ((entry) => {
-                    if (plug.display_name == entry.plug_name) {
-                        if (entry.open_window == null) {
-                            plug.search_callback (""); // open default in the switch
-                        } else {
-                            plug.search_callback (entry.open_window);
-                        }
-                        debug ("open section:%s of plug: %s", entry.open_window, plug.display_name);
-                        return true;
-                    }
-
-                    return false;
-                });
-
-                if (previous_plugs.size == 0 || previous_plugs.@get (0) != plug) {
-                    previous_plugs.add (plug);
-                }
-
-                search_box.text = "";
-
-                // Launch plug's executable
-                navigation_button.label = all_settings_label;
-                navigation_button.show ();
-
-                headerbar.title = plug.display_name;
-                current_plug = plug;
-
-                // open window was set by command line argument
-                if (open_window != null) {
-                    plug.search_callback (open_window);
-                    open_window = null;
-                }
-
-                switch_to_plug (plug);
-                return false;
-            }, GLib.Priority.DEFAULT_IDLE);
-        }
-
-        private void build () {
             var back_action = new SimpleAction ("back", null);
             var quit_action = new SimpleAction ("quit", null);
 
@@ -209,7 +135,7 @@ namespace Switchboard {
             set_accels_for_action ("app.back", {"<Alt>Left", "Back"});
             set_accels_for_action ("app.quit", {"<Control>q"});
 
-            navigation_button = new Gtk.Button ();
+            navigation_button = new Gtk.Button.with_label (all_settings_label);
             navigation_button.action_name = "app.back";
             navigation_button.set_tooltip_markup (
                 Granite.markup_accel_tooltip (get_accels_for_action (navigation_button.action_name))
@@ -378,6 +304,40 @@ namespace Switchboard {
                 }
             });
 
+            stack.notify["visible-child"].connect (() => {
+                if (stack.visible_child == category_view) {
+                    current_plug = null;
+
+                    headerbar.title = _("System Settings");
+
+                    navigation_button.hide ();
+
+                    search_box.sensitive = Switchboard.PlugsManager.get_default ().has_plugs ();
+                    search_box.has_focus = search_box.sensitive;
+                } else {
+                    foreach (var plug in previous_plugs) {
+                        if (stack.visible_child == plug.get_widget ()) {
+                            current_plug = plug;
+                            break;
+                        }
+                    }
+
+                    headerbar.title = current_plug.display_name;
+
+                    if (previous_plugs.size > 1) {
+                        navigation_button.label = previous_plugs.@get (0).display_name;
+                        previous_plugs.remove_at (previous_plugs.size - 1);
+                    } else {
+                        navigation_button.label = all_settings_label;
+                    }
+                    navigation_button.show ();
+
+                    search_box.sensitive = false;
+                }
+
+                search_box.text = "";
+            });
+
             if (Switchboard.PlugsManager.get_default ().has_plugs () == false) {
                 category_view.show_alert (_("No Settings Found"), _("Install some and re-launch Switchboard."), "dialog-warning");
                 search_box.sensitive = false;
@@ -385,6 +345,44 @@ namespace Switchboard {
                 search_box.sensitive = true;
                 search_box.has_focus = true;
             }
+
+            Gtk.main ();
+        }
+
+        public void load_plug (Switchboard.Plug plug) {
+            Idle.add (() => {
+                if (!loaded_plugs.contains (plug.code_name)) {
+                    stack.add_named (plug.get_widget (), plug.code_name);
+                    loaded_plugs.add (plug.code_name);
+                }
+
+                category_view.plug_search_result.foreach ((entry) => {
+                    if (plug.display_name == entry.plug_name) {
+                        if (entry.open_window == null) {
+                            plug.search_callback (""); // open default in the switch
+                        } else {
+                            plug.search_callback (entry.open_window);
+                        }
+                        debug ("open section:%s of plug: %s", entry.open_window, plug.display_name);
+                        return true;
+                    }
+
+                    return false;
+                });
+
+                if (previous_plugs.size == 0 || previous_plugs.@get (0) != plug) {
+                    previous_plugs.add (plug);
+                }
+
+                // open window was set by command line argument
+                if (open_window != null) {
+                    plug.search_callback (open_window);
+                    open_window = null;
+                }
+
+                switch_to_plug (plug);
+                return false;
+            }, GLib.Priority.DEFAULT_IDLE);
         }
 
         private void shut_down () {
@@ -399,11 +397,13 @@ namespace Switchboard {
         private void handle_navigation_button_clicked () {
             if (navigation_button.label == all_settings_label) {
                 opened_directly = false;
-                search_box.sensitive = true;
-                switch_to_icons ();
-                navigation_button.hide ();
+
+                previous_plugs.clear ();
+                current_plug.hidden ();
+
+                stack.set_visible_child_full ("main", Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
             } else {
-                if (previous_plugs.size > 0 && stack.get_visible_child_name () != "main") {
+                if (previous_plugs.size > 0) {
                     if (current_plug != null) {
                         current_plug.hidden ();
                     }
@@ -453,63 +453,8 @@ namespace Switchboard {
                 stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
             }
 
-            if (previous_plugs.size > 1 && stack.get_visible_child_name () != "main") {
-                navigation_button.label = previous_plugs.@get (0).display_name;
-                previous_plugs.remove_at (previous_plugs.size - 1);
-            } else {
-                navigation_button.label = all_settings_label;
-            }
-
-            search_box.sensitive = false;
             plug.shown ();
             stack.set_visible_child_name (plug.code_name);
-        }
-
-        private bool switch_to_icons () {
-            previous_plugs.clear ();
-            stack.set_visible_child_full ("main", Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
-            current_plug.hidden ();
-
-            headerbar.title = _("System Settings");
-
-            search_box.set_text ("");
-            search_box.sensitive = Switchboard.PlugsManager.get_default ().has_plugs ();
-
-            if (search_box.sensitive) {
-                search_box.has_focus = true;
-            }
-
-            return true;
-        }
-
-        private string? gcc_to_switchboard_code_name (string gcc_name) {
-            // list of names taken from GCC's shell/cc-panel-loader.c
-            switch (gcc_name) {
-                case "background": return "pantheon-desktop";
-                case "bluetooth": return "network-pantheon-bluetooth";
-                case "color": return "hardware-gcc-color";
-                case "datetime": return "system-pantheon-datetime";
-                case "display": return "system-pantheon-display";
-                case "info": return "system-pantheon-about";
-                case "keyboard": return "hardware-pantheon-keyboard";
-                case "network": return "pantheon-network";
-                case "power": return "system-pantheon-power";
-                case "printers": return "pantheon-printers";
-                case "privacy": return "pantheon-security-privacy";
-                case "region": return "system-pantheon-locale";
-                case "sharing": return "pantheon-sharing";
-                case "sound": return "hardware-gcc-sound";
-                case "universal-access": return "pantheon-accessibility";
-                case "user-accounts": return "system-pantheon-useraccounts";
-                case "wacom": return "hardware-gcc-wacom";
-                case "notifications": return "personal-pantheon-notifications";
-
-                // not available on our system
-                case "search":
-                    return null;
-            }
-
-            return null;
         }
     }
 }
