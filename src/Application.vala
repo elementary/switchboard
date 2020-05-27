@@ -36,7 +36,7 @@ namespace Switchboard {
         private Gtk.Button navigation_button;
         private Gtk.HeaderBar headerbar;
         private Gtk.Stack stack;
-        private Gtk.Window main_window;
+        private Hdy.Window main_window;
         private Switchboard.CategoryView category_view;
         private Switchboard.Plug current_plug;
 
@@ -150,6 +150,7 @@ namespace Switchboard {
             headerbar.has_subtitle = false;
             headerbar.show_close_button = true;
             headerbar.title = _("System Settings");
+            headerbar.get_style_context ().add_class (Gtk.STYLE_CLASS_TITLEBAR);
             headerbar.pack_start (navigation_button);
             headerbar.pack_end (search_box);
 
@@ -168,13 +169,19 @@ namespace Switchboard {
             search_stack.add (stack);
             search_stack.add (searchview);
 
-            main_window = new Gtk.Window ();
+            var window_handle = new Hdy.WindowHandle ();
+            window_handle.add (headerbar);
+
+            var grid = new Gtk.Grid ();
+            grid.attach (window_handle, 0, 0);
+            grid.attach (search_stack, 0, 1);
+
+            main_window = new Hdy.Window ();
             main_window.application = this;
             main_window.icon_name = "preferences-desktop";
             main_window.title = _("System Settings");
-            main_window.add (search_stack);
+            main_window.add (grid);
             main_window.set_size_request (640, 480);
-            main_window.set_titlebar (headerbar);
 
             int window_x, window_y;
             var rect = Gtk.Allocation ();
