@@ -29,22 +29,27 @@ namespace Switchboard {
         public Gtk.SearchEntry search_box { get; private set; }
 
         private string all_settings_label = _("All Settings");
-        private uint configure_id;
 
         private Gee.ArrayList <Switchboard.Plug> previous_plugs;
         private Gee.LinkedList <string> loaded_plugs;
         private Gtk.Button navigation_button;
         private Gtk.HeaderBar headerbar;
         private Gtk.Stack stack;
-        private Hdy.Window main_window;
+        private MainWindow main_window;
         private Switchboard.CategoryView category_view;
         private Switchboard.Plug current_plug;
+
+        public static GLib.Settings settings;
 
         private static bool opened_directly = false;
         private static bool should_animate_next_transition = true;
         private static string? link = null;
         private static string? open_window = null;
         private static string? plug_to_open = null;
+
+        static construct {
+            settings = new GLib.Settings ("io.elementary.switchboard.saved-state");
+        }
 
         construct {
             application_id = "io.elementary.switchboard";
@@ -176,17 +181,12 @@ namespace Switchboard {
             grid.attach (window_handle, 0, 0);
             grid.attach (search_stack, 0, 1);
 
-            main_window = new Hdy.Window ();
-            main_window.application = this;
-            main_window.icon_name = "preferences-desktop";
-            main_window.title = _("System Settings");
+            main_window = new MainWindow (this);
             main_window.add (grid);
-            main_window.set_size_request (640, 480);
 
             int window_x, window_y;
             var rect = Gtk.Allocation ();
 
-            var settings = new GLib.Settings ("io.elementary.switchboard.saved-state");
             settings.get ("window-position", "(ii)", out window_x, out window_y);
             settings.get ("window-size", "(ii)", out rect.width, out rect.height);
 
@@ -203,8 +203,6 @@ namespace Switchboard {
             main_window.show_all ();
 
             navigation_button.hide ();
-
-            add_window (main_window);
 
             search_box.search_changed.connect (() => {
                 if (search_box.text_length > 0) {
@@ -250,33 +248,6 @@ namespace Switchboard {
             });
 
             main_window.destroy.connect (shut_down);
-
-            main_window.configure_event.connect ((event) => {
-                if (configure_id != 0) {
-                    GLib.Source.remove (configure_id);
-                }
-
-                configure_id = Timeout.add (100, () => {
-                    configure_id = 0;
-
-                    if (main_window.is_maximized) {
-                        settings.set_boolean ("window-maximized", true);
-                    } else {
-                        settings.set_boolean ("window-maximized", false);
-
-                        main_window.get_allocation (out rect);
-                        settings.set ("window-size", "(ii)", rect.width, rect.height);
-
-                        int root_x, root_y;
-                        main_window.get_position (out root_x, out root_y);
-                        settings.set ("window-position", "(ii)", root_x, root_y);
-                    }
-
-                    return false;
-                });
-
-                return false;
-            });
 
             main_window.key_press_event.connect ((event) => {
                 switch (event.keyval) {

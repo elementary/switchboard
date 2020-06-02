@@ -2,6 +2,7 @@ lib/PlugsManager.vala
 lib/Plug.vala
 src/Application.vala
 src/CategoryView.vala
+src/MainWindow.vala
 src/PlugsSearch.vala
 src/SearchView.vala
 src/Widgets/CategoryFlowBox.vala
