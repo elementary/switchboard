@@ -9,8 +9,8 @@ switchboard_files = files(
 
 switchboard_deps = [
     libswitchboard_dep,
-    clutter_gtk_dep,
     granite_dep,
+    handy_dep,
     m_dep
 ]
 

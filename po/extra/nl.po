@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-22 23:04+0000\n"
-"PO-Revision-Date: 2020-01-19 13:08+0000\n"
+"PO-Revision-Date: 2020-05-11 03:10+0000\n"
 "Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/switchboard/extra/"
 "nl/>\n"
@@ -47,11 +47,11 @@ msgstr ""
 
 #: data/io.elementary.switchboard.appdata.xml.in:17
 msgid "Redesign search results view"
-msgstr ""
+msgstr "De weergave van zoekresultaten is opnieuw vormgegeven"
 
 #: data/io.elementary.switchboard.appdata.xml.in:18
 msgid "Tab key moves focus out of search"
-msgstr ""
+msgstr "Tabtoets verplaatst de cursor buiten het zoekveld"
 
 #: data/io.elementary.switchboard.appdata.xml.in:19
 #: data/io.elementary.switchboard.appdata.xml.in:26

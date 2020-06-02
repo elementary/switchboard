@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-22 23:04+0000\n"
-"PO-Revision-Date: 2018-07-28 15:20+0000\n"
-"Last-Translator: Jan Marek <janmarek28@gmail.com>\n"
-"Language-Team: Czech <https://weblate.elementary.io/projects/switchboard/"
-"extra/cs/>\n"
+"PO-Revision-Date: 2020-05-28 22:11+0000\n"
+"Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
+"Language-Team: Czech <https://l10n.elementary.io/projects/switchboard/extra/"
+"cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-02-27 05:39+0000\n"
 
 #: data/io.elementary.switchboard.desktop.in:4
@@ -36,7 +36,7 @@ msgstr "preferences-desktop"
 
 #: data/io.elementary.switchboard.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"
-msgstr "Centrum;Ovládání;Panel;Vlastnosti;Systém"
+msgstr "Centrum;Ovládání;Panel;Vlastnosti;Systém;"
 
 #: data/io.elementary.switchboard.appdata.xml.in:11
 msgid ""
@@ -47,45 +47,45 @@ msgstr ""
 
 #: data/io.elementary.switchboard.appdata.xml.in:17
 msgid "Redesign search results view"
-msgstr ""
+msgstr "Předělání zobrazení výsledků"
 
 #: data/io.elementary.switchboard.appdata.xml.in:18
 msgid "Tab key moves focus out of search"
-msgstr ""
+msgstr "Klávesa tab přesune zaměření mimo hledání"
 
 #: data/io.elementary.switchboard.appdata.xml.in:19
 #: data/io.elementary.switchboard.appdata.xml.in:26
 #: data/io.elementary.switchboard.appdata.xml.in:36
 #: data/io.elementary.switchboard.appdata.xml.in:45
 msgid "Updated translations"
-msgstr ""
+msgstr "Aktualizovány překlady"
 
 #: data/io.elementary.switchboard.appdata.xml.in:33
 msgid "Fix an issue that prevented tiling on small displays"
-msgstr ""
+msgstr "Oprava problému který bránil vytváření dlaždic na malých displejích"
 
 #: data/io.elementary.switchboard.appdata.xml.in:34
 msgid "Fix an issue with restoring the correct window size"
-msgstr ""
+msgstr "Oprava problému při obnovování správné velikosti okna"
 
 #: data/io.elementary.switchboard.appdata.xml.in:35
 msgid "Make the category grid fill the available space when maximized"
-msgstr ""
+msgstr "Při maximalizaci vyplní mřížka kategorie dostupný prostor"
 
 #: data/io.elementary.switchboard.appdata.xml.in:43
 msgid ""
 "Pressing the \"Down\" arrow key from the search box correctly focuses the "
 "first row"
 msgstr ""
+"Stisknutí klávesy šipka dolů v kolonce vyhledávání správně zaměří první řádek"
 
 #: data/io.elementary.switchboard.appdata.xml.in:44
 msgid "Drop dynamic items from the Dock secondary-click menu"
-msgstr ""
+msgstr "Zahození dynamických položek z nabídky pravým tlačítkem myši"
 
 #: data/io.elementary.switchboard.appdata.xml.in:59
-#, fuzzy
 msgid "elementary, Inc."
-msgstr "elementary LLC."
+msgstr "elementary, Inc."
 
 #~ msgid "About System Settings"
 #~ msgstr "O aplikaci Nastavení systému"

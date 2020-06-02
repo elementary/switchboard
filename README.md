@@ -14,11 +14,11 @@ Switchboard is just the container application for Switchboard Plugs, which provi
 
 You'll need the following dependencies:
 
-* libclutter-gtk-1.0-dev
 * libgee-0.8-dev
 * libglib2.0-dev
 * libgranite-dev >= 5.4.0
 * libgtk-3-dev
+* libhandy-1-dev >= 0.80.0
 * meson
 * valac
 
