@@ -10,10 +10,16 @@ add_project_arguments([
         '-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()),
         '-DG_LOG_DOMAIN="switchboard"',
         '-DHANDY_USE_UNSTABLE_API',
-        '--disable-since-check'
     ],
     language: 'c'
 )
+
+# FIXME Disable --disable-since-check after libhandy 1.0 is released
+add_project_arguments (
+  '--disable-since-check',
+  language: 'vala'
+)
+
 
 plugs_dir = join_paths(get_option('prefix'), get_option('libdir'), 'switchboard')
 
