@@ -79,7 +79,7 @@ namespace Switchboard {
         }
 
         public override void activate () {
-            Hdy.init();
+            Hdy.init ();
 
             var plugsmanager = Switchboard.PlugsManager.get_default ();
             var setting = new Settings ("io.elementary.switchboard.preferences");
