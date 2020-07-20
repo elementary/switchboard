@@ -34,7 +34,7 @@ namespace Switchboard {
         private Gee.ArrayList <Switchboard.Plug> previous_plugs;
         private Gee.LinkedList <string> loaded_plugs;
         private Gtk.Button navigation_button;
-        private Gtk.HeaderBar headerbar;
+        private Hdy.HeaderBar headerbar;
         private Gtk.Stack stack;
         private Hdy.Window main_window;
         private Switchboard.CategoryView category_view;
@@ -79,6 +79,8 @@ namespace Switchboard {
         }
 
         public override void activate () {
+            Hdy.init ();
+
             var plugsmanager = Switchboard.PlugsManager.get_default ();
             var setting = new Settings ("io.elementary.switchboard.preferences");
             var mapping_dic = setting.get_value ("mapping-override");
@@ -146,11 +148,11 @@ namespace Switchboard {
             search_box.placeholder_text = _("Search Settings");
             search_box.sensitive = false;
 
-            headerbar = new Gtk.HeaderBar ();
-            headerbar.has_subtitle = false;
-            headerbar.show_close_button = true;
-            headerbar.title = _("System Settings");
-            headerbar.get_style_context ().add_class (Gtk.STYLE_CLASS_TITLEBAR);
+            headerbar = new Hdy.HeaderBar () {
+                has_subtitle = false,
+                show_close_button = true,
+                title = _("System Settings")
+            };
             headerbar.pack_start (navigation_button);
             headerbar.pack_end (search_box);
 
@@ -169,11 +171,8 @@ namespace Switchboard {
             search_stack.add (stack);
             search_stack.add (searchview);
 
-            var window_handle = new Hdy.WindowHandle ();
-            window_handle.add (headerbar);
-
             var grid = new Gtk.Grid ();
-            grid.attach (window_handle, 0, 0);
+            grid.attach (headerbar, 0, 0);
             grid.attach (search_stack, 0, 1);
 
             main_window = new Hdy.Window ();
