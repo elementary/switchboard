@@ -137,7 +137,7 @@ namespace Switchboard {
             set_accels_for_action ("app.back", {"<Alt>Left", "Back"});
             set_accels_for_action ("app.quit", {"<Control>q"});
 
-            navigation_button = new Gtk.Button.with_label (all_settings_label);
+            navigation_button = new Gtk.Button.with_label (_(all_settings_label));
             navigation_button.action_name = "app.back";
             navigation_button.set_tooltip_markup (
                 Granite.markup_accel_tooltip (get_accels_for_action (navigation_button.action_name))
@@ -327,7 +327,7 @@ namespace Switchboard {
                         navigation_button.label = previous_plugs.@get (0).display_name;
                         previous_plugs.remove_at (previous_plugs.size - 1);
                     } else {
-                        navigation_button.label = all_settings_label;
+                        navigation_button.label = _(all_settings_label);
                     }
                     navigation_button.show ();
 
@@ -394,7 +394,7 @@ namespace Switchboard {
 
         // Handles clicking the navigation button
         private void handle_navigation_button_clicked () {
-            if (navigation_button.label == all_settings_label) {
+            if (navigation_button.label == _(all_settings_label)) {
                 opened_directly = false;
 
                 previous_plugs.clear ();
