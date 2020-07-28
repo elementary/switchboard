@@ -28,7 +28,7 @@ namespace Switchboard {
     public class SwitchboardApp : Gtk.Application {
         public Gtk.SearchEntry search_box { get; private set; }
 
-        private string all_settings_label = _("All Settings");
+        private string all_settings_label = N_("All Settings");
         private uint configure_id;
 
         private Gee.ArrayList <Switchboard.Plug> previous_plugs;
