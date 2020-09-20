@@ -399,6 +399,7 @@ namespace Switchboard {
                 previous_plugs.clear ();
                 current_plug.hidden ();
 
+                deck.transition_duration = 200;
                 deck.visible_child = category_view;
             } else {
                 if (previous_plugs.size > 0) {
