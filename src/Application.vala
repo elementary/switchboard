@@ -445,6 +445,12 @@ namespace Switchboard {
 
         // Switches to the given plug
         private void switch_to_plug (Switchboard.Plug plug) {
+            if (should_animate_next_transition == false) {
+                deck.transition_duration = 0;
+                should_animate_next_transition = true;
+            } else if (deck.transition_duration == 0) {
+                deck.transition_duration = 200;
+            }
             plug.shown ();
             deck.visible_child = plug.get_widget ();
         }
