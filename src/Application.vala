@@ -28,14 +28,14 @@ namespace Switchboard {
     public class SwitchboardApp : Gtk.Application {
         public Gtk.SearchEntry search_box { get; private set; }
 
-        private string all_settings_label = _("All Settings");
+        private string all_settings_label = N_("All Settings");
         private uint configure_id;
 
         private Gee.ArrayList <Switchboard.Plug> previous_plugs;
         private Gee.LinkedList <string> loaded_plugs;
         private Gtk.Button navigation_button;
-        private Gtk.HeaderBar headerbar;
         private Hdy.Deck deck;
+        private Hdy.HeaderBar headerbar;
         private Hdy.Window main_window;
         private Switchboard.CategoryView category_view;
         private Switchboard.Plug current_plug;
@@ -79,6 +79,8 @@ namespace Switchboard {
         }
 
         public override void activate () {
+            Hdy.init ();
+
             var plugsmanager = Switchboard.PlugsManager.get_default ();
             var setting = new Settings ("io.elementary.switchboard.preferences");
             var mapping_dic = setting.get_value ("mapping-override");
@@ -135,7 +137,7 @@ namespace Switchboard {
             set_accels_for_action ("app.back", {"<Alt>Left", "Back"});
             set_accels_for_action ("app.quit", {"<Control>q"});
 
-            navigation_button = new Gtk.Button.with_label (all_settings_label);
+            navigation_button = new Gtk.Button.with_label (_(all_settings_label));
             navigation_button.action_name = "app.back";
             navigation_button.set_tooltip_markup (
                 Granite.markup_accel_tooltip (get_accels_for_action (navigation_button.action_name))
@@ -146,11 +148,11 @@ namespace Switchboard {
             search_box.placeholder_text = _("Search Settings");
             search_box.sensitive = false;
 
-            headerbar = new Gtk.HeaderBar ();
-            headerbar.has_subtitle = false;
-            headerbar.show_close_button = true;
-            headerbar.title = _("System Settings");
-            headerbar.get_style_context ().add_class (Gtk.STYLE_CLASS_TITLEBAR);
+            headerbar = new Hdy.HeaderBar () {
+                has_subtitle = false,
+                show_close_button = true,
+                title = _("System Settings")
+            };
             headerbar.pack_start (navigation_button);
             headerbar.pack_end (search_box);
 
@@ -168,11 +170,8 @@ namespace Switchboard {
             search_stack.add (deck);
             search_stack.add (searchview);
 
-            var window_handle = new Hdy.WindowHandle ();
-            window_handle.add (headerbar);
-
             var grid = new Gtk.Grid ();
-            grid.attach (window_handle, 0, 0);
+            grid.attach (headerbar, 0, 0);
             grid.attach (search_stack, 0, 1);
 
             main_window = new Hdy.Window ();
@@ -327,7 +326,7 @@ namespace Switchboard {
                         navigation_button.label = previous_plugs.@get (0).display_name;
                         previous_plugs.remove_at (previous_plugs.size - 1);
                     } else {
-                        navigation_button.label = all_settings_label;
+                        navigation_button.label = _(all_settings_label);
                     }
                     navigation_button.show ();
 
@@ -394,7 +393,7 @@ namespace Switchboard {
 
         // Handles clicking the navigation button
         private void handle_navigation_button_clicked () {
-            if (navigation_button.label == all_settings_label) {
+            if (navigation_button.label == _(all_settings_label)) {
                 opened_directly = false;
 
                 previous_plugs.clear ();
