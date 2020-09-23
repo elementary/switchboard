@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-22 23:04+0000\n"
-"PO-Revision-Date: 2020-09-17 00:14+0000\n"
+"PO-Revision-Date: 2020-09-24 16:44+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/switchboard/"
 "extra/uk/>\n"
@@ -48,11 +48,11 @@ msgstr "Застосунок системних параметрів зосер�
 
 #: data/io.elementary.switchboard.appdata.xml.in:17
 msgid "Redesign search results view"
-msgstr ""
+msgstr "Перероблено подання результатів пошуку"
 
 #: data/io.elementary.switchboard.appdata.xml.in:18
 msgid "Tab key moves focus out of search"
-msgstr ""
+msgstr "Клавіша табуляції виводить фокус з пошуку"
 
 #: data/io.elementary.switchboard.appdata.xml.in:19
 #: data/io.elementary.switchboard.appdata.xml.in:26
@@ -64,24 +64,28 @@ msgstr "Оновлено переклади"
 #: data/io.elementary.switchboard.appdata.xml.in:33
 msgid "Fix an issue that prevented tiling on small displays"
 msgstr ""
+"Усунено проблему, яка перешкоджала створенню плиток на невеликих екранах"
 
 #: data/io.elementary.switchboard.appdata.xml.in:34
 msgid "Fix an issue with restoring the correct window size"
-msgstr ""
+msgstr "Виправлено проблему з відновленням правильного розміру вікна"
 
 #: data/io.elementary.switchboard.appdata.xml.in:35
 msgid "Make the category grid fill the available space when maximized"
 msgstr ""
+"Зроблено, щоб сітка категорій заповнювала доступний простір, коли розгорнуто"
 
 #: data/io.elementary.switchboard.appdata.xml.in:43
 msgid ""
 "Pressing the \"Down\" arrow key from the search box correctly focuses the "
 "first row"
 msgstr ""
+"Натискання клавіші зі стрілкою «вниз» у вікні пошуку правильно фокусується "
+"на першому рядку"
 
 #: data/io.elementary.switchboard.appdata.xml.in:44
 msgid "Drop dynamic items from the Dock secondary-click menu"
-msgstr ""
+msgstr "Видалено динамічні елементи з контекстного меню Dock"
 
 #: data/io.elementary.switchboard.appdata.xml.in:59
 msgid "elementary, Inc."
