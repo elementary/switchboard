@@ -34,8 +34,8 @@ namespace Switchboard {
         private Gee.ArrayList <Switchboard.Plug> previous_plugs;
         private Gee.LinkedList <string> loaded_plugs;
         private Gtk.Button navigation_button;
+        private Hdy.Deck deck;
         private Hdy.HeaderBar headerbar;
-        private Gtk.Stack stack;
         private Hdy.Window main_window;
         private Switchboard.CategoryView category_view;
         private Switchboard.Plug current_plug;
@@ -160,15 +160,14 @@ namespace Switchboard {
             category_view.plug_selected.connect ((plug) => load_plug (plug));
             category_view.load_default_plugs.begin ();
 
-            stack = new Gtk.Stack ();
-            stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
-            stack.add_named (category_view, "main");
+            deck = new Hdy.Deck ();
+            deck.add (category_view);
 
             var searchview = new SearchView ();
 
             var search_stack = new Gtk.Stack ();
             search_stack.transition_type = Gtk.StackTransitionType.OVER_DOWN_UP;
-            search_stack.add (stack);
+            search_stack.add (deck);
             search_stack.add (searchview);
 
             var grid = new Gtk.Grid ();
@@ -209,7 +208,7 @@ namespace Switchboard {
                 if (search_box.text_length > 0) {
                     search_stack.visible_child = searchview;
                 } else {
-                    search_stack.visible_child = stack;
+                    search_stack.visible_child = deck;
                 }
             });
 
@@ -303,8 +302,8 @@ namespace Switchboard {
                 }
             });
 
-            stack.notify["visible-child"].connect (() => {
-                if (stack.visible_child == category_view) {
+            deck.notify["visible-child"].connect (() => {
+                if (deck.visible_child == category_view) {
                     current_plug = null;
 
                     headerbar.title = _("System Settings");
@@ -315,7 +314,7 @@ namespace Switchboard {
                     search_box.has_focus = search_box.sensitive;
                 } else {
                     foreach (var plug in previous_plugs) {
-                        if (stack.visible_child == plug.get_widget ()) {
+                        if (deck.visible_child == plug.get_widget ()) {
                             current_plug = plug;
                             break;
                         }
@@ -351,7 +350,7 @@ namespace Switchboard {
         public void load_plug (Switchboard.Plug plug) {
             Idle.add (() => {
                 if (!loaded_plugs.contains (plug.code_name)) {
-                    stack.add_named (plug.get_widget (), plug.code_name);
+                    deck.add (plug.get_widget ());
                     loaded_plugs.add (plug.code_name);
                 }
 
@@ -400,7 +399,8 @@ namespace Switchboard {
                 previous_plugs.clear ();
                 current_plug.hidden ();
 
-                stack.set_visible_child_full ("main", Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
+                deck.transition_duration = 200;
+                deck.visible_child = category_view;
             } else {
                 if (previous_plugs.size > 0) {
                     if (current_plug != null) {
@@ -446,14 +446,13 @@ namespace Switchboard {
         // Switches to the given plug
         private void switch_to_plug (Switchboard.Plug plug) {
             if (should_animate_next_transition == false) {
-                stack.set_transition_type (Gtk.StackTransitionType.NONE);
+                deck.transition_duration = 0;
                 should_animate_next_transition = true;
-            } else if (stack.transition_type == Gtk.StackTransitionType.NONE) {
-                stack.set_transition_type (Gtk.StackTransitionType.SLIDE_LEFT_RIGHT);
+            } else if (deck.transition_duration == 0) {
+                deck.transition_duration = 200;
             }
-
             plug.shown ();
-            stack.set_visible_child_name (plug.code_name);
+            deck.visible_child = plug.get_widget ();
         }
     }
 }
