@@ -323,6 +323,10 @@ namespace Switchboard {
 
         private void update_navigation () {
             if (!deck.transition_running) {
+                if (current_plug != null) {
+                    current_plug.hidden ();
+                }
+
                 if (deck.visible_child == category_view) {
                     current_plug = null;
 
@@ -407,16 +411,11 @@ namespace Switchboard {
                 opened_directly = false;
 
                 previous_plugs.clear ();
-                current_plug.hidden ();
 
                 deck.transition_duration = 200;
                 deck.visible_child = category_view;
             } else {
                 if (previous_plugs.size > 0) {
-                    if (current_plug != null) {
-                        current_plug.hidden ();
-                    }
-
                     load_plug (previous_plugs.@get (0));
                     previous_plugs.remove_at (0);
                 } else {
@@ -434,10 +433,6 @@ namespace Switchboard {
                 }
 
                 if (supported_settings.has_key (setting_path)) {
-                    if (current_plug != null) {
-                        current_plug.hidden ();
-                    }
-
                     load_plug (plug);
                     open_window = supported_settings.get (setting_path);
                     return true;
