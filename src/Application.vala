@@ -303,6 +303,26 @@ namespace Switchboard {
             });
 
             deck.notify["visible-child"].connect (() => {
+                update_navigation ();
+            });
+
+            deck.notify["transition-running"].connect (() => {
+                update_navigation ();
+            });
+
+            if (Switchboard.PlugsManager.get_default ().has_plugs () == false) {
+                category_view.show_alert (_("No Settings Found"), _("Install some and re-launch Switchboard."), "dialog-warning");
+                search_box.sensitive = false;
+            } else {
+                search_box.sensitive = true;
+                search_box.has_focus = true;
+            }
+
+            Gtk.main ();
+        }
+
+        private void update_navigation () {
+            if (!deck.transition_running) {
                 if (deck.visible_child == category_view) {
                     current_plug = null;
 
@@ -334,17 +354,7 @@ namespace Switchboard {
                 }
 
                 search_box.text = "";
-            });
-
-            if (Switchboard.PlugsManager.get_default ().has_plugs () == false) {
-                category_view.show_alert (_("No Settings Found"), _("Install some and re-launch Switchboard."), "dialog-warning");
-                search_box.sensitive = false;
-            } else {
-                search_box.sensitive = true;
-                search_box.has_focus = true;
             }
-
-            Gtk.main ();
         }
 
         public void load_plug (Switchboard.Plug plug) {
