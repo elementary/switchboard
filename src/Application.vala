@@ -41,7 +41,6 @@ namespace Switchboard {
         private Switchboard.Plug current_plug;
 
         private static bool opened_directly = false;
-        private static bool should_animate_next_transition = true;
         private static string? link = null;
         private static string? open_window = null;
         private static string? plug_to_open = null;
@@ -91,7 +90,6 @@ namespace Switchboard {
                     link = null;
 
                     // If plug_to_open was set from the command line
-                    should_animate_next_transition = false;
                     opened_directly = true;
                 } else {
                     warning (_("Specified link '%s' does not exist, going back to the main panel").printf (link));
@@ -103,7 +101,6 @@ namespace Switchboard {
                         plug_to_open = null;
 
                         // If plug_to_open was set from the command line
-                        should_animate_next_transition = false;
                         opened_directly = true;
                         break;
                     }
@@ -451,9 +448,9 @@ namespace Switchboard {
 
         // Switches to the given plug
         private void switch_to_plug (Switchboard.Plug plug) {
-            if (should_animate_next_transition == false) {
+            if (opened_directly) {
                 deck.transition_duration = 0;
-                should_animate_next_transition = true;
+                opened_directly = false;
             } else if (deck.transition_duration == 0) {
                 deck.transition_duration = 200;
             }
