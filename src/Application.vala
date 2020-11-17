@@ -344,6 +344,7 @@ namespace Switchboard {
                         }
                     }
 
+                    current_plug.shown ();
                     headerbar.title = current_plug.display_name;
 
                     if (previous_plugs.size > 1) {
@@ -456,7 +457,7 @@ namespace Switchboard {
             } else if (deck.transition_duration == 0) {
                 deck.transition_duration = 200;
             }
-            plug.shown ();
+
             deck.visible_child = plug.get_widget ();
         }
     }
