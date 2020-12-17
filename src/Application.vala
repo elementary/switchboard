@@ -32,7 +32,6 @@ namespace Switchboard {
         private uint configure_id;
 
         private Gee.ArrayList <Switchboard.Plug> previous_plugs;
-        private Gee.LinkedList <string> loaded_plugs;
         private Gtk.Button navigation_button;
         private Hdy.Deck deck;
         private Hdy.HeaderBar headerbar;
@@ -122,7 +121,6 @@ namespace Switchboard {
                 gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
             });
 
-            loaded_plugs = new Gee.LinkedList <string> ();
             previous_plugs = new Gee.ArrayList <Switchboard.Plug> ();
 
             var back_action = new SimpleAction ("back", null);
@@ -361,9 +359,9 @@ namespace Switchboard {
 
         public void load_plug (Switchboard.Plug plug) {
             Idle.add (() => {
-                if (!loaded_plugs.contains (plug.code_name)) {
-                    deck.add (plug.get_widget ());
-                    loaded_plugs.add (plug.code_name);
+                var plug_widget = plug.get_widget ();
+                if (deck.get_children ().find (plug_widget) == null) {
+                    deck.add (plug_widget);
                 }
 
                 category_view.plug_search_result.foreach ((entry) => {
