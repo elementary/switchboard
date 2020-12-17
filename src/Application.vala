@@ -361,7 +361,7 @@ namespace Switchboard {
             Idle.add (() => {
                 var plug_widget = plug.get_widget ();
                 if (deck.get_children ().find (plug_widget) == null) {
-                    deck.add (plug.get_widget ());
+                    deck.add (plug_widget);
                 }
 
                 category_view.plug_search_result.foreach ((entry) => {
