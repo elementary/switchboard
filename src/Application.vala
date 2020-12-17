@@ -390,7 +390,15 @@ namespace Switchboard {
                     open_window = null;
                 }
 
-                switch_to_plug (plug);
+                if (opened_directly) {
+                    deck.transition_duration = 0;
+                    opened_directly = false;
+                } else if (deck.transition_duration == 0) {
+                    deck.transition_duration = 200;
+                }
+
+                deck.visible_child = plug.get_widget ();
+
                 return false;
             }, GLib.Priority.DEFAULT_IDLE);
         }
@@ -440,18 +448,6 @@ namespace Switchboard {
             }
 
             return false;
-        }
-
-        // Switches to the given plug
-        private void switch_to_plug (Switchboard.Plug plug) {
-            if (opened_directly) {
-                deck.transition_duration = 0;
-                opened_directly = false;
-            } else if (deck.transition_duration == 0) {
-                deck.transition_duration = 200;
-            }
-
-            deck.visible_child = plug.get_widget ();
         }
     }
 }
