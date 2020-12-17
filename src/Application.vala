@@ -31,13 +31,13 @@ namespace Switchboard {
         private string all_settings_label = N_("All Settings");
         private uint configure_id;
 
+        private GLib.HashTable <Gtk.Widget, Switchboard.Plug> plug_widgets;
         private Gee.ArrayList <Switchboard.Plug> previous_plugs;
         private Gtk.Button navigation_button;
         private Hdy.Deck deck;
         private Hdy.HeaderBar headerbar;
         private Hdy.Window main_window;
         private Switchboard.CategoryView category_view;
-        private Switchboard.Plug current_plug;
 
         private static bool opened_directly = false;
         private static string? link = null;
@@ -121,6 +121,7 @@ namespace Switchboard {
                 gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
             });
 
+            plug_widgets = new GLib.HashTable <Gtk.Widget, Switchboard.Plug> (null, null);
             previous_plugs = new Gee.ArrayList <Switchboard.Plug> ();
 
             var back_action = new SimpleAction ("back", null);
@@ -318,13 +319,11 @@ namespace Switchboard {
 
         private void update_navigation () {
             if (!deck.transition_running) {
-                if (current_plug != null) {
-                    current_plug.hidden ();
+                if (plug_widgets[deck.visible_child] != null) {
+                    plug_widgets[deck.visible_child].hidden ();
                 }
 
                 if (deck.visible_child == category_view) {
-                    current_plug = null;
-
                     headerbar.title = _("System Settings");
 
                     navigation_button.hide ();
@@ -332,15 +331,8 @@ namespace Switchboard {
                     search_box.sensitive = Switchboard.PlugsManager.get_default ().has_plugs ();
                     search_box.has_focus = search_box.sensitive;
                 } else {
-                    foreach (var plug in previous_plugs) {
-                        if (deck.visible_child == plug.get_widget ()) {
-                            current_plug = plug;
-                            break;
-                        }
-                    }
-
-                    current_plug.shown ();
-                    headerbar.title = current_plug.display_name;
+                    plug_widgets[deck.visible_child].shown ();
+                    headerbar.title = plug_widgets[deck.visible_child].display_name;
 
                     if (previous_plugs.size > 1) {
                         navigation_button.label = previous_plugs.@get (0).display_name;
@@ -362,6 +354,10 @@ namespace Switchboard {
                 var plug_widget = plug.get_widget ();
                 if (deck.get_children ().find (plug_widget) == null) {
                     deck.add (plug_widget);
+                }
+
+                if (plug_widgets[plug_widget] == null) {
+                    plug_widgets[plug_widget] = plug;
                 }
 
                 category_view.plug_search_result.foreach ((entry) => {
@@ -394,8 +390,8 @@ namespace Switchboard {
         }
 
         private void shut_down () {
-            if (current_plug != null) {
-                current_plug.hidden ();
+            if (plug_widgets[deck.visible_child] != null && plug_widgets[deck.visible_child] is Switchboard.Plug) {
+                plug_widgets[deck.visible_child].hidden ();
             }
 
             Gtk.main_quit ();
