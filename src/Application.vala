@@ -413,12 +413,8 @@ namespace Switchboard {
                 deck.transition_duration = 200;
                 deck.visible_child = category_view;
             } else {
-                if (previous_plugs.size > 0) {
-                    load_plug (previous_plugs.@get (0));
-                    previous_plugs.remove_at (0);
-                } else {
-                    switch_to_plug (current_plug);
-                }
+                load_plug (previous_plugs.@get (0));
+                previous_plugs.remove_at (0);
             }
         }
 
