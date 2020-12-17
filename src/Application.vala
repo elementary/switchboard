@@ -384,7 +384,15 @@ namespace Switchboard {
                     open_window = null;
                 }
 
-                switch_to_plug (plug);
+                if (opened_directly) {
+                    deck.transition_duration = 0;
+                    opened_directly = false;
+                } else if (deck.transition_duration == 0) {
+                    deck.transition_duration = 200;
+                }
+
+                deck.visible_child = plug.get_widget ();
+
                 return false;
             }, GLib.Priority.DEFAULT_IDLE);
         }
@@ -407,12 +415,8 @@ namespace Switchboard {
                 deck.transition_duration = 200;
                 deck.visible_child = category_view;
             } else {
-                if (previous_plugs.size > 0) {
-                    load_plug (previous_plugs.@get (0));
-                    previous_plugs.remove_at (0);
-                } else {
-                    switch_to_plug (current_plug);
-                }
+                load_plug (previous_plugs.@get (0));
+                previous_plugs.remove_at (0);
             }
         }
 
@@ -438,18 +442,6 @@ namespace Switchboard {
             }
 
             return false;
-        }
-
-        // Switches to the given plug
-        private void switch_to_plug (Switchboard.Plug plug) {
-            if (opened_directly) {
-                deck.transition_duration = 0;
-                opened_directly = false;
-            } else if (deck.transition_duration == 0) {
-                deck.transition_duration = 200;
-            }
-
-            deck.visible_child = plug.get_widget ();
         }
     }
 }
