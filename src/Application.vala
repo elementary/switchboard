@@ -413,7 +413,7 @@ namespace Switchboard {
 
         // Handles clicking the navigation button
         private void handle_navigation_button_clicked () {
-            if (navigation_button.label == _(all_settings_label)) {
+            if (deck.get_adjacent_child (Hdy.NavigationDirection.BACK) == category_view) {
                 opened_directly = false;
                 deck.transition_duration = 200;
             }
