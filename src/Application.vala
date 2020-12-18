@@ -31,13 +31,12 @@ namespace Switchboard {
         private string all_settings_label = N_("All Settings");
         private uint configure_id;
 
-        private Gee.ArrayList <Switchboard.Plug> previous_plugs;
+        private GLib.HashTable <Gtk.Widget, Switchboard.Plug> plug_widgets;
         private Gtk.Button navigation_button;
         private Hdy.Deck deck;
         private Hdy.HeaderBar headerbar;
         private Hdy.Window main_window;
         private Switchboard.CategoryView category_view;
-        private Switchboard.Plug current_plug;
 
         private static bool opened_directly = false;
         private static string? link = null;
@@ -121,7 +120,7 @@ namespace Switchboard {
                 gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
             });
 
-            previous_plugs = new Gee.ArrayList <Switchboard.Plug> ();
+            plug_widgets = new GLib.HashTable <Gtk.Widget, Switchboard.Plug> (null, null);
 
             var back_action = new SimpleAction ("back", null);
             var quit_action = new SimpleAction ("quit", null);
@@ -155,7 +154,10 @@ namespace Switchboard {
             category_view.plug_selected.connect ((plug) => load_plug (plug));
             category_view.load_default_plugs.begin ();
 
-            deck = new Hdy.Deck ();
+            deck = new Hdy.Deck () {
+                can_swipe_back = true,
+                can_swipe_forward = true
+            };
             deck.add (category_view);
 
             var searchview = new SearchView ();
@@ -318,13 +320,16 @@ namespace Switchboard {
 
         private void update_navigation () {
             if (!deck.transition_running) {
-                if (current_plug != null) {
-                    current_plug.hidden ();
+                if (plug_widgets[deck.get_adjacent_child (Hdy.NavigationDirection.FORWARD)] != null) {
+                    plug_widgets[deck.get_adjacent_child (Hdy.NavigationDirection.FORWARD)].hidden ();
+                }
+
+                var previous_child = plug_widgets[deck.get_adjacent_child (Hdy.NavigationDirection.BACK)];
+                if (previous_child != null && previous_child is Switchboard.Plug) {
+                    previous_child.hidden ();
                 }
 
                 if (deck.visible_child == category_view) {
-                    current_plug = null;
-
                     headerbar.title = _("System Settings");
 
                     navigation_button.hide ();
@@ -332,22 +337,15 @@ namespace Switchboard {
                     search_box.sensitive = Switchboard.PlugsManager.get_default ().has_plugs ();
                     search_box.has_focus = search_box.sensitive;
                 } else {
-                    foreach (var plug in previous_plugs) {
-                        if (deck.visible_child == plug.get_widget ()) {
-                            current_plug = plug;
-                            break;
-                        }
-                    }
+                    plug_widgets[deck.visible_child].shown ();
+                    headerbar.title = plug_widgets[deck.visible_child].display_name;
 
-                    current_plug.shown ();
-                    headerbar.title = current_plug.display_name;
-
-                    if (previous_plugs.size > 1) {
-                        navigation_button.label = previous_plugs.@get (0).display_name;
-                        previous_plugs.remove_at (previous_plugs.size - 1);
+                    if (previous_child != null && previous_child is Switchboard.Plug) {
+                        navigation_button.label = previous_child.display_name;
                     } else {
                         navigation_button.label = _(all_settings_label);
                     }
+
                     navigation_button.show ();
 
                     search_box.sensitive = false;
@@ -359,9 +357,17 @@ namespace Switchboard {
 
         public void load_plug (Switchboard.Plug plug) {
             Idle.add (() => {
+                while (deck.get_adjacent_child (Hdy.NavigationDirection.FORWARD) != null) {
+                    deck.remove (deck.get_adjacent_child (Hdy.NavigationDirection.FORWARD));
+                }
+
                 var plug_widget = plug.get_widget ();
                 if (deck.get_children ().find (plug_widget) == null) {
                     deck.add (plug_widget);
+                }
+
+                if (plug_widgets[plug_widget] == null) {
+                    plug_widgets[plug_widget] = plug;
                 }
 
                 category_view.plug_search_result.foreach ((entry) => {
@@ -377,10 +383,6 @@ namespace Switchboard {
 
                     return false;
                 });
-
-                if (previous_plugs.size == 0 || previous_plugs.@get (0) != plug) {
-                    previous_plugs.add (plug);
-                }
 
                 // open window was set by command line argument
                 if (open_window != null) {
@@ -402,8 +404,8 @@ namespace Switchboard {
         }
 
         private void shut_down () {
-            if (current_plug != null) {
-                current_plug.hidden ();
+            if (plug_widgets[deck.visible_child] != null && plug_widgets[deck.visible_child] is Switchboard.Plug) {
+                plug_widgets[deck.visible_child].hidden ();
             }
 
             Gtk.main_quit ();
@@ -411,17 +413,12 @@ namespace Switchboard {
 
         // Handles clicking the navigation button
         private void handle_navigation_button_clicked () {
-            if (navigation_button.label == _(all_settings_label)) {
+            if (deck.get_adjacent_child (Hdy.NavigationDirection.BACK) == category_view) {
                 opened_directly = false;
-
-                previous_plugs.clear ();
-
                 deck.transition_duration = 200;
-                deck.visible_child = category_view;
-            } else {
-                load_plug (previous_plugs.@get (0));
-                previous_plugs.remove_at (0);
             }
+
+            deck.navigate (Hdy.NavigationDirection.BACK);
         }
 
         // Try to find a supported plug, fallback paths like "foo/bar" to "foo"
