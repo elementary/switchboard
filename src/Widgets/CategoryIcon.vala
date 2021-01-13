@@ -27,6 +27,7 @@ public class Switchboard.CategoryIcon : Gtk.FlowBoxChild {
         width_request = 144;
 
         var icon = new Gtk.Image.from_icon_name (plug.icon, Gtk.IconSize.DND);
+        icon.get_style_context ().add_class ("icon-dropshadow");
         icon.tooltip_text = plug.description;
 
         var plug_name = new Gtk.Label (plug.display_name);
@@ -39,6 +40,7 @@ public class Switchboard.CategoryIcon : Gtk.FlowBoxChild {
         layout.halign = Gtk.Align.CENTER;
         layout.margin = 6;
         layout.orientation = Gtk.Orientation.VERTICAL;
+        layout.row_spacing = 6;
         layout.add (icon);
         layout.add (plug_name);
 
