@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-22 23:04+0000\n"
-"PO-Revision-Date: 2020-04-30 20:47+0000\n"
+"PO-Revision-Date: 2021-01-24 14:30+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/switchboard/extra/"
 "he/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 
 #: data/io.elementary.switchboard.desktop.in:4
@@ -28,7 +28,7 @@ msgstr "הגדרות מערכת"
 #: data/io.elementary.switchboard.desktop.in:5
 #: data/io.elementary.switchboard.appdata.xml.in:9
 msgid "Change system and user settings"
-msgstr "שינוי הגדרות המערכת  והגדרות המשתמשים"
+msgstr "שינוי הגדרות המערכת והגדרות המשתמשים"
 
 #: data/io.elementary.switchboard.desktop.in:7
 msgid "preferences-desktop"
