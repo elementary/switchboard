@@ -112,9 +112,6 @@ namespace Switchboard {
                     return;
             }
 
-            unowned SwitchboardApp app = (SwitchboardApp) GLib.Application.get_default ();
-            app.search_box.sensitive = true;
-
             var any_found = false;
 
             if (personal_category.has_child ()) {
@@ -138,6 +135,7 @@ namespace Switchboard {
             }
 
             if (plug_to_open != null && plug_to_open.has_suffix (plug.code_name)) {
+                unowned var app = (SwitchboardApp) GLib.Application.get_default ();
                 app.load_plug (plug);
                 plug_to_open = null;
             }
