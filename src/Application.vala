@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2011-2017 elementary LLC (https://elementary.io)
+* Copyright 2011-2021 elementary, Inc. (https://elementary.io)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -138,9 +138,10 @@ namespace Switchboard {
             );
             navigation_button.get_style_context ().add_class ("back-button");
 
-            search_box = new Gtk.SearchEntry ();
-            search_box.placeholder_text = _("Search Settings");
-            search_box.sensitive = false;
+            search_box = new Gtk.SearchEntry () {
+                placeholder_text = _("Search Settings"),
+                sensitive = false
+            };
 
             headerbar = new Hdy.HeaderBar () {
                 has_subtitle = false,
@@ -293,12 +294,6 @@ namespace Switchboard {
                 return Gdk.EVENT_PROPAGATE;
             });
 
-            main_window.size_allocate.connect (() => {
-                if (opened_directly) {
-                    search_box.sensitive = false;
-                }
-            });
-
             deck.notify["visible-child"].connect (() => {
                 update_navigation ();
             });
@@ -309,7 +304,6 @@ namespace Switchboard {
 
             if (Switchboard.PlugsManager.get_default ().has_plugs () == false) {
                 category_view.show_alert (_("No Settings Found"), _("Install some and re-launch Switchboard."), "dialog-warning");
-                search_box.sensitive = false;
             } else {
                 search_box.sensitive = true;
                 search_box.has_focus = true;
