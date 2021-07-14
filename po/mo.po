@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-22 23:04+0000\n"
+"POT-Creation-Date: 2021-07-14 17:12+0000\n"
 "PO-Revision-Date: 2018-05-27 16:13+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
 "Language-Team: Moldovan <https://weblate.elementary.io/projects/switchboard/"
@@ -13,44 +13,44 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.18\n"
 
-#: src/Application.vala:40
+#: src/Application.vala:31
 msgid "All Settings"
 msgstr "Toate setările"
 
-#: src/Application.vala:118
+#: src/Application.vala:93
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Linkul specificat '%s'  nu există, revenind la panoul principal"
 
-#: src/Application.vala:211
+#: src/Application.vala:142
 msgid "Search Settings"
 msgstr "Căutați setări"
 
-#: src/Application.vala:217 src/Application.vala:239 src/Application.vala:457
+#: src/Application.vala:149 src/Application.vala:178 src/Application.vala:327
 msgid "System Settings"
 msgstr "Setări sistem"
 
-#: src/Application.vala:366
+#: src/Application.vala:306
 msgid "No Settings Found"
 msgstr "Nu au fost găsite setări"
 
-#: src/Application.vala:366
+#: src/Application.vala:306
 msgid "Install some and re-launch Switchboard."
 msgstr "Instalați și relansați tabloul de bord."
 
-#: src/CategoryView.vala:144
+#: src/CategoryView.vala:147
 msgid "Personal"
 msgstr "Individual"
 
-#: src/CategoryView.vala:146
+#: src/CategoryView.vala:149
 msgid "Hardware"
 msgstr "Hard-ware"
 
-#: src/CategoryView.vala:148
+#: src/CategoryView.vala:151
 msgid "Network & Wireless"
 msgstr "Rețea și wireless"
 
-#: src/CategoryView.vala:150
+#: src/CategoryView.vala:153
 msgid "Administration"
 msgstr "Administrare"
 
@@ -58,7 +58,7 @@ msgstr "Administrare"
 msgid "Try changing search terms."
 msgstr "Încercați să modificați termenii de căutare."
 
-#: src/SearchView.vala:44
+#: src/SearchView.vala:47
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Niciun rezultat pentru “%s”"

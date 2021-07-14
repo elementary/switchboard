@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-22 23:04+0000\n"
+"POT-Creation-Date: 2021-07-14 17:12+0000\n"
 "PO-Revision-Date: 2020-05-28 22:11+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/switchboard/"
@@ -20,44 +20,44 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-02-28 04:57+0000\n"
 
-#: src/Application.vala:40
+#: src/Application.vala:31
 msgid "All Settings"
 msgstr "Všechna nastavení"
 
-#: src/Application.vala:118
+#: src/Application.vala:93
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Zadaný odkaz „%s“ neexistuje, probíhá návrat zpět do hlavního panelu"
 
-#: src/Application.vala:211
+#: src/Application.vala:142
 msgid "Search Settings"
 msgstr "Hledat v nastavení"
 
-#: src/Application.vala:217 src/Application.vala:239 src/Application.vala:457
+#: src/Application.vala:149 src/Application.vala:178 src/Application.vala:327
 msgid "System Settings"
 msgstr "Nastavení systému"
 
-#: src/Application.vala:366
+#: src/Application.vala:306
 msgid "No Settings Found"
 msgstr "Nastavení nenalezena"
 
-#: src/Application.vala:366
+#: src/Application.vala:306
 msgid "Install some and re-launch Switchboard."
 msgstr "Nainstalujte nějaká a znovu spusťte Switchboard."
 
-#: src/CategoryView.vala:144
+#: src/CategoryView.vala:147
 msgid "Personal"
 msgstr "Osobní"
 
-#: src/CategoryView.vala:146
+#: src/CategoryView.vala:149
 msgid "Hardware"
 msgstr "Hardware"
 
-#: src/CategoryView.vala:148
+#: src/CategoryView.vala:151
 msgid "Network & Wireless"
 msgstr "Síť a Wi-Fi"
 
-#: src/CategoryView.vala:150
+#: src/CategoryView.vala:153
 msgid "Administration"
 msgstr "Systém"
 
@@ -65,7 +65,7 @@ msgstr "Systém"
 msgid "Try changing search terms."
 msgstr "Zkuste změnit vyhledávaný výraz."
 
-#: src/SearchView.vala:44
+#: src/SearchView.vala:47
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Žádné výsledky pro „%s“"
