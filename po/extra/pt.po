@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 17:12+0000\n"
-"PO-Revision-Date: 2020-04-24 17:30+0000\n"
+"PO-Revision-Date: 2021-07-14 21:06+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/switchboard/"
 "extra/pt/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 
 #: data/io.elementary.switchboard.desktop.in:4
@@ -36,7 +36,7 @@ msgstr "preferences-desktop"
 
 #: data/io.elementary.switchboard.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"
-msgstr "Centro;Controlo;Painel;Preferências;Definições;Ajustes;"
+msgstr "Centro;Controlo;Painel;Preferências;Sistema;"
 
 #: data/io.elementary.switchboard.appdata.xml.in:11
 msgid ""
@@ -47,19 +47,20 @@ msgstr ""
 
 #: data/io.elementary.switchboard.appdata.xml.in:17
 msgid "Add multitouch navigation gestures"
-msgstr ""
+msgstr "Adiciona gestos de navegação multitoque"
 
 #: data/io.elementary.switchboard.appdata.xml.in:18
 msgid "Better support smaller displays"
-msgstr ""
+msgstr "Melhor suporte para monitores mais pequenos"
 
 #: data/io.elementary.switchboard.appdata.xml.in:19
 msgid "Remove old GNOME Control Center compatability layer"
 msgstr ""
+"Remove a antiga camada de compatibilidade do Centro de Controlo do GNOME"
 
 #: data/io.elementary.switchboard.appdata.xml.in:20
 msgid "Stability and performance improvements"
-msgstr ""
+msgstr "Melhoria da estabilidade e do desempenho"
 
 #: data/io.elementary.switchboard.appdata.xml.in:21
 #: data/io.elementary.switchboard.appdata.xml.in:30
