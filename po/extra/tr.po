@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-22 23:04+0000\n"
+"POT-Creation-Date: 2021-07-14 17:12+0000\n"
 "PO-Revision-Date: 2021-01-29 13:54+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/switchboard/"
@@ -44,34 +44,51 @@ msgid ""
 msgstr "Modülerlik ve basitliğe odaklanan bir sistem ayarları uygulaması."
 
 #: data/io.elementary.switchboard.appdata.xml.in:17
-msgid "Redesign search results view"
-msgstr "Arama sonuçları görünümü yeniden tasarlandı"
+msgid "Add multitouch navigation gestures"
+msgstr ""
 
 #: data/io.elementary.switchboard.appdata.xml.in:18
-msgid "Tab key moves focus out of search"
-msgstr "Sekme tuşu, odağı arama dışına taşır"
+msgid "Better support smaller displays"
+msgstr ""
 
 #: data/io.elementary.switchboard.appdata.xml.in:19
-#: data/io.elementary.switchboard.appdata.xml.in:26
-#: data/io.elementary.switchboard.appdata.xml.in:36
-#: data/io.elementary.switchboard.appdata.xml.in:45
+msgid "Remove old GNOME Control Center compatability layer"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:20
+msgid "Stability and performance improvements"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:21
+#: data/io.elementary.switchboard.appdata.xml.in:30
+#: data/io.elementary.switchboard.appdata.xml.in:37
+#: data/io.elementary.switchboard.appdata.xml.in:47
+#: data/io.elementary.switchboard.appdata.xml.in:56
 msgid "Updated translations"
 msgstr "Çeviriler güncellendi"
 
-#: data/io.elementary.switchboard.appdata.xml.in:33
+#: data/io.elementary.switchboard.appdata.xml.in:28
+msgid "Redesign search results view"
+msgstr "Arama sonuçları görünümü yeniden tasarlandı"
+
+#: data/io.elementary.switchboard.appdata.xml.in:29
+msgid "Tab key moves focus out of search"
+msgstr "Sekme tuşu, odağı arama dışına taşır"
+
+#: data/io.elementary.switchboard.appdata.xml.in:44
 msgid "Fix an issue that prevented tiling on small displays"
 msgstr "Küçük ekranlarda döşemeyi engelleyen bir sorun düzeltildi"
 
-#: data/io.elementary.switchboard.appdata.xml.in:34
+#: data/io.elementary.switchboard.appdata.xml.in:45
 msgid "Fix an issue with restoring the correct window size"
 msgstr "Doğru pencere boyutuna geri dönme ile ilgili bir sorun düzeltildi"
 
-#: data/io.elementary.switchboard.appdata.xml.in:35
+#: data/io.elementary.switchboard.appdata.xml.in:46
 msgid "Make the category grid fill the available space when maximized"
 msgstr ""
 "Tam ekran yapıldığında kategori ızgarasının kullanılabilir alanını doldur"
 
-#: data/io.elementary.switchboard.appdata.xml.in:43
+#: data/io.elementary.switchboard.appdata.xml.in:54
 msgid ""
 "Pressing the \"Down\" arrow key from the search box correctly focuses the "
 "first row"
@@ -79,11 +96,11 @@ msgstr ""
 "Arama kutusunda \"Aşağı\" ok tuşuna basılması, ilk satırı doğru şekilde "
 "odaklar"
 
-#: data/io.elementary.switchboard.appdata.xml.in:44
+#: data/io.elementary.switchboard.appdata.xml.in:55
 msgid "Drop dynamic items from the Dock secondary-click menu"
 msgstr "Dock ikincil tıklama menüsünden dinamik öğeler kaldırıldı"
 
-#: data/io.elementary.switchboard.appdata.xml.in:59
+#: data/io.elementary.switchboard.appdata.xml.in:70
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 

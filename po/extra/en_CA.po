@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-22 23:04+0000\n"
+"POT-Creation-Date: 2021-07-14 17:12+0000\n"
 "PO-Revision-Date: 2016-11-03 19:41+0000\n"
 "Last-Translator: wec <tungsten314@gmail.com>\n"
 "Language-Team: English (Canada) <en_CA@li.org>\n"
@@ -43,43 +43,60 @@ msgstr ""
 "A system settings application that focuses on modularity and simplicity."
 
 #: data/io.elementary.switchboard.appdata.xml.in:17
-msgid "Redesign search results view"
+msgid "Add multitouch navigation gestures"
 msgstr ""
 
 #: data/io.elementary.switchboard.appdata.xml.in:18
-msgid "Tab key moves focus out of search"
+msgid "Better support smaller displays"
 msgstr ""
 
 #: data/io.elementary.switchboard.appdata.xml.in:19
-#: data/io.elementary.switchboard.appdata.xml.in:26
-#: data/io.elementary.switchboard.appdata.xml.in:36
-#: data/io.elementary.switchboard.appdata.xml.in:45
+msgid "Remove old GNOME Control Center compatability layer"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:20
+msgid "Stability and performance improvements"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:21
+#: data/io.elementary.switchboard.appdata.xml.in:30
+#: data/io.elementary.switchboard.appdata.xml.in:37
+#: data/io.elementary.switchboard.appdata.xml.in:47
+#: data/io.elementary.switchboard.appdata.xml.in:56
 msgid "Updated translations"
 msgstr ""
 
-#: data/io.elementary.switchboard.appdata.xml.in:33
+#: data/io.elementary.switchboard.appdata.xml.in:28
+msgid "Redesign search results view"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:29
+msgid "Tab key moves focus out of search"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:44
 msgid "Fix an issue that prevented tiling on small displays"
 msgstr ""
 
-#: data/io.elementary.switchboard.appdata.xml.in:34
+#: data/io.elementary.switchboard.appdata.xml.in:45
 msgid "Fix an issue with restoring the correct window size"
 msgstr ""
 
-#: data/io.elementary.switchboard.appdata.xml.in:35
+#: data/io.elementary.switchboard.appdata.xml.in:46
 msgid "Make the category grid fill the available space when maximized"
 msgstr ""
 
-#: data/io.elementary.switchboard.appdata.xml.in:43
+#: data/io.elementary.switchboard.appdata.xml.in:54
 msgid ""
 "Pressing the \"Down\" arrow key from the search box correctly focuses the "
 "first row"
 msgstr ""
 
-#: data/io.elementary.switchboard.appdata.xml.in:44
+#: data/io.elementary.switchboard.appdata.xml.in:55
 msgid "Drop dynamic items from the Dock secondary-click menu"
 msgstr ""
 
-#: data/io.elementary.switchboard.appdata.xml.in:59
+#: data/io.elementary.switchboard.appdata.xml.in:70
 msgid "elementary, Inc."
 msgstr ""
 
