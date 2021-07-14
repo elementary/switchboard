@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-14 17:12+0000\n"
-"PO-Revision-Date: 2021-07-05 13:54+0000\n"
+"PO-Revision-Date: 2021-07-14 21:06+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/switchboard/"
 "extra/uk/>\n"
@@ -48,19 +48,19 @@ msgstr "Застосунок налаштування системи зосер�
 
 #: data/io.elementary.switchboard.appdata.xml.in:17
 msgid "Add multitouch navigation gestures"
-msgstr ""
+msgstr "Додано жести навігації"
 
 #: data/io.elementary.switchboard.appdata.xml.in:18
 msgid "Better support smaller displays"
-msgstr ""
+msgstr "Поліпшено підтримку малих дисплеїв"
 
 #: data/io.elementary.switchboard.appdata.xml.in:19
 msgid "Remove old GNOME Control Center compatability layer"
-msgstr ""
+msgstr "Вилучено сумісність із застарілим центром керування GNOME"
 
 #: data/io.elementary.switchboard.appdata.xml.in:20
 msgid "Stability and performance improvements"
-msgstr ""
+msgstr "Вдосконалено швидкодію та стабільність"
 
 #: data/io.elementary.switchboard.appdata.xml.in:21
 #: data/io.elementary.switchboard.appdata.xml.in:30
