@@ -11,6 +11,17 @@
     <p>A system settings application that focuses on modularity and simplicity.</p>
   </description>
   <releases>
+    <release version="6.0.0" date="2021-07-13" urgency="medium">
+      <description>
+        <ul>
+          <li>Add multitouch navigation gestures</li>
+          <li>Better support smaller displays</li>
+          <li>Remove old GNOME Control Center compatability layer</li>
+          <li>Stability and performance improvements</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="2.4.0" date="2020-04-30" urgency="medium">
       <description>
         <ul>
