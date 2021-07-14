@@ -1,3 +1,36 @@
+switchboard (6.0.0) bionic; urgency=medium
+
+  * Release 6.0.0 (#212)
+  * Avoid setting search sensitivity (#207)
+  * LINGUAS: sort, remove en_US
+  * Update translation files
+  * Application: Use Deck for Nav and allow swiping (#199)
+  * Application: Remove handler for impossible case (#197)
+  * Application: Check actual children before adding duplicates (#196)
+  * Application: Set plug hidden on navigation (#192)
+  * CI: use GitHub Actions (#195)
+  * Application: Rely on opened_directly for transition (#190)
+  * Application: Update nav when deck finishes navigating (#191)
+  * Application: Replace Stack with Hdy.Deck (#181)
+  * Fix 'All Settings' no longer be shown as translated (#184)
+  * Application: Use Hdy.Headerbar and Hdy.init (#183)
+  * CategoryView: Add vertical scroll (#178)
+  * PlugsManager: Use GLib.ModuleFlags.LAZY instead of deprecated
+    GLib.ModuleFlags.BIND_LAZY (#158)
+  * Application: Use HdyWindow (#161)
+  * Application: sort variable declarations (#162)
+  * Application: Set title, search box, navbutton on visible-
+    child.notify (#168)
+  * Application: Remove switch_to_icons (#167)
+  * Application: remove build method (#166)
+  * Application: Remove old GCC compat layer (#165)
+  * Use GLib.Application.get_default () (#164)
+  * Remove unused Clutter (#163)
+  * SearchView: Fix "assertion 'GTK_IS_ENTRY (entry)' failed" error
+    (#157)
+
+ -- elementary, Inc. <builds@elementary.io>  Wed, 14 Jul 2021 17:12:09 +0000
+
 switchboard (2.4.0) bionic; urgency=medium
 
   * Release 2.4.0 (#155)
