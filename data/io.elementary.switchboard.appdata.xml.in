@@ -16,7 +16,7 @@
         <ul>
           <li>Add multitouch navigation gestures</li>
           <li>Better support smaller displays</li>
-          <li>Remove old GNOME Control Center compatability layer</li>
+          <li>Remove old GNOME Control Center compatibility layer</li>
           <li>Stability and performance improvements</li>
           <li>Updated translations</li>
         </ul>
