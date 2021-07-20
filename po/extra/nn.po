@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-14 17:12+0000\n"
+"POT-Creation-Date: 2021-07-20 18:18+0000\n"
 "PO-Revision-Date: 2019-01-05 03:21+0000\n"
 "Last-Translator: Simon Dagfinrud <semonje@gmail.com>\n"
 "Language-Team: Norwegian Nynorsk <https://weblate.elementary.io/projects/"
@@ -51,7 +51,7 @@ msgid "Better support smaller displays"
 msgstr ""
 
 #: data/io.elementary.switchboard.appdata.xml.in:19
-msgid "Remove old GNOME Control Center compatability layer"
+msgid "Remove old GNOME Control Center compatibility layer"
 msgstr ""
 
 #: data/io.elementary.switchboard.appdata.xml.in:20
