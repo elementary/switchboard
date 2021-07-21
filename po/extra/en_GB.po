@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-20 18:18+0000\n"
-"PO-Revision-Date: 2021-07-18 00:36+0000\n"
+"PO-Revision-Date: 2021-07-21 14:31+0000\n"
 "Last-Translator: Ciarán Ainsworth <ciaranainsworth@outlook.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "switchboard/extra/en_GB/>\n"
@@ -53,10 +53,8 @@ msgid "Better support smaller displays"
 msgstr "Better support smaller displays"
 
 #: data/io.elementary.switchboard.appdata.xml.in:19
-#, fuzzy
-#| msgid "Remove old GNOME Control Center compatability layer"
 msgid "Remove old GNOME Control Center compatibility layer"
-msgstr "Remove old GNOME Control Center compatability layer"
+msgstr "Remove old GNOME Control Center compatibility layer"
 
 #: data/io.elementary.switchboard.appdata.xml.in:20
 msgid "Stability and performance improvements"
