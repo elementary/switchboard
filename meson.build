@@ -14,6 +14,15 @@ add_project_arguments([
     language: 'c'
 )
 
+conf_data = configuration_data()
+conf_data.set_quoted('LOCALEDIR', join_paths(get_option('prefix'), get_option('localedir')))
+conf_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
+conf_file = configure_file(
+    input: 'src/Config.vala.in',
+    output: '@BASENAME@',
+    configuration: conf_data
+)
+
 plugs_dir = join_paths(get_option('prefix'), get_option('libdir'), 'switchboard')
 
 i18n = import('i18n')

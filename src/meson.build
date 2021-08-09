@@ -16,6 +16,7 @@ switchboard_deps = [
 
 executable(meson.project_name(),
     switchboard_files,
+    conf_file,
     dependencies: switchboard_deps,
     install: true
 )

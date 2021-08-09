@@ -47,6 +47,11 @@ namespace Switchboard {
             application_id = "io.elementary.switchboard";
             flags |= ApplicationFlags.HANDLES_OPEN;
 
+            GLib.Intl.setlocale (LocaleCategory.ALL, "");
+            GLib.Intl.bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
+            GLib.Intl.bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+            GLib.Intl.textdomain (GETTEXT_PACKAGE);
+
             if (GLib.AppInfo.get_default_for_uri_scheme ("settings") == null) {
                 var appinfo = new GLib.DesktopAppInfo (application_id + ".desktop");
                 try {
