@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-20 18:18+0000\n"
-"PO-Revision-Date: 2021-08-13 20:33+0000\n"
+"PO-Revision-Date: 2021-08-14 01:28+0000\n"
 "Last-Translator: DartDeaDia <DartDeaDia@protonmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/switchboard/"
 "extra/ru/>\n"
@@ -51,7 +51,7 @@ msgstr "Добавлены навигационные мультитач-жес�
 
 #: data/io.elementary.switchboard.appdata.xml.in:18
 msgid "Better support smaller displays"
-msgstr "Улучшена поддержка меньших дисплеев"
+msgstr "Улучшена поддержка маленьких экранов"
 
 #: data/io.elementary.switchboard.appdata.xml.in:19
 msgid "Remove old GNOME Control Center compatibility layer"
@@ -75,7 +75,7 @@ msgstr ""
 
 #: data/io.elementary.switchboard.appdata.xml.in:29
 msgid "Tab key moves focus out of search"
-msgstr ""
+msgstr "Клавиша Tab убирает фокус из поиска"
 
 #: data/io.elementary.switchboard.appdata.xml.in:44
 msgid "Fix an issue that prevented tiling on small displays"
@@ -83,7 +83,7 @@ msgstr ""
 
 #: data/io.elementary.switchboard.appdata.xml.in:45
 msgid "Fix an issue with restoring the correct window size"
-msgstr ""
+msgstr "Исправлена проблема с восстановлением правильного размера окна"
 
 #: data/io.elementary.switchboard.appdata.xml.in:46
 msgid "Make the category grid fill the available space when maximized"
@@ -94,6 +94,8 @@ msgid ""
 "Pressing the \"Down\" arrow key from the search box correctly focuses the "
 "first row"
 msgstr ""
+"Нажатие клавиши со стрелкой «вниз» из окна поиска правильно фокусируется на "
+"первой строке"
 
 #: data/io.elementary.switchboard.appdata.xml.in:55
 msgid "Drop dynamic items from the Dock secondary-click menu"
