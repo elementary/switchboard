@@ -51,7 +51,7 @@ msgstr "Добавлены навигационные мультитач-жес�
 
 #: data/io.elementary.switchboard.appdata.xml.in:18
 msgid "Better support smaller displays"
-msgstr ""
+msgstr "Улучшена поддержка меньших дисплеев"
 
 #: data/io.elementary.switchboard.appdata.xml.in:19
 msgid "Remove old GNOME Control Center compatibility layer"
