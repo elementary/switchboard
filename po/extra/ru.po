@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-20 18:18+0000\n"
-"PO-Revision-Date: 2021-08-13 15:38+0000\n"
-"Last-Translator: DartDeaDia <DartDeaDia@protonmail.com>\n"
+"PO-Revision-Date: 2021-08-13 20:33+0000\n"
+"Last-Translator: asdffdsdaf <useruseruser1233211@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/switchboard/"
 "extra/ru/>\n"
 "Language: ru\n"
@@ -55,11 +55,11 @@ msgstr ""
 
 #: data/io.elementary.switchboard.appdata.xml.in:19
 msgid "Remove old GNOME Control Center compatibility layer"
-msgstr ""
+msgstr "Удалён старый слой совместимости Параметров системы GNOME"
 
 #: data/io.elementary.switchboard.appdata.xml.in:20
 msgid "Stability and performance improvements"
-msgstr ""
+msgstr "Улучшения стабильности и производительности"
 
 #: data/io.elementary.switchboard.appdata.xml.in:21
 #: data/io.elementary.switchboard.appdata.xml.in:30
