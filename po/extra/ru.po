@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-20 18:18+0000\n"
 "PO-Revision-Date: 2021-08-13 20:33+0000\n"
-"Last-Translator: asdffdsdaf <useruseruser1233211@gmail.com>\n"
+"Last-Translator: DartDeaDia <DartDeaDia@protonmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/switchboard/"
 "extra/ru/>\n"
 "Language: ru\n"
@@ -55,7 +55,7 @@ msgstr "Улучшена поддержка меньших дисплеев"
 
 #: data/io.elementary.switchboard.appdata.xml.in:19
 msgid "Remove old GNOME Control Center compatibility layer"
-msgstr "Удалён старый слой совместимости Параметров системы GNOME"
+msgstr "Удалён старый слой совместимости центра управления GNOME"
 
 #: data/io.elementary.switchboard.appdata.xml.in:20
 msgid "Stability and performance improvements"
