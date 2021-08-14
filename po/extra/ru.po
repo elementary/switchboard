@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-20 18:18+0000\n"
 "PO-Revision-Date: 2021-08-14 15:23+0000\n"
-"Last-Translator: DartDeaDia <DartDeaDia@protonmail.com>\n"
+"Last-Translator: asdffdsdaf <useruseruser1233211@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/switchboard/"
 "extra/ru/>\n"
 "Language: ru\n"
@@ -71,7 +71,7 @@ msgstr "Обновлены переводы"
 
 #: data/io.elementary.switchboard.appdata.xml.in:28
 msgid "Redesign search results view"
-msgstr ""
+msgstr "Редизайн вида результатов поиска"
 
 #: data/io.elementary.switchboard.appdata.xml.in:29
 msgid "Tab key moves focus out of search"
