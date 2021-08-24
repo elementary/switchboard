@@ -8,24 +8,26 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-20 18:18+0000\n"
-"PO-Revision-Date: 2018-07-26 08:51-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2021-08-24 18:20+0000\n"
+"Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
+"Language-Team: Slovak <https://l10n.elementary.io/projects/switchboard/extra/"
+"sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.4.2\n"
 
 #: data/io.elementary.switchboard.desktop.in:4
 #: data/io.elementary.switchboard.appdata.xml.in:8
 msgid "System Settings"
-msgstr ""
+msgstr "Nastavenia systému"
 
 #: data/io.elementary.switchboard.desktop.in:5
 #: data/io.elementary.switchboard.appdata.xml.in:9
 msgid "Change system and user settings"
-msgstr ""
+msgstr "Meňte systémové a používateľské nastavenia"
 
 #: data/io.elementary.switchboard.desktop.in:7
 msgid "preferences-desktop"
@@ -33,28 +35,30 @@ msgstr ""
 
 #: data/io.elementary.switchboard.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"
-msgstr ""
+msgstr "Centrum;Ovládanie;Panel;Vlastnosti;Systém;"
 
 #: data/io.elementary.switchboard.appdata.xml.in:11
 msgid ""
 "A system settings application that focuses on modularity and simplicity."
 msgstr ""
+"Aplikácia systémových nastavení, ktoré je zameraná na modularitu a "
+"jednoduchosť."
 
 #: data/io.elementary.switchboard.appdata.xml.in:17
 msgid "Add multitouch navigation gestures"
-msgstr ""
+msgstr "Pridané viacdotykové navigačné gestá"
 
 #: data/io.elementary.switchboard.appdata.xml.in:18
 msgid "Better support smaller displays"
-msgstr ""
+msgstr "Lepšia podpora menších obrazoviek"
 
 #: data/io.elementary.switchboard.appdata.xml.in:19
 msgid "Remove old GNOME Control Center compatibility layer"
-msgstr ""
+msgstr "Odstránená stará vrstva kompatibility pre GNOME Ovládací panel"
 
 #: data/io.elementary.switchboard.appdata.xml.in:20
 msgid "Stability and performance improvements"
-msgstr ""
+msgstr "Vylepšenia stability a výkonu"
 
 #: data/io.elementary.switchboard.appdata.xml.in:21
 #: data/io.elementary.switchboard.appdata.xml.in:30
@@ -62,38 +66,40 @@ msgstr ""
 #: data/io.elementary.switchboard.appdata.xml.in:47
 #: data/io.elementary.switchboard.appdata.xml.in:56
 msgid "Updated translations"
-msgstr ""
+msgstr "Aktualizované preklady"
 
 #: data/io.elementary.switchboard.appdata.xml.in:28
 msgid "Redesign search results view"
-msgstr ""
+msgstr "Prerobené zobrazovanie výsledkov vyhľadávania"
 
 #: data/io.elementary.switchboard.appdata.xml.in:29
 msgid "Tab key moves focus out of search"
-msgstr ""
+msgstr "Klávesa Tab presunie zameranie mimo vyhľadávania"
 
 #: data/io.elementary.switchboard.appdata.xml.in:44
 msgid "Fix an issue that prevented tiling on small displays"
-msgstr ""
+msgstr "Opravený problém, ktorý bránil vytváraniu dlaždíc na menších displejoch"
 
 #: data/io.elementary.switchboard.appdata.xml.in:45
 msgid "Fix an issue with restoring the correct window size"
-msgstr ""
+msgstr "Opravený problém pri obnovovaní správnej veľkosti okna"
 
 #: data/io.elementary.switchboard.appdata.xml.in:46
 msgid "Make the category grid fill the available space when maximized"
-msgstr ""
+msgstr "Pri maximalizácii vyplní mriežka kategórie dostupné miesto"
 
 #: data/io.elementary.switchboard.appdata.xml.in:54
 msgid ""
 "Pressing the \"Down\" arrow key from the search box correctly focuses the "
 "first row"
 msgstr ""
+"Stlačením klávesy šípky nadol v políčku vyhľadávania sa správne zameria prvý "
+"riadok"
 
 #: data/io.elementary.switchboard.appdata.xml.in:55
 msgid "Drop dynamic items from the Dock secondary-click menu"
-msgstr ""
+msgstr "Zahodenie dynamických položiek z Doku v kontextovom menu"
 
 #: data/io.elementary.switchboard.appdata.xml.in:70
 msgid "elementary, Inc."
-msgstr ""
+msgstr "elementary, Inc."
