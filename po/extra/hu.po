@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-20 18:18+0000\n"
 "PO-Revision-Date: 2021-08-27 08:04+0000\n"
-"Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
+"Last-Translator: Benjamin Kőhidi <benstone326@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/switchboard/"
 "extra/hu/>\n"
 "Language: hu\n"
@@ -27,7 +27,7 @@ msgstr "Rendszerbeállítások"
 #: data/io.elementary.switchboard.desktop.in:5
 #: data/io.elementary.switchboard.appdata.xml.in:9
 msgid "Change system and user settings"
-msgstr ""
+msgstr "Rendszer és felhasználó beállításainak megváltoztatása"
 
 #: data/io.elementary.switchboard.desktop.in:7
 msgid "preferences-desktop"
@@ -41,6 +41,8 @@ msgstr ""
 msgid ""
 "A system settings application that focuses on modularity and simplicity."
 msgstr ""
+"Rendszerbeállítási alkalmazás, amely a modularitásra és az egyszerűségre "
+"összpontosít."
 
 #: data/io.elementary.switchboard.appdata.xml.in:17
 msgid "Add multitouch navigation gestures"
