@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-20 18:18+0000\n"
-"PO-Revision-Date: 2020-04-09 14:10+0000\n"
-"Last-Translator: nasserbinlaboun <nasser1990com@gmail.com>\n"
+"PO-Revision-Date: 2021-09-05 11:51+0000\n"
+"Last-Translator: Muhammad Al-Jayyousi <m7md.j99@protonmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/switchboard/"
 "switchboard/ar/>\n"
 "Language: ar\n"
@@ -18,17 +18,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:47+0000\n"
 
 #: src/Application.vala:31
 msgid "All Settings"
-msgstr ""
+msgstr "جميع الإعدادات"
 
 #: src/Application.vala:93
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
-msgstr ""
+msgstr "الرابط المحدد '%s' غير موجود، سيتم الرجوع للوحة الرئيسية"
 
 #: src/Application.vala:142
 msgid "Search Settings"
@@ -40,7 +40,7 @@ msgstr "إعدادات النظام"
 
 #: src/Application.vala:306
 msgid "No Settings Found"
-msgstr ""
+msgstr "لا توجد إعدادات"
 
 #: src/Application.vala:306
 msgid "Install some and re-launch Switchboard."
