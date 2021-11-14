@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-20 18:18+0000\n"
-"PO-Revision-Date: 2019-11-17 21:24+0000\n"
-"Last-Translator: Piotr Strebski <strebski@gmail.com>\n"
+"PO-Revision-Date: 2021-11-14 18:25+0000\n"
+"Last-Translator: Marcin Serwin <marcin.serwin0@protonmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/switchboard/extra/"
 "pl/>\n"
 "Language: pl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 
 #: data/io.elementary.switchboard.desktop.in:4
@@ -48,19 +48,19 @@ msgstr ""
 
 #: data/io.elementary.switchboard.appdata.xml.in:17
 msgid "Add multitouch navigation gestures"
-msgstr ""
+msgstr "Dodano wielodotykowe gesty nawigacji"
 
 #: data/io.elementary.switchboard.appdata.xml.in:18
 msgid "Better support smaller displays"
-msgstr ""
+msgstr "Lepsze wsparcie dla małych ekranów"
 
 #: data/io.elementary.switchboard.appdata.xml.in:19
 msgid "Remove old GNOME Control Center compatibility layer"
-msgstr ""
+msgstr "Usunięto starą warstwę zgodności z GNOME Control Center"
 
 #: data/io.elementary.switchboard.appdata.xml.in:20
 msgid "Stability and performance improvements"
-msgstr ""
+msgstr "Ulepszenia stabilności i wydajności"
 
 #: data/io.elementary.switchboard.appdata.xml.in:21
 #: data/io.elementary.switchboard.appdata.xml.in:30
@@ -72,33 +72,36 @@ msgstr "Zaktualizowane tłumaczenia"
 
 #: data/io.elementary.switchboard.appdata.xml.in:28
 msgid "Redesign search results view"
-msgstr ""
+msgstr "Przeprojektowano widok wyników wyszukiwania"
 
 #: data/io.elementary.switchboard.appdata.xml.in:29
 msgid "Tab key moves focus out of search"
-msgstr ""
+msgstr "Przycisk Tab przenosi teraz fokus z wyszukiwania"
 
 #: data/io.elementary.switchboard.appdata.xml.in:44
 msgid "Fix an issue that prevented tiling on small displays"
-msgstr ""
+msgstr "Naprawiono problem zapobiegający kafelkowaniu na małych ekranach"
 
 #: data/io.elementary.switchboard.appdata.xml.in:45
 msgid "Fix an issue with restoring the correct window size"
-msgstr ""
+msgstr "Naprawiono problem z przywracaniem poprawnego rozmiaru okna"
 
 #: data/io.elementary.switchboard.appdata.xml.in:46
 msgid "Make the category grid fill the available space when maximized"
 msgstr ""
+"Siatka kategorii wypełnia teraz całe możliwe miejsce przy maksymalizacji"
 
 #: data/io.elementary.switchboard.appdata.xml.in:54
 msgid ""
 "Pressing the \"Down\" arrow key from the search box correctly focuses the "
 "first row"
 msgstr ""
+"Naciśnięcie strzałki w dół z pola wyszukiwania poprawnie zmienia fokus na "
+"pierwszy wiersz"
 
 #: data/io.elementary.switchboard.appdata.xml.in:55
 msgid "Drop dynamic items from the Dock secondary-click menu"
-msgstr ""
+msgstr "Usunięto dynamiczne elementy z menu kontekstowego doku"
 
 #: data/io.elementary.switchboard.appdata.xml.in:70
 msgid "elementary, Inc."
