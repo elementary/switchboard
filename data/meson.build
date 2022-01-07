@@ -1,5 +1,5 @@
 po_extra_dir = join_paths(meson.source_root(), 'po', 'extra')
-i18n.merge_file('desktop',
+i18n.merge_file(
     input: 'io.elementary.switchboard.desktop.in',
     output: 'io.elementary.switchboard.desktop',
     install: true,
@@ -8,7 +8,7 @@ i18n.merge_file('desktop',
     type: 'desktop'
 )
 
-i18n.merge_file('appdata',
+i18n.merge_file(
     input: 'io.elementary.switchboard.appdata.xml.in',
     output: 'io.elementary.switchboard.appdata.xml',
     install: true,
