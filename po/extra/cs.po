@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-07-20 18:18+0000\n"
-"PO-Revision-Date: 2020-05-28 22:11+0000\n"
+"PO-Revision-Date: 2022-01-10 21:59+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/switchboard/extra/"
 "cs/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-27 05:39+0000\n"
 
 #: data/io.elementary.switchboard.desktop.in:4
@@ -47,19 +47,19 @@ msgstr ""
 
 #: data/io.elementary.switchboard.appdata.xml.in:17
 msgid "Add multitouch navigation gestures"
-msgstr ""
+msgstr "Přidána vícedotyková gesta pro navigaci"
 
 #: data/io.elementary.switchboard.appdata.xml.in:18
 msgid "Better support smaller displays"
-msgstr ""
+msgstr "Lepší podpora pro menší obrazovky"
 
 #: data/io.elementary.switchboard.appdata.xml.in:19
 msgid "Remove old GNOME Control Center compatibility layer"
-msgstr ""
+msgstr "Odebrána stará vrstva pro kompatibilitu s Centrem nastavení GNOME"
 
 #: data/io.elementary.switchboard.appdata.xml.in:20
 msgid "Stability and performance improvements"
-msgstr ""
+msgstr "Vylepšení stability a výkonu"
 
 #: data/io.elementary.switchboard.appdata.xml.in:21
 #: data/io.elementary.switchboard.appdata.xml.in:30
