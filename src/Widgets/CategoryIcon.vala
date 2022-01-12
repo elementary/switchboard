@@ -37,6 +37,7 @@ public class Switchboard.CategoryIcon : Gtk.FlowBoxChild {
 
         var layout = new Gtk.Grid ();
         layout.halign = Gtk.Align.CENTER;
+        layout.valign = Gtk.Align.CENTER;
         layout.margin = 6;
         layout.orientation = Gtk.Orientation.VERTICAL;
         layout.add (icon);
