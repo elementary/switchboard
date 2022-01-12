@@ -28,6 +28,7 @@ public class Switchboard.CategoryIcon : Gtk.FlowBoxChild {
 
         var icon = new Gtk.Image.from_icon_name (plug.icon, Gtk.IconSize.DND);
         icon.tooltip_text = plug.description;
+        icon.margin_bottom = 5;
 
         var plug_name = new Gtk.Label (plug.display_name);
         plug_name.justify = Gtk.Justification.CENTER;
