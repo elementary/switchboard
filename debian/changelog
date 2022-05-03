@@ -1,3 +1,14 @@
+switchboard (6.0.1) bionic; urgency=medium
+
+  * Release 6.0.1 (#229)
+  * Update translation files
+  * Update translation template
+  * Meson: remove positional arguments from i18n.merge_file (#226)
+  * l10n: Correctly setup the locales (#214)
+  * AppData typo: compatability → compatibility
+
+ -- elementary, Inc. <builds@elementary.io>  Tue, 03 May 2022 19:47:51 +0000
+
 switchboard (6.0.0) bionic; urgency=medium
 
   * Release 6.0.0 (#212)
