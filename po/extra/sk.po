@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-20 18:18+0000\n"
+"POT-Creation-Date: 2022-04-27 17:44+0000\n"
 "PO-Revision-Date: 2021-08-24 18:20+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/switchboard/extra/"
@@ -45,50 +45,52 @@ msgstr ""
 "jednoduchosť."
 
 #: data/io.elementary.switchboard.appdata.xml.in:17
-msgid "Add multitouch navigation gestures"
-msgstr "Pridané viacdotykové navigačné gestá"
-
-#: data/io.elementary.switchboard.appdata.xml.in:18
-msgid "Better support smaller displays"
-msgstr "Lepšia podpora menších obrazoviek"
-
-#: data/io.elementary.switchboard.appdata.xml.in:19
-msgid "Remove old GNOME Control Center compatibility layer"
-msgstr "Odstránená stará vrstva kompatibility pre GNOME Ovládací panel"
-
-#: data/io.elementary.switchboard.appdata.xml.in:20
-msgid "Stability and performance improvements"
-msgstr "Vylepšenia stability a výkonu"
-
-#: data/io.elementary.switchboard.appdata.xml.in:21
-#: data/io.elementary.switchboard.appdata.xml.in:30
+#: data/io.elementary.switchboard.appdata.xml.in:28
 #: data/io.elementary.switchboard.appdata.xml.in:37
-#: data/io.elementary.switchboard.appdata.xml.in:47
-#: data/io.elementary.switchboard.appdata.xml.in:56
+#: data/io.elementary.switchboard.appdata.xml.in:44
+#: data/io.elementary.switchboard.appdata.xml.in:54
+#: data/io.elementary.switchboard.appdata.xml.in:63
 msgid "Updated translations"
 msgstr "Aktualizované preklady"
 
-#: data/io.elementary.switchboard.appdata.xml.in:28
+#: data/io.elementary.switchboard.appdata.xml.in:24
+msgid "Add multitouch navigation gestures"
+msgstr "Pridané viacdotykové navigačné gestá"
+
+#: data/io.elementary.switchboard.appdata.xml.in:25
+msgid "Better support smaller displays"
+msgstr "Lepšia podpora menších obrazoviek"
+
+#: data/io.elementary.switchboard.appdata.xml.in:26
+msgid "Remove old GNOME Control Center compatibility layer"
+msgstr "Odstránená stará vrstva kompatibility pre GNOME Ovládací panel"
+
+#: data/io.elementary.switchboard.appdata.xml.in:27
+msgid "Stability and performance improvements"
+msgstr "Vylepšenia stability a výkonu"
+
+#: data/io.elementary.switchboard.appdata.xml.in:35
 msgid "Redesign search results view"
 msgstr "Prerobené zobrazovanie výsledkov vyhľadávania"
 
-#: data/io.elementary.switchboard.appdata.xml.in:29
+#: data/io.elementary.switchboard.appdata.xml.in:36
 msgid "Tab key moves focus out of search"
 msgstr "Klávesa Tab presunie zameranie mimo vyhľadávania"
 
-#: data/io.elementary.switchboard.appdata.xml.in:44
+#: data/io.elementary.switchboard.appdata.xml.in:51
 msgid "Fix an issue that prevented tiling on small displays"
-msgstr "Opravený problém, ktorý bránil vytváraniu dlaždíc na menších displejoch"
+msgstr ""
+"Opravený problém, ktorý bránil vytváraniu dlaždíc na menších displejoch"
 
-#: data/io.elementary.switchboard.appdata.xml.in:45
+#: data/io.elementary.switchboard.appdata.xml.in:52
 msgid "Fix an issue with restoring the correct window size"
 msgstr "Opravený problém pri obnovovaní správnej veľkosti okna"
 
-#: data/io.elementary.switchboard.appdata.xml.in:46
+#: data/io.elementary.switchboard.appdata.xml.in:53
 msgid "Make the category grid fill the available space when maximized"
 msgstr "Pri maximalizácii vyplní mriežka kategórie dostupné miesto"
 
-#: data/io.elementary.switchboard.appdata.xml.in:54
+#: data/io.elementary.switchboard.appdata.xml.in:61
 msgid ""
 "Pressing the \"Down\" arrow key from the search box correctly focuses the "
 "first row"
@@ -96,10 +98,10 @@ msgstr ""
 "Stlačením klávesy šípky nadol v políčku vyhľadávania sa správne zameria prvý "
 "riadok"
 
-#: data/io.elementary.switchboard.appdata.xml.in:55
+#: data/io.elementary.switchboard.appdata.xml.in:62
 msgid "Drop dynamic items from the Dock secondary-click menu"
 msgstr "Zahodenie dynamických položiek z Doku v kontextovom menu"
 
-#: data/io.elementary.switchboard.appdata.xml.in:70
+#: data/io.elementary.switchboard.appdata.xml.in:77
 msgid "elementary, Inc."
 msgstr "elementary, Inc."

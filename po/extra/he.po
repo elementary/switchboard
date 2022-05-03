@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-20 18:18+0000\n"
+"POT-Creation-Date: 2022-04-27 17:44+0000\n"
 "PO-Revision-Date: 2021-07-21 14:31+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/switchboard/extra/"
@@ -44,60 +44,61 @@ msgid ""
 msgstr "יישום הגדרות המערכת המתמקד במודולריות ופשטות."
 
 #: data/io.elementary.switchboard.appdata.xml.in:17
-msgid "Add multitouch navigation gestures"
-msgstr "נוספו מחוות ניווט בעזרת מגע במספר נקודות"
-
-#: data/io.elementary.switchboard.appdata.xml.in:18
-msgid "Better support smaller displays"
-msgstr "תמיכה משופרת בצגים קטנים יותר"
-
-#: data/io.elementary.switchboard.appdata.xml.in:19
-msgid "Remove old GNOME Control Center compatibility layer"
-msgstr "הוסרה שכבת התאימות הישנה למרכז הבקרה של GNOME"
-
-#: data/io.elementary.switchboard.appdata.xml.in:20
-msgid "Stability and performance improvements"
-msgstr "שיפורים ביציבות ובביצועים"
-
-#: data/io.elementary.switchboard.appdata.xml.in:21
-#: data/io.elementary.switchboard.appdata.xml.in:30
+#: data/io.elementary.switchboard.appdata.xml.in:28
 #: data/io.elementary.switchboard.appdata.xml.in:37
-#: data/io.elementary.switchboard.appdata.xml.in:47
-#: data/io.elementary.switchboard.appdata.xml.in:56
+#: data/io.elementary.switchboard.appdata.xml.in:44
+#: data/io.elementary.switchboard.appdata.xml.in:54
+#: data/io.elementary.switchboard.appdata.xml.in:63
 msgid "Updated translations"
 msgstr "תרגומים עודכנו"
 
-#: data/io.elementary.switchboard.appdata.xml.in:28
+#: data/io.elementary.switchboard.appdata.xml.in:24
+msgid "Add multitouch navigation gestures"
+msgstr "נוספו מחוות ניווט בעזרת מגע במספר נקודות"
+
+#: data/io.elementary.switchboard.appdata.xml.in:25
+msgid "Better support smaller displays"
+msgstr "תמיכה משופרת בצגים קטנים יותר"
+
+#: data/io.elementary.switchboard.appdata.xml.in:26
+msgid "Remove old GNOME Control Center compatibility layer"
+msgstr "הוסרה שכבת התאימות הישנה למרכז הבקרה של GNOME"
+
+#: data/io.elementary.switchboard.appdata.xml.in:27
+msgid "Stability and performance improvements"
+msgstr "שיפורים ביציבות ובביצועים"
+
+#: data/io.elementary.switchboard.appdata.xml.in:35
 msgid "Redesign search results view"
 msgstr "עיצוב מחדש של תצוגת תוצאות החיפוש"
 
-#: data/io.elementary.switchboard.appdata.xml.in:29
+#: data/io.elementary.switchboard.appdata.xml.in:36
 msgid "Tab key moves focus out of search"
 msgstr "מקש ה־Tab מעביר את המיקוד אל מחוץ לחיפוש"
 
-#: data/io.elementary.switchboard.appdata.xml.in:44
+#: data/io.elementary.switchboard.appdata.xml.in:51
 msgid "Fix an issue that prevented tiling on small displays"
 msgstr "תיקון תקלה שמנעה מריצוף חלונות בתצוגות קטנות"
 
-#: data/io.elementary.switchboard.appdata.xml.in:45
+#: data/io.elementary.switchboard.appdata.xml.in:52
 msgid "Fix an issue with restoring the correct window size"
 msgstr "תיקון תקלה עם שחזור לגודל החלון הנכון"
 
-#: data/io.elementary.switchboard.appdata.xml.in:46
+#: data/io.elementary.switchboard.appdata.xml.in:53
 msgid "Make the category grid fill the available space when maximized"
 msgstr "סודר כך שרשת הקטגוריות תמלא את כל החלל הזמין כשהיא מוגדלת"
 
-#: data/io.elementary.switchboard.appdata.xml.in:54
+#: data/io.elementary.switchboard.appdata.xml.in:61
 msgid ""
 "Pressing the \"Down\" arrow key from the search box correctly focuses the "
 "first row"
 msgstr "לחיצה על כפתור החץ „למטה” מתיבת החיפוש מתמקדת נכון על השורה הראשונה"
 
-#: data/io.elementary.switchboard.appdata.xml.in:55
+#: data/io.elementary.switchboard.appdata.xml.in:62
 msgid "Drop dynamic items from the Dock secondary-click menu"
 msgstr "השמטת פריטים דינמיים מתפריט הלחיצה הימני במעגן"
 
-#: data/io.elementary.switchboard.appdata.xml.in:70
+#: data/io.elementary.switchboard.appdata.xml.in:77
 msgid "elementary, Inc."
 msgstr "elementary בע״מ."
 

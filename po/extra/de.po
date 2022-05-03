@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-20 18:18+0000\n"
+"POT-Creation-Date: 2022-04-27 17:44+0000\n"
 "PO-Revision-Date: 2021-07-21 14:31+0000\n"
 "Last-Translator: supaeasy <ismo+github@wolffson.ch>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/switchboard/extra/"
@@ -44,53 +44,54 @@ msgid ""
 msgstr "Eine unkomplizierte, modulare Anwendung für die Systemeinstellungen."
 
 #: data/io.elementary.switchboard.appdata.xml.in:17
-msgid "Add multitouch navigation gestures"
-msgstr "Multitouch-Gesten hinzugefügt"
-
-#: data/io.elementary.switchboard.appdata.xml.in:18
-msgid "Better support smaller displays"
-msgstr "Verbesserte Unterstützung für kleine Bildschirme"
-
-#: data/io.elementary.switchboard.appdata.xml.in:19
-msgid "Remove old GNOME Control Center compatibility layer"
-msgstr "Alten Kompatibilitätslayer für GNOME Control Center entfernt"
-
-#: data/io.elementary.switchboard.appdata.xml.in:20
-msgid "Stability and performance improvements"
-msgstr "Stabilitäts- und Leistungsverbesserungen"
-
-#: data/io.elementary.switchboard.appdata.xml.in:21
-#: data/io.elementary.switchboard.appdata.xml.in:30
+#: data/io.elementary.switchboard.appdata.xml.in:28
 #: data/io.elementary.switchboard.appdata.xml.in:37
-#: data/io.elementary.switchboard.appdata.xml.in:47
-#: data/io.elementary.switchboard.appdata.xml.in:56
+#: data/io.elementary.switchboard.appdata.xml.in:44
+#: data/io.elementary.switchboard.appdata.xml.in:54
+#: data/io.elementary.switchboard.appdata.xml.in:63
 msgid "Updated translations"
 msgstr "Aktualisierte Übersetzungen"
 
-#: data/io.elementary.switchboard.appdata.xml.in:28
+#: data/io.elementary.switchboard.appdata.xml.in:24
+msgid "Add multitouch navigation gestures"
+msgstr "Multitouch-Gesten hinzugefügt"
+
+#: data/io.elementary.switchboard.appdata.xml.in:25
+msgid "Better support smaller displays"
+msgstr "Verbesserte Unterstützung für kleine Bildschirme"
+
+#: data/io.elementary.switchboard.appdata.xml.in:26
+msgid "Remove old GNOME Control Center compatibility layer"
+msgstr "Alten Kompatibilitätslayer für GNOME Control Center entfernt"
+
+#: data/io.elementary.switchboard.appdata.xml.in:27
+msgid "Stability and performance improvements"
+msgstr "Stabilitäts- und Leistungsverbesserungen"
+
+#: data/io.elementary.switchboard.appdata.xml.in:35
 msgid "Redesign search results view"
 msgstr "Redesign der Ansicht für Suchergebnisse"
 
-#: data/io.elementary.switchboard.appdata.xml.in:29
+#: data/io.elementary.switchboard.appdata.xml.in:36
 msgid "Tab key moves focus out of search"
 msgstr "Drücken von Tab bewegt den Fokus aus der Suche heraus"
 
-#: data/io.elementary.switchboard.appdata.xml.in:44
+#: data/io.elementary.switchboard.appdata.xml.in:51
 msgid "Fix an issue that prevented tiling on small displays"
 msgstr ""
 "Fehler behoben, der die Kachelansicht auf kleinen Bildschirmen verhinderte"
 
-#: data/io.elementary.switchboard.appdata.xml.in:45
+#: data/io.elementary.switchboard.appdata.xml.in:52
 msgid "Fix an issue with restoring the correct window size"
 msgstr ""
 "Fehler behoben, bei dem die ursprüngliche Fenstergröße nicht korrekt "
 "wiederhergestellt wurde"
 
-#: data/io.elementary.switchboard.appdata.xml.in:46
+#: data/io.elementary.switchboard.appdata.xml.in:53
 msgid "Make the category grid fill the available space when maximized"
 msgstr "Kategoriengitter füllt nun den ganzen verfügbaren Platz wenn maximiert"
 
-#: data/io.elementary.switchboard.appdata.xml.in:54
+#: data/io.elementary.switchboard.appdata.xml.in:61
 msgid ""
 "Pressing the \"Down\" arrow key from the search box correctly focuses the "
 "first row"
@@ -98,11 +99,11 @@ msgstr ""
 "Druck auf \"unten\" Pfeiltaste aus der Suchbox heraus fokussiert nun korrekt "
 "die erste Zeile"
 
-#: data/io.elementary.switchboard.appdata.xml.in:55
+#: data/io.elementary.switchboard.appdata.xml.in:62
 msgid "Drop dynamic items from the Dock secondary-click menu"
 msgstr "Dynamische Items vom Sekundärklick-Menü im Dock fallenlassen"
 
-#: data/io.elementary.switchboard.appdata.xml.in:70
+#: data/io.elementary.switchboard.appdata.xml.in:77
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 

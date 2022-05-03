@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-20 18:18+0000\n"
+"POT-Creation-Date: 2022-04-27 17:44+0000\n"
 "PO-Revision-Date: 2017-01-06 07:35+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <sr@li.org>\n"
@@ -22,24 +22,24 @@ msgstr ""
 msgid "All Settings"
 msgstr "Сва подешавања"
 
-#: src/Application.vala:93
+#: src/Application.vala:98
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Наведена веза „%s“ не постоји, враћам се на главни панел"
 
-#: src/Application.vala:142
+#: src/Application.vala:147
 msgid "Search Settings"
 msgstr "Потражи подешавања"
 
-#: src/Application.vala:149 src/Application.vala:178 src/Application.vala:327
+#: src/Application.vala:154 src/Application.vala:183 src/Application.vala:332
 msgid "System Settings"
 msgstr "Подешавања система"
 
-#: src/Application.vala:306
+#: src/Application.vala:311
 msgid "No Settings Found"
 msgstr "Нисам нашао подешавања"
 
-#: src/Application.vala:306
+#: src/Application.vala:311
 msgid "Install some and re-launch Switchboard."
 msgstr "Инсталирајте нека и поново покрените преклопну таблу."
 
