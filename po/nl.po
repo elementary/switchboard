@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-04-27 17:44+0000\n"
-"PO-Revision-Date: 2017-05-29 22:16+0000\n"
-"Last-Translator: Kay van der Zander <kay20@hotmail.com>\n"
+"PO-Revision-Date: 2022-05-22 08:05+0000\n"
+"Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/switchboard/"
 "switchboard/nl/>\n"
 "Language: nl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.14\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:47+0000\n"
 
 #: src/Application.vala:31
@@ -55,7 +55,7 @@ msgstr "Hardware"
 
 #: src/CategoryView.vala:151
 msgid "Network & Wireless"
-msgstr "Netwerk & Draadloos"
+msgstr "Netwerk en draadloos"
 
 #: src/CategoryView.vala:153
 msgid "Administration"
