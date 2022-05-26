@@ -142,10 +142,13 @@ namespace Switchboard {
             );
             navigation_button.get_style_context ().add_class ("back-button");
 
+            var search_box_eventcontrollerkey = new Gtk.EventControllerKey ();
+
             search_box = new Gtk.SearchEntry () {
                 placeholder_text = _("Search Settings"),
                 sensitive = false
             };
+            search_box.add_controller (search_box_eventcontrollerkey);
 
             headerbar = new Gtk.HeaderBar () {
                 show_title_buttons = true
@@ -207,23 +210,22 @@ namespace Switchboard {
                 }
             });
 
-            // search_box.key_press_event.connect ((event) => {
-            //     switch (event.keyval) {
-            //         case Gdk.Key.Return:
-            //             searchview.activate_first_item ();
-            //             return Gdk.EVENT_STOP;
-            //         case Gdk.Key.Down:
-            //             search_box.move_focus (Gtk.DirectionType.TAB_FORWARD);
-            //             return Gdk.EVENT_STOP;
-            //         case Gdk.Key.Escape:
-            //             search_box.text = "";
-            //             return Gdk.EVENT_STOP;
-            //         default:
-            //             break;
-            //     }
+            search_box.activate.connect (() => {
+                searchview.activate_first_item ();
+            });
 
-            //     return Gdk.EVENT_PROPAGATE;
-            // });
+            search_box_eventcontrollerkey.key_released.connect ((keyval, keycode, state) => {
+                switch (keyval) {
+                    case Gdk.Key.Down:
+                        search_box.move_focus (Gtk.DirectionType.TAB_FORWARD);
+                        break;
+                    case Gdk.Key.Escape:
+                        search_box.text = "";
+                        break;
+                    default:
+                        break;
+                }
+            });
 
             back_action.activate.connect (() => {
                 handle_navigation_button_clicked ();
