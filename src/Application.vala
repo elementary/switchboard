@@ -55,12 +55,6 @@ namespace Switchboard {
                     critical ("Unable to set default for the settings scheme: %s", e.message);
                 }
             }
-
-            // ((GLib.Application) shut_down).connect (() => {
-            //     if (plug_widgets[leaflet.visible_child] != null && plug_widgets[leaflet.visible_child] is Switchboard.Plug) {
-            //         plug_widgets[leaflet.visible_child].hidden ();
-            //     }
-            // });
         }
 
         public override void open (File[] files, string hint) {
@@ -232,7 +226,13 @@ namespace Switchboard {
             });
 
             quit_action.activate.connect (() => {
-                main_window.destroy ();
+                quit ();
+            });
+
+            shutdown.connect (() => {
+                if (plug_widgets[leaflet.visible_child] != null && plug_widgets[leaflet.visible_child] is Switchboard.Plug) {
+                    plug_widgets[leaflet.visible_child].hidden ();
+                }
             });
 
             // main_window.button_release_event.connect ((event) => {
@@ -268,7 +268,7 @@ namespace Switchboard {
                 update_navigation ();
             });
 
-            leaflet.notify["transition-running"].connect (() => {
+            leaflet.notify["child-transition-running"].connect (() => {
                 update_navigation ();
             });
 
@@ -326,7 +326,6 @@ namespace Switchboard {
                 }
 
                 var plug_widget = plug.get_widget ();
-
                 if (plug_widget.parent == null) {
                     leaflet.append (plug_widget);
                 }
