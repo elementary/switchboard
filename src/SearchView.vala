@@ -33,6 +33,7 @@ public class Switchboard.SearchView : Gtk.Box {
         search_entry = app.search_box;
 
         listbox = new Gtk.ListBox ();
+        listbox.add_css_class ("rich-list");
         listbox.selection_mode = Gtk.SelectionMode.BROWSE;
         listbox.set_filter_func (filter_func);
         listbox.set_placeholder (alert_view);
@@ -143,11 +144,7 @@ public class Switchboard.SearchView : Gtk.Box {
             label.xalign = 0;
 
             var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12) {
-                halign = Gtk.Align.CENTER,
-                margin_top = 6,
-                margin_end = 6,
-                margin_bottom = 6,
-                margin_start = 6
+                halign = Gtk.Align.CENTER
             };
             box.append (image);
             box.append (label);
