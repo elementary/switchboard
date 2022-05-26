@@ -179,21 +179,25 @@ namespace Switchboard {
                 titlebar = headerbar
             };
             main_window.set_size_request (640, 480);
+            add_window (main_window);
+            main_window.present ();
 
-            int window_x, window_y;
-            var rect = Gtk.Allocation ();
+            navigation_button.hide ();
 
-            var settings = new GLib.Settings ("io.elementary.switchboard.saved-state");
-            settings.get ("window-size", "(ii)", out rect.width, out rect.height);
+            /*
+            * This is very finicky. Bind size after present else set_titlebar gives us bad sizes
+            * Set maximize after height/width else window is min size on unmaximize
+            * Bind maximize as SET else get get bad sizes
+            */
+            var settings = new Settings ("io.elementary.music");
+            settings.bind ("window-height", main_window, "default-height", SettingsBindFlags.DEFAULT);
+            settings.bind ("window-width", main_window, "default-width", SettingsBindFlags.DEFAULT);
 
             if (settings.get_boolean ("window-maximized")) {
                 main_window.maximize ();
             }
 
-            navigation_button.hide ();
-
-            add_window (main_window);
-            main_window.present ();
+            settings.bind ("window-maximized", main_window, "maximized", SettingsBindFlags.SET);
 
             search_box.search_changed.connect (() => {
                 if (search_box.text.length > 0) {
