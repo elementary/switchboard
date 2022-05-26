@@ -235,15 +235,6 @@ namespace Switchboard {
                 }
             });
 
-            // main_window.button_release_event.connect ((event) => {
-            //     // On back mouse button pressed
-            //     if (event.button == 8) {
-            //         navigation_button.clicked ();
-            //     }
-
-            //     return false;
-            // });
-
             // main_window.key_press_event.connect ((event) => {
             //     switch (event.keyval) {
             //         // arrow or tab key is being used by CategoryView to navigate
