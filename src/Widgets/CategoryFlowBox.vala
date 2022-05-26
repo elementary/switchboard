@@ -86,6 +86,7 @@ namespace Switchboard {
             var child = flowbox.get_first_child ();
             while (child != null) {
                 if (child.get_child_visible ()) {
+                    show ();
                     return true;
                 }
 
