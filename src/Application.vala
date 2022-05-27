@@ -179,7 +179,7 @@ namespace Switchboard {
 
             main_window = new Hdy.Window ();
             main_window.application = this;
-            main_window.icon_name = "preferences-desktop";
+            main_window.icon_name = application_id;
             main_window.title = _("System Settings");
             main_window.add (grid);
             main_window.set_size_request (640, 480);
