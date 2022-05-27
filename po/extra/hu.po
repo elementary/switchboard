@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-27 17:44+0000\n"
+"POT-Creation-Date: 2022-05-27 19:26+0000\n"
 "PO-Revision-Date: 2022-01-20 03:57+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/switchboard/"
@@ -30,7 +30,7 @@ msgid "Change system and user settings"
 msgstr "Rendszer és felhasználó beállításainak megváltoztatása"
 
 #: data/io.elementary.switchboard.desktop.in:7
-msgid "preferences-desktop"
+msgid "io.elementary.switchboard"
 msgstr ""
 
 #: data/io.elementary.switchboard.desktop.in:11

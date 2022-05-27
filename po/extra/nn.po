@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-27 17:44+0000\n"
+"POT-Creation-Date: 2022-05-27 19:26+0000\n"
 "PO-Revision-Date: 2019-01-05 03:21+0000\n"
 "Last-Translator: Simon Dagfinrud <semonje@gmail.com>\n"
 "Language-Team: Norwegian Nynorsk <https://weblate.elementary.io/projects/"
@@ -30,8 +30,8 @@ msgid "Change system and user settings"
 msgstr "Endre system- og brukarinnstillingar"
 
 #: data/io.elementary.switchboard.desktop.in:7
-msgid "preferences-desktop"
-msgstr "preferences-desktop"
+msgid "io.elementary.switchboard"
+msgstr ""
 
 #: data/io.elementary.switchboard.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"
@@ -101,3 +101,6 @@ msgstr ""
 #, fuzzy
 msgid "elementary, Inc."
 msgstr "elementary LLC."
+
+#~ msgid "preferences-desktop"
+#~ msgstr "preferences-desktop"
