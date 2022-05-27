@@ -27,6 +27,7 @@ public class Switchboard.SearchView : Gtk.Box {
             icon = new ThemedIcon ("edit-find-symbolic")
         };
         alert_view.add_css_class (Granite.STYLE_CLASS_DIM_LABEL);
+        alert_view.add_css_class ("background");
 
         unowned SwitchboardApp app = (SwitchboardApp) GLib.Application.get_default ();
 
@@ -34,6 +35,7 @@ public class Switchboard.SearchView : Gtk.Box {
 
         listbox = new Gtk.ListBox ();
         listbox.add_css_class ("rich-list");
+        listbox.add_css_class ("background");
         listbox.selection_mode = Gtk.SelectionMode.BROWSE;
         listbox.set_filter_func (filter_func);
         listbox.set_placeholder (alert_view);

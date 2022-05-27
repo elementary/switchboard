@@ -41,7 +41,6 @@ namespace Switchboard {
             flowbox.column_spacing = 12;
             flowbox.row_spacing = 12;
             flowbox.homogeneous = true;
-            flowbox.min_children_per_line = 5;
             flowbox.max_children_per_line = 5;
             flowbox.selection_mode = Gtk.SelectionMode.NONE;
             flowbox.vexpand = true;
