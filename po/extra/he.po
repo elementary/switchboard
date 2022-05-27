@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-05-27 19:26+0000\n"
-"PO-Revision-Date: 2021-07-21 14:31+0000\n"
+"PO-Revision-Date: 2022-05-28 01:01+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/switchboard/extra/"
 "he/>\n"
@@ -32,7 +32,7 @@ msgstr "שינוי הגדרות המערכת והגדרות המשתמשים"
 
 #: data/io.elementary.switchboard.desktop.in:7
 msgid "io.elementary.switchboard"
-msgstr ""
+msgstr "io.elementary.switchboard"
 
 #: data/io.elementary.switchboard.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"
