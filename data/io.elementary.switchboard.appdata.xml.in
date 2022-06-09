@@ -36,7 +36,7 @@
   <update_contact>contact_AT_elementary.io</update_contact>
 
   <releases>
-    <release version="6.0.2" date="2022-06-08" urgency="medium">
+    <release version="6.0.2" date="2022-06-09" urgency="medium">
       <description>
         <ul>
           <li>Bundle app icon</li>
