@@ -1,7 +1,7 @@
 project(
     'io.elementary.switchboard',
     'c', 'vala',
-    version: '6.0.1',
+    version: '6.0.2',
 )
 
 lib_version = '2.0'
