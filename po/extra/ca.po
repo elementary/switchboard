@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-09 21:15+0000\n"
-"PO-Revision-Date: 2022-05-29 19:53+0000\n"
+"PO-Revision-Date: 2022-06-10 16:06+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/switchboard/"
 "extra/ca/>\n"
@@ -47,7 +47,7 @@ msgstr ""
 
 #: data/io.elementary.switchboard.appdata.xml.in:17
 msgid "Bundle app icon"
-msgstr ""
+msgstr "Icona de l'aplicació Bundle"
 
 #: data/io.elementary.switchboard.appdata.xml.in:18
 #: data/io.elementary.switchboard.appdata.xml.in:25
