@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2015-2012 elementary, LLC <contact@elementary.io> -->
+<!-- Copyright 2015-2022 elementary, LLC <contact@elementary.io> -->
 <component type="desktop-application">
   <id>io.elementary.switchboard</id>
   <launchable type="desktop-id">io.elementary.switchboard.desktop</launchable>
