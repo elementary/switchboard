@@ -38,7 +38,6 @@ namespace Switchboard {
 
         construct {
             alert_view = new Granite.Placeholder ("");
-            alert_view.add_css_class (Granite.STYLE_CLASS_DIM_LABEL);
 
             personal_category = new Switchboard.Category (Switchboard.Plug.Category.PERSONAL);
             hardware_category = new Switchboard.Category (Switchboard.Plug.Category.HARDWARE);
