@@ -171,7 +171,7 @@ namespace Switchboard {
             main_window = new Gtk.Window () {
                 application = this,
                 child = search_stack,
-                icon_name = "preferences-desktop",
+                icon_name = application_id,
                 title = _("System Settings"),
                 titlebar = headerbar
             };

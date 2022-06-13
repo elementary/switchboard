@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-27 17:44+0000\n"
+"POT-Creation-Date: 2022-05-27 19:26+0000\n"
 "PO-Revision-Date: 2018-10-18 05:32-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -28,8 +28,8 @@ msgid "Change system and user settings"
 msgstr "Change system and user settings"
 
 #: data/io.elementary.switchboard.desktop.in:7
-msgid "preferences-desktop"
-msgstr "preferences-desktop"
+msgid "io.elementary.switchboard"
+msgstr ""
 
 #: data/io.elementary.switchboard.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"
@@ -100,3 +100,6 @@ msgstr ""
 #, fuzzy
 msgid "elementary, Inc."
 msgstr "elementary LLC."
+
+#~ msgid "preferences-desktop"
+#~ msgstr "preferences-desktop"

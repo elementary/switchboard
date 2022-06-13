@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-27 17:44+0000\n"
+"POT-Creation-Date: 2022-05-27 19:26+0000\n"
 "PO-Revision-Date: 2020-10-29 18:15+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/switchboard/"
@@ -30,8 +30,8 @@ msgid "Change system and user settings"
 msgstr "सिस्टिम आणि वापरकर्ता सेटिंग्ज बदला"
 
 #: data/io.elementary.switchboard.desktop.in:7
-msgid "preferences-desktop"
-msgstr "preferences-desktop"
+msgid "io.elementary.switchboard"
+msgstr ""
 
 #: data/io.elementary.switchboard.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"
@@ -100,3 +100,6 @@ msgstr "डॉक दुय्यम-क्लिक मेनूमधून �
 #: data/io.elementary.switchboard.appdata.xml.in:77
 msgid "elementary, Inc."
 msgstr "एलिमेंटरी, Inc ."
+
+#~ msgid "preferences-desktop"
+#~ msgstr "preferences-desktop"

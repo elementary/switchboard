@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-27 17:44+0000\n"
+"POT-Creation-Date: 2022-05-27 19:26+0000\n"
 "PO-Revision-Date: 2017-01-18 21:01+0000\n"
 "Last-Translator: Cody Garver <cody@elementaryos.org>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
@@ -29,7 +29,7 @@ msgid "Change system and user settings"
 msgstr "سىستېما ۋە ئابونت تەڭشەكلىرىنى ئۆزگەرتىش"
 
 #: data/io.elementary.switchboard.desktop.in:7
-msgid "preferences-desktop"
+msgid "io.elementary.switchboard"
 msgstr ""
 
 #: data/io.elementary.switchboard.desktop.in:11

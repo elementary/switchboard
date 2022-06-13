@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-27 17:44+0000\n"
-"PO-Revision-Date: 2021-07-21 04:50+0000\n"
+"POT-Creation-Date: 2022-05-27 19:26+0000\n"
+"PO-Revision-Date: 2022-05-29 23:10+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/switchboard/"
 "extra/uk/>\n"
@@ -32,8 +32,8 @@ msgid "Change system and user settings"
 msgstr "Зміна налаштувань системи та користувача"
 
 #: data/io.elementary.switchboard.desktop.in:7
-msgid "preferences-desktop"
-msgstr "preferences-desktop"
+msgid "io.elementary.switchboard"
+msgstr "io.elementary.switchboard"
 
 #: data/io.elementary.switchboard.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"
@@ -53,7 +53,7 @@ msgstr "Застосунок налаштування системи зосер�
 #: data/io.elementary.switchboard.appdata.xml.in:54
 #: data/io.elementary.switchboard.appdata.xml.in:63
 msgid "Updated translations"
-msgstr "Оновлено переклади"
+msgstr "Оновлені переклади"
 
 #: data/io.elementary.switchboard.appdata.xml.in:24
 msgid "Add multitouch navigation gestures"
@@ -108,6 +108,9 @@ msgstr "Видалено динамічні елементи з контекст
 #: data/io.elementary.switchboard.appdata.xml.in:77
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
+
+#~ msgid "preferences-desktop"
+#~ msgstr "preferences-desktop"
 
 #~ msgid "About System Settings"
 #~ msgstr "Про системні налаштування"

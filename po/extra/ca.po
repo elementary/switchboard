@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-27 17:44+0000\n"
-"PO-Revision-Date: 2021-07-21 14:31+0000\n"
+"POT-Creation-Date: 2022-05-27 19:26+0000\n"
+"PO-Revision-Date: 2022-05-29 19:53+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/switchboard/"
 "extra/ca/>\n"
@@ -31,8 +31,8 @@ msgid "Change system and user settings"
 msgstr "Canvia els paràmetres del sistema i de l'usuari"
 
 #: data/io.elementary.switchboard.desktop.in:7
-msgid "preferences-desktop"
-msgstr "preferences-desktop"
+msgid "io.elementary.switchboard"
+msgstr "io.elementary.switchboard"
 
 #: data/io.elementary.switchboard.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"
@@ -108,6 +108,9 @@ msgstr "Es despleguen elements dinàmics des del clic secundari de l'acoblador."
 #: data/io.elementary.switchboard.appdata.xml.in:77
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
+
+#~ msgid "preferences-desktop"
+#~ msgstr "preferences-desktop"
 
 #~ msgid "About System Settings"
 #~ msgstr "Quant a la Configuració del sistema"

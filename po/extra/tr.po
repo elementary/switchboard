@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-27 17:44+0000\n"
-"PO-Revision-Date: 2021-07-21 04:50+0000\n"
+"POT-Creation-Date: 2022-05-27 19:26+0000\n"
+"PO-Revision-Date: 2022-05-28 18:45+0000\n"
 "Last-Translator: Özgür Baskin <queeup@zoho.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/switchboard/"
 "extra/tr/>\n"
@@ -31,8 +31,8 @@ msgid "Change system and user settings"
 msgstr "Sistem ve kullanıcı ayarlarını değiştir"
 
 #: data/io.elementary.switchboard.desktop.in:7
-msgid "preferences-desktop"
-msgstr "preferences-desktop"
+msgid "io.elementary.switchboard"
+msgstr "io.elementary.switchboard"
 
 #: data/io.elementary.switchboard.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"
@@ -105,6 +105,9 @@ msgstr "Dock ikincil tıklama menüsünden dinamik öğeler kaldırıldı"
 #: data/io.elementary.switchboard.appdata.xml.in:77
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
+
+#~ msgid "preferences-desktop"
+#~ msgstr "preferences-desktop"
 
 #~ msgid "About System Settings"
 #~ msgstr "Sistem Ayarları Hakkında"
