@@ -24,7 +24,6 @@ namespace Switchboard {
         public Gtk.SearchEntry search_box { get; private set; }
 
         private string all_settings_label = N_("All Settings");
-        private uint configure_id;
 
         private GLib.HashTable <Gtk.Widget, Switchboard.Plug> plug_widgets;
         private Gtk.Button navigation_button;
