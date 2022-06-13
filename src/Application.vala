@@ -167,6 +167,8 @@ namespace Switchboard {
             search_stack.add_child (leaflet);
             search_stack.add_child (searchview);
 
+            var window_eventcontrollerkey = new Gtk.EventControllerKey ();
+
             main_window = new Gtk.Window () {
                 application = this,
                 child = search_stack,
@@ -234,25 +236,11 @@ namespace Switchboard {
                 }
             });
 
-            // main_window.key_press_event.connect ((event) => {
-            //     switch (event.keyval) {
-            //         // arrow or tab key is being used by CategoryView to navigate
-            //         case Gdk.Key.Up:
-            //         case Gdk.Key.Down:
-            //         case Gdk.Key.Left:
-            //         case Gdk.Key.Right:
-            //         case Gdk.Key.Return:
-            //         case Gdk.Key.Tab:
-            //             return Gdk.EVENT_PROPAGATE;
-            //     }
-
-            //     // Don't focus if it is a modifier or if search_box is already focused
-            //     if ((event.is_modifier == 0) && !search_box.has_focus) {
-            //         search_box.grab_focus ();
-            //     }
-
-            //     return Gdk.EVENT_PROPAGATE;
-            // });
+            ((Gtk.Widget) main_window).add_controller (window_eventcontrollerkey);
+            window_eventcontrollerkey.key_pressed.connect ((keyval, keycode, modifiers) => {
+                window_eventcontrollerkey.forward (search_box.get_delegate ());
+                return Gdk.EVENT_PROPAGATE;
+            });
 
             leaflet.notify["visible-child"].connect (() => {
                 update_navigation ();
@@ -266,7 +254,6 @@ namespace Switchboard {
                 category_view.show_alert (_("No Settings Found"), _("Install some and re-launch Switchboard."), "dialog-warning");
             } else {
                 search_box.sensitive = true;
-                search_box.grab_focus ();
             }
         }
 
@@ -287,9 +274,6 @@ namespace Switchboard {
                     navigation_button.hide ();
 
                     search_box.sensitive = Switchboard.PlugsManager.get_default ().has_plugs ();
-                    if (search_box.sensitive) {
-                        search_box.grab_focus ();
-                    }
                 } else {
                     plug_widgets[leaflet.visible_child].shown ();
                     main_window.title = plug_widgets[leaflet.visible_child].display_name;
