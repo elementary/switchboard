@@ -169,7 +169,6 @@ namespace Switchboard {
             category_view.load_default_plugs.begin ();
 
             leaflet = new Adw.Leaflet () {
-                can_unfold = false,
                 can_navigate_back = true,
                 can_navigate_forward = true,
                 can_unfold = false
