@@ -2,8 +2,8 @@ name: Release
 
 on:
   pull_request:
-    branches: [master]
-    types: [closed]
+    branches: main
+    types: closed
 jobs:
   release:
      runs-on: ubuntu-latest
