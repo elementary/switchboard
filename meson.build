@@ -22,7 +22,7 @@ conf_file = configure_file(
     configuration: conf_data
 )
 
-plugs_dir = get_option('prefix') / get_option('libdir') / meson.project_name()
+plugs_dir = get_option('prefix') / get_option('libdir') / 'switchboard-3'
 
 i18n = import('i18n')
 pkg = import('pkgconfig')
