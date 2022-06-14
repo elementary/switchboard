@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-27 19:26+0000\n"
+"POT-Creation-Date: 2022-06-10 17:13+0000\n"
 "PO-Revision-Date: 2020-12-18 19:48+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <https://l10n.elementary.io/projects/switchboard/"
@@ -22,12 +22,12 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 
 #: data/io.elementary.switchboard.desktop.in:4
-#: data/io.elementary.switchboard.appdata.xml.in:8
+#: data/io.elementary.switchboard.appdata.xml.in:9
 msgid "System Settings"
 msgstr "Подешавања система"
 
 #: data/io.elementary.switchboard.desktop.in:5
-#: data/io.elementary.switchboard.appdata.xml.in:9
+#: data/io.elementary.switchboard.appdata.xml.in:10
 msgid "Change system and user settings"
 msgstr "Промените подешавања система и корисника"
 
@@ -39,70 +39,75 @@ msgstr ""
 msgid "Center;Control;Panel;Preferences;System;"
 msgstr "центар;управљај;панел;поставке;систем;"
 
-#: data/io.elementary.switchboard.appdata.xml.in:11
+#: data/io.elementary.switchboard.appdata.xml.in:12
 msgid ""
 "A system settings application that focuses on modularity and simplicity."
 msgstr ""
 "Програм подешавања система који се фокусира на модуларност и једноставност."
 
-#: data/io.elementary.switchboard.appdata.xml.in:17
-#: data/io.elementary.switchboard.appdata.xml.in:28
-#: data/io.elementary.switchboard.appdata.xml.in:37
-#: data/io.elementary.switchboard.appdata.xml.in:44
-#: data/io.elementary.switchboard.appdata.xml.in:54
-#: data/io.elementary.switchboard.appdata.xml.in:63
+#: data/io.elementary.switchboard.appdata.xml.in:34
+msgid "elementary, Inc."
+msgstr "elementary, Inc."
+
+#: data/io.elementary.switchboard.appdata.xml.in:42
+msgid "Bundle app icon"
+msgstr ""
+
+#: data/io.elementary.switchboard.appdata.xml.in:43
+#: data/io.elementary.switchboard.appdata.xml.in:50
+#: data/io.elementary.switchboard.appdata.xml.in:61
+#: data/io.elementary.switchboard.appdata.xml.in:70
+#: data/io.elementary.switchboard.appdata.xml.in:77
+#: data/io.elementary.switchboard.appdata.xml.in:87
+#: data/io.elementary.switchboard.appdata.xml.in:96
 msgid "Updated translations"
 msgstr "Освежени преводи"
 
-#: data/io.elementary.switchboard.appdata.xml.in:24
+#: data/io.elementary.switchboard.appdata.xml.in:57
 msgid "Add multitouch navigation gestures"
 msgstr ""
 
-#: data/io.elementary.switchboard.appdata.xml.in:25
+#: data/io.elementary.switchboard.appdata.xml.in:58
 msgid "Better support smaller displays"
 msgstr ""
 
-#: data/io.elementary.switchboard.appdata.xml.in:26
+#: data/io.elementary.switchboard.appdata.xml.in:59
 msgid "Remove old GNOME Control Center compatibility layer"
 msgstr ""
 
-#: data/io.elementary.switchboard.appdata.xml.in:27
+#: data/io.elementary.switchboard.appdata.xml.in:60
 msgid "Stability and performance improvements"
 msgstr ""
 
-#: data/io.elementary.switchboard.appdata.xml.in:35
+#: data/io.elementary.switchboard.appdata.xml.in:68
 msgid "Redesign search results view"
 msgstr "Редизајнира преглед резултата претраге"
 
-#: data/io.elementary.switchboard.appdata.xml.in:36
+#: data/io.elementary.switchboard.appdata.xml.in:69
 msgid "Tab key moves focus out of search"
 msgstr "Тастер табулатора премешта фокус ван претраге"
 
-#: data/io.elementary.switchboard.appdata.xml.in:51
+#: data/io.elementary.switchboard.appdata.xml.in:84
 msgid "Fix an issue that prevented tiling on small displays"
 msgstr "Поправља проблем који је спречио поплочавање на малим екранима"
 
-#: data/io.elementary.switchboard.appdata.xml.in:52
+#: data/io.elementary.switchboard.appdata.xml.in:85
 msgid "Fix an issue with restoring the correct window size"
 msgstr "Поправља проблем са враћањем исправне величине прозора"
 
-#: data/io.elementary.switchboard.appdata.xml.in:53
+#: data/io.elementary.switchboard.appdata.xml.in:86
 msgid "Make the category grid fill the available space when maximized"
 msgstr "Чини да мрежа категорије попуни доступан простор када је увећана"
 
-#: data/io.elementary.switchboard.appdata.xml.in:61
+#: data/io.elementary.switchboard.appdata.xml.in:94
 msgid ""
 "Pressing the \"Down\" arrow key from the search box correctly focuses the "
 "first row"
 msgstr "Притисак стрелице на доле из поља претраге исправно фокусира први ред"
 
-#: data/io.elementary.switchboard.appdata.xml.in:62
+#: data/io.elementary.switchboard.appdata.xml.in:95
 msgid "Drop dynamic items from the Dock secondary-click menu"
 msgstr "Одбаци динамичке ставке са изборника другог клика Луке"
-
-#: data/io.elementary.switchboard.appdata.xml.in:77
-msgid "elementary, Inc."
-msgstr "elementary, Inc."
 
 #~ msgid "preferences-desktop"
 #~ msgstr "preferences-desktop"
