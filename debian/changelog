@@ -1,3 +1,13 @@
+switchboard (6.0.2) bionic; urgency=medium
+
+  * Release 6.0.2
+  * Update translation files
+  * Update translation template
+  * AppData: Reorganize (#235)
+  * Bundle app icon (#230)
+
+ -- elementary, Inc. <builds@elementary.io>  Tue, 14 Jun 2022 17:48:32 +0000
+
 switchboard (6.0.1) bionic; urgency=medium
 
   * Release 6.0.1 (#229)
