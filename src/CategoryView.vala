@@ -22,6 +22,8 @@
 namespace Switchboard {
 
     public class CategoryView : Gtk.Box {
+        public signal void plug_selected (Switchboard.Plug plug);
+
         public PlugsSearch plug_search { get; construct; }
         public Gee.ArrayList<SearchEntry?> plug_search_result { get; construct; }
         public Switchboard.Category personal_category { get; construct; }
@@ -32,11 +34,10 @@ namespace Switchboard {
         public string? plug_to_open { get; construct set; default = null; }
 
         private Gtk.Stack stack;
-        private Granite.Widgets.AlertView alert_view;
+        private Granite.Placeholder alert_view;
 
         construct {
-            alert_view = new Granite.Widgets.AlertView ("", "", "");
-            alert_view.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+            alert_view = new Granite.Placeholder ("");
 
             personal_category = new Switchboard.Category (Switchboard.Plug.Category.PERSONAL);
             hardware_category = new Switchboard.Category (Switchboard.Plug.Category.HARDWARE);
@@ -46,33 +47,24 @@ namespace Switchboard {
             plug_search = new PlugsSearch ();
             plug_search_result = new Gee.ArrayList<SearchEntry?> ();
 
-            var category_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 24) {
-                margin_top = 12,
-                margin_end = 12,
-                margin_bottom = 12,
-                margin_start = 12
+            var category_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
+                margin_top = 12
             };
-            category_box.add (personal_category);
-            category_box.add (hardware_category);
-            category_box.add (network_category);
-            category_box.add (system_category);
+            category_box.append (personal_category);
+            category_box.append (hardware_category);
+            category_box.append (network_category);
+            category_box.append (system_category);
 
-            var clamp = new Hdy.Clamp () {
+            var category_scrolled = new Gtk.ScrolledWindow () {
                 child = category_box,
-                maximum_size = 800,
-                tightening_threshold = 800
-            };
-
-            var category_scrolled = new Gtk.ScrolledWindow (null, null) {
-                child = clamp,
                 hscrollbar_policy = Gtk.PolicyType.NEVER
             };
 
             stack = new Gtk.Stack ();
-            stack.add (alert_view);
+            stack.add_child (alert_view);
             stack.add_named (category_scrolled, "category-grid");
 
-            add (stack);
+            append (stack);
         }
 
         public CategoryView (string? plug = null) {
@@ -80,10 +72,9 @@ namespace Switchboard {
         }
 
         public void show_alert (string primary_text, string secondary_text, string icon_name) {
-            alert_view.show_all ();
             alert_view.title = primary_text;
             alert_view.description = secondary_text;
-            alert_view.icon_name = icon_name;
+            alert_view.icon = new ThemedIcon (icon_name);
 
             stack.visible_child = alert_view;
         }

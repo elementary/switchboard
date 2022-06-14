@@ -10,7 +10,7 @@ switchboard_files = files(
 switchboard_deps = [
     libswitchboard_dep,
     granite_dep,
-    handy_dep,
+    adwaita_dep,
     m_dep
 ]
 
