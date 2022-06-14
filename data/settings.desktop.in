@@ -2,8 +2,8 @@
 Type=Application
 Name=System Settings
 Comment=Change system and user settings
-Exec=io.elementary.switchboard %u
-Icon=io.elementary.switchboard
+Exec=io.elementary.settings %u
+Icon=io.elementary.settings
 Terminal=false
 StartupNotify=true
 Categories=GNOME;GTK;System;

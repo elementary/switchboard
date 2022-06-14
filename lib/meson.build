@@ -17,7 +17,7 @@ libswitchboard_deps = [
     gtk_dep,
 ]
 
-libswitchboard_lib = shared_library('switchboard-2.0',
+libswitchboard_lib = library('switchboard-3',
     'PlugsManager.vala',
     'Plug.vala',
     config_header,
@@ -26,22 +26,22 @@ libswitchboard_lib = shared_library('switchboard-2.0',
     soversion: '0',
     version: lib_version,
     install: true,
-    install_dir: [true, join_paths(get_option('includedir'), 'switchboard-2.0'), true]
+    install_dir: [true, join_paths(get_option('includedir'), 'switchboard-3'), true]
 )
 
 pkg.generate(
-    filebase: 'switchboard-2.0',
+    filebase: 'switchboard-3',
     name: 'Switchboard',
     description: 'Switchboard Settings API',
     version: meson.project_version(),
-    subdirs: 'switchboard-2.0',
-    variables: ['plugsdir=${libdir}/switchboard'],
+    subdirs: 'switchboard-3',
+    variables: ['plugsdir=${libdir}/switchboard-3'],
     libraries: libswitchboard_lib,
     requires: libswitchboard_deps
 )
 
 install_data(
-    'switchboard-2.0.deps',
+    'switchboard-3.deps',
     install_dir: join_paths(get_option('datadir'), 'vala', 'vapi')
 )
 

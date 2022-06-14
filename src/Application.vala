@@ -38,7 +38,7 @@ namespace Switchboard {
         private static string? plug_to_open = null;
 
         construct {
-            application_id = "io.elementary.switchboard";
+            application_id = "io.elementary.settings";
             flags |= ApplicationFlags.HANDLES_OPEN;
 
             GLib.Intl.setlocale (LocaleCategory.ALL, "");
@@ -76,9 +76,7 @@ namespace Switchboard {
 
         public override void activate () {
             var plugsmanager = Switchboard.PlugsManager.get_default ();
-            var setting = new Settings ("io.elementary.switchboard.preferences");
-            var mapping_dic = setting.get_value ("mapping-override");
-            if (link != null && !mapping_dic.lookup (link, "(ss)", ref plug_to_open, ref open_window)) {
+            if (link != null) {
                 bool plug_found = load_setting_path (link, plugsmanager);
 
                 if (plug_found) {
@@ -187,7 +185,7 @@ namespace Switchboard {
             * Set maximize after height/width else window is min size on unmaximize
             * Bind maximize as SET else get get bad sizes
             */
-            var settings = new Settings ("io.elementary.music");
+            var settings = new Settings ("io.elementary.settings");
             settings.bind ("window-height", main_window, "default-height", SettingsBindFlags.DEFAULT);
             settings.bind ("window-width", main_window, "default-width", SettingsBindFlags.DEFAULT);
 
