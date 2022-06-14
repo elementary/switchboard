@@ -37,6 +37,8 @@ namespace Switchboard {
         private Hdy.HeaderBar headerbar;
         private Hdy.Window main_window;
         private Switchboard.CategoryView category_view;
+        private Gtk.Label title_label;
+        private Gtk.Stack title_stack;
 
         private static bool opened_directly = false;
         private static string? link = null;
@@ -148,13 +150,27 @@ namespace Switchboard {
                 sensitive = false
             };
 
+            title_label = new Gtk.Label ("");
+            title_label.get_style_context ().add_class ("title");
+
+            title_stack = new Gtk.Stack () {
+                hexpand = true
+            };
+            title_stack.add (search_box);
+            title_stack.add (title_label);
+
+            var title_clamp = new Hdy.Clamp () {
+                child = title_stack,
+                maximum_size = 800
+            };
+
             headerbar = new Hdy.HeaderBar () {
-                has_subtitle = false,
+                centering_policy = STRICT,
+                height_request = 38,
                 show_close_button = true,
-                title = _("System Settings")
+                custom_title = title_clamp
             };
             headerbar.pack_start (navigation_button);
-            headerbar.pack_end (search_box);
 
             category_view = new Switchboard.CategoryView (plug_to_open);
             category_view.load_default_plugs.begin ();
@@ -205,6 +221,8 @@ namespace Switchboard {
             navigation_button.hide ();
 
             add_window (main_window);
+
+            main_window.bind_property ("title", title_label, "label");
 
             search_box.search_changed.connect (() => {
                 if (search_box.text_length > 0) {
@@ -328,7 +346,8 @@ namespace Switchboard {
                 }
 
                 if (deck.visible_child == category_view) {
-                    headerbar.title = _("System Settings");
+                    main_window.title = _("System Settings");
+                    title_stack.visible_child = search_box;
 
                     navigation_button.hide ();
 
@@ -336,7 +355,8 @@ namespace Switchboard {
                     search_box.has_focus = search_box.sensitive;
                 } else {
                     plug_widgets[deck.visible_child].shown ();
-                    headerbar.title = plug_widgets[deck.visible_child].display_name;
+                    main_window.title = plug_widgets[deck.visible_child].display_name;
+                    title_stack.visible_child = title_label;
 
                     if (previous_child != null && previous_child is Switchboard.Plug) {
                         navigation_button.label = previous_child.display_name;
