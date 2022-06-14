@@ -31,6 +31,8 @@ namespace Switchboard {
         private Gtk.HeaderBar headerbar;
         private Gtk.Window main_window;
         private Switchboard.CategoryView category_view;
+        private Gtk.Label title_label;
+        private Gtk.Stack title_stack;
 
         private static bool opened_directly = false;
         private static string? link = null;
@@ -142,11 +144,25 @@ namespace Switchboard {
             };
             search_box.add_controller (search_box_eventcontrollerkey);
 
+            title_label = new Gtk.Label ("");
+            title_label.add_css_class (Granite.STYLE_CLASS_TITLE_LABEL);
+
+            title_stack = new Gtk.Stack () {
+                hexpand = true
+            };
+            title_stack.add_child (search_box);
+            title_stack.add_child (title_label);
+
+            var title_clamp = new Adw.Clamp () {
+                child = title_stack,
+                maximum_size = 800
+            };
+
             headerbar = new Gtk.HeaderBar () {
-                show_title_buttons = true
+                show_title_buttons = true,
+                title_widget = title_clamp
             };
             headerbar.pack_start (navigation_button);
-            headerbar.pack_end (search_box);
 
             category_view = new Switchboard.CategoryView (plug_to_open);
             category_view.plug_selected.connect ((plug) => load_plug (plug));
@@ -199,6 +215,8 @@ namespace Switchboard {
             }
 
             settings.bind ("window-maximized", main_window, "maximized", SettingsBindFlags.SET);
+
+            main_window.bind_property ("title", title_label, "label");
 
             search_box.search_changed.connect (() => {
                 if (search_box.text.length > 0) {
@@ -273,6 +291,7 @@ namespace Switchboard {
 
                 if (leaflet.visible_child == category_view) {
                     main_window.title = _("System Settings");
+                    title_stack.visible_child = search_box;
 
                     navigation_button.hide ();
 
@@ -280,6 +299,7 @@ namespace Switchboard {
                 } else {
                     plug_widgets[leaflet.visible_child].shown ();
                     main_window.title = plug_widgets[leaflet.visible_child].display_name;
+                    title_stack.visible_child = title_label;
 
                     if (previous_child != null && previous_child is Switchboard.Plug) {
                         navigation_button.label = previous_child.display_name;
