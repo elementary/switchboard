@@ -17,7 +17,7 @@ libswitchboard_deps = [
     gtk_dep,
 ]
 
-libswitchboard_lib = shared_library('switchboard-3.0',
+libswitchboard_lib = library('switchboard-3',
     'PlugsManager.vala',
     'Plug.vala',
     config_header,
