@@ -26,22 +26,22 @@ libswitchboard_lib = library('switchboard-3',
     soversion: '0',
     version: lib_version,
     install: true,
-    install_dir: [true, join_paths(get_option('includedir'), 'switchboard-3.0'), true]
+    install_dir: [true, join_paths(get_option('includedir'), 'switchboard-3'), true]
 )
 
 pkg.generate(
-    filebase: 'switchboard-3.0',
+    filebase: 'switchboard-3',
     name: 'Switchboard',
     description: 'Switchboard Settings API',
     version: meson.project_version(),
-    subdirs: 'switchboard-3.0',
+    subdirs: 'switchboard-3',
     variables: ['plugsdir=${libdir}/io.elementary.settings'],
     libraries: libswitchboard_lib,
     requires: libswitchboard_deps
 )
 
 install_data(
-    'switchboard-3.0.deps',
+    'switchboard-3.deps',
     install_dir: join_paths(get_option('datadir'), 'vala', 'vapi')
 )
 
