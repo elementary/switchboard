@@ -17,29 +17,32 @@
 * Boston, MA 02110-1301 USA.
 */
 
-public class Switchboard.SearchView : Gtk.ScrolledWindow {
+public class Switchboard.SearchView : Gtk.Box {
     private Gtk.SearchEntry search_entry;
     private Gtk.ListBox listbox;
 
     construct {
-        var alert_view = new Granite.Widgets.AlertView (
-            "",
-            _("Try changing search terms."),
-            "edit-find-symbolic"
-        );
-        alert_view.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
-        alert_view.show_all ();
+        var alert_view = new Granite.Placeholder ("") {
+            description = _("Try changing search terms."),
+            icon = new ThemedIcon ("edit-find-symbolic")
+        };
+        alert_view.add_css_class (Granite.STYLE_CLASS_DIM_LABEL);
 
         unowned SwitchboardApp app = (SwitchboardApp) GLib.Application.get_default ();
 
         search_entry = app.search_box;
 
         listbox = new Gtk.ListBox ();
+        listbox.add_css_class ("rich-list");
         listbox.selection_mode = Gtk.SelectionMode.BROWSE;
         listbox.set_filter_func (filter_func);
         listbox.set_placeholder (alert_view);
 
-        add (listbox);
+        var scrolled = new Gtk.ScrolledWindow () {
+            child = listbox
+        };
+
+        append (scrolled);
 
         load_plugs.begin ();
 
@@ -86,7 +89,7 @@ public class Switchboard.SearchView : Gtk.ScrolledWindow {
                 plug.display_name,
                 uri
             );
-            listbox.add (search_row);
+            listbox.append (search_row);
 
             // Using search to get sub settings
             var search_results = yield plug.search ("");
@@ -111,11 +114,9 @@ public class Switchboard.SearchView : Gtk.ScrolledWindow {
                     title,
                     (owned) sub_uri
                 );
-                listbox.add (search_row);
+                listbox.append (search_row);
             }
         }
-
-        show_all ();
     }
 
     private class SearchRow : Gtk.ListBoxRow {
@@ -132,7 +133,9 @@ public class Switchboard.SearchView : Gtk.ScrolledWindow {
         }
 
         construct {
-            var image = new Gtk.Image.from_icon_name (icon_name, Gtk.IconSize.DND);
+            var image = new Gtk.Image.from_icon_name (icon_name) {
+                pixel_size = 32
+            };
 
             var label = new Gtk.Label (description);
             label.ellipsize = Pango.EllipsizeMode.MIDDLE;
@@ -140,14 +143,13 @@ public class Switchboard.SearchView : Gtk.ScrolledWindow {
             label.width_chars = 80;
             label.xalign = 0;
 
-            var grid = new Gtk.Grid ();
-            grid.halign = Gtk.Align.CENTER;
-            grid.column_spacing = 12;
-            grid.margin = 6;
-            grid.add (image);
-            grid.add (label);
+            var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12) {
+                halign = Gtk.Align.CENTER
+            };
+            box.append (image);
+            box.append (label);
 
-            add (grid);
+            child = box;
         }
     }
 }

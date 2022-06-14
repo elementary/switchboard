@@ -68,22 +68,29 @@ namespace Switchboard {
 
         public Gee.ArrayList get_plugs () {
             var plugs = new Gee.ArrayList<Plug?> ();
-            foreach (unowned Gtk.Widget child in flowbox.get_children ()) {
+
+            var child = flowbox.get_first_child ();
+            while (child != null) {
                 plugs.add (((CategoryIcon) child).plug);
+                child = child.get_next_sibling ();
             }
+
             return plugs;
         }
 
         public new void add (Gtk.Widget widget) {
-            flowbox.add (widget);
+            flowbox.append (widget);
         }
 
         public bool has_child () {
-           foreach (unowned Gtk.Widget child in flowbox.get_children ()) {
-               if (child.get_child_visible ()) {
-                   show_all ();
-                   return true;
-               }
+            var child = flowbox.get_first_child ();
+            while (child != null) {
+                if (child.get_child_visible ()) {
+                    show ();
+                    return true;
+                }
+
+                child = child.get_next_sibling ();
             }
 
             hide ();
