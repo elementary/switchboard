@@ -35,7 +35,7 @@ pkg.generate(
     description: 'Switchboard Settings API',
     version: meson.project_version(),
     subdirs: 'switchboard-3',
-    variables: ['plugsdir=${libdir}/io.elementary.settings'],
+    variables: ['plugsdir=${libdir}/switchboard-3'],
     libraries: libswitchboard_lib,
     requires: libswitchboard_deps
 )
