@@ -171,7 +171,8 @@ namespace Switchboard {
             leaflet = new Adw.Leaflet () {
                 can_unfold = false,
                 can_navigate_back = true,
-                can_navigate_forward = true
+                can_navigate_forward = true,
+                can_unfold = false
             };
             leaflet.append (category_view);
 
