@@ -153,11 +153,16 @@ namespace Switchboard {
             title_stack.add_child (search_box);
             title_stack.add_child (title_label);
 
+            var title_clamp = new Adw.Clamp () {
+                child = title_stack,
+                maximum_size = 800
+            };
+
             headerbar = new Gtk.HeaderBar () {
-                show_title_buttons = true
+                show_title_buttons = true,
+                title_widget = title_clamp
             };
             headerbar.pack_start (navigation_button);
-            headerbar.title_widget = title_stack;
 
             category_view = new Switchboard.CategoryView (plug_to_open);
             category_view.plug_selected.connect ((plug) => load_plug (plug));

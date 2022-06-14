@@ -26,8 +26,6 @@ public class Switchboard.SearchView : Gtk.Box {
             description = _("Try changing search terms."),
             icon = new ThemedIcon ("edit-find-symbolic")
         };
-        alert_view.add_css_class (Granite.STYLE_CLASS_DIM_LABEL);
-        alert_view.add_css_class ("background");
 
         unowned SwitchboardApp app = (SwitchboardApp) GLib.Application.get_default ();
 
@@ -40,10 +38,16 @@ public class Switchboard.SearchView : Gtk.Box {
         listbox.set_filter_func (filter_func);
         listbox.set_placeholder (alert_view);
 
-        var scrolled = new Gtk.ScrolledWindow () {
-            child = listbox
+        var clamp = new Adw.Clamp () {
+            child = listbox,
+            maximum_size = 800
         };
 
+        var scrolled = new Gtk.ScrolledWindow () {
+            child = clamp
+        };
+
+        add_css_class (Granite.STYLE_CLASS_VIEW);
         append (scrolled);
 
         load_plugs.begin ();
@@ -139,15 +143,11 @@ public class Switchboard.SearchView : Gtk.Box {
                 pixel_size = 32
             };
 
-            var label = new Gtk.Label (description);
-            label.ellipsize = Pango.EllipsizeMode.MIDDLE;
-            label.max_width_chars = 80;
-            label.width_chars = 80;
-            label.xalign = 0;
-
-            var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12) {
-                halign = Gtk.Align.CENTER
+            var label = new Gtk.Label (description) {
+                ellipsize = Pango.EllipsizeMode.MIDDLE
             };
+
+            var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12);
             box.append (image);
             box.append (label);
 
