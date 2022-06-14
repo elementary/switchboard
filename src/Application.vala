@@ -168,9 +168,13 @@ namespace Switchboard {
 
             var window_eventcontrollerkey = new Gtk.EventControllerKey ();
 
+            var window_handle = new Gtk.WindowHandle () {
+                child = search_stack
+            };
+
             main_window = new Gtk.Window () {
                 application = this,
-                child = search_stack,
+                child = window_handle,
                 icon_name = application_id,
                 title = _("System Settings"),
                 titlebar = headerbar
