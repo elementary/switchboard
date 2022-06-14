@@ -33,7 +33,6 @@ public class Switchboard.SearchView : Gtk.Box {
 
         listbox = new Gtk.ListBox ();
         listbox.add_css_class ("rich-list");
-        listbox.add_css_class ("background");
         listbox.selection_mode = Gtk.SelectionMode.BROWSE;
         listbox.set_filter_func (filter_func);
         listbox.set_placeholder (alert_view);
