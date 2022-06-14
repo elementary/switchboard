@@ -26,7 +26,7 @@ public class Switchboard.CategoryIcon : Gtk.FlowBoxChild {
     }
 
     static construct {
-        size_group = new Gtk.SizeGroup (Gtk.SizeGroupMode.BOTH);
+        size_group = new Gtk.SizeGroup (Gtk.SizeGroupMode.HORIZONTAL);
     }
 
     construct {

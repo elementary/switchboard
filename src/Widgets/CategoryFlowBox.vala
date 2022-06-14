@@ -35,6 +35,7 @@ namespace Switchboard {
                 activate_on_single_click = true,
                 column_spacing = 12,
                 row_spacing = 12,
+                homogeneous = true,
                 max_children_per_line = 5,
                 selection_mode = Gtk.SelectionMode.NONE
             };
