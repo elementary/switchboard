@@ -19,26 +19,30 @@
 */
 public class Switchboard.CategoryIcon : Gtk.FlowBoxChild {
     public unowned Switchboard.Plug plug { get; construct; }
+    private static Gtk.SizeGroup size_group;
 
     public CategoryIcon (Switchboard.Plug plug) {
         Object (plug: plug);
     }
-    construct {
-        width_request = 144;
 
+    static construct {
+        size_group = new Gtk.SizeGroup (Gtk.SizeGroupMode.HORIZONTAL);
+    }
+
+    construct {
         var icon = new Gtk.Image.from_icon_name (plug.icon) {
             pixel_size = 32,
             tooltip_text = plug.description
         };
 
-        var plug_name = new Gtk.Label (plug.display_name);
-        plug_name.justify = Gtk.Justification.CENTER;
-        plug_name.max_width_chars = 18;
-        plug_name.wrap = true;
-        plug_name.wrap_mode = Pango.WrapMode.WORD_CHAR;
+        var plug_name = new Gtk.Label (plug.display_name) {
+            hexpand = true,
+            wrap = true,
+            wrap_mode = Pango.WrapMode.WORD_CHAR,
+            xalign = 0
+        };
 
-        var layout = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
-            halign = Gtk.Align.CENTER,
+        var layout = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6) {
             margin_top = 6,
             margin_end = 6,
             margin_bottom = 6,
@@ -46,6 +50,8 @@ public class Switchboard.CategoryIcon : Gtk.FlowBoxChild {
         };
         layout.append (icon);
         layout.append (plug_name);
+
+        size_group.add_widget (layout);
 
         child = layout;
 
