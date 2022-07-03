@@ -182,7 +182,7 @@ namespace Switchboard {
             main_window.icon_name = application_id;
             main_window.title = _("System Settings");
             main_window.add (grid);
-            main_window.set_size_request (640, 480);
+            main_window.set_size_request (640, 720);
 
             int window_x, window_y;
             var rect = Gtk.Allocation ();

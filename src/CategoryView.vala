@@ -55,13 +55,8 @@ namespace Switchboard {
             category_grid.add (network_category);
             category_grid.add (system_category);
 
-            var category_scrolled = new Gtk.ScrolledWindow (null, null) {
-                hscrollbar_policy = Gtk.PolicyType.NEVER
-            };
-            category_scrolled.add (category_grid);
-
             add (alert_view);
-            add_named (category_scrolled, "category-grid");
+            add_named (category_grid, "category-grid");
         }
 
         public CategoryView (string? plug = null) {
