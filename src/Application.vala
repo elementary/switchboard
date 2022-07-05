@@ -195,7 +195,6 @@ namespace Switchboard {
                 title = _("System Settings"),
                 titlebar = headerbar
             };
-            main_window.set_size_request (640, 480);
             add_window (main_window);
             main_window.present ();
 

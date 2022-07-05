@@ -35,14 +35,14 @@ public class Switchboard.CategoryIcon : Gtk.FlowBoxChild {
             tooltip_text = plug.description
         };
 
-        var plug_name = new Gtk.Label (plug.display_name);
-        plug_name.justify = Gtk.Justification.CENTER;
-        plug_name.max_width_chars = 18;
-        plug_name.wrap = true;
-        plug_name.wrap_mode = Pango.WrapMode.WORD_CHAR;
+        var plug_name = new Gtk.Label (plug.display_name) {
+            hexpand = true,
+            wrap = true,
+            wrap_mode = Pango.WrapMode.WORD_CHAR,
+            xalign = 0
+        };
 
-        var layout = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
-            halign = Gtk.Align.CENTER,
+        var layout = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6) {
             margin_top = 6,
             margin_end = 6,
             margin_bottom = 6,
@@ -50,6 +50,8 @@ public class Switchboard.CategoryIcon : Gtk.FlowBoxChild {
         };
         layout.append (icon);
         layout.append (plug_name);
+
+        size_group.add_widget (layout);
 
         child = layout;
 

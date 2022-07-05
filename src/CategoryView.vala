@@ -47,8 +47,11 @@ namespace Switchboard {
             plug_search = new PlugsSearch ();
             plug_search_result = new Gee.ArrayList<SearchEntry?> ();
 
-            var category_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0) {
-                margin_top = 12
+            var category_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 24) {
+                margin_top = 12,
+                margin_end = 12,
+                margin_bottom = 12,
+                margin_start = 12
             };
             category_box.append (personal_category);
             category_box.append (hardware_category);
@@ -64,7 +67,13 @@ namespace Switchboard {
             stack.add_child (alert_view);
             stack.add_named (category_scrolled, "category-grid");
 
-            append (stack);
+            var clamp = new Adw.Clamp () {
+                child = stack,
+                maximum_size = 800,
+                tightening_threshold = 800
+            };
+
+            append (clamp);
         }
 
         public CategoryView (string? plug = null) {
