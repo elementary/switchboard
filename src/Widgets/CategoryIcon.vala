@@ -19,30 +19,41 @@
 */
 public class Switchboard.CategoryIcon : Gtk.FlowBoxChild {
     public unowned Switchboard.Plug plug { get; construct; }
+    private static Gtk.SizeGroup size_group;
 
     public CategoryIcon (Switchboard.Plug plug) {
         Object (plug: plug);
     }
+
+    static construct {
+        size_group = new Gtk.SizeGroup (Gtk.SizeGroupMode.HORIZONTAL);
+    }
+
     construct {
-        width_request = 144;
+        var icon = new Gtk.Image.from_icon_name (plug.icon, Gtk.IconSize.DND) {
+            pixel_size = 32,
+            tooltip_text = plug.description
+        };
 
-        var icon = new Gtk.Image.from_icon_name (plug.icon, Gtk.IconSize.DND);
-        icon.tooltip_text = plug.description;
+        var plug_name = new Gtk.Label (plug.display_name) {
+            hexpand = true,
+            wrap = true,
+            wrap_mode = Pango.WrapMode.WORD_CHAR,
+            xalign = 0
+        };
 
-        var plug_name = new Gtk.Label (plug.display_name);
-        plug_name.justify = Gtk.Justification.CENTER;
-        plug_name.max_width_chars = 18;
-        plug_name.wrap = true;
-        plug_name.wrap_mode = Pango.WrapMode.WORD_CHAR;
-
-        var layout = new Gtk.Grid ();
-        layout.halign = Gtk.Align.CENTER;
-        layout.margin = 6;
-        layout.orientation = Gtk.Orientation.VERTICAL;
+        var layout = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 6) {
+            margin_top = 6,
+            margin_end = 6,
+            margin_bottom = 6,
+            margin_start = 6
+        };
         layout.add (icon);
         layout.add (plug_name);
 
-        add (layout);
+        size_group.add_widget (layout);
+
+        child = layout;
 
         plug.visibility_changed.connect (() => {
             changed ();
