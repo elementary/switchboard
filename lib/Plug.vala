@@ -73,6 +73,10 @@ public abstract class Switchboard.Plug : GLib.Object {
      * Inform if the plug should be shown or not
      */
     public bool can_show { get; set; default=true; }
+    /**
+     * Inform if the plug is ready to be destroyed
+     */
+    public bool can_close { get; set; default=true; }
 
     /**
      * Inform the application that the plug can now be listed in the available plugs.

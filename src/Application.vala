@@ -403,11 +403,27 @@ namespace Switchboard {
         }
 
         private void shut_down () {
-            if (plug_widgets[deck.visible_child] != null && plug_widgets[deck.visible_child] is Switchboard.Plug) {
-                plug_widgets[deck.visible_child].hidden ();
+            // Hide main window to maintain responsiveness
+            main_window.hide ();
+
+            var visible_child = plug_widgets[deck.visible_child];
+            if (visible_child != null &&
+                visible_child is Switchboard.Plug) {
+
+                visible_child.hidden ();
+            } else {
+                Gtk.main_quit ();
             }
 
-            Gtk.main_quit ();
+            Timeout.add (100, () => {
+                if (visible_child.can_close) {
+                    Gtk.main_quit ();
+                    return Source.REMOVE;
+                } else {
+                    // Bluetooth plug requires time to shut down properly
+                    return Source.CONTINUE;
+                }
+            });
         }
 
         // Handles clicking the navigation button
