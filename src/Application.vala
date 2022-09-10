@@ -23,16 +23,11 @@ namespace Switchboard {
     public class SwitchboardApp : Gtk.Application {
         public Gtk.SearchEntry search_box { get; private set; }
 
-        private string all_settings_label = N_("All Settings");
-
         private GLib.HashTable <Gtk.Widget, Switchboard.Plug> plug_widgets;
-        private Gtk.Button navigation_button;
         private Adw.Leaflet leaflet;
         private Gtk.HeaderBar headerbar;
         private Gtk.Window main_window;
         private Switchboard.CategoryView category_view;
-        private Gtk.Label title_label;
-        private Gtk.Stack title_stack;
 
         private static bool opened_directly = false;
         private static string? link = null;
@@ -126,15 +121,7 @@ namespace Switchboard {
             add_action (back_action);
             add_action (quit_action);
 
-            set_accels_for_action ("app.back", {"<Alt>Left", "Back"});
             set_accels_for_action ("app.quit", {"<Control>q"});
-
-            navigation_button = new Gtk.Button.with_label (_(all_settings_label));
-            navigation_button.action_name = "app.back";
-            navigation_button.set_tooltip_markup (
-                Granite.markup_accel_tooltip (get_accels_for_action (navigation_button.action_name))
-            );
-            navigation_button.get_style_context ().add_class ("back-button");
 
             var search_box_eventcontrollerkey = new Gtk.EventControllerKey ();
 
@@ -144,17 +131,8 @@ namespace Switchboard {
             };
             search_box.add_controller (search_box_eventcontrollerkey);
 
-            title_label = new Gtk.Label ("");
-            title_label.add_css_class (Granite.STYLE_CLASS_TITLE_LABEL);
-
-            title_stack = new Gtk.Stack () {
-                hexpand = true
-            };
-            title_stack.add_child (search_box);
-            title_stack.add_child (title_label);
-
             var title_clamp = new Adw.Clamp () {
-                child = title_stack,
+                child = search_box,
                 maximum_size = 800
             };
 
@@ -162,44 +140,54 @@ namespace Switchboard {
                 show_title_buttons = true,
                 title_widget = title_clamp
             };
-            headerbar.pack_start (navigation_button);
+            headerbar.add_css_class ("titlebar");
+            headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
 
-            category_view = new Switchboard.CategoryView (plug_to_open);
+            category_view = new Switchboard.CategoryView (plug_to_open) {
+                vexpand = true
+            };
             category_view.plug_selected.connect ((plug) => load_plug (plug));
             category_view.load_default_plugs.begin ();
-
-            leaflet = new Adw.Leaflet () {
-                can_navigate_back = true,
-                can_navigate_forward = true,
-                can_unfold = false
-            };
-            leaflet.append (category_view);
 
             var searchview = new SearchView ();
 
             var search_stack = new Gtk.Stack () {
                 transition_type = Gtk.StackTransitionType.OVER_DOWN_UP
             };
-            search_stack.add_child (leaflet);
+            search_stack.add_child (category_view);
             search_stack.add_child (searchview);
 
-            var window_eventcontrollerkey = new Gtk.EventControllerKey ();
+            var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+            box.append (headerbar);
+            box.append (search_stack);
+
+            leaflet = new Adw.Leaflet () {
+                can_navigate_back = true,
+                can_navigate_forward = true,
+                can_unfold = false
+            };
+            leaflet.append (box);
 
             var window_handle = new Gtk.WindowHandle () {
-                child = search_stack
+                child = leaflet
             };
+
+            // We need to hide the title area for the split headerbar
+            var null_title = new Gtk.Grid () {
+                visible = false
+            };
+
+            var window_eventcontrollerkey = new Gtk.EventControllerKey ();
 
             main_window = new Gtk.Window () {
                 application = this,
                 child = window_handle,
                 icon_name = application_id,
                 title = _("System Settings"),
-                titlebar = headerbar
+                titlebar = null_title
             };
             add_window (main_window);
             main_window.present ();
-
-            navigation_button.hide ();
 
             /*
             * This is very finicky. Bind size after present else set_titlebar gives us bad sizes
@@ -216,13 +204,11 @@ namespace Switchboard {
 
             settings.bind ("window-maximized", main_window, "maximized", SettingsBindFlags.SET);
 
-            main_window.bind_property ("title", title_label, "label");
-
             search_box.search_changed.connect (() => {
                 if (search_box.text.length > 0) {
                     search_stack.visible_child = searchview;
                 } else {
-                    search_stack.visible_child = leaflet;
+                    search_stack.visible_child = category_view;
                 }
             });
 
@@ -291,25 +277,11 @@ namespace Switchboard {
 
                 if (leaflet.visible_child == category_view) {
                     main_window.title = _("System Settings");
-                    title_stack.visible_child = search_box;
-
-                    navigation_button.hide ();
 
                     search_box.sensitive = Switchboard.PlugsManager.get_default ().has_plugs ();
                 } else {
                     plug_widgets[leaflet.visible_child].shown ();
                     main_window.title = plug_widgets[leaflet.visible_child].display_name;
-                    title_stack.visible_child = title_label;
-
-                    if (previous_child != null && previous_child is Switchboard.Plug) {
-                        navigation_button.label = previous_child.display_name;
-                    } else {
-                        navigation_button.label = _(all_settings_label);
-                    }
-
-                    navigation_button.show ();
-
-                    search_box.sensitive = false;
                 }
 
                 search_box.text = "";
