@@ -22,8 +22,6 @@
 namespace Switchboard {
 
     public class CategoryView : Gtk.Stack {
-        public signal void plug_selected (Switchboard.Plug plug);
-
         public PlugsSearch plug_search { get; construct; }
         public Gee.ArrayList<SearchEntry?> plug_search_result { get; construct; }
         public Switchboard.Category personal_category { get; construct; }

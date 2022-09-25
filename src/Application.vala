@@ -157,7 +157,6 @@ namespace Switchboard {
             headerbar.pack_end (search_box);
 
             category_view = new Switchboard.CategoryView (plug_to_open);
-            category_view.plug_selected.connect ((plug) => load_plug (plug));
             category_view.load_default_plugs.begin ();
 
             deck = new Hdy.Deck () {
