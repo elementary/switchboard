@@ -146,7 +146,6 @@ namespace Switchboard {
             category_view = new Switchboard.CategoryView (plug_to_open) {
                 vexpand = true
             };
-            category_view.plug_selected.connect ((plug) => load_plug (plug));
             category_view.load_default_plugs.begin ();
 
             var searchview = new SearchView ();
