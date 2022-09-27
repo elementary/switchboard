@@ -316,6 +316,10 @@ namespace Switchboard {
         }
 
         public void load_plug (Switchboard.Plug plug) {
+            if (leaflet.child_transition_running) {
+                return;
+            }
+
             Idle.add (() => {
                 while (leaflet.get_adjacent_child (Adw.NavigationDirection.FORWARD) != null) {
                     leaflet.remove (leaflet.get_adjacent_child (Adw.NavigationDirection.FORWARD));
