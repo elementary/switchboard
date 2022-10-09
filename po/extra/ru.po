@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-10 17:13+0000\n"
-"PO-Revision-Date: 2022-10-04 21:31+0000\n"
+"PO-Revision-Date: 2022-10-09 14:07+0000\n"
 "Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/switchboard/"
 "extra/ru/>\n"
@@ -37,7 +37,9 @@ msgstr ""
 
 #: data/io.elementary.switchboard.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"
-msgstr "Центр;Управление;Панель;Параметры;Система;"
+msgstr ""
+"Center;Control;Panel;Preferences;System;Центр;Управление;Панель;Параметры;Сис"
+"тема;"
 
 #: data/io.elementary.switchboard.appdata.xml.in:12
 msgid ""
