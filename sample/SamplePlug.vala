@@ -39,7 +39,6 @@ public class Sample.Plug : Switchboard.Plug {
             main_grid.attach (hello_label, 0, 0, 1, 1);
         }
 
-        main_grid.show_all ();
         return main_grid;
     }
 
