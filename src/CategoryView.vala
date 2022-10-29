@@ -28,6 +28,7 @@ namespace Switchboard {
         public Switchboard.Category hardware_category { get; construct; }
         public Switchboard.Category network_category { get; construct; }
         public Switchboard.Category system_category { get; construct; }
+        public Switchboard.Category other_category { get; construct; }
 
         public string? plug_to_open { get; construct set; default = null; }
 
@@ -41,6 +42,7 @@ namespace Switchboard {
             hardware_category = new Switchboard.Category (Switchboard.Plug.Category.HARDWARE);
             network_category = new Switchboard.Category (Switchboard.Plug.Category.NETWORK);
             system_category = new Switchboard.Category (Switchboard.Plug.Category.SYSTEM);
+            other_category = new Switchboard.Category (Switchboard.Plug.Category.OTHER);
 
             plug_search = new PlugsSearch ();
             plug_search_result = new Gee.ArrayList<SearchEntry?> ();
@@ -55,6 +57,7 @@ namespace Switchboard {
             category_box.append (hardware_category);
             category_box.append (network_category);
             category_box.append (system_category);
+            category_box.append (other_category);
 
             var category_scrolled = new Gtk.ScrolledWindow () {
                 child = category_box,
@@ -117,6 +120,9 @@ namespace Switchboard {
                 case Switchboard.Plug.Category.SYSTEM:
                     system_category.add (icon);
                     break;
+                case Switchboard.Plug.Category.OTHER:
+                    other_category.add (icon);
+                    break;
                 default:
                     return;
             }
@@ -136,6 +142,10 @@ namespace Switchboard {
             }
 
             if (system_category.has_child ()) {
+                any_found = true;
+            }
+
+            if (other_category.has_child ()) {
                 any_found = true;
             }
 
@@ -160,6 +170,8 @@ namespace Switchboard {
                     return _("Network & Wireless");
                 case Plug.Category.SYSTEM:
                     return _("Administration");
+                case Plug.Category.OTHER:
+                    return _("Other");
             }
 
             return null;
