@@ -24,7 +24,6 @@ public abstract class Switchboard.Plug : GLib.Object {
         HARDWARE = 1,
         NETWORK = 2,
         SYSTEM = 3,
-        OTHER = 4
     }
 
     /**
