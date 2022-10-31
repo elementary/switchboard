@@ -23,7 +23,7 @@ public abstract class Switchboard.Plug : GLib.Object {
         PERSONAL = 0,
         HARDWARE = 1,
         NETWORK = 2,
-        SYSTEM = 3,
+        SYSTEM = 3
     }
 
     /**
