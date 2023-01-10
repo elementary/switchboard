@@ -21,7 +21,7 @@ jobs:
       image: ghcr.io/elementary/docker:${{ matrix.version }}
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Install Dependencies
       run: |
         apt update
@@ -32,13 +32,12 @@ jobs:
         ninja -C build
 
   lint:
-
     runs-on: ubuntu-latest
 
     container:
       image: valalang/lint
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Lint
-      run: io.elementary.vala-lint -d .
+      - uses: actions/checkout@v3
+      - name: Lint
+        run: io.elementary.vala-lint -d .
