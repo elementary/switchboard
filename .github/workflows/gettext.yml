@@ -3,6 +3,7 @@ name: Gettext Updates
 on:
   push:
     branches: main
+
 jobs:
   build:
     runs-on: ubuntu-22.04
@@ -16,7 +17,11 @@ jobs:
         apt-get install git -y
 
     - name: Clone repository
+<<<<<<< HEAD
       uses: actions/checkout@v4
+=======
+      uses: actions/checkout@v3
+>>>>>>> b013b28 (actions/checkout@v3 (#254))
       with:
         token: ${{ secrets.GIT_USER_TOKEN }}
 
