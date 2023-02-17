@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-10 17:13+0000\n"
-"PO-Revision-Date: 2021-07-21 14:31+0000\n"
-"Last-Translator: Ciarán Ainsworth <ciaranainsworth@outlook.com>\n"
+"PO-Revision-Date: 2023-02-18 14:25+0000\n"
+"Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "switchboard/extra/en_GB/>\n"
 "Language: en_GB\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 4.14.2\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 
 #: data/io.elementary.switchboard.desktop.in:4
@@ -50,7 +50,7 @@ msgstr "elementary, Inc."
 
 #: data/io.elementary.switchboard.appdata.xml.in:42
 msgid "Bundle app icon"
-msgstr ""
+msgstr "Bundle app icon"
 
 #: data/io.elementary.switchboard.appdata.xml.in:43
 #: data/io.elementary.switchboard.appdata.xml.in:50
