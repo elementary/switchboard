@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-20 18:18+0000\n"
-"PO-Revision-Date: 2017-05-29 22:16+0000\n"
-"Last-Translator: Kay van der Zander <kay20@hotmail.com>\n"
+"POT-Creation-Date: 2022-06-10 17:13+0000\n"
+"PO-Revision-Date: 2022-05-22 08:05+0000\n"
+"Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/switchboard/"
 "switchboard/nl/>\n"
 "Language: nl\n"
@@ -17,31 +17,31 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.14\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:47+0000\n"
 
 #: src/Application.vala:31
 msgid "All Settings"
 msgstr "Alle instellingen"
 
-#: src/Application.vala:93
+#: src/Application.vala:98
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Specifieke link '%s' bestaat niet, teruggaan naar het hoofdpaneel"
 
-#: src/Application.vala:142
+#: src/Application.vala:147
 msgid "Search Settings"
 msgstr "Zoek in instellingen"
 
-#: src/Application.vala:149 src/Application.vala:178 src/Application.vala:327
+#: src/Application.vala:154 src/Application.vala:183 src/Application.vala:332
 msgid "System Settings"
 msgstr "Systeeminstellingen"
 
-#: src/Application.vala:306
+#: src/Application.vala:311
 msgid "No Settings Found"
 msgstr "Geen instellingen gevonden"
 
-#: src/Application.vala:306
+#: src/Application.vala:311
 msgid "Install some and re-launch Switchboard."
 msgstr "Installeer een aantal en start Switchboard opnieuw."
 
@@ -55,7 +55,7 @@ msgstr "Hardware"
 
 #: src/CategoryView.vala:151
 msgid "Network & Wireless"
-msgstr "Netwerk & Draadloos"
+msgstr "Netwerk en draadloos"
 
 #: src/CategoryView.vala:153
 msgid "Administration"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-20 18:18+0000\n"
+"POT-Creation-Date: 2022-06-10 17:13+0000\n"
 "PO-Revision-Date: 2021-07-05 13:54+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/switchboard/"
@@ -25,24 +25,24 @@ msgstr ""
 msgid "All Settings"
 msgstr "Усі налаштування"
 
-#: src/Application.vala:93
+#: src/Application.vala:98
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Вказаного посилання «%s» не існує, повернення до головної панелі"
 
-#: src/Application.vala:142
+#: src/Application.vala:147
 msgid "Search Settings"
 msgstr "Пошук налаштувань"
 
-#: src/Application.vala:149 src/Application.vala:178 src/Application.vala:327
+#: src/Application.vala:154 src/Application.vala:183 src/Application.vala:332
 msgid "System Settings"
 msgstr "Налаштування системи"
 
-#: src/Application.vala:306
+#: src/Application.vala:311
 msgid "No Settings Found"
 msgstr "Налаштувань не знайдено"
 
-#: src/Application.vala:306
+#: src/Application.vala:311
 msgid "Install some and re-launch Switchboard."
 msgstr "Встановіть їх і перезапустіть Switchboard."
 

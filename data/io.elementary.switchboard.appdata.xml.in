@@ -1,16 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2015-2017 elementary, LLC <contact@elementary.io> -->
-<component type="desktop">
+<!-- Copyright 2015-2022 elementary, LLC <contact@elementary.io> -->
+<component type="desktop-application">
   <id>io.elementary.switchboard</id>
+  <launchable type="desktop-id">io.elementary.switchboard.desktop</launchable>
   <metadata_license>CC0-1.0</metadata_license>
-  <project_group>elementary</project_group>
   <project_license>GPL-3.0+</project_license>
+
   <name>System Settings</name>
   <summary>Change system and user settings</summary>
   <description>
     <p>A system settings application that focuses on modularity and simplicity.</p>
   </description>
+  <compulsory_for_desktop>Pantheon</compulsory_for_desktop>
+
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/elementary/switchboard/master/data/screenshot.png</image>
+    </screenshot>
+  </screenshots>
+
+  <content_rating type="oars-1.1" />
+
+  <provides>
+    <binary>io.elementary.switchboard</binary>
+  </provides>
+
+  <url type="homepage">https://elementary.io/</url>
+  <url type="bugtracker">https://github.com/elementary/switchboard/issues</url>
+  <url type="donation">https://elementary.io/get-involved#funding</url>
+  <url type="help">https://github.com/elementary/switchboard/discussions/categories/q-a</url>
+  <url type="translate">https://l10n.elementary.io/projects/switchboard</url>
+
+  <developer_name>elementary, Inc.</developer_name>
+  <project_group>elementary</project_group>
+  <update_contact>contact_AT_elementary.io</update_contact>
+
   <releases>
+    <release version="6.0.2" date="2022-06-09" urgency="medium">
+      <description>
+        <ul>
+          <li>Bundle app icon</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+    <release version="6.0.1" date="2022-05-03" urgency="medium">
+      <description>
+        <ul>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="6.0.0" date="2021-07-13" urgency="medium">
       <description>
         <ul>
@@ -58,20 +98,4 @@
       </description>
     </release>
   </releases>
-  <provides>
-    <binary>switchboard</binary>
-  </provides>
-  <screenshots>
-    <screenshot type="default">
-      <image>https://raw.githubusercontent.com/elementary/switchboard/master/data/screenshot.png</image>
-    </screenshot>
-  </screenshots>
-  <compulsory_for_desktop>Pantheon</compulsory_for_desktop>
-  <developer_name>elementary, Inc.</developer_name>
-  <url type="homepage">https://elementary.io/</url>
-  <url type="bugtracker">https://github.com/elementary/switchboard/issues</url>
-  <url type="donation">https://elementary.io/get-involved#funding</url>
-  <url type="help">https://elementaryos.stackexchange.com/questions/tagged/settings</url>
-  <url type="translate">https://l10n.elementary.io/projects/switchboard</url>
-  <update_contact>contact_AT_elementary.io</update_contact>
 </component>

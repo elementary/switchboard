@@ -2,63 +2,65 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-20 18:18+0000\n"
-"PO-Revision-Date: 2015-12-04 17:54+0000\n"
-"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2022-06-10 17:13+0000\n"
+"PO-Revision-Date: 2022-10-04 21:31+0000\n"
+"Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
+"Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/"
+"switchboard/switchboard/ckb/>\n"
+"Language: ckb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
-"X-Generator: Launchpad (build 18315)\n"
 
 #: src/Application.vala:31
 msgid "All Settings"
-msgstr ""
+msgstr "هەموو ڕێکخستنەکان"
 
-#: src/Application.vala:93
+#: src/Application.vala:98
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
-msgstr ""
+msgstr "لینکی دیاریکراو '%s' بوونی نییە، دەگەڕێینەوە بۆ پانێڵی سەرەکی"
 
-#: src/Application.vala:142
+#: src/Application.vala:147
 msgid "Search Settings"
-msgstr ""
+msgstr "گەڕان"
 
-#: src/Application.vala:149 src/Application.vala:178 src/Application.vala:327
+#: src/Application.vala:154 src/Application.vala:183 src/Application.vala:332
 msgid "System Settings"
-msgstr ""
+msgstr "ڕێکخستنەکانی سیستەم"
 
-#: src/Application.vala:306
+#: src/Application.vala:311
 msgid "No Settings Found"
-msgstr ""
+msgstr "هیچ ڕێکخستنێک نەدۆزرایەوە"
 
-#: src/Application.vala:306
+#: src/Application.vala:311
 msgid "Install some and re-launch Switchboard."
-msgstr ""
+msgstr "هەندێک ئامرازی ڕێکخستن دامەزرێنەوە و دوبارە ئەم سویچبۆردە بکەوە."
 
 #: src/CategoryView.vala:147
 msgid "Personal"
-msgstr ""
+msgstr "کەسی"
 
 #: src/CategoryView.vala:149
 msgid "Hardware"
-msgstr ""
+msgstr "ڕەقەکاڵا"
 
 #: src/CategoryView.vala:151
 msgid "Network & Wireless"
-msgstr ""
+msgstr "ڕایەڵە & وەیارلێس"
 
 #: src/CategoryView.vala:153
 msgid "Administration"
-msgstr ""
+msgstr "بەڕێوەبەرێتی"
 
 #: src/SearchView.vala:27
 msgid "Try changing search terms."
-msgstr ""
+msgstr "هەوڵدە بە وشەیەکی تری گونجاو بگەڕێی."
 
 #: src/SearchView.vala:47
 #, c-format
 msgid "No Results for “%s”"
-msgstr ""
+msgstr "هیچ ئەنجامێک بۆ \"%s\" نەدۆزرایەوە"

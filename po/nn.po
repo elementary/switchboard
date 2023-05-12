@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-20 18:18+0000\n"
+"POT-Creation-Date: 2022-06-10 17:13+0000\n"
 "PO-Revision-Date: 2019-01-04 00:08+0000\n"
 "Last-Translator: Simon Dagfinrud <semonje@gmail.com>\n"
 "Language-Team: Norwegian Nynorsk <https://weblate.elementary.io/projects/"
@@ -24,24 +24,24 @@ msgstr ""
 msgid "All Settings"
 msgstr "Alle instillingar"
 
-#: src/Application.vala:93
+#: src/Application.vala:98
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Lenka '%s' finns ikkje, går tilbake til hovudpanelet"
 
-#: src/Application.vala:142
+#: src/Application.vala:147
 msgid "Search Settings"
 msgstr "Søkjeinnstillingar"
 
-#: src/Application.vala:149 src/Application.vala:178 src/Application.vala:327
+#: src/Application.vala:154 src/Application.vala:183 src/Application.vala:332
 msgid "System Settings"
 msgstr "Systeminnstillingar"
 
-#: src/Application.vala:306
+#: src/Application.vala:311
 msgid "No Settings Found"
 msgstr "Ingen instillingar vart funne"
 
-#: src/Application.vala:306
+#: src/Application.vala:311
 msgid "Install some and re-launch Switchboard."
 msgstr "Installer nokre og start Switchboard på nytt."
 
