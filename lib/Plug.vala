@@ -33,14 +33,14 @@ public abstract class Switchboard.Plug : GLib.Object {
 
     /**
      * The category under which the plug will be stored.
-     * 
+     *
      * Possible {@link Category} values are PERSONAL, HARDWARE, NETWORK or SYSTEM.
      */
     public Category category { get; construct; }
 
     /**
      * The unique name representing the plug.
-     * 
+     *
      * It is also used to recognise it with the open-plug command.
      * for example "system-pantheon-info" for the official Info plug of the pantheon desktop.
      */
@@ -95,16 +95,16 @@ public abstract class Switchboard.Plug : GLib.Object {
 
     /**
      * Called when the plug disappear to the user.
-     * 
+     *
      * This is not called when the plug got destroyed or the window is closed, use ~Plug () instead.
      */
     public abstract void hidden ();
 
     /**
      * This function should return the widget that contain the whole interface.
-     * 
+     *
      * When the user click on an action, the second parameter is send to the {@link search_callback} method
-     * 
+     *
      * @param search a {@link string} that represent the search.
      * @return a {@link Gee.TreeMap} containing two strings like {"Keyboard → Behavior → Duration", "keyboard<sep>behavior"}.
      */
@@ -112,7 +112,7 @@ public abstract class Switchboard.Plug : GLib.Object {
 
     /**
      * This function is used when the user click on a search result, it should show the selected setting (right tab…).
-     * 
+     *
      * @param location a {@link string} that represents the setting to show.
      */
     public abstract void search_callback (string location);

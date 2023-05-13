@@ -288,7 +288,8 @@ namespace Switchboard {
                     previous_child.hidden ();
                 }
 
-                if (leaflet.visible_child == category_view) {
+                var visible_widget = leaflet.visible_child;
+                if (visible_widget is Switchboard.CategoryView) {
                     main_window.title = _("System Settings");
                     title_stack.visible_child = search_box;
 
@@ -296,9 +297,15 @@ namespace Switchboard {
 
                     search_box.sensitive = Switchboard.PlugsManager.get_default ().has_plugs ();
                 } else {
-                    plug_widgets[leaflet.visible_child].shown ();
-                    main_window.title = plug_widgets[leaflet.visible_child].display_name;
-                    title_stack.visible_child = title_label;
+                    var plug = plug_widgets[visible_widget];
+                    if (plug != null) {
+                        plug.shown ();
+                        main_window.title = plug.display_name;
+                        title_stack.visible_child = title_label;
+                    } else {
+                        critical ("Visible child is not CategoryView nor is associated with a Plug.");
+                    }
+
 
                     if (previous_child != null && previous_child is Switchboard.Plug) {
                         navigation_button.label = previous_child.display_name;
