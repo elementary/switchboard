@@ -7,8 +7,9 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-06-10 17:13+0000\n"
-"PO-Revision-Date: 2023-05-31 13:39+0000\n"
-"Last-Translator: \"baguskusumaloka@gmail.com\" <baguskusumaloka@gmail.com>\n"
+"PO-Revision-Date: 2023-05-31 13:42+0000\n"
+"Last-Translator: Faisal Rachmadin <frachmadin@users.noreply.l10n.elementary."
+"io>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/switchboard/"
 "switchboard/id/>\n"
 "Language: id\n"
@@ -34,7 +35,7 @@ msgstr "Cari Pengaturan"
 
 #: src/Application.vala:154 src/Application.vala:183 src/Application.vala:332
 msgid "System Settings"
-msgstr "Setting Sistem"
+msgstr "Pengaturan Sistem"
 
 #: src/Application.vala:311
 msgid "No Settings Found"
