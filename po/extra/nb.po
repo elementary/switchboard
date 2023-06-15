@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-10 17:13+0000\n"
+"POT-Creation-Date: 2023-06-15 00:23+0000\n"
 "PO-Revision-Date: 2021-08-15 10:15+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/"
@@ -32,10 +32,6 @@ msgstr ""
 #: data/io.elementary.switchboard.appdata.xml.in:10
 msgid "Change system and user settings"
 msgstr "Endre system- og brukerinstillinger"
-
-#: data/io.elementary.switchboard.desktop.in:7
-msgid "io.elementary.switchboard"
-msgstr ""
 
 #: data/io.elementary.switchboard.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"

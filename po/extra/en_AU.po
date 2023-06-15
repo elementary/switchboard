@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-10 17:13+0000\n"
+"POT-Creation-Date: 2023-06-15 00:23+0000\n"
 "PO-Revision-Date: 2018-10-18 05:32-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -26,10 +26,6 @@ msgstr "System Settings"
 #: data/io.elementary.switchboard.appdata.xml.in:10
 msgid "Change system and user settings"
 msgstr "Change system and user settings"
-
-#: data/io.elementary.switchboard.desktop.in:7
-msgid "io.elementary.switchboard"
-msgstr ""
 
 #: data/io.elementary.switchboard.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"

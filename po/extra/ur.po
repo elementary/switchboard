@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-10 17:13+0000\n"
+"POT-Creation-Date: 2023-06-15 00:23+0000\n"
 "PO-Revision-Date: 2017-01-18 21:00+0000\n"
 "Last-Translator: Cody Garver <cody@elementaryos.org>\n"
 "Language-Team: Urdu <ur@li.org>\n"
@@ -27,10 +27,6 @@ msgstr "سسٹم کی ترتیبات"
 #: data/io.elementary.switchboard.appdata.xml.in:10
 msgid "Change system and user settings"
 msgstr "سسٹم اور صارف کی ترتیبات تبدیل کریں"
-
-#: data/io.elementary.switchboard.desktop.in:7
-msgid "io.elementary.switchboard"
-msgstr ""
 
 #: data/io.elementary.switchboard.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"

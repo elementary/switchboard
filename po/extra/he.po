@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-10 17:13+0000\n"
+"POT-Creation-Date: 2023-06-15 00:23+0000\n"
 "PO-Revision-Date: 2023-05-03 05:06+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/switchboard/extra/"
@@ -29,10 +29,6 @@ msgstr "הגדרות מערכת"
 #: data/io.elementary.switchboard.appdata.xml.in:10
 msgid "Change system and user settings"
 msgstr "שינוי הגדרות המערכת והגדרות המשתמשים"
-
-#: data/io.elementary.switchboard.desktop.in:7
-msgid "io.elementary.switchboard"
-msgstr "io.elementary.switchboard"
 
 #: data/io.elementary.switchboard.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"
@@ -106,6 +102,9 @@ msgstr "לחיצה על כפתור החץ „למטה” מתיבת החיפוש
 #: data/io.elementary.switchboard.appdata.xml.in:95
 msgid "Drop dynamic items from the Dock secondary-click menu"
 msgstr "השמטת פריטים דינמיים מתפריט הלחיצה הימני במעגן"
+
+#~ msgid "io.elementary.switchboard"
+#~ msgstr "io.elementary.switchboard"
 
 #~ msgid "preferences-desktop"
 #~ msgstr "preferences-desktop"

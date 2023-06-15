@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-10 17:13+0000\n"
+"POT-Creation-Date: 2023-06-15 00:23+0000\n"
 "PO-Revision-Date: 2022-06-11 23:26+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/switchboard/"
@@ -29,10 +29,6 @@ msgstr "Definições do Sistema"
 #: data/io.elementary.switchboard.appdata.xml.in:10
 msgid "Change system and user settings"
 msgstr "Alterar definições do sistema e do utilizador"
-
-#: data/io.elementary.switchboard.desktop.in:7
-msgid "io.elementary.switchboard"
-msgstr "io.elementary.switchboard"
 
 #: data/io.elementary.switchboard.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"
@@ -112,6 +108,9 @@ msgstr ""
 #: data/io.elementary.switchboard.appdata.xml.in:95
 msgid "Drop dynamic items from the Dock secondary-click menu"
 msgstr "Solta itens dinâmicos a partir do menu de clique secundário da Dock"
+
+#~ msgid "io.elementary.switchboard"
+#~ msgstr "io.elementary.switchboard"
 
 #~ msgid "preferences-desktop"
 #~ msgstr "preferences-desktop"
