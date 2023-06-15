@@ -57,8 +57,14 @@ namespace Switchboard {
             category_box.add (network_category);
             category_box.add (system_category);
 
-            var category_scrolled = new Gtk.ScrolledWindow (null, null) {
+            var clamp = new Hdy.Clamp () {
                 child = category_box,
+                maximum_size = 800,
+                tightening_threshold = 800
+            };
+
+            var category_scrolled = new Gtk.ScrolledWindow (null, null) {
+                child = clamp,
                 hscrollbar_policy = Gtk.PolicyType.NEVER
             };
 
@@ -66,13 +72,7 @@ namespace Switchboard {
             stack.add (alert_view);
             stack.add_named (category_scrolled, "category-grid");
 
-            var clamp = new Hdy.Clamp () {
-                child = stack,
-                maximum_size = 800,
-                tightening_threshold = 800
-            };
-
-            add (clamp);
+            add (stack);
         }
 
         public CategoryView (string? plug = null) {
