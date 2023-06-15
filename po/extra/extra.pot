@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-10 17:13+0000\n"
+"POT-Creation-Date: 2023-06-15 00:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,10 +25,6 @@ msgstr ""
 #: data/io.elementary.switchboard.desktop.in:5
 #: data/io.elementary.switchboard.appdata.xml.in:10
 msgid "Change system and user settings"
-msgstr ""
-
-#: data/io.elementary.switchboard.desktop.in:7
-msgid "io.elementary.switchboard"
 msgstr ""
 
 #: data/io.elementary.switchboard.desktop.in:11
