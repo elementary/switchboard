@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-15 00:23+0000\n"
+"POT-Creation-Date: 2023-10-15 19:43+0000\n"
 "PO-Revision-Date: 2019-06-26 18:53+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -12,52 +12,52 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-#: src/Application.vala:31
+#: src/Application.vala:26
 msgid "All Settings"
 msgstr ""
 
-#: src/Application.vala:98
+#: src/Application.vala:91
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr ""
 
-#: src/Application.vala:147
+#: src/Application.vala:142
 msgid "Search Settings"
 msgstr ""
 
-#: src/Application.vala:154 src/Application.vala:183 src/Application.vala:332
+#: src/Application.vala:195 src/Application.vala:293
 msgid "System Settings"
 msgstr ""
 
-#: src/Application.vala:311
+#: src/Application.vala:274
 msgid "No Settings Found"
 msgstr ""
 
-#: src/Application.vala:311
+#: src/Application.vala:274
 msgid "Install some and re-launch Switchboard."
 msgstr ""
 
-#: src/CategoryView.vala:147
+#: src/CategoryView.vala:156
 msgid "Personal"
 msgstr ""
 
-#: src/CategoryView.vala:149
+#: src/CategoryView.vala:158
 msgid "Hardware"
 msgstr ""
 
-#: src/CategoryView.vala:151
+#: src/CategoryView.vala:160
 msgid "Network & Wireless"
 msgstr ""
 
-#: src/CategoryView.vala:153
+#: src/CategoryView.vala:162
 msgid "Administration"
 msgstr ""
 
-#: src/SearchView.vala:27
+#: src/SearchView.vala:26
 msgid "Try changing search terms."
 msgstr ""
 
-#: src/SearchView.vala:47
+#: src/SearchView.vala:55
 #, c-format
 msgid "No Results for “%s”"
 msgstr ""

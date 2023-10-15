@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-15 00:23+0000\n"
+"POT-Creation-Date: 2023-10-15 19:43+0000\n"
 "PO-Revision-Date: 2016-12-19 08:31+0000\n"
 "Last-Translator: Avi Romanoff <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,52 +13,52 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 "X-Generator: Launchpad (build 18315)\n"
 
-#: src/Application.vala:31
+#: src/Application.vala:26
 msgid "All Settings"
 msgstr "بارلىق تەڭشەكلەر"
 
-#: src/Application.vala:98
+#: src/Application.vala:91
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "ئۇلىنىش  '%s'  مەۋجۇت ئەمەس، باشبەتكە قايتىۋاتىدۇ"
 
-#: src/Application.vala:147
+#: src/Application.vala:142
 msgid "Search Settings"
 msgstr "تەڭشەكلەرنى ئىزدەش"
 
-#: src/Application.vala:154 src/Application.vala:183 src/Application.vala:332
+#: src/Application.vala:195 src/Application.vala:293
 msgid "System Settings"
 msgstr "سىستېما تەڭشەكلىرى"
 
-#: src/Application.vala:311
+#: src/Application.vala:274
 msgid "No Settings Found"
 msgstr "مۇناسىۋەتلىك تەڭشەكلەر تىپىلمىدى"
 
-#: src/Application.vala:311
+#: src/Application.vala:274
 msgid "Install some and re-launch Switchboard."
 msgstr "مۇناسىۋەتلىك ئەپلەرنى ئورنىتىڭ ۋە تەڭشەكنى قايتا قوزغىتىڭ"
 
-#: src/CategoryView.vala:147
+#: src/CategoryView.vala:156
 msgid "Personal"
 msgstr "شەخسىي"
 
-#: src/CategoryView.vala:149
+#: src/CategoryView.vala:158
 msgid "Hardware"
 msgstr "قاتتىق دېتال"
 
-#: src/CategoryView.vala:151
+#: src/CategoryView.vala:160
 msgid "Network & Wireless"
 msgstr "تور"
 
-#: src/CategoryView.vala:153
+#: src/CategoryView.vala:162
 msgid "Administration"
 msgstr "باشقۇرۇش"
 
-#: src/SearchView.vala:27
+#: src/SearchView.vala:26
 msgid "Try changing search terms."
 msgstr "ئىزدەش مەزنۇنىنى ئۆزگەرتىپ سىناپ بىقىڭ."
 
-#: src/SearchView.vala:47
+#: src/SearchView.vala:55
 #, c-format
 msgid "No Results for “%s”"
 msgstr "“%s” غا مۇناسىۋەتلىك مەزمۇن يوق"
