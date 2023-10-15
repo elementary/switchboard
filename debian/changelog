@@ -1,4 +1,4 @@
-switchboard (6.0.2) bionic; urgency=medium
+io.elementary.settings (6.0.2) jammy; urgency=medium
 
   * Release 6.0.2
   * Update translation files
@@ -8,7 +8,7 @@ switchboard (6.0.2) bionic; urgency=medium
 
  -- elementary, Inc. <builds@elementary.io>  Tue, 14 Jun 2022 17:48:32 +0000
 
-switchboard (6.0.1) bionic; urgency=medium
+io.elementary.settings (6.0.1) bionic; urgency=medium
 
   * Release 6.0.1 (#229)
   * Update translation files
@@ -19,7 +19,7 @@ switchboard (6.0.1) bionic; urgency=medium
 
  -- elementary, Inc. <builds@elementary.io>  Tue, 03 May 2022 19:47:51 +0000
 
-switchboard (6.0.0) bionic; urgency=medium
+io.elementary.settings (6.0.0) bionic; urgency=medium
 
   * Release 6.0.0 (#212)
   * Avoid setting search sensitivity (#207)
@@ -52,7 +52,7 @@ switchboard (6.0.0) bionic; urgency=medium
 
  -- elementary, Inc. <builds@elementary.io>  Wed, 14 Jul 2021 17:12:09 +0000
 
-switchboard (2.4.0) bionic; urgency=medium
+io.elementary.settings (2.4.0) bionic; urgency=medium
 
   * Release 2.4.0 (#155)
   * Respect an OS-wide dark preference (#99)
@@ -63,22 +63,22 @@ switchboard (2.4.0) bionic; urgency=medium
   * Update translation files
   * Update translation files
   * Update translation template
-  * Update io.elementary.switchboard.appdata.xml.in
+  * Update io.elementary.io.elementary.settings.appdata.xml.in
   * Add SearchView (#147)
   * Application: use move_focus when pressing down (#148)
 
  -- elementary, Inc. <builds@elementary.io>  Thu, 30 Apr 2020 20:49:00 +0000
 
-switchboard (2.3.9) bionic; urgency=medium
+io.elementary.settings (2.3.9) bionic; urgency=medium
 
   * Release 2.3.9 (#145)
   * Update translation files
   * Update translation template
-  * Update io.elementary.switchboard.appdata.xml.in
+  * Update io.elementary.io.elementary.settings.appdata.xml.in
 
  -- elementary, Inc. <builds@elementary.io>  Mon, 30 Mar 2020 21:02:44 +0000
 
-switchboard (2.3.8) bionic; urgency=medium
+io.elementary.settings (2.3.8) bionic; urgency=medium
 
   * Release 2.3.8 (#137)
   * Update translation files
@@ -93,7 +93,7 @@ switchboard (2.3.8) bionic; urgency=medium
 
  -- elementary, Inc. <builds@elementary.io>  Tue, 14 Jan 2020 23:18:47 +0000
 
-switchboard (2.3.7) bionic; urgency=medium
+io.elementary.settings (2.3.7) bionic; urgency=medium
 
   * Release 2.3.7 (#124)
   * Create release.yml
@@ -115,104 +115,104 @@ switchboard (2.3.7) bionic; urgency=medium
 
  -- elementary, Inc. <builds@elementary.io>  Mon, 04 Nov 2019 22:11:38 +0000
 
-switchboard (2.3.6) bionic; urgency=medium
+io.elementary.settings (2.3.6) bionic; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <codygarver@gmail.com>  Wed, 23 Jan 2019 02:18:24 -0600
 
-switchboard (2.3.5) bionic; urgency=medium
+io.elementary.settings (2.3.5) bionic; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <cody@elementary.io>  Thu, 29 Nov 2018 09:44:15 -0600
 
-switchboard (2.3.4) bionic; urgency=medium
+io.elementary.settings (2.3.4) bionic; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <cody@elementary.io>  Mon, 08 Oct 2018 11:03:13 -0500
 
-switchboard (2.3.3) bionic; urgency=medium
+io.elementary.settings (2.3.3) bionic; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <cody@elementary.io>  Thu, 04 Oct 2018 06:54:04 -0500
 
-switchboard (2.3.2) bionic; urgency=medium
+io.elementary.settings (2.3.2) bionic; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <cody@elementary.io>  Fri, 27 Jul 2018 02:38:23 -0500
 
-switchboard (2.3.1) bionic; urgency=medium
+io.elementary.settings (2.3.1) bionic; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <cody@elementary.io>  Wed, 06 Jun 2018 04:27:04 -0500
 
-switchboard (2.3.0) xenial; urgency=medium
+io.elementary.settings (2.3.0) xenial; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <cody@elementary.io>  Thu, 27 Jul 2017 20:46:40 -0500
 
-switchboard (2.2.1) xenial; urgency=medium
+io.elementary.settings (2.2.1) xenial; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <cody@elementary.io>  Wed, 01 Feb 2017 11:31:08 -0600
 
-switchboard (2.2.0) xenial; urgency=medium
+io.elementary.settings (2.2.0) xenial; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <cody@elementary.io>  Thu, 08 Dec 2016 11:42:46 -0600
 
-switchboard (2.1.0) xenial; urgency=medium
+io.elementary.settings (2.1.0) xenial; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <cody@elementary.io>  Tue, 09 Aug 2016 15:49:10 -0500
 
-switchboard (2.0.2) trusty; urgency=medium
+io.elementary.settings (2.0.2) trusty; urgency=medium
 
   * New upstream release.
 
  -- Cody Garver <cody@elementary.io>  Tue, 24 Nov 2015 22:48:36 -0600
 
-switchboard (2.0.1) trusty; urgency=low
+io.elementary.settings (2.0.1) trusty; urgency=low
 
   * Removed some configuration paths from the library
   * Fixed build with Valac 0.28
 
  -- Corentin "tintou" Noël <corentin@elementary.io>  Sun, 31 May 2015 11:45:22 +0100
 
-switchboard (2.0.0) trusty; urgency=low
+io.elementary.settings (2.0.0) trusty; urgency=low
 
   * Now using gmodule
 
  -- Corentin "tintou" Noël <corentin@elementary.io>  Sat, 09 Nov 2013 14:29:41 +0100
 
-switchboard (1.0.1) precise; urgency=low
+io.elementary.settings (1.0.1) precise; urgency=low
 
   * No more appmenu
 
  -- Cody Garver <cody@elementary.io>  Thu, 20 Jun 2013 04:22:32 -0500
 
-switchboard (1.0) precise; urgency=low
+io.elementary.settings (1.0) precise; urgency=low
 
   * New upstream release.
 
  -- Cody Garver <cody@elementary.io>  Sun, 09 Jun 2013 16:06:54 -0500
 
-switchboard (0.9) natty; urgency=low
+io.elementary.settings (0.9) natty; urgency=low
 
   * Now using libgranite, minor refactoring.
 
  -- Avi Romanoff <aviromanoff@gmail.com>  Mon, 22 Aug 2011 13:12:01 -0400
 
-switchboard (0.8) unstable; urgency=low
+io.elementary.settings (0.8) unstable; urgency=low
 
   * Initial Release.
 

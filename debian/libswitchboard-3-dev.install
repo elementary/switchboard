@@ -1,0 +1,5 @@
+usr/include/switchboard-3/*
+usr/lib/*/libswitchboard-3.so
+usr/lib/*/pkgconfig/switchboard-3.pc
+usr/share/vala/vapi/switchboard-3.deps
+usr/share/vala/vapi/switchboard-3.vapi

@@ -1,4 +1,4 @@
-libswitchboard-2.0.so.0 libswitchboard-2.0-0 #MINVER#
+libswitchboard-3.so.0 libswitchboard-3-0 #MINVER#
  switchboard_plug_category_get_type@Base 2.0~bzr468
  switchboard_plug_construct@Base 2.0~bzr468
  switchboard_plug_get_can_show@Base 2.0~bzr468
