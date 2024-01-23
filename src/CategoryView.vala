@@ -22,6 +22,8 @@
 namespace Switchboard {
 
     public class CategoryView : Gtk.Box {
+        private Gtk.SearchEntry search_box;
+
         public PlugsSearch plug_search { get; construct; }
         public Gee.ArrayList<SearchEntry?> plug_search_result { get; construct; }
         public Switchboard.Category personal_category { get; construct; }
@@ -35,6 +37,25 @@ namespace Switchboard {
         private Granite.Placeholder alert_view;
 
         construct {
+            var search_box_eventcontrollerkey = new Gtk.EventControllerKey ();
+
+            search_box = new Gtk.SearchEntry () {
+                margin_top = 12,
+                margin_end = 12,
+                margin_bottom = 12,
+                margin_start = 12,
+                placeholder_text = _("Search Settings")
+            };
+            search_box.add_controller (search_box_eventcontrollerkey);
+
+            var search_clamp = new Adw.Clamp () {
+                child = search_box,
+                maximum_size = 800,
+                tightening_threshold = 800
+            };
+
+            var searchview = new SearchView (search_box);
+
             alert_view = new Granite.Placeholder ("");
 
             personal_category = new Switchboard.Category (Switchboard.Plug.Category.PERSONAL);
@@ -49,7 +70,8 @@ namespace Switchboard {
                 margin_top = 12,
                 margin_end = 12,
                 margin_bottom = 12,
-                margin_start = 12
+                margin_start = 12,
+                vexpand = true
             };
             category_box.append (personal_category);
             category_box.append (hardware_category);
@@ -71,7 +93,54 @@ namespace Switchboard {
                 tightening_threshold = 800
             };
 
-            append (clamp);
+            var search_stack = new Gtk.Stack () {
+                transition_type = CROSSFADE
+            };
+            search_stack.add_child (clamp);
+            search_stack.add_child (searchview);
+
+            orientation = VERTICAL;
+            append (search_clamp);
+            append (search_stack);
+
+            if (Switchboard.PlugsManager.get_default ().has_plugs () == false) {
+                show_alert (_("No Settings Found"), _("Install some and re-launch Switchboard."), "dialog-warning");
+            } else {
+                search_box.sensitive = true;
+            }
+
+            search_box.search_changed.connect (() => {
+                if (search_box.text.length > 0) {
+                    search_stack.visible_child = searchview;
+                } else {
+                    search_stack.visible_child = clamp;
+                }
+            });
+
+            search_box.activate.connect (() => {
+                searchview.activate_first_item ();
+            });
+
+            search_box_eventcontrollerkey.key_released.connect ((keyval, keycode, state) => {
+                switch (keyval) {
+                    case Gdk.Key.Down:
+                        search_box.move_focus (Gtk.DirectionType.TAB_FORWARD);
+                        break;
+                    case Gdk.Key.Escape:
+                        search_box.text = "";
+                        break;
+                    default:
+                        break;
+                }
+            });
+
+            var eventcontrollerkey = new Gtk.EventControllerKey ();
+            eventcontrollerkey.key_pressed.connect (() => {
+                eventcontrollerkey.forward (search_box.get_delegate ());
+                return Gdk.EVENT_PROPAGATE;
+            });
+
+            add_controller (eventcontrollerkey);
         }
 
         public CategoryView (string? plug = null) {
