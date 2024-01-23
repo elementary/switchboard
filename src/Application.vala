@@ -77,6 +77,33 @@ namespace Switchboard {
             activate ();
         }
 
+        public override void startup () {
+            base.startup ();
+
+            Granite.init ();
+
+            var granite_settings = Granite.Settings.get_default ();
+            var gtk_settings = Gtk.Settings.get_default ();
+
+            gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+
+            granite_settings.notify["prefers-color-scheme"].connect (() => {
+                gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+            });
+
+            var back_action = new SimpleAction ("back", null);
+            var quit_action = new SimpleAction ("quit", null);
+
+            add_action (back_action);
+            add_action (quit_action);
+
+            set_accels_for_action ("app.back", {"<Alt>Left", "Back"});
+            set_accels_for_action ("app.quit", {"<Control>q"});
+
+            back_action.activate.connect (action_navigate_back);
+            quit_action.activate.connect (quit);
+        }
+
         public override void activate () {
             var plugsmanager = Switchboard.PlugsManager.get_default ();
             if (link != null) {
@@ -109,25 +136,7 @@ namespace Switchboard {
                 return;
             }
 
-            var granite_settings = Granite.Settings.get_default ();
-            var gtk_settings = Gtk.Settings.get_default ();
-
-            gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
-
-            granite_settings.notify["prefers-color-scheme"].connect (() => {
-                gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
-            });
-
             plug_widgets = new GLib.HashTable <Gtk.Widget, Switchboard.Plug> (null, null);
-
-            var back_action = new SimpleAction ("back", null);
-            var quit_action = new SimpleAction ("quit", null);
-
-            add_action (back_action);
-            add_action (quit_action);
-
-            set_accels_for_action ("app.back", {"<Alt>Left", "Back"});
-            set_accels_for_action ("app.quit", {"<Control>q"});
 
             navigation_button = new Gtk.Button.with_label (_(all_settings_label));
             navigation_button.action_name = "app.back";
@@ -236,14 +245,6 @@ namespace Switchboard {
                     default:
                         break;
                 }
-            });
-
-            back_action.activate.connect (() => {
-                handle_navigation_button_clicked ();
-            });
-
-            quit_action.activate.connect (() => {
-                quit ();
             });
 
             shutdown.connect (() => {
@@ -371,7 +372,7 @@ namespace Switchboard {
         }
 
         // Handles clicking the navigation button
-        private void handle_navigation_button_clicked () {
+        private void action_navigate_back () {
             if (leaflet.get_adjacent_child (Adw.NavigationDirection.BACK) == category_view) {
                 opened_directly = false;
                 leaflet.mode_transition_duration = 200;
