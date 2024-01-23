@@ -14,12 +14,17 @@ libswitchboard_deps = [
     gio_unix_dep,
     gmodule_dep,
     gee_dep,
+    granite_dep,
     gtk_dep,
 ]
 
 libswitchboard_lib = library('switchboard-3',
+    'AbstractSettingsPage.vala',
+    'AbstractSimpleSettingsPage.vala',
     'PlugsManager.vala',
     'Plug.vala',
+    'SettingsSidebarRow.vala',
+    'SettingsSidebar.vala',
     config_header,
     dependencies: [libswitchboard_deps, config_vapi],
     vala_header: 'switchboard.h',
