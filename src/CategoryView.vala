@@ -40,10 +40,6 @@ namespace Switchboard {
             var search_box_eventcontrollerkey = new Gtk.EventControllerKey ();
 
             search_box = new Gtk.SearchEntry () {
-                margin_top = 12,
-                margin_end = 12,
-                margin_bottom = 12,
-                margin_start = 12,
                 placeholder_text = _("Search Settings")
             };
             search_box.add_controller (search_box_eventcontrollerkey);
@@ -99,8 +95,14 @@ namespace Switchboard {
             search_stack.add_child (clamp);
             search_stack.add_child (searchview);
 
+            var headerbar = new Gtk.HeaderBar () {
+                show_title_buttons = true,
+                title_widget = search_clamp
+            };
+            headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
+
             orientation = VERTICAL;
-            append (search_clamp);
+            append (headerbar);
             append (search_stack);
 
             if (Switchboard.PlugsManager.get_default ().has_plugs () == false) {

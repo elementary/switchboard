@@ -21,15 +21,10 @@
 
 namespace Switchboard {
     public class SwitchboardApp : Gtk.Application {
-        private string all_settings_label = N_("All Settings");
-
         private GLib.HashTable <Gtk.Widget, Switchboard.Plug> plug_widgets;
-        private Gtk.Button navigation_button;
         private Adw.Leaflet leaflet;
-        private Gtk.HeaderBar headerbar;
         private Gtk.Window main_window;
         private Switchboard.CategoryView category_view;
-        private Gtk.Label title_label;
 
         private static bool opened_directly = false;
         private static string? link = null;
@@ -135,22 +130,6 @@ namespace Switchboard {
 
             plug_widgets = new GLib.HashTable <Gtk.Widget, Switchboard.Plug> (null, null);
 
-            navigation_button = new Gtk.Button.with_label (_(all_settings_label));
-            navigation_button.action_name = "app.back";
-            navigation_button.set_tooltip_markup (
-                Granite.markup_accel_tooltip (get_accels_for_action (navigation_button.action_name))
-            );
-            navigation_button.get_style_context ().add_class ("back-button");
-
-            title_label = new Gtk.Label ("");
-            title_label.add_css_class (Granite.STYLE_CLASS_TITLE_LABEL);
-
-            headerbar = new Gtk.HeaderBar () {
-                show_title_buttons = true,
-                title_widget = title_label
-            };
-            headerbar.pack_start (navigation_button);
-
             category_view = new Switchboard.CategoryView (plug_to_open);
             category_view.load_default_plugs.begin ();
 
@@ -166,12 +145,10 @@ namespace Switchboard {
                 child = leaflet,
                 icon_name = application_id,
                 title = _("System Settings"),
-                titlebar = headerbar
+                titlebar = new Gtk.Grid () { visible = false }
             };
             add_window (main_window);
             main_window.present ();
-
-            navigation_button.hide ();
 
             /*
             * This is very finicky. Bind size after present else set_titlebar gives us bad sizes
@@ -187,8 +164,6 @@ namespace Switchboard {
             }
 
             settings.bind ("window-maximized", main_window, "maximized", SettingsBindFlags.SET);
-
-            main_window.bind_property ("title", title_label, "label");
 
             shutdown.connect (() => {
                 if (plug_widgets[leaflet.visible_child] != null && plug_widgets[leaflet.visible_child] is Switchboard.Plug) {
@@ -219,8 +194,6 @@ namespace Switchboard {
                 var visible_widget = leaflet.visible_child;
                 if (visible_widget is Switchboard.CategoryView) {
                     main_window.title = _("System Settings");
-
-                    navigation_button.hide ();
                 } else {
                     var plug = plug_widgets[visible_widget];
                     if (plug != null) {
@@ -229,15 +202,6 @@ namespace Switchboard {
                     } else {
                         critical ("Visible child is not CategoryView nor is associated with a Plug.");
                     }
-
-
-                    if (previous_child != null && previous_child is Switchboard.Plug) {
-                        navigation_button.label = previous_child.display_name;
-                    } else {
-                        navigation_button.label = _(all_settings_label);
-                    }
-
-                    navigation_button.show ();
                 }
             }
         }
