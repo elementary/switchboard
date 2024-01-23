@@ -30,7 +30,6 @@ namespace Switchboard {
         private Gtk.Window main_window;
         private Switchboard.CategoryView category_view;
         private Gtk.Label title_label;
-        private Gtk.Stack title_stack;
 
         private static bool opened_directly = false;
         private static string? link = null;
@@ -226,7 +225,6 @@ namespace Switchboard {
                     if (plug != null) {
                         plug.shown ();
                         main_window.title = plug.display_name;
-                        title_stack.visible_child = title_label;
                     } else {
                         critical ("Visible child is not CategoryView nor is associated with a Plug.");
                     }
@@ -240,8 +238,6 @@ namespace Switchboard {
 
                     navigation_button.show ();
                 }
-
-                // search_box.text = "";
             }
         }
 
