@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-15 19:43+0000\n"
-"PO-Revision-Date: 2023-03-12 07:25+0000\n"
+"POT-Creation-Date: 2024-01-23 21:36+0000\n"
+"PO-Revision-Date: 2024-01-24 03:35+0000\n"
 "Last-Translator: NorwayFun <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://l10n.elementary.io/projects/switchboard/"
 "switchboard/ka/>\n"
@@ -17,58 +17,58 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 5.0.2\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:47+0000\n"
 
-#: src/Application.vala:26
+#: src/Application.vala:24
 msgid "All Settings"
 msgstr "ყველა პარამეტრი"
 
-#: src/Application.vala:91
+#: src/Application.vala:115
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
-msgstr ""
+msgstr "მითითებული ბმული '%s' არ არსებობს. მთავარ პანელზე დაბრუნება"
 
-#: src/Application.vala:142
-msgid "Search Settings"
-msgstr "მოძებნეთ პარამეტრები"
-
-#: src/Application.vala:195 src/Application.vala:293
+#: src/Application.vala:168 src/Application.vala:221
 msgid "System Settings"
 msgstr "სისტემის პარამეტრები"
 
-#: src/Application.vala:274
+#: src/CategoryView.vala:47
+msgid "Search Settings"
+msgstr "მოძებნეთ პარამეტრები"
+
+#: src/CategoryView.vala:107
 msgid "No Settings Found"
-msgstr ""
+msgstr "პარამეტრები ვერ ვიპოვე"
 
-#: src/Application.vala:274
+#: src/CategoryView.vala:107
 msgid "Install some and re-launch Switchboard."
-msgstr ""
+msgstr "დააყენეთ რამდენიმე და Switchboard თავიდან გაუშვით."
 
-#: src/CategoryView.vala:156
+#: src/CategoryView.vala:225
 msgid "Personal"
 msgstr "პერსონალური"
 
-#: src/CategoryView.vala:158
+#: src/CategoryView.vala:227
 msgid "Hardware"
 msgstr "აპარატურა"
 
-#: src/CategoryView.vala:160
+#: src/CategoryView.vala:229
 msgid "Network & Wireless"
-msgstr ""
+msgstr "ქსელი & უსადენო"
 
-#: src/CategoryView.vala:162
+#: src/CategoryView.vala:231
 msgid "Administration"
 msgstr "ადმინისტრაცია"
 
-#: src/SearchView.vala:26
+#: src/SearchView.vala:30
 msgid "Try changing search terms."
-msgstr ""
+msgstr "სცადეთ, ძებნის პირობა შეცვალოთ."
 
-#: src/SearchView.vala:55
+#: src/SearchView.vala:59
 #, c-format
 msgid "No Results for “%s”"
-msgstr ""
+msgstr "\"%s\"-სთვის შედეგები არაა"
 
 #~ msgid "translator-credits"
 #~ msgstr ""

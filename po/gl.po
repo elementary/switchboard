@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-15 19:43+0000\n"
+"POT-Creation-Date: 2024-01-23 21:36+0000\n"
 "PO-Revision-Date: 2019-09-30 14:23+0000\n"
 "Last-Translator: Daniel R. <riesp@pm.me>\n"
 "Language-Team: Galician <https://l10n.elementary.io/projects/switchboard/"
@@ -20,52 +20,52 @@ msgstr ""
 "X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:47+0000\n"
 
-#: src/Application.vala:26
+#: src/Application.vala:24
 msgid "All Settings"
 msgstr "Todos os axustes"
 
-#: src/Application.vala:91
+#: src/Application.vala:115
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "A ligazón especificada «%s» non existe, volvendo ao panel principal"
 
-#: src/Application.vala:142
-msgid "Search Settings"
-msgstr "Configuración da busca"
-
-#: src/Application.vala:195 src/Application.vala:293
+#: src/Application.vala:168 src/Application.vala:221
 msgid "System Settings"
 msgstr "Axustes do sistema"
 
-#: src/Application.vala:274
+#: src/CategoryView.vala:47
+msgid "Search Settings"
+msgstr "Configuración da busca"
+
+#: src/CategoryView.vala:107
 msgid "No Settings Found"
 msgstr "Non se encontraron axustes"
 
-#: src/Application.vala:274
+#: src/CategoryView.vala:107
 msgid "Install some and re-launch Switchboard."
 msgstr "Instalar algo e relanzar Switchboard."
 
-#: src/CategoryView.vala:156
+#: src/CategoryView.vala:225
 msgid "Personal"
 msgstr "Persoal"
 
-#: src/CategoryView.vala:158
+#: src/CategoryView.vala:227
 msgid "Hardware"
 msgstr "Hardware"
 
-#: src/CategoryView.vala:160
+#: src/CategoryView.vala:229
 msgid "Network & Wireless"
 msgstr "Rede e conexións sen fíos"
 
-#: src/CategoryView.vala:162
+#: src/CategoryView.vala:231
 msgid "Administration"
 msgstr "Administración"
 
-#: src/SearchView.vala:26
+#: src/SearchView.vala:30
 msgid "Try changing search terms."
 msgstr "Ténteo cambiando os termos de procura."
 
-#: src/SearchView.vala:55
+#: src/SearchView.vala:59
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Sen resultados para «%s»"

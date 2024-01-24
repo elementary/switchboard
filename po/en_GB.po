@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-15 19:43+0000\n"
+"POT-Creation-Date: 2024-01-23 21:36+0000\n"
 "PO-Revision-Date: 2018-05-01 20:43+0000\n"
 "Last-Translator: Ciaran Ainsworth <cda@whistlingkappa.com>\n"
 "Language-Team: English (United Kingdom) <https://weblate.elementary.io/"
@@ -20,52 +20,52 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 
-#: src/Application.vala:26
+#: src/Application.vala:24
 msgid "All Settings"
 msgstr "All Settings"
 
-#: src/Application.vala:91
+#: src/Application.vala:115
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Specified link '%s' does not exist, going back to the main panel"
 
-#: src/Application.vala:142
-msgid "Search Settings"
-msgstr "Search Settings"
-
-#: src/Application.vala:195 src/Application.vala:293
+#: src/Application.vala:168 src/Application.vala:221
 msgid "System Settings"
 msgstr "System Settings"
 
-#: src/Application.vala:274
+#: src/CategoryView.vala:47
+msgid "Search Settings"
+msgstr "Search Settings"
+
+#: src/CategoryView.vala:107
 msgid "No Settings Found"
 msgstr "No Settings Found"
 
-#: src/Application.vala:274
+#: src/CategoryView.vala:107
 msgid "Install some and re-launch Switchboard."
 msgstr "Install some and re-launch Switchboard."
 
-#: src/CategoryView.vala:156
+#: src/CategoryView.vala:225
 msgid "Personal"
 msgstr "Personal"
 
-#: src/CategoryView.vala:158
+#: src/CategoryView.vala:227
 msgid "Hardware"
 msgstr "Hardware"
 
-#: src/CategoryView.vala:160
+#: src/CategoryView.vala:229
 msgid "Network & Wireless"
 msgstr "Network & Wireless"
 
-#: src/CategoryView.vala:162
+#: src/CategoryView.vala:231
 msgid "Administration"
 msgstr "Administration"
 
-#: src/SearchView.vala:26
+#: src/SearchView.vala:30
 msgid "Try changing search terms."
 msgstr "Try changing search terms."
 
-#: src/SearchView.vala:55
+#: src/SearchView.vala:59
 #, c-format
 msgid "No Results for “%s”"
 msgstr "No Results for “%s”"

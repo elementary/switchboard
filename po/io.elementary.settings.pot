@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.settings\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-15 19:43+0000\n"
+"POT-Creation-Date: 2024-01-23 21:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,52 +17,52 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/Application.vala:26
+#: src/Application.vala:24
 msgid "All Settings"
 msgstr ""
 
-#: src/Application.vala:91
+#: src/Application.vala:115
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr ""
 
-#: src/Application.vala:142
-msgid "Search Settings"
-msgstr ""
-
-#: src/Application.vala:195 src/Application.vala:293
+#: src/Application.vala:168 src/Application.vala:221
 msgid "System Settings"
 msgstr ""
 
-#: src/Application.vala:274
+#: src/CategoryView.vala:47
+msgid "Search Settings"
+msgstr ""
+
+#: src/CategoryView.vala:107
 msgid "No Settings Found"
 msgstr ""
 
-#: src/Application.vala:274
+#: src/CategoryView.vala:107
 msgid "Install some and re-launch Switchboard."
 msgstr ""
 
-#: src/CategoryView.vala:156
+#: src/CategoryView.vala:225
 msgid "Personal"
 msgstr ""
 
-#: src/CategoryView.vala:158
+#: src/CategoryView.vala:227
 msgid "Hardware"
 msgstr ""
 
-#: src/CategoryView.vala:160
+#: src/CategoryView.vala:229
 msgid "Network & Wireless"
 msgstr ""
 
-#: src/CategoryView.vala:162
+#: src/CategoryView.vala:231
 msgid "Administration"
 msgstr ""
 
-#: src/SearchView.vala:26
+#: src/SearchView.vala:30
 msgid "Try changing search terms."
 msgstr ""
 
-#: src/SearchView.vala:55
+#: src/SearchView.vala:59
 #, c-format
 msgid "No Results for “%s”"
 msgstr ""
