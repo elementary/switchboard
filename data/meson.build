@@ -38,3 +38,5 @@ foreach i : icon_sizes
         rename: meson.project_name() + '.svg'
     )
 endforeach
+
+subdir(styles)
