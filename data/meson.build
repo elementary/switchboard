@@ -39,4 +39,4 @@ foreach i : icon_sizes
     )
 endforeach
 
-subdir(styles)
+subdir('styles')
