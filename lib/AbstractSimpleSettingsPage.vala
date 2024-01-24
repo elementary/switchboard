@@ -11,6 +11,7 @@
 public abstract class Switchboard.SimpleSettingsPage : Switchboard.SettingsPage {
     private Gtk.Label description_label;
     private string _description;
+    private Adw.Clamp content_area;
 
     /**
      * A {@link Gtk.Box} used as the action area for #this
@@ -18,9 +19,16 @@ public abstract class Switchboard.SimpleSettingsPage : Switchboard.SettingsPage 
     public Gtk.Box action_area { get; construct; }
 
     /**
-     * A {@link Gtk.Grid} used as the content area for #this
+     * The child widget for the content area
      */
-    public Gtk.Grid content_area { get; construct; }
+    public Gtk.Widget child {
+        get {
+            return content_area.child;
+        }
+        set {
+            content_area.child = value;
+        }
+    }
 
     /**
      * A {@link Gtk.Switch} that appears in the header area when #this.activatable is #true. #status_switch will be #null when #this.activatable is #false
@@ -53,6 +61,10 @@ public abstract class Switchboard.SimpleSettingsPage : Switchboard.SettingsPage 
      */
     protected SimpleSettingsPage () {
 
+    }
+
+    static construct {
+        set_layout_manager_type (typeof (Gtk.BinLayout));
     }
 
     class construct {
@@ -98,9 +110,11 @@ public abstract class Switchboard.SimpleSettingsPage : Switchboard.SettingsPage 
             header_area.attach (status_switch, 2, 0);
         }
 
-        content_area = new Gtk.Grid () {
-            column_spacing = 12,
-            row_spacing = 12,
+        var header_clamp = new Adw.Clamp () {
+            child = header_area
+        };
+
+        content_area = new Adw.Clamp () {
             vexpand = true
         };
         content_area.add_css_class ("content-area");
@@ -111,11 +125,15 @@ public abstract class Switchboard.SimpleSettingsPage : Switchboard.SettingsPage 
         action_area.add_css_class ("buttonbox");
 
         var grid = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        grid.append (header_area);
+        grid.append (header_clamp);
         grid.append (content_area);
         grid.append (action_area);
 
-        child = grid;
+        var scrolled = new Gtk.ScrolledWindow () {
+            child = grid,
+            hscrollbar_policy = NEVER
+        };
+        scrolled.set_parent (this);
 
         notify["icon-name"].connect (() => {
             if (header_icon != null) {
@@ -128,5 +146,9 @@ public abstract class Switchboard.SimpleSettingsPage : Switchboard.SettingsPage 
                 title_label.label = title;
             }
         });
+    }
+
+    ~SimpleSettingsPage () {
+        get_first_child ().unparent ();
     }
 }

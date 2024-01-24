@@ -9,6 +9,7 @@ config_header = configure_file(
 )
 
 libswitchboard_deps = [
+    adwaita_dep,
     glib_dep,
     gio_dep,
     gio_unix_dep,

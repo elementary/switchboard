@@ -7,10 +7,9 @@
  * AbstractSettingsPage is a {@link Gtk.ScrolledWindow} subclass with properties used
  * by other Granite settings widgets.
  */
-public abstract class Switchboard.SettingsPage : Gtk.Box {
+public abstract class Switchboard.SettingsPage : Gtk.Widget {
     protected string _icon_name;
     protected string _title;
-    private Gtk.ScrolledWindow scrolled;
 
     /**
      * Used to display a status icon overlayed on the display_widget in a Granite.SettingsSidebar
@@ -65,22 +64,5 @@ public abstract class Switchboard.SettingsPage : Gtk.Box {
         construct set {
             _title = value;
         }
-    }
-
-    public new Gtk.Widget child {
-        get {
-            return scrolled.child;
-        }
-        set {
-            scrolled.child = value;
-        }
-    }
-
-    construct {
-        scrolled = new Gtk.ScrolledWindow () {
-            hscrollbar_policy = Gtk.PolicyType.NEVER
-        };
-
-        append (scrolled);
     }
 }
