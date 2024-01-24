@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-15 00:23+0000\n"
+"POT-Creation-Date: 2024-01-23 21:36+0000\n"
 "PO-Revision-Date: 2021-07-21 14:31+0000\n"
 "Last-Translator: supaeasy <ismo+github@wolffson.ch>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/switchboard/extra/"
@@ -20,83 +20,78 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 
-#: data/io.elementary.switchboard.desktop.in:4
-#: data/io.elementary.switchboard.appdata.xml.in:9
+#: data/settings.desktop.in:4 data/settings.appdata.xml.in:9
 msgid "System Settings"
 msgstr "Systemeinstellungen"
 
-#: data/io.elementary.switchboard.desktop.in:5
-#: data/io.elementary.switchboard.appdata.xml.in:10
+#: data/settings.desktop.in:5 data/settings.appdata.xml.in:10
 msgid "Change system and user settings"
 msgstr "System- und Benutzereinstellungen ändern"
 
-#: data/io.elementary.switchboard.desktop.in:11
+#: data/settings.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"
 msgstr "Center;Einstellungen;System;"
 
-#: data/io.elementary.switchboard.appdata.xml.in:12
+#: data/settings.appdata.xml.in:12
 msgid ""
 "A system settings application that focuses on modularity and simplicity."
 msgstr "Eine unkomplizierte, modulare Anwendung für die Systemeinstellungen."
 
-#: data/io.elementary.switchboard.appdata.xml.in:34
+#: data/settings.appdata.xml.in:34
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/io.elementary.switchboard.appdata.xml.in:42
+#: data/settings.appdata.xml.in:42
 msgid "Bundle app icon"
 msgstr ""
 
-#: data/io.elementary.switchboard.appdata.xml.in:43
-#: data/io.elementary.switchboard.appdata.xml.in:50
-#: data/io.elementary.switchboard.appdata.xml.in:61
-#: data/io.elementary.switchboard.appdata.xml.in:70
-#: data/io.elementary.switchboard.appdata.xml.in:77
-#: data/io.elementary.switchboard.appdata.xml.in:87
-#: data/io.elementary.switchboard.appdata.xml.in:96
+#: data/settings.appdata.xml.in:43 data/settings.appdata.xml.in:50
+#: data/settings.appdata.xml.in:61 data/settings.appdata.xml.in:70
+#: data/settings.appdata.xml.in:77 data/settings.appdata.xml.in:87
+#: data/settings.appdata.xml.in:96
 msgid "Updated translations"
 msgstr "Aktualisierte Übersetzungen"
 
-#: data/io.elementary.switchboard.appdata.xml.in:57
+#: data/settings.appdata.xml.in:57
 msgid "Add multitouch navigation gestures"
 msgstr "Multitouch-Gesten hinzugefügt"
 
-#: data/io.elementary.switchboard.appdata.xml.in:58
+#: data/settings.appdata.xml.in:58
 msgid "Better support smaller displays"
 msgstr "Verbesserte Unterstützung für kleine Bildschirme"
 
-#: data/io.elementary.switchboard.appdata.xml.in:59
+#: data/settings.appdata.xml.in:59
 msgid "Remove old GNOME Control Center compatibility layer"
 msgstr "Alten Kompatibilitätslayer für GNOME Control Center entfernt"
 
-#: data/io.elementary.switchboard.appdata.xml.in:60
+#: data/settings.appdata.xml.in:60
 msgid "Stability and performance improvements"
 msgstr "Stabilitäts- und Leistungsverbesserungen"
 
-#: data/io.elementary.switchboard.appdata.xml.in:68
+#: data/settings.appdata.xml.in:68
 msgid "Redesign search results view"
 msgstr "Redesign der Ansicht für Suchergebnisse"
 
-#: data/io.elementary.switchboard.appdata.xml.in:69
+#: data/settings.appdata.xml.in:69
 msgid "Tab key moves focus out of search"
 msgstr "Drücken von Tab bewegt den Fokus aus der Suche heraus"
 
-#: data/io.elementary.switchboard.appdata.xml.in:84
+#: data/settings.appdata.xml.in:84
 msgid "Fix an issue that prevented tiling on small displays"
 msgstr ""
 "Fehler behoben, der die Kachelansicht auf kleinen Bildschirmen verhinderte"
 
-#: data/io.elementary.switchboard.appdata.xml.in:85
+#: data/settings.appdata.xml.in:85
 msgid "Fix an issue with restoring the correct window size"
 msgstr ""
 "Fehler behoben, bei dem die ursprüngliche Fenstergröße nicht korrekt "
 "wiederhergestellt wurde"
 
-#: data/io.elementary.switchboard.appdata.xml.in:86
+#: data/settings.appdata.xml.in:86
 msgid "Make the category grid fill the available space when maximized"
 msgstr "Kategoriengitter füllt nun den ganzen verfügbaren Platz wenn maximiert"
 
-#: data/io.elementary.switchboard.appdata.xml.in:94
+#: data/settings.appdata.xml.in:94
 msgid ""
 "Pressing the \"Down\" arrow key from the search box correctly focuses the "
 "first row"
@@ -104,7 +99,7 @@ msgstr ""
 "Druck auf \"unten\" Pfeiltaste aus der Suchbox heraus fokussiert nun korrekt "
 "die erste Zeile"
 
-#: data/io.elementary.switchboard.appdata.xml.in:95
+#: data/settings.appdata.xml.in:95
 msgid "Drop dynamic items from the Dock secondary-click menu"
 msgstr "Dynamische Items vom Sekundärklick-Menü im Dock fallenlassen"
 

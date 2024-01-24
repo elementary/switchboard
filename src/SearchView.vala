@@ -18,8 +18,12 @@
 */
 
 public class Switchboard.SearchView : Gtk.Box {
-    private Gtk.SearchEntry search_entry;
+    public Gtk.SearchEntry search_entry { get; construct; }
     private Gtk.ListBox listbox;
+
+    public SearchView (Gtk.SearchEntry search_entry) {
+        Object (search_entry: search_entry);
+    }
 
     construct {
         var alert_view = new Granite.Placeholder ("") {
@@ -29,24 +33,24 @@ public class Switchboard.SearchView : Gtk.Box {
 
         unowned SwitchboardApp app = (SwitchboardApp) GLib.Application.get_default ();
 
-        search_entry = app.search_box;
-
-        listbox = new Gtk.ListBox ();
-        listbox.add_css_class ("rich-list");
-        listbox.selection_mode = Gtk.SelectionMode.BROWSE;
+        listbox = new Gtk.ListBox () {
+            selection_mode = BROWSE
+        };
+        listbox.add_css_class (Granite.STYLE_CLASS_BACKGROUND);
+        listbox.add_css_class (Granite.STYLE_CLASS_RICH_LIST);
         listbox.set_filter_func (filter_func);
         listbox.set_placeholder (alert_view);
 
         var clamp = new Adw.Clamp () {
             child = listbox,
-            maximum_size = 800
+            maximum_size = 800,
+            tightening_threshold = 800
         };
 
         var scrolled = new Gtk.ScrolledWindow () {
             child = clamp
         };
 
-        add_css_class (Granite.STYLE_CLASS_VIEW);
         append (scrolled);
 
         load_plugs.begin ();

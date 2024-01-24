@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-15 00:23+0000\n"
+"POT-Creation-Date: 2024-01-23 21:36+0000\n"
 "PO-Revision-Date: 2022-12-26 20:25+0000\n"
 "Last-Translator: JohnDumpling <john_dumpling@protonmail.com>\n"
 "Language-Team: Slovak <https://l10n.elementary.io/projects/switchboard/extra/"
@@ -19,83 +19,78 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 4.14.2\n"
 
-#: data/io.elementary.switchboard.desktop.in:4
-#: data/io.elementary.switchboard.appdata.xml.in:9
+#: data/settings.desktop.in:4 data/settings.appdata.xml.in:9
 msgid "System Settings"
 msgstr "Nastavenia systému"
 
-#: data/io.elementary.switchboard.desktop.in:5
-#: data/io.elementary.switchboard.appdata.xml.in:10
+#: data/settings.desktop.in:5 data/settings.appdata.xml.in:10
 msgid "Change system and user settings"
 msgstr "Meňte systémové a používateľské nastavenia"
 
-#: data/io.elementary.switchboard.desktop.in:11
+#: data/settings.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"
 msgstr "Centrum;Ovládanie;Panel;Vlastnosti;Systém;"
 
-#: data/io.elementary.switchboard.appdata.xml.in:12
+#: data/settings.appdata.xml.in:12
 msgid ""
 "A system settings application that focuses on modularity and simplicity."
 msgstr ""
 "Aplikácia systémových nastavení, ktoré je zameraná na modularitu a "
 "jednoduchosť."
 
-#: data/io.elementary.switchboard.appdata.xml.in:34
+#: data/settings.appdata.xml.in:34
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/io.elementary.switchboard.appdata.xml.in:42
+#: data/settings.appdata.xml.in:42
 msgid "Bundle app icon"
 msgstr "Ikonka zväzku aplikácií"
 
-#: data/io.elementary.switchboard.appdata.xml.in:43
-#: data/io.elementary.switchboard.appdata.xml.in:50
-#: data/io.elementary.switchboard.appdata.xml.in:61
-#: data/io.elementary.switchboard.appdata.xml.in:70
-#: data/io.elementary.switchboard.appdata.xml.in:77
-#: data/io.elementary.switchboard.appdata.xml.in:87
-#: data/io.elementary.switchboard.appdata.xml.in:96
+#: data/settings.appdata.xml.in:43 data/settings.appdata.xml.in:50
+#: data/settings.appdata.xml.in:61 data/settings.appdata.xml.in:70
+#: data/settings.appdata.xml.in:77 data/settings.appdata.xml.in:87
+#: data/settings.appdata.xml.in:96
 msgid "Updated translations"
 msgstr "Aktualizované preklady"
 
-#: data/io.elementary.switchboard.appdata.xml.in:57
+#: data/settings.appdata.xml.in:57
 msgid "Add multitouch navigation gestures"
 msgstr "Pridané viacdotykové navigačné gestá"
 
-#: data/io.elementary.switchboard.appdata.xml.in:58
+#: data/settings.appdata.xml.in:58
 msgid "Better support smaller displays"
 msgstr "Lepšia podpora menších obrazoviek"
 
-#: data/io.elementary.switchboard.appdata.xml.in:59
+#: data/settings.appdata.xml.in:59
 msgid "Remove old GNOME Control Center compatibility layer"
 msgstr "Odstránená stará vrstva kompatibility pre GNOME Ovládací panel"
 
-#: data/io.elementary.switchboard.appdata.xml.in:60
+#: data/settings.appdata.xml.in:60
 msgid "Stability and performance improvements"
 msgstr "Vylepšenia stability a výkonu"
 
-#: data/io.elementary.switchboard.appdata.xml.in:68
+#: data/settings.appdata.xml.in:68
 msgid "Redesign search results view"
 msgstr "Prerobené zobrazovanie výsledkov vyhľadávania"
 
-#: data/io.elementary.switchboard.appdata.xml.in:69
+#: data/settings.appdata.xml.in:69
 msgid "Tab key moves focus out of search"
 msgstr "Klávesa Tab presunie zameranie mimo vyhľadávania"
 
-#: data/io.elementary.switchboard.appdata.xml.in:84
+#: data/settings.appdata.xml.in:84
 msgid "Fix an issue that prevented tiling on small displays"
 msgstr ""
 "Opravený problém, ktorý bránil vytváraniu dlaždíc na menších displejoch"
 
-#: data/io.elementary.switchboard.appdata.xml.in:85
+#: data/settings.appdata.xml.in:85
 msgid "Fix an issue with restoring the correct window size"
 msgstr "Opravený problém pri obnovovaní správnej veľkosti okna"
 
-#: data/io.elementary.switchboard.appdata.xml.in:86
+#: data/settings.appdata.xml.in:86
 msgid "Make the category grid fill the available space when maximized"
 msgstr "Pri maximalizácii vyplní mriežka kategórie dostupné miesto"
 
-#: data/io.elementary.switchboard.appdata.xml.in:94
+#: data/settings.appdata.xml.in:94
 msgid ""
 "Pressing the \"Down\" arrow key from the search box correctly focuses the "
 "first row"
@@ -103,6 +98,6 @@ msgstr ""
 "Stlačením klávesy šípky nadol v políčku vyhľadávania sa správne zameria prvý "
 "riadok"
 
-#: data/io.elementary.switchboard.appdata.xml.in:95
+#: data/settings.appdata.xml.in:95
 msgid "Drop dynamic items from the Dock secondary-click menu"
 msgstr "Zahodenie dynamických položiek z Doku v kontextovom menu"

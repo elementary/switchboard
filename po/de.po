@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-15 00:23+0000\n"
+"POT-Creation-Date: 2024-01-23 21:36+0000\n"
 "PO-Revision-Date: 2021-02-21 14:29+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/switchboard/"
@@ -20,54 +20,54 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:47+0000\n"
 
-#: src/Application.vala:31
+#: src/Application.vala:24
 msgid "All Settings"
 msgstr "Alle Einstellungen"
 
-#: src/Application.vala:98
+#: src/Application.vala:115
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr ""
 "Die angegebene Adresse »%s« existiert nicht; das Hauptfenster wird wieder "
 "angezeigt"
 
-#: src/Application.vala:147
-msgid "Search Settings"
-msgstr "Einstellungen durchsuchen"
-
-#: src/Application.vala:154 src/Application.vala:183 src/Application.vala:332
+#: src/Application.vala:168 src/Application.vala:221
 msgid "System Settings"
 msgstr "Systemeinstellungen"
 
-#: src/Application.vala:311
+#: src/CategoryView.vala:47
+msgid "Search Settings"
+msgstr "Einstellungen durchsuchen"
+
+#: src/CategoryView.vala:107
 msgid "No Settings Found"
 msgstr "Keine Einstellungen gefunden"
 
-#: src/Application.vala:311
+#: src/CategoryView.vala:107
 msgid "Install some and re-launch Switchboard."
 msgstr "Einige installieren und Switchboard neustarten."
 
-#: src/CategoryView.vala:147
+#: src/CategoryView.vala:225
 msgid "Personal"
 msgstr "Persönlich"
 
-#: src/CategoryView.vala:149
+#: src/CategoryView.vala:227
 msgid "Hardware"
 msgstr "Hardware"
 
-#: src/CategoryView.vala:151
+#: src/CategoryView.vala:229
 msgid "Network & Wireless"
 msgstr "Netzwerk & WLAN"
 
-#: src/CategoryView.vala:153
+#: src/CategoryView.vala:231
 msgid "Administration"
 msgstr "Verwaltung"
 
-#: src/SearchView.vala:27
+#: src/SearchView.vala:30
 msgid "Try changing search terms."
 msgstr "Versuchen Sie es mit anderen Suchbegriffen."
 
-#: src/SearchView.vala:47
+#: src/SearchView.vala:59
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Keine Ergebnisse für »%s«"

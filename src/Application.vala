@@ -21,8 +21,6 @@
 
 namespace Switchboard {
     public class SwitchboardApp : Gtk.Application {
-        public Gtk.SearchEntry search_box { get; private set; }
-
         private string all_settings_label = N_("All Settings");
 
         private GLib.HashTable <Gtk.Widget, Switchboard.Plug> plug_widgets;
@@ -32,7 +30,6 @@ namespace Switchboard {
         private Gtk.Window main_window;
         private Switchboard.CategoryView category_view;
         private Gtk.Label title_label;
-        private Gtk.Stack title_stack;
 
         private static bool opened_directly = false;
         private static string? link = null;
@@ -77,6 +74,33 @@ namespace Switchboard {
             activate ();
         }
 
+        public override void startup () {
+            base.startup ();
+
+            Granite.init ();
+
+            var granite_settings = Granite.Settings.get_default ();
+            var gtk_settings = Gtk.Settings.get_default ();
+
+            gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+
+            granite_settings.notify["prefers-color-scheme"].connect (() => {
+                gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+            });
+
+            var back_action = new SimpleAction ("back", null);
+            var quit_action = new SimpleAction ("quit", null);
+
+            add_action (back_action);
+            add_action (quit_action);
+
+            set_accels_for_action ("app.back", {"<Alt>Left", "Back"});
+            set_accels_for_action ("app.quit", {"<Control>q"});
+
+            back_action.activate.connect (action_navigate_back);
+            quit_action.activate.connect (quit);
+        }
+
         public override void activate () {
             var plugsmanager = Switchboard.PlugsManager.get_default ();
             if (link != null) {
@@ -109,25 +133,7 @@ namespace Switchboard {
                 return;
             }
 
-            var granite_settings = Granite.Settings.get_default ();
-            var gtk_settings = Gtk.Settings.get_default ();
-
-            gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
-
-            granite_settings.notify["prefers-color-scheme"].connect (() => {
-                gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
-            });
-
             plug_widgets = new GLib.HashTable <Gtk.Widget, Switchboard.Plug> (null, null);
-
-            var back_action = new SimpleAction ("back", null);
-            var quit_action = new SimpleAction ("quit", null);
-
-            add_action (back_action);
-            add_action (quit_action);
-
-            set_accels_for_action ("app.back", {"<Alt>Left", "Back"});
-            set_accels_for_action ("app.quit", {"<Control>q"});
 
             navigation_button = new Gtk.Button.with_label (_(all_settings_label));
             navigation_button.action_name = "app.back";
@@ -136,31 +142,12 @@ namespace Switchboard {
             );
             navigation_button.get_style_context ().add_class ("back-button");
 
-            var search_box_eventcontrollerkey = new Gtk.EventControllerKey ();
-
-            search_box = new Gtk.SearchEntry () {
-                placeholder_text = _("Search Settings"),
-                sensitive = false
-            };
-            search_box.add_controller (search_box_eventcontrollerkey);
-
             title_label = new Gtk.Label ("");
             title_label.add_css_class (Granite.STYLE_CLASS_TITLE_LABEL);
 
-            title_stack = new Gtk.Stack () {
-                hexpand = true
-            };
-            title_stack.add_child (search_box);
-            title_stack.add_child (title_label);
-
-            var title_clamp = new Adw.Clamp () {
-                child = title_stack,
-                maximum_size = 800
-            };
-
             headerbar = new Gtk.HeaderBar () {
                 show_title_buttons = true,
-                title_widget = title_clamp
+                title_widget = title_label
             };
             headerbar.pack_start (navigation_button);
 
@@ -174,23 +161,9 @@ namespace Switchboard {
             };
             leaflet.append (category_view);
 
-            var searchview = new SearchView ();
-
-            var search_stack = new Gtk.Stack () {
-                transition_type = Gtk.StackTransitionType.OVER_DOWN_UP
-            };
-            search_stack.add_child (leaflet);
-            search_stack.add_child (searchview);
-
-            var window_eventcontrollerkey = new Gtk.EventControllerKey ();
-
-            var window_handle = new Gtk.WindowHandle () {
-                child = search_stack
-            };
-
             main_window = new Gtk.Window () {
                 application = this,
-                child = window_handle,
+                child = leaflet,
                 icon_name = application_id,
                 title = _("System Settings"),
                 titlebar = headerbar
@@ -217,49 +190,10 @@ namespace Switchboard {
 
             main_window.bind_property ("title", title_label, "label");
 
-            search_box.search_changed.connect (() => {
-                if (search_box.text.length > 0) {
-                    search_stack.visible_child = searchview;
-                } else {
-                    search_stack.visible_child = leaflet;
-                }
-            });
-
-            search_box.activate.connect (() => {
-                searchview.activate_first_item ();
-            });
-
-            search_box_eventcontrollerkey.key_released.connect ((keyval, keycode, state) => {
-                switch (keyval) {
-                    case Gdk.Key.Down:
-                        search_box.move_focus (Gtk.DirectionType.TAB_FORWARD);
-                        break;
-                    case Gdk.Key.Escape:
-                        search_box.text = "";
-                        break;
-                    default:
-                        break;
-                }
-            });
-
-            back_action.activate.connect (() => {
-                handle_navigation_button_clicked ();
-            });
-
-            quit_action.activate.connect (() => {
-                quit ();
-            });
-
             shutdown.connect (() => {
                 if (plug_widgets[leaflet.visible_child] != null && plug_widgets[leaflet.visible_child] is Switchboard.Plug) {
                     plug_widgets[leaflet.visible_child].hidden ();
                 }
-            });
-
-            ((Gtk.Widget) main_window).add_controller (window_eventcontrollerkey);
-            window_eventcontrollerkey.key_pressed.connect ((keyval, keycode, modifiers) => {
-                window_eventcontrollerkey.forward (search_box.get_delegate ());
-                return Gdk.EVENT_PROPAGATE;
             });
 
             leaflet.notify["visible-child"].connect (() => {
@@ -269,12 +203,6 @@ namespace Switchboard {
             leaflet.notify["child-transition-running"].connect (() => {
                 update_navigation ();
             });
-
-            if (Switchboard.PlugsManager.get_default ().has_plugs () == false) {
-                category_view.show_alert (_("No Settings Found"), _("Install some and re-launch Switchboard."), "dialog-warning");
-            } else {
-                search_box.sensitive = true;
-            }
         }
 
         private void update_navigation () {
@@ -291,17 +219,13 @@ namespace Switchboard {
                 var visible_widget = leaflet.visible_child;
                 if (visible_widget is Switchboard.CategoryView) {
                     main_window.title = _("System Settings");
-                    title_stack.visible_child = search_box;
 
                     navigation_button.hide ();
-
-                    search_box.sensitive = Switchboard.PlugsManager.get_default ().has_plugs ();
                 } else {
                     var plug = plug_widgets[visible_widget];
                     if (plug != null) {
                         plug.shown ();
                         main_window.title = plug.display_name;
-                        title_stack.visible_child = title_label;
                     } else {
                         critical ("Visible child is not CategoryView nor is associated with a Plug.");
                     }
@@ -314,11 +238,7 @@ namespace Switchboard {
                     }
 
                     navigation_button.show ();
-
-                    search_box.sensitive = false;
                 }
-
-                search_box.text = "";
             }
         }
 
@@ -375,7 +295,7 @@ namespace Switchboard {
         }
 
         // Handles clicking the navigation button
-        private void handle_navigation_button_clicked () {
+        private void action_navigate_back () {
             if (leaflet.get_adjacent_child (Adw.NavigationDirection.BACK) == category_view) {
                 opened_directly = false;
                 leaflet.mode_transition_duration = 200;

@@ -28,10 +28,10 @@ Run `meson` to configure the build environment and then `ninja` to build
     cd build
     ninja
 
-To install, use `ninja install` then execute with `switchboard`
+To install, use `ninja install` then execute with `io.elementary.settings`
 
     sudo ninja install
-    switchboard
+    io.elementary.settings
 
 ## Making Switchboard Plugs
 

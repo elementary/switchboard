@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-15 00:23+0000\n"
+"POT-Creation-Date: 2024-01-23 21:36+0000\n"
 "PO-Revision-Date: 2022-10-04 21:31+0000\n"
 "Last-Translator: Aga Ismael <agaesmaeel@gmail.com>\n"
 "Language-Team: Kurdish (Central) <https://l10n.elementary.io/projects/"
@@ -15,52 +15,52 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 
-#: src/Application.vala:31
+#: src/Application.vala:24
 msgid "All Settings"
 msgstr "هەموو ڕێکخستنەکان"
 
-#: src/Application.vala:98
+#: src/Application.vala:115
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "لینکی دیاریکراو '%s' بوونی نییە، دەگەڕێینەوە بۆ پانێڵی سەرەکی"
 
-#: src/Application.vala:147
-msgid "Search Settings"
-msgstr "گەڕان"
-
-#: src/Application.vala:154 src/Application.vala:183 src/Application.vala:332
+#: src/Application.vala:168 src/Application.vala:221
 msgid "System Settings"
 msgstr "ڕێکخستنەکانی سیستەم"
 
-#: src/Application.vala:311
+#: src/CategoryView.vala:47
+msgid "Search Settings"
+msgstr "گەڕان"
+
+#: src/CategoryView.vala:107
 msgid "No Settings Found"
 msgstr "هیچ ڕێکخستنێک نەدۆزرایەوە"
 
-#: src/Application.vala:311
+#: src/CategoryView.vala:107
 msgid "Install some and re-launch Switchboard."
 msgstr "هەندێک ئامرازی ڕێکخستن دامەزرێنەوە و دوبارە ئەم سویچبۆردە بکەوە."
 
-#: src/CategoryView.vala:147
+#: src/CategoryView.vala:225
 msgid "Personal"
 msgstr "کەسی"
 
-#: src/CategoryView.vala:149
+#: src/CategoryView.vala:227
 msgid "Hardware"
 msgstr "ڕەقەکاڵا"
 
-#: src/CategoryView.vala:151
+#: src/CategoryView.vala:229
 msgid "Network & Wireless"
 msgstr "ڕایەڵە & وەیارلێس"
 
-#: src/CategoryView.vala:153
+#: src/CategoryView.vala:231
 msgid "Administration"
 msgstr "بەڕێوەبەرێتی"
 
-#: src/SearchView.vala:27
+#: src/SearchView.vala:30
 msgid "Try changing search terms."
 msgstr "هەوڵدە بە وشەیەکی تری گونجاو بگەڕێی."
 
-#: src/SearchView.vala:47
+#: src/SearchView.vala:59
 #, c-format
 msgid "No Results for “%s”"
 msgstr "هیچ ئەنجامێک بۆ \"%s\" نەدۆزرایەوە"

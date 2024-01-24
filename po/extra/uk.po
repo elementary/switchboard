@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-15 00:23+0000\n"
-"PO-Revision-Date: 2022-06-10 16:06+0000\n"
+"POT-Creation-Date: 2024-01-23 21:36+0000\n"
+"PO-Revision-Date: 2023-10-15 19:40+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/switchboard/"
 "extra/uk/>\n"
@@ -18,87 +18,82 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.0.2\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 
-#: data/io.elementary.switchboard.desktop.in:4
-#: data/io.elementary.switchboard.appdata.xml.in:9
+#: data/settings.desktop.in:4 data/settings.appdata.xml.in:9
 msgid "System Settings"
 msgstr "Налаштування системи"
 
-#: data/io.elementary.switchboard.desktop.in:5
-#: data/io.elementary.switchboard.appdata.xml.in:10
+#: data/settings.desktop.in:5 data/settings.appdata.xml.in:10
 msgid "Change system and user settings"
 msgstr "Зміна налаштувань системи та користувача"
 
-#: data/io.elementary.switchboard.desktop.in:11
+#: data/settings.desktop.in:11
 msgid "Center;Control;Panel;Preferences;System;"
 msgstr ""
 "Налаштування;Параметри;Центр;Контроль;Керування;Панель;Система;Center;"
 "Control;Panel;Preferences;System;"
 
-#: data/io.elementary.switchboard.appdata.xml.in:12
+#: data/settings.appdata.xml.in:12
 msgid ""
 "A system settings application that focuses on modularity and simplicity."
 msgstr "Застосунок налаштування системи зосереджено на модульності й простоті."
 
-#: data/io.elementary.switchboard.appdata.xml.in:34
+#: data/settings.appdata.xml.in:34
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/io.elementary.switchboard.appdata.xml.in:42
+#: data/settings.appdata.xml.in:42
 msgid "Bundle app icon"
 msgstr "Додано піктограму застосунку"
 
-#: data/io.elementary.switchboard.appdata.xml.in:43
-#: data/io.elementary.switchboard.appdata.xml.in:50
-#: data/io.elementary.switchboard.appdata.xml.in:61
-#: data/io.elementary.switchboard.appdata.xml.in:70
-#: data/io.elementary.switchboard.appdata.xml.in:77
-#: data/io.elementary.switchboard.appdata.xml.in:87
-#: data/io.elementary.switchboard.appdata.xml.in:96
+#: data/settings.appdata.xml.in:43 data/settings.appdata.xml.in:50
+#: data/settings.appdata.xml.in:61 data/settings.appdata.xml.in:70
+#: data/settings.appdata.xml.in:77 data/settings.appdata.xml.in:87
+#: data/settings.appdata.xml.in:96
 msgid "Updated translations"
 msgstr "Оновлені переклади"
 
-#: data/io.elementary.switchboard.appdata.xml.in:57
+#: data/settings.appdata.xml.in:57
 msgid "Add multitouch navigation gestures"
 msgstr "Додано жести навігації"
 
-#: data/io.elementary.switchboard.appdata.xml.in:58
+#: data/settings.appdata.xml.in:58
 msgid "Better support smaller displays"
 msgstr "Поліпшено підтримку малих дисплеїв"
 
-#: data/io.elementary.switchboard.appdata.xml.in:59
+#: data/settings.appdata.xml.in:59
 msgid "Remove old GNOME Control Center compatibility layer"
 msgstr "Вилучено сумісність із застарілим центром керування GNOME"
 
-#: data/io.elementary.switchboard.appdata.xml.in:60
+#: data/settings.appdata.xml.in:60
 msgid "Stability and performance improvements"
 msgstr "Вдосконалено швидкодію та стабільність"
 
-#: data/io.elementary.switchboard.appdata.xml.in:68
+#: data/settings.appdata.xml.in:68
 msgid "Redesign search results view"
 msgstr "Перероблено подання результатів пошуку"
 
-#: data/io.elementary.switchboard.appdata.xml.in:69
+#: data/settings.appdata.xml.in:69
 msgid "Tab key moves focus out of search"
 msgstr "Клавіша табуляції виводить фокус з пошуку"
 
-#: data/io.elementary.switchboard.appdata.xml.in:84
+#: data/settings.appdata.xml.in:84
 msgid "Fix an issue that prevented tiling on small displays"
 msgstr ""
 "Усунено проблему, яка перешкоджала створенню плиток на невеликих екранах"
 
-#: data/io.elementary.switchboard.appdata.xml.in:85
+#: data/settings.appdata.xml.in:85
 msgid "Fix an issue with restoring the correct window size"
 msgstr "Виправлено проблему з відновленням правильного розміру вікна"
 
-#: data/io.elementary.switchboard.appdata.xml.in:86
+#: data/settings.appdata.xml.in:86
 msgid "Make the category grid fill the available space when maximized"
 msgstr ""
 "Зроблено, щоб сітка категорій заповнювала доступний простір, коли розгорнуто"
 
-#: data/io.elementary.switchboard.appdata.xml.in:94
+#: data/settings.appdata.xml.in:94
 msgid ""
 "Pressing the \"Down\" arrow key from the search box correctly focuses the "
 "first row"
@@ -106,7 +101,7 @@ msgstr ""
 "Натискання клавіші зі стрілкою «вниз» у вікні пошуку правильно фокусується "
 "на першому рядку"
 
-#: data/io.elementary.switchboard.appdata.xml.in:95
+#: data/settings.appdata.xml.in:95
 msgid "Drop dynamic items from the Dock secondary-click menu"
 msgstr "Видалено динамічні елементи з контекстного меню Dock"
 
