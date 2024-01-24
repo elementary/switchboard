@@ -1,5 +1,9 @@
+lib/AbstractSettingsPage.vala
+lib/AbstractSimpleSettingsPage.vala
 lib/PlugsManager.vala
 lib/Plug.vala
+lib/SettingsSidebarRow.vala
+lib/SettingsSidebar.vala
 src/Application.vala
 src/CategoryView.vala
 src/PlugsSearch.vala
