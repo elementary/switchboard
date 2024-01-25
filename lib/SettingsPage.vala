@@ -1,14 +1,54 @@
 /*
- * Copyright 2017–2022 elementary, Inc. (https://elementary.io)
- * SPDX-License-Identifier: GPL-2.0-or-later
+ * Copyright 2017–2021 elementary, Inc. (https://elementary.io)
+ * SPDX-License-Identifier: LGPL-2.1-or-later
  */
 
 /**
- * SimpleSettingsPage is a widget divided into three sections: a predefined header,
- * a content area, and an action area.
+ * SettingsPage is a {@link Gtk.Widget} subclass with properties used
+ * by Switchboard.SettingsSidebar
  */
+public abstract class Switchboard.SettingsPage : Gtk.Widget {
+    /**
+     * Used to display a status icon overlayed on the display_widget in a Granite.SettingsSidebar
+     */
+    public enum StatusType {
+        ERROR,
+        OFFLINE,
+        SUCCESS,
+        WARNING,
+        NONE
+    }
 
-public abstract class Switchboard.SimpleSettingsPage : Switchboard.SettingsPage {
+    /**
+     * Selects a colored icon to be displayed in a Granite.SettingsSidebar
+     */
+    public StatusType status_type { get; set; default = StatusType.NONE; }
+
+    /**
+     * A widget to display in place of an icon in a Granite.SettingsSidebar
+     */
+    public Gtk.Widget? display_widget { get; construct; }
+
+    /**
+     * A header to be sorted under in a Granite.SettingsSidebar
+     */
+    public string? header { get; construct; }
+
+    /**
+     * A status string to be displayed underneath the title in a Granite.SettingsSidebar
+     */
+    public string status { get; construct set; }
+
+    /**
+     * An icon name to be displayed in a Granite.SettingsSidebar
+     */
+    public string? icon_name { get; construct set; }
+
+    /**
+     * A title to be displayed in a Granite.SettingsSidebar
+     */
+    public string title { get; construct set ; }
+
     private Gtk.Label description_label;
     private string _description;
     private Adw.Clamp content_area;
@@ -53,14 +93,6 @@ public abstract class Switchboard.SimpleSettingsPage : Switchboard.SettingsPage 
             }
             _description = value;
         }
-    }
-
-    /**
-     * Creates a new SimpleSettingsPage
-     * Deprecated: Subclass this instead.
-     */
-    protected SimpleSettingsPage () {
-
     }
 
     static construct {
@@ -148,7 +180,7 @@ public abstract class Switchboard.SimpleSettingsPage : Switchboard.SettingsPage 
         });
     }
 
-    ~SimpleSettingsPage () {
+    ~SettingsPage () {
         get_first_child ().unparent ();
     }
 }
