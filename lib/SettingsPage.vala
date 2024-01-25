@@ -47,11 +47,7 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
     /**
      * A title to be displayed in a Granite.SettingsSidebar
      */
-    public string title { get; construct set ; }
-
-    private Gtk.Label description_label;
-    private string _description;
-    private Adw.Clamp content_area;
+    public string title { get; construct set; }
 
     /**
      * A {@link Gtk.Box} used as the action area for #this
@@ -83,17 +79,9 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
     /**
      * Creates a {@link Gtk.Label} with a page description in the header of #this
      */
-    public string description {
-        get {
-            return _description;
-        }
-        construct set {
-            if (description_label != null) {
-                description_label.label = value;
-            }
-            _description = value;
-        }
-    }
+    public string description { get; construct set; }
+
+    private Adw.Clamp content_area;
 
     static construct {
         set_layout_manager_type (typeof (Gtk.BinLayout));
@@ -122,7 +110,7 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
         header_area.attach (title_label, 1, 0);
 
         if (description != null) {
-            description_label = new Gtk.Label (description) {
+            var description_label = new Gtk.Label (description) {
                 selectable = true,
                 use_markup = true,
                 wrap = true,
@@ -131,6 +119,8 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
 
             header_area.attach (header_icon, 0, 0, 1, 2);
             header_area.attach (description_label, 1, 1, 2);
+
+            bind_property ("description", description_label, "label");
         } else {
             header_area.attach (header_icon, 0, 0);
         }
