@@ -15,6 +15,7 @@ switchboard_deps = [
 ]
 
 executable(meson.project_name(),
+    stylesheet_resource,
     switchboard_files,
     conf_file,
     dependencies: switchboard_deps,
