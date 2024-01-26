@@ -24,6 +24,7 @@ conf_file = configure_file(
 
 plugs_dir = get_option('prefix') / get_option('libdir') / 'switchboard-3'
 
+gnome = import('gnome')
 i18n = import('i18n')
 pkg = import('pkgconfig')
 
