@@ -104,7 +104,7 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
         };
         title_label.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
 
-        var header_area = new Gtk.Grid ();        
+        var header_area = new Gtk.Grid ();
         header_area.attach (title_label, 1, 0);
 
         if (description != null) {
