@@ -1,5 +1,4 @@
-lib/AbstractSettingsPage.vala
-lib/AbstractSimpleSettingsPage.vala
+lib/SettingsPage.vala
 lib/PlugsManager.vala
 lib/Plug.vala
 lib/SettingsSidebarRow.vala
