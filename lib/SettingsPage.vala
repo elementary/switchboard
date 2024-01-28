@@ -99,14 +99,12 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
 
         var title_label = new Gtk.Label (title) {
             hexpand = true,
-            selectable = true,
             wrap = true,
             xalign = 0
         };
         title_label.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
 
         var header_area = new Gtk.Grid ();
-        header_area.add_css_class ("header-area");
         header_area.attach (title_label, 1, 0);
 
         if (description != null) {
@@ -135,11 +133,21 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
         var header_clamp = new Adw.Clamp () {
             child = header_area
         };
+        header_clamp.add_css_class ("header-area");
+
+        var window_handle = new Gtk.WindowHandle () {
+            child = header_clamp
+        };
 
         content_area = new Adw.Clamp () {
             vexpand = true
         };
         content_area.add_css_class ("content-area");
+
+        var scrolled = new Gtk.ScrolledWindow () {
+            child = content_area,
+            hscrollbar_policy = NEVER
+        };
 
         action_area = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
             halign = Gtk.Align.END
@@ -147,15 +155,10 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
         action_area.add_css_class ("buttonbox");
 
         var grid = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        grid.append (header_clamp);
-        grid.append (content_area);
+        grid.append (window_handle);
+        grid.append (scrolled);
         grid.append (action_area);
-
-        var scrolled = new Gtk.ScrolledWindow () {
-            child = grid,
-            hscrollbar_policy = NEVER
-        };
-        scrolled.set_parent (this);
+        grid.set_parent (this);
 
         notify["icon-name"].connect (() => {
             if (header_icon != null) {
