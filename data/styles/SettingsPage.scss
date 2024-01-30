@@ -24,10 +24,8 @@ settingspage {
         }
     }
 
-
     .header-area,
-    .content-area,
-    .buttonbox {
+    .content-area {
         padding: rem(12px);
     }
 
@@ -71,6 +69,19 @@ settingspage {
             &:dir(rtl) {
                 margin-right: rem(12px);
             }
+        }
+    }
+
+    actionbar.action-area {
+        // Don't style the revealer
+        background: transparent;
+        box-shadow: none;
+        padding: 0;
+
+        box.end,
+        box.start {
+            border-spacing: rem(6px);
+            padding: rem(12px);
         }
     }
 }

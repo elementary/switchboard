@@ -50,11 +50,6 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
     public string title { get; construct set; }
 
     /**
-     * A {@link Gtk.Box} used as the action area for #this
-     */
-    public Gtk.Box action_area { get; construct; }
-
-    /**
      * The child widget for the content area
      */
     public Gtk.Widget child {
@@ -82,6 +77,9 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
     public string description { get; construct set; }
 
     private Adw.Clamp content_area;
+    private Gtk.ActionBar action_bar;
+    private Gtk.SizeGroup start_button_group;
+    private Gtk.SizeGroup end_button_group;
 
     static construct {
         set_layout_manager_type (typeof (Gtk.BinLayout));
@@ -149,15 +147,18 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
             hscrollbar_policy = NEVER
         };
 
-        action_area = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0) {
-            halign = Gtk.Align.END
+        start_button_group = new Gtk.SizeGroup (HORIZONTAL);
+        end_button_group = new Gtk.SizeGroup (HORIZONTAL);
+
+        action_bar = new Gtk.ActionBar () {
+            revealed = false
         };
-        action_area.add_css_class ("buttonbox");
+        action_bar.add_css_class ("action-area");
 
         var grid = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
         grid.append (window_handle);
         grid.append (scrolled);
-        grid.append (action_area);
+        grid.append (action_bar);
         grid.set_parent (this);
 
         notify["icon-name"].connect (() => {
@@ -175,5 +176,27 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
 
     ~SettingsPage () {
         get_first_child ().unparent ();
+    }
+
+    public Gtk.Button add_start_button (string label) {
+        var button = new Gtk.Button.with_label (label);
+
+        action_bar.pack_start (button);
+        action_bar.revealed = true;
+
+        start_button_group.add_widget (button);
+
+        return button;
+    }
+
+    public Gtk.Button add_button (string label) {
+        var button = new Gtk.Button.with_label (label);
+
+        action_bar.pack_end (button);
+        action_bar.revealed = true;
+
+        end_button_group.add_widget (button);
+
+        return button;
     }
 }
