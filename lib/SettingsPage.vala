@@ -86,7 +86,7 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
     }
 
     class construct {
-        set_css_name ("simplesettingspage");
+        set_css_name ("settingspage");
     }
 
     construct {
