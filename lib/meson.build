@@ -9,6 +9,7 @@ config_header = configure_file(
 )
 
 libswitchboard_deps = [
+    adwaita_dep,
     glib_dep,
     gio_dep,
     gio_unix_dep,
@@ -19,8 +20,7 @@ libswitchboard_deps = [
 ]
 
 libswitchboard_lib = library('switchboard-3',
-    'AbstractSettingsPage.vala',
-    'AbstractSimpleSettingsPage.vala',
+    'SettingsPage.vala',
     'PlugsManager.vala',
     'Plug.vala',
     'SettingsSidebarRow.vala',
