@@ -39,6 +39,7 @@ public class Switchboard.SearchView : Gtk.Box {
         listbox.add_css_class (Granite.STYLE_CLASS_BACKGROUND);
         listbox.add_css_class (Granite.STYLE_CLASS_RICH_LIST);
         listbox.set_filter_func (filter_func);
+        listbox.set_sort_func (sort_func);
         listbox.set_placeholder (alert_view);
 
         var clamp = new Adw.Clamp () {
@@ -58,6 +59,7 @@ public class Switchboard.SearchView : Gtk.Box {
         search_entry.search_changed.connect (() => {
             alert_view.title = _("No Results for “%s”").printf (search_entry.text);
             listbox.invalidate_filter ();
+            listbox.invalidate_sort ();
             listbox.select_row (null);
         });
 
@@ -81,6 +83,22 @@ public class Switchboard.SearchView : Gtk.Box {
         }
 
         return search_text.down () in ((SearchRow) listbox_row).last_item.down ();
+    }
+
+    private int sort_func (Gtk.ListBoxRow row1, Gtk.ListBoxRow row2) {
+        var search_text = search_entry.text.down ();
+        var row1_label = ((SearchRow) row1).last_item.down ();
+        var row2_label = ((SearchRow) row2).last_item.down ();
+
+        if (row1_label.has_prefix (search_text) && !row2_label.has_prefix (search_text)) {
+            return -1;
+        }
+
+        if (row2_label.has_prefix (search_text) && !row1_label.has_prefix (search_text)) {
+            return 1;
+        }
+
+        return strcmp (row1_label, row2_label);
     }
 
     private async void load_plugs () {
