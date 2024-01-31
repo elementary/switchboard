@@ -6,16 +6,16 @@
  */
 
 public class Switchboard.CategoryView : Gtk.Box {
-    public PlugsSearch plug_search { get; construct; }
-    public Gee.ArrayList<SearchEntry?> plug_search_result { get; construct; }
+    public Gee.ArrayList<SearchEntry?> plug_search_result { get; private set; }
 
     public string? plug_to_open { get; construct set; default = null; }
 
     private Gtk.SearchEntry search_box;
     private Gtk.Stack stack;
-    private Switchboard.Category personal_category;
+    private PlugsSearch plug_search;
     private Switchboard.Category hardware_category;
     private Switchboard.Category network_category;
+    private Switchboard.Category personal_category;
     private Switchboard.Category system_category;
 
     class construct {
@@ -43,10 +43,10 @@ public class Switchboard.CategoryView : Gtk.Box {
             icon = new ThemedIcon ("dialog-warning")
         };
 
-        personal_category = new Switchboard.Category (Switchboard.Plug.Category.PERSONAL);
-        hardware_category = new Switchboard.Category (Switchboard.Plug.Category.HARDWARE);
-        network_category = new Switchboard.Category (Switchboard.Plug.Category.NETWORK);
-        system_category = new Switchboard.Category (Switchboard.Plug.Category.SYSTEM);
+        personal_category = new Switchboard.Category (PERSONAL);
+        hardware_category = new Switchboard.Category (HARDWARE);
+        network_category = new Switchboard.Category (NETWORK);
+        system_category = new Switchboard.Category (SYSTEM);
 
         plug_search = new PlugsSearch ();
         plug_search_result = new Gee.ArrayList<SearchEntry?> ();
@@ -82,6 +82,8 @@ public class Switchboard.CategoryView : Gtk.Box {
         append (search_clamp);
         append (scrolled);
 
+        load_default_plugs.begin ();
+
         if (Switchboard.PlugsManager.get_default ().has_plugs () == false) {
             stack.add_child (alert_view);
             stack.visible_child = alert_view;
@@ -114,8 +116,20 @@ public class Switchboard.CategoryView : Gtk.Box {
         });
 
         var eventcontrollerkey = new Gtk.EventControllerKey ();
-        eventcontrollerkey.key_pressed.connect (() => {
-            eventcontrollerkey.forward (search_box.get_delegate ());
+        eventcontrollerkey.key_pressed.connect ((keyval, keycode, state) => {
+            var mods = state & Gtk.accelerator_get_default_mod_mask ();
+            var is_printable_char = ((unichar) Gdk.keyval_to_unicode (keyval)).isprint ();
+
+            if (
+                keyval == Gdk.Key.Down ||
+                (is_printable_char && mods == 0) ||
+                (is_printable_char && mods == SHIFT_MASK)
+            ) {
+                eventcontrollerkey.forward (search_box.get_delegate ());
+                search_box.grab_focus ();
+                return Gdk.EVENT_STOP;
+            }
+
             return Gdk.EVENT_PROPAGATE;
         });
 
@@ -137,20 +151,20 @@ public class Switchboard.CategoryView : Gtk.Box {
         }
     }
 
-    public void add_plug (Switchboard.Plug plug) {
+    private void add_plug (Switchboard.Plug plug) {
         var icon = new Switchboard.CategoryIcon (plug);
 
         switch (plug.category) {
-            case Switchboard.Plug.Category.PERSONAL:
+            case PERSONAL:
                 personal_category.add (icon);
                 break;
-            case Switchboard.Plug.Category.HARDWARE:
+            case HARDWARE:
                 hardware_category.add (icon);
                 break;
-            case Switchboard.Plug.Category.NETWORK:
+            case NETWORK:
                 network_category.add (icon);
                 break;
-            case Switchboard.Plug.Category.SYSTEM:
+            case SYSTEM:
                 system_category.add (icon);
                 break;
             default:
