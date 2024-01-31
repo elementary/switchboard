@@ -143,18 +143,31 @@ public class Switchboard.SearchView : Gtk.Box {
 
         construct {
             var image = new Gtk.Image.from_icon_name (icon_name) {
-                pixel_size = 32
+                icon_size = LARGE
             };
 
-            var label = new Gtk.Label (description) {
-                ellipsize = Pango.EllipsizeMode.MIDDLE
+            var path = description.split (" → ");
+            var last_index = path.length -1 ;
+
+            var title = new Gtk.Label (path[last_index]) {
+                halign = START
             };
 
-            var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12);
-            box.append (image);
-            box.append (label);
+            var description_label = new Gtk.Label (description) {
+                ellipsize = MIDDLE,
+                halign = START
+            };
+            description_label.add_css_class (Granite.STYLE_CLASS_DIM_LABEL);
+            description_label.add_css_class (Granite.STYLE_CLASS_SMALL_LABEL);
 
-            child = box;
+            var grid = new Gtk.Grid () {
+                column_spacing = 12
+            };
+            grid.attach (image, 0, 0, 1, 2);
+            grid.attach (title, 1, 0);
+            grid.attach (description_label, 1, 1);
+
+            child = grid;
         }
     }
 }
