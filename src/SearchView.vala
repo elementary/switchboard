@@ -80,7 +80,7 @@ public class Switchboard.SearchView : Gtk.Box {
             return true;
         }
 
-        return search_text.down () in ((SearchRow) listbox_row).description.down ();
+        return search_text.down () in ((SearchRow) listbox_row).last_item.down ();
     }
 
     private async void load_plugs () {
@@ -131,12 +131,17 @@ public class Switchboard.SearchView : Gtk.Box {
     private class SearchRow : Gtk.ListBoxRow {
         public string icon_name { get; construct; }
         public string description { get; construct; }
+        public string last_item { get; construct; }
         public string uri { get; construct; }
 
         public SearchRow (string icon_name, string description, string uri) {
+            var path = description.split (" → ");
+            var last_item = path[path.length - 1];
+
             Object (
                 description: description,
                 icon_name: icon_name,
+                last_item: last_item,
                 uri: uri
             );
         }
@@ -146,10 +151,7 @@ public class Switchboard.SearchView : Gtk.Box {
                 icon_size = LARGE
             };
 
-            var path = description.split (" → ");
-            var last_index = path.length -1 ;
-
-            var title = new Gtk.Label (path[last_index]) {
+            var title = new Gtk.Label (last_item) {
                 halign = START
             };
 
