@@ -7,7 +7,6 @@
 
 public class Switchboard.CategoryView : Gtk.Box {
     public Gee.ArrayList<SearchEntry?> plug_search_result { get; private set; }
-
     public string? plug_to_open { get; construct set; default = null; }
 
     private Gtk.SearchEntry search_box;
