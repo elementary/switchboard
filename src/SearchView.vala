@@ -42,17 +42,7 @@ public class Switchboard.SearchView : Gtk.Box {
         listbox.set_sort_func (sort_func);
         listbox.set_placeholder (alert_view);
 
-        var clamp = new Adw.Clamp () {
-            child = listbox,
-            maximum_size = 800,
-            tightening_threshold = 800
-        };
-
-        var scrolled = new Gtk.ScrolledWindow () {
-            child = clamp
-        };
-
-        append (scrolled);
+        append (listbox);
 
         load_plugs.begin ();
 
