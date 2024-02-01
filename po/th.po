@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-23 21:36+0000\n"
+"POT-Creation-Date: 2024-02-01 16:19+0000\n"
 "PO-Revision-Date: 2016-02-28 14:57+0000\n"
 "Last-Translator: Big50000 <ictsanook@hotmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,35 +22,35 @@ msgstr "การตั้งค่าทั้งหมด"
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr ""
 
-#: src/Application.vala:168 src/Application.vala:221
+#: src/Application.vala:167 src/Application.vala:220
 msgid "System Settings"
 msgstr "ตั้งค่าระบบ"
 
-#: src/CategoryView.vala:47
+#: src/CategoryView.vala:28
 msgid "Search Settings"
 msgstr "ค้นหาในการตั้งค่า"
 
-#: src/CategoryView.vala:107
+#: src/CategoryView.vala:40
 msgid "No Settings Found"
 msgstr ""
 
-#: src/CategoryView.vala:107
-msgid "Install some and re-launch Switchboard."
+#: src/CategoryView.vala:41
+msgid "Install settings plugins and re-launch System Settings."
 msgstr ""
 
-#: src/CategoryView.vala:225
+#: src/CategoryView.vala:205
 msgid "Personal"
 msgstr "ความเป็นส่วนตัว"
 
-#: src/CategoryView.vala:227
+#: src/CategoryView.vala:207
 msgid "Hardware"
 msgstr "ฮาร์ดแวร์"
 
-#: src/CategoryView.vala:229
+#: src/CategoryView.vala:209
 msgid "Network & Wireless"
 msgstr "เน็ตเวิร์กและเครือข่ายไร้สาย"
 
-#: src/CategoryView.vala:231
+#: src/CategoryView.vala:211
 msgid "Administration"
 msgstr "เมนูแอดมิน"
 
@@ -58,7 +58,7 @@ msgstr "เมนูแอดมิน"
 msgid "Try changing search terms."
 msgstr ""
 
-#: src/SearchView.vala:59
+#: src/SearchView.vala:49
 #, c-format
 msgid "No Results for “%s”"
 msgstr ""

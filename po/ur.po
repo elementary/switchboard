@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-23 21:36+0000\n"
+"POT-Creation-Date: 2024-02-01 16:19+0000\n"
 "PO-Revision-Date: 2016-12-08 17:17+0000\n"
 "Last-Translator: Waqar Ahmed <waqar.17a@gmail.com>\n"
 "Language-Team: Urdu <ur@li.org>\n"
@@ -27,35 +27,35 @@ msgstr "تمام ترتیبات"
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "دیا گیا لنک '%s' کہیں موجود نہیں، واپس مین پینل میں جا رہا ہے"
 
-#: src/Application.vala:168 src/Application.vala:221
+#: src/Application.vala:167 src/Application.vala:220
 msgid "System Settings"
 msgstr "سسٹم کی ترتیبات"
 
-#: src/CategoryView.vala:47
+#: src/CategoryView.vala:28
 msgid "Search Settings"
 msgstr "سسٹم کی ترتیبات میں تلاش کریں"
 
-#: src/CategoryView.vala:107
+#: src/CategoryView.vala:40
 msgid "No Settings Found"
 msgstr "کوئی ترتیبات نہیں ملیں"
 
-#: src/CategoryView.vala:107
-msgid "Install some and re-launch Switchboard."
-msgstr "کچھ انسٹال کریں اور سوچ بورڈ کو دوبارہ چلائیں"
+#: src/CategoryView.vala:41
+msgid "Install settings plugins and re-launch System Settings."
+msgstr ""
 
-#: src/CategoryView.vala:225
+#: src/CategoryView.vala:205
 msgid "Personal"
 msgstr "ذاتی"
 
-#: src/CategoryView.vala:227
+#: src/CategoryView.vala:207
 msgid "Hardware"
 msgstr "ہارڈ ویئر"
 
-#: src/CategoryView.vala:229
+#: src/CategoryView.vala:209
 msgid "Network & Wireless"
 msgstr "نیٹ ورک اور وائرلیس"
 
-#: src/CategoryView.vala:231
+#: src/CategoryView.vala:211
 msgid "Administration"
 msgstr "ایڈمنسٹریشن"
 
@@ -63,10 +63,13 @@ msgstr "ایڈمنسٹریشن"
 msgid "Try changing search terms."
 msgstr "تلاش کے الفاظ تبدیل کر کے دیکھیں۔"
 
-#: src/SearchView.vala:59
+#: src/SearchView.vala:49
 #, c-format
 msgid "No Results for “%s”"
 msgstr "تلاش “%s” کے لیے کوئی نتائج نہیں"
+
+#~ msgid "Install some and re-launch Switchboard."
+#~ msgstr "کچھ انسٹال کریں اور سوچ بورڈ کو دوبارہ چلائیں"
 
 #~ msgid "translator-credits"
 #~ msgstr ""
