@@ -39,6 +39,7 @@ public class Switchboard.SearchView : Gtk.Box {
         listbox.add_css_class (Granite.STYLE_CLASS_BACKGROUND);
         listbox.add_css_class (Granite.STYLE_CLASS_RICH_LIST);
         listbox.set_filter_func (filter_func);
+        listbox.set_sort_func (sort_func);
         listbox.set_placeholder (alert_view);
 
         append (listbox);
@@ -48,6 +49,7 @@ public class Switchboard.SearchView : Gtk.Box {
         search_entry.search_changed.connect (() => {
             alert_view.title = _("No Results for “%s”").printf (search_entry.text);
             listbox.invalidate_filter ();
+            listbox.invalidate_sort ();
             listbox.select_row (null);
         });
 
@@ -70,7 +72,23 @@ public class Switchboard.SearchView : Gtk.Box {
             return true;
         }
 
-        return search_text.down () in ((SearchRow) listbox_row).description.down ();
+        return search_text.down () in ((SearchRow) listbox_row).last_item.down ();
+    }
+
+    private int sort_func (Gtk.ListBoxRow row1, Gtk.ListBoxRow row2) {
+        var search_text = search_entry.text.down ();
+        var row1_label = ((SearchRow) row1).last_item.down ();
+        var row2_label = ((SearchRow) row2).last_item.down ();
+
+        if (row1_label.has_prefix (search_text) && !row2_label.has_prefix (search_text)) {
+            return -1;
+        }
+
+        if (row2_label.has_prefix (search_text) && !row1_label.has_prefix (search_text)) {
+            return 1;
+        }
+
+        return strcmp (row1_label, row2_label);
     }
 
     private async void load_plugs () {
@@ -121,30 +139,45 @@ public class Switchboard.SearchView : Gtk.Box {
     private class SearchRow : Gtk.ListBoxRow {
         public string icon_name { get; construct; }
         public string description { get; construct; }
+        public string last_item { get; construct; }
         public string uri { get; construct; }
 
         public SearchRow (string icon_name, string description, string uri) {
+            var path = description.split (" → ");
+            var last_item = path[path.length - 1];
+
             Object (
                 description: description,
                 icon_name: icon_name,
+                last_item: last_item,
                 uri: uri
             );
         }
 
         construct {
             var image = new Gtk.Image.from_icon_name (icon_name) {
-                pixel_size = 32
+                icon_size = LARGE
             };
 
-            var label = new Gtk.Label (description) {
-                ellipsize = Pango.EllipsizeMode.MIDDLE
+            var title = new Gtk.Label (last_item) {
+                halign = START
             };
 
-            var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 12);
-            box.append (image);
-            box.append (label);
+            var description_label = new Gtk.Label (description) {
+                ellipsize = MIDDLE,
+                halign = START
+            };
+            description_label.add_css_class (Granite.STYLE_CLASS_DIM_LABEL);
+            description_label.add_css_class (Granite.STYLE_CLASS_SMALL_LABEL);
 
-            child = box;
+            var grid = new Gtk.Grid () {
+                column_spacing = 12
+            };
+            grid.attach (image, 0, 0, 1, 2);
+            grid.attach (title, 1, 0);
+            grid.attach (description_label, 1, 1);
+
+            child = grid;
         }
     }
 }
