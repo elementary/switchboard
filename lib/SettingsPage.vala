@@ -40,9 +40,9 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
     public string status { get; construct set; }
 
     /**
-     * An icon name to be displayed in a Granite.SettingsSidebar
+     * An icon to be displayed in the header and sidebar
      */
-    public string? icon_name { get; construct set; }
+    public Icon icon { get; construct set; default = new ThemedIcon ("preferences-other"); }
 
     /**
      * A title to be displayed in a Granite.SettingsSidebar
@@ -90,7 +90,7 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
     }
 
     construct {
-        var header_icon = new Gtk.Image.from_icon_name (icon_name) {
+        var header_icon = new Gtk.Image.from_gicon (icon) {
             icon_size = Gtk.IconSize.LARGE,
             valign = Gtk.Align.START
         };
@@ -161,9 +161,9 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
         grid.append (action_bar);
         grid.set_parent (this);
 
-        notify["icon-name"].connect (() => {
+        notify["icon"].connect (() => {
             if (header_icon != null) {
-                header_icon.icon_name = icon_name;
+                header_icon.gicon = icon;
             }
         });
 

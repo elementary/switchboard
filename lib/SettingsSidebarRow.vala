@@ -32,15 +32,15 @@ private class Switchboard.SettingsSidebarRow : Gtk.ListBoxRow {
 
     public unowned SettingsPage page { get; construct; }
 
-    public string icon_name {
+    private Icon _icon;
+    public Icon icon {
         get {
-            return _icon_name;
+            return _icon;
         }
         set {
-            _icon_name = value;
+            _icon = value;
             if (display_widget is Gtk.Image) {
-                ((Gtk.Image) display_widget).icon_name = value;
-                ((Gtk.Image) display_widget).icon_size = Gtk.IconSize.LARGE;
+                ((Gtk.Image) display_widget).gicon = value;
             }
         }
     }
@@ -65,7 +65,6 @@ private class Switchboard.SettingsSidebarRow : Gtk.ListBoxRow {
     private Gtk.Image status_icon;
     private Gtk.Label status_label;
     private Gtk.Label title_label;
-    private string _icon_name;
     private string _title;
 
     public SettingsSidebarRow (SettingsPage page) {
@@ -96,9 +95,11 @@ private class Switchboard.SettingsSidebarRow : Gtk.ListBoxRow {
         };
         status_label.add_css_class (Granite.STYLE_CLASS_SMALL_LABEL);
 
-        if (page.icon_name != null) {
-            display_widget = new Gtk.Image ();
-            icon_name = page.icon_name;
+        if (page.icon != null) {
+            display_widget = new Gtk.Image () {
+                icon_size = LARGE
+            };
+            icon = page.icon;
         } else {
             display_widget = page.display_widget;
         }
@@ -115,7 +116,7 @@ private class Switchboard.SettingsSidebarRow : Gtk.ListBoxRow {
         child = grid;
 
         header = page.header;
-        page.bind_property ("icon-name", this, "icon-name", BindingFlags.DEFAULT);
+        page.bind_property ("icon", this, "icon", BindingFlags.DEFAULT);
         page.bind_property ("status", this, "status", BindingFlags.DEFAULT);
         page.bind_property ("status-type", this, "status-type", BindingFlags.DEFAULT);
         page.bind_property ("title", this, "title", BindingFlags.DEFAULT);
