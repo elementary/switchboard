@@ -25,11 +25,6 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
     public StatusType status_type { get; set; default = StatusType.NONE; }
 
     /**
-     * A widget to display in place of an icon in a Granite.SettingsSidebar
-     */
-    public Gtk.Widget? display_widget { get; construct; }
-
-    /**
      * A header to be sorted under in a Granite.SettingsSidebar
      */
     public string? header { get; construct; }
@@ -69,7 +64,17 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
     /**
      * Creates a {@link Gtk.Switch} #status_switch in the header of #this
      */
-    public bool activatable { get; construct; }
+    public bool activatable { get; construct; default = false; }
+
+    /**
+     * Creates a {@link Adw.Avatar} to use instead of #icon
+     */
+    public bool with_avatar { get; construct; default = false; }
+
+    /**
+     * Custom image to use with avatar
+     */
+    public Gdk.Paintable avatar_paintable { get; set; }
 
     /**
      * Creates a {@link Gtk.Label} with a page description in the header of #this
@@ -90,10 +95,23 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
     }
 
     construct {
-        var header_icon = new Gtk.Image.from_gicon (icon) {
-            icon_size = Gtk.IconSize.LARGE,
-            valign = Gtk.Align.START
-        };
+        Gtk.Widget header_widget;
+
+        if (!with_avatar) {
+            header_widget = new Gtk.Image.from_gicon (icon) {
+                icon_size = Gtk.IconSize.LARGE,
+                valign = Gtk.Align.START
+            };
+
+            bind_property ("icon", header_widget, "gicon");
+        } else {
+            header_widget = new Adw.Avatar (48, title, true) {
+                valign = START
+            };
+
+            bind_property ("avatar-paintable", header_widget, "custom-image", SYNC_CREATE);
+            bind_property ("title", header_widget, "text");
+        }
 
         var title_label = new Gtk.Label (title) {
             hexpand = true,
@@ -113,12 +131,12 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
                 xalign = 0
             };
 
-            header_area.attach (header_icon, 0, 0, 1, 2);
+            header_area.attach (header_widget, 0, 0, 1, 2);
             header_area.attach (description_label, 1, 1, 2);
 
             bind_property ("description", description_label, "label");
         } else {
-            header_area.attach (header_icon, 0, 0);
+            header_area.attach (header_widget, 0, 0);
         }
 
         if (activatable) {
@@ -160,12 +178,6 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
         grid.append (scrolled);
         grid.append (action_bar);
         grid.set_parent (this);
-
-        notify["icon"].connect (() => {
-            if (header_icon != null) {
-                header_icon.gicon = icon;
-            }
-        });
 
         notify["title"].connect (() => {
             if (title_label != null) {
