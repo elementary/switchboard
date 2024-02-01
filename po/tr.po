@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-23 21:36+0000\n"
+"POT-Creation-Date: 2024-02-01 16:19+0000\n"
 "PO-Revision-Date: 2017-02-02 09:39+0000\n"
 "Last-Translator: Avi Romanoff <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -27,35 +27,35 @@ msgstr "Tüm Ayarlar"
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Belirtilen '%s' bağlantısı yok, ana panele geri dönülüyor"
 
-#: src/Application.vala:168 src/Application.vala:221
+#: src/Application.vala:167 src/Application.vala:220
 msgid "System Settings"
 msgstr "Sistem Ayarları"
 
-#: src/CategoryView.vala:47
+#: src/CategoryView.vala:28
 msgid "Search Settings"
 msgstr "Ayarlarda Ara"
 
-#: src/CategoryView.vala:107
+#: src/CategoryView.vala:40
 msgid "No Settings Found"
 msgstr "İlgili Ayar Bulunamadı"
 
-#: src/CategoryView.vala:107
-msgid "Install some and re-launch Switchboard."
-msgstr "Biraz yükle ve Ayarları tekrar başlat."
+#: src/CategoryView.vala:41
+msgid "Install settings plugins and re-launch System Settings."
+msgstr ""
 
-#: src/CategoryView.vala:225
+#: src/CategoryView.vala:205
 msgid "Personal"
 msgstr "Kişisel"
 
-#: src/CategoryView.vala:227
+#: src/CategoryView.vala:207
 msgid "Hardware"
 msgstr "Donanım"
 
-#: src/CategoryView.vala:229
+#: src/CategoryView.vala:209
 msgid "Network & Wireless"
 msgstr "Ağ ve Kablosuz"
 
-#: src/CategoryView.vala:231
+#: src/CategoryView.vala:211
 msgid "Administration"
 msgstr "Yönetim"
 
@@ -63,10 +63,13 @@ msgstr "Yönetim"
 msgid "Try changing search terms."
 msgstr "Arama terimlerini değiştirmeyi deneyin."
 
-#: src/SearchView.vala:59
+#: src/SearchView.vala:49
 #, c-format
 msgid "No Results for “%s”"
 msgstr "“%s” için sonuç bulunamadı"
+
+#~ msgid "Install some and re-launch Switchboard."
+#~ msgstr "Biraz yükle ve Ayarları tekrar başlat."
 
 #~ msgid "translator-credits"
 #~ msgstr ""
