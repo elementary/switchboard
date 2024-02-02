@@ -120,21 +120,19 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
         };
         title_label.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
 
+        var description_label = new Gtk.Label (description) {
+            selectable = true,
+            use_markup = true,
+            wrap = true,
+            xalign = 0
+        };
+
         var header_area = new Gtk.Grid ();
         header_area.attach (title_label, 1, 0);
 
         if (description != null) {
-            var description_label = new Gtk.Label (description) {
-                selectable = true,
-                use_markup = true,
-                wrap = true,
-                xalign = 0
-            };
-
             header_area.attach (header_widget, 0, 0, 1, 2);
             header_area.attach (description_label, 1, 1, 2);
-
-            bind_property ("description", description_label, "label");
         } else {
             header_area.attach (header_widget, 0, 0);
         }
@@ -179,9 +177,14 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
         grid.append (action_bar);
         grid.set_parent (this);
 
-        notify["title"].connect (() => {
-            if (title_label != null) {
-                title_label.label = title;
+        bind_property ("description", description_label, "label");
+        bind_property ("title", title_label, "label");
+
+        notify["description"].connect (() => {
+            if (description_label.parent == null) {
+                header_area.remove (header_widget);
+                header_area.attach (header_widget, 0, 0, 1, 2);
+                header_area.attach (description_label, 1, 1, 2);
             }
         });
     }
