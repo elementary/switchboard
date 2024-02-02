@@ -26,24 +26,11 @@ private class Switchboard.SettingsSidebarRow : Gtk.ListBoxRow {
         }
     }
 
-    public Gtk.Widget display_widget { get; construct; }
-
     public string? header { get; set; }
 
     public unowned SettingsPage page { get; construct; }
 
-    private Icon _icon;
-    public Icon icon {
-        get {
-            return _icon;
-        }
-        set {
-            _icon = value;
-            if (display_widget is Gtk.Image) {
-                ((Gtk.Image) display_widget).gicon = value;
-            }
-        }
-    }
+    public Icon icon { get; set; }
 
     public string status {
         set {
@@ -62,6 +49,7 @@ private class Switchboard.SettingsSidebarRow : Gtk.ListBoxRow {
         }
     }
 
+    private Gtk.Widget display_widget;
     private Gtk.Image status_icon;
     private Gtk.Label status_label;
     private Gtk.Label title_label;
@@ -95,13 +83,19 @@ private class Switchboard.SettingsSidebarRow : Gtk.ListBoxRow {
         };
         status_label.add_css_class (Granite.STYLE_CLASS_SMALL_LABEL);
 
-        if (page.icon != null) {
+        if (!page.with_avatar) {
             display_widget = new Gtk.Image () {
                 icon_size = LARGE
             };
-            icon = page.icon;
+
+            page.bind_property ("icon", display_widget, "gicon", SYNC_CREATE);
         } else {
-            display_widget = page.display_widget;
+            display_widget = new Adw.Avatar (32, page.title, true) {
+                valign = START
+            };
+
+            page.bind_property ("avatar-paintable", display_widget, "custom-image", SYNC_CREATE);
+            page.bind_property ("title", display_widget, "text", SYNC_CREATE);
         }
 
         var overlay = new Gtk.Overlay ();

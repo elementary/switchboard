@@ -30,6 +30,19 @@ settingspage {
     }
 
     .header-area {
+        // avatar is inside of a widget
+        widget {
+            &:dir(ltr) {
+                margin-left: rem(4px);
+                margin-right: rem(9px);
+            }
+
+            &:dir(rtl) {
+                margin-left: rem(9px);
+                margin-right: rem(4px);
+            }
+        }
+
         image.large-icons {
             -gtk-icon-size: rem(48px);
 
