@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-01 16:19+0000\n"
-"PO-Revision-Date: 2021-12-19 14:33+0000\n"
+"PO-Revision-Date: 2024-02-02 22:42+0000\n"
 "Last-Translator: TomiOhl <ohlslager.tom@gmail.com>\n"
 "Language-Team: Hungarian <https://l10n.elementary.io/projects/switchboard/"
 "switchboard/hu/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.2\n"
+"X-Generator: Weblate 5.0.2\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:47+0000\n"
 
 #: src/Application.vala:24
@@ -44,6 +44,7 @@ msgstr "Nem található beállítás"
 #: src/CategoryView.vala:41
 msgid "Install settings plugins and re-launch System Settings."
 msgstr ""
+"Telepítsen beállításbővítményeket és nyissa meg újra a Rendszerbeállításokat."
 
 #: src/CategoryView.vala:205
 msgid "Personal"
