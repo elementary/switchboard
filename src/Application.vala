@@ -186,8 +186,8 @@ namespace Switchboard {
             main_window.bind_property ("title", title_label, "label");
 
             shutdown.connect (() => {
-                if (plug_widgets[navigation_view.visible_page] != null && plug_widgets[navigation_view.visible_page] is Switchboard.Plug) {
-                    plug_widgets[navigation_view.visible_page].hidden ();
+                if (plug_widgets[navigation_view.visible_page.child] != null && plug_widgets[navigation_view.visible_page.child] is Switchboard.Plug) {
+                    ((Switchboard.Plug) plug_widgets[navigation_view.visible_page]).hidden ();
                 }
             });
 
@@ -201,8 +201,8 @@ namespace Switchboard {
         }
 
         private void update_navigation () {
-            if (plug_widgets[navigation_view.get_next_page ()] != null) {
-                plug_widgets[navigation_view.get_next_page ()].hidden ();
+            if (plug_widgets[navigation_view.get_next_page ().child] != null) {
+                ((Switchboard.Plug) plug_widgets[navigation_view.get_next_page ().child]).hidden ();
             }
 
             var previous_page = navigation_view.get_previous_page (navigation_view.visible_page);
@@ -210,11 +210,10 @@ namespace Switchboard {
                 ((Switchboard.Plug) previous_page.child).hidden ();
             }
 
-            var visible_widget = navigation_view.visible_page;
-            if (visible_widget is Switchboard.CategoryView) {
+            if (navigation_view.visible_page is Switchboard.CategoryView) {
                 navigation_button.hide ();
             } else {
-                var plug = plug_widgets[visible_widget.child];
+                var plug = plug_widgets[navigation_view.visible_page.child];
                 if (plug != null) {
                     plug.shown ();
                 } else {
@@ -225,7 +224,7 @@ namespace Switchboard {
                 navigation_button.show ();
             }
 
-            main_window.title = visible_widget.title;
+            main_window.title = navigation_view.visible_page.title;
         }
 
         public void load_plug (Switchboard.Plug plug) {
