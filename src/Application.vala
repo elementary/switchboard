@@ -188,7 +188,7 @@ namespace Switchboard {
             shutdown.connect (() => {
                 var plug = plug_widgets[navigation_view.visible_page.child];
                 if (plug != null && plug is Switchboard.Plug) {
-                    ((Switchboard.Plug) plug).hidden ();
+                    plug.hidden ();
                 }
             });
 
@@ -204,12 +204,12 @@ namespace Switchboard {
         private void update_navigation () {
             var next_plug = plug_widgets[navigation_view.get_next_page ().child];
             if (next_plug != null) {
-                ((Switchboard.Plug) next_plug).hidden ();
+                next_plug.hidden ();
             }
 
             var previous_page = navigation_view.get_previous_page (navigation_view.visible_page);
             if (previous_page != null && plug_widgets[previous_page.child] is Switchboard.Plug) {
-                ((Switchboard.Plug) plug_widgets[previous_page.child]).hidden ();
+                plug_widgets[previous_page.child].hidden ();
             }
 
             if (navigation_view.visible_page is Switchboard.CategoryView) {
