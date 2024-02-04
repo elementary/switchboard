@@ -4,13 +4,13 @@ Priority: optional
 Maintainer: elementary, Inc. <builds@elementary.io>
 Build-Depends: debhelper (>= 10.5.1),
                gettext,
+               libadwaita-1-dev,
                libgee-0.8-dev (>= 0.5.3),
                libglib2.0-dev (>= 2.26.0),
                libgranite-7-dev,
                libgtk-4-dev,
-               libadwaita-1-dev,
-               sassc,
                meson,
+               sassc,
                valac (>= 0.22)
 Standards-Version: 4.1.1
 Homepage: https://github.com/elementary/switchboard
@@ -33,7 +33,12 @@ Description: Modular Settings Hub
 Package: libswitchboard-3-dev
 Section: libdevel
 Architecture: any
-Depends: libswitchboard-3-0 (= ${binary:Version}), ${misc:Depends}
+Depends: libadwaita-1-dev,
+         libgee-0.8-dev,
+         libglib2.0-dev,
+         libgtk-4-dev (>= 4.0),
+         libswitchboard-3-0 (= ${binary:Version}),
+         ${misc:Depends}
 Description: Modular Settings Hub - development files
  Shared library to create plugs (settings panels) for Settings.
  .
