@@ -81,6 +81,11 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
      */
     public string description { get; construct set; }
 
+    /**
+     * Whether to show title buttons at the end of the header area
+     */
+    public bool show_end_title_buttons { get; set;}
+
     private Adw.Clamp content_area;
     private Gtk.ActionBar action_bar;
     private Gtk.SizeGroup start_button_group;
@@ -127,8 +132,11 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
             xalign = 0
         };
 
-        var header_area = new Gtk.Grid ();
+        var header_area = new Gtk.Grid () {
+            halign = CENTER
+        };
         header_area.attach (title_label, 1, 0);
+        header_area.add_css_class ("header-area");
 
         if (description != null) {
             header_area.attach (header_widget, 0, 0, 1, 2);
@@ -144,19 +152,29 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
             header_area.attach (status_switch, 2, 0);
         }
 
-        var header_clamp = new Adw.Clamp () {
-            child = header_area
+        var end_widget = new Gtk.WindowControls (END) {
+            valign = START
         };
-        header_clamp.add_css_class ("header-area");
+
+        var headerbar = new Gtk.CenterBox () {
+            center_widget = header_area,
+            end_widget = end_widget
+        };
 
         var window_handle = new Gtk.WindowHandle () {
-            child = header_clamp
+            child = headerbar
         };
 
         content_area = new Adw.Clamp () {
+            maximum_size = 600,
+            tightening_threshold = 600,
             vexpand = true
         };
         content_area.add_css_class ("content-area");
+
+        var size_group = new Gtk.SizeGroup (HORIZONTAL);
+        size_group.add_widget (header_area);
+        size_group.add_widget (content_area);
 
         var scrolled = new Gtk.ScrolledWindow () {
             child = content_area,
@@ -179,6 +197,7 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
 
         bind_property ("description", description_label, "label");
         bind_property ("title", title_label, "label");
+        bind_property ("show-end-title-buttons", end_widget, "visible", SYNC_CREATE);
 
         notify["description"].connect (() => {
             if (description_label.parent == null) {
