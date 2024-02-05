@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-23 21:36+0000\n"
+"POT-Creation-Date: 2024-02-01 16:19+0000\n"
 "PO-Revision-Date: 2023-07-07 19:07+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/"
@@ -29,38 +29,38 @@ msgstr "Alle innstillinger"
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Oppgitt lenke '%s' finnes ikke, går tilbake til hovedpanelet"
 
-#: src/Application.vala:168 src/Application.vala:221
+#: src/Application.vala:167 src/Application.vala:220
 #, fuzzy
 msgid "System Settings"
 msgstr ""
 "System-\n"
 "innstillinger"
 
-#: src/CategoryView.vala:47
+#: src/CategoryView.vala:28
 msgid "Search Settings"
 msgstr "Søkeinnstillinger"
 
-#: src/CategoryView.vala:107
+#: src/CategoryView.vala:40
 msgid "No Settings Found"
 msgstr "Ingen innstillinger funnet"
 
-#: src/CategoryView.vala:107
-msgid "Install some and re-launch Switchboard."
-msgstr "Installer noen og start Systeminnstillinger på nytt."
+#: src/CategoryView.vala:41
+msgid "Install settings plugins and re-launch System Settings."
+msgstr ""
 
-#: src/CategoryView.vala:225
+#: src/CategoryView.vala:205
 msgid "Personal"
 msgstr "Personlig"
 
-#: src/CategoryView.vala:227
+#: src/CategoryView.vala:207
 msgid "Hardware"
 msgstr "Maskinvare"
 
-#: src/CategoryView.vala:229
+#: src/CategoryView.vala:209
 msgid "Network & Wireless"
 msgstr "Nettverk og trådløst"
 
-#: src/CategoryView.vala:231
+#: src/CategoryView.vala:211
 msgid "Administration"
 msgstr "Administrasjon"
 
@@ -68,10 +68,13 @@ msgstr "Administrasjon"
 msgid "Try changing search terms."
 msgstr "Prøv å endre søket."
 
-#: src/SearchView.vala:59
+#: src/SearchView.vala:49
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Ingen resultater for «%s»"
+
+#~ msgid "Install some and re-launch Switchboard."
+#~ msgstr "Installer noen og start Systeminnstillinger på nytt."
 
 #~ msgid "translator-credits"
 #~ msgstr ""

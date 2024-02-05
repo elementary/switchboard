@@ -26,24 +26,11 @@ private class Switchboard.SettingsSidebarRow : Gtk.ListBoxRow {
         }
     }
 
-    public Gtk.Widget display_widget { get; construct; }
-
     public string? header { get; set; }
 
     public unowned SettingsPage page { get; construct; }
 
-    public string icon_name {
-        get {
-            return _icon_name;
-        }
-        set {
-            _icon_name = value;
-            if (display_widget is Gtk.Image) {
-                ((Gtk.Image) display_widget).icon_name = value;
-                ((Gtk.Image) display_widget).icon_size = Gtk.IconSize.LARGE;
-            }
-        }
-    }
+    public Icon icon { get; set; }
 
     public string status {
         set {
@@ -62,10 +49,10 @@ private class Switchboard.SettingsSidebarRow : Gtk.ListBoxRow {
         }
     }
 
+    private Gtk.Widget display_widget;
     private Gtk.Image status_icon;
     private Gtk.Label status_label;
     private Gtk.Label title_label;
-    private string _icon_name;
     private string _title;
 
     public SettingsSidebarRow (SettingsPage page) {
@@ -96,11 +83,19 @@ private class Switchboard.SettingsSidebarRow : Gtk.ListBoxRow {
         };
         status_label.add_css_class (Granite.STYLE_CLASS_SMALL_LABEL);
 
-        if (page.icon_name != null) {
-            display_widget = new Gtk.Image ();
-            icon_name = page.icon_name;
+        if (!page.with_avatar) {
+            display_widget = new Gtk.Image () {
+                icon_size = LARGE
+            };
+
+            page.bind_property ("icon", display_widget, "gicon", SYNC_CREATE);
         } else {
-            display_widget = page.display_widget;
+            display_widget = new Adw.Avatar (32, page.title, true) {
+                valign = START
+            };
+
+            page.bind_property ("avatar-paintable", display_widget, "custom-image", SYNC_CREATE);
+            page.bind_property ("title", display_widget, "text", SYNC_CREATE);
         }
 
         var overlay = new Gtk.Overlay ();
@@ -115,7 +110,7 @@ private class Switchboard.SettingsSidebarRow : Gtk.ListBoxRow {
         child = grid;
 
         header = page.header;
-        page.bind_property ("icon-name", this, "icon-name", BindingFlags.DEFAULT);
+        page.bind_property ("icon", this, "icon", BindingFlags.DEFAULT);
         page.bind_property ("status", this, "status", BindingFlags.DEFAULT);
         page.bind_property ("status-type", this, "status-type", BindingFlags.DEFAULT);
         page.bind_property ("title", this, "title", BindingFlags.DEFAULT);

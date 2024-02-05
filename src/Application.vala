@@ -131,7 +131,6 @@ namespace Switchboard {
             plug_widgets = new GLib.HashTable <Gtk.Widget, Switchboard.Plug> (null, null);
 
             category_view = new Switchboard.CategoryView (plug_to_open);
-            category_view.load_default_plugs.begin ();
 
             leaflet = new Adw.Leaflet () {
                 can_navigate_back = true,

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-23 21:36+0000\n"
-"PO-Revision-Date: 2023-08-23 13:08+0000\n"
+"POT-Creation-Date: 2024-02-01 16:19+0000\n"
+"PO-Revision-Date: 2024-02-02 22:42+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/switchboard/"
 "switchboard/ja/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.0.2\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:47+0000\n"
 
 #: src/Application.vala:24
@@ -29,35 +29,35 @@ msgstr "すべての設定"
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "指定されたリンク '%s' は存在しません。メインパネルに戻ります"
 
-#: src/Application.vala:168 src/Application.vala:221
+#: src/Application.vala:167 src/Application.vala:220
 msgid "System Settings"
 msgstr "システム設定"
 
-#: src/CategoryView.vala:47
+#: src/CategoryView.vala:28
 msgid "Search Settings"
 msgstr "設定を検索"
 
-#: src/CategoryView.vala:107
+#: src/CategoryView.vala:40
 msgid "No Settings Found"
 msgstr "設定が見つかりませんでした"
 
-#: src/CategoryView.vala:107
-msgid "Install some and re-launch Switchboard."
-msgstr "設定項目をインストールして、Switchboard を再起動してください。"
+#: src/CategoryView.vala:41
+msgid "Install settings plugins and re-launch System Settings."
+msgstr "設定プラグインをインストールして、“システム設定”を再起動してください。"
 
-#: src/CategoryView.vala:225
+#: src/CategoryView.vala:205
 msgid "Personal"
 msgstr "パーソナル"
 
-#: src/CategoryView.vala:227
+#: src/CategoryView.vala:207
 msgid "Hardware"
 msgstr "ハードウェア"
 
-#: src/CategoryView.vala:229
+#: src/CategoryView.vala:209
 msgid "Network & Wireless"
 msgstr "ネットワークと無線"
 
-#: src/CategoryView.vala:231
+#: src/CategoryView.vala:211
 msgid "Administration"
 msgstr "管理"
 
@@ -65,10 +65,13 @@ msgstr "管理"
 msgid "Try changing search terms."
 msgstr "検索用語を変更してみてください。"
 
-#: src/SearchView.vala:59
+#: src/SearchView.vala:49
 #, c-format
 msgid "No Results for “%s”"
 msgstr "“%s” の検索結果はありません"
+
+#~ msgid "Install some and re-launch Switchboard."
+#~ msgstr "設定項目をインストールして、Switchboard を再起動してください。"
 
 #~ msgid "translator-credits"
 #~ msgstr ""

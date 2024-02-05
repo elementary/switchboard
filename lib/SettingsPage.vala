@@ -25,11 +25,6 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
     public StatusType status_type { get; set; default = StatusType.NONE; }
 
     /**
-     * A widget to display in place of an icon in a Granite.SettingsSidebar
-     */
-    public Gtk.Widget? display_widget { get; construct; }
-
-    /**
      * A header to be sorted under in a Granite.SettingsSidebar
      */
     public string? header { get; construct; }
@@ -40,9 +35,9 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
     public string status { get; construct set; }
 
     /**
-     * An icon name to be displayed in a Granite.SettingsSidebar
+     * An icon to be displayed in the header and sidebar
      */
-    public string? icon_name { get; construct set; }
+    public Icon icon { get; construct set; default = new ThemedIcon ("preferences-other"); }
 
     /**
      * A title to be displayed in a Granite.SettingsSidebar
@@ -69,7 +64,17 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
     /**
      * Creates a {@link Gtk.Switch} #status_switch in the header of #this
      */
-    public bool activatable { get; construct; }
+    public bool activatable { get; construct; default = false; }
+
+    /**
+     * Creates a {@link Adw.Avatar} to use instead of #icon
+     */
+    public bool with_avatar { get; construct; default = false; }
+
+    /**
+     * Custom image to use with avatar
+     */
+    public Gdk.Paintable avatar_paintable { get; set; }
 
     /**
      * Creates a {@link Gtk.Label} with a page description in the header of #this
@@ -90,10 +95,23 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
     }
 
     construct {
-        var header_icon = new Gtk.Image.from_icon_name (icon_name) {
-            icon_size = Gtk.IconSize.LARGE,
-            valign = Gtk.Align.START
-        };
+        Gtk.Widget header_widget;
+
+        if (!with_avatar) {
+            header_widget = new Gtk.Image.from_gicon (icon) {
+                icon_size = Gtk.IconSize.LARGE,
+                valign = Gtk.Align.START
+            };
+
+            bind_property ("icon", header_widget, "gicon");
+        } else {
+            header_widget = new Adw.Avatar (48, title, true) {
+                valign = START
+            };
+
+            bind_property ("avatar-paintable", header_widget, "custom-image", SYNC_CREATE);
+            bind_property ("title", header_widget, "text");
+        }
 
         var title_label = new Gtk.Label (title) {
             hexpand = true,
@@ -102,23 +120,21 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
         };
         title_label.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
 
+        var description_label = new Gtk.Label (description) {
+            selectable = true,
+            use_markup = true,
+            wrap = true,
+            xalign = 0
+        };
+
         var header_area = new Gtk.Grid ();
         header_area.attach (title_label, 1, 0);
 
         if (description != null) {
-            var description_label = new Gtk.Label (description) {
-                selectable = true,
-                use_markup = true,
-                wrap = true,
-                xalign = 0
-            };
-
-            header_area.attach (header_icon, 0, 0, 1, 2);
+            header_area.attach (header_widget, 0, 0, 1, 2);
             header_area.attach (description_label, 1, 1, 2);
-
-            bind_property ("description", description_label, "label");
         } else {
-            header_area.attach (header_icon, 0, 0);
+            header_area.attach (header_widget, 0, 0);
         }
 
         if (activatable) {
@@ -161,15 +177,14 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
         grid.append (action_bar);
         grid.set_parent (this);
 
-        notify["icon-name"].connect (() => {
-            if (header_icon != null) {
-                header_icon.icon_name = icon_name;
-            }
-        });
+        bind_property ("description", description_label, "label");
+        bind_property ("title", title_label, "label");
 
-        notify["title"].connect (() => {
-            if (title_label != null) {
-                title_label.label = title;
+        notify["description"].connect (() => {
+            if (description_label.parent == null) {
+                header_area.remove (header_widget);
+                header_area.attach (header_widget, 0, 0, 1, 2);
+                header_area.attach (description_label, 1, 1, 2);
             }
         });
     }

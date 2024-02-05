@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-23 21:36+0000\n"
-"PO-Revision-Date: 2023-07-10 12:07+0000\n"
+"POT-Creation-Date: 2024-02-01 16:19+0000\n"
+"PO-Revision-Date: 2024-02-02 22:42+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/switchboard/"
 "switchboard/he/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.0.2\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:47+0000\n"
 
 #: src/Application.vala:24
@@ -29,35 +29,35 @@ msgstr "כל ההגדרות"
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "הקישור שצוין ‚%s‘ לא קיים, מתבצעת העברה בחזרה ללוח הראשי"
 
-#: src/Application.vala:168 src/Application.vala:221
+#: src/Application.vala:167 src/Application.vala:220
 msgid "System Settings"
 msgstr "הגדרות מערכת"
 
-#: src/CategoryView.vala:47
+#: src/CategoryView.vala:28
 msgid "Search Settings"
 msgstr "חיפוש בהגדרות"
 
-#: src/CategoryView.vala:107
+#: src/CategoryView.vala:40
 msgid "No Settings Found"
 msgstr "לא נמצאו הגדרות"
 
-#: src/CategoryView.vala:107
-msgid "Install some and re-launch Switchboard."
-msgstr "התקינו כמה והפעילו מחדש את לוח המתגים."
+#: src/CategoryView.vala:41
+msgid "Install settings plugins and re-launch System Settings."
+msgstr "התקנת תוספי הגדרות והפעלת הגדרות המערכת מחדש."
 
-#: src/CategoryView.vala:225
+#: src/CategoryView.vala:205
 msgid "Personal"
 msgstr "הגדרות אישיות"
 
-#: src/CategoryView.vala:227
+#: src/CategoryView.vala:207
 msgid "Hardware"
 msgstr "חומרה"
 
-#: src/CategoryView.vala:229
+#: src/CategoryView.vala:209
 msgid "Network & Wireless"
 msgstr "אלחוט ורשתות"
 
-#: src/CategoryView.vala:231
+#: src/CategoryView.vala:211
 msgid "Administration"
 msgstr "ניהול"
 
@@ -65,10 +65,13 @@ msgstr "ניהול"
 msgid "Try changing search terms."
 msgstr "מוטב לשנות את מונחי החיפוש."
 
-#: src/SearchView.vala:59
+#: src/SearchView.vala:49
 #, c-format
 msgid "No Results for “%s”"
 msgstr "אין תוצאות עבור „%s”"
+
+#~ msgid "Install some and re-launch Switchboard."
+#~ msgstr "התקינו כמה והפעילו מחדש את לוח המתגים."
 
 #~ msgid "translator-credits"
 #~ msgstr ""

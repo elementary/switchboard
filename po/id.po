@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-23 21:36+0000\n"
+"POT-Creation-Date: 2024-02-01 16:19+0000\n"
 "PO-Revision-Date: 2023-06-01 14:07+0000\n"
 "Last-Translator: Faisal Rachmadin <frachmadin@users.noreply.l10n.elementary."
 "io>\n"
@@ -29,35 +29,35 @@ msgstr "Semua Pengaturan"
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Tautan '%s' yang ditentukan tidak ada, kembali ke panel utama"
 
-#: src/Application.vala:168 src/Application.vala:221
+#: src/Application.vala:167 src/Application.vala:220
 msgid "System Settings"
 msgstr "Setting Sistem"
 
-#: src/CategoryView.vala:47
+#: src/CategoryView.vala:28
 msgid "Search Settings"
 msgstr "Cari Pengaturan"
 
-#: src/CategoryView.vala:107
+#: src/CategoryView.vala:40
 msgid "No Settings Found"
 msgstr "Tidak ada Pengaturan yang Ditemukan"
 
-#: src/CategoryView.vala:107
-msgid "Install some and re-launch Switchboard."
-msgstr "Pasang beberapa dan luncurkan kembali Switchboard."
+#: src/CategoryView.vala:41
+msgid "Install settings plugins and re-launch System Settings."
+msgstr ""
 
-#: src/CategoryView.vala:225
+#: src/CategoryView.vala:205
 msgid "Personal"
 msgstr "Pribadi"
 
-#: src/CategoryView.vala:227
+#: src/CategoryView.vala:207
 msgid "Hardware"
 msgstr "Perangkat keras"
 
-#: src/CategoryView.vala:229
+#: src/CategoryView.vala:209
 msgid "Network & Wireless"
 msgstr "Jaringan & Nirkabel"
 
-#: src/CategoryView.vala:231
+#: src/CategoryView.vala:211
 msgid "Administration"
 msgstr "Administrasi"
 
@@ -65,10 +65,13 @@ msgstr "Administrasi"
 msgid "Try changing search terms."
 msgstr "Coba ubah istilah penelusuran."
 
-#: src/SearchView.vala:59
+#: src/SearchView.vala:49
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Tidak Ada Hasil Untuk \"%s\""
+
+#~ msgid "Install some and re-launch Switchboard."
+#~ msgstr "Pasang beberapa dan luncurkan kembali Switchboard."
 
 #~ msgid "translator-credits"
 #~ msgstr ""

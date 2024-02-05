@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-23 21:36+0000\n"
+"POT-Creation-Date: 2024-02-01 16:19+0000\n"
 "PO-Revision-Date: 2021-02-21 14:29+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/switchboard/"
@@ -31,35 +31,35 @@ msgstr ""
 "Die angegebene Adresse »%s« existiert nicht; das Hauptfenster wird wieder "
 "angezeigt"
 
-#: src/Application.vala:168 src/Application.vala:221
+#: src/Application.vala:167 src/Application.vala:220
 msgid "System Settings"
 msgstr "Systemeinstellungen"
 
-#: src/CategoryView.vala:47
+#: src/CategoryView.vala:28
 msgid "Search Settings"
 msgstr "Einstellungen durchsuchen"
 
-#: src/CategoryView.vala:107
+#: src/CategoryView.vala:40
 msgid "No Settings Found"
 msgstr "Keine Einstellungen gefunden"
 
-#: src/CategoryView.vala:107
-msgid "Install some and re-launch Switchboard."
-msgstr "Einige installieren und Switchboard neustarten."
+#: src/CategoryView.vala:41
+msgid "Install settings plugins and re-launch System Settings."
+msgstr ""
 
-#: src/CategoryView.vala:225
+#: src/CategoryView.vala:205
 msgid "Personal"
 msgstr "Persönlich"
 
-#: src/CategoryView.vala:227
+#: src/CategoryView.vala:207
 msgid "Hardware"
 msgstr "Hardware"
 
-#: src/CategoryView.vala:229
+#: src/CategoryView.vala:209
 msgid "Network & Wireless"
 msgstr "Netzwerk & WLAN"
 
-#: src/CategoryView.vala:231
+#: src/CategoryView.vala:211
 msgid "Administration"
 msgstr "Verwaltung"
 
@@ -67,10 +67,13 @@ msgstr "Verwaltung"
 msgid "Try changing search terms."
 msgstr "Versuchen Sie es mit anderen Suchbegriffen."
 
-#: src/SearchView.vala:59
+#: src/SearchView.vala:49
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Keine Ergebnisse für »%s«"
+
+#~ msgid "Install some and re-launch Switchboard."
+#~ msgstr "Einige installieren und Switchboard neustarten."
 
 #~ msgid "translator-credits"
 #~ msgstr ""
