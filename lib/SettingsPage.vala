@@ -126,6 +126,7 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
         title_label.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
 
         var description_label = new Gtk.Label (description) {
+            max_width_chars = 0,
             selectable = true,
             use_markup = true,
             wrap = true,
