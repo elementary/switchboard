@@ -36,6 +36,7 @@ Architecture: any
 Depends: libadwaita-1-dev,
          libgee-0.8-dev,
          libglib2.0-dev,
+         libgranite-7-dev,
          libgtk-4-dev (>= 4.0),
          libswitchboard-3-0 (= ${binary:Version}),
          ${misc:Depends}
