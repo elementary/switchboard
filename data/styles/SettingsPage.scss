@@ -24,11 +24,6 @@ settingspage {
         }
     }
 
-    .header-area,
-    .content-area {
-        padding: rem(12px);
-    }
-
     .header-area {
         // avatar is inside of a widget
         widget {
@@ -85,6 +80,11 @@ settingspage {
         }
     }
 
+    .header-area,
+    .content-area {
+        padding: rem(12px);
+    }
+
     actionbar.action-area {
         // Don't style the revealer
         background: transparent;
@@ -95,6 +95,15 @@ settingspage {
         box.start {
             border-spacing: rem(6px);
             padding: rem(12px);
+        }
+    }
+
+    windowcontrols {
+        margin: rem(6px);
+
+        &.start,
+        &.end {
+            border-spacing: rem(6px);
         }
     }
 }
