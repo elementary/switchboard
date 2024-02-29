@@ -5,7 +5,7 @@
  * Authored by: Avi Romanoff <aviromanoff@gmail.com>
  */
 
-public class Switchboard.CategoryView : Gtk.Box {
+public class Switchboard.CategoryView : Adw.NavigationPage {
     public Gee.ArrayList<SearchEntry?> plug_search_result { get; private set; }
     public string? plug_to_open { get; construct set; default = null; }
 
@@ -77,9 +77,12 @@ public class Switchboard.CategoryView : Gtk.Box {
             hscrollbar_policy = NEVER
         };
 
-        orientation = VERTICAL;
-        append (search_clamp);
-        append (scrolled);
+        var box = new Gtk.Box (VERTICAL, 0);
+        box.append (search_clamp);
+        box.append (scrolled);
+
+        child = box;
+        title = _("All Settings");
 
         load_default_plugs.begin ();
 

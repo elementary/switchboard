@@ -35,7 +35,7 @@ gmodule_dep = dependency('gmodule-2.0')
 gtk_dep = dependency('gtk4', version: '>=3.10')
 gee_dep = dependency('gee-0.8')
 granite_dep = dependency('granite-7', version: '>=7.0.0')
-adwaita_dep = dependency('libadwaita-1')
+adwaita_dep = dependency('libadwaita-1', version: '>=1.4')
 m_dep = meson.get_compiler('c').find_library('m', required : false)
 
 subdir('data')
