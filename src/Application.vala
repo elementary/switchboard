@@ -186,42 +186,18 @@ namespace Switchboard {
             main_window.bind_property ("title", title_label, "label");
 
             shutdown.connect (() => {
-                var plug = plug_widgets[navigation_view.visible_page.child];
-                if (plug != null && plug is Switchboard.Plug) {
-                    plug.hidden ();
-                }
+                navigation_view.visible_page.hidden ();
             });
 
-            navigation_view.popped.connect (() => {
-                update_navigation ();
-            });
-
-            navigation_view.pushed.connect (() => {
-                update_navigation ();
-            });
+            navigation_view.popped.connect (update_navigation);
+            navigation_view.pushed.connect (update_navigation);
         }
 
         private void update_navigation () {
-            var next_plug = plug_widgets[navigation_view.get_next_page ().child];
-            if (next_plug != null) {
-                next_plug.hidden ();
-            }
-
-            var previous_page = navigation_view.get_previous_page (navigation_view.visible_page);
-            if (previous_page != null && plug_widgets[previous_page.child] is Switchboard.Plug) {
-                plug_widgets[previous_page.child].hidden ();
-            }
-
             if (navigation_view.visible_page is Switchboard.CategoryView) {
                 navigation_button.hide ();
             } else {
-                var plug = plug_widgets[navigation_view.visible_page.child];
-                if (plug != null) {
-                    plug.shown ();
-                } else {
-                    critical ("Visible child is not CategoryView nor is associated with a Plug.");
-                }
-
+                var previous_page = navigation_view.get_previous_page (navigation_view.visible_page);
                 navigation_button.label = previous_page.title;
                 navigation_button.show ();
             }
@@ -231,13 +207,13 @@ namespace Switchboard {
 
         public void load_plug (Switchboard.Plug plug) {
             Idle.add (() => {
-                while (navigation_view.get_next_page () != null) {
-                    navigation_view.remove (navigation_view.get_next_page ());
-                }
-
                 var plug_widget = plug.get_widget ();
                 if (plug_widget.parent == null) {
-                    navigation_view.add (new Adw.NavigationPage (plug_widget, plug.display_name));
+                    var navigation_page = new Adw.NavigationPage (plug_widget, plug.display_name);
+                    navigation_page.hidden.connect (plug.hidden);
+                    navigation_page.shown.connect (plug.shown);
+
+                    navigation_view.add (navigation_page);
                 }
 
                 if (plug_widgets[plug_widget] == null) {
