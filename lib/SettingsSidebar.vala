@@ -19,6 +19,11 @@ public class Switchboard.SettingsSidebar : Gtk.Widget {
     public Gtk.Stack stack { get; construct; }
 
     /**
+     * Whether to show back and title buttons in the header area
+     */
+    public bool show_title_buttons { get; set;}
+
+    /**
      * The name of the currently visible Granite.SettingsPage
      */
     public string? visible_child_name {
@@ -75,7 +80,18 @@ public class Switchboard.SettingsSidebar : Gtk.Widget {
             hscrollbar_policy = Gtk.PolicyType.NEVER,
             child = listbox
         };
-        scrolled.set_parent (this);
+
+        var headerbar = new Adw.HeaderBar () {
+            show_end_title_buttons = false,
+            show_title = false
+        };
+
+        var toolbarview = new Adw.ToolbarView () {
+            content = scrolled,
+            top_bar_style = FLAT
+        };
+        toolbarview.add_top_bar (headerbar);
+        toolbarview.set_parent (this);
 
         on_sidebar_changed ();
         stack.pages.items_changed.connect (on_sidebar_changed);
@@ -100,6 +116,8 @@ public class Switchboard.SettingsSidebar : Gtk.Widget {
         stack.notify["visible-child-name"].connect (() => {
             visible_child_name = stack.visible_child_name;
         });
+
+        bind_property ("show-title-buttons", toolbarview, "reveal-top-bars", SYNC_CREATE);
     }
 
     ~SettingsSidebar () {
