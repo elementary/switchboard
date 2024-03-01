@@ -94,7 +94,6 @@ namespace Switchboard {
             add_action (back_action);
             add_action (quit_action);
 
-            set_accels_for_action ("app.back", {"<Alt>Left", "Back"});
             set_accels_for_action ("app.quit", {"<Control>q"});
 
             back_action.activate.connect (action_navigate_back);
@@ -138,7 +137,7 @@ namespace Switchboard {
             navigation_button = new Gtk.Button.with_label (_(all_settings_label));
             navigation_button.action_name = "app.back";
             navigation_button.set_tooltip_markup (
-                Granite.markup_accel_tooltip (get_accels_for_action (navigation_button.action_name))
+                Granite.markup_accel_tooltip ({"<Alt>Left", "Back"})
             );
             navigation_button.get_style_context ().add_class ("back-button");
 
