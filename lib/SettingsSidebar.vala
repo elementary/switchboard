@@ -83,8 +83,10 @@ public class Switchboard.SettingsSidebar : Gtk.Widget {
 
         var headerbar = new Adw.HeaderBar () {
             show_end_title_buttons = false,
-            show_title = false
+            show_title = false,
+            show_back_button = false
         };
+        headerbar.pack_start (new Granite.BackButton ());
 
         var toolbarview = new Adw.ToolbarView () {
             content = scrolled,
