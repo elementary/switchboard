@@ -81,10 +81,15 @@ public class Switchboard.SettingsSidebar : Gtk.Widget {
             child = listbox
         };
 
+        var back_button = new Gtk.Button ();
+        back_button.add_css_class (Granite.STYLE_CLASS_BACK_BUTTON);
+
         var headerbar = new Adw.HeaderBar () {
             show_end_title_buttons = false,
-            show_title = false
+            show_title = false,
+            show_back_button = false
         };
+        headerbar.pack_start (back_button);
 
         var toolbarview = new Adw.ToolbarView () {
             content = scrolled,
@@ -115,6 +120,34 @@ public class Switchboard.SettingsSidebar : Gtk.Widget {
 
         stack.notify["visible-child-name"].connect (() => {
             visible_child_name = stack.visible_child_name;
+        });
+
+        back_button.clicked.connect (() => {
+            var navigation_view = (Adw.NavigationView) get_ancestor (typeof (Adw.NavigationView));
+
+            if (navigation_view != null) {
+                navigation_view.pop ();
+            }
+        });
+
+        map.connect (() => {
+            var navigation_view = (Adw.NavigationView) get_ancestor (typeof (Adw.NavigationView));
+
+            if (navigation_view == null) {
+                return;
+            }
+
+            var navigation_page = (Adw.NavigationPage) get_ancestor (typeof (Adw.NavigationPage));
+
+            if (navigation_page == null) {
+                return;
+            }
+
+            var previous_page = navigation_view.get_previous_page (navigation_page);
+
+            if (previous_page != null) {
+                back_button.label = previous_page.title;
+            }
         });
 
         bind_property ("show-title-buttons", toolbarview, "reveal-top-bars", SYNC_CREATE);
