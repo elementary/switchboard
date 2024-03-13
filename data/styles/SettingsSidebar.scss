@@ -1,23 +1,28 @@
-settingssidebar list {
-    min-width: rem(200px);
+settingssidebar {
+    background: #{'@insensitive_bg_color'};
 
-    row,
-    > .title-4 {
-        padding: rem(6px);
-    }
+    list {
+        background: inherit;
+        min-width: rem(200px);
 
-    row {
-        overlay {
-            // IconSize.LARGE + padding
-            min-width: calc(32px + #{rem(6px)});
+        row,
+        > .title-4 {
+            padding: rem(6px);
         }
 
-        overlay:dir(ltr) {
-            margin-right: rem(6px);
-        }
+        row {
+            overlay {
+                // IconSize.LARGE + padding
+                min-width: calc(32px + #{rem(6px)});
+            }
 
-        overlay:dir(rtl) {
-            margin-left: rem(6px);
+            overlay:dir(ltr) {
+                margin-right: rem(6px);
+            }
+
+            overlay:dir(rtl) {
+                margin-left: rem(6px);
+            }
         }
     }
 }
