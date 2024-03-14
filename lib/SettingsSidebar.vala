@@ -101,6 +101,11 @@ public class Switchboard.SettingsSidebar : Gtk.Widget {
         listbox.set_header_func ((row, before) => {
             var header = ((SettingsSidebarRow) row).header;
             if (header != null) {
+                var before_header = ((SettingsSidebarRow) before).header;
+                if (header == before_header) {
+                    return;
+                }
+
                 var label = new Gtk.Label (header) {
                     halign = Gtk.Align.START,
                     xalign = 0
