@@ -84,8 +84,7 @@ public class Switchboard.CategoryView : Adw.NavigationPage {
         };
 
         var toolbarview = new Adw.ToolbarView () {
-            content = scrolled,
-            top_bar_style = RAISED
+            content = scrolled
         };
         toolbarview.add_top_bar (headerbar);
 
