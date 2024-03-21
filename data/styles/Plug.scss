@@ -59,7 +59,7 @@ toolbarview {
 
     revealer.top-bar {
         &.raised {
-            background-color: #{'@insensitive_bg_color'};
+            background-color: rgba(black, 0.05);
             background-image:
                 linear-gradient(
                     to bottom,
