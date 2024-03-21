@@ -75,6 +75,7 @@ public class Switchboard.SettingsSidebar : Gtk.Widget {
             activate_on_single_click = true,
             selection_mode = Gtk.SelectionMode.SINGLE
         };
+        listbox.bind_model (stack.pages, create_widget_func);
 
         var scrolled = new Gtk.ScrolledWindow () {
             hscrollbar_policy = Gtk.PolicyType.NEVER,
@@ -95,9 +96,6 @@ public class Switchboard.SettingsSidebar : Gtk.Widget {
 
         add_css_class (Granite.STYLE_CLASS_SIDEBAR);
 
-        on_sidebar_changed ();
-        stack.pages.items_changed.connect (on_sidebar_changed);
-
         listbox.row_selected.connect ((row) => {
             stack.visible_child = ((SettingsSidebarRow) row).page;
         });
@@ -105,6 +103,13 @@ public class Switchboard.SettingsSidebar : Gtk.Widget {
         listbox.set_header_func ((row, before) => {
             var header = ((SettingsSidebarRow) row).header;
             if (header != null) {
+                if (before != null) {
+                    var before_header = ((SettingsSidebarRow) before).header;
+                    if (before_header != null && before_header == header) {
+                        return;
+                    }
+                }
+
                 var label = new Gtk.Label (header) {
                     halign = Gtk.Align.START,
                     xalign = 0
@@ -126,22 +131,11 @@ public class Switchboard.SettingsSidebar : Gtk.Widget {
         get_first_child ().unparent ();
     }
 
-    private void on_sidebar_changed () {
-        weak Gtk.Widget listbox_child = listbox.get_first_child ();
-        while (listbox_child != null) {
-            weak Gtk.Widget next_child = listbox_child.get_next_sibling ();
-            listbox.remove (listbox_child);
-            listbox_child = next_child;
-        }
+    private Gtk.Widget create_widget_func (Object object) {
+        unowned var stack_page = (Gtk.StackPage) object;
+        unowned var page = (SettingsPage) stack_page.child;
+        var row = new SettingsSidebarRow (page);
 
-        weak Gtk.Widget child = stack.get_first_child ();
-        while (child != null) {
-            if (child is SettingsPage) {
-                var row = new SettingsSidebarRow ((SettingsPage) child);
-                listbox.append (row);
-            }
-
-            child = child.get_next_sibling ();
-        }
+        return row;
     }
 }
