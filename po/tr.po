@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-01 16:19+0000\n"
+"POT-Creation-Date: 2024-03-21 20:59+0000\n"
 "PO-Revision-Date: 2017-02-02 09:39+0000\n"
 "Last-Translator: Avi Romanoff <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -18,16 +18,12 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-02-04 05:40+0000\n"
 "X-Generator: Launchpad (build 18322)\n"
 
-#: src/Application.vala:24
-msgid "All Settings"
-msgstr "Tüm Ayarlar"
-
-#: src/Application.vala:115
+#: src/Application.vala:109
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Belirtilen '%s' bağlantısı yok, ana panele geri dönülüyor"
 
-#: src/Application.vala:167 src/Application.vala:220
+#: src/Application.vala:141
 msgid "System Settings"
 msgstr "Sistem Ayarları"
 
@@ -35,27 +31,31 @@ msgstr "Sistem Ayarları"
 msgid "Search Settings"
 msgstr "Ayarlarda Ara"
 
-#: src/CategoryView.vala:40
+#: src/CategoryView.vala:46
 msgid "No Settings Found"
 msgstr "İlgili Ayar Bulunamadı"
 
-#: src/CategoryView.vala:41
+#: src/CategoryView.vala:47
 msgid "Install settings plugins and re-launch System Settings."
 msgstr ""
 
-#: src/CategoryView.vala:205
+#: src/CategoryView.vala:91
+msgid "All Settings"
+msgstr "Tüm Ayarlar"
+
+#: src/CategoryView.vala:214
 msgid "Personal"
 msgstr "Kişisel"
 
-#: src/CategoryView.vala:207
+#: src/CategoryView.vala:216
 msgid "Hardware"
 msgstr "Donanım"
 
-#: src/CategoryView.vala:209
+#: src/CategoryView.vala:218
 msgid "Network & Wireless"
 msgstr "Ağ ve Kablosuz"
 
-#: src/CategoryView.vala:211
+#: src/CategoryView.vala:220
 msgid "Administration"
 msgstr "Yönetim"
 
@@ -63,7 +63,7 @@ msgstr "Yönetim"
 msgid "Try changing search terms."
 msgstr "Arama terimlerini değiştirmeyi deneyin."
 
-#: src/SearchView.vala:49
+#: src/SearchView.vala:50
 #, c-format
 msgid "No Results for “%s”"
 msgstr "“%s” için sonuç bulunamadı"

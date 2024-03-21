@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-01 16:19+0000\n"
+"POT-Creation-Date: 2024-03-21 20:59+0000\n"
 "PO-Revision-Date: 2017-02-09 14:29+0000\n"
 "Last-Translator: Christos Iatropoulos <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
@@ -18,17 +18,13 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-02-10 05:37+0000\n"
 "X-Generator: Launchpad (build 18326)\n"
 
-#: src/Application.vala:24
-msgid "All Settings"
-msgstr "Όλες οι ρυθμίσεις"
-
-#: src/Application.vala:115
+#: src/Application.vala:109
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr ""
 "Ο συγκεκριμένος σύνδεσμος '%s' δεν υπάρχει, επιστροφή στον κύριο πίνακα"
 
-#: src/Application.vala:167 src/Application.vala:220
+#: src/Application.vala:141
 msgid "System Settings"
 msgstr "Ρυθμίσεις συστήματος"
 
@@ -36,27 +32,31 @@ msgstr "Ρυθμίσεις συστήματος"
 msgid "Search Settings"
 msgstr "Ρυθμίσεις αναζήτησης"
 
-#: src/CategoryView.vala:40
+#: src/CategoryView.vala:46
 msgid "No Settings Found"
 msgstr "Δε βρέθηκαν ρυθμίσεις"
 
-#: src/CategoryView.vala:41
+#: src/CategoryView.vala:47
 msgid "Install settings plugins and re-launch System Settings."
 msgstr ""
 
-#: src/CategoryView.vala:205
+#: src/CategoryView.vala:91
+msgid "All Settings"
+msgstr "Όλες οι ρυθμίσεις"
+
+#: src/CategoryView.vala:214
 msgid "Personal"
 msgstr "Προσωπικές"
 
-#: src/CategoryView.vala:207
+#: src/CategoryView.vala:216
 msgid "Hardware"
 msgstr "Υλικό"
 
-#: src/CategoryView.vala:209
+#: src/CategoryView.vala:218
 msgid "Network & Wireless"
 msgstr "Δίκτυο & ασύρματο"
 
-#: src/CategoryView.vala:211
+#: src/CategoryView.vala:220
 msgid "Administration"
 msgstr "Διαχείριση"
 
@@ -64,7 +64,7 @@ msgstr "Διαχείριση"
 msgid "Try changing search terms."
 msgstr "Δοκιμάστε να αλλάξετε τους όρους αναζήτησης"
 
-#: src/SearchView.vala:49
+#: src/SearchView.vala:50
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Κανένα αποτέλεσμα για “%s”"

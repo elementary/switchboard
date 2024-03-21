@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-01 16:19+0000\n"
+"POT-Creation-Date: 2024-03-21 20:59+0000\n"
 "PO-Revision-Date: 2024-02-02 22:42+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/switchboard/"
@@ -20,16 +20,12 @@ msgstr ""
 "X-Generator: Weblate 5.0.2\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:47+0000\n"
 
-#: src/Application.vala:24
-msgid "All Settings"
-msgstr "Tots els paràmetres"
-
-#: src/Application.vala:115
+#: src/Application.vala:109
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "L'enllaç especificat «%s» no existeix. Es torna al plafó principal."
 
-#: src/Application.vala:167 src/Application.vala:220
+#: src/Application.vala:141
 msgid "System Settings"
 msgstr "Configuració del sistema"
 
@@ -37,29 +33,33 @@ msgstr "Configuració del sistema"
 msgid "Search Settings"
 msgstr "Cerca paràmetres"
 
-#: src/CategoryView.vala:40
+#: src/CategoryView.vala:46
 msgid "No Settings Found"
 msgstr "No s'ha trobat cap paràmetre"
 
-#: src/CategoryView.vala:41
+#: src/CategoryView.vala:47
 msgid "Install settings plugins and re-launch System Settings."
 msgstr ""
 "Instal·leu connectors de configuració i torneu a iniciar la configuració del "
 "sistema."
 
-#: src/CategoryView.vala:205
+#: src/CategoryView.vala:91
+msgid "All Settings"
+msgstr "Tots els paràmetres"
+
+#: src/CategoryView.vala:214
 msgid "Personal"
 msgstr "Personal"
 
-#: src/CategoryView.vala:207
+#: src/CategoryView.vala:216
 msgid "Hardware"
 msgstr "Maquinari"
 
-#: src/CategoryView.vala:209
+#: src/CategoryView.vala:218
 msgid "Network & Wireless"
 msgstr "Xarxa i xarxa sense fil"
 
-#: src/CategoryView.vala:211
+#: src/CategoryView.vala:220
 msgid "Administration"
 msgstr "Administració"
 
@@ -67,7 +67,7 @@ msgstr "Administració"
 msgid "Try changing search terms."
 msgstr "Proveu de canviar els termes de la cerca."
 
-#: src/SearchView.vala:49
+#: src/SearchView.vala:50
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Cap resultat per a “%s”"
