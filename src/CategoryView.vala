@@ -35,6 +35,12 @@ public class Switchboard.CategoryView : Adw.NavigationPage {
             tightening_threshold = 800
         };
 
+        var headerbar = new Gtk.HeaderBar () {
+            show_title_buttons = true,
+            title_widget = search_clamp
+        };
+        headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
+
         var searchview = new SearchView (search_box);
 
         var alert_view = new Granite.Placeholder (_("No Settings Found")) {
@@ -78,7 +84,7 @@ public class Switchboard.CategoryView : Adw.NavigationPage {
         };
 
         var box = new Gtk.Box (VERTICAL, 0);
-        box.append (search_clamp);
+        box.append (headerbar);
         box.append (scrolled);
 
         child = box;

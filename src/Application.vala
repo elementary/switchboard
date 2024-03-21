@@ -21,15 +21,10 @@
 
 namespace Switchboard {
     public class SwitchboardApp : Gtk.Application {
-        private string all_settings_label = N_("All Settings");
-
         private GLib.HashTable <Gtk.Widget, Switchboard.Plug> plug_widgets;
-        private Gtk.Button navigation_button;
         private Adw.NavigationView navigation_view;
-        private Gtk.HeaderBar headerbar;
         private Gtk.Window main_window;
         private Switchboard.CategoryView category_view;
-        private Gtk.Label title_label;
 
         private static bool opened_directly = false;
         private static string? link = null;
@@ -134,22 +129,6 @@ namespace Switchboard {
 
             plug_widgets = new GLib.HashTable <Gtk.Widget, Switchboard.Plug> (null, null);
 
-            navigation_button = new Gtk.Button.with_label (_(all_settings_label));
-            navigation_button.action_name = "app.back";
-            navigation_button.set_tooltip_markup (
-                Granite.markup_accel_tooltip ({"<Alt>Left", "Back"})
-            );
-            navigation_button.get_style_context ().add_class ("back-button");
-
-            title_label = new Gtk.Label ("");
-            title_label.add_css_class (Granite.STYLE_CLASS_TITLE_LABEL);
-
-            headerbar = new Gtk.HeaderBar () {
-                show_title_buttons = true,
-                title_widget = title_label
-            };
-            headerbar.pack_start (navigation_button);
-
             category_view = new Switchboard.CategoryView (plug_to_open);
 
             navigation_view = new Adw.NavigationView ();
@@ -161,12 +140,10 @@ namespace Switchboard {
                 height_request = 500,
                 icon_name = application_id,
                 title = _("System Settings"),
-                titlebar = headerbar
+                titlebar = new Gtk.Grid () { visible = false }
             };
             add_window (main_window);
             main_window.present ();
-
-            navigation_button.hide ();
 
             /*
             * This is very finicky. Bind size after present else set_titlebar gives us bad sizes
@@ -183,8 +160,6 @@ namespace Switchboard {
 
             settings.bind ("window-maximized", main_window, "maximized", SettingsBindFlags.SET);
 
-            main_window.bind_property ("title", title_label, "label");
-
             shutdown.connect (() => {
                 navigation_view.visible_page.hidden ();
             });
@@ -194,14 +169,6 @@ namespace Switchboard {
         }
 
         private void update_navigation () {
-            if (navigation_view.visible_page is Switchboard.CategoryView) {
-                navigation_button.hide ();
-            } else {
-                var previous_page = navigation_view.get_previous_page (navigation_view.visible_page);
-                navigation_button.label = previous_page.title;
-                navigation_button.show ();
-            }
-
             main_window.title = navigation_view.visible_page.title;
         }
 
