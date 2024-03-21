@@ -56,4 +56,46 @@ toolbarview {
         background: inherit;
         box-shadow: none;
     }
+
+    revealer.top-bar {
+        &.raised {
+            background-color: #{'@insensitive_bg_color'};
+            background-image:
+                linear-gradient(
+                    to bottom,
+                    #{'alpha(@highlight_color, 0.1)'},
+                    rgba(white, 0)
+                );
+            box-shadow:
+                inset 0 -1px 0 0 #{'alpha(@highlight_color, 0.2)'},
+                inset 0 1px 0 0 #{'alpha(@highlight_color, 0.3)'},
+                inset 1px 0 0 0 #{'alpha(@highlight_color, 0.07)'},
+                inset -1px 0 0 0 #{'alpha(@highlight_color, 0.07)'},
+                // Intentionally not in ems since it's used as a stroke
+                0 1px 0 0 #{'alpha(@borders, 0.4)'},
+                0 1px rem(2px) rgba(black, 0.2);
+
+            &:backdrop {
+                background-color: inherit;
+                background-image: none;
+                box-shadow:
+                    inset 0 -1px 0 0 #{'alpha(@highlight_color, 0.2)'},
+                    inset 0 1px 0 0 #{'alpha(@highlight_color, 0.3)'},
+                    inset 1px 0 0 0 #{'alpha(@highlight_color, 0.07)'},
+                    inset -1px 0 0 0 #{'alpha(@highlight_color, 0.07)'},
+                    0 0 0 1px #{'alpha(@borders, 0.3)'},
+                    0 1px rem(2px) rgba(black, 0.15);
+            }
+        }
+
+        &.raised.border {
+            box-shadow:
+                inset 0 -1px 0 0 #{'alpha(@highlight_color, 0.2)'},
+                inset 0 1px 0 0 #{'alpha(@highlight_color, 0.3)'},
+                inset 1px 0 0 0 #{'alpha(@highlight_color, 0.07)'},
+                inset -1px 0 0 0 #{'alpha(@highlight_color, 0.07)'},
+                // Intentionally not in ems since it's used as a stroke
+                0 1px 0 0 #{'alpha(@borders, 0.8)'};
+        }
+    }
 }

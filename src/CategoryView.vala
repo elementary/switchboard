@@ -39,7 +39,6 @@ public class Switchboard.CategoryView : Adw.NavigationPage {
             show_title_buttons = true,
             title_widget = search_clamp
         };
-        headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
 
         var searchview = new SearchView (search_box);
 
@@ -77,17 +76,20 @@ public class Switchboard.CategoryView : Adw.NavigationPage {
             maximum_size = 800,
             tightening_threshold = 800
         };
+        clamp.add_css_class ("main-clamp");
 
         var scrolled = new Gtk.ScrolledWindow () {
             child = clamp,
             hscrollbar_policy = NEVER
         };
 
-        var box = new Gtk.Box (VERTICAL, 0);
-        box.append (headerbar);
-        box.append (scrolled);
+        var toolbarview = new Adw.ToolbarView () {
+            content = scrolled,
+            top_bar_style = RAISED
+        };
+        toolbarview.add_top_bar (headerbar);
 
-        child = box;
+        child = toolbarview;
         title = _("All Settings");
 
         load_default_plugs.begin ();
