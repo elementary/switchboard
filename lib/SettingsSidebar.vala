@@ -93,6 +93,8 @@ public class Switchboard.SettingsSidebar : Gtk.Widget {
         toolbarview.add_top_bar (headerbar);
         toolbarview.set_parent (this);
 
+        add_css_class (Granite.STYLE_CLASS_SIDEBAR);
+
         on_sidebar_changed ();
         stack.pages.items_changed.connect (on_sidebar_changed);
 
