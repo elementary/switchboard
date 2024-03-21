@@ -22,7 +22,7 @@
 namespace Switchboard {
     public class SwitchboardApp : Gtk.Application {
         private GLib.HashTable <Gtk.Widget, Switchboard.Plug> plug_widgets;
-        private Adw.Leaflet leaflet;
+        private Adw.NavigationView navigation_view;
         private Gtk.Window main_window;
         private Switchboard.CategoryView category_view;
 
@@ -89,7 +89,6 @@ namespace Switchboard {
             add_action (back_action);
             add_action (quit_action);
 
-            set_accels_for_action ("app.back", {"<Alt>Left", "Back"});
             set_accels_for_action ("app.quit", {"<Control>q"});
 
             back_action.activate.connect (action_navigate_back);
@@ -132,16 +131,12 @@ namespace Switchboard {
 
             category_view = new Switchboard.CategoryView (plug_to_open);
 
-            leaflet = new Adw.Leaflet () {
-                can_navigate_back = true,
-                can_navigate_forward = true,
-                can_unfold = false
-            };
-            leaflet.append (category_view);
+            navigation_view = new Adw.NavigationView ();
+            navigation_view.add (category_view);
 
             main_window = new Gtk.Window () {
                 application = this,
-                child = leaflet,
+                child = navigation_view,
                 icon_name = application_id,
                 title = _("System Settings"),
                 titlebar = new Gtk.Grid () { visible = false }
@@ -165,59 +160,26 @@ namespace Switchboard {
             settings.bind ("window-maximized", main_window, "maximized", SettingsBindFlags.SET);
 
             shutdown.connect (() => {
-                if (plug_widgets[leaflet.visible_child] != null && plug_widgets[leaflet.visible_child] is Switchboard.Plug) {
-                    plug_widgets[leaflet.visible_child].hidden ();
-                }
+                navigation_view.visible_page.hidden ();
             });
 
-            leaflet.notify["visible-child"].connect (() => {
-                update_navigation ();
-            });
-
-            leaflet.notify["child-transition-running"].connect (() => {
-                update_navigation ();
-            });
+            navigation_view.popped.connect (update_navigation);
+            navigation_view.pushed.connect (update_navigation);
         }
 
         private void update_navigation () {
-            if (!leaflet.child_transition_running) {
-                if (plug_widgets[leaflet.get_adjacent_child (Adw.NavigationDirection.FORWARD)] != null) {
-                    plug_widgets[leaflet.get_adjacent_child (Adw.NavigationDirection.FORWARD)].hidden ();
-                }
-
-                var previous_child = plug_widgets[leaflet.get_adjacent_child (Adw.NavigationDirection.BACK)];
-                if (previous_child != null && previous_child is Switchboard.Plug) {
-                    previous_child.hidden ();
-                }
-
-                var visible_widget = leaflet.visible_child;
-                if (visible_widget is Switchboard.CategoryView) {
-                    main_window.title = _("System Settings");
-                } else {
-                    var plug = plug_widgets[visible_widget];
-                    if (plug != null) {
-                        plug.shown ();
-                        main_window.title = plug.display_name;
-                    } else {
-                        critical ("Visible child is not CategoryView nor is associated with a Plug.");
-                    }
-                }
-            }
+            main_window.title = navigation_view.visible_page.title;
         }
 
         public void load_plug (Switchboard.Plug plug) {
-            if (leaflet.child_transition_running) {
-                return;
-            }
-
             Idle.add (() => {
-                while (leaflet.get_adjacent_child (Adw.NavigationDirection.FORWARD) != null) {
-                    leaflet.remove (leaflet.get_adjacent_child (Adw.NavigationDirection.FORWARD));
-                }
-
                 var plug_widget = plug.get_widget ();
                 if (plug_widget.parent == null) {
-                    leaflet.append (plug_widget);
+                    var navigation_page = new Adw.NavigationPage (plug_widget, plug.display_name);
+                    navigation_page.hidden.connect (plug.hidden);
+                    navigation_page.shown.connect (plug.shown);
+
+                    navigation_view.add (navigation_page);
                 }
 
                 if (plug_widgets[plug_widget] == null) {
@@ -245,13 +207,13 @@ namespace Switchboard {
                 }
 
                 if (opened_directly) {
-                    leaflet.mode_transition_duration = 0;
+                    navigation_view.animate_transitions = false;
                     opened_directly = false;
-                } else if (leaflet.mode_transition_duration == 0) {
-                    leaflet.mode_transition_duration = 200;
+                } else if (navigation_view.animate_transitions == false) {
+                    navigation_view.animate_transitions = true;
                 }
 
-                leaflet.visible_child = plug.get_widget ();
+                navigation_view.push ((Adw.NavigationPage) plug.get_widget ().parent);
 
                 return false;
             }, GLib.Priority.DEFAULT_IDLE);
@@ -259,12 +221,12 @@ namespace Switchboard {
 
         // Handles clicking the navigation button
         private void action_navigate_back () {
-            if (leaflet.get_adjacent_child (Adw.NavigationDirection.BACK) == category_view) {
+            if (navigation_view.get_previous_page (navigation_view.visible_page) == category_view) {
                 opened_directly = false;
-                leaflet.mode_transition_duration = 200;
+                navigation_view.animate_transitions = true;
             }
 
-            leaflet.navigate (Adw.NavigationDirection.BACK);
+            navigation_view.pop ();
         }
 
         // Try to find a supported plug, fallback paths like "foo/bar" to "foo"
