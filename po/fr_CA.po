@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-01 16:19+0000\n"
+"POT-Creation-Date: 2024-03-21 20:59+0000\n"
 "PO-Revision-Date: 2018-06-16 00:10+0000\n"
 "Last-Translator: martin fromont <martin.fromont1@gmail.com>\n"
 "Language-Team: French (Canada) <https://weblate.elementary.io/projects/"
@@ -20,16 +20,12 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 
-#: src/Application.vala:24
-msgid "All Settings"
-msgstr ""
-
-#: src/Application.vala:115
+#: src/Application.vala:109
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr ""
 
-#: src/Application.vala:167 src/Application.vala:220
+#: src/Application.vala:141
 msgid "System Settings"
 msgstr "Paramètres système"
 
@@ -37,27 +33,31 @@ msgstr "Paramètres système"
 msgid "Search Settings"
 msgstr "Paramètres de recherche"
 
-#: src/CategoryView.vala:40
+#: src/CategoryView.vala:46
 msgid "No Settings Found"
 msgstr ""
 
-#: src/CategoryView.vala:41
+#: src/CategoryView.vala:47
 msgid "Install settings plugins and re-launch System Settings."
 msgstr ""
 
-#: src/CategoryView.vala:205
+#: src/CategoryView.vala:91
+msgid "All Settings"
+msgstr ""
+
+#: src/CategoryView.vala:214
 msgid "Personal"
 msgstr "Personnel"
 
-#: src/CategoryView.vala:207
+#: src/CategoryView.vala:216
 msgid "Hardware"
 msgstr "Matériel"
 
-#: src/CategoryView.vala:209
+#: src/CategoryView.vala:218
 msgid "Network & Wireless"
 msgstr ""
 
-#: src/CategoryView.vala:211
+#: src/CategoryView.vala:220
 msgid "Administration"
 msgstr ""
 
@@ -65,7 +65,7 @@ msgstr ""
 msgid "Try changing search terms."
 msgstr ""
 
-#: src/SearchView.vala:49
+#: src/SearchView.vala:50
 #, c-format
 msgid "No Results for “%s”"
 msgstr ""

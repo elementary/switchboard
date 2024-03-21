@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-01 16:19+0000\n"
+"POT-Creation-Date: 2024-03-21 20:59+0000\n"
 "PO-Revision-Date: 2022-05-22 08:05+0000\n"
 "Last-Translator: Dennis ten Hoove <dennistenhoove@protonmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/switchboard/"
@@ -20,16 +20,12 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:47+0000\n"
 
-#: src/Application.vala:24
-msgid "All Settings"
-msgstr "Alle instellingen"
-
-#: src/Application.vala:115
+#: src/Application.vala:109
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Specifieke link '%s' bestaat niet, teruggaan naar het hoofdpaneel"
 
-#: src/Application.vala:167 src/Application.vala:220
+#: src/Application.vala:141
 msgid "System Settings"
 msgstr "Systeeminstellingen"
 
@@ -37,27 +33,31 @@ msgstr "Systeeminstellingen"
 msgid "Search Settings"
 msgstr "Zoek in instellingen"
 
-#: src/CategoryView.vala:40
+#: src/CategoryView.vala:46
 msgid "No Settings Found"
 msgstr "Geen instellingen gevonden"
 
-#: src/CategoryView.vala:41
+#: src/CategoryView.vala:47
 msgid "Install settings plugins and re-launch System Settings."
 msgstr ""
 
-#: src/CategoryView.vala:205
+#: src/CategoryView.vala:91
+msgid "All Settings"
+msgstr "Alle instellingen"
+
+#: src/CategoryView.vala:214
 msgid "Personal"
 msgstr "Persoonlijk"
 
-#: src/CategoryView.vala:207
+#: src/CategoryView.vala:216
 msgid "Hardware"
 msgstr "Hardware"
 
-#: src/CategoryView.vala:209
+#: src/CategoryView.vala:218
 msgid "Network & Wireless"
 msgstr "Netwerk en draadloos"
 
-#: src/CategoryView.vala:211
+#: src/CategoryView.vala:220
 msgid "Administration"
 msgstr "Beheer"
 
@@ -65,7 +65,7 @@ msgstr "Beheer"
 msgid "Try changing search terms."
 msgstr "Probeer uw zoektermen te wijzigen."
 
-#: src/SearchView.vala:49
+#: src/SearchView.vala:50
 #, c-format
 msgid "No Results for “%s”"
 msgstr "Geen resultaat voor \"%s\""

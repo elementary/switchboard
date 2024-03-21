@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-01 16:19+0000\n"
+"POT-Creation-Date: 2024-03-21 20:59+0000\n"
 "PO-Revision-Date: 2021-01-25 07:22+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -20,16 +20,12 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 
-#: src/Application.vala:24
-msgid "All Settings"
-msgstr "全部设置"
-
-#: src/Application.vala:115
+#: src/Application.vala:109
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "定向链接 '%s' 不存在，正在跳转主面板"
 
-#: src/Application.vala:167 src/Application.vala:220
+#: src/Application.vala:141
 msgid "System Settings"
 msgstr "系统设置"
 
@@ -37,27 +33,31 @@ msgstr "系统设置"
 msgid "Search Settings"
 msgstr "搜索设置"
 
-#: src/CategoryView.vala:40
+#: src/CategoryView.vala:46
 msgid "No Settings Found"
 msgstr "未找到相关设置"
 
-#: src/CategoryView.vala:41
+#: src/CategoryView.vala:47
 msgid "Install settings plugins and re-launch System Settings."
 msgstr ""
 
-#: src/CategoryView.vala:205
+#: src/CategoryView.vala:91
+msgid "All Settings"
+msgstr "全部设置"
+
+#: src/CategoryView.vala:214
 msgid "Personal"
 msgstr "个人"
 
-#: src/CategoryView.vala:207
+#: src/CategoryView.vala:216
 msgid "Hardware"
 msgstr "硬件"
 
-#: src/CategoryView.vala:209
+#: src/CategoryView.vala:218
 msgid "Network & Wireless"
 msgstr "网络"
 
-#: src/CategoryView.vala:211
+#: src/CategoryView.vala:220
 msgid "Administration"
 msgstr "系统"
 
@@ -65,7 +65,7 @@ msgstr "系统"
 msgid "Try changing search terms."
 msgstr "尝试更改搜索内容。"
 
-#: src/SearchView.vala:49
+#: src/SearchView.vala:50
 #, c-format
 msgid "No Results for “%s”"
 msgstr "未找到与 “%s” 相关的结果"
