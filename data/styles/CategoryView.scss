@@ -1,5 +1,5 @@
 category-view {
-    > scrolledwindow {
+    box > scrolledwindow {
         overshoot.top {
             background:
                 linear-gradient(
@@ -24,7 +24,7 @@ category-view {
         }
     }
 
-    clamp {
+    scrolledwindow clamp {
         padding: rem(12px);
 
         box.vertical {
