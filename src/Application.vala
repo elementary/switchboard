@@ -137,6 +137,7 @@ namespace Switchboard {
             main_window = new Gtk.Window () {
                 application = this,
                 child = navigation_view,
+                height_request = 500,
                 icon_name = application_id,
                 title = _("System Settings"),
                 titlebar = new Gtk.Grid () { visible = false }
