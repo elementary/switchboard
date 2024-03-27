@@ -51,8 +51,8 @@ toolbarview {
         }
     }
 
-    headerbar,
-    actionbar {
+    revealer.top-bar headerbar,
+    revealer.bottom-bar actionbar {
         background: inherit;
         box-shadow: none;
     }
