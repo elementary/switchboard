@@ -131,7 +131,9 @@ namespace Switchboard {
 
             category_view = new Switchboard.CategoryView (plug_to_open);
 
-            navigation_view = new Adw.NavigationView ();
+            navigation_view = new Adw.NavigationView () {
+                pop_on_escape = false
+            };
             navigation_view.add (category_view);
 
             main_window = new Gtk.Window () {
