@@ -1,7 +1,7 @@
 project(
     'io.elementary.settings',
     'c', 'vala',
-    version: '6.0.2',
+    version: '8.0.0',
 )
 
 lib_version = '2.0'
