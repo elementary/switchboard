@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-21 20:59+0000\n"
+"POT-Creation-Date: 2024-05-09 16:28+0000\n"
 "PO-Revision-Date: 2017-02-09 14:29+0000\n"
 "Last-Translator: Christos Iatropoulos <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
@@ -24,7 +24,7 @@ msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr ""
 "Ο συγκεκριμένος σύνδεσμος '%s' δεν υπάρχει, επιστροφή στον κύριο πίνακα"
 
-#: src/Application.vala:141
+#: src/Application.vala:144
 msgid "System Settings"
 msgstr "Ρυθμίσεις συστήματος"
 
@@ -32,31 +32,31 @@ msgstr "Ρυθμίσεις συστήματος"
 msgid "Search Settings"
 msgstr "Ρυθμίσεις αναζήτησης"
 
-#: src/CategoryView.vala:46
+#: src/CategoryView.vala:45
 msgid "No Settings Found"
 msgstr "Δε βρέθηκαν ρυθμίσεις"
 
-#: src/CategoryView.vala:47
+#: src/CategoryView.vala:46
 msgid "Install settings plugins and re-launch System Settings."
 msgstr ""
 
-#: src/CategoryView.vala:91
+#: src/CategoryView.vala:92
 msgid "All Settings"
 msgstr "Όλες οι ρυθμίσεις"
 
-#: src/CategoryView.vala:214
+#: src/CategoryView.vala:215
 msgid "Personal"
 msgstr "Προσωπικές"
 
-#: src/CategoryView.vala:216
+#: src/CategoryView.vala:217
 msgid "Hardware"
 msgstr "Υλικό"
 
-#: src/CategoryView.vala:218
+#: src/CategoryView.vala:219
 msgid "Network & Wireless"
 msgstr "Δίκτυο & ασύρματο"
 
-#: src/CategoryView.vala:220
+#: src/CategoryView.vala:221
 msgid "Administration"
 msgstr "Διαχείριση"
 
