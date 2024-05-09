@@ -88,7 +88,11 @@ public class Switchboard.CategoryView : Adw.NavigationPage {
         };
         toolbarview.add_top_bar (headerbar);
 
-        child = toolbarview;
+        var window_handle = new Gtk.WindowHandle () {
+            child = toolbarview
+        };
+
+        child = window_handle;
         title = _("All Settings");
 
         load_default_plugs.begin ();
