@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-09 16:28+0000\n"
-"PO-Revision-Date: 2023-02-18 14:25+0000\n"
+"PO-Revision-Date: 2024-05-11 13:13+0000\n"
 "Last-Translator: David Hewitt <davidmhewitt@gmail.com>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "switchboard/extra/en_GB/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 5.5\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 
 #: data/settings.desktop.in:4 data/settings.appdata.xml.in:9
@@ -44,35 +44,35 @@ msgstr "elementary, Inc."
 
 #: data/settings.appdata.xml.in:43
 msgid "App Updates:"
-msgstr ""
+msgstr "App Updates:"
 
 #: data/settings.appdata.xml.in:45
 msgid "New redesigned app icon"
-msgstr ""
+msgstr "New redesigned app icon"
 
 #: data/settings.appdata.xml.in:46
 msgid "New flatter and more responsive design"
-msgstr ""
+msgstr "New flatter and more responsive design"
 
 #: data/settings.appdata.xml.in:47
 msgid "Smoother animations"
-msgstr ""
+msgstr "Smoother animations"
 
 #: data/settings.appdata.xml.in:48
 msgid "Search results are more relevant and more clearly formatted"
-msgstr ""
+msgstr "Search results are more relevant and more clearly formatted"
 
 #: data/settings.appdata.xml.in:49
 msgid "Use Portals when available"
-msgstr ""
+msgstr "Use Portals when available"
 
 #: data/settings.appdata.xml.in:50
 msgid "Back Buttons have a secondary-click menu for faster navigation"
-msgstr ""
+msgstr "Back Buttons have a secondary-click menu for faster navigation"
 
 #: data/settings.appdata.xml.in:51
 msgid "Window now has a reasonable minimum size"
-msgstr ""
+msgstr "Window now has a reasonable minimum size"
 
 #: data/settings.appdata.xml.in:52 data/settings.appdata.xml.in:68
 #: data/settings.appdata.xml.in:76 data/settings.appdata.xml.in:88
