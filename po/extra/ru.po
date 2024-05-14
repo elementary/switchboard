@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-09 16:28+0000\n"
-"PO-Revision-Date: 2024-02-20 13:12+0000\n"
-"Last-Translator: lenemter <lenemter@gmail.com>\n"
+"PO-Revision-Date: 2024-05-13 05:13+0000\n"
+"Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/switchboard/"
 "extra/ru/>\n"
 "Language: ru\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.0.2\n"
+"X-Generator: Weblate 5.5\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 
 #: data/settings.desktop.in:4 data/settings.appdata.xml.in:9
@@ -47,35 +47,35 @@ msgstr "elementary, Inc."
 
 #: data/settings.appdata.xml.in:43
 msgid "App Updates:"
-msgstr ""
+msgstr "Обновления приложения:"
 
 #: data/settings.appdata.xml.in:45
 msgid "New redesigned app icon"
-msgstr ""
+msgstr "Новая переработанная иконка приложения"
 
 #: data/settings.appdata.xml.in:46
 msgid "New flatter and more responsive design"
-msgstr ""
+msgstr "Более плоский и отзывчивый дизайн"
 
 #: data/settings.appdata.xml.in:47
 msgid "Smoother animations"
-msgstr ""
+msgstr "Более плавные анимации"
 
 #: data/settings.appdata.xml.in:48
 msgid "Search results are more relevant and more clearly formatted"
-msgstr ""
+msgstr "Более релевантные и чётко сформулированные результаты поиска"
 
 #: data/settings.appdata.xml.in:49
 msgid "Use Portals when available"
-msgstr ""
+msgstr "По возможности используются порталы"
 
 #: data/settings.appdata.xml.in:50
 msgid "Back Buttons have a secondary-click menu for faster navigation"
-msgstr ""
+msgstr "Кнопки «Назад» теперь имеют меню на ПКМ для более быстрой навигации"
 
 #: data/settings.appdata.xml.in:51
 msgid "Window now has a reasonable minimum size"
-msgstr ""
+msgstr "Окно теперь имеет разумный минимальный размер"
 
 #: data/settings.appdata.xml.in:52 data/settings.appdata.xml.in:68
 #: data/settings.appdata.xml.in:76 data/settings.appdata.xml.in:88
