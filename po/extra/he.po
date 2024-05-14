@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-09 16:28+0000\n"
-"PO-Revision-Date: 2024-05-13 05:13+0000\n"
+"PO-Revision-Date: 2024-05-15 14:13+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/switchboard/extra/"
 "he/>\n"
@@ -59,7 +59,7 @@ msgstr "הנפשות חלקות יותר"
 
 #: data/settings.appdata.xml.in:48
 msgid "Search results are more relevant and more clearly formatted"
-msgstr ""
+msgstr "תוצאות החיפוש מתאימות יותר ומעוצבות בצורה ברורה"
 
 #: data/settings.appdata.xml.in:49
 msgid "Use Portals when available"
@@ -71,7 +71,7 @@ msgstr "לכפתורי החזרה יש תפריט לחיצה משנית לניו
 
 #: data/settings.appdata.xml.in:51
 msgid "Window now has a reasonable minimum size"
-msgstr ""
+msgstr "לחלון יש מעתה גודל מזערי סביר"
 
 #: data/settings.appdata.xml.in:52 data/settings.appdata.xml.in:68
 #: data/settings.appdata.xml.in:76 data/settings.appdata.xml.in:88
