@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-21 20:59+0000\n"
+"POT-Creation-Date: 2024-05-09 16:28+0000\n"
 "PO-Revision-Date: 2019-07-15 16:12+0000\n"
 "Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
 "Language-Team: Esperanto <https://l10n.elementary.io/projects/switchboard/"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Indikita ligilo „%s“ ne ekzistas, reen al la ĉefa panelo"
 
-#: src/Application.vala:141
+#: src/Application.vala:144
 msgid "System Settings"
 msgstr "Sistemaj agordoj"
 
@@ -33,31 +33,31 @@ msgstr "Sistemaj agordoj"
 msgid "Search Settings"
 msgstr "Serĉi agordojn"
 
-#: src/CategoryView.vala:46
+#: src/CategoryView.vala:45
 msgid "No Settings Found"
 msgstr "Neniu agordo trovita"
 
-#: src/CategoryView.vala:47
+#: src/CategoryView.vala:46
 msgid "Install settings plugins and re-launch System Settings."
 msgstr ""
 
-#: src/CategoryView.vala:91
+#: src/CategoryView.vala:92
 msgid "All Settings"
 msgstr "Ĉiuj agordoj"
 
-#: src/CategoryView.vala:214
+#: src/CategoryView.vala:215
 msgid "Personal"
 msgstr "Persona"
 
-#: src/CategoryView.vala:216
+#: src/CategoryView.vala:217
 msgid "Hardware"
 msgstr "Aparataro"
 
-#: src/CategoryView.vala:218
+#: src/CategoryView.vala:219
 msgid "Network & Wireless"
 msgstr "Reto & sendrato"
 
-#: src/CategoryView.vala:220
+#: src/CategoryView.vala:221
 msgid "Administration"
 msgstr "Administrado"
 
