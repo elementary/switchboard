@@ -92,7 +92,7 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
     private Gtk.SizeGroup end_button_group;
 
     static construct {
-        set_layout_manager_type (typeof (Gtk.BinLayout));
+        set_layout_manager_type (typeof (Gtk.BoxLayout));
     }
 
     class construct {
@@ -126,6 +126,7 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
         title_label.add_css_class (Granite.STYLE_CLASS_H2_LABEL);
 
         var description_label = new Gtk.Label (description) {
+            hexpand = true,
             max_width_chars = 0,
             selectable = true,
             use_markup = true,
@@ -133,11 +134,8 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
             xalign = 0
         };
 
-        var header_area = new Gtk.Grid () {
-            halign = CENTER
-        };
+        var header_area = new Gtk.Grid ();
         header_area.attach (title_label, 1, 0);
-        header_area.add_css_class ("header-area");
 
         if (description != null) {
             header_area.attach (header_widget, 0, 0, 1, 2);
@@ -157,8 +155,15 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
             valign = START
         };
 
+        var header_clamp = new Adw.Clamp () {
+            child = header_area,
+            maximum_size = 600,
+            tightening_threshold = 600
+        };
+        header_clamp.add_css_class ("header-area");
+
         var headerbar = new Gtk.CenterBox () {
-            center_widget = header_area,
+            center_widget = header_clamp,
             end_widget = end_widget
         };
 
@@ -173,10 +178,6 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
         };
         content_area.add_css_class ("content-area");
 
-        var size_group = new Gtk.SizeGroup (HORIZONTAL);
-        size_group.add_widget (header_area);
-        size_group.add_widget (content_area);
-
         var scrolled = new Gtk.ScrolledWindow () {
             child = content_area,
             hscrollbar_policy = NEVER
@@ -190,11 +191,10 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
         };
         action_bar.add_css_class ("action-area");
 
-        var grid = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        grid.append (window_handle);
-        grid.append (scrolled);
-        grid.append (action_bar);
-        grid.set_parent (this);
+        ((Gtk.BoxLayout) get_layout_manager ()).orientation = VERTICAL;
+        window_handle.set_parent (this);
+        scrolled.set_parent (this);
+        action_bar.set_parent (this);
 
         bind_property ("description", description_label, "label");
         bind_property ("title", title_label, "label");
@@ -210,7 +210,9 @@ public abstract class Switchboard.SettingsPage : Gtk.Widget {
     }
 
     ~SettingsPage () {
-        get_first_child ().unparent ();
+        while (get_first_child () != null) {
+            get_first_child ().unparent ();
+        }
     }
 
     public Gtk.Button add_start_button (string label) {
