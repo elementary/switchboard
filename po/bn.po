@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-21 20:59+0000\n"
+"POT-Creation-Date: 2024-05-09 16:28+0000\n"
 "PO-Revision-Date: 2016-02-24 16:09+0000\n"
 "Last-Translator: momit rahman <momitrahman@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr ""
 
-#: src/Application.vala:141
+#: src/Application.vala:144
 msgid "System Settings"
 msgstr "সিস্টেম সেটিংস"
 
@@ -26,31 +26,31 @@ msgstr "সিস্টেম সেটিংস"
 msgid "Search Settings"
 msgstr "সার্চ সেটিংস"
 
-#: src/CategoryView.vala:46
+#: src/CategoryView.vala:45
 msgid "No Settings Found"
 msgstr ""
 
-#: src/CategoryView.vala:47
+#: src/CategoryView.vala:46
 msgid "Install settings plugins and re-launch System Settings."
 msgstr ""
 
-#: src/CategoryView.vala:91
+#: src/CategoryView.vala:92
 msgid "All Settings"
 msgstr "সকল সেটিংস"
 
-#: src/CategoryView.vala:214
+#: src/CategoryView.vala:215
 msgid "Personal"
 msgstr "ব্যক্তিগত"
 
-#: src/CategoryView.vala:216
+#: src/CategoryView.vala:217
 msgid "Hardware"
 msgstr "হার্ডওয়্যার"
 
-#: src/CategoryView.vala:218
+#: src/CategoryView.vala:219
 msgid "Network & Wireless"
 msgstr "নেটওয়ার্ক ও ওয়্যারলেস"
 
-#: src/CategoryView.vala:220
+#: src/CategoryView.vala:221
 msgid "Administration"
 msgstr "অ্যাডমিনিস্ট্রেশন"
 

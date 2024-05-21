@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-21 20:59+0000\n"
+"POT-Creation-Date: 2024-05-09 16:28+0000\n"
 "PO-Revision-Date: 2017-01-06 07:35+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <sr@li.org>\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Наведена веза „%s“ не постоји, враћам се на главни панел"
 
-#: src/Application.vala:141
+#: src/Application.vala:144
 msgid "System Settings"
 msgstr "Подешавања система"
 
@@ -31,31 +31,31 @@ msgstr "Подешавања система"
 msgid "Search Settings"
 msgstr "Потражи подешавања"
 
-#: src/CategoryView.vala:46
+#: src/CategoryView.vala:45
 msgid "No Settings Found"
 msgstr "Нисам нашао подешавања"
 
-#: src/CategoryView.vala:47
+#: src/CategoryView.vala:46
 msgid "Install settings plugins and re-launch System Settings."
 msgstr ""
 
-#: src/CategoryView.vala:91
+#: src/CategoryView.vala:92
 msgid "All Settings"
 msgstr "Сва подешавања"
 
-#: src/CategoryView.vala:214
+#: src/CategoryView.vala:215
 msgid "Personal"
 msgstr "Лично"
 
-#: src/CategoryView.vala:216
+#: src/CategoryView.vala:217
 msgid "Hardware"
 msgstr "Хардвер"
 
-#: src/CategoryView.vala:218
+#: src/CategoryView.vala:219
 msgid "Network & Wireless"
 msgstr "Жичана и бежична мрежа"
 
-#: src/CategoryView.vala:220
+#: src/CategoryView.vala:221
 msgid "Administration"
 msgstr "Администрација"
 
