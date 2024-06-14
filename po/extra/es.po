@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-09 16:28+0000\n"
-"PO-Revision-Date: 2024-06-11 00:16+0000\n"
+"PO-Revision-Date: 2024-06-14 03:33+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/switchboard/"
 "extra/es/>\n"
@@ -36,8 +36,8 @@ msgstr "Centro;Control;Panel;Preferencias;Sistema;"
 msgid ""
 "A system settings application that focuses on modularity and simplicity."
 msgstr ""
-"Una aplicación de configuración del sistema centrada en la modularidad y en "
-"la simplicidad."
+"Una aplicación de configuración del sistema centrada en modularidad y "
+"simplicidad."
 
 #: data/settings.appdata.xml.in:35
 msgid "elementary, Inc."
@@ -45,35 +45,38 @@ msgstr "elementary, Inc."
 
 #: data/settings.appdata.xml.in:43
 msgid "App Updates:"
-msgstr ""
+msgstr "Actualizaciones de la aplicación:"
 
 #: data/settings.appdata.xml.in:45
 msgid "New redesigned app icon"
-msgstr ""
+msgstr "Ahora se usa un nuevo yrediseñado icono de aplicación"
 
 #: data/settings.appdata.xml.in:46
 msgid "New flatter and more responsive design"
-msgstr ""
+msgstr "Un nuevo diseño plano y más responsivo"
 
 #: data/settings.appdata.xml.in:47
 msgid "Smoother animations"
-msgstr ""
+msgstr "Animaciones más suaves"
 
 #: data/settings.appdata.xml.in:48
 msgid "Search results are more relevant and more clearly formatted"
 msgstr ""
+"Los resultados de búsqueda son más relevantes y con un formato más claro"
 
 #: data/settings.appdata.xml.in:49
 msgid "Use Portals when available"
-msgstr ""
+msgstr "Se usan portales cuando sea posible"
 
 #: data/settings.appdata.xml.in:50
 msgid "Back Buttons have a secondary-click menu for faster navigation"
 msgstr ""
+"Los botones de «atrás» ahora tienen un menú haciendo clic con el botón "
+"secundario para mejor navegación"
 
 #: data/settings.appdata.xml.in:51
 msgid "Window now has a reasonable minimum size"
-msgstr ""
+msgstr "La ventana ahora tiene un tamaño mínimo más razonable"
 
 #: data/settings.appdata.xml.in:52 data/settings.appdata.xml.in:68
 #: data/settings.appdata.xml.in:76 data/settings.appdata.xml.in:88
@@ -83,23 +86,24 @@ msgstr "Traducciones actualizadas"
 
 #: data/settings.appdata.xml.in:67
 msgid "Bundle app icon"
-msgstr ""
+msgstr "Ahora el icono está empaquetado con la misma aplicación"
 
 #: data/settings.appdata.xml.in:84
 msgid "Add multitouch navigation gestures"
-msgstr ""
+msgstr "Se agregaron gestos de navegación multitoque"
 
 #: data/settings.appdata.xml.in:85
 msgid "Better support smaller displays"
-msgstr ""
+msgstr "Mejor soporte para pantallas más pequeñas"
 
 #: data/settings.appdata.xml.in:86
 msgid "Remove old GNOME Control Center compatibility layer"
 msgstr ""
+"Se eliminó la antigua capa de compatibilidad del Centro de Control de GNOME"
 
 #: data/settings.appdata.xml.in:87
 msgid "Stability and performance improvements"
-msgstr ""
+msgstr "Mejoras de estabilidad y rendimiento"
 
 #: data/settings.appdata.xml.in:96
 msgid "Redesign search results view"
