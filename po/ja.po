@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-05-09 16:28+0000\n"
-"PO-Revision-Date: 2024-05-27 06:13+0000\n"
+"PO-Revision-Date: 2024-06-20 12:16+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/switchboard/"
 "switchboard/ja/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.5\n"
+"X-Generator: Weblate 5.5.5\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:47+0000\n"
 
 #: src/Application.vala:109
@@ -68,7 +68,7 @@ msgstr "検索語句を変更してみてください。"
 #: src/SearchView.vala:50
 #, c-format
 msgid "No Results for “%s”"
-msgstr "“%s” の検索結果なし"
+msgstr "“%s”の検索結果なし"
 
 #~ msgid "Install some and re-launch Switchboard."
 #~ msgstr "設定項目をインストールして、Switchboard を再起動してください。"
