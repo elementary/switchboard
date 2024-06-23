@@ -20,6 +20,7 @@ You'll need the following dependencies:
 * libgtk-4-dev
 * libadwaita-1-dev (>= 1.4)
 * meson
+* sassc
 * valac
 
 Run `meson` to configure the build environment and then `ninja` to build
