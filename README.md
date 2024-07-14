@@ -19,7 +19,7 @@ You'll need the following dependencies:
 * libgranite-7-dev
 * libgtk-4-dev
 * libadwaita-1-dev (>= 1.4)
-* meson
+* meson (>= 0.57.0)
 * sassc
 * valac
 

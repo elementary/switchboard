@@ -2,6 +2,7 @@ project(
     'io.elementary.settings',
     'c', 'vala',
     version: '8.0.0',
+    meson_version: '>= 0.57.0'
 )
 
 lib_version = '2.0'
@@ -46,4 +47,6 @@ if get_option('example')
 endif
 subdir('po')
 
-meson.add_install_script('meson/post_install.py')
+meson.post_install(
+    glib_compile_schemas: true
+)
