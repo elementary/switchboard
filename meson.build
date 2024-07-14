@@ -47,6 +47,6 @@ if get_option('example')
 endif
 subdir('po')
 
-meson.post_install(
+gnome.post_install(
     glib_compile_schemas: true
 )
