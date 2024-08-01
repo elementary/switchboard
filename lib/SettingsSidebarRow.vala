@@ -36,6 +36,7 @@ private class Switchboard.SettingsSidebarRow : Gtk.ListBoxRow {
         set {
             status_label.label = value;
             status_label.visible = true;
+            update_property (Gtk.AccessibleProperty.DESCRIPTION, value, -1);
         }
     }
 
@@ -46,6 +47,7 @@ private class Switchboard.SettingsSidebarRow : Gtk.ListBoxRow {
         set {
             _title = value;
             title_label.label = value;
+            update_property (Gtk.AccessibleProperty.LABEL, value, -1);
         }
     }
 
@@ -107,6 +109,7 @@ private class Switchboard.SettingsSidebarRow : Gtk.ListBoxRow {
         grid.attach (title_label, 1, 0);
         grid.attach (status_label, 1, 1);
 
+        accessible_role = TAB;
         child = grid;
 
         header = page.header;
