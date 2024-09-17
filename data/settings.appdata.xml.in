@@ -38,6 +38,15 @@
   <update_contact>contact_AT_elementary.io</update_contact>
 
   <releases>
+    <release version="8.0.1" date="2024-09-16" urgency="medium">
+      <description>
+        <ul>
+          <li>Screen reader improvements</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+
     <release version="8.0.0" date="2024-05-21" urgency="medium">
       <description>
         <p>App Updates:</p>
@@ -90,16 +99,7 @@
       </description>
     </release>
 
-    <release version="2.4.0" date="2020-04-30" urgency="medium">
-      <description>
-        <ul>
-          <li>Redesign search results view</li>
-          <li>Tab key moves focus out of search</li>
-          <li>Updated translations</li>
-        </ul>
-      </description>
-    </release>
-
+    <release version="2.4.0" date="2020-04-30" urgency="medium" />
     <release version="2.3.9" date="2020-03-30" urgency="medium" />
     <release version="2.3.8" date="2020-01-14" urgency="medium" />
     <release version="2.3.7" date="2019-11-04" urgency="medium" />
