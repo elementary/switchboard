@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-09 16:28+0000\n"
+"POT-Creation-Date: 2024-09-17 18:06+0000\n"
 "PO-Revision-Date: 2024-06-14 03:33+0000\n"
 "Last-Translator: Italo Felipe Capasso Ballesteros <edwood.grant@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/switchboard/"
@@ -43,75 +43,77 @@ msgstr ""
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/settings.appdata.xml.in:43
+#: data/settings.appdata.xml.in:44
+msgid "Screen reader improvements"
+msgstr ""
+
+#: data/settings.appdata.xml.in:45 data/settings.appdata.xml.in:61
+#: data/settings.appdata.xml.in:77 data/settings.appdata.xml.in:85
+#: data/settings.appdata.xml.in:97
+msgid "Updated translations"
+msgstr "Traducciones actualizadas"
+
+#: data/settings.appdata.xml.in:52
 msgid "App Updates:"
 msgstr "Actualizaciones de la aplicación:"
 
-#: data/settings.appdata.xml.in:45
+#: data/settings.appdata.xml.in:54
 msgid "New redesigned app icon"
 msgstr "Ahora se usa un nuevo yrediseñado icono de aplicación"
 
-#: data/settings.appdata.xml.in:46
+#: data/settings.appdata.xml.in:55
 msgid "New flatter and more responsive design"
 msgstr "Un nuevo diseño plano y más responsivo"
 
-#: data/settings.appdata.xml.in:47
+#: data/settings.appdata.xml.in:56
 msgid "Smoother animations"
 msgstr "Animaciones más suaves"
 
-#: data/settings.appdata.xml.in:48
+#: data/settings.appdata.xml.in:57
 msgid "Search results are more relevant and more clearly formatted"
 msgstr ""
 "Los resultados de búsqueda son más relevantes y con un formato más claro"
 
-#: data/settings.appdata.xml.in:49
+#: data/settings.appdata.xml.in:58
 msgid "Use Portals when available"
 msgstr "Se usan portales cuando sea posible"
 
-#: data/settings.appdata.xml.in:50
+#: data/settings.appdata.xml.in:59
 msgid "Back Buttons have a secondary-click menu for faster navigation"
 msgstr ""
 "Los botones de «atrás» ahora tienen un menú haciendo clic con el botón "
 "secundario para mejor navegación"
 
-#: data/settings.appdata.xml.in:51
+#: data/settings.appdata.xml.in:60
 msgid "Window now has a reasonable minimum size"
 msgstr "La ventana ahora tiene un tamaño mínimo más razonable"
 
-#: data/settings.appdata.xml.in:52 data/settings.appdata.xml.in:68
-#: data/settings.appdata.xml.in:76 data/settings.appdata.xml.in:88
-#: data/settings.appdata.xml.in:98
-msgid "Updated translations"
-msgstr "Traducciones actualizadas"
-
-#: data/settings.appdata.xml.in:67
+#: data/settings.appdata.xml.in:76
 msgid "Bundle app icon"
 msgstr "Ahora el icono está empaquetado con la misma aplicación"
 
-#: data/settings.appdata.xml.in:84
+#: data/settings.appdata.xml.in:93
 msgid "Add multitouch navigation gestures"
 msgstr "Se agregaron gestos de navegación multitoque"
 
-#: data/settings.appdata.xml.in:85
+#: data/settings.appdata.xml.in:94
 msgid "Better support smaller displays"
 msgstr "Mejor soporte para pantallas más pequeñas"
 
-#: data/settings.appdata.xml.in:86
+#: data/settings.appdata.xml.in:95
 msgid "Remove old GNOME Control Center compatibility layer"
 msgstr ""
 "Se eliminó la antigua capa de compatibilidad del Centro de Control de GNOME"
 
-#: data/settings.appdata.xml.in:87
+#: data/settings.appdata.xml.in:96
 msgid "Stability and performance improvements"
 msgstr "Mejoras de estabilidad y rendimiento"
 
-#: data/settings.appdata.xml.in:96
-msgid "Redesign search results view"
-msgstr "Rediseño de la vista de resultados de búsqueda"
+#~ msgid "Redesign search results view"
+#~ msgstr "Rediseño de la vista de resultados de búsqueda"
 
-#: data/settings.appdata.xml.in:97
-msgid "Tab key moves focus out of search"
-msgstr "La tecla Tab traslada el foco fuera de la búsqueda"
+#~ msgid "Tab key moves focus out of search"
+#~ msgstr "La tecla Tab traslada el foco fuera de la búsqueda"
 
 #~ msgid "Fix an issue that prevented tiling on small displays"
 #~ msgstr ""
