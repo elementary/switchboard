@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-17 18:06+0000\n"
-"PO-Revision-Date: 2024-06-20 12:16+0000\n"
+"PO-Revision-Date: 2024-09-18 11:51+0000\n"
 "Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/switchboard/"
 "extra/ru/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.5.5\n"
+"X-Generator: Weblate 5.6.2\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 
 #: data/settings.desktop.in:4 data/settings.appdata.xml.in:9
@@ -47,7 +47,7 @@ msgstr "elementary, Inc."
 
 #: data/settings.appdata.xml.in:44
 msgid "Screen reader improvements"
-msgstr ""
+msgstr "Улучшения для экранного диктора"
 
 #: data/settings.appdata.xml.in:45 data/settings.appdata.xml.in:61
 #: data/settings.appdata.xml.in:77 data/settings.appdata.xml.in:85
