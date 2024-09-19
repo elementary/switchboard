@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-17 18:06+0000\n"
-"PO-Revision-Date: 2024-09-05 21:13+0000\n"
+"PO-Revision-Date: 2024-09-19 10:09+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
 "switchboard/extra/zh_Hant/>\n"
@@ -45,7 +45,7 @@ msgstr "elementary, Inc."
 
 #: data/settings.appdata.xml.in:44
 msgid "Screen reader improvements"
-msgstr ""
+msgstr "螢幕閱讀器相關改善"
 
 #: data/settings.appdata.xml.in:45 data/settings.appdata.xml.in:61
 #: data/settings.appdata.xml.in:77 data/settings.appdata.xml.in:85
@@ -75,7 +75,7 @@ msgstr "搜尋結果現在更有相關，且顯示地更清楚"
 
 #: data/settings.appdata.xml.in:58
 msgid "Use Portals when available"
-msgstr "可用時使用 portal"
+msgstr "可用時使用桌面入口"
 
 #: data/settings.appdata.xml.in:59
 msgid "Back Buttons have a secondary-click menu for faster navigation"
