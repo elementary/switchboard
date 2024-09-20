@@ -25,8 +25,8 @@ public class Sample.Plug : Switchboard.Plug {
     public Plug () {
         Object (category: Category.SYSTEM,
                 code_name: "sample-plug",
-                display_name: _("Sample Plug"),
-                description:_("Does nothing, but it is cool !"),
+                display_name: "Sample Plug",
+                description: "Does nothing, but it is cool!",
                 icon: "system-run",
                 supported_settings: new Gee.TreeMap<string, string?> (null, null));
         supported_settings.set ("wallpaper", null);
