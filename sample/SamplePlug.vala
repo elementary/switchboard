@@ -19,7 +19,7 @@
  */
 
 public class Sample.Plug : Switchboard.Plug {
-    private Gtk.Grid main_grid;
+    private Gtk.Box box;
     private Gtk.Label hello_label;
 
     public Plug () {
@@ -33,13 +33,22 @@ public class Sample.Plug : Switchboard.Plug {
     }
 
     public override Gtk.Widget get_widget () {
-        if (main_grid == null) {
-            main_grid = new Gtk.Grid ();
+        if (box == null) {
+            var headerbar = new Adw.HeaderBar () {
+                show_title = false
+            };
+            headerbar.add_css_class (Granite.STYLE_CLASS_FLAT);
+
+            var main_grid = new Gtk.Grid ();
             hello_label = new Gtk.Label ("Hello World!");
             main_grid.attach (hello_label, 0, 0, 1, 1);
+
+            box = new Gtk.Box (VERTICAL, 0);
+            box.append (headerbar);
+            box.append (main_grid);
         }
 
-        return main_grid;
+        return box;
     }
 
     public override void shown () {
