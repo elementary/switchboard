@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-09 16:28+0000\n"
+"POT-Creation-Date: 2024-09-17 18:06+0000\n"
 "PO-Revision-Date: 2023-07-08 21:07+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/"
@@ -45,70 +45,66 @@ msgstr "Systeminnstillingsprogram hvis fokus er modularitet og enkelhet."
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/settings.appdata.xml.in:43
-msgid "App Updates:"
+#: data/settings.appdata.xml.in:44
+msgid "Screen reader improvements"
 msgstr ""
 
-#: data/settings.appdata.xml.in:45
-msgid "New redesigned app icon"
-msgstr ""
-
-#: data/settings.appdata.xml.in:46
-msgid "New flatter and more responsive design"
-msgstr ""
-
-#: data/settings.appdata.xml.in:47
-msgid "Smoother animations"
-msgstr ""
-
-#: data/settings.appdata.xml.in:48
-msgid "Search results are more relevant and more clearly formatted"
-msgstr ""
-
-#: data/settings.appdata.xml.in:49
-msgid "Use Portals when available"
-msgstr ""
-
-#: data/settings.appdata.xml.in:50
-msgid "Back Buttons have a secondary-click menu for faster navigation"
-msgstr ""
-
-#: data/settings.appdata.xml.in:51
-msgid "Window now has a reasonable minimum size"
-msgstr ""
-
-#: data/settings.appdata.xml.in:52 data/settings.appdata.xml.in:68
-#: data/settings.appdata.xml.in:76 data/settings.appdata.xml.in:88
-#: data/settings.appdata.xml.in:98
+#: data/settings.appdata.xml.in:45 data/settings.appdata.xml.in:61
+#: data/settings.appdata.xml.in:77 data/settings.appdata.xml.in:85
+#: data/settings.appdata.xml.in:97
 msgid "Updated translations"
 msgstr "Oppdaterte oversettelser"
 
-#: data/settings.appdata.xml.in:67
+#: data/settings.appdata.xml.in:52
+msgid "App Updates:"
+msgstr ""
+
+#: data/settings.appdata.xml.in:54
+msgid "New redesigned app icon"
+msgstr ""
+
+#: data/settings.appdata.xml.in:55
+msgid "New flatter and more responsive design"
+msgstr ""
+
+#: data/settings.appdata.xml.in:56
+msgid "Smoother animations"
+msgstr ""
+
+#: data/settings.appdata.xml.in:57
+msgid "Search results are more relevant and more clearly formatted"
+msgstr ""
+
+#: data/settings.appdata.xml.in:58
+msgid "Use Portals when available"
+msgstr ""
+
+#: data/settings.appdata.xml.in:59
+msgid "Back Buttons have a secondary-click menu for faster navigation"
+msgstr ""
+
+#: data/settings.appdata.xml.in:60
+msgid "Window now has a reasonable minimum size"
+msgstr ""
+
+#: data/settings.appdata.xml.in:76
 msgid "Bundle app icon"
 msgstr ""
 
-#: data/settings.appdata.xml.in:84
+#: data/settings.appdata.xml.in:93
 msgid "Add multitouch navigation gestures"
 msgstr ""
 
-#: data/settings.appdata.xml.in:85
+#: data/settings.appdata.xml.in:94
 msgid "Better support smaller displays"
 msgstr ""
 
-#: data/settings.appdata.xml.in:86
+#: data/settings.appdata.xml.in:95
 msgid "Remove old GNOME Control Center compatibility layer"
 msgstr ""
 
-#: data/settings.appdata.xml.in:87
-msgid "Stability and performance improvements"
-msgstr ""
-
 #: data/settings.appdata.xml.in:96
-msgid "Redesign search results view"
-msgstr ""
-
-#: data/settings.appdata.xml.in:97
-msgid "Tab key moves focus out of search"
+msgid "Stability and performance improvements"
 msgstr ""
 
 #~ msgid "Drop dynamic items from the Dock secondary-click menu"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-09 16:28+0000\n"
+"POT-Creation-Date: 2024-09-17 18:06+0000\n"
 "PO-Revision-Date: 2018-05-27 16:13+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
 "Language-Team: Moldovan <https://weblate.elementary.io/projects/switchboard/"
@@ -34,23 +34,23 @@ msgstr "Nu au fost găsite setări"
 msgid "Install settings plugins and re-launch System Settings."
 msgstr ""
 
-#: src/CategoryView.vala:92
+#: src/CategoryView.vala:96
 msgid "All Settings"
 msgstr "Toate setările"
 
-#: src/CategoryView.vala:215
+#: src/CategoryView.vala:219
 msgid "Personal"
 msgstr "Individual"
 
-#: src/CategoryView.vala:217
+#: src/CategoryView.vala:221
 msgid "Hardware"
 msgstr "Hard-ware"
 
-#: src/CategoryView.vala:219
+#: src/CategoryView.vala:223
 msgid "Network & Wireless"
 msgstr "Rețea și wireless"
 
-#: src/CategoryView.vala:221
+#: src/CategoryView.vala:225
 msgid "Administration"
 msgstr "Administrare"
 

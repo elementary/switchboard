@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-09 16:28+0000\n"
+"POT-Creation-Date: 2024-09-17 18:06+0000\n"
 "PO-Revision-Date: 2016-02-24 16:09+0000\n"
 "Last-Translator: momit rahman <momitrahman@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,23 +34,23 @@ msgstr ""
 msgid "Install settings plugins and re-launch System Settings."
 msgstr ""
 
-#: src/CategoryView.vala:92
+#: src/CategoryView.vala:96
 msgid "All Settings"
 msgstr "সকল সেটিংস"
 
-#: src/CategoryView.vala:215
+#: src/CategoryView.vala:219
 msgid "Personal"
 msgstr "ব্যক্তিগত"
 
-#: src/CategoryView.vala:217
+#: src/CategoryView.vala:221
 msgid "Hardware"
 msgstr "হার্ডওয়্যার"
 
-#: src/CategoryView.vala:219
+#: src/CategoryView.vala:223
 msgid "Network & Wireless"
 msgstr "নেটওয়ার্ক ও ওয়্যারলেস"
 
-#: src/CategoryView.vala:221
+#: src/CategoryView.vala:225
 msgid "Administration"
 msgstr "অ্যাডমিনিস্ট্রেশন"
 

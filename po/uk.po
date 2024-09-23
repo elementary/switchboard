@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-09 16:28+0000\n"
+"POT-Creation-Date: 2024-09-17 18:06+0000\n"
 "PO-Revision-Date: 2024-02-05 00:11+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/switchboard/"
@@ -42,23 +42,23 @@ msgstr "Налаштувань не знайдено"
 msgid "Install settings plugins and re-launch System Settings."
 msgstr "Встановити плагіни налаштувань і перезапустити Системні налаштування."
 
-#: src/CategoryView.vala:92
+#: src/CategoryView.vala:96
 msgid "All Settings"
 msgstr "Усі налаштування"
 
-#: src/CategoryView.vala:215
+#: src/CategoryView.vala:219
 msgid "Personal"
 msgstr "Особисте"
 
-#: src/CategoryView.vala:217
+#: src/CategoryView.vala:221
 msgid "Hardware"
 msgstr "Обладнання"
 
-#: src/CategoryView.vala:219
+#: src/CategoryView.vala:223
 msgid "Network & Wireless"
 msgstr "Мережі та Бездротові мережі"
 
-#: src/CategoryView.vala:221
+#: src/CategoryView.vala:225
 msgid "Administration"
 msgstr "Адміністрування"
 

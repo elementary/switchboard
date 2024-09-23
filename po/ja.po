@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-09 16:28+0000\n"
+"POT-Creation-Date: 2024-09-17 18:06+0000\n"
 "PO-Revision-Date: 2024-06-20 12:16+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/switchboard/"
@@ -41,23 +41,23 @@ msgstr "設定が見つかりませんでした"
 msgid "Install settings plugins and re-launch System Settings."
 msgstr "設定プラグインをインストールして、“システム設定”を再起動してください。"
 
-#: src/CategoryView.vala:92
+#: src/CategoryView.vala:96
 msgid "All Settings"
 msgstr "すべての設定"
 
-#: src/CategoryView.vala:215
+#: src/CategoryView.vala:219
 msgid "Personal"
 msgstr "パーソナル"
 
-#: src/CategoryView.vala:217
+#: src/CategoryView.vala:221
 msgid "Hardware"
 msgstr "ハードウェア"
 
-#: src/CategoryView.vala:219
+#: src/CategoryView.vala:223
 msgid "Network & Wireless"
 msgstr "ネットワークと無線"
 
-#: src/CategoryView.vala:221
+#: src/CategoryView.vala:225
 msgid "Administration"
 msgstr "管理"
 

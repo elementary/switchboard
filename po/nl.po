@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-09 16:28+0000\n"
+"POT-Creation-Date: 2024-09-17 18:06+0000\n"
 "PO-Revision-Date: 2024-05-29 20:51+0000\n"
 "Last-Translator: Sven <622b1a13-49d8-4ace-bca7-48bff17b4780@unbox.at>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/switchboard/"
@@ -39,25 +39,26 @@ msgstr "Geen instellingen gevonden"
 
 #: src/CategoryView.vala:46
 msgid "Install settings plugins and re-launch System Settings."
-msgstr "Installeer de instellingenplugins en start Systeeminstellingen opnieuw."
+msgstr ""
+"Installeer de instellingenplugins en start Systeeminstellingen opnieuw."
 
-#: src/CategoryView.vala:92
+#: src/CategoryView.vala:96
 msgid "All Settings"
 msgstr "Alle instellingen"
 
-#: src/CategoryView.vala:215
+#: src/CategoryView.vala:219
 msgid "Personal"
 msgstr "Persoonlijk"
 
-#: src/CategoryView.vala:217
+#: src/CategoryView.vala:221
 msgid "Hardware"
 msgstr "Hardware"
 
-#: src/CategoryView.vala:219
+#: src/CategoryView.vala:223
 msgid "Network & Wireless"
 msgstr "Netwerk en draadloos"
 
-#: src/CategoryView.vala:221
+#: src/CategoryView.vala:225
 msgid "Administration"
 msgstr "Beheer"
 
