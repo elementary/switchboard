@@ -72,7 +72,12 @@ public class Switchboard.SearchView : Gtk.Box {
             return true;
         }
 
-        return search_text.down () in ((SearchRow) listbox_row).last_item.down ();
+        bool valid = search_text.down () in ((SearchRow) listbox_row).last_item.down ();
+        if (valid) {
+            ((SearchRow) listbox_row).pattern = search_entry.text;
+        }
+
+        return valid;
     }
 
     private int sort_func (Gtk.ListBoxRow row1, Gtk.ListBoxRow row2) {
@@ -142,6 +147,16 @@ public class Switchboard.SearchView : Gtk.Box {
         public string last_item { get; construct; }
         public string uri { get; construct; }
 
+        private Gtk.Label title;
+        private Gtk.Label description_label;
+
+        public string pattern {
+            set {
+                title.label = markup_string_with_search (last_item, value);
+                description_label.label = markup_string_with_search (description, value);
+            }
+        }
+
         public SearchRow (string icon_name, string description, string uri) {
             var path = description.split (" → ");
             var last_item = path[path.length - 1];
@@ -159,14 +174,18 @@ public class Switchboard.SearchView : Gtk.Box {
                 icon_size = LARGE
             };
 
-            var title = new Gtk.Label (last_item) {
-                halign = START
+            title = new Gtk.Label (null) {
+                halign = START,
+                use_markup = true
             };
+            title.set_markup (GLib.Markup.escape_text (last_item, -1));
 
-            var description_label = new Gtk.Label (description) {
+            description_label = new Gtk.Label (null) {
                 ellipsize = MIDDLE,
-                halign = START
+                halign = START,
+                use_markup = true
             };
+            description_label.set_markup (GLib.Markup.escape_text (description, -1));
             description_label.add_css_class (Granite.STYLE_CLASS_DIM_LABEL);
             description_label.add_css_class (Granite.STYLE_CLASS_SMALL_LABEL);
 
@@ -178,6 +197,55 @@ public class Switchboard.SearchView : Gtk.Box {
             grid.attach (description_label, 1, 1);
 
             child = grid;
+        }
+
+        private static string markup_string_with_search (string text, string pattern) {
+            const string MARKUP = "%s";
+
+            if (pattern == "") {
+                return MARKUP.printf (Markup.escape_text (text));
+            }
+
+            // if no text found, use pattern
+            if (text == "") {
+                return MARKUP.printf (Markup.escape_text (pattern));
+            }
+
+            var matchers = Synapse.Query.get_matchers_for_query (
+                pattern,
+                0,
+                RegexCompileFlags.OPTIMIZE | RegexCompileFlags.CASELESS
+            );
+
+            string? highlighted = null;
+            foreach (var matcher in matchers) {
+                MatchInfo mi;
+                if (matcher.key.match (text, 0, out mi)) {
+                    int start_pos;
+                    int end_pos;
+                    int last_pos = 0;
+                    int cnt = mi.get_match_count ();
+                    StringBuilder res = new StringBuilder ();
+                    for (int i = 1; i < cnt; i++) {
+                        mi.fetch_pos (i, out start_pos, out end_pos);
+                        warn_if_fail (start_pos >= 0 && end_pos >= 0);
+                        res.append (Markup.escape_text (text.substring (last_pos, start_pos - last_pos)));
+                        last_pos = end_pos;
+                        res.append (Markup.printf_escaped ("<b>%s</b>", mi.fetch (i)));
+                        if (i == cnt - 1) {
+                            res.append (Markup.escape_text (text.substring (last_pos)));
+                        }
+                    }
+                    highlighted = res.str;
+                    break;
+                }
+            }
+
+            if (highlighted != null) {
+                return MARKUP.printf (highlighted);
+            } else {
+                return MARKUP.printf (Markup.escape_text (text));
+            }
         }
     }
 }
