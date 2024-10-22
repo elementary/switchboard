@@ -47,6 +47,7 @@
       </description>
       <issues>
         <issue url="https://github.com/elementary/switchboard/issues/182">Search returns alphabetically sorted list after clicking on a search result</issue>
+        <issue url="https://github.com/elementary/switchboard/issues/149">Highlight search string matches in bold</issue>
       </issues>
     </release>
 
