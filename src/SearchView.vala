@@ -48,9 +48,12 @@ public class Switchboard.SearchView : Gtk.Box {
 
         search_entry.search_changed.connect (() => {
             alert_view.title = _("No Results for “%s”").printf (search_entry.text);
-            listbox.invalidate_filter ();
-            listbox.invalidate_sort ();
-            listbox.select_row (null);
+
+            if (search_entry.text.length > 0) {
+                listbox.invalidate_filter ();
+                listbox.invalidate_sort ();
+                listbox.select_row (null);
+            }
         });
 
         listbox.row_activated.connect ((row) => {
@@ -58,6 +61,7 @@ public class Switchboard.SearchView : Gtk.Box {
                 ((SearchRow) row).uri.replace ("settings://", ""),
                 Switchboard.PlugsManager.get_default ()
             );
+
             search_entry.text = "";
         });
     }
