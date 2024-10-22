@@ -21,8 +21,6 @@ public class Switchboard.SearchView : Gtk.Box {
     public Gtk.SearchEntry search_entry { get; construct; }
     private Gtk.ListBox listbox;
 
-    public signal void clear_search ();
-
     public SearchView (Gtk.SearchEntry search_entry) {
         Object (search_entry: search_entry);
     }
@@ -50,9 +48,12 @@ public class Switchboard.SearchView : Gtk.Box {
 
         search_entry.search_changed.connect (() => {
             alert_view.title = _("No Results for “%s”").printf (search_entry.text);
-            listbox.invalidate_filter ();
-            listbox.invalidate_sort ();
-            listbox.select_row (null);
+
+            if (search_entry.text.length > 0) {
+                listbox.invalidate_filter ();
+                listbox.invalidate_sort ();
+                listbox.select_row (null);
+            }
         });
 
         listbox.row_activated.connect ((row) => {
@@ -61,7 +62,7 @@ public class Switchboard.SearchView : Gtk.Box {
                 Switchboard.PlugsManager.get_default ()
             );
 
-            clear_search ();
+            search_entry.text = "";
         });
     }
 
