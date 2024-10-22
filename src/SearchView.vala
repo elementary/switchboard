@@ -220,9 +220,9 @@ public class Switchboard.SearchView : Gtk.Box {
         }
 
         private string escape_markup_but_preserve_b_tags (string text) {
-            string escaped_text = GLib.Markup.escape_text(text, -1);
-            escaped_text = escaped_text.replace("&lt;b&gt;", "<b>").replace("&lt;/b&gt;", "</b>");
-            escaped_text = escaped_text.replace("&amp;amp;", "&amp;");
+            string escaped_text = GLib.Markup.escape_text (text, -1);
+            escaped_text = escaped_text.replace ("&lt;b&gt;", "<b>").replace ("&lt;/b&gt;", "</b>");
+            escaped_text = escaped_text.replace ("&amp;amp;", "&amp;");
             return escaped_text;
         }
     }
