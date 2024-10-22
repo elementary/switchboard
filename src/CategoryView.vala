@@ -115,6 +115,12 @@ public class Switchboard.CategoryView : Adw.NavigationPage {
             searchview.activate_first_item ();
         });
 
+        searchview.clear_search.connect (() => {
+            GLib.Timeout.add_once (stack.transition_duration, () => {
+                search_box.text = "";
+            });
+        });
+
         search_box_eventcontrollerkey.key_released.connect ((keyval, keycode, state) => {
             switch (keyval) {
                 case Gdk.Key.Down:

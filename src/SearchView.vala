@@ -21,6 +21,8 @@ public class Switchboard.SearchView : Gtk.Box {
     public Gtk.SearchEntry search_entry { get; construct; }
     private Gtk.ListBox listbox;
 
+    public signal void clear_search ();
+
     public SearchView (Gtk.SearchEntry search_entry) {
         Object (search_entry: search_entry);
     }
@@ -58,7 +60,8 @@ public class Switchboard.SearchView : Gtk.Box {
                 ((SearchRow) row).uri.replace ("settings://", ""),
                 Switchboard.PlugsManager.get_default ()
             );
-            search_entry.text = "";
+
+            clear_search ();
         });
     }
 
