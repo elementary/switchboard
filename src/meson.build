@@ -3,9 +3,8 @@ switchboard_files = files(
     'PlugsSearch.vala',
     'CategoryView.vala',
     'SearchView.vala',
-    'Synapse.vala',
     'Widgets/CategoryIcon.vala',
-    'Widgets/CategoryFlowBox.vala'
+    'Widgets/CategoryFlowBox.vala',
 )
 
 switchboard_deps = [

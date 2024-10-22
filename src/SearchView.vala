@@ -152,8 +152,8 @@ public class Switchboard.SearchView : Gtk.Box {
 
         public string pattern {
             set {
-                title.label = markup_string_with_search (last_item, value);
-                description_label.label = markup_string_with_search (description, value);
+                title.set_markup (highlight_text (last_item, value));
+                description_label.set_markup (highlight_text (description, value));
             }
         }
 
@@ -199,53 +199,27 @@ public class Switchboard.SearchView : Gtk.Box {
             child = grid;
         }
 
-        private static string markup_string_with_search (string text, string pattern) {
-            const string MARKUP = "%s";
+        private string highlight_text (string _text, string search_term) {
+            string text = GLib.Markup.escape_text (_text, -1);
 
-            if (pattern == "") {
-                return MARKUP.printf (Markup.escape_text (text));
+            if (search_term.length <= 0) {
+                return text;
             }
 
-            // if no text found, use pattern
-            if (text == "") {
-                return MARKUP.printf (Markup.escape_text (pattern));
+            try {
+                Regex regex = new Regex (Regex.escape_string (search_term), RegexCompileFlags.CASELESS);
+                string highlighted_text = regex.replace (text, text.length, 0, "<b>\\0</b>");
+                return escape_markup_but_preserve_b_tags (highlighted_text);
+            } catch (Error e) {
+                return text;
             }
+        }
 
-            var matchers = Synapse.Query.get_matchers_for_query (
-                pattern,
-                0,
-                RegexCompileFlags.OPTIMIZE | RegexCompileFlags.CASELESS
-            );
-
-            string? highlighted = null;
-            foreach (var matcher in matchers) {
-                MatchInfo mi;
-                if (matcher.key.match (text, 0, out mi)) {
-                    int start_pos;
-                    int end_pos;
-                    int last_pos = 0;
-                    int cnt = mi.get_match_count ();
-                    StringBuilder res = new StringBuilder ();
-                    for (int i = 1; i < cnt; i++) {
-                        mi.fetch_pos (i, out start_pos, out end_pos);
-                        warn_if_fail (start_pos >= 0 && end_pos >= 0);
-                        res.append (Markup.escape_text (text.substring (last_pos, start_pos - last_pos)));
-                        last_pos = end_pos;
-                        res.append (Markup.printf_escaped ("<b>%s</b>", mi.fetch (i)));
-                        if (i == cnt - 1) {
-                            res.append (Markup.escape_text (text.substring (last_pos)));
-                        }
-                    }
-                    highlighted = res.str;
-                    break;
-                }
-            }
-
-            if (highlighted != null) {
-                return MARKUP.printf (highlighted);
-            } else {
-                return MARKUP.printf (Markup.escape_text (text));
-            }
+        private string escape_markup_but_preserve_b_tags (string text) {
+            string escaped_text = GLib.Markup.escape_text(text, -1);
+            escaped_text = escaped_text.replace("&lt;b&gt;", "<b>").replace("&lt;/b&gt;", "</b>");
+            escaped_text = escaped_text.replace("&amp;amp;", "&amp;");
+            return escaped_text;
         }
     }
 }
