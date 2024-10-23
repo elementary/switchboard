@@ -76,7 +76,12 @@ public class Switchboard.SearchView : Gtk.Box {
             return true;
         }
 
-        return search_text.down () in ((SearchRow) listbox_row).last_item.down ();
+        bool valid = search_text.down () in ((SearchRow) listbox_row).last_item.down ();
+        if (valid) {
+            ((SearchRow) listbox_row).pattern = search_entry.text;
+        }
+
+        return valid;
     }
 
     private int sort_func (Gtk.ListBoxRow row1, Gtk.ListBoxRow row2) {
@@ -146,6 +151,16 @@ public class Switchboard.SearchView : Gtk.Box {
         public string last_item { get; construct; }
         public string uri { get; construct; }
 
+        private Gtk.Label title;
+        private Gtk.Label description_label;
+
+        public string pattern {
+            set {
+                title.set_markup (highlight_text (last_item, value));
+                description_label.set_markup (highlight_text (description, value));
+            }
+        }
+
         public SearchRow (string icon_name, string description, string uri) {
             var path = description.split (" → ");
             var last_item = path[path.length - 1];
@@ -163,14 +178,18 @@ public class Switchboard.SearchView : Gtk.Box {
                 icon_size = LARGE
             };
 
-            var title = new Gtk.Label (last_item) {
-                halign = START
+            title = new Gtk.Label (null) {
+                halign = START,
+                use_markup = true
             };
+            title.set_markup (GLib.Markup.escape_text (last_item, -1));
 
-            var description_label = new Gtk.Label (description) {
+            description_label = new Gtk.Label (null) {
                 ellipsize = MIDDLE,
-                halign = START
+                halign = START,
+                use_markup = true
             };
+            description_label.set_markup (GLib.Markup.escape_text (description, -1));
             description_label.add_css_class (Granite.STYLE_CLASS_DIM_LABEL);
             description_label.add_css_class (Granite.STYLE_CLASS_SMALL_LABEL);
 
@@ -182,6 +201,29 @@ public class Switchboard.SearchView : Gtk.Box {
             grid.attach (description_label, 1, 1);
 
             child = grid;
+        }
+
+        private string highlight_text (string _text, string search_term) {
+            string text = GLib.Markup.escape_text (_text, -1);
+
+            if (search_term.length <= 0) {
+                return text;
+            }
+
+            try {
+                Regex regex = new Regex (Regex.escape_string (search_term), RegexCompileFlags.CASELESS);
+                string highlighted_text = regex.replace (text, text.length, 0, "<b>\\0</b>");
+                return escape_markup_but_preserve_b_tags (highlighted_text);
+            } catch (Error e) {
+                return text;
+            }
+        }
+
+        private string escape_markup_but_preserve_b_tags (string text) {
+            string escaped_text = GLib.Markup.escape_text (text, -1);
+            escaped_text = escaped_text.replace ("&lt;b&gt;", "<b>").replace ("&lt;/b&gt;", "</b>");
+            escaped_text = escaped_text.replace ("&amp;amp;", "&amp;");
+            return escaped_text;
         }
     }
 }
