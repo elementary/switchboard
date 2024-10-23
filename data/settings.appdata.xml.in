@@ -15,7 +15,7 @@
 
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/elementary/switchboard/8.0.0/data/screenshot.png</image>
+      <image>https://raw.githubusercontent.com/elementary/switchboard/8.0.2/data/screenshot.png</image>
     </screenshot>
   </screenshots>
 
@@ -38,7 +38,7 @@
   <update_contact>contact_AT_elementary.io</update_contact>
 
   <releases>
-    <release version="8.0.2" date="2024-10-22" urgency="medium">
+    <release version="8.0.2" date="2024-10-23" urgency="medium">
       <description>
         <ul>
           <li>Updated translations</li>
