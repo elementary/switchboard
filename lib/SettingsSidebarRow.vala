@@ -4,8 +4,6 @@
  */
 
 private class Switchboard.SettingsSidebarRow : Gtk.ListBoxRow {
-    public string page_name { get; construct; }
-
     public SettingsPage.StatusType status_type {
         set {
             switch (value) {
@@ -59,9 +57,8 @@ private class Switchboard.SettingsSidebarRow : Gtk.ListBoxRow {
     private Gtk.Label title_label;
     private string _title;
 
-    public SettingsSidebarRow (string page_name, SettingsPage page) {
+    public SettingsSidebarRow (SettingsPage page) {
         Object (
-            page_name: page_name,
             page: page
         );
     }

@@ -24,24 +24,32 @@ public class Switchboard.SettingsSidebar : Gtk.Widget {
     public bool show_title_buttons { get; set;}
 
     /**
-     * The name of the currently visible {@link SettingsPage}.
-     * Beware this is the name of the page as set via {@link Gtk.Stack.add_named}
-     * and not the title of the page.
+     * The name of the currently visible Granite.SettingsPage
      */
     public string? visible_child_name {
         get {
-            return stack.visible_child_name;
+            var selected_row = listbox.get_selected_row ();
+
+            if (selected_row == null) {
+                return null;
+            } else {
+                return ((SettingsSidebarRow) selected_row).page.title;
+            }
         }
         set {
-            for (unowned var child = listbox.get_first_child (); child != null; child = child.get_next_sibling ()) {
-                if (!(child is SettingsSidebarRow)) {
+            weak Gtk.Widget listbox_child = listbox.get_first_child ();
+            while (listbox_child != null) {
+                if (!(listbox_child is SettingsSidebarRow)) {
+                    listbox_child = listbox_child.get_next_sibling ();
                     continue;
                 }
 
-                if (((SettingsSidebarRow) child).page_name == value) {
-                    listbox.select_row ((Gtk.ListBoxRow) child);
+                if (((SettingsSidebarRow) listbox_child).page.title == value) {
+                    listbox.select_row ((Gtk.ListBoxRow) listbox_child);
                     break;
                 }
+
+                listbox_child = listbox_child.get_next_sibling ();
             }
         }
     }
@@ -126,7 +134,7 @@ public class Switchboard.SettingsSidebar : Gtk.Widget {
     private Gtk.Widget create_widget_func (Object object) {
         unowned var stack_page = (Gtk.StackPage) object;
         unowned var page = (SettingsPage) stack_page.child;
-        var row = new SettingsSidebarRow (stack_page.name, page);
+        var row = new SettingsSidebarRow (page);
 
         return row;
     }
