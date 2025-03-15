@@ -120,15 +120,25 @@ public class Switchboard.SettingsSidebar : Gtk.Widget {
             }
         });
 
-        stack.notify["visible-child-name"].connect (() => {
-            visible_child_name = stack.visible_child_name;
-        });
+        stack.notify["visible-child"].connect (update_selection);
 
         bind_property ("show-title-buttons", toolbarview, "reveal-top-bars", SYNC_CREATE);
     }
 
     ~SettingsSidebar () {
         get_first_child ().unparent ();
+    }
+
+    private void update_selection () {
+        for (var child = listbox.get_first_child (); child != null; child = child.get_next_sibling ()) {
+            if (child is SettingsSidebarRow) {
+                var row = (SettingsSidebarRow) child;
+                if (row.page == stack.visible_child) {
+                    listbox.select_row ((Gtk.ListBoxRow) row);
+                    break;
+                }
+            }
+        }
     }
 
     private Gtk.Widget create_widget_func (Object object) {
