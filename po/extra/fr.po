@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-23 00:08+0000\n"
-"PO-Revision-Date: 2024-05-15 14:13+0000\n"
+"PO-Revision-Date: 2025-02-07 15:16+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/switchboard/extra/"
 "fr/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.5\n"
+"X-Generator: Weblate 5.9.2\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 
 #: data/settings.desktop.in:4 data/settings.appdata.xml.in:9
@@ -51,7 +51,7 @@ msgstr "Mise à jour des traductions"
 
 #: data/settings.appdata.xml.in:56
 msgid "Screen reader improvements"
-msgstr ""
+msgstr "Améliorations pour les lecteurs d'écran"
 
 #: data/settings.appdata.xml.in:64
 msgid "App Updates:"
