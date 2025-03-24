@@ -1,6 +1,6 @@
 # Switchboard
 [![Packaging status](https://repology.org/badge/tiny-repos/switchboard.svg)](https://repology.org/metapackage/switchboard)
-[![l10n](https://l10n.elementary.io/widgets/switchboard/-/svg-badge.svg)](https://l10n.elementary.io/projects/switchboard/?utm_source=widget)
+[![l10n](https://l10n.elementary.io/widgets/settings/-/svg-badge.svg)](https://l10n.elementary.io/projects/settings/?utm_source=widget)
 
 ![System Settings Screenshot](data/screenshot.png?raw=true)
 
