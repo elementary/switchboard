@@ -97,6 +97,10 @@ public class Switchboard.SettingsSidebar : Gtk.Widget {
         add_css_class (Granite.STYLE_CLASS_SIDEBAR);
 
         listbox.row_selected.connect ((row) => {
+            if (row == null) {
+                return;
+            }
+
             stack.visible_child = ((SettingsSidebarRow) row).page;
         });
 
