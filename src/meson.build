@@ -2,15 +2,17 @@ switchboard_files = files(
     'Application.vala',
     'PlugsSearch.vala',
     'CategoryView.vala',
+    'MainWindow.vala',
     'SearchView.vala',
     'Widgets/CategoryIcon.vala',
     'Widgets/CategoryFlowBox.vala',
 )
 
 switchboard_deps = [
+    adwaita_dep,
     libswitchboard_dep,
     granite_dep,
-    adwaita_dep,
+    pantheon_wayland_dep,
     m_dep
 ]
 

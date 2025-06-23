@@ -7,7 +7,6 @@
 
 public class Switchboard.CategoryView : Adw.NavigationPage {
     public Gee.ArrayList<SearchEntry?> plug_search_result { get; private set; }
-    public string? plug_to_open { get; construct set; default = null; }
 
     private Gtk.SearchEntry search_box;
     private Gtk.Stack stack;
@@ -149,10 +148,6 @@ public class Switchboard.CategoryView : Adw.NavigationPage {
         add_controller (eventcontrollerkey);
     }
 
-    public CategoryView (string? plug = null) {
-        Object (plug_to_open: plug);
-    }
-
     public async void load_default_plugs () {
         var plugsmanager = Switchboard.PlugsManager.get_default ();
         plugsmanager.plug_added.connect ((plug) => {
@@ -204,12 +199,6 @@ public class Switchboard.CategoryView : Adw.NavigationPage {
 
         if (any_found) {
             stack.visible_child_name = "category-grid";
-        }
-
-        if (plug_to_open != null && plug_to_open.has_suffix (plug.code_name)) {
-            unowned var app = (SwitchboardApp) GLib.Application.get_default ();
-            app.load_plug (plug);
-            plug_to_open = null;
         }
     }
 

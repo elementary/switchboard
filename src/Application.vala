@@ -1,5 +1,5 @@
 /*
-* Copyright 2011-2021 elementary, Inc. (https://elementary.io)
+* Copyright 2011-2025 elementary, Inc. (https://elementary.io)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU Lesser General Public
@@ -21,15 +21,9 @@
 
 namespace Switchboard {
     public class SwitchboardApp : Gtk.Application {
-        private GLib.HashTable <Gtk.Widget, Switchboard.Plug> plug_widgets;
-        private Adw.NavigationView navigation_view;
-        private Gtk.Window main_window;
-        private Switchboard.CategoryView category_view;
+        private MainWindow main_window;
 
-        private static bool opened_directly = false;
         private static string? link = null;
-        private static string? open_window = null;
-        private static string? plug_to_open = null;
 
         construct {
             application_id = "io.elementary.settings";
@@ -66,6 +60,7 @@ namespace Switchboard {
             }
 
             activate ();
+            ((PantheonWayland.ExtendedBehavior) main_window).focus ();
         }
 
         public override void startup () {
@@ -82,19 +77,20 @@ namespace Switchboard {
                 gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
             });
 
-            var back_action = new SimpleAction ("back", null);
             var quit_action = new SimpleAction ("quit", null);
-
-            add_action (back_action);
-            add_action (quit_action);
-
-            set_accels_for_action ("app.quit", {"<Control>q"});
-
-            back_action.activate.connect (action_navigate_back);
             quit_action.activate.connect (quit);
+            set_accels_for_action ("app.quit", {"<Control>q"});
+            add_action (quit_action);
         }
 
         public override void activate () {
+            if (main_window == null) {
+                main_window = new MainWindow ();
+                add_window (main_window);
+            }
+
+            main_window.present ();
+
             var plugsmanager = Switchboard.PlugsManager.get_default ();
             if (link != null) {
                 bool plug_found = load_setting_path (link, plugsmanager);
@@ -103,132 +99,11 @@ namespace Switchboard {
                     link = null;
 
                     // If plug_to_open was set from the command line
-                    opened_directly = true;
+                    main_window.opened_directly = true;
                 } else {
                     warning (_("Specified link '%s' does not exist, going back to the main panel").printf (link));
                 }
-            } else if (plug_to_open != null) {
-                foreach (var plug in plugsmanager.get_plugs ()) {
-                    if (plug_to_open.has_suffix (plug.code_name)) {
-                        load_plug (plug);
-                        plug_to_open = null;
-
-                        // If plug_to_open was set from the command line
-                        opened_directly = true;
-                        break;
-                    }
-                }
             }
-
-            // If app is already running, present the current window.
-            if (get_windows ().length () > 0) {
-                get_windows ().data.present ();
-                return;
-            }
-
-            plug_widgets = new GLib.HashTable <Gtk.Widget, Switchboard.Plug> (null, null);
-
-            category_view = new Switchboard.CategoryView (plug_to_open);
-
-            navigation_view = new Adw.NavigationView () {
-                pop_on_escape = false
-            };
-            navigation_view.add (category_view);
-
-            main_window = new Gtk.Window () {
-                application = this,
-                child = navigation_view,
-                height_request = 500,
-                icon_name = application_id,
-                title = _("System Settings"),
-                titlebar = new Gtk.Grid () { visible = false }
-            };
-            add_window (main_window);
-            main_window.present ();
-
-            /*
-            * This is very finicky. Bind size after present else set_titlebar gives us bad sizes
-            * Set maximize after height/width else window is min size on unmaximize
-            * Bind maximize as SET else get get bad sizes
-            */
-            var settings = new Settings ("io.elementary.settings");
-            settings.bind ("window-height", main_window, "default-height", SettingsBindFlags.DEFAULT);
-            settings.bind ("window-width", main_window, "default-width", SettingsBindFlags.DEFAULT);
-
-            if (settings.get_boolean ("window-maximized")) {
-                main_window.maximize ();
-            }
-
-            settings.bind ("window-maximized", main_window, "maximized", SettingsBindFlags.SET);
-
-            shutdown.connect (() => {
-                navigation_view.visible_page.hidden ();
-            });
-
-            navigation_view.popped.connect (update_navigation);
-            navigation_view.pushed.connect (update_navigation);
-        }
-
-        private void update_navigation () {
-            main_window.title = navigation_view.visible_page.title;
-        }
-
-        public void load_plug (Switchboard.Plug plug) {
-            Idle.add (() => {
-                var plug_widget = plug.get_widget ();
-                if (plug_widget.parent == null) {
-                    var navigation_page = new Adw.NavigationPage (plug_widget, plug.display_name);
-                    navigation_page.hidden.connect (plug.hidden);
-                    navigation_page.shown.connect (plug.shown);
-
-                    navigation_view.add (navigation_page);
-                }
-
-                if (plug_widgets[plug_widget] == null) {
-                    plug_widgets[plug_widget] = plug;
-                }
-
-                category_view.plug_search_result.foreach ((entry) => {
-                    if (plug.display_name == entry.plug_name) {
-                        if (entry.open_window == null) {
-                            plug.search_callback (""); // open default in the switch
-                        } else {
-                            plug.search_callback (entry.open_window);
-                        }
-                        debug ("open section:%s of plug: %s", entry.open_window, plug.display_name);
-                        return true;
-                    }
-
-                    return false;
-                });
-
-                // open window was set by command line argument
-                if (open_window != null) {
-                    plug.search_callback (open_window);
-                    open_window = null;
-                }
-
-                if (opened_directly) {
-                    navigation_view.animate_transitions = false;
-                    opened_directly = false;
-                } else if (navigation_view.animate_transitions == false) {
-                    navigation_view.animate_transitions = true;
-                }
-
-                navigation_view.push ((Adw.NavigationPage) plug.get_widget ().parent);
-
-                return false;
-            }, GLib.Priority.DEFAULT_IDLE);
-        }
-
-        // Handles clicking the navigation button
-        private void action_navigate_back () {
-            if (navigation_view.get_previous_page (navigation_view.visible_page) == category_view) {
-                opened_directly = false;
-                navigation_view.animate_transitions = true;
-            }
-
-            navigation_view.pop ();
         }
 
         // Try to find a supported plug, fallback paths like "foo/bar" to "foo"
@@ -240,8 +115,8 @@ namespace Switchboard {
                 }
 
                 if (supported_settings.has_key (setting_path)) {
-                    load_plug (plug);
-                    open_window = supported_settings.get (setting_path);
+                    main_window.load_plug (plug);
+                    main_window.open_window = supported_settings.get (setting_path);
                     return true;
                 }
             }
