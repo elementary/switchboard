@@ -1,11 +1,16 @@
 [Desktop Entry]
 Type=Application
+
 Name=System Settings
 Comment=Change system and user settings
-Exec=io.elementary.settings %u
-Icon=io.elementary.settings
-Terminal=false
-StartupNotify=true
 Categories=GNOME;GTK;System;
 Keywords=Center;Control;Panel;Preferences;System;
+
+Icon=io.elementary.settings
+Exec=io.elementary.settings %u
+DBusActivatable=true
+SingleMainWindow=true
+StartupNotify=true
+Terminal=false
+
 MimeType=x-scheme-handler/settings;

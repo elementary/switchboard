@@ -6,6 +6,14 @@ install_data(
     rename: meson.project_name() + '.gschema.xml'
 )
 
+configure_file(
+    input: 'settings.service.in',
+    output: meson.project_name() + '.service',
+    configuration: conf_data,
+    install_dir: get_option('datadir') / 'dbus-1' / 'services',
+    install: true
+)
+
 i18n.merge_file(
     input: 'settings.desktop.in',
     output: meson.project_name() + '.desktop',
