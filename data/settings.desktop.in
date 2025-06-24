@@ -3,6 +3,7 @@ Type=Application
 Name=System Settings
 Comment=Change system and user settings
 Exec=io.elementary.settings %u
+DBusActivatable=true
 Icon=io.elementary.settings
 Terminal=false
 StartupNotify=true

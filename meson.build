@@ -15,6 +15,7 @@ add_project_arguments([
 )
 
 conf_data = configuration_data()
+conf_data.set('BINDIR', get_option('bindir'))
 conf_data.set_quoted('LOCALEDIR', join_paths(get_option('prefix'), get_option('localedir')))
 conf_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 conf_file = configure_file(
