@@ -38,6 +38,19 @@
   <update_contact>contact_AT_elementary.io</update_contact>
 
   <releases>
+    <release version="8.0.3" date="2025-06-24" urgency="medium">
+      <description>
+        <ul>
+          <li>When selecting a search result without having opened the corresponding page first the correct sidebar row will be preselected</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+      <issues>
+        <issue url="https://github.com/elementary/switchboard/issues/346">SettingsSidebar: null access when sidebar selection cleared</issue>
+        <issue url="https://github.com/elementary/gala/issues/2450">Apps not being brought to front</issue>
+      </issues>
+    </release>
+
     <release version="8.0.2" date="2024-10-23" urgency="medium">
       <description>
         <ul>
