@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-23 00:08+0000\n"
+"POT-Creation-Date: 2025-06-24 20:50+0000\n"
 "PO-Revision-Date: 2022-08-08 09:55+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/switchboard/extra/"
@@ -20,15 +20,15 @@ msgstr ""
 "X-Generator: Weblate 4.4.2\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 
-#: data/settings.desktop.in:4 data/settings.appdata.xml.in:9
+#: data/settings.desktop.in:5 data/settings.appdata.xml.in:9
 msgid "System Settings"
 msgstr "시스템 설정"
 
-#: data/settings.desktop.in:5 data/settings.appdata.xml.in:10
+#: data/settings.desktop.in:6 data/settings.appdata.xml.in:10
 msgid "Change system and user settings"
 msgstr "시스템과 사용자 설정 변경"
 
-#: data/settings.desktop.in:11
+#: data/settings.desktop.in:8
 msgid "Center;Control;Panel;Preferences;System;"
 msgstr "가운데;콘트롤;패널;설정;시스템;"
 
@@ -41,65 +41,72 @@ msgstr "모듈화와 단순함에 초점을 맞춘 시스템 설정 애플리케
 msgid "elementary, Inc."
 msgstr "elementary, Inc."
 
-#: data/settings.appdata.xml.in:44 data/settings.appdata.xml.in:57
-#: data/settings.appdata.xml.in:73 data/settings.appdata.xml.in:89
-#: data/settings.appdata.xml.in:97 data/settings.appdata.xml.in:109
+#: data/settings.appdata.xml.in:44
+msgid ""
+"When selecting a search result without having opened the corresponding page "
+"first the correct sidebar row will be preselected"
+msgstr ""
+
+#: data/settings.appdata.xml.in:45 data/settings.appdata.xml.in:57
+#: data/settings.appdata.xml.in:70 data/settings.appdata.xml.in:86
+#: data/settings.appdata.xml.in:102 data/settings.appdata.xml.in:110
+#: data/settings.appdata.xml.in:122
 msgid "Updated translations"
 msgstr "최신 번역"
 
-#: data/settings.appdata.xml.in:56
+#: data/settings.appdata.xml.in:69
 msgid "Screen reader improvements"
 msgstr ""
 
-#: data/settings.appdata.xml.in:64
+#: data/settings.appdata.xml.in:77
 msgid "App Updates:"
 msgstr ""
 
-#: data/settings.appdata.xml.in:66
+#: data/settings.appdata.xml.in:79
 msgid "New redesigned app icon"
 msgstr ""
 
-#: data/settings.appdata.xml.in:67
+#: data/settings.appdata.xml.in:80
 msgid "New flatter and more responsive design"
 msgstr ""
 
-#: data/settings.appdata.xml.in:68
+#: data/settings.appdata.xml.in:81
 msgid "Smoother animations"
 msgstr ""
 
-#: data/settings.appdata.xml.in:69
+#: data/settings.appdata.xml.in:82
 msgid "Search results are more relevant and more clearly formatted"
 msgstr ""
 
-#: data/settings.appdata.xml.in:70
+#: data/settings.appdata.xml.in:83
 msgid "Use Portals when available"
 msgstr ""
 
-#: data/settings.appdata.xml.in:71
+#: data/settings.appdata.xml.in:84
 msgid "Back Buttons have a secondary-click menu for faster navigation"
 msgstr ""
 
-#: data/settings.appdata.xml.in:72
+#: data/settings.appdata.xml.in:85
 msgid "Window now has a reasonable minimum size"
 msgstr ""
 
-#: data/settings.appdata.xml.in:88
+#: data/settings.appdata.xml.in:101
 msgid "Bundle app icon"
 msgstr ""
 
-#: data/settings.appdata.xml.in:105
+#: data/settings.appdata.xml.in:118
 msgid "Add multitouch navigation gestures"
 msgstr ""
 
-#: data/settings.appdata.xml.in:106
+#: data/settings.appdata.xml.in:119
 msgid "Better support smaller displays"
 msgstr ""
 
-#: data/settings.appdata.xml.in:107
+#: data/settings.appdata.xml.in:120
 msgid "Remove old GNOME Control Center compatibility layer"
 msgstr ""
 
-#: data/settings.appdata.xml.in:108
+#: data/settings.appdata.xml.in:121
 msgid "Stability and performance improvements"
 msgstr ""
 
