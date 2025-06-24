@@ -6,10 +6,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-23 00:08+0000\n"
+"POT-Creation-Date: 2025-06-24 20:50+0000\n"
 "PO-Revision-Date: 2023-06-01 14:07+0000\n"
-"Last-Translator: Faisal Rachmadin <frachmadin@users.noreply.l10n.elementary."
-"io>\n"
+"Last-Translator: Faisal Rachmadin "
+"<frachmadin@users.noreply.l10n.elementary.io>\n"
 "Language-Team: Indonesian <https://l10n.elementary.io/projects/switchboard/"
 "switchboard/id/>\n"
 "Language: id\n"
@@ -20,12 +20,12 @@ msgstr ""
 "X-Generator: Weblate 4.17\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:47+0000\n"
 
-#: src/Application.vala:109
+#: src/Application.vala:108
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Tautan '%s' yang ditentukan tidak ada, kembali ke panel utama"
 
-#: src/Application.vala:144
+#: src/Application.vala:143
 msgid "System Settings"
 msgstr "Setting Sistem"
 
