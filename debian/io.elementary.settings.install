@@ -1,5 +1,6 @@
 usr/bin/io.elementary.settings
 usr/share/applications/io.elementary.settings.desktop
+usr/share/dbus-1/services/io.elementary.settings.service
 usr/share/glib-2.0/schemas/io.elementary.settings.gschema.xml
 usr/share/icons
 usr/share/locale
