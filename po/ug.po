@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-23 00:08+0000\n"
+"POT-Creation-Date: 2025-06-24 20:50+0000\n"
 "PO-Revision-Date: 2016-12-19 08:31+0000\n"
 "Last-Translator: Avi Romanoff <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,12 +13,12 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 "X-Generator: Launchpad (build 18315)\n"
 
-#: src/Application.vala:109
+#: src/Application.vala:108
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "ئۇلىنىش  '%s'  مەۋجۇت ئەمەس، باشبەتكە قايتىۋاتىدۇ"
 
-#: src/Application.vala:144
+#: src/Application.vala:143
 msgid "System Settings"
 msgstr "سىستېما تەڭشەكلىرى"
 
