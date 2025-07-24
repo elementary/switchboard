@@ -84,14 +84,19 @@ namespace Switchboard {
 
             var back_action = new SimpleAction ("back", null);
             var quit_action = new SimpleAction ("quit", null);
+            var updates_action = new SimpleAction ("show-updates", null);
 
             add_action (back_action);
             add_action (quit_action);
+            add_action (updates_action);
 
             set_accels_for_action ("app.quit", {"<Control>q"});
 
             back_action.activate.connect (action_navigate_back);
             quit_action.activate.connect (quit);
+            updates_action.activate.connect (() => {
+                open ({File.new_for_uri ("settings://about/os")}, "");
+            });
         }
 
         public override void activate () {
