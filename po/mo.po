@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-24 20:50+0000\n"
+"POT-Creation-Date: 2025-07-26 03:37+0000\n"
 "PO-Revision-Date: 2018-05-27 16:13+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
 "Language-Team: Moldovan <https://weblate.elementary.io/projects/switchboard/"
@@ -13,12 +13,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.18\n"
 
-#: src/Application.vala:108
+#: src/Application.vala:113
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Linkul specificat '%s'  nu există, revenind la panoul principal"
 
-#: src/Application.vala:143
+#: src/Application.vala:148
 msgid "System Settings"
 msgstr "Setări sistem"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-24 20:50+0000\n"
+"POT-Creation-Date: 2025-07-26 03:37+0000\n"
 "PO-Revision-Date: 2024-05-29 20:51+0000\n"
 "Last-Translator: Sven <622b1a13-49d8-4ace-bca7-48bff17b4780@unbox.at>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/switchboard/"
@@ -20,12 +20,12 @@ msgstr ""
 "X-Generator: Weblate 5.5\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:47+0000\n"
 
-#: src/Application.vala:108
+#: src/Application.vala:113
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr "Specifieke link '%s' bestaat niet, teruggaan naar het hoofdpaneel"
 
-#: src/Application.vala:143
+#: src/Application.vala:148
 msgid "System Settings"
 msgstr "Systeeminstellingen"
 
