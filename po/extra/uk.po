@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-24 20:50+0000\n"
+"POT-Creation-Date: 2025-07-26 03:37+0000\n"
 "PO-Revision-Date: 2024-09-19 07:21+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/switchboard/"
@@ -32,6 +32,10 @@ msgstr "Зміна налаштувань системи та користува
 #: data/settings.desktop.in:8
 msgid "Center;Control;Panel;Preferences;System;"
 msgstr "Налаштування;Параметри;Центр;Контроль;Керування;Панель;Система;Center;Control;Panel;Preferences;System;"
+
+#: data/settings.desktop.in:22
+msgid "Check for System Updates"
+msgstr ""
 
 #: data/settings.appdata.xml.in:12
 msgid ""
