@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 03:37+0000\n"
-"PO-Revision-Date: 2025-06-25 21:55+0000\n"
+"PO-Revision-Date: 2025-07-27 07:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/settings/"
 "extra/ja/>\n"
@@ -36,7 +36,7 @@ msgstr ""
 
 #: data/settings.desktop.in:22
 msgid "Check for System Updates"
-msgstr ""
+msgstr "システムアップデートを確認"
 
 #: data/settings.appdata.xml.in:12
 msgid ""
