@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 03:37+0000\n"
-"PO-Revision-Date: 2020-04-27 00:10+0000\n"
-"Last-Translator: Rodrigo Oliveira <rod.oliveira@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/"
-"switchboard/extra/pt_BR/>\n"
+"PO-Revision-Date: 2025-07-27 07:55+0000\n"
+"Last-Translator: Guilherme Faura <guilhermefaura@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://l10n.elementaryos.org/projects/"
+"settings/extra/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-02-13 05:44+0000\n"
 
 #: data/settings.desktop.in:5 data/settings.appdata.xml.in:9
@@ -34,7 +34,7 @@ msgstr "Centro;Controle;Painel;Preferências;Sistema;"
 
 #: data/settings.desktop.in:22
 msgid "Check for System Updates"
-msgstr ""
+msgstr "Verificar se há Atualizações do Sistema"
 
 #: data/settings.appdata.xml.in:12
 msgid ""
@@ -52,6 +52,9 @@ msgid ""
 "When selecting a search result without having opened the corresponding page "
 "first the correct sidebar row will be preselected"
 msgstr ""
+"Ao selecionar um resultado de pesquisa sem ter aberto a página "
+"correspondente primeiro, a linha correta da barra lateral será "
+"pré-selecionada"
 
 #: data/settings.appdata.xml.in:45 data/settings.appdata.xml.in:57
 #: data/settings.appdata.xml.in:70 data/settings.appdata.xml.in:86
@@ -62,59 +65,64 @@ msgstr "Traduções atualizadas"
 
 #: data/settings.appdata.xml.in:69
 msgid "Screen reader improvements"
-msgstr ""
+msgstr "Melhorias do leitor de tela"
 
 #: data/settings.appdata.xml.in:77
 msgid "App Updates:"
-msgstr ""
+msgstr "Atualizações de Aplicativos:"
 
 #: data/settings.appdata.xml.in:79
 msgid "New redesigned app icon"
-msgstr ""
+msgstr "Novo ícone de aplicativo redesenhado"
 
 #: data/settings.appdata.xml.in:80
 msgid "New flatter and more responsive design"
-msgstr ""
+msgstr "Novo design mais plano e responsivo"
 
 #: data/settings.appdata.xml.in:81
 msgid "Smoother animations"
-msgstr ""
+msgstr "Animações mais suaves"
 
 #: data/settings.appdata.xml.in:82
 msgid "Search results are more relevant and more clearly formatted"
 msgstr ""
+"Os resultados da pesquisa são mais relevantes e formatados de forma mais "
+"clara"
 
 #: data/settings.appdata.xml.in:83
 msgid "Use Portals when available"
-msgstr ""
+msgstr "Use Portais quando disponíveis"
 
 #: data/settings.appdata.xml.in:84
 msgid "Back Buttons have a secondary-click menu for faster navigation"
 msgstr ""
+"Os botões Voltar têm um menu de clique secundário para uma navegação mais "
+"rápida"
 
 #: data/settings.appdata.xml.in:85
 msgid "Window now has a reasonable minimum size"
-msgstr ""
+msgstr "A janela agora tem um tamanho mínimo razoável"
 
 #: data/settings.appdata.xml.in:101
 msgid "Bundle app icon"
-msgstr ""
+msgstr "Ícone do aplicativo Bundle"
 
 #: data/settings.appdata.xml.in:118
 msgid "Add multitouch navigation gestures"
-msgstr ""
+msgstr "Adicionar gestos de navegação multitoque"
 
 #: data/settings.appdata.xml.in:119
 msgid "Better support smaller displays"
-msgstr ""
+msgstr "Melhor suporte a telas menores"
 
 #: data/settings.appdata.xml.in:120
 msgid "Remove old GNOME Control Center compatibility layer"
 msgstr ""
+"Remover a antiga camada de compatibilidade do Centro de Controle do GNOME"
 
 #: data/settings.appdata.xml.in:121
 msgid "Stability and performance improvements"
-msgstr ""
+msgstr "Melhorias de estabilidade e desempenho"
 
 #~ msgid "Redesign search results view"
 #~ msgstr "Redesenhar a visualização dos resultados da pesquisa"
