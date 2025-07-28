@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 03:37+0000\n"
-"PO-Revision-Date: 2025-07-03 09:55+0000\n"
+"PO-Revision-Date: 2025-07-28 22:55+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementaryos.org/projects/settings/extra/"
 "fr/>\n"
@@ -34,7 +34,7 @@ msgstr "Centre;Contrôle;Panneau;Préférences;Système;Paramètres;"
 
 #: data/settings.desktop.in:22
 msgid "Check for System Updates"
-msgstr ""
+msgstr "Vérifiez les mises à jour du système"
 
 #: data/settings.appdata.xml.in:12
 msgid ""
