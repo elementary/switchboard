@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-24 20:50+0000\n"
-"PO-Revision-Date: 2025-06-27 15:55+0000\n"
-"Last-Translator: кубик круглый <megarainbow29@gmail.com>\n"
+"POT-Creation-Date: 2025-07-26 03:37+0000\n"
+"PO-Revision-Date: 2025-07-28 22:55+0000\n"
+"Last-Translator: lenemter <lenemter@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementaryos.org/projects/settings/"
 "extra/ru/>\n"
 "Language: ru\n"
@@ -32,6 +32,10 @@ msgstr "Изменить системные и пользовательские 
 #: data/settings.desktop.in:8
 msgid "Center;Control;Panel;Preferences;System;"
 msgstr "Center;Control;Panel;Preferences;System;Центр;Управление;Панель;Параметры;Система;"
+
+#: data/settings.desktop.in:22
+msgid "Check for System Updates"
+msgstr "Проверить обновления системы"
 
 #: data/settings.appdata.xml.in:12
 msgid ""

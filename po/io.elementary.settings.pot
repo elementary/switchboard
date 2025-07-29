@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.settings\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-24 20:50+0000\n"
+"POT-Creation-Date: 2025-07-26 03:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/Application.vala:108
+#: src/Application.vala:113
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr ""
 
-#: src/Application.vala:143
+#: src/Application.vala:148
 msgid "System Settings"
 msgstr ""
 

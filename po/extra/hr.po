@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-24 20:50+0000\n"
+"POT-Creation-Date: 2025-07-26 03:37+0000\n"
 "PO-Revision-Date: 2020-04-11 00:10+0000\n"
 "Last-Translator: gogogogi <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <https://l10n.elementary.io/projects/switchboard/"
@@ -32,6 +32,10 @@ msgstr "Promijenite postavke sustava i korisnika"
 #: data/settings.desktop.in:8
 msgid "Center;Control;Panel;Preferences;System;"
 msgstr "Središte;Upravljanje;Panel;Osobitosti;Sustav;"
+
+#: data/settings.desktop.in:22
+msgid "Check for System Updates"
+msgstr ""
 
 #: data/settings.appdata.xml.in:12
 msgid ""

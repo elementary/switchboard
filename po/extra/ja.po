@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-24 20:50+0000\n"
-"PO-Revision-Date: 2025-06-25 21:55+0000\n"
+"POT-Creation-Date: 2025-07-26 03:37+0000\n"
+"PO-Revision-Date: 2025-07-27 07:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/settings/"
 "extra/ja/>\n"
@@ -34,6 +34,10 @@ msgstr ""
 "Center;Control;Panel;Preferences;System;センター;コントロール;パネル;設定;シ"
 "ステム;"
 
+#: data/settings.desktop.in:22
+msgid "Check for System Updates"
+msgstr "システムアップデートを確認"
+
 #: data/settings.appdata.xml.in:12
 msgid ""
 "A system settings application that focuses on modularity and simplicity."
@@ -48,7 +52,8 @@ msgstr "elementary, Inc."
 msgid ""
 "When selecting a search result without having opened the corresponding page "
 "first the correct sidebar row will be preselected"
-msgstr "検索結果に該当するページを開いていない状態で検索結果を選択しても、サイドバー"
+msgstr ""
+"検索結果に該当するページを開いていない状態で検索結果を選択しても、サイドバー"
 "の該当するページの行が選択状態になるように修正"
 
 #: data/settings.appdata.xml.in:45 data/settings.appdata.xml.in:57

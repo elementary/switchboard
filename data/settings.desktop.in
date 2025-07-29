@@ -14,3 +14,10 @@ StartupNotify=true
 Terminal=false
 
 MimeType=x-scheme-handler/settings;
+
+Actions=show-updates;
+
+[Desktop Action show-updates]
+Name=Check for System Updates
+Icon=system-software-update
+Exec=io.elementary.settings settings://about/os

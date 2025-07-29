@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-24 20:50+0000\n"
+"POT-Creation-Date: 2025-07-26 03:37+0000\n"
 "PO-Revision-Date: 2017-02-14 10:26+0000\n"
 "Last-Translator: Christos Iatropoulos <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
@@ -29,6 +29,10 @@ msgstr "Αλλαγή ρυθμίσεων συστήματος και χρηστώ
 #: data/settings.desktop.in:8
 msgid "Center;Control;Panel;Preferences;System;"
 msgstr "Κέντρο;Έλεγχος;Πίνακας;Προτιμήσεις;Σύστημα;"
+
+#: data/settings.desktop.in:22
+msgid "Check for System Updates"
+msgstr ""
 
 #: data/settings.appdata.xml.in:12
 msgid ""

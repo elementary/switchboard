@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-24 20:50+0000\n"
+"POT-Creation-Date: 2025-07-26 03:37+0000\n"
 "PO-Revision-Date: 2017-01-18 21:01+0000\n"
 "Last-Translator: Cody Garver <cody@elementaryos.org>\n"
 "Language-Team: Uyghur <ug@li.org>\n"
@@ -29,6 +29,10 @@ msgstr "سىستېما ۋە ئابونت تەڭشەكلىرىنى ئۆزگەرت
 #: data/settings.desktop.in:8
 msgid "Center;Control;Panel;Preferences;System;"
 msgstr "،مەركەز، كونترول، تاختا، مايىللىق، سىستېما"
+
+#: data/settings.desktop.in:22
+msgid "Check for System Updates"
+msgstr ""
 
 #: data/settings.appdata.xml.in:12
 msgid ""
