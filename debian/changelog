@@ -1,3 +1,9 @@
+io.elementary.settings (8.0.3) noble; urgency=medium
+
+  * Release 8.0.3
+
+ -- Danielle Foré <danielle@elementary.io>  Tue, 29 Jul 2025 10:12:02 -0700
+
 io.elementary.settings (8.0.2) noble; urgency=medium
 
   * Release 8.0.2 (#331)
