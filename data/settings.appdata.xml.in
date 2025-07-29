@@ -38,7 +38,7 @@
   <update_contact>contact_AT_elementary.io</update_contact>
 
   <releases>
-    <release version="8.0.3" date="2025-06-24" urgency="medium">
+    <release version="8.0.3" date="2025-07-29" urgency="medium">
       <description>
         <ul>
           <li>When selecting a search result without having opened the corresponding page first the correct sidebar row will be preselected</li>
