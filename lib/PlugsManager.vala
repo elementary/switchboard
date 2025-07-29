@@ -77,9 +77,7 @@ public class Switchboard.PlugsManager : GLib.Object {
 
                 if (file_info.get_file_type () == FileType.REGULAR && GLib.ContentType.equals (file_info.get_content_type (), "application/x-sharedlib")) {
                     var path = file.get_path ();
-                    if (path.has_suffix (Module.SUFFIX)) {
-                        load (path);
-                    }
+                    load (path);
                 } else if (file_info.get_file_type () == FileType.DIRECTORY) {
                     find_plugins (file);
                 }
