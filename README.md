@@ -15,7 +15,7 @@ Switchboard is just the container application for Switchboard Plugs, which provi
 You'll need the following dependencies:
 
 * libgee-0.8-dev
-* libglib2.0-dev
+* libglib2.0-dev (>= 2.76)
 * libgranite-7-dev
 * libgtk-4-dev
 * libadwaita-1-dev (>= 1.4)
