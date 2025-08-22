@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 03:37+0000\n"
-"PO-Revision-Date: 2024-09-19 10:09+0000\n"
+"PO-Revision-Date: 2025-08-22 15:58+0000\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
-"switchboard/extra/zh_Hant/>\n"
+"Language-Team: Chinese (Traditional Han script) <https://"
+"l10n.elementaryos.org/projects/settings/extra/zh_Hant/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.6.2\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 
 #: data/settings.desktop.in:5 data/settings.appdata.xml.in:9
@@ -36,7 +36,7 @@ msgstr ""
 
 #: data/settings.desktop.in:22
 msgid "Check for System Updates"
-msgstr ""
+msgstr "檢查系統更新"
 
 #: data/settings.appdata.xml.in:12
 msgid ""
@@ -51,7 +51,8 @@ msgstr "elementary, Inc."
 msgid ""
 "When selecting a search result without having opened the corresponding page "
 "first the correct sidebar row will be preselected"
-msgstr ""
+msgstr "選擇搜尋結果時，如果還沒有開啟它相對應的頁面，現在會在側邊欄當中預先選擇正確"
+"的列"
 
 #: data/settings.appdata.xml.in:45 data/settings.appdata.xml.in:57
 #: data/settings.appdata.xml.in:70 data/settings.appdata.xml.in:86
