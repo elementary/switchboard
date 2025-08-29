@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 03:37+0000\n"
-"PO-Revision-Date: 2025-07-27 07:55+0000\n"
+"PO-Revision-Date: 2025-08-30 22:55+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementaryos.org/projects/settings/"
 "extra/ja/>\n"
@@ -26,7 +26,7 @@ msgstr "システム設定"
 
 #: data/settings.desktop.in:6 data/settings.appdata.xml.in:10
 msgid "Change system and user settings"
-msgstr "システムとユーザーの設定を変更します"
+msgstr "システムとユーザー設定を変更します"
 
 #: data/settings.desktop.in:8
 msgid "Center;Control;Panel;Preferences;System;"
