@@ -190,8 +190,8 @@ public class Switchboard.SearchView : Gtk.Box {
                 use_markup = true
             };
             description_label.set_markup (GLib.Markup.escape_text (description, -1));
-            description_label.add_css_class (Granite.STYLE_CLASS_DIM_LABEL);
-            description_label.add_css_class (Granite.STYLE_CLASS_SMALL_LABEL);
+            description_label.add_css_class (Granite.CssClass.DIM);
+            description_label.add_css_class (Granite.CssClass.SMALL);
 
             var grid = new Gtk.Grid () {
                 column_spacing = 12
