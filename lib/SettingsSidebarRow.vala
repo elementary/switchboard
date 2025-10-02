@@ -83,7 +83,7 @@ private class Switchboard.SettingsSidebarRow : Gtk.ListBoxRow {
             xalign = 0,
             visible = false
         };
-        status_label.add_css_class (Granite.STYLE_CLASS_SMALL_LABEL);
+        status_label.add_css_class (Granite.CssClass.SMALL);
 
         if (!page.with_avatar) {
             display_widget = new Gtk.Image () {

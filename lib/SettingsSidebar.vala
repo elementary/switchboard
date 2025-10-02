@@ -114,12 +114,8 @@ public class Switchboard.SettingsSidebar : Gtk.Widget {
                     }
                 }
 
-                var label = new Gtk.Label (header) {
-                    halign = Gtk.Align.START,
-                    xalign = 0
-                };
+                var label = new Granite.HeaderLabel (header);
 
-                label.add_css_class (Granite.STYLE_CLASS_H4_LABEL);
                 row.set_header (label);
             }
         });
