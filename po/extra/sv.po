@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 03:37+0000\n"
-"PO-Revision-Date: 2025-10-22 09:59+0000\n"
+"PO-Revision-Date: 2025-10-23 12:55+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <https://l10n.elementaryos.org/projects/settings/"
 "extra/sv/>\n"
@@ -39,8 +39,7 @@ msgstr "Sök efter systemuppdateringar"
 #: data/settings.appdata.xml.in:12
 msgid ""
 "A system settings application that focuses on modularity and simplicity."
-msgstr ""
-"En systeminställningsapplikation med fokus på modularitet och enkelhet."
+msgstr "Ett systeminställningsprogram med fokus på modularitet och enkelhet."
 
 #: data/settings.appdata.xml.in:35
 msgid "elementary, Inc."
