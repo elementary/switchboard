@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 03:37+0000\n"
-"PO-Revision-Date: 2025-10-08 05:55+0000\n"
+"PO-Revision-Date: 2025-10-30 09:55+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementaryos.org/projects/settings/extra/"
 "he/>\n"
@@ -43,7 +43,7 @@ msgstr "יישום הגדרות המערכת המתמקד במודולריות �
 
 #: data/settings.appdata.xml.in:35
 msgid "elementary, Inc."
-msgstr "elementary בע״מ"
+msgstr "elementary בע״מ."
 
 #: data/settings.appdata.xml.in:44
 msgid ""
