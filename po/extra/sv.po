@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 03:37+0000\n"
-"PO-Revision-Date: 2025-10-30 09:55+0000\n"
+"PO-Revision-Date: 2025-10-31 10:55+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <https://l10n.elementaryos.org/projects/settings/"
 "extra/sv/>\n"
@@ -102,7 +102,7 @@ msgstr "App-ikon för bundle"
 
 #: data/settings.appdata.xml.in:118
 msgid "Add multitouch navigation gestures"
-msgstr "Lägg till navigeringsgester för multipekskärm"
+msgstr "Lägg till navigeringsgester för flertryck"
 
 #: data/settings.appdata.xml.in:119
 msgid "Better support smaller displays"
