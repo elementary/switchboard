@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 03:37+0000\n"
-"PO-Revision-Date: 2025-10-23 12:55+0000\n"
+"PO-Revision-Date: 2025-10-30 09:55+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <https://l10n.elementaryos.org/projects/settings/"
 "extra/sv/>\n"
@@ -34,7 +34,7 @@ msgstr "Center;Kontroll;Panel;Inställningar;System;"
 
 #: data/settings.desktop.in:22
 msgid "Check for System Updates"
-msgstr "Sök efter systemuppdateringar"
+msgstr "Leta efter systemuppdateringar"
 
 #: data/settings.appdata.xml.in:12
 msgid ""
@@ -90,7 +90,7 @@ msgstr "Använd portaler när de är tillgängliga"
 
 #: data/settings.appdata.xml.in:84
 msgid "Back Buttons have a secondary-click menu for faster navigation"
-msgstr "Back Buttons har en sekundärklickmeny för snabbare navigering"
+msgstr "Tillbakaknappar har en sekundärklickmeny för snabbare navigering"
 
 #: data/settings.appdata.xml.in:85
 msgid "Window now has a reasonable minimum size"
@@ -98,11 +98,11 @@ msgstr "Fönstret har nu en rimlig minsta storlek"
 
 #: data/settings.appdata.xml.in:101
 msgid "Bundle app icon"
-msgstr "App-ikon för buntar"
+msgstr "App-ikon för bundle"
 
 #: data/settings.appdata.xml.in:118
 msgid "Add multitouch navigation gestures"
-msgstr "Lägg till navigeringsgester för multitouch"
+msgstr "Lägg till navigeringsgester för multipekskärm"
 
 #: data/settings.appdata.xml.in:119
 msgid "Better support smaller displays"
