@@ -72,6 +72,7 @@ namespace Switchboard {
             base.startup ();
 
             if (GLib.Environment.get_variable ("XDG_CURRENT_DESKTOP") != "Pantheon") {
+                critical (_("System Settings can only be run in a Pantheon desktop session"));
                 quit ();
             }
 
