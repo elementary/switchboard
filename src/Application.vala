@@ -71,6 +71,10 @@ namespace Switchboard {
         public override void startup () {
             base.startup ();
 
+            if (GLib.Environment.get_variable ("XDG_CURRENT_DESKTOP") != "Pantheon") {
+                quit ();
+            }
+
             Granite.init ();
 
             var granite_settings = Granite.Settings.get_default ();
