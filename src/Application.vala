@@ -261,6 +261,11 @@ namespace Switchboard {
         }
 
         public static int main (string[] args) {
+            if (GLib.Environment.get_variable ("XDG_CURRENT_DESKTOP") != "Pantheon") {
+                critical ("System Settings can only be run in a Pantheon desktop session");
+                return 1;
+            }
+
             var app = new SwitchboardApp ();
             return app.run (args);
         }

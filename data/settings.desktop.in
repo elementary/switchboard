@@ -3,12 +3,13 @@ Type=Application
 
 Name=System Settings
 Comment=Change system and user settings
-Categories=GNOME;GTK;System;
+Categories=GTK;System;
 Keywords=Center;Control;Panel;Preferences;System;
 
 Icon=io.elementary.settings
 Exec=io.elementary.settings %u
 DBusActivatable=true
+OnlyShowIn=Pantheon;
 SingleMainWindow=true
 StartupNotify=true
 Terminal=false
