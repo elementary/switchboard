@@ -15,7 +15,7 @@
 
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/elementary/switchboard/8.0.2/data/screenshot.png</image>
+      <image>https://raw.githubusercontent.com/elementary/settings/8.0.2/data/screenshot.png</image>
     </screenshot>
   </screenshots>
 
@@ -26,10 +26,10 @@
   </provides>
 
   <url type="homepage">https://elementary.io/</url>
-  <url type="bugtracker">https://github.com/elementary/switchboard/issues</url>
+  <url type="bugtracker">https://github.com/elementary/settings/issues</url>
   <url type="donation">https://elementary.io/get-involved#funding</url>
-  <url type="help">https://github.com/elementary/switchboard/discussions/categories/q-a</url>
-  <url type="translate">https://l10n.elementary.io/projects/switchboard</url>
+  <url type="help">https://github.com/elementary/settings/discussions/categories/q-a</url>
+  <url type="translate">https://l10n.elementary.io/projects/settings</url>
 
   <developer id="org.elementaryos">
     <name>elementary, Inc.</name>
@@ -46,7 +46,7 @@
         </ul>
       </description>
       <issues>
-        <issue url="https://github.com/elementary/switchboard/issues/346">SettingsSidebar: null access when sidebar selection cleared</issue>
+        <issue url="https://github.com/elementary/settings/issues/346">SettingsSidebar: null access when sidebar selection cleared</issue>
         <issue url="https://github.com/elementary/gala/issues/2450">Apps not being brought to front</issue>
       </issues>
     </release>
@@ -58,8 +58,8 @@
         </ul>
       </description>
       <issues>
-        <issue url="https://github.com/elementary/switchboard/issues/182">Search returns alphabetically sorted list after clicking on a search result</issue>
-        <issue url="https://github.com/elementary/switchboard/issues/149">Highlight search string matches in bold</issue>
+        <issue url="https://github.com/elementary/settings/issues/182">Search returns alphabetically sorted list after clicking on a search result</issue>
+        <issue url="https://github.com/elementary/settings/issues/149">Highlight search string matches in bold</issue>
       </issues>
     </release>
 
@@ -87,11 +87,11 @@
         </ul>
       </description>
       <issues>
-        <issue url="https://github.com/elementary/switchboard/issues/224">Port System Settings to GTK4</issue>
-        <issue url="https://github.com/elementary/switchboard/issues/232">preferences-desktop dark variant</issue>
-        <issue url="https://github.com/elementary/switchboard/issues/247">It's possible to open two plugs at the same time</issue>
-        <issue url="https://github.com/elementary/switchboard/issues/265">Move SettingsPage, SettingsSidebar into Switchboard</issue>
-        <issue url="https://github.com/elementary/switchboard/issues/270">Search bar does not scale with font size</issue>
+        <issue url="https://github.com/elementary/settings/issues/224">Port System Settings to GTK4</issue>
+        <issue url="https://github.com/elementary/settings/issues/232">preferences-desktop dark variant</issue>
+        <issue url="https://github.com/elementary/settings/issues/247">It's possible to open two plugs at the same time</issue>
+        <issue url="https://github.com/elementary/settings/issues/265">Move SettingsPage, SettingsSidebar into Switchboard</issue>
+        <issue url="https://github.com/elementary/settings/issues/270">Search bar does not scale with font size</issue>
       </issues>
     </release>
 
