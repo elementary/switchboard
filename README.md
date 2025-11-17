@@ -1,14 +1,14 @@
-# Switchboard
+# System Settings
 [![Packaging status](https://repology.org/badge/tiny-repos/switchboard.svg)](https://repology.org/metapackage/switchboard)
-[![l10n](https://l10n.elementary.io/widgets/settings/-/svg-badge.svg)](https://l10n.elementary.io/projects/settings/?utm_source=widget)
+[![Translation status](https://l10n.elementaryos.org/widget/settings/settings/svg-badge.svg)](https://l10n.elementaryos.org/engage/settings/)
 
 ![System Settings Screenshot](data/screenshot.png?raw=true)
 
-## Plugs
+## Plugins
 
-Switchboard is just the container application for Switchboard Plugs, which provide the actual settings for various hardware and software.
+System Settings is the container application for Switchboard Plugs, which provide the actual settings for various hardware and software.
 
-[Browse all Plugs](https://github.com/elementary?q=switchboard-plug#org-repositories)
+[Browse all Plugins](https://github.com/elementary?q=settings#org-repositories)
 
 ## Building, Testing, and Installation
 
@@ -34,6 +34,6 @@ To install, use `ninja install` then execute with `io.elementary.settings`
     sudo ninja install
     io.elementary.settings
 
-## Making Switchboard Plugs
+## Making Settings Plugins
 
 Documentation for LibSwitchboard is available [on Valadoc.org](https://valadoc.org/switchboard-2.0/Switchboard.Plug.html)
