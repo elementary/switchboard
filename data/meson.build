@@ -24,8 +24,8 @@ i18n.merge_file(
 )
 
 i18n.merge_file(
-    input: 'settings.appdata.xml.in',
-    output: meson.project_name() + '.appdata.xml',
+    input: 'settings.metainfo.xml.in',
+    output: meson.project_name() + '.metainfo.xml',
     po_dir: po_extra_dir,
     type: 'xml',
     install: true,
