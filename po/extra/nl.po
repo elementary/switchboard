@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 03:37+0000\n"
-"PO-Revision-Date: 2024-05-31 01:46+0000\n"
-"Last-Translator: DutchVipperloid <svenroelof@e.email>\n"
-"Language-Team: Dutch <https://l10n.elementary.io/projects/switchboard/extra/"
+"PO-Revision-Date: 2025-12-31 17:55+0000\n"
+"Last-Translator: Bas Ernst <50556177+ErnstBas@users.noreply.github.com>\n"
+"Language-Team: Dutch <https://l10n.elementaryos.org/projects/settings/extra/"
 "nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5\n"
+"X-Generator: Weblate 5.11.4\n"
 "X-Launchpad-Export-Date: 2017-02-02 05:48+0000\n"
 
 #: data/settings.desktop.in:5 data/settings.appdata.xml.in:9
@@ -34,7 +34,7 @@ msgstr "Centrum;Controle;Paneel;Voorkeuren;Systeem;"
 
 #: data/settings.desktop.in:22
 msgid "Check for System Updates"
-msgstr ""
+msgstr "Controleer op systeemupdates"
 
 #: data/settings.appdata.xml.in:12
 msgid ""
@@ -52,6 +52,8 @@ msgid ""
 "When selecting a search result without having opened the corresponding page "
 "first the correct sidebar row will be preselected"
 msgstr ""
+"Wanneer je een zoekresultaat selecteert zonder eerst de bijbehorende pagina "
+"te openen, wordt de juiste rij in de zijbalk automatisch geselecteerd"
 
 #: data/settings.appdata.xml.in:45 data/settings.appdata.xml.in:57
 #: data/settings.appdata.xml.in:70 data/settings.appdata.xml.in:86
@@ -62,7 +64,7 @@ msgstr "Bijgewerkte vertalingen"
 
 #: data/settings.appdata.xml.in:69
 msgid "Screen reader improvements"
-msgstr ""
+msgstr "Verbeteringen voor schermlezers"
 
 #: data/settings.appdata.xml.in:77
 msgid "App Updates:"
