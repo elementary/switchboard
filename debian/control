@@ -1,7 +1,7 @@
 Source: io.elementary.settings
 Section: admin
 Priority: optional
-Maintainer: elementary, Inc. <builds@elementary.io>
+Maintainer: elementary <builds@elementary.io>
 Build-Depends: debhelper (>= 10.5.1),
                gettext,
                libadwaita-1-dev,
