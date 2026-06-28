@@ -8,21 +8,24 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 03:37+0000\n"
-"PO-Revision-Date: 2017-02-09 14:29+0000\n"
-"Last-Translator: Christos Iatropoulos <Unknown>\n"
-"Language-Team: Greek <el@li.org>\n"
+"PO-Revision-Date: 2026-06-29 01:01+0000\n"
+"Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
+"Language-Team: Greek <https://l10n.elementaryos.org/projects/settings/"
+"settings/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2026.5\n"
 "X-Launchpad-Export-Date: 2017-02-10 05:37+0000\n"
-"X-Generator: Launchpad (build 18326)\n"
 
 #: src/Application.vala:113
 #, c-format
 msgid "Specified link '%s' does not exist, going back to the main panel"
 msgstr ""
-"Ο συγκεκριμένος σύνδεσμος '%s' δεν υπάρχει, επιστροφή στον κύριο πίνακα"
+"Ο καθορισμένος σύνδεσμος «%s» δεν υπάρχει, θα γίνει επιστροφή στον κύριο "
+"πίνακα"
 
 #: src/Application.vala:148
 msgid "System Settings"
@@ -30,15 +33,17 @@ msgstr "Ρυθμίσεις συστήματος"
 
 #: src/CategoryView.vala:28
 msgid "Search Settings"
-msgstr "Ρυθμίσεις αναζήτησης"
+msgstr "Αναζήτηση ρυθμίσεων"
 
 #: src/CategoryView.vala:45
 msgid "No Settings Found"
-msgstr "Δε βρέθηκαν ρυθμίσεις"
+msgstr "Δεν βρέθηκαν ρυθμίσεις"
 
 #: src/CategoryView.vala:46
 msgid "Install settings plugins and re-launch System Settings."
 msgstr ""
+"Εγκαταστήστε τα πρόσθετα ρυθμίσεων και εκκινήστε εκ νέου τις Ρυθμίσεις "
+"συστήματος."
 
 #: src/CategoryView.vala:96
 msgid "All Settings"
@@ -54,7 +59,7 @@ msgstr "Υλικό"
 
 #: src/CategoryView.vala:223
 msgid "Network & Wireless"
-msgstr "Δίκτυο & ασύρματο"
+msgstr "Δίκτυο και ασύρματη σύνδεση"
 
 #: src/CategoryView.vala:225
 msgid "Administration"
@@ -62,12 +67,12 @@ msgstr "Διαχείριση"
 
 #: src/SearchView.vala:30
 msgid "Try changing search terms."
-msgstr "Δοκιμάστε να αλλάξετε τους όρους αναζήτησης"
+msgstr "Δοκιμάστε να αλλάξετε τους όρους αναζήτησης."
 
 #: src/SearchView.vala:50
 #, c-format
 msgid "No Results for “%s”"
-msgstr "Κανένα αποτέλεσμα για “%s”"
+msgstr "Κανένα αποτέλεσμα για «%s»"
 
 #~ msgid "Install some and re-launch Switchboard."
 #~ msgstr "Εγκαταστήστε κάποια και επανεκτελέστε το Switchboard."
