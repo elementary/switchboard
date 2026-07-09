@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 03:37+0000\n"
-"PO-Revision-Date: 2026-06-29 01:01+0000\n"
+"PO-Revision-Date: 2026-07-10 15:01+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: Greek <https://l10n.elementaryos.org/projects/settings/extra/"
 "el/>\n"
@@ -66,7 +66,7 @@ msgstr ""
 
 #: data/settings.appdata.xml.in:77
 msgid "App Updates:"
-msgstr ""
+msgstr "Ενημερώσεις εφαρμογής:"
 
 #: data/settings.appdata.xml.in:79
 msgid "New redesigned app icon"
@@ -78,7 +78,7 @@ msgstr ""
 
 #: data/settings.appdata.xml.in:81
 msgid "Smoother animations"
-msgstr ""
+msgstr "Ομαλότερα εφέ κίνησης"
 
 #: data/settings.appdata.xml.in:82
 msgid "Search results are more relevant and more clearly formatted"
