@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: switchboard\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-07-26 03:37+0000\n"
-"PO-Revision-Date: 2026-07-10 15:01+0000\n"
+"PO-Revision-Date: 2026-07-25 20:01+0000\n"
 "Last-Translator: Jim Spentzos <jimspentzos2000@gmail.com>\n"
 "Language-Team: Greek <https://l10n.elementaryos.org/projects/settings/extra/"
 "el/>\n"
@@ -30,11 +30,12 @@ msgstr "Αλλαγή ρυθμίσεων συστήματος και χρηστώ
 
 #: data/settings.desktop.in:8
 msgid "Center;Control;Panel;Preferences;System;"
-msgstr "Κέντρο;Έλεγχος;Πίνακας;Προτιμήσεις;Σύστημα;"
+msgstr ""
+"Κέντρο;Έλεγχος;Πίνακας;Προτιμήσεις;Σύστημα;Center;Control;Panel;Preferences;System;"
 
 #: data/settings.desktop.in:22
 msgid "Check for System Updates"
-msgstr ""
+msgstr "Έλεγχος για ενημερώσεις συστήματος"
 
 #: data/settings.appdata.xml.in:12
 msgid ""
@@ -62,7 +63,7 @@ msgstr "Ενημερωμένες μεταφράσεις"
 
 #: data/settings.appdata.xml.in:69
 msgid "Screen reader improvements"
-msgstr ""
+msgstr "Βελτιώσεις ανάγνωσης οθόνης"
 
 #: data/settings.appdata.xml.in:77
 msgid "App Updates:"
