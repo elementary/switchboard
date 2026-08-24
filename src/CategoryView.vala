@@ -25,6 +25,7 @@ public class Switchboard.CategoryView : Adw.NavigationPage {
         var search_box_eventcontrollerkey = new Gtk.EventControllerKey ();
 
         search_box = new Gtk.SearchEntry () {
+            hexpand = true,
             placeholder_text = _("Search Settings")
         };
         search_box.add_controller (search_box_eventcontrollerkey);
