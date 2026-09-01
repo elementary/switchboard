@@ -20,6 +20,7 @@ libswitchboard_deps = [
 ]
 
 libswitchboard_lib = library('switchboard-3',
+    'LinkRow.vala',
     'SettingsPage.vala',
     'PlugsManager.vala',
     'Plug.vala',
